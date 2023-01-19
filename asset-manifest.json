@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/pwa-react-typescript/static/css/main.499f8105.css",
-    "main.js": "/pwa-react-typescript/static/js/main.a900c802.js",
+    "main.css": "/pwa-react-typescript/static/css/main.cb1677f7.css",
+    "main.js": "/pwa-react-typescript/static/js/main.04d31b4c.js",
     "static/js/787.8fd65848.chunk.js": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js",
     "service-worker.js": "/pwa-react-typescript/service-worker.js",
     "index.html": "/pwa-react-typescript/index.html",
-    "main.499f8105.css.map": "/pwa-react-typescript/static/css/main.499f8105.css.map",
-    "main.a900c802.js.map": "/pwa-react-typescript/static/js/main.a900c802.js.map",
+    "main.cb1677f7.css.map": "/pwa-react-typescript/static/css/main.cb1677f7.css.map",
+    "main.04d31b4c.js.map": "/pwa-react-typescript/static/js/main.04d31b4c.js.map",
     "787.8fd65848.chunk.js.map": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.499f8105.css",
-    "static/js/main.a900c802.js"
+    "static/css/main.cb1677f7.css",
+    "static/js/main.04d31b4c.js"
   ]
 }
