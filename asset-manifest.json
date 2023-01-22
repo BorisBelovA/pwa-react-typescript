@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/pwa-react-typescript/static/css/main.cb1677f7.css",
-    "main.js": "/pwa-react-typescript/static/js/main.04d31b4c.js",
+    "main.css": "/pwa-react-typescript/static/css/main.0b73d284.css",
+    "main.js": "/pwa-react-typescript/static/js/main.62a7c2f4.js",
     "static/js/787.8fd65848.chunk.js": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js",
     "service-worker.js": "/pwa-react-typescript/service-worker.js",
+    "static/media/icon-park-solid_avatar.svg": "/pwa-react-typescript/static/media/icon-park-solid_avatar.14a6b726dbcaf16fd3e0.svg",
     "index.html": "/pwa-react-typescript/index.html",
-    "main.cb1677f7.css.map": "/pwa-react-typescript/static/css/main.cb1677f7.css.map",
-    "main.04d31b4c.js.map": "/pwa-react-typescript/static/js/main.04d31b4c.js.map",
+    "main.0b73d284.css.map": "/pwa-react-typescript/static/css/main.0b73d284.css.map",
+    "main.62a7c2f4.js.map": "/pwa-react-typescript/static/js/main.62a7c2f4.js.map",
     "787.8fd65848.chunk.js.map": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cb1677f7.css",
-    "static/js/main.04d31b4c.js"
+    "static/css/main.0b73d284.css",
+    "static/js/main.62a7c2f4.js"
   ]
 }
