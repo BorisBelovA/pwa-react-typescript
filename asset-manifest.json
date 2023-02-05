@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/pwa-react-typescript/static/css/main.f7351169.css",
+    "main.css": "/pwa-react-typescript/static/css/main.9a68eb4a.css",
     "main.js": "/pwa-react-typescript/static/js/main.175583f6.js",
     "static/js/787.8fd65848.chunk.js": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js",
     "service-worker.js": "/pwa-react-typescript/service-worker.js",
     "static/media/icon-park-solid_avatar.svg": "/pwa-react-typescript/static/media/icon-park-solid_avatar.14a6b726dbcaf16fd3e0.svg",
     "index.html": "/pwa-react-typescript/index.html",
-    "main.f7351169.css.map": "/pwa-react-typescript/static/css/main.f7351169.css.map",
+    "main.9a68eb4a.css.map": "/pwa-react-typescript/static/css/main.9a68eb4a.css.map",
     "main.175583f6.js.map": "/pwa-react-typescript/static/js/main.175583f6.js.map",
     "787.8fd65848.chunk.js.map": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7351169.css",
+    "static/css/main.9a68eb4a.css",
     "static/js/main.175583f6.js"
   ]
 }
