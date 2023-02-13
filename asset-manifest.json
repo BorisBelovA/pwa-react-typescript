@@ -1,17 +1,22 @@
 {
   "files": {
-    "main.css": "/pwa-react-typescript/static/css/main.9a68eb4a.css",
-    "main.js": "/pwa-react-typescript/static/js/main.175583f6.js",
+    "main.css": "/pwa-react-typescript/static/css/main.cfe554cc.css",
+    "main.js": "/pwa-react-typescript/static/js/main.f85d8a4d.js",
     "static/js/787.8fd65848.chunk.js": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js",
     "service-worker.js": "/pwa-react-typescript/service-worker.js",
+    "static/media/roommate.svg": "/pwa-react-typescript/static/media/roommate.7c9e8e9d8250b1ee83e7.svg",
     "static/media/icon-park-solid_avatar.svg": "/pwa-react-typescript/static/media/icon-park-solid_avatar.14a6b726dbcaf16fd3e0.svg",
+    "static/media/avatar.svg": "/pwa-react-typescript/static/media/avatar.d0cc3b8a54e00fa54c60.svg",
+    "static/media/search.svg": "/pwa-react-typescript/static/media/search.adeb82a1d5c91e3fb481.svg",
     "index.html": "/pwa-react-typescript/index.html",
-    "main.9a68eb4a.css.map": "/pwa-react-typescript/static/css/main.9a68eb4a.css.map",
-    "main.175583f6.js.map": "/pwa-react-typescript/static/js/main.175583f6.js.map",
+    "static/media/notification.svg": "/pwa-react-typescript/static/media/notification.08cc2f6886d1aeeda59f.svg",
+    "static/media/home.svg": "/pwa-react-typescript/static/media/home.427921c8b7b9f66080cd.svg",
+    "main.cfe554cc.css.map": "/pwa-react-typescript/static/css/main.cfe554cc.css.map",
+    "main.f85d8a4d.js.map": "/pwa-react-typescript/static/js/main.f85d8a4d.js.map",
     "787.8fd65848.chunk.js.map": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a68eb4a.css",
-    "static/js/main.175583f6.js"
+    "static/css/main.cfe554cc.css",
+    "static/js/main.f85d8a4d.js"
   ]
 }
