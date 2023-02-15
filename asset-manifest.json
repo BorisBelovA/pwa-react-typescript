@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pwa-react-typescript/static/css/main.d57b7372.css",
-    "main.js": "/pwa-react-typescript/static/js/main.4884c3ac.js",
+    "main.js": "/pwa-react-typescript/static/js/main.e0fd4957.js",
     "static/js/787.8fd65848.chunk.js": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js",
     "service-worker.js": "/pwa-react-typescript/service-worker.js",
     "static/media/Match.svg": "/pwa-react-typescript/static/media/Match.17b0797bdd415a933d3e8a45dfa4fb42.svg",
@@ -12,11 +12,11 @@
     "index.html": "/pwa-react-typescript/index.html",
     "static/media/Search.svg": "/pwa-react-typescript/static/media/Search.8788b30d99a760bc2e2bc255e3522389.svg",
     "main.d57b7372.css.map": "/pwa-react-typescript/static/css/main.d57b7372.css.map",
-    "main.4884c3ac.js.map": "/pwa-react-typescript/static/js/main.4884c3ac.js.map",
+    "main.e0fd4957.js.map": "/pwa-react-typescript/static/js/main.e0fd4957.js.map",
     "787.8fd65848.chunk.js.map": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d57b7372.css",
-    "static/js/main.4884c3ac.js"
+    "static/js/main.e0fd4957.js"
   ]
 }
