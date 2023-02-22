@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/pwa-react-typescript/static/css/main.d57b7372.css",
-    "main.js": "/pwa-react-typescript/static/js/main.3e7677dc.js",
+    "main.css": "/pwa-react-typescript/static/css/main.ef3ee8a4.css",
+    "main.js": "/pwa-react-typescript/static/js/main.8f707ba2.js",
     "static/js/787.8fd65848.chunk.js": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js",
     "service-worker.js": "/pwa-react-typescript/service-worker.js",
-    "static/media/Match.svg": "/pwa-react-typescript/static/media/Match.17b0797bdd415a933d3e8a45dfa4fb42.svg",
-    "static/media/icon-park-solid_avatar.svg": "/pwa-react-typescript/static/media/icon-park-solid_avatar.14a6b726dbcaf16fd3e0.svg",
-    "static/media/Notifications.svg": "/pwa-react-typescript/static/media/Notifications.82358bc004040ad58764f51b832907e9.svg",
-    "static/media/Profile.svg": "/pwa-react-typescript/static/media/Profile.62a0d60f2069845d6d37d9b06162d29d.svg",
-    "static/media/Household.svg": "/pwa-react-typescript/static/media/Household.bf22980076f52f1c4b5a1cff884f324a.svg",
+    "static/media/Match.svg": "/pwa-react-typescript/static/media/Match.3cfcc3c9f8f92ee01aee275cd2493aed.svg",
+    "static/media/icon-park-solid_avatar.svg": "/pwa-react-typescript/static/media/icon-park-solid_avatar.26dd9a8f9916a355a321.svg",
+    "static/media/Notifications.svg": "/pwa-react-typescript/static/media/Notifications.dcdadbc96685884b80d1af9f71580b02.svg",
+    "static/media/Profile.svg": "/pwa-react-typescript/static/media/Profile.e20230c054e8e4caad4f38c0e8de087c.svg",
+    "static/media/Household.svg": "/pwa-react-typescript/static/media/Household.41275beadee1cd772eddbf08d46ae707.svg",
     "index.html": "/pwa-react-typescript/index.html",
-    "static/media/Search.svg": "/pwa-react-typescript/static/media/Search.8788b30d99a760bc2e2bc255e3522389.svg",
-    "main.d57b7372.css.map": "/pwa-react-typescript/static/css/main.d57b7372.css.map",
-    "main.3e7677dc.js.map": "/pwa-react-typescript/static/js/main.3e7677dc.js.map",
+    "static/media/Search.svg": "/pwa-react-typescript/static/media/Search.36d203d3991558d924cbdbec21390781.svg",
+    "main.ef3ee8a4.css.map": "/pwa-react-typescript/static/css/main.ef3ee8a4.css.map",
+    "main.8f707ba2.js.map": "/pwa-react-typescript/static/js/main.8f707ba2.js.map",
     "787.8fd65848.chunk.js.map": "/pwa-react-typescript/static/js/787.8fd65848.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d57b7372.css",
-    "static/js/main.3e7677dc.js"
+    "static/css/main.ef3ee8a4.css",
+    "static/js/main.8f707ba2.js"
   ]
 }
