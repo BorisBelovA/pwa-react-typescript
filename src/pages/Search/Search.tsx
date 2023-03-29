@@ -6,24 +6,26 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import ProfileCard from 'src/components/ProfileCard/ProfileCard'
 import people from '../../assets/temp/people/mockPeople.json'
-import { Gender, QuestionnaireBasicType, User } from 'models'
+import { type Gender, type QuestionnaireBasicType, type User } from 'models'
 
 interface People {
-  info: QuestionnaireBasicType,
+  info: QuestionnaireBasicType
   person: User
 }
 
 const Search: React.FunctionComponent = () => {
-  const pers: People[] = people.map((p) => ( { 
-    ...p, 
-    info: { 
-      ...p.info, 
-      who: p.info.who as "Alone" | "Friends" | "Couple" | "Family" | undefined }, 
+  const pers: People[] = people.map((p) => ({
+    ...p,
+    info: {
+      ...p.info,
+      who: p.info.who as 'Alone' | 'Friends' | 'Couple' | 'Family' | undefined
+    },
     person: {
-      ...p.person, 
+      ...p.person,
       birthday: new Date(p.person.birthday),
       gender: p.person.gender as Gender
-    } }))
+    }
+  }))
   const theme = useTheme()
   return (
     <Box className={styles.search}>
@@ -35,7 +37,7 @@ const Search: React.FunctionComponent = () => {
         <IconButton color='primary'><FilterAltOutlinedIcon /></IconButton>
       </Box>
       <Box className={styles.search__content}>
-        <ProfileCard info={pers[0].info} person={pers[0].person}/>
+        <ProfileCard info={pers[0].info} person={pers[0].person} />
       </Box>
       <Box className={styles.search__matchButtons}>
         <Button variant='contained' sx={{

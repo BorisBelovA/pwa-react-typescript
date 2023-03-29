@@ -18,7 +18,7 @@ const ProfileCard = (props: Props): JSX.Element => {
   return (
     <>
       <Paper className={styles.profileCard} onClick={handleScroll}>
-        <Box component='img' className={styles.profileCard__photo} src={require(`../../assets/temp/people/${person.photo}`)} />
+        <Box component='img' className={styles.profileCard__photo} src={require(`../../assets/temp/people/${person.photo ?? '' ? person.photo : '1.jpg'}`)} />
         <Box className={`${styles.profileCard__person}  ${scroll ? styles.profileCard__person_scroll : ''}`}>
           <Box className={styles.profileCard__personTexts}>
             <Typography color='Background' variant='h1'>{person.firstName}, {calculateAge(person.birthday)}</Typography>
