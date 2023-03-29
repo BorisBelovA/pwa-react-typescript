@@ -1,15 +1,12 @@
 import { Button, Card, CardContent, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const TermsAndConditions = (): JSX.Element => {
   const [termsAccepted, setTermsAccepted] = useState(false)
-  const { email, password } = useLocation().state
   const navigate = useNavigate()
   const onNextClick = (): void => {
-    navigate('/auth/registration', {
-      state: { email, password }
-    })
+    navigate('/auth/registration')
   }
   return <>
     <h3>Terms of service</h3>

@@ -8,21 +8,19 @@ import { FirstStep } from './First step/FirstStep'
 import { ForthStep } from './Forth-Step/ForthStep'
 import styles from './Layout.module.scss'
 import { SecondStep } from './Second step/SecondStep'
-import { ThirdStep } from './Third step/ThirdStep'
-import { UserCreationLoader } from './UserCreationLoader/UserCreationLoader'
 import { userApiService } from 'api-services'
 import { mapUserFormToDto } from 'mapping-services'
 import { useStore } from 'src/utils/StoreProvider'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
 import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
 import { type ProgressSliderProps } from 'src/components'
+import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 
 export type RegistrationSteps = 'personal' | 'phone' | 'verification' | 'photo' | 'summary'
 
 const steps: ProgressSliderProps[] = [
   { text: 'personal', progress: 0, to: 'personal', state: 'Active' },
   { text: 'phone', progress: 0, to: 'phone', state: 'Disabled' },
-  { text: 'verification', progress: 0, to: 'verification', state: 'Disabled' },
   { text: 'photo', progress: 0, to: 'photo', state: 'Disabled' },
   { text: 'summary', progress: 0, to: 'summary', state: 'Disabled' }
 ]
@@ -30,8 +28,11 @@ const steps: ProgressSliderProps[] = [
 export const Layout = (): JSX.Element => {
   const [firstStepValid, setFirstStepValid] = useState(false)
   const [secondStepValid, setSecondStepValid] = useState(false)
-  const { email, password } = useLocation().state
-  const [userProgressVisible, setUserProgressVisible] = useState(false)
+  const {
+    setBackdropMessage,
+    setBackdropVisible,
+    setMessage
+  } = useAuthContext()
   const navigate = useNavigate()
   const [userInfo, setUserInfo] = useState({
     firstName: undefined,
@@ -60,11 +61,9 @@ export const Layout = (): JSX.Element => {
 
   const { userStore } = useStore()
 
-  const [loadinMessage, setLoadinMessage] = useState('Creating your account')
-
   const onFinish = (): void => {
-    setUserProgressVisible(true)
-    setLoadinMessage('Creating your account')
+    setBackdropVisible(true)
+    setBackdropMessage('Creating your account')
     const {
       firstName,
       lastName,
@@ -80,8 +79,8 @@ export const Layout = (): JSX.Element => {
     }
 
     userApiService.createUser(mapUserFormToDto({
-      email,
-      password,
+      email: userStore.email,
+      password: userStore.password,
       firstName,
       lastName,
       gender,
@@ -91,13 +90,13 @@ export const Layout = (): JSX.Element => {
       photo: photo ?? null
     })).then(
       (response) => {
-        setLoadinMessage('Acquiring your token')
+        setBackdropMessage('Acquiring your token')
         // new request for activating user
         // we wait until backend guys fix that
         setTimeout(() => {
           userStore.setUser({
-            email,
-            password,
+            email: userStore.email,
+            password: userStore.password,
             firstName,
             lastName,
             gender,
@@ -106,13 +105,18 @@ export const Layout = (): JSX.Element => {
             photo: photo ?? null,
             avatar: avatar ?? null
           })
-          setUserProgressVisible(false)
-          navigate('/profile')
+          setBackdropVisible(false)
+          navigate('/auth/email-verification')
         }, 2000)
       },
       (error) => {
         console.error(error)
-        setUserProgressVisible(false)
+        setBackdropVisible(false)
+        setMessage({
+          visible: true,
+          text: error.message,
+          severity: 'error'
+        })
       }
     )
   }
@@ -136,7 +140,6 @@ export const Layout = (): JSX.Element => {
         stepValid={setSecondStepValid}
         phoneChanged={(phone) => { setUserInfo({ ...userInfo, phone }) }}
       />}
-      {activeStep === 'verification' && <ThirdStep />}
       {activeStep === 'photo' && <ForthStep user={userInfo}
         photoChange={({ profilePhoto, avatarPhoto }) => {
           setUserInfo({ ...userInfo, photo: profilePhoto, avatar: avatarPhoto })
@@ -173,9 +176,5 @@ export const Layout = (): JSX.Element => {
         }
       </div>
     </div>
-    {
-      userProgressVisible &&
-      <UserCreationLoader message={loadinMessage}></UserCreationLoader>
-    }
   </div >
 }

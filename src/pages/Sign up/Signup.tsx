@@ -7,6 +7,8 @@ import { ReactComponent as AppleIcon } from '../../assets/sm-icons/AppleIcon.svg
 import { ReactComponent as FacebookIcon } from '../../assets/sm-icons/FacebookIcon.svg'
 import { ReactComponent as GoogleIcon } from '../../assets/sm-icons/GoogleIcon.svg'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { minLength } from 'src/utils/validations'
+import { useStore } from 'src/utils/StoreProvider'
 
 interface SignUpForm {
   email: string
@@ -18,11 +20,6 @@ const emailPatternValidator = {
   value: /.+@.+\..+/,
   message: 'Incorrect email pattern'
 }
-
-const minLength = (length: number): ValidationRule<number> => ({
-  value: length,
-  message: `Min length ${length} symbols`
-})
 
 export const SignUp = (): JSX.Element => {
   const { register, handleSubmit, getValues, formState: { errors, isValid } } = useForm<SignUpForm>({
@@ -36,6 +33,7 @@ export const SignUp = (): JSX.Element => {
 
   const navigate = useNavigate()
   const theme = useTheme()
+  const { userStore } = useStore()
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -45,12 +43,9 @@ export const SignUp = (): JSX.Element => {
   }
 
   const onSubmit = (data: SignUpForm): void => {
-    navigate('/auth/terms', {
-      state: {
-        email: data.email,
-        password: data.password
-      }
-    })
+    userStore.setEmail(data.email)
+    userStore.setPassword(data.password)
+    navigate('/auth/terms')
   }
 
   const iconsProps: SxProps = {
@@ -80,7 +75,7 @@ export const SignUp = (): JSX.Element => {
         variant="outlined"
         size="small"
         {...register('password', {
-          required: 'Required',
+          required: 'Code is required',
           minLength: minLength(8)
         })}
         InputProps={{

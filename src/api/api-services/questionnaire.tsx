@@ -3,7 +3,7 @@ import http from '../common-configuration'
 
 class Questionnaire {
   constructor(sessionService: SessionService) {
-    console.log(sessionService.date)
+    console.log(sessionService.authToken)
   }
 }
 
