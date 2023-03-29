@@ -41,7 +41,13 @@ const AddPerson = (props: Props): JSX.Element => {
         <Box className={styles.addPerson__input}>
           <Typography variant='body2'>You can send invite by email</Typography>
           <Box className={styles.addPerson__invite}>
-            <TextField value={email} onChange={e => { setEmail(e.target.value) }} type='email' label='Email' variant='outlined' className={styles.addPerson__inviteInput} />
+            <TextField
+              value={email}
+              onChange={e => { setEmail(e.target.value) }}
+              type='email'
+              label='Email'
+              variant='outlined'
+              className={styles.addPerson__inviteInput} />
             <Button className={styles.addPerson__inviteButton} onClick={() => {
               props.addPerson(email)
               props.handleClose()

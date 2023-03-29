@@ -1,0 +1,24 @@
+[
+  {
+    "person": {
+      "firstName": "John",
+      "lastName": "",
+      "gender": "M",
+      "birthday": "2018-12-06T15:32:43.590",
+      "photo": "1.jpg",
+      "avatar": "1.jpg",
+      "phone": ""
+    },
+    "info": {
+      "who": "Alone",
+      "havePets": true,
+      "pets": [],
+      "smoker": false,
+      "smokingWhat": [],
+      "languages": ["English", "Russian"],
+      "about": "Some text",
+      "contacts": [],
+      "apartment": true
+    }
+  }
+]
