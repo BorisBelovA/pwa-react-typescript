@@ -45,7 +45,7 @@
 }
 
 .profileCard__contentBox {
-  background-color: white;
+  background-color: var(--secondary-bg-color);
   border-radius: 1rem;
   padding: 1rem;
   padding-bottom: 3rem;
@@ -70,7 +70,7 @@
   right: 0;
   bottom: 0;
   height: 5.5rem;
-  background: linear-gradient(180deg, rgba(255, 251, 255, 0) 0%, #FFFBFF 45%);
+  background: linear-gradient(180deg, rgba(255, 251, 255, 0) 0%, var(--bg-color) 45%);
 }
 
 .profileCard__content {
