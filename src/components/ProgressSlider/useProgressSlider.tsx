@@ -30,6 +30,10 @@ const useProgressSlider = (props: Props): ReturnType => {
         if (item.to === active) {
           item.state = 'Active'
           found = true
+          // item.state === 'Active' - sets previously active step to inactive
+          // item.state === 'Inactive' make sure that previously activated steps wont become disabled
+          // !found sets items to the left of active to inactive
+          // props.finished === true sets items to the right of active to inactive if form been completed before
         } else if (item.state === 'Active' || item.state === 'Inactive' || !found || props.finished === true) {
           item.state = 'Inactive'
         } else {
