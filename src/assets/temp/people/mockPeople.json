@@ -13,12 +13,122 @@
       "who": "Alone",
       "havePets": true,
       "pets": [],
+      "smoker": true,
+      "smokingWhat": [],
+      "languages": ["English", "Russian"],
+      "about": "I'm an outgoing person who loves to explore new experiences. ",
+      "contacts": [],
+      "apartment": true
+    }
+  },
+  {
+    "person": {
+      "firstName": "Elli",
+      "lastName": "",
+      "gender": "M",
+      "birthday": "1974-12-06T15:32:43.590",
+      "photo": "2.jpg",
+      "avatar": "2.jpg",
+      "phone": ""
+    },
+    "info": {
+      "who": "Alone",
+      "havePets": false,
+      "pets": [],
       "smoker": false,
       "smokingWhat": [],
       "languages": ["English", "Russian"],
-      "about": "Some text",
+      "about": "I'm an introverted person who loves to read and learn new things.",
+      "contacts": [],
+      "apartment": false
+    }
+  },
+  {
+    "person": {
+      "firstName": "Jane",
+      "lastName": "",
+      "gender": "M",
+      "birthday": "1985-12-06T15:32:43.590",
+      "photo": "3.jpg",
+      "avatar": "3.jpg",
+      "phone": ""
+    },
+    "info": {
+      "who": "Alone",
+      "havePets": true,
+      "pets": [],
+      "smoker": false,
+      "smokingWhat": [],
+      "languages": ["English", "Russian"],
+      "about": "I'm an adventurous person who loves to travel and try new things.",
       "contacts": [],
       "apartment": true
+    }
+  },
+  {
+    "person": {
+      "firstName": "Mike",
+      "lastName": "",
+      "gender": "M",
+      "birthday": "1995-12-06T15:32:43.590",
+      "photo": "4.jpg",
+      "avatar": "4.jpg",
+      "phone": ""
+    },
+    "info": {
+      "who": "Alone",
+      "havePets": true,
+      "pets": [],
+      "smoker": true,
+      "smokingWhat": [],
+      "languages": ["English", "Russian"],
+      "about": "I'm a creative person who loves to express myself through art, music, and writing.",
+      "contacts": [],
+      "apartment": false
+    }
+  },
+  {
+    "person": {
+      "firstName": "Alyx",
+      "lastName": "",
+      "gender": "M",
+      "birthday": "1989-12-06T15:32:43.590",
+      "photo": "5.jpg",
+      "avatar": "5.jpg",
+      "phone": ""
+    },
+    "info": {
+      "who": "Alone",
+      "havePets": true,
+      "pets": [],
+      "smoker": true,
+      "smokingWhat": [],
+      "languages": ["English", "Russian"],
+      "about": "I'm a compassionate person who loves to help others and make a difference in the world.",
+      "contacts": [],
+      "apartment": true
+    }
+  },
+  {
+    "person": {
+      "firstName": "Tom",
+      "lastName": "",
+      "gender": "M",
+      "birthday": "1983-12-06T15:32:43.590",
+      "photo": "6.jpg",
+      "avatar": "6.jpg",
+      "phone": ""
+    },
+    "info": {
+      "who": "Alone",
+      "havePets": false,
+      "pets": [],
+      "smoker": false,
+      "smokingWhat": [],
+      "languages": ["English", "Russian"],
+      "about": "I'm a motivated person who loves to set and achieve goals.",
+      "contacts": [],
+      "apartment": false
     }
   }
 ]

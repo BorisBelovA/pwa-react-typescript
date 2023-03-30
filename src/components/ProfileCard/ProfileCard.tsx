@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Paper, Typography } from '@mui/material'
+import { Box, IconButton, Paper, Typography } from '@mui/material'
 import { type QuestionnaireBasicType, type User } from 'models'
 import { useState } from 'react'
 import { calculateAge } from 'src/utils/date-time'
@@ -34,7 +34,7 @@ const ProfileCard = (props: Props): JSX.Element => {
         <Box className={`${styles.profileCard__person}  ${scroll ? styles.profileCard__person_scroll : ''}`}>
           <Box className={styles.profileCard__personTexts}>
             <Typography variant='h1'>{person.firstName}, {calculateAge(person.birthday)}</Typography>
-            <Typography>{info.who ? whoOptions[info.who] : 'By self'}</Typography>
+            <Typography>{info.who !== undefined ? whoOptions[info.who] : 'By self'}</Typography>
           </Box>
           <IconButton onClick={handleScroll}>
             <KeyboardDoubleArrowDownRoundedIcon
@@ -44,8 +44,9 @@ const ProfileCard = (props: Props): JSX.Element => {
             />
           </IconButton>
           <Box className={styles.profileCard__personBadges}>
-            <Badge type='pet' />
-            <Badge type='pet' />
+            {info.havePets === true && <Badge type='pet' />}
+            {info.apartment === true && <Badge type='house' />}
+            {info.smoker === false && <Badge type='smokeFree' />}
           </Box>
         </Box>
       </Paper>
