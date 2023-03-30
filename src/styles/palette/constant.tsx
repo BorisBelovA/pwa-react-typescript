@@ -2,7 +2,7 @@ import { type PaletteOptions } from '@mui/material'
 
 export const constantColors: PaletteOptions = {
   primary: {
-    main: '#2EAB67',
+    main: '#2EAB67'
   },
   secondary: {
     main: '#F9C22E'

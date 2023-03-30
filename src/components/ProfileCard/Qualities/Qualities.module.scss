@@ -14,4 +14,11 @@
   display: flex;
   gap: .5rem;
   align-items: center;
+  svg {
+    stroke: var(--text-color);
+    opacity: .5;
+    path {
+      stroke: var(--text-color)
+    }
+  }
 }
