@@ -34,12 +34,12 @@ const ProfileCard = (props: Props): JSX.Element => {
         />
         <Box className={`${styles.profileCard__person}  ${scroll ? styles.profileCard__person_scroll : ''}`}>
           <Box className={styles.profileCard__personTexts}>
-            <Typography variant='h1'>{person.firstName}, {calculateAge(person.birthday)}</Typography>
-            <Typography>{info.who !== undefined ? whoOptions[info.who] : 'By self'}</Typography>
+            <Typography variant='h1' color='constantLight.main'>{person.firstName}, {calculateAge(person.birthday)}</Typography>
+            <Typography color='constantLight.main'>{info.who !== undefined ? whoOptions[info.who] : 'By self'}</Typography>
           </Box>
           <IconButton onClick={handleScroll}>
             <KeyboardDoubleArrowDownRoundedIcon
-              sx={{ color: 'white' }}
+              sx={{ color: 'constantLight.main' }}
               fontSize='large'
               className={`${styles.profileCard__personButton} ${scroll ? '' : styles.profileCard__personButtonIcon}`}
             />
@@ -53,8 +53,8 @@ const ProfileCard = (props: Props): JSX.Element => {
       </Paper>
       <Box className={`${styles.profileCard__contentBox} ${scroll ? styles.profileCard__contentBox_scroll : ''}`}>
         <Box className={styles.profileCard__content}>
-          <Qualities info={info}/>
-          <Typography>{info?.about}</Typography>
+          <Qualities info={info} />
+          <Typography variant='body2'>{info?.about}</Typography>
         </Box>
       </Box>
       <Box className={styles.profileCard__hide} />

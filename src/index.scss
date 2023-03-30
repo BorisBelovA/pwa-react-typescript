@@ -17,14 +17,21 @@ a {
 // otherwise we can't bypass styles incapsulation
 :root {
   // Variables for light palete
+  --text-color: #0D1B2A;
   --bg-color: #FFFBFF;
   --secondary-bg-color: #fff;
-  --text-color: #0D1B2A;
+  --primary-color: #2EAB67;
+  --primary-color-50: rgba(45, 171, 103, 0.5);
+  --secondary-color: #F9C22E;
   --accent-color:  #F55D3E;
+  --constant-dark-color: #0D1B2A;
+  --constant-dark-color-70: RGBA(13, 27, 42, .7);
+  --constant-light-color: #D4E2F2;
+  --contrast-light-color: white;
 
   .dark {
     // Variables for dark palete
-    --text-color: white;
+    --text-color: #D4E2F2;
     --bg-color: #0D1B2A;
     --secondary-bg-color: #192B3E;
   }

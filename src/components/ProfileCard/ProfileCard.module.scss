@@ -23,7 +23,7 @@
   bottom: 0;
   top: calc(100% - 7.5rem);
   padding: 1rem;
-  background-color: rgba(13, 27, 42, 0.75);
+  background-color: var(--constant-dark-color-70);
   backdrop-filter: blur(4px);
   transition: .5s ease-in-out;
 }
@@ -39,9 +39,6 @@
   flex-direction: column;
   gap: .5rem;
   flex-grow: 1;
-  h1, p {
-    color:white;
-  }
 }
 
 .profileCard__contentBox {
