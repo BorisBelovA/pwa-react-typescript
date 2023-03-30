@@ -37,7 +37,7 @@
       "pets": [],
       "smoker": false,
       "smokingWhat": [],
-      "languages": ["English", "Russian"],
+      "languages": ["English", "Russian", "Hebrew"],
       "about": "I'm an introverted person who loves to read and learn new things.",
       "contacts": [],
       "apartment": false
@@ -54,12 +54,12 @@
       "phone": ""
     },
     "info": {
-      "who": "Alone",
+      "who": "Family",
       "havePets": true,
       "pets": [],
       "smoker": false,
       "smokingWhat": [],
-      "languages": ["English", "Russian"],
+      "languages": ["English", "Japanese"],
       "about": "I'm an adventurous person who loves to travel and try new things.",
       "contacts": [],
       "apartment": true
@@ -76,12 +76,12 @@
       "phone": ""
     },
     "info": {
-      "who": "Alone",
+      "who": "Couple",
       "havePets": true,
       "pets": [],
       "smoker": true,
       "smokingWhat": [],
-      "languages": ["English", "Russian"],
+      "languages": ["English", "Italian"],
       "about": "I'm a creative person who loves to express myself through art, music, and writing.",
       "contacts": [],
       "apartment": false
@@ -98,12 +98,12 @@
       "phone": ""
     },
     "info": {
-      "who": "Alone",
+      "who": "Family",
       "havePets": true,
       "pets": [],
       "smoker": true,
       "smokingWhat": [],
-      "languages": ["English", "Russian"],
+      "languages": ["English", "Turkish"],
       "about": "I'm a compassionate person who loves to help others and make a difference in the world.",
       "contacts": [],
       "apartment": true
@@ -120,12 +120,12 @@
       "phone": ""
     },
     "info": {
-      "who": "Alone",
+      "who": "Friends",
       "havePets": false,
       "pets": [],
       "smoker": false,
       "smokingWhat": [],
-      "languages": ["English", "Russian"],
+      "languages": ["English"],
       "about": "I'm a motivated person who loves to set and achieve goals.",
       "contacts": [],
       "apartment": false

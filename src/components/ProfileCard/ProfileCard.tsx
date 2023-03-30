@@ -5,6 +5,7 @@ import { calculateAge } from 'src/utils/date-time'
 import styles from './ProfileCard.module.scss'
 import KeyboardDoubleArrowDownRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowDownRounded'
 import Badge from './Badge/Badge'
+import Qualities from './Qualities/Qualities'
 
 interface Props {
   info: QuestionnaireBasicType
@@ -52,6 +53,7 @@ const ProfileCard = (props: Props): JSX.Element => {
       </Paper>
       <Box className={`${styles.profileCard__contentBox} ${scroll ? styles.profileCard__contentBox_scroll : ''}`}>
         <Box className={styles.profileCard__content}>
+          <Qualities info={info}/>
           <Typography>{info?.about}</Typography>
         </Box>
       </Box>
