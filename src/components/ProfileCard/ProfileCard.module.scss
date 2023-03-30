@@ -15,7 +15,8 @@
   border-top-right-radius: 0rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
   position: absolute;
   left: 0;
   right: 0;
@@ -36,7 +37,11 @@
 .profileCard__personTexts {
   display: flex;
   flex-direction: column;
-  gap: .5rem
+  gap: .5rem;
+  flex-grow: 1;
+  h1, p {
+    color:white;
+  }
 }
 
 .profileCard__contentBox {
@@ -51,10 +56,12 @@
   bottom: 0;
   margin: 0 1rem;
   transition: .5s ease-in-out;
+  opacity: 0;
 }
 
 .profileCard__contentBox_scroll {
-  top: 5.5rem;
+  top: 6.625rem;
+  opacity: 1;
 }
 
 .profileCard__hide {
@@ -70,4 +77,20 @@
   height: 100%;
   overflow-y: auto;
   padding-bottom: 5rem;
+}
+
+.profileCard__personButton {
+  margin-top: 1rem;
+}
+
+.profileCard__personButtonIcon {
+  scale: -1;
+}
+
+.profileCard__personBadges {
+  display: flex;
+  gap: .5rem;
+  position: absolute;
+  right: 1rem;
+  top: -1.125rem;
 }
