@@ -1,10 +1,10 @@
-import { Box, Button, Typography } from "@mui/material"
-import { User } from "models"
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import { useActive } from "src/components"
-import ProfileCard from "src/components/ProfileCard/ProfileCard"
-import { useBasicQuestions } from "src/layouts/QuestionnaireBasic/QuestionnaireBasic"
+import { Box, Button, Typography } from '@mui/material'
+import { type User } from 'models'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useActive } from 'src/components'
+import ProfileCard from 'src/components/ProfileCard/ProfileCard'
+import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
 
 const Summary = (): JSX.Element => {
