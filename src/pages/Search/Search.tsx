@@ -7,6 +7,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import ProfileCard from 'src/components/ProfileCard/ProfileCard'
 import people from '../../assets/temp/people/mockPeople.json'
 import { type Gender, type QuestionnaireBasicType, type User } from 'models'
+import { useState } from 'react'
 
 interface People {
   info: QuestionnaireBasicType
@@ -14,6 +15,7 @@ interface People {
 }
 
 const Search: React.FunctionComponent = () => {
+  const [index, setIndex] = useState<number>(0)
   const pers: People[] = people.map((p) => ({
     ...p,
     info: {
@@ -26,6 +28,9 @@ const Search: React.FunctionComponent = () => {
       gender: p.person.gender as Gender
     }
   }))
+  const handlePersonIndex = (): void => {
+    index < pers.length - 1 ? setIndex(index + 1) : setIndex(0)
+  }
   const theme = useTheme()
   return (
     <Box className={styles.search}>
@@ -37,16 +42,23 @@ const Search: React.FunctionComponent = () => {
         <IconButton color='primary'><FilterAltOutlinedIcon /></IconButton>
       </Box>
       <Box className={styles.search__content}>
-        <ProfileCard info={pers[0].info} person={pers[0].person} />
+        <ProfileCard info={pers[index].info} person={pers[index].person} />
       </Box>
       <Box className={styles.search__matchButtons}>
-        <Button variant='contained' sx={{
-          backgroundColor: theme.palette.background.paper,
-          '&:hover': { backgroundColor: theme.palette.background.paper, boxShadow: theme.shadows[2] }
-        }}>
+        <Button
+          variant='contained'
+          onClick={() => { handlePersonIndex() }}
+          sx={{
+            backgroundColor: theme.palette.background.paper,
+            '&:hover': { backgroundColor: theme.palette.background.paper, boxShadow: theme.shadows[2] }
+          }}>
           <CloseRoundedIcon color='primary' fontSize='large' />
         </Button>
-        <Button variant='contained' color='primary' sx={{ '&:hover': { boxShadow: theme.shadows[2] } }}>
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={() => { handlePersonIndex() }}
+          sx={{ '&:hover': { boxShadow: theme.shadows[2] } }}>
           <FavoriteIcon sx={{
             color: theme.palette.background.paper,
             fontSize: '2rem'
