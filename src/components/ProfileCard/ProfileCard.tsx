@@ -1,6 +1,6 @@
 import { Box, IconButton, Paper, Typography } from '@mui/material'
 import { type QuestionnaireBasicType, type User } from 'models'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { calculateAge } from 'src/utils/date-time'
 import styles from './ProfileCard.module.scss'
 import KeyboardDoubleArrowDownRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowDownRounded'
@@ -13,6 +13,7 @@ interface Props {
 }
 const ProfileCard = (props: Props): JSX.Element => {
   const [scroll, setScroll] = useState<boolean>(false)
+  const [start, setStart] = useState<number>(0)
   const { info, person } = props
   const whoOptions = {
     Alone: 'By self',
@@ -24,6 +25,28 @@ const ProfileCard = (props: Props): JSX.Element => {
   const handleScroll = (): void => {
     setScroll(!scroll)
   }
+
+  const onTouchStart = (e: TouchEvent) => {
+    setStart(e.touches[0].clientY)
+  }
+  const onTouchEnd = (e: TouchEvent) => {
+    start - e.changedTouches[0].clientY > 0 ? setScroll(true) : setScroll(false)
+  }
+
+  useEffect(() => {
+    window.addEventListener('touchstart', onTouchStart)
+    return () => {
+      window.removeEventListener('touchstart', onTouchStart)
+    }
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('touchmove', onTouchEnd)
+    return () => {
+      window.removeEventListener('touchmove', onTouchEnd)
+    }
+  })
+
   return (
     <>
       <Paper className={styles.profileCard}>
@@ -35,7 +58,7 @@ const ProfileCard = (props: Props): JSX.Element => {
         <Box className={`${styles.profileCard__person}  ${scroll ? styles.profileCard__person_scroll : ''}`}>
           <Box className={styles.profileCard__personTexts}>
             <Typography variant='h1' color='constantLight.main'>{person.firstName}, {calculateAge(person.birthday)}</Typography>
-            <Typography color='constantLight.main'>{info.who !== undefined ? whoOptions[info.who] : 'By self'}</Typography>
+            <Typography color='constantLight.main'>{info.who !== undefined ? whoOptions[info.who] : 'By self'} {start}</Typography>
           </Box>
           <IconButton onClick={handleScroll}>
             <KeyboardDoubleArrowDownRoundedIcon
