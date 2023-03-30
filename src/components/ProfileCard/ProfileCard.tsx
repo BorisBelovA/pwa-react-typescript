@@ -26,10 +26,12 @@ const ProfileCard = (props: Props): JSX.Element => {
     setScroll(!scroll)
   }
 
-  const onTouchStart = (e: TouchEvent) => {
+  // touch scrolling for info, need to add functionality
+  // to prevent switching if content inside scrolled
+  const onTouchStart = (e: TouchEvent): void => {
     setStart(e.touches[0].clientY)
   }
-  const onTouchEnd = (e: TouchEvent) => {
+  const onTouchEnd = (e: TouchEvent): void => {
     start - e.changedTouches[0].clientY > 0 ? setScroll(true) : setScroll(false)
   }
 
@@ -58,7 +60,7 @@ const ProfileCard = (props: Props): JSX.Element => {
         <Box className={`${styles.profileCard__person}  ${scroll ? styles.profileCard__person_scroll : ''}`}>
           <Box className={styles.profileCard__personTexts}>
             <Typography variant='h1' color='constantLight.main'>{person.firstName}, {calculateAge(person.birthday)}</Typography>
-            <Typography color='constantLight.main'>{info.who !== undefined ? whoOptions[info.who] : 'By self'} {start}</Typography>
+            <Typography color='constantLight.main'>{info.who !== undefined ? whoOptions[info.who] : 'By self'}</Typography>
           </Box>
           <IconButton onClick={handleScroll}>
             <KeyboardDoubleArrowDownRoundedIcon
