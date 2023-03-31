@@ -13,7 +13,8 @@ const QuestionnaireBasic: React.FunctionComponent = () => {
       { text: 'languages', progress: 0, to: 'languages' },
       { text: 'about', progress: 0, to: 'about' },
       { text: 'contacts', progress: 0, to: 'contacts' },
-      { text: 'apartment', progress: 0, to: 'apartment' }
+      { text: 'apartment', progress: 0, to: 'apartment' },
+      { text: 'summary', progress: 0, to: 'summary' }
     ]
   })
 

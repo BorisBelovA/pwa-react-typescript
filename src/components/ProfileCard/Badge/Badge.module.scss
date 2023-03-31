@@ -1,0 +1,13 @@
+.badge {
+  background-color: var(--accent-color);
+  padding: .25rem;
+  border-radius: 10rem;
+  svg{ 
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    path{
+      fill: var(--contrast-light-color);
+    }
+  }
+}

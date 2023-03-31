@@ -1,0 +1,43 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+}
+
+.search__header {
+  display: flex;
+  align-items: center;
+}
+
+.search__headerContent {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.search__content {
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  margin-top: -1.125rem;
+  padding-top: 1.125rem;
+  margin-bottom: -3rem;
+  padding-bottom: 5rem;
+  height: 100%;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.search__matchButtons {
+  position: absolute;
+  bottom: 4.5rem;
+  display: flex;
+  gap: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  & button {
+    width: 4.125rem;
+    height: 4.125rem;
+  }
+}

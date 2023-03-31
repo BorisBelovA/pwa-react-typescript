@@ -6,6 +6,7 @@ import About from 'src/pages/Profile/BasicQuestions/About/About'
 import Contacts from 'src/pages/Profile/BasicQuestions/Contacts/Contacts'
 import Apartment from 'src/pages/Profile/BasicQuestions/Apartment/Apartment'
 import { Route } from 'react-router-dom'
+import Summary from 'src/pages/Profile/BasicQuestions/Summary/Summary'
 
 export default [
   <Route key='0' path='who' element={<Who />} />,
@@ -14,5 +15,6 @@ export default [
   <Route key='3' path='languages' element={<Languages />} />,
   <Route key='4' path='about' element={<About />} />,
   <Route key='5' path='contacts' element={<Contacts />} />,
-  <Route key='6' path='apartment' element={<Apartment />} />
+  <Route key='6' path='apartment' element={<Apartment />} />,
+  <Route key='7' path='summary' element={<Summary />} />
 ]

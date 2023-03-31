@@ -6,6 +6,9 @@
     cursor: pointer;
     transition: .1s;
     -webkit-tap-highlight-color: transparent;
+    path {
+        fill: var(--text-color)
+    }
 
     & .navButton__icon {
         stroke-width: 0px;
@@ -16,7 +19,7 @@
         transform: scale(1.15);
 
         & .navButton__icon {
-            stroke: $accent-color;
+            stroke: var(--primary-color);
             stroke-width: 2px;
         }
     }
