@@ -25,6 +25,8 @@ export class UserStore implements UserForm {
   setGender (gender: Gender): void { this.gender = gender }
   setBirthday (birthday: Date): void { this.birthday = birthday }
   setPhone (phone: string): void { this.phone = phone }
+  setEmail (email: string): void { this.email = email }
+  setPassword (password: string): void { this.password = password }
 
   setUser (user: UserForm): void {
     this.firstName = user.firstName

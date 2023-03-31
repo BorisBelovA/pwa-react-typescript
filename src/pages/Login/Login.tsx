@@ -1,25 +1,17 @@
-import { Alert, Box, Button, Divider, Grow, IconButton, InputAdornment, type SxProps, TextField, Typography, useTheme } from '@mui/material'
+import { Box, Button, Divider, IconButton, InputAdornment, type SxProps, TextField, Typography, useTheme } from '@mui/material'
 import { ReactComponent as GoogleIcon } from '../../assets/sm-icons/GoogleIcon.svg'
 import { ReactComponent as AppleIcon } from '../../assets/sm-icons/AppleIcon.svg'
 import { ReactComponent as FacebookIcon } from '../../assets/sm-icons/FacebookIcon.svg'
 import { useState } from 'react'
 import { useForm, type ValidationRule } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
-import styles from './Login.module.scss'
 import utilityStyles from '../../styles/utility.module.scss'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
-import { userApiService } from 'api-services'
-
-
+import { userApiService, sessionService } from 'api-services'
+import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 interface SignUpForm {
   email: string
   password: string
-}
-
-interface SignInAlert {
-  visible: boolean
-  severity: 'error' | 'info' | 'success' | 'warning'
-  text: string
 }
 
 const emailPatternValidator = {
@@ -41,11 +33,7 @@ const sxSMButtons: SxProps = {
 
 export const Login = (): JSX.Element => {
   const navigate = useNavigate()
-  const [showAlert, setShowAlert] = useState<SignInAlert>({
-    visible: false,
-    severity: 'success',
-    text: ''
-  })
+  const { setMessage, setBackdropMessage, setBackdropVisible } = useAuthContext()
 
   const theme = useTheme()
   const { register, handleSubmit, formState: { errors, isValid } } = useForm<SignUpForm>({
@@ -63,35 +51,25 @@ export const Login = (): JSX.Element => {
   }
 
   const onSubmit = (data: SignUpForm): void => {
-    void userApiService.login(data.email, data.password).then(token => {
-      if (token === null) {
-        setShowAlert({
+    setBackdropVisible(true)
+    setBackdropMessage('Login to your account')
+    void userApiService.login(data.email, data.password)
+      .then(token => {
+        sessionService.authToken = token
+        setTimeout(() => {
+          setBackdropVisible(false)
+          navigate('/profile')
+        }, 1500)
+      })
+      .catch(error => {
+        console.error(error)
+        setMessage({
           visible: true,
           severity: 'error',
           text: 'Something went wrong😮'
         })
-        setTimeout(() => {
-          setShowAlert({
-            ...showAlert,
-            visible: false
-          })
-        }, 1500)
-      } else {
-        //save token to singleton service
-        setShowAlert({
-          visible: true,
-          severity: 'success',
-          text: 'Welcome back!'
-        })
-        setTimeout(() => {
-          setShowAlert({
-            ...showAlert,
-            visible: false
-          })
-          navigate('/profile')
-        }, 1500)
-      }
-    })
+        setBackdropVisible(false)
+      })
   }
 
   return <>
@@ -149,16 +127,5 @@ export const Login = (): JSX.Element => {
         <AppleIcon className={utilityStyles.smIcon} />Log in with Apple
       </Button>
     </Box>
-
-    <Grow in={showAlert.visible}>
-      <Alert sx={{
-        position: 'absolute',
-        bottom: 0,
-        width: '100%'
-      }} severity={showAlert.severity}>
-        <Typography variant='body1'>{showAlert.text}</Typography>
-      </Alert>
-    </Grow>
-    {showAlert.visible && <div className={styles.transparentBackdrop}></div>}
   </>
 }

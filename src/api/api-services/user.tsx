@@ -14,7 +14,7 @@ class UserApiService {
    * User's registration
    * @param user form with users data
    */
-  public async createUser (user: UserInfo): Promise<UserDto | null> {
+  public async createUser (user: UserInfo): Promise<UserDto> {
     const payload = {
       ...user,
       role: 'USER_ROLE'
@@ -29,7 +29,7 @@ class UserApiService {
       })
       .catch(errorResponse => {
         console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        return null
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
       })
   }
 
@@ -39,7 +39,7 @@ class UserApiService {
    * @param token 
    * @returns 
    */
-  public async activateUser (token: string): Promise<string | null> {
+  public async activateUser (token: string): Promise<string> {
     return await http.get<HttpResponse<string>>(`/login/${token}`)
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
@@ -49,7 +49,7 @@ class UserApiService {
       })
       .catch(errorResponse => {
         console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        return null
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
       })
   }
 
@@ -59,7 +59,7 @@ class UserApiService {
    * @param password 
    * @returns 
    */
-  public async login (email: string, password: string): Promise<string | null> {
+  public async login (email: string, password: string): Promise<string> {
     return await http.post<HttpResponse<string>>('/login', { email, password })
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
@@ -70,7 +70,7 @@ class UserApiService {
       })
       .catch(errorResponse => {
         console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        return null
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
       })
   }
 }
