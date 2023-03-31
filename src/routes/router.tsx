@@ -8,6 +8,7 @@ import MainLayout from '../layouts/Main/MainLayout'
 import { NotFound } from '../pages/NotFound'
 import QuestionnaireBasic from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import BasicInfo from './profile/questionnaire/BasicInfo'
+import ProfileRoutes from './profile/ProfileRoutes'
 import AuthRoutes from './auth/auth'
 import { AuthLayout } from 'src/layouts/Auth/AuthLayout'
 
@@ -20,12 +21,7 @@ const Router: React.FunctionComponent = () => {
           <Route path="questionnaire-basic-info" element={<QuestionnaireBasic />} errorElement={<NotFound />}>
             {BasicInfo}
           </Route>
-          [/*future*/]
-          <Route path='about'>
-            <Route path='' element={<Profile />} />
-            <Route path='basic-questions' element={<Profile />} />
-            <Route path='additional-questions' element={<Profile />} />
-          </Route>
+          {ProfileRoutes}
         </Route>
         <Route path="household" element={<Household />} />
         <Route path="search" element={<Search />} />
