@@ -10,7 +10,7 @@ const ThemeSettings = (): JSX.Element => {
   return (
     <Box className={styles.profile__container}>
       <Box className={styles.profile__header}>
-        <IconButton onClick={() => {navigate(-1)}}>
+        <IconButton onClick={ () => { navigate(-1) } }>
           <ArrowBackIosNewRoundedIcon color='primary' />
         </IconButton>
         <Typography variant='h1'>Color theme</Typography>
@@ -19,8 +19,8 @@ const ThemeSettings = (): JSX.Element => {
         <Box className={styles.profile__input}>
           <Typography>Choose preferred theme</Typography>
           <Box className={themeStyles.theme__buttons}>
-            <ThemeButton theme='dark' text='Dark' image='' />
-            <ThemeButton theme='light' text='Light' image='' />
+            <ThemeButton theme='dark' text='Dark' />
+            <ThemeButton theme='light' text='Light' />
           </Box>
         </Box>
       </Box>

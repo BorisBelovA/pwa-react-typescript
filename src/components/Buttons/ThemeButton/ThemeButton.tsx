@@ -5,17 +5,17 @@ import styles from './ThemeButton.module.scss'
 interface Props {
   theme: PaletteMode
   text: string
-  image: string
 }
 
 const ThemeButton = (props: Props): JSX.Element => {
+  const { theme, text } = props
   const { themeStore } = useStore()
   return (
-    <Card className={styles.themeButton} onClick={() => { themeStore.setTheme(props.theme) }}>
-      <Typography variant='h2'>{props.text}</Typography>
+    <Card className={styles.themeButton} onClick={() => { themeStore.setTheme(theme) }}>
+      <Typography variant='h2'>{text}</Typography>
       <Box
         component='img'
-        src={require(`../../../assets/themeThumbnails/${props.theme}.jpg`)}
+        src={require(`../../../assets/themeThumbnails/${theme}.jpg`)}
         className={styles.themeButton__img}
       />
     </Card>
