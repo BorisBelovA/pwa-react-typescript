@@ -1,10 +1,10 @@
-import { PaletteMode } from "@mui/material"
-import { makeAutoObservable } from "mobx"
-import { RootStore } from "./RootStore"
+import { type PaletteMode } from '@mui/material'
+import { makeAutoObservable } from 'mobx'
+import { type RootStore } from './RootStore'
 
 export class ThemeStore {
   theme: PaletteMode = 'light'
-  
+
   rootStore: RootStore
 
   constructor (rootStore: RootStore) {
@@ -12,7 +12,7 @@ export class ThemeStore {
     this.rootStore = rootStore
   }
 
-  setTheme = (theme: PaletteMode) => {
+  setTheme = (theme: PaletteMode): void => {
     this.theme = theme
   }
 }

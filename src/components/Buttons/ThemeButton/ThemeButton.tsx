@@ -1,4 +1,4 @@
-import { Box, Card, PaletteMode, Paper, Typography } from '@mui/material'
+import { Box, Card, type PaletteMode, Typography } from '@mui/material'
 import { useStore } from 'src/utils/StoreProvider'
 import styles from './ThemeButton.module.scss'
 
@@ -8,15 +8,15 @@ interface Props {
   image: string
 }
 
-const ThemeButton = (props: Props) => {
+const ThemeButton = (props: Props): JSX.Element => {
   const { themeStore } = useStore()
   return (
     <Card className={styles.themeButton} onClick={() => { themeStore.setTheme(props.theme) }}>
       <Typography variant='h2'>{props.text}</Typography>
-      <Box 
-      component='img' 
-      src={require(`../../../assets/themeThumbnails/${props.theme}.jpg`)} 
-      className={styles.themeButton__img} 
+      <Box
+        component='img'
+        src={require(`../../../assets/themeThumbnails/${props.theme}.jpg`)}
+        className={styles.themeButton__img}
       />
     </Card>
   )
