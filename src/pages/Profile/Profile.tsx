@@ -1,30 +1,43 @@
 import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import { Box, Typography } from '@mui/material'
+import { Avatar, Box, IconButton, Typography } from '@mui/material'
 import { useStore } from 'src/utils/StoreProvider'
+import styles from './Profile.module.scss'
+import SettingsNavigationButton from 'src/components/navigation/SettingsNavigationButton/SettingsNavigationButton'
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded'
 
 const Profile: React.FunctionComponent = observer(() => {
   const { userStore } = useStore()
   return (
-    <>
-      <Typography variant='h1'>Profile</Typography>
-      { userStore.firstName &&
-        <Box sx={{ marginTop: '1rem' }}>
-          <Typography variant='h1'>Hi, {userStore.firstName}</Typography>
-        </Box>
-      }
-      <Box sx={{
-        marginTop: '1rem',
-        display: 'flex',
-        flexDirection: 'column',
-        rowGap: '0.5rem'
-      }}>
-        <Typography variant='h1'>Useful links</Typography>
+    <Box className={styles.profile__container}>
+      <Box className={styles.profile__header}>
+        <Avatar />
+        <Typography variant='h2'> Hi
+        {userStore.firstName &&
+            `${userStore.firstName} ${userStore.lastName}`
+        }
+        </Typography>
+        <IconButton>
+          <LogoutRoundedIcon color='primary' />
+        </IconButton>
+      </Box>
+      <Box className={styles.profile__menu}>
+        <SettingsNavigationButton to='/profile/my-preferences/'>Profile</SettingsNavigationButton>
+        <SettingsNavigationButton to='/profile/roommate-preferences/'>Roommate preferences</SettingsNavigationButton>
+        <SettingsNavigationButton to='/profile/settings/'>Settings</SettingsNavigationButton>
+        <SettingsNavigationButton to=''>Helpdesk</SettingsNavigationButton>
+        <SettingsNavigationButton to=''>FAQ</SettingsNavigationButton>
+        <SettingsNavigationButton to=''>Confidentiality</SettingsNavigationButton>
+        <SettingsNavigationButton to=''>About us</SettingsNavigationButton>
+        <SettingsNavigationButton to=''>Language</SettingsNavigationButton>
+      </Box>
+      <Box className={styles.profile__temp}>
+        <Typography variant='h2'>Useful links</Typography>
         <Link to="/auth/login">Login</Link>
         <Link to="/auth/signup">Sign up</Link>
         <Link to="/profile/questionnaire-basic-info/who">Questionnaire Basics</Link>
       </Box>
-    </>
+    </Box>
   )
 })
 

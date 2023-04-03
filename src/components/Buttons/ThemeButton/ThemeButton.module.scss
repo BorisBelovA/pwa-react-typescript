@@ -1,0 +1,13 @@
+.themeButton {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1rem;
+  gap: .5rem;
+}
+
+.themeButton__img {
+  display: block;
+  width: 100%;
+  border-radius: .5rem;
+}

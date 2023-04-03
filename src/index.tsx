@@ -1,42 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.scss'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Router from './routes/router'
 import CssBaseline from '@mui/material/CssBaseline'
-import type { PaletteMode } from '@mui/material'
-import { getTheme } from './styles/defaultTheme'
 import { StoreProvider } from './utils/StoreProvider'
 import { RootStore } from './stores/RootStore'
 import { configure } from 'mobx'
+import CustomThemeProvider from './styles/CustomThemeProvider'
 configure({ enforceActions: 'always' })
 
 const App = (): JSX.Element => {
-  const [mode, setMode] = useState<PaletteMode>('light')
-
-  // just for tests
-  // @ts-ignore
-  document.toggleTheme = (mode: PaletteMode) => {
-    setMode(mode)
-  }
-
-  const theme = React.useMemo(() => createTheme(getTheme(mode)), [mode])
-
   const store = new RootStore()
 
   return <React.StrictMode>
     <BrowserRouter basename="/pwa-react-typescript/">
-      <ThemeProvider theme={theme} >
-        <CssBaseline />
-        <div style={{ height: '100%' }} className={mode === 'light' ? '' : 'dark'}>
-          <StoreProvider store={store}>
+      <StoreProvider store={store}>
+        <CustomThemeProvider>
+          <CssBaseline />
             <Router />
-          </StoreProvider>
-        </div>
-      </ThemeProvider>
+        </CustomThemeProvider>
+      </StoreProvider>
     </BrowserRouter>
   </React.StrictMode>
 }
