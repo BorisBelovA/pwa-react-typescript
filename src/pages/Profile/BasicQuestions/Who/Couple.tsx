@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import AddPerson from 'src/components/Modals/AddPerson/AddPerson'
 import PersonCard from 'src/components/PersonCard/PersonCard'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
-import { type WhoCouple } from 'src/models/questionnaireBasic'
+import { CoupleType, type WhoCouple } from 'src/models/questionnaireBasic'
 import { ReactComponent as SwitchIcon } from '../../../../assets/icons/switch.svg'
 import styles from './Who.module.scss'
 
@@ -13,6 +13,14 @@ const Couple: React.FunctionComponent = () => {
   const navigate = useNavigate()
   const { questions, setQuestions } = useBasicQuestions()
   const [open, setOpen] = useState(false)
+  const coupleTypes: Array<CoupleType> = [
+    'MF',
+    'FF',
+    'MM',
+    'other'
+  ]
+
+  const nextDisabled = questions.whoContains === undefined
 
   const handleOpen = (): void => { setOpen(true) }
   const handleClose = (): void => { setOpen(false) }
@@ -26,6 +34,24 @@ const Couple: React.FunctionComponent = () => {
     setQuestions({
       ...questions,
       whoContains: { ...questions.whoContains, partner: undefined }
+    })
+  }
+
+  const selectCoupleType = (
+    // Specific ReactMouseEvent interface required for ToggleButtonComponent
+    event: React.MouseEvent<HTMLElement>,
+    // When select button - returns CoupleType
+    // When deselect - null
+    kind: CoupleType | null
+  ): void => {
+    setQuestions({
+      ...questions,
+      whoContains: kind === null
+        ? undefined
+        : {
+            ...questions.whoContains,
+            kind
+          }
     })
   }
 
@@ -45,13 +71,12 @@ const Couple: React.FunctionComponent = () => {
           color='primary'
           value={(questions.whoContains as WhoCouple)?.kind}
           exclusive
-          onChange={(e, value) => {
-            setQuestions({ ...questions, whoContains: { ...questions.whoContains, kind: value } })
-          }}>
-          <ToggleButton value='MF'>MF</ToggleButton>
-          <ToggleButton value='MM'>MM</ToggleButton>
-          <ToggleButton value='FF'>FF</ToggleButton>
-          <ToggleButton value='other'>other</ToggleButton>
+          onChange={selectCoupleType}>
+          {
+            coupleTypes.map(
+              (type, idx) => <ToggleButton key={idx} value={type}>{type}</ToggleButton>
+            )
+          }
         </ToggleButtonGroup>
       </Box>
       <Box className={styles.who__add}>
@@ -64,6 +89,7 @@ const Couple: React.FunctionComponent = () => {
       </Box>
       <Box className={styles.who__nav}>
         <Button
+          disabled={nextDisabled}
           className={styles.who__navButton}
           variant='contained'
           onClick={() => {

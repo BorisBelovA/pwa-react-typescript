@@ -30,5 +30,4 @@ export type EmptyPersonalInfo = {
 export type NewUser = {
   [key in keyof UserForm]: UserForm[key] | undefined
 }
-
 ///

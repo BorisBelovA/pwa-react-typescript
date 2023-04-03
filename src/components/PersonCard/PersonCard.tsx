@@ -12,15 +12,15 @@ interface Props {
   handleDelete: (index: number) => void
   index: number
 }
-const PersonCard = (props: Props): JSX.Element => {
+const PersonCard = ({ person, waiting, main, handleDelete, index }: Props): JSX.Element => {
   return (
     <Box className={styles.personCard}>
       <Avatar className={styles.personCard__avatar} />
       <Typography className={styles.personCard__text}>
-        {typeof props.person === 'string' ? props.person : `${props.person.firstName}, ${calculateAge(props.person.birthday)}`}
+        {typeof person === 'string' ? person : `${person.firstName}, ${calculateAge(person.birthday)}`}
       </Typography>
-      {typeof props.person === 'string' && <ProgressIcon />}
-      {(props.main === false || props.main === undefined) && <IconButton onClick={() => { props.handleDelete(props.index) }}><HighlightOffIcon /></IconButton>}
+      {typeof person === 'string' && <ProgressIcon />}
+      {(main === false || main === undefined) && <IconButton onClick={() => { handleDelete(index) }}><HighlightOffIcon /></IconButton>}
     </Box>
   )
 }
