@@ -42,8 +42,8 @@ const QuestionnaireBasic: React.FunctionComponent = () => {
         (questions.whoContains as WhoFriends)?.count > 0
         ? 1
         : 0
-      const isFriends: number = (questions.whoContains as WhoFriends)?.people !== undefined &&
-        (questions.whoContains as WhoFriends)?.people.length > 0
+      const friends = (questions.whoContains as WhoFriends)?.people ?? []
+      const isFriends: number = friends.length > 0
         ? 1
         : 0
       setPercent(1 + isCount + isFriends, 3, 'who')
@@ -56,8 +56,8 @@ const QuestionnaireBasic: React.FunctionComponent = () => {
         (questions.whoContains as WhoFamily)?.adults > 0
         ? 1
         : 0
-      const isFamily: number = (questions.whoContains as WhoFamily)?.people !== undefined &&
-        (questions.whoContains as WhoFamily)?.people.length > 0
+      const members = (questions.whoContains as WhoFamily)?.people ?? []
+      const isFamily: number = members.length > 0
         ? 1
         : 0
       setPercent(1 + isKids + isAdults + isFamily, 4, 'who')
@@ -105,7 +105,7 @@ export default QuestionnaireBasic
 
 interface ContextType {
   questions: QuestionnaireBasicType
-  setQuestions: any
+  setQuestions: React.Dispatch<React.SetStateAction<QuestionnaireBasicType>>
 }
 
 export const useBasicQuestions = (): ContextType => {

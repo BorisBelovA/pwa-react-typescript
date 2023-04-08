@@ -9,14 +9,10 @@ import utilityStyles from '../../styles/utility.module.scss'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { userApiService, sessionService } from 'api-services'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
+import { emailPatternValidator } from 'src/utils/validations'
 interface SignUpForm {
   email: string
   password: string
-}
-
-const emailPatternValidator = {
-  value: /.+@.+\..+/,
-  message: 'Incorrect email pattern'
 }
 
 const minLength = (length: number): ValidationRule<number> => ({

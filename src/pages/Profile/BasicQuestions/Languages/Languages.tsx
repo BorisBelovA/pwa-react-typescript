@@ -4,7 +4,7 @@ import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
 import languages from '../../../../assets/data/languages.json'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search'
 import LanguageButton from 'src/components/Buttons/LanguageButton/LanguageButton'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
@@ -30,6 +30,10 @@ const Languages: React.FunctionComponent = () => {
   const removeLanguage = (language: string): void => {
     setQuestions({ ...questions, languages: questions.languages.filter((item) => (item !== language)) })
   }
+
+  const nextBtnDisabled = useMemo(() => {
+    return questions.languages.length === 0
+  }, [questions.languages])
 
   return (
     <Box className={styles.question}>
@@ -83,6 +87,7 @@ const Languages: React.FunctionComponent = () => {
         </Button>
         <Button variant='contained'
           fullWidth
+          disabled={nextBtnDisabled}
           onClick={() => {
             navigate('/profile/questionnaire-basic-info/about')
           }}>

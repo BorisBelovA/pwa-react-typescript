@@ -1,6 +1,6 @@
-import { Typography } from "@mui/material"
-import { ReactNode } from "react"
-import { Link } from "react-router-dom"
+import { Typography } from '@mui/material'
+import { type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './SettingsNavigationButton.module.scss'
 
 interface Props {

@@ -1,67 +1,92 @@
 import { Box, Button, Card, IconButton, Modal, TextField, Typography } from '@mui/material'
 import styles from './AddPerson.module.scss'
 import CloseIcon from '@mui/icons-material/Close'
-import { type User } from 'models'
+import { type ShortUser } from 'models'
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { emailPatternValidator } from 'src/utils/validations'
 
 interface Props {
   open: boolean
   handleClose: () => void
   who: string
-  addPerson: (person: string | User) => void
+  addPerson: (person: string | ShortUser) => void
 }
-const AddPerson = (props: Props): JSX.Element => {
-  const [email, setEmail] = useState<string>('')
+const AddPerson = ({ open, handleClose, who, addPerson }: Props): JSX.Element => {
   const [name, setName] = useState<string>('')
   const [age, setAge] = useState<string>('')
 
-  const createBlankPerson = (): User => {
-    const birthDate = new Date(new Date().getFullYear() - Number(age), 1)
-    return {
-      firstName: name,
-      lastName: '',
-      gender: 'M',
-      birthday: birthDate,
-      phone: null,
-      photo: null,
-      avatar: null
+  //Email form
+  const { register, handleSubmit, formState: { errors, isValid } } = useForm<{ email: string }>({
+    defaultValues: {
+      email: ''
+    },
+    mode: 'all'
+  })
+
+  const createBlankPerson = (): ShortUser => {
+    if (!!name && !!age) {
+      return { name, age: +age }
     }
+    throw new Error('Name and age are not specified!')
+  }
+
+  const inviteUser = (data: { email: string }): void => {
+    const { email } = data
+    if (!email) {
+      throw new Error('Email is not specified!')
+    }
+    addPerson(email)
+    handleClose()
+  }
+
+  const createNonExistingUser = (): void => {
+    addPerson(createBlankPerson())
+    handleClose()
+  }
+
+  const createBtnDisabled = (): boolean => {
+    return !name || !age
   }
 
   return (
-    <Modal
-      open={props.open}
-      onClose={props.handleClose}
-    >
+    <Modal open={open} onClose={handleClose}>
       <Card className={styles.addPerson}>
         <Box className={styles.addPerson__head}>
-          <Typography variant='h1'>Add a {props.who}</Typography>
-          <IconButton onClick={props.handleClose}><CloseIcon /></IconButton>
+          <Typography variant='h1'>Add a {who}</Typography>
+          <IconButton onClick={handleClose}><CloseIcon /></IconButton>
         </Box>
         <Box className={styles.addPerson__input}>
           <Typography variant='body2'>You can send invite by email</Typography>
           <Box className={styles.addPerson__invite}>
             <TextField
-              value={email}
-              onChange={e => { setEmail(e.target.value) }}
               type='email'
               label='Email'
               variant='outlined'
+              error={!(errors.email == null)}
+              size="small"
+              {...register('email', {
+                pattern: emailPatternValidator,
+                required: 'Email is required' })
+              }
+              helperText={errors.email?.message ?? ''}
               className={styles.addPerson__inviteInput} />
-            <Button className={styles.addPerson__inviteButton} onClick={() => {
-              props.addPerson(email)
-              props.handleClose()
-            }}>invite</Button>
+            <Button className={styles.addPerson__inviteButton}
+              disabled={!isValid}
+              onClick={handleSubmit(inviteUser)}>
+              Invite
+            </Button>
           </Box>
         </Box>
         <Box className={styles.addPerson__input}>
           <Typography variant='body2'>or create new</Typography>
           <TextField value={name} onChange={e => { setName(e.target.value) }} label='Name' variant='outlined' />
           <TextField value={age} onChange={e => { setAge(e.target.value) }} type='number' label='Age' variant='outlined' />
-          <Button variant='contained' onClick={() => {
-            props.addPerson(createBlankPerson())
-            props.handleClose()
-          }}>create</Button>
+          <Button variant='contained'
+            disabled={createBtnDisabled()}
+            onClick={createNonExistingUser}>
+            Create
+          </Button>
         </Box>
       </Card>
     </Modal>

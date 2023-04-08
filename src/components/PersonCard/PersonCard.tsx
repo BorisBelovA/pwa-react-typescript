@@ -1,12 +1,11 @@
 import { Avatar, Box, IconButton, Typography } from '@mui/material'
-import { type User } from 'models'
+import { type ShortUser } from 'models'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import { ReactComponent as ProgressIcon } from '../../assets/icons/progress.svg'
-import { calculateAge } from 'src/utils/date-time'
 import styles from './PersonCard.module.scss'
 
 interface Props {
-  person: string | User
+  person: string | ShortUser
   waiting?: boolean
   main?: boolean
   handleDelete: (index: number) => void
@@ -17,10 +16,14 @@ const PersonCard = ({ person, waiting, main, handleDelete, index }: Props): JSX.
     <Box className={styles.personCard}>
       <Avatar className={styles.personCard__avatar} />
       <Typography className={styles.personCard__text}>
-        {typeof person === 'string' ? person : `${person.firstName}, ${calculateAge(person.birthday)}`}
+        {typeof person === 'string' ? person : `${person.name}, ${person.age}`}
       </Typography>
-      {typeof person === 'string' && <ProgressIcon />}
-      {(main === false || main === undefined) && <IconButton onClick={() => { handleDelete(index) }}><HighlightOffIcon /></IconButton>}
+      <Box>
+        {typeof person === 'string' && <IconButton><ProgressIcon /></IconButton>}
+        {(main === false || main === undefined) &&
+          <IconButton onClick={() => { handleDelete(index) }}><HighlightOffIcon /></IconButton>
+        }
+      </Box>
     </Box>
   )
 }

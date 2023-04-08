@@ -1,19 +1,20 @@
-import { User } from "./user"
+import { type ShortUser } from './user'
 
+export type Companion = string | ShortUser
 export interface WhoFriends {
   count: number
-  people: (string | User)[]
+  people: Companion[] | undefined
 }
 
 export type CoupleType = 'MF' | 'MM' | 'FF' | 'other'
 export interface WhoCouple {
   kind?: CoupleType
-  partner: string | User
+  partner: Companion | undefined
 }
 export interface WhoFamily {
   adults: number
   kids: number
-  people: (string | User)[]
+  people: Companion[] | undefined
 }
 
 export type PetType = 'cat' | 'dog' | 'fish' | 'bird' | 'other'

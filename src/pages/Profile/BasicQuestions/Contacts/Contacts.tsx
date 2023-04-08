@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material'
 import { type Contact } from 'models'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ContactCard from 'src/components/ContactCard/ContactCard'
 import AddContact from 'src/components/Modals/AddContact/AddContact'
@@ -21,6 +21,10 @@ const Contacts: React.FunctionComponent = () => {
     setQuestions({ ...questions, contacts: [...questions.contacts, contact] })
   }
 
+  const nextBtnDisabled = useMemo(() => {
+    return questions.contacts.length === 0
+  }, [questions.contacts])
+
   useEffect(() => { setActive('contacts') }, [])
   return (
     <Box className={styles.question}>
@@ -39,6 +43,7 @@ const Contacts: React.FunctionComponent = () => {
         <Box></Box>
         <Button variant='contained'
           className={styles.question__button_half}
+          disabled={nextBtnDisabled}
           onClick={() => {
             navigate('/profile/questionnaire-basic-info/apartment')
           }}>

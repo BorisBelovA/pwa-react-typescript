@@ -10,15 +10,15 @@ import { ReactComponent as DogSvg } from '../../../../assets/icons/pets/Dog.svg'
 import { ReactComponent as FishSvg } from '../../../../assets/icons/pets/Fish.svg'
 import { ReactComponent as BirdSvg } from '../../../../assets/icons/pets/Bird.svg'
 import { ReactComponent as OtherSvg } from '../../../../assets/icons/pets/Other.svg'
-import { type Pet } from 'models'
+import { type PetType, type Pet } from 'models'
 import PetList from 'src/components/PetList/PetList'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 
 const Pets: React.FunctionComponent = () => {
   const navigate = useNavigate()
   const { setActive, setPercent } = useActive()
   const { questions, setQuestions } = useBasicQuestions()
-  const petTypes = [
+  const petTypes: Array<{ type: PetType, icon: React.FunctionComponent }> = [
     { type: 'cat', icon: CatSvg },
     { type: 'dog', icon: DogSvg },
     { type: 'fish', icon: FishSvg },
@@ -26,35 +26,57 @@ const Pets: React.FunctionComponent = () => {
     { type: 'other', icon: OtherSvg }
   ]
 
+  const pets = useMemo(() => {
+    return questions.pets ?? []
+  }, [questions.pets])
+
   useEffect(() => {
     setActive('pets')
   }, [])
 
-  const addPet = (type: string): void => {
-    if (questions.pets?.some((pet: Pet) => (pet.type === type)) === true) {
+  const addPet = (type: PetType): void => {
+    if (pets.length === 0) {
+      setQuestions({ ...questions, pets: [{ type, count: 1 }] })
+      return
+    }
+    if (pets.some((pet: Pet) => (pet.type === type))) {
       setQuestions({
         ...questions,
-        pets: questions.pets.map((pet) => ((pet.type === type && pet.count !== undefined)
+        pets: pets.map((pet) => ((pet.type === type && pet.count !== undefined)
           ? { ...pet, count: Number(pet.count) + 1 }
           : { ...pet }))
       })
-    } else if (questions.pets !== undefined) {
-      setQuestions({ ...questions, pets: [...questions.pets, { type, count: 1 }] })
     } else {
-      setQuestions({ ...questions, pets: [{ type, count: 1 }] })
+      setQuestions({ ...questions, pets: [...pets, { type, count: 1 }] })
     }
   }
 
   const deletePet = (type: string): void => {
-    if (questions.pets?.some((pet: Pet) => (pet.type === type)) === true) {
+    if (pets.some((pet: Pet) => (pet.type === type))) {
       setQuestions({
         ...questions,
-        pets: questions.pets.map((pet) => ((pet.type === type && pet.count !== undefined)
-          ? { ...pet, count: pet.count - 1 }
-          : { ...pet }))
+        pets: pets.map(pet => pet.type === type
+          ? ({ ...pet, count: pet.count - 1 })
+          : ({ ...pet })
+        )
       })
     }
   }
+
+  const totalAmountOfPets = useMemo(() => {
+    return pets.reduce((total, pet) => {
+      return total + pet.count
+    }, 0)
+  }, [pets])
+
+  const nextBtnDisabled = useMemo(() => {
+    if (questions.havePets === undefined || questions.havePets === null) {
+      return true
+    }
+    return questions.havePets
+      ? totalAmountOfPets === 0
+      : false
+  }, [questions.havePets, totalAmountOfPets])
 
   return (
     <Box className={styles.question}>
@@ -102,6 +124,7 @@ const Pets: React.FunctionComponent = () => {
         </Button>
         <Button variant='contained'
           fullWidth
+          disabled={nextBtnDisabled}
           onClick={() => {
             navigate('/profile/questionnaire-basic-info/smoking')
           }}>
