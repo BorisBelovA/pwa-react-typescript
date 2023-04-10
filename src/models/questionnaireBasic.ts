@@ -7,10 +7,12 @@ export interface WhoFriends {
 }
 
 export type CoupleType = 'MF' | 'MM' | 'FF' | 'other'
+
 export interface WhoCouple {
   kind?: CoupleType
   partner: Companion | undefined
 }
+
 export interface WhoFamily {
   adults: number
   kids: number
@@ -33,18 +35,22 @@ export interface Contact {
 
 export type RelationsType = 'Friends' | 'Couple' | 'Family' | 'Alone' | undefined
 
+export type WhatSmoke = 'cigarettes' | 'vape' | 'shisha' | 'cigars' | 'other'
+
 export interface QuestionnaireBasicType {
   who: RelationsType
   whoContains?: WhoFriends | WhoFamily | WhoCouple
   havePets?: boolean
   pets?: Pet[]
   smoker?: boolean
-  smokingWhat: string[]
+  smokingWhat: WhatSmoke[]
   languages: string[]
   about: string
   contacts: Contact[]
   apartment?: boolean
 }
+
+// Надо нам добавить типы для курения
 
 /*
 Users Questionnaire

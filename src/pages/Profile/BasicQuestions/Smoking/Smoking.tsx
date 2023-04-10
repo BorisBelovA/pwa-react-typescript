@@ -4,16 +4,17 @@ import { useNavigate } from 'react-router-dom'
 import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
+import { WhatSmoke } from 'models'
 
 const Smoking: React.FunctionComponent = () => {
   const { setActive, setPercent } = useActive()
   const { questions, setQuestions } = useBasicQuestions()
   const navigate = useNavigate()
-  const options = ['cigarettes', 'vape', 'shisha', 'cigars', 'other']
+  const options: WhatSmoke[] = ['cigarettes', 'vape', 'shisha', 'cigars', 'other']
 
   useEffect(() => { setActive('smoking') }, [])
 
-  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>, option: string): void => {
+  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>, option: WhatSmoke): void => {
     if (e.target.checked) {
       setQuestions({ ...questions, smokingWhat: questions.smokingWhat.concat([option]) })
     } else {
