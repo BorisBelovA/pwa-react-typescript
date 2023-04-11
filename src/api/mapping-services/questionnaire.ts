@@ -1,5 +1,5 @@
 import * as models from 'models'
-import * as dto from 'dto'
+import * as dto from '../dto/questionnaire'
 
 export const mapSmokeToDto = (smoke: models.WhatSmoke): dto.SmokeEnum => {
   switch (smoke) {
@@ -150,7 +150,7 @@ export const mapQuestionnaireToDto = (questionnaire: models.QuestionnaireBasicTy
     priceFrom: 1,
     priceTo: 9999,
     currency: dto.CurrencyEnum.USD,
-    sleepingHabits: dto.SleepingHabitsEnum.OTHER,
+    sleepingHabits: dto.SleepingHabitsEnum.LARK,
     alcoholic: dto.AlchoholicEnum.OTHER,
     guests: dto.GuestsEnum.LIKE,
     occupation: dto.OccupationEnum.OTHER,

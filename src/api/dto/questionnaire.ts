@@ -1,72 +1,72 @@
 export const enum PetEnum {
-  CAT = 1,
-  DOG = 2,
-  OTHER = 3
+  CAT,
+  DOG,
+  OTHER
   // надо попросить ребят добавить остальные типы
   // fish | bird
 }
 
 export const enum SmokeEnum {
-  SHISHA = 1,
-  VAPE = 2,
-  SIGARETTES = 3,
-  OTHER = 4
+  SHISHA,
+  VAPE,
+  SIGARETTES,
+  OTHER
 }
 
 export const enum ContactEnum {
-  EMAIL = 1,
-  TELEGRAM = 2,
-  PHONE = 3,
-  FACEBOOK = 4,
-  INSTAGRAM = 5,
-  OTHER = 6
+  EMAIL,
+  TELEGRAM,
+  PHONE,
+  FACEBOOK,
+  INSTAGRAM,
+  OTHER
 }
 
 export const enum CurrencyEnum {
-  USD = 1,
-  EUR = 2,
+  USD,
+  EUR,
 }
 
 export const enum SleepingHabitsEnum {
-  OWL = 1,
-  LARK = 2,
-  OTHER = 3,
+  OWL,
+  LARK,
+  OTHER,
 }
 
 export const enum AlchoholicEnum {
-  AGAINST_DRINK = 1,
-  NOT_AGAINST_DRINK = 2,
-  SOMETIMES_DRINK = 3,
-  PARTLY_DRINK = 4,
-  ABUSER = 5,
-  OTHER = 6
+  AGAINST_DRINK,
+  NOT_AGAINST_DRINK,
+  SOMETIMES_DRINK,
+  PARTLY_DRINK,
+  ABUSER,
+  OTHER
 }
 
 export const enum GuestsEnum {
-  LIKE = 1,
-  SOMETIMES = 2,
-  PREFER_NOT_INVITE = 3,
-  AGAINST_IT = 4,
+  LIKE,
+  SOMETIMES,
+  PREFER_NOT_INVITE,
+  AGAINST_IT,
 }
 
 export const enum OccupationEnum {
-  INFORMATION_TECHNOLOGY = 1,
-  OTHER = 2
+  INFORMATION_TECHNOLOGY,
+  OTHER
 }
 
 export const enum HouseholdEnum {
-  JOINT = 1,
-  SEPARATE = 2,
+  JOINT,
+  SEPARATE,
 }
 
 export const enum MeetingEnum {
-  ONLINE = 1,
-  PERSON = 2
+  ONLINE,
+  PERSON
 }
 
 /** */
 
-export interface Questionnaire {
+export type Questionnaire = {
   isHavePets: boolean
   petTypes: PetEnum[]
   isSmoke: boolean
@@ -89,4 +89,11 @@ export interface Questionnaire {
   householdType: HouseholdEnum
   likeSmokers: boolean
   meetingType: MeetingEnum
+}
+
+export type CreateQuestFormResponse = Questionnaire &{ 
+  id: number
+  owner: {
+
+  }
 }

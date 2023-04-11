@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Outlet, useOutletContext } from 'react-router-dom'
+import { type LoadingBackdropOutletContext } from 'src/components/LoadingBackdrop/LoadingBackdrop'
+import { type MessageAlertOutletContext } from 'src/components/MessageAlert/MessageAlert'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
 import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
 import { type WhoCouple, type WhoFamily, type WhoFriends, type Pet, type QuestionnaireBasicType } from 'src/models/questionnaireBasic'
+import { useMainContext } from '../Main/MainLayout'
 
 const QuestionnaireBasic: React.FunctionComponent = () => {
   const { items, setPercent, setActive, setPercentAndGo } = useProgressSlider({
@@ -97,17 +100,24 @@ const QuestionnaireBasic: React.FunctionComponent = () => {
   return (
     <>
       <ProgressSlider items={items} setActive={setActive} />
-      <Outlet context={{ setActive, setPercent, questions, setQuestions, setPercentAndGo }} />
+      <Outlet context={{
+        setActive,
+        setPercent,
+        questions,
+        setQuestions,
+        setPercentAndGo,
+        ...useMainContext()
+      }} />
     </>
   )
 }
 export default QuestionnaireBasic
 
-interface ContextType {
+export interface BasicQuestionnaireContext {
   questions: QuestionnaireBasicType
   setQuestions: React.Dispatch<React.SetStateAction<QuestionnaireBasicType>>
 }
 
-export const useBasicQuestions = (): ContextType => {
-  return useOutletContext<ContextType>()
+export const useBasicQuestions = (): BasicQuestionnaireContext => {
+  return useOutletContext<BasicQuestionnaireContext>()
 }
