@@ -1,39 +1,84 @@
-import { User } from "./user"
+import { type ShortUser } from './user'
 
+export type Companion = string | ShortUser
 export interface WhoFriends {
   count: number
-  people: (string | User)[]
+  people: Companion[] | undefined
 }
+
+export type CoupleType = 'MF' | 'MM' | 'FF' | 'other'
+
 export interface WhoCouple {
-  kind?: 'MF' | 'MM' | 'FF' | 'other' | undefined
-  partner: string | User
+  kind?: CoupleType
+  partner: Companion | undefined
 }
+
 export interface WhoFamily {
   adults: number
   kids: number
-  people: (string | User)[]
+  people: Companion[] | undefined
 }
 
+export type PetType = 'cat' | 'dog' | 'fish' | 'bird' | 'other'
 export interface Pet {
-  type: 'cat' | 'dog' | 'fish' | 'bird' | 'other'
+  type: PetType
   count: number
 }
 
+export type ContactType = 'email' | 'phone' | 'telegram' | 'instagram' | 'other'
+
 export interface Contact {
-  type: 'email' | 'phone' | 'telegram' | 'instagram' | 'other'
+  type: ContactType
   contact: string
   hidden: boolean
 }
 
+export type RelationsType = 'Friends' | 'Couple' | 'Family' | 'Alone' | undefined
+
+export type WhatSmoke = 'cigarettes' | 'vape' | 'shisha' | 'cigars' | 'other'
+
 export interface QuestionnaireBasicType {
-  who: 'Friends' | 'Couple' | 'Family' | 'Alone' | undefined
+  who: RelationsType
   whoContains?: WhoFriends | WhoFamily | WhoCouple
   havePets?: boolean
   pets?: Pet[]
   smoker?: boolean
-  smokingWhat: string[]
+  smokingWhat: WhatSmoke[]
   languages: string[]
   about: string
   contacts: Contact[]
   apartment?: boolean
 }
+
+// Надо нам добавить типы для курения
+
+/*
+Users Questionnaire
+  Basic Info
+    Name
+    Surname
+    Gender
+    Birthday
+  Personal Info
+    who's looking
+    pets
+      have pets?
+      type of pets
+    smoke
+      do you smoke?
+      types of smoke
+    languages
+    about
+  Additional Info
+    sleeping habbits
+    alchohol?
+    like guests?
+    work
+  Contacts
+    Email
+    Telegram
+    Phone
+    FB
+    Instagram
+    Other? Мне кажется, что можно выпилить
+*/

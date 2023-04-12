@@ -1,25 +1,45 @@
 import { Box, Button, Checkbox, FormControlLabel, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
+import { WhatSmoke } from 'models'
 
 const Smoking: React.FunctionComponent = () => {
   const { setActive, setPercent } = useActive()
   const { questions, setQuestions } = useBasicQuestions()
   const navigate = useNavigate()
-  const options = ['cigarettes', 'vape', 'shisha', 'cigars', 'other']
+  const options: WhatSmoke[] = ['cigarettes', 'vape', 'shisha', 'cigars', 'other']
 
   useEffect(() => { setActive('smoking') }, [])
 
-  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>, option: string): void => {
+  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>, option: WhatSmoke): void => {
     if (e.target.checked) {
-      setQuestions({ ...questions, smokingWhat: questions.smokingWhat !== undefined ? [...questions.smokingWhat, option] : [option] })
-    } else if (questions.smokingWhat !== undefined) {
+      setQuestions({ ...questions, smokingWhat: questions.smokingWhat.concat([option]) })
+    } else {
       setQuestions({ ...questions, smokingWhat: questions.smokingWhat.filter((item) => (item !== option)) })
     }
   }
+
+  const setIsSmoker = (e: React.MouseEvent<HTMLElement, MouseEvent>, value: boolean | null): void => {
+    setQuestions({
+      ...questions,
+      smoker: value === null
+        ? undefined
+        : value
+    })
+  }
+
+  const nextBtnDisabled = useMemo(() => {
+    const smoker = questions.smoker
+    if (smoker === undefined) {
+      return true
+    }
+    return smoker
+      ? questions.smokingWhat.length === 0
+      : false
+  }, [questions.smoker, questions.smokingWhat])
 
   return (
     <Box className={styles.question}>
@@ -30,9 +50,7 @@ const Smoking: React.FunctionComponent = () => {
           color='primary'
           value={questions.smoker}
           exclusive
-          onChange={(e, value) => {
-            setQuestions({ ...questions, smoker: value })
-          }}>
+          onChange={setIsSmoker}>
           <ToggleButton value={false}>no</ToggleButton>
           <ToggleButton value={true}>yes</ToggleButton>
         </ToggleButtonGroup>
@@ -48,7 +66,7 @@ const Smoking: React.FunctionComponent = () => {
                     key={index}
                     control={<Checkbox
                       value=''
-                      checked={questions.smokingWhat?.some(what => what === option)}
+                      checked={questions.smokingWhat.some(what => what === option)}
                       onChange={(e) => { handleCheck(e, option) }}
                     />}
                     label={option} />
@@ -70,6 +88,7 @@ const Smoking: React.FunctionComponent = () => {
         </Button>
         <Button variant='contained'
           fullWidth
+          disabled={nextBtnDisabled}
           onClick={() => {
             navigate('/profile/questionnaire-basic-info/languages')
           }}>

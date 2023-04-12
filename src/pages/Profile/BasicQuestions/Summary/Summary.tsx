@@ -6,11 +6,18 @@ import { useActive } from 'src/components'
 import ProfileCard from 'src/components/ProfileCard/ProfileCard'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
+import { q } from 'api-services'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 const Summary = (): JSX.Element => {
   const navigate = useNavigate()
   const { setActive } = useActive()
   const { questions } = useBasicQuestions()
+  const {
+    setBackdropVisible,
+    setBackdropMessage,
+    setMessage
+  } = useMainContext()
   const tempUser: User = {
     firstName: 'Anonymous',
     lastName: '',
@@ -19,6 +26,28 @@ const Summary = (): JSX.Element => {
     birthday: new Date('10.01.1986'),
     phone: '',
     photo: ''
+  }
+
+  const finishQuest = (): void => {
+    console.log(questions)
+    setBackdropVisible(true)
+    setBackdropMessage('Sending questionnaire data')
+    q.createQuestForm(questions)
+      .then((_) => {
+        setBackdropMessage('Almost done')
+        setTimeout(() => {
+          navigate('/profile/')
+        }, 2000)
+      })
+      .catch(err => {
+        console.error(err)
+        setBackdropVisible(false)
+        setMessage({
+          visible: true,
+          text: err.message,
+          severity: 'error'
+        })
+      })
   }
 
   useEffect(() => { setActive('summary') }, [])
@@ -34,9 +63,7 @@ const Summary = (): JSX.Element => {
         <Box></Box>
         <Button variant='contained'
           className={styles.question__button_half}
-          onClick={() => {
-            navigate('/profile/')
-          }}>
+          onClick={(e) => { finishQuest() }}>
           Finish
         </Button>
       </Box>

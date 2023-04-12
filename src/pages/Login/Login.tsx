@@ -9,14 +9,10 @@ import utilityStyles from '../../styles/utility.module.scss'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { userApiService, sessionService } from 'api-services'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
+import { emailPatternValidator } from 'src/utils/validations'
 interface SignUpForm {
   email: string
   password: string
-}
-
-const emailPatternValidator = {
-  value: /.+@.+\..+/,
-  message: 'Incorrect email pattern'
 }
 
 const minLength = (length: number): ValidationRule<number> => ({
@@ -78,16 +74,15 @@ export const Login = (): JSX.Element => {
       <Typography>New to roommate.host? <Link to='/auth/signup'><Typography component='span' sx={{ color: theme.palette.primary.main }}>Sign up</Typography></Link></Typography>
     </Box>
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem', width: '100%', alignItems: 'center' }}>
-      <TextField fullWidth label="e-mail"
+      <TextField fullWidth label="E-mail"
         type='email'
-
         error={!(errors.email == null)}
         variant="outlined"
         size="small"
         {...register('email', { pattern: emailPatternValidator, required: 'Email is required' })}
         helperText={errors.email?.message ?? ''} />
 
-      <TextField fullWidth label="password"
+      <TextField fullWidth label="Password"
         type={showPassword ? 'text' : 'password'}
         error={!(errors.password == null)}
         variant="outlined"

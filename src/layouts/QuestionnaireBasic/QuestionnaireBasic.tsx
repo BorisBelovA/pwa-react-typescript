@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Outlet, useOutletContext } from 'react-router-dom'
+import { type LoadingBackdropOutletContext } from 'src/components/LoadingBackdrop/LoadingBackdrop'
+import { type MessageAlertOutletContext } from 'src/components/MessageAlert/MessageAlert'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
 import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
 import { type WhoCouple, type WhoFamily, type WhoFriends, type Pet, type QuestionnaireBasicType } from 'src/models/questionnaireBasic'
+import { useMainContext } from '../Main/MainLayout'
 
 const QuestionnaireBasic: React.FunctionComponent = () => {
   const { items, setPercent, setActive, setPercentAndGo } = useProgressSlider({
@@ -42,8 +45,8 @@ const QuestionnaireBasic: React.FunctionComponent = () => {
         (questions.whoContains as WhoFriends)?.count > 0
         ? 1
         : 0
-      const isFriends: number = (questions.whoContains as WhoFriends)?.people !== undefined &&
-        (questions.whoContains as WhoFriends)?.people.length > 0
+      const friends = (questions.whoContains as WhoFriends)?.people ?? []
+      const isFriends: number = friends.length > 0
         ? 1
         : 0
       setPercent(1 + isCount + isFriends, 3, 'who')
@@ -56,8 +59,8 @@ const QuestionnaireBasic: React.FunctionComponent = () => {
         (questions.whoContains as WhoFamily)?.adults > 0
         ? 1
         : 0
-      const isFamily: number = (questions.whoContains as WhoFamily)?.people !== undefined &&
-        (questions.whoContains as WhoFamily)?.people.length > 0
+      const members = (questions.whoContains as WhoFamily)?.people ?? []
+      const isFamily: number = members.length > 0
         ? 1
         : 0
       setPercent(1 + isKids + isAdults + isFamily, 4, 'who')
@@ -97,17 +100,24 @@ const QuestionnaireBasic: React.FunctionComponent = () => {
   return (
     <>
       <ProgressSlider items={items} setActive={setActive} />
-      <Outlet context={{ setActive, setPercent, questions, setQuestions, setPercentAndGo }} />
+      <Outlet context={{
+        setActive,
+        setPercent,
+        questions,
+        setQuestions,
+        setPercentAndGo,
+        ...useMainContext()
+      }} />
     </>
   )
 }
 export default QuestionnaireBasic
 
-interface ContextType {
+export interface BasicQuestionnaireContext {
   questions: QuestionnaireBasicType
-  setQuestions: any
+  setQuestions: React.Dispatch<React.SetStateAction<QuestionnaireBasicType>>
 }
 
-export const useBasicQuestions = (): ContextType => {
-  return useOutletContext<ContextType>()
+export const useBasicQuestions = (): BasicQuestionnaireContext => {
+  return useOutletContext<BasicQuestionnaireContext>()
 }

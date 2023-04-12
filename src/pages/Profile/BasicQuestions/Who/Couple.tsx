@@ -1,11 +1,10 @@
 import { Box, Button, IconButton, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
-import { type User } from 'models'
-import { useState } from 'react'
+import { type ShortUser, type CoupleType, type WhoCouple } from 'models'
+import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AddPerson from 'src/components/Modals/AddPerson/AddPerson'
 import PersonCard from 'src/components/PersonCard/PersonCard'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
-import { type WhoCouple } from 'src/models/questionnaireBasic'
 import { ReactComponent as SwitchIcon } from '../../../../assets/icons/switch.svg'
 import styles from './Who.module.scss'
 
@@ -13,10 +12,18 @@ const Couple: React.FunctionComponent = () => {
   const navigate = useNavigate()
   const { questions, setQuestions } = useBasicQuestions()
   const [open, setOpen] = useState(false)
+  const coupleTypes: CoupleType[] = [
+    'MF',
+    'FF',
+    'MM',
+    'other'
+  ]
+
+  const nextDisabled = questions.who === undefined || questions.whoContains === undefined
 
   const handleOpen = (): void => { setOpen(true) }
   const handleClose = (): void => { setOpen(false) }
-  const addPerson = (person: string | User): void => {
+  const addPerson = (person: string | ShortUser): void => {
     setQuestions({
       ...questions,
       whoContains: { ...questions.whoContains, partner: person }
@@ -28,6 +35,28 @@ const Couple: React.FunctionComponent = () => {
       whoContains: { ...questions.whoContains, partner: undefined }
     })
   }
+
+  const selectCoupleType = (
+    // Specific ReactMouseEvent interface required for ToggleButtonComponent
+    event: React.MouseEvent<HTMLElement>,
+    // When select button - returns CoupleType
+    // When deselect - null
+    kind: CoupleType | null
+  ): void => {
+    const whoContains: WhoCouple = {
+      kind: kind ?? undefined,
+      partner
+    }
+    setQuestions({
+      ...questions,
+      whoContains
+    })
+  }
+
+  const partner = useMemo(() => {
+    const whoContains = questions.whoContains as WhoCouple | undefined
+    return whoContains?.partner
+  }, [(questions.whoContains as WhoCouple | undefined)])
 
   return (
     <Box className={styles.who}>
@@ -45,13 +74,12 @@ const Couple: React.FunctionComponent = () => {
           color='primary'
           value={(questions.whoContains as WhoCouple)?.kind}
           exclusive
-          onChange={(e, value) => {
-            setQuestions({ ...questions, whoContains: { ...questions.whoContains, kind: value } })
-          }}>
-          <ToggleButton value='MF'>MF</ToggleButton>
-          <ToggleButton value='MM'>MM</ToggleButton>
-          <ToggleButton value='FF'>FF</ToggleButton>
-          <ToggleButton value='other'>other</ToggleButton>
+          onChange={selectCoupleType}>
+          {
+            coupleTypes.map(
+              (type, idx) => <ToggleButton key={idx} value={type}>{type}</ToggleButton>
+            )
+          }
         </ToggleButtonGroup>
       </Box>
       <Box className={styles.who__add}>
@@ -59,18 +87,19 @@ const Couple: React.FunctionComponent = () => {
         <Button variant='outlined' onClick={handleOpen}>Add partner</Button>
       </Box>
       <Box className={styles.who__persons}>
-        {(questions.whoContains as WhoCouple)?.partner !== undefined &&
-          <PersonCard person={(questions.whoContains as WhoCouple).partner} waiting index={0} handleDelete={handleDelete} />}
+        {partner !== undefined &&
+          <PersonCard person={partner} waiting index={0} handleDelete={handleDelete} />}
       </Box>
       <Box className={styles.who__nav}>
         <Button
+          disabled={nextDisabled}
           className={styles.who__navButton}
           variant='contained'
           onClick={() => {
             navigate('/profile/questionnaire-basic-info/pets')
           }}>Next</Button>
       </Box>
-      <AddPerson open={open} handleClose={handleClose} who='partner' addPerson={addPerson} />
+      { open && <AddPerson open={open} handleClose={handleClose} who='partner' addPerson={addPerson} />}
     </Box>
   )
 }

@@ -7,6 +7,11 @@ export interface PersonalInfo {
   birthday: Date
 }
 
+export interface ShortUser {
+  name: string
+  age: number
+}
+
 export type User = PersonalInfo & {
   phone: string | null
   photo: string | null
@@ -30,5 +35,4 @@ export type EmptyPersonalInfo = {
 export type NewUser = {
   [key in keyof UserForm]: UserForm[key] | undefined
 }
-
 ///

@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
-import { type User, type WhoFamily } from 'models'
-import { useState } from 'react'
+import { type ShortUser, type WhoFamily } from 'models'
+import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from './Who.module.scss'
@@ -15,40 +15,69 @@ const Family: React.FunctionComponent = () => {
 
   const handleOpen = (): void => { setOpen(true) }
   const handleClose = (): void => { setOpen(false) }
-  const addPerson = (person: string | User): void => {
-    if ((questions.whoContains as WhoFamily).people !== undefined) {
+
+  const familyMembers = useMemo(() => {
+    const whoContains = (questions.whoContains as WhoFamily)
+    return whoContains?.people ?? []
+  }, [(questions.whoContains as WhoFamily)?.people])
+
+  const adults = useMemo(() => {
+    const whoContains = (questions.whoContains as WhoFamily)
+    return whoContains.adults ?? 0
+  }, [(questions.whoContains as WhoFamily)?.adults])
+
+  const kids = useMemo(() => {
+    const whoContains = (questions.whoContains as WhoFamily)
+    return whoContains?.kids
+  }, [(questions.whoContains as WhoFamily)?.kids])
+
+  const addPerson = (person: string | ShortUser): void => {
+    setQuestions({
+      ...questions,
+      whoContains: {
+        ...questions.whoContains,
+        people: [
+          ...familyMembers,
+          person
+        ]
+      } as WhoFamily
+    })
+  }
+
+  const handleDelete = (index: number): void => {
+    if (familyMembers !== undefined) {
       setQuestions({
         ...questions,
         whoContains: {
           ...questions.whoContains,
-          people: [
-            ...(questions.whoContains as WhoFamily).people,
-            person
-          ]
-        }
-      })
-    } else {
-      setQuestions({
-        ...questions,
-        whoContains: {
-          ...questions.whoContains,
-          people: [
-            person
-          ]
-        }
+          people: familyMembers.filter((s, i) => i !== index)
+        } as WhoFamily
       })
     }
   }
-  const handleDelete = (index: number): void => {
-    if ((questions.whoContains as WhoFamily).people !== undefined) {
-      setQuestions({
-        ...questions,
-        whoContains: {
-          ...questions.whoContains,
-          people: (questions.whoContains as WhoFamily).people.filter((s, i) => i !== index)
-        }
-      })
-    }
+
+  const onAdultsNumberChange = (evt: React.MouseEvent<HTMLElement, MouseEvent>, count: number): void => {
+    setQuestions({
+      ...questions,
+      whoContains: {
+        ...questions.whoContains,
+        adults: count
+      } as WhoFamily
+    })
+  }
+
+  const onKidsNumberChange = (evt: React.MouseEvent<HTMLElement, MouseEvent>, count: number): void => {
+    setQuestions({
+      ...questions,
+      whoContains: {
+        ...questions.whoContains,
+        kids: count
+      } as WhoFamily
+    })
+  }
+
+  const nextButtonDisable = (): boolean => {
+    return adults === 0 || (kids === undefined || kids === null)
   }
 
   return (
@@ -67,19 +96,11 @@ const Family: React.FunctionComponent = () => {
           color='primary'
           value={(questions.whoContains as WhoFamily)?.adults}
           exclusive
-          onChange={(e, value) => {
-            setQuestions({
-              ...questions,
-              whoContains: {
-                ...questions.whoContains,
-                adults: value
-              }
-            })
-          }}>
-          <ToggleButton value='1'>1</ToggleButton>
-          <ToggleButton value='2'>2</ToggleButton>
-          <ToggleButton value='3'>3</ToggleButton>
-          <ToggleButton value='4'>more</ToggleButton>
+          onChange={onAdultsNumberChange}>
+          <ToggleButton value={1}>1</ToggleButton>
+          <ToggleButton value={2}>2</ToggleButton>
+          <ToggleButton value={3}>3</ToggleButton>
+          <ToggleButton value={4}>more</ToggleButton>
         </ToggleButtonGroup>
       </Box>
       <Box className={styles.who__input}>
@@ -90,20 +111,12 @@ const Family: React.FunctionComponent = () => {
           color='primary'
           value={(questions.whoContains as WhoFamily)?.kids}
           exclusive
-          onChange={(e, value) => {
-            setQuestions({
-              ...questions,
-              whoContains: {
-                ...questions.whoContains,
-                kids: value
-              }
-            })
-          }}>
-          <ToggleButton value='0'>0</ToggleButton>
-          <ToggleButton value='1'>1</ToggleButton>
-          <ToggleButton value='2'>2</ToggleButton>
-          <ToggleButton value='3'>3</ToggleButton>
-          <ToggleButton value='4'>more</ToggleButton>
+          onChange={onKidsNumberChange}>
+          <ToggleButton value={0}>0</ToggleButton>
+          <ToggleButton value={1}>1</ToggleButton>
+          <ToggleButton value={2}>2</ToggleButton>
+          <ToggleButton value={3}>3</ToggleButton>
+          <ToggleButton value={4}>more</ToggleButton>
         </ToggleButtonGroup>
       </Box>
       <Box className={styles.who__add}>
@@ -111,15 +124,15 @@ const Family: React.FunctionComponent = () => {
         <Button variant='outlined' onClick={handleOpen}>Add a family member</Button>
       </Box>
       <Box className={styles.who__persons}>
-        {(questions.whoContains as WhoFamily)?.people !== undefined &&
-          ((questions.whoContains as WhoFamily)?.people.length > 0 &&
-            (questions.whoContains as WhoFamily).people.map((friend, index) =>
-              <PersonCard key={index} person={friend} waiting index={index} handleDelete={handleDelete} />))}
+        {familyMembers.map((member, index) =>
+          <PersonCard key={index} person={member} waiting index={index} handleDelete={handleDelete} />)
+        }
       </Box>
       <Box className={styles.who__nav}>
         <Button
           className={styles.who__navButton}
           variant='contained'
+          disabled={nextButtonDisable()}
           onClick={() => {
             navigate('/profile/questionnaire-basic-info/pets')
           }}>Next</Button>

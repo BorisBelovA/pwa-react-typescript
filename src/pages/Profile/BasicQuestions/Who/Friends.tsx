@@ -1,10 +1,10 @@
 import { Box, Button, IconButton, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
 import styles from './Who.module.scss'
 import { ReactComponent as SwitchIcon } from '../../../../assets/icons/switch.svg'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
-import { type User, type WhoFriends } from 'models'
+import { type ShortUser, type WhoFriends } from 'models'
 import PersonCard from 'src/components/PersonCard/PersonCard'
 import AddPerson from 'src/components/Modals/AddPerson/AddPerson'
 
@@ -15,35 +15,43 @@ const Friends: React.FunctionComponent = () => {
 
   const handleOpen = (): void => { setOpen(true) }
   const handleClose = (): void => { setOpen(false) }
-  const addPerson = (person: string | User): void => {
-    if ((questions.whoContains as WhoFriends).people !== undefined) {
+
+  const friends = useMemo(() => {
+    const whoContains = questions.whoContains as WhoFriends | undefined
+    return whoContains?.people
+  }, [(questions.whoContains as WhoFriends | undefined)])
+
+  const addPerson = (person: string | ShortUser): void => {
+    setQuestions({
+      ...questions,
+      whoContains: {
+        ...questions.whoContains,
+        people: [...(friends ?? []), person]
+      } as WhoFriends
+    })
+  }
+
+  const handleDelete = (index: number): void => {
+    if (friends !== undefined) {
       setQuestions({
         ...questions,
         whoContains: {
           ...questions.whoContains,
-          people: [...(questions.whoContains as WhoFriends).people, person]
-        }
-      })
-    } else {
-      setQuestions({
-        ...questions,
-        whoContains: {
-          ...questions.whoContains,
-          people: [person]
-        }
+          people: friends.filter((s, i) => i !== index)
+        } as WhoFriends
       })
     }
   }
-  const handleDelete = (index: number): void => {
-    if ((questions.whoContains as WhoFriends).people !== undefined) {
-      setQuestions({
-        ...questions,
-        whoContains: {
-          ...questions.whoContains,
-          people: (questions.whoContains as WhoFriends).people.filter((s, i) => i !== index)
-        }
-      })
-    }
+
+  const onFriendsAmountChange = (evt: React.MouseEvent<HTMLElement, MouseEvent>, count: number | null): void => {
+    setQuestions({
+      ...questions,
+      whoContains: { ...questions.whoContains, count: count ?? 0 } as WhoFriends
+    })
+  }
+  const nextBtnDisabled = (): boolean => {
+    const count = (questions.whoContains as WhoFriends)?.count ?? 0
+    return count === 0
   }
 
   return (
@@ -62,19 +70,11 @@ const Friends: React.FunctionComponent = () => {
           color='primary'
           value={(questions.whoContains as WhoFriends)?.count}
           exclusive
-          onChange={(e, value) => {
-            setQuestions({
-              ...questions,
-              whoContains: {
-                ...questions.whoContains,
-                count: value
-              }
-            })
-          }}>
-          <ToggleButton value='2'>2</ToggleButton>
-          <ToggleButton value='3'>3</ToggleButton>
-          <ToggleButton value='4'>4</ToggleButton>
-          <ToggleButton value='5'>more</ToggleButton>
+          onChange={onFriendsAmountChange}>
+          <ToggleButton value={2}>2</ToggleButton>
+          <ToggleButton value={3}>3</ToggleButton>
+          <ToggleButton value={4}>4</ToggleButton>
+          <ToggleButton value={5}>more</ToggleButton>
         </ToggleButtonGroup>
       </Box>
       <Box className={styles.who__add}>
@@ -82,19 +82,21 @@ const Friends: React.FunctionComponent = () => {
         <Button variant='outlined' onClick={handleOpen}>Add friend</Button>
       </Box>
       <Box className={styles.who__persons}>
-        {(questions.whoContains as WhoFriends)?.people !== undefined && ((questions.whoContains as WhoFriends)?.people.length > 0 &&
-          (questions.whoContains as WhoFriends).people.map((friend, index) =>
-            <PersonCard key={index} person={friend} waiting index={index} handleDelete={handleDelete} />))}
+        {friends !== undefined && friends.length > 0 &&
+          friends.map((friend, index) =>
+            <PersonCard key={index} person={friend} waiting index={index} handleDelete={handleDelete} />)
+        }
       </Box>
       <Box className={styles.who__nav}>
         <Button
           className={styles.who__navButton}
           variant='contained'
+          disabled={nextBtnDisabled()}
           onClick={() => {
             navigate('/profile/questionnaire-basic-info/pets')
           }}>Next</Button>
       </Box>
-      <AddPerson open={open} handleClose={handleClose} who='friend' addPerson={addPerson} />
+      {open && <AddPerson open={open} handleClose={handleClose} who='friend' addPerson={addPerson} />}
     </Box>
   )
 }
