@@ -28,7 +28,8 @@ export const mapUserToDto = (model: models.AuthUser): dto.UserDto => {
     gender: mapGenderToDto(model.gender),
     birthday: moment(model.birthday).format('YYYY-MM-DD'),
     phone: model.phone ?? undefined,
-    photo: model.phone ?? undefined
+    photo: model.phone ?? undefined,
+    avatar: model.avatar ?? undefined
   }
 }
 
@@ -43,11 +44,11 @@ export const mapUserToModel = (dto: dto.UserDto): models.AuthUser => {
     birthday: new Date(),
     phone: dto.phone ?? null,
     photo: dto.photo ?? null,
-    avatar: null
+    avatar: dto.avatar ?? null
   }
 }
 
-export const mapUserFormToDto = (model: models.UserForm): dto.UserInfo => {
+export const mapUserFormToDto = (model: models.UserForm): dto.UserForm => {
   return {
     email: model.email,
     password: model.password,
@@ -56,6 +57,11 @@ export const mapUserFormToDto = (model: models.UserForm): dto.UserInfo => {
     gender: mapGenderToDto(model.gender),
     birthday: moment(model.birthday).format('YYYY-MM-DD'),
     phone: model.phone ?? undefined,
-    photo: model.photo ?? undefined
+    avatar: !!model.avatar ? 'avatar' : undefined,
+    photo: !!model.photo ? 'full-photo' : undefined
   }
+}
+
+export const mapBase64ToFile = (base64: string, name: string): File => {
+  return new File([new Blob([base64])], name)
 }

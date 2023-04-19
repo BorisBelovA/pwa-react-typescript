@@ -11,12 +11,14 @@ const Profile: React.FunctionComponent = observer(() => {
   return (
     <Box className={styles.profile__container}>
       <Box className={styles.profile__header}>
-        <Avatar />
-        <Typography variant='h2'> Hi
-        {userStore.firstName &&
-            `${userStore.firstName} ${userStore.lastName}`
-        }
-        </Typography>
+        <Box className={styles.profile__header__avatar_and_name}>
+          <Avatar src={userStore.avatar ?? ''} />
+          <Typography variant='h2'>Hi,
+            {userStore.firstName &&
+              ` ${userStore.firstName} ${userStore.lastName}`
+            }
+          </Typography>
+        </Box>
         <IconButton>
           <LogoutRoundedIcon color='primary' />
         </IconButton>

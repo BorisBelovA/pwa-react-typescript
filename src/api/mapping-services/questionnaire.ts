@@ -1,7 +1,7 @@
 import * as models from 'models'
 import * as dto from '../dto/questionnaire'
 
-export const mapSmokeToDto = (smoke: models.WhatSmoke): dto.SmokeEnum => {
+export const mapSmokeTypeToDto = (smoke: models.WhatSmoke): dto.SmokeEnum => {
   switch (smoke) {
     case 'cigarettes': {
       return dto.SmokeEnum.SIGARETTES
@@ -24,7 +24,7 @@ export const mapSmokeToDto = (smoke: models.WhatSmoke): dto.SmokeEnum => {
   }
 }
 
-export const mapSmokeToModel = (smoke: dto.SmokeEnum): models.WhatSmoke => {
+export const mapSmokeTypeToModel = (smoke: dto.SmokeEnum): models.WhatSmoke => {
   switch (smoke) {
     case dto.SmokeEnum.SIGARETTES: {
       return 'cigarettes'
@@ -44,7 +44,7 @@ export const mapSmokeToModel = (smoke: dto.SmokeEnum): models.WhatSmoke => {
   }
 }
 
-export const mapPetToDto = (pet: models.PetType): dto.PetEnum => {
+export const mapPetTypeToDto = (pet: models.PetType): dto.PetEnum => {
   switch (pet) {
     case 'dog': {
       return dto.PetEnum.DOG
@@ -66,7 +66,7 @@ export const mapPetToDto = (pet: models.PetType): dto.PetEnum => {
   }
 }
 
-export const mapPetToModel = (pet: dto.PetEnum): models.PetType => {
+export const mapPetTypeToModel = (pet: dto.PetEnum): models.PetType => {
   switch (pet) {
     case dto.PetEnum.DOG: {
       return 'dog'
@@ -78,12 +78,12 @@ export const mapPetToModel = (pet: dto.PetEnum): models.PetType => {
       return 'other'
     }
     default: {
-      throw new Error('Unknown pet DTO value!')
+      throw new Error(`Unknown pet DTO value! ${pet}`)
     }
   }
 }
 
-export const mapContactToDto = (contact: models.ContactType): dto.ContactEnum => {
+export const mapContactTypeToDto = (contact: models.ContactType): dto.ContactEnum => {
   switch (contact) {
     case 'email': {
       return dto.ContactEnum.EMAIL
@@ -109,7 +109,7 @@ export const mapContactToDto = (contact: models.ContactType): dto.ContactEnum =>
   }
 }
 
-export const mapContactToModel = (contact: dto.ContactEnum): models.ContactType => {
+export const mapContactTypeToModel = (contact: dto.ContactEnum): models.ContactType => {
   switch (contact) {
     case dto.ContactEnum.EMAIL: {
       return 'email'
@@ -136,12 +136,12 @@ export const mapContactToModel = (contact: dto.ContactEnum): models.ContactType 
 export const mapQuestionnaireToDto = (questionnaire: models.QuestionnaireBasicType): dto.Questionnaire => {
   return {
     isHavePets: questionnaire.havePets ?? false,
-    petTypes: questionnaire.pets ? questionnaire.pets.map(p => mapPetToDto(p.type)) : [],
+    petTypes: questionnaire.pets ? questionnaire.pets.map(p => mapPetTypeToDto(p.type)) : [],
     isSmoke: questionnaire.smoker ?? false,
-    smokeTypes: questionnaire.smokingWhat.map(s => mapSmokeToDto(s)),
+    smokeTypes: questionnaire.smokingWhat.map(s => mapSmokeTypeToDto(s)),
     languageTypes: [1],
     aboutMe: questionnaire.about,
-    contactTypes: questionnaire.contacts.map(c => mapContactToDto(c.type)),
+    contactTypes: questionnaire.contacts.map(c => mapContactTypeToDto(c.type)),
     ageFrom: 18,
     ageTo: 9999,
     isHaveApartment: false,
@@ -158,4 +158,42 @@ export const mapQuestionnaireToDto = (questionnaire: models.QuestionnaireBasicTy
     likeSmokers: false,
     meetingType: dto.MeetingEnum.ONLINE
   }
+}
+
+export const mapQuestionnaireToModel = (questionnaire: dto.Questionnaire): models.QuestionnaireBasicType => {
+  return {
+    who: 'Alone',
+    whoContains: undefined,
+    havePets: questionnaire.isHavePets,
+    pets: mapPetToModel(questionnaire.petTypes),
+    smoker: questionnaire.isSmoke,
+    smokingWhat: questionnaire.smokeTypes.map(s => mapSmokeTypeToModel(s)),
+    languages: ['russian'],
+    about: questionnaire.aboutMe,
+    contacts: mapContactsToModel(questionnaire.contactTypes),
+    apartment: questionnaire.isHaveApartment
+  }
+}
+
+export const mapPetToModel = (pets: dto.PetEnum[]): models.Pet[] => {
+  const record: Record<models.PetType, number> = {
+    other: 0,
+    cat: 0,
+    dog: 0,
+    fish: 0,
+    bird: 0
+  }
+  pets.forEach(p => {
+    const type = mapPetTypeToModel(p)
+    record[type] ++
+  })
+  return Object.entries(record).map(([type, count]) => ({ type, count } as models.Pet))
+}
+
+export const mapContactsToModel = (contacts: dto.ContactEnum[]): models.Contact[] => {
+  return contacts.map(c => ({
+    type: mapContactTypeToModel(c),
+    hidden: false,
+    contact: ''
+  }))
 }

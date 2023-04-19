@@ -1,3 +1,5 @@
 export * from './common-interfaces'
 export * from './user'
 export * from './questionnaire'
+export * from './apartment'
+export * from './api-responses'

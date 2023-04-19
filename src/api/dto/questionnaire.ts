@@ -1,72 +1,72 @@
 export const enum PetEnum {
-  CAT,
-  DOG,
-  OTHER
+  CAT = 'CAT',
+  DOG = 'DOG',
+  OTHER = 'OTHER'
   // надо попросить ребят добавить остальные типы
   // fish | bird
 }
 
 export const enum SmokeEnum {
-  SHISHA,
-  VAPE,
-  SIGARETTES,
-  OTHER
+  SHISHA = 'SHISHA',
+  VAPE = 'VAPE',
+  SIGARETTES = 'SIGARETTES',
+  OTHER = 'OTHER'
 }
 
 export const enum ContactEnum {
-  EMAIL,
-  TELEGRAM,
-  PHONE,
-  FACEBOOK,
-  INSTAGRAM,
-  OTHER
+  EMAIL = 'EMAIL',
+  TELEGRAM = 'TELEGRAM',
+  PHONE = 'PHONE',
+  FACEBOOK = 'FACEBOOK',
+  INSTAGRAM = 'INSTAGRAM',
+  OTHER = 'OTHER'
 }
 
 export const enum CurrencyEnum {
-  USD,
-  EUR,
+  USD = 'USD',
+  EUR = 'EUR',
 }
 
 export const enum SleepingHabitsEnum {
-  OWL,
-  LARK,
-  OTHER,
+  OWL = 'OWL',
+  LARK = 'LARK',
+  OTHER = 'OTHER',
 }
 
 export const enum AlchoholicEnum {
-  AGAINST_DRINK,
-  NOT_AGAINST_DRINK,
-  SOMETIMES_DRINK,
-  PARTLY_DRINK,
-  ABUSER,
-  OTHER
+  AGAINST_DRINK = 'AGAINST_DRINK',
+  NOT_AGAINST_DRINK = 'NOT_AGAINST_DRINK',
+  SOMETIMES_DRINK = 'SOMETIMES_DRINK',
+  PARTLY_DRINK = 'PARTLY_DRINK',
+  ABUSER = 'ABUSER',
+  OTHER = 'OTHER'
 }
 
 export const enum GuestsEnum {
-  LIKE,
-  SOMETIMES,
-  PREFER_NOT_INVITE,
-  AGAINST_IT,
+  LIKE = 'LIKE',
+  SOMETIMES = 'SOMETIMES',
+  PREFER_NOT_INVITE = 'PREFER_NOT_INVITE',
+  AGAINST_IT = 'AGAINST_IT',
 }
 
 export const enum OccupationEnum {
-  INFORMATION_TECHNOLOGY,
-  OTHER
+  INFORMATION_TECHNOLOGY = 'INFORMATION_TECHNOLOGY',
+  OTHER = 'OTHER'
 }
 
 export const enum HouseholdEnum {
-  JOINT,
-  SEPARATE,
+  JOINT = 'JOINT',
+  SEPARATE = 'SEPARATE',
 }
 
 export const enum MeetingEnum {
-  ONLINE,
-  PERSON
+  ONLINE = 'ONLINE',
+  PERSON = 'PERSON'
 }
 
 /** */
 
-export type Questionnaire = {
+export interface Questionnaire {
   isHavePets: boolean
   petTypes: PetEnum[]
   isSmoke: boolean
@@ -91,7 +91,7 @@ export type Questionnaire = {
   meetingType: MeetingEnum
 }
 
-export type CreateQuestFormResponse = Questionnaire &{ 
+export type CreateQuestFormResponse = Questionnaire & { 
   id: number
   owner: {
 
