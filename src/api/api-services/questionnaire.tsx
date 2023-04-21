@@ -13,9 +13,8 @@ class Questionnaire {
   }
 
   public async createQuestForm (questionnaire: QuestionnaireBasicType): Promise<CreateQuestFormResponse> {
-    console.log(this.sessnioService.authToken)
     const dto = mapQuestionnaireToDto(questionnaire)
-    return await http.post<HttpResponse<CreateQuestFormResponse>>('/form/1', dto, {headers: {
+    return await http.post<HttpResponse<CreateQuestFormResponse>>('/form', dto, {headers: {
       Authorization: this.sessnioService.authToken
     }})
       .then(response => {
@@ -31,4 +30,4 @@ class Questionnaire {
   }
 }
 
-export const q = new Questionnaire(sessionService)
+export const questionnaireService = new Questionnaire(sessionService)

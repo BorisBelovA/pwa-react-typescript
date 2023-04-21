@@ -1,4 +1,4 @@
-import { type Gender, type UserForm } from '../models/user'
+import { type Gender, type UserForm, type AuthUser } from '../models/user'
 import { makeAutoObservable } from 'mobx'
 import { type RootStore } from './RootStore'
 
@@ -16,19 +16,62 @@ export class UserStore implements UserForm {
   rootStore: RootStore
 
   constructor (rootStore: RootStore) {
+    const user = this.readFromLocalStorage()
     makeAutoObservable(this, { rootStore: false })
     this.rootStore = rootStore
+    if (user !== null) {
+      this.setUser(user)
+    }
   }
 
-  setFirstName (firstName: string): void { this.firstName = firstName }
-  setLastName (lastName: string): void { this.lastName = lastName }
-  setGender (gender: Gender): void { this.gender = gender }
-  setBirthday (birthday: Date): void { this.birthday = birthday }
-  setPhone (phone: string): void { this.phone = phone }
-  setEmail (email: string): void { this.email = email }
-  setPassword (password: string): void { this.password = password }
+  setFirstName (firstName: string): void {
+    this.firstName = firstName
+    this.updateStorage()
+  }
 
-  setUser (user: UserForm): void {
+  setLastName (lastName: string): void {
+    this.lastName = lastName
+    this.updateStorage()
+  }
+
+  setGender (gender: Gender): void {
+    this.gender = gender
+    this.updateStorage()
+  }
+
+  setBirthday (birthday: Date): void {
+    this.birthday = birthday
+    this.updateStorage()
+  }
+
+  setPhone (phone: string): void {
+    this.phone = phone
+    this.updateStorage()
+  }
+
+  setEmail (email: string): void {
+    this.email = email
+    this.updateStorage()
+  }
+
+  setPassword (password: string): void {
+    this.password = password
+    this.updateStorage()
+  }
+
+  setAvatar (name: string): void {
+    this.avatar = name
+    this.updateStorage()
+  }
+
+  setPhoto (name: string): void {
+    this.photo = name
+    this.updateStorage()
+  }
+
+  setUser (user: UserForm | AuthUser): void {
+    this.email = user.email
+    this.password = user.password
     this.firstName = user.firstName
     this.lastName = user.lastName
     this.gender = user.gender
@@ -36,13 +79,31 @@ export class UserStore implements UserForm {
     this.phone = user.phone
     this.photo = user.photo
     this.avatar = user.avatar
+    this.updateStorage()
   }
 
-  saveToLocalStorage = (): void => {
-
+  updateStorage (): void {
+    this.writeToLocalStorage({
+      email: this.email,
+      password: this.password,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      gender: this.gender,
+      birthday: this.birthday,
+      phone: this.phone,
+      avatar: this.avatar,
+      photo: this.photo
+    })
   }
 
-  loadFromLocalStorage = (): void => {
+  writeToLocalStorage = (user: UserForm): void => {
+    localStorage.setItem('user', JSON.stringify(user))
+  }
 
+  readFromLocalStorage = (): UserForm | null => {
+    const data = localStorage.getItem('user')
+    return data !== null
+      ? JSON.parse(data) as UserForm
+      : null
   }
 }

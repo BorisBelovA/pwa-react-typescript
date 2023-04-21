@@ -6,7 +6,7 @@ import { useActive } from 'src/components'
 import ProfileCard from 'src/components/ProfileCard/ProfileCard'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
-import { q } from 'api-services'
+import { questionnaireService } from 'api-services'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 const Summary = (): JSX.Element => {
@@ -29,10 +29,9 @@ const Summary = (): JSX.Element => {
   }
 
   const finishQuest = (): void => {
-    console.log(questions)
     setBackdropVisible(true)
     setBackdropMessage('Sending questionnaire data')
-    q.createQuestForm(questions)
+    questionnaireService.createQuestForm(questions)
       .then((_) => {
         setBackdropMessage('Almost done')
         setTimeout(() => {
@@ -41,12 +40,14 @@ const Summary = (): JSX.Element => {
       })
       .catch(err => {
         console.error(err)
-        setBackdropVisible(false)
         setMessage({
           visible: true,
           text: err.message,
           severity: 'error'
         })
+      })
+      .finally(() => {
+        setBackdropVisible(false)
       })
   }
 

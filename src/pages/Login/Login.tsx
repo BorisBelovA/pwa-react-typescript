@@ -10,6 +10,9 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { userApiService, sessionService } from 'api-services'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { emailPatternValidator } from 'src/utils/validations'
+import { mapAuthenticatedUserData } from 'mapping-services'
+import { useStore } from 'src/utils/StoreProvider'
+import { filesApiService } from 'src/api/api-services/files'
 interface SignUpForm {
   email: string
   password: string
@@ -30,7 +33,7 @@ const sxSMButtons: SxProps = {
 export const Login = (): JSX.Element => {
   const navigate = useNavigate()
   const { setMessage, setBackdropMessage, setBackdropVisible } = useAuthContext()
-
+  const { userStore } = useStore()
   const theme = useTheme()
   const { register, handleSubmit, formState: { errors, isValid } } = useForm<SignUpForm>({
     defaultValues: {
@@ -46,26 +49,57 @@ export const Login = (): JSX.Element => {
     event.preventDefault()
   }
 
-  const onSubmit = (data: SignUpForm): void => {
+  const onSubmit = async (data: SignUpForm): Promise<void> => {
     setBackdropVisible(true)
     setBackdropMessage('Login to your account')
-    void userApiService.login(data.email, data.password)
-      .then(token => {
-        sessionService.authToken = token
-        setTimeout(() => {
-          setBackdropVisible(false)
-          navigate('/profile')
-        }, 1500)
-      })
-      .catch(error => {
-        console.error(error)
-        setMessage({
-          visible: true,
-          severity: 'error',
-          text: 'Something went wrong😮'
-        })
+    try {
+      const token = await userApiService.login(data.email, data.password)
+      const userInfo = await userApiService.getAuthenticatedUser(token)
+      const [user, quest] = mapAuthenticatedUserData(userInfo)
+      let [avatar, photo]: Array<string | null> = [null, null]
+      if (user.avatar) {
+        avatar = await filesApiService.getFile(user.avatar)
+      }
+      if (user.photo) {
+        photo = await filesApiService.getFile(user.photo)
+      }
+      userStore.setUser(user)
+      sessionService.authToken = token
+      setTimeout(() => {
         setBackdropVisible(false)
+        navigate('/profile')
+      }, 1500)
+    } catch (e) {
+      console.error(e)
+      setMessage({
+        visible: true,
+        severity: 'error',
+        text: 'Something went wrong😮'
       })
+      setBackdropVisible(false)
+    }
+    // void userApiService.login(data.email, data.password)
+    //   .then(token => {
+    //     sessionService.authToken = token
+    //     /**
+    //      * Тут по идее надо восстаналивать все данные по пользоветелю,
+    //      * но для этого мне надо, чтобы апи login возвращал id 
+    //      * и по этому id идти в get api/v1/user/id
+    //      */
+    //     setTimeout(() => {
+    //       setBackdropVisible(false)
+    //       navigate('/profile')
+    //     }, 1500)
+    //   })
+    //   .catch(error => {
+    //     console.error(error)
+    //     setMessage({
+    //       visible: true,
+    //       severity: 'error',
+    //       text: 'Something went wrong😮'
+    //     })
+    //     setBackdropVisible(false)
+    //   })
   }
 
   return <>

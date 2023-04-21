@@ -1,32 +1,27 @@
-.profile__container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.profile__header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.profile__menu {
-  display: flex;
-  flex-direction: column;
-}
-.profile__content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.profile__input {
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-
+.profile__container,
+.profile__menu,
 .profile__temp {
   display: flex;
   flex-direction: column;
+}
+
+.profile__container {
+  gap: 1.5rem;
+}
+
+.profile__temp {
   gap: 1rem;
+}
+
+.profile__header,
+.profile__header__avatar_and_name {
+  display: flex;
+  align-items: center;
+}
+
+.profile__header {
+  &__avatar_and_name {
+    gap: 0.5rem;
+    flex: 1;
+  }
 }

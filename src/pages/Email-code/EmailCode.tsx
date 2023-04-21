@@ -1,11 +1,13 @@
 import { Backdrop, Button, CircularProgress, TextField, Typography } from '@mui/material'
-import { sessionService, userApiService } from 'api-services';
+import { sessionService, userApiService } from 'api-services'
+import { mapBase64ToFile } from 'mapping-services'
 import { useState } from 'react'
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from 'src/layouts/Auth/AuthLayout';
-import { useStore } from 'src/utils/StoreProvider';
-import { minLength } from 'src/utils/validations';
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { filesApiService } from 'src/api/api-services/files'
+import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
+import { useStore } from 'src/utils/StoreProvider'
+import { minLength } from 'src/utils/validations'
 
 export const EmailCode = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -25,12 +27,16 @@ export const EmailCode = (): JSX.Element => {
     }
     setLoading(true)
     userApiService.activateUser(data.code)
-      .then(response => {
-        return userApiService.login(userStore.email, userStore.password)
-          .then(token => {
-            sessionService.authToken = token
-            navigate('/profile')
-          })
+      .then(async () => {
+        const token = await userApiService.login(userStore.email, userStore.password)
+        sessionService.authToken = token
+        if (userStore.avatar !== null) {
+          await filesApiService.uploadFile(mapBase64ToFile(userStore.avatar, 'avatar'))
+        }
+        if (userStore.photo !== null) {
+          await filesApiService.uploadFile(mapBase64ToFile(userStore.photo, 'photo'))
+        }
+        navigate('/profile')
       })
       .catch(error => {
         console.log(error)
@@ -61,7 +67,7 @@ export const EmailCode = (): JSX.Element => {
     <Button fullWidth
       disabled={!isValid}
       variant='contained'
-      onClick={(e) => { handleSubmit(verify)(e) }}
+      onClick={(e) => { void handleSubmit(verify)(e) }}
     >
       Verify
     </Button>
