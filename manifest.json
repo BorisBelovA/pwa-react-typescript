@@ -3,17 +3,32 @@
   "name": "Roommate",
   "icons": [
     {
-      "src": "Logo.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "./icons/Logo_16.png",
+      "sizes": "16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "Logo_192.png",
+      "src": "./icons/Logo_24.png",
+      "sizes": "24x24",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./icons/Logo_32.png",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./icons/Logo_64.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./icons/Logo_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "Logo_512.png",
+      "src": "./icons/Logo_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
