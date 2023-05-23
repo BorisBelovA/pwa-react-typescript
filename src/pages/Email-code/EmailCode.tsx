@@ -30,12 +30,12 @@ export const EmailCode = (): JSX.Element => {
       .then(async () => {
         const token = await userApiService.login(userStore.email, userStore.password)
         sessionService.authToken = token
-        if (userStore.avatar !== null) {
-          await filesApiService.uploadFile(mapBase64ToFile(userStore.avatar, 'avatar'))
-        }
-        if (userStore.photo !== null) {
-          await filesApiService.uploadFile(mapBase64ToFile(userStore.photo, 'photo'))
-        }
+        // if (userStore.avatar !== null) {
+        //   await filesApiService.uploadFile(mapBase64ToFile(userStore.avatar, 'avatar'))
+        // }
+        // if (userStore.photo !== null) {
+        //   await filesApiService.uploadFile(mapBase64ToFile(userStore.photo, 'photo'))
+        // }
         navigate('/profile')
       })
       .catch(error => {

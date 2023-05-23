@@ -1,0 +1,18 @@
+.container, .container_section {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  row-gap: 2rem;
+
+  &_section {
+    row-gap: 0.5rem;
+  }
+}
+
+.price_per_room {
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: flex-start;
+}

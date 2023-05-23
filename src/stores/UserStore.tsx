@@ -49,12 +49,12 @@ export class UserStore implements UserForm {
     this.updateStorage()
   }
 
-  setEmail (email: string): void {
+  public setEmail (email: string): void {
     this.email = email
     this.updateStorage()
   }
 
-  setPassword (password: string): void {
+  public setPassword (password: string): void {
     this.password = password
     this.updateStorage()
   }

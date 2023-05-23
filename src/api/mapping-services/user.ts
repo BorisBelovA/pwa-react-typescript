@@ -62,6 +62,16 @@ export const mapUserFormToDto = (model: models.UserForm): dto.UserForm => {
   }
 }
 
-export const mapBase64ToFile = (base64: string, name: string): File => {
-  return new File([new Blob([base64])], name)
+export async function dataUrlToFile(dataUrl: string, fileName: string): Promise<File> {
+
+  const res: Response = await fetch(dataUrl);
+  const blob: Blob = await res.blob();
+  return new File([blob], fileName, { type: 'image/png' });
+}
+export const mapBase64ToFile = async (base64: string, name: string): Promise<File> => {
+  const res: Response = await fetch(base64)
+  const blob: Blob = await res.blob()
+  return new File([blob], name, { type: 'image/png' })
+
+  // return new File([new Blob([base64])], name, {type: 'image/png'})
 }

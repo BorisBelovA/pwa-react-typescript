@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import moment from 'moment'
 import { useMemo, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { type NewUser, type UserForm } from '../../models/user'
 import { FifthStep } from './Fifth step/FifthStep'
 import { FirstStep } from './First step/FirstStep'
@@ -61,7 +61,7 @@ export const Layout = (): JSX.Element => {
 
   const { userStore } = useStore()
 
-  const onFinish = (): void => {
+  const onFinish = async (): Promise<void> => {
     setBackdropVisible(true)
     setBackdropMessage('Creating your account')
     const {
@@ -77,48 +77,45 @@ export const Layout = (): JSX.Element => {
     if ((firstName == null) || (lastName == null) || (gender === undefined) || (birthday == null)) {
       throw new Error('User form is not filled!')
     }
-
-    userApiService.createUser(mapUserFormToDto({
-      email: userStore.email,
-      password: userStore.password,
-      firstName,
-      lastName,
-      gender,
-      birthday,
-      phone: phone ?? null,
-      avatar: avatar ?? null,
-      photo: photo ?? null
-    })).then(
-      (response) => {
-        setBackdropMessage('Acquiring your token')
-        // new request for activating user
-        // we wait until backend guys fix that
-        setTimeout(() => {
-          userStore.setUser({
-            email: userStore.email,
-            password: userStore.password,
-            firstName,
-            lastName,
-            gender,
-            birthday,
-            phone: phone ?? null,
-            photo: photo ?? null,
-            avatar: avatar ?? null
-          })
-          setBackdropVisible(false)
-          navigate('/auth/email-verification')
-        }, 2000)
-      },
-      (error) => {
-        console.error(error)
-        setBackdropVisible(false)
-        setMessage({
-          visible: true,
-          text: error.message,
-          severity: 'error'
+    try {
+      const response = await userApiService.createUser(mapUserFormToDto({
+        email: userStore.email,
+        password: userStore.password,
+        firstName,
+        lastName,
+        gender,
+        birthday,
+        phone: phone ?? null,
+        avatar: avatar ?? null,
+        photo: photo ?? null
+      }))
+      setBackdropMessage('Acquiring your token')
+      // new request for activating user
+      // we wait until backend guys fix that
+      setTimeout(() => {
+        userStore.setUser({
+          email: userStore.email,
+          password: userStore.password,
+          firstName,
+          lastName,
+          gender,
+          birthday,
+          phone: phone ?? null,
+          photo: photo ?? null,
+          avatar: avatar ?? null
         })
-      }
-    )
+        setBackdropVisible(false)
+        navigate('/auth/email-verification')
+      }, 2000)
+    } catch (error: any) {
+      console.error(error)
+      setBackdropVisible(false)
+      setMessage({
+        visible: true,
+        text: error.message,
+        severity: 'error'
+      })
+    }
   }
 
   const isUser = (user: NewUser): user is UserForm => {

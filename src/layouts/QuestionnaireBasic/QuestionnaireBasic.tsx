@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Outlet, useOutletContext } from 'react-router-dom'
-import { type LoadingBackdropOutletContext } from 'src/components/LoadingBackdrop/LoadingBackdrop'
-import { type MessageAlertOutletContext } from 'src/components/MessageAlert/MessageAlert'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
 import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
 import { type WhoCouple, type WhoFamily, type WhoFriends, type Pet, type QuestionnaireBasicType } from 'src/models/questionnaireBasic'

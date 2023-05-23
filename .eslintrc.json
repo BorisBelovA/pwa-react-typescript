@@ -22,6 +22,7 @@
     "rules": {
         "no-extra-boolean-cast": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
-        "max-len": [ "warn", { "code": 140 } ]
+        "max-len": [ "warn", { "code": 140 } ],
+        "@typescript-eslint/strict-boolean-expressions": "off"
     }
 }

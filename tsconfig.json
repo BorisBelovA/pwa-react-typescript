@@ -22,7 +22,7 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "models": ["src/models"],
+      "models": ["./src/models"],
       "dto": ["./src/api/dto"],
       "api-services": ["./src/api/api-services"],
       "mapping-services": ["./src/api/mapping-services"]
