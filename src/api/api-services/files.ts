@@ -60,5 +60,11 @@ class FilesApiService {
         throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
       })
   }
+
+  public async getSeveralFiles (names: string[]): Promise<string[]> {
+    const requests = names.map(n => this.getFile(n))
+    return await Promise.all(requests)
+  }
 }
+
 export const filesApiService = new FilesApiService(sessionService)

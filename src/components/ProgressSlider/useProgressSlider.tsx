@@ -22,7 +22,7 @@ const useProgressSlider = (props: Props): ReturnType => {
     const element = document.getElementById(step)
     if (element !== null) { element.scrollIntoView({ inline: 'center', behavior: 'smooth' }) }
   }
-
+  
   useEffect(() => {
     let found = false
     active !== '' && setItems(
@@ -66,6 +66,7 @@ const useProgressSlider = (props: Props): ReturnType => {
         return i
       })
       setItems(newItems)
+      setActive(items[nextItemIndex].to)
       scrollToStep(items[nextItemIndex].text)
     }
   }
@@ -73,7 +74,9 @@ const useProgressSlider = (props: Props): ReturnType => {
   const setPercent = (progress: number, total: number, to: string): void => {
     setItems(
       items.map((item) =>
-        item.to === to ? { ...item, progress: progress !== null ? 100 / total * progress : item.progress } : { ...item }
+        item.to === to
+          ? { ...item, progress: progress !== null ? 100 / total * progress : item.progress }
+          : { ...item }
       )
     )
   }

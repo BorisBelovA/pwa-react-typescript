@@ -2,7 +2,7 @@ import styles from './ForthStep.module.scss'
 import { FormHelperText, IconButton, Typography, useTheme } from '@mui/material'
 import { type ChangeEvent, useState } from 'react'
 import { type NewUser } from '../../../models/user'
-import { ImageCropper } from './ImageCropper/ImageCropper'
+import { ImageCropper } from '../../../components/ImageCropper/ImageCropper'
 import UploadFileIcon from '@mui/icons-material/UploadFile'
 import { UserCard } from 'src/components/UserCard/UserCard'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
@@ -15,10 +15,12 @@ export interface ForthStepProps {
 
 export const ForthStep = ({ user, photoChange }: ForthStepProps): JSX.Element => {
   const theme = useTheme()
-  const [image, setImage] = useState<string | null | undefined>(user.photo)
   const [imageSizeError, setImageSizeError] = useState(false)
   const [test, setTest] = useState('')
-  const [cropVisible, setCropVisible] = useState(false)
+  const [profileCropVisible, setProfileCropVisible] = useState(false)
+  const [avatarCropVisible, setAvatarCropVisible] = useState(false)
+  const [profilePhoto, setProfilePhoto] = useState('')
+
   const addPhoto = (): void => {
     document.getElementById('photo-upload')?.click()
   }
@@ -43,7 +45,7 @@ export const ForthStep = ({ user, photoChange }: ForthStepProps): JSX.Element =>
     const reader = photoReader(photo)
     reader.onloadend = () => {
       setTest(reader.result as string)
-      setCropVisible(true)
+      setProfileCropVisible(true)
     }
   }
 
@@ -65,12 +67,25 @@ export const ForthStep = ({ user, photoChange }: ForthStepProps): JSX.Element =>
 
     {imageSizeError && <FormHelperText error={true}>Up to 20MB files are allowed</FormHelperText>}
 
-    {cropVisible && <ImageCropper title='Profile photo' image={test} acceptImage={([profilePhoto, avatarPhoto]) => {
-      photoChange({ profilePhoto, avatarPhoto })
-      setImage(profilePhoto)
-      setCropVisible(false);
-      (document.getElementById('photo-upload') as HTMLInputElement).value = ''
-    }} />}
+    {profileCropVisible && <ImageCropper title='Profile photo'
+      image={test}
+      acceptButtonText='Confirm and pick avatar'
+      shape='high-rect'
+      acceptImage={photo => {
+        setProfilePhoto(photo)
+        setProfileCropVisible(false)
+        setAvatarCropVisible(true)
+      }} />}
+
+    {avatarCropVisible && <ImageCropper title='Avatar photo'
+      image={test}
+      acceptButtonText='Confirm and proceed'
+      shape='round'
+      acceptImage={photo => {
+        setAvatarCropVisible(false)
+        photoChange({ profilePhoto, avatarPhoto: photo });
+        (document.getElementById('photo-upload') as HTMLInputElement).value = ''
+      }} />}
 
     <input id='photo-upload'
       className={styles.hiddenInput}

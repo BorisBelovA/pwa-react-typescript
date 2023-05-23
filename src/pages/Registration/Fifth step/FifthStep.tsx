@@ -6,7 +6,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg'
 import { UserCard } from 'src/components/UserCard/UserCard'
 import PersonIcon from '@mui/icons-material/Person'
-import { RegistrationSteps } from '../Layout'
+import { type RegistrationSteps } from '../Layout'
 
 export interface FifthStepProps {
   user: UserForm

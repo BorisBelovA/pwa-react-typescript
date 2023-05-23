@@ -26,6 +26,7 @@ const Profile: React.FunctionComponent = observer(() => {
       <Box className={styles.profile__menu}>
         <SettingsNavigationButton to='/profile/my-preferences/'>Profile</SettingsNavigationButton>
         <SettingsNavigationButton to='/profile/roommate-preferences/'>Roommate preferences</SettingsNavigationButton>
+        <SettingsNavigationButton to='/profile/my-appartments/'>My appartments</SettingsNavigationButton>
         <SettingsNavigationButton to='/profile/settings/'>Settings</SettingsNavigationButton>
         <SettingsNavigationButton to=''>Helpdesk</SettingsNavigationButton>
         <SettingsNavigationButton to=''>FAQ</SettingsNavigationButton>

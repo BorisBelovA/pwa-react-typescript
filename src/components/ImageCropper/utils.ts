@@ -41,8 +41,6 @@ export default async function getCroppedImg (imageSrc: string, pixelCrop: Area, 
   ctx.translate(-safeArea / 2, -safeArea / 2)
 
   ctx.beginPath()
-  console.log(safeArea / 2 - image.width * 0.5,
-    safeArea / 2 - image.height * 0.5)
 
   // draw rotated image and store data.
   ctx.drawImage(

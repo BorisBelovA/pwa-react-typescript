@@ -1,3 +1,5 @@
 export * from './user'
 export * from './questionnaire'
 export * from './api-response'
+export * from './appartments'
+export * from './file-mapping'

@@ -8,6 +8,8 @@ import RoommatePreferences from 'src/pages/Profile/RoommatePreferences/RoommateP
 import AccountSettings from 'src/pages/Profile/Settings/AccountSettings/AccountSettings'
 import Settings from 'src/pages/Profile/Settings/Settings'
 import ThemeSettings from 'src/pages/Profile/Settings/ThemeSettings/ThemeSettings'
+import appartmentsQuestionnaireRoutes from './appartments/routes'
+import { AppartmentQuestionnaire, MyAppartments } from 'src/pages/Profile/MyAppartments'
 
 export default [
   <React.Fragment key='1'>
@@ -24,6 +26,12 @@ export default [
       <Route path='' element={<Settings />} />
       <Route path='account' element={<AccountSettings />} />
       <Route path='theme' element={<ThemeSettings />} />
+    </Route>
+    <Route path='my-appartments'>
+      <Route path='' element={<MyAppartments/>} />
+      <Route path='new' element={<AppartmentQuestionnaire/>}>
+        {appartmentsQuestionnaireRoutes}
+      </Route>
     </Route>
   </React.Fragment>
 ]

@@ -57,12 +57,12 @@ export const Login = (): JSX.Element => {
       const userInfo = await userApiService.getAuthenticatedUser(token)
       const [user, quest] = mapAuthenticatedUserData(userInfo)
       let [avatar, photo]: Array<string | null> = [null, null]
-      if (user.avatar) {
-        avatar = await filesApiService.getFile(user.avatar)
-      }
-      if (user.photo) {
-        photo = await filesApiService.getFile(user.photo)
-      }
+      // if (user.avatar) {
+      //   avatar = await filesApiService.getFile(user.avatar)
+      // }
+      // if (user.photo) {
+      //   photo = await filesApiService.getFile(user.photo)
+      // }
       userStore.setUser(user)
       sessionService.authToken = token
       setTimeout(() => {
@@ -78,28 +78,6 @@ export const Login = (): JSX.Element => {
       })
       setBackdropVisible(false)
     }
-    // void userApiService.login(data.email, data.password)
-    //   .then(token => {
-    //     sessionService.authToken = token
-    //     /**
-    //      * Тут по идее надо восстаналивать все данные по пользоветелю,
-    //      * но для этого мне надо, чтобы апи login возвращал id 
-    //      * и по этому id идти в get api/v1/user/id
-    //      */
-    //     setTimeout(() => {
-    //       setBackdropVisible(false)
-    //       navigate('/profile')
-    //     }, 1500)
-    //   })
-    //   .catch(error => {
-    //     console.error(error)
-    //     setMessage({
-    //       visible: true,
-    //       severity: 'error',
-    //       text: 'Something went wrong😮'
-    //     })
-    //     setBackdropVisible(false)
-    //   })
   }
 
   return <>
