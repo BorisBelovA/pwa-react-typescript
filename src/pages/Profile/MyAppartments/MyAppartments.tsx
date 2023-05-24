@@ -2,7 +2,6 @@ import { Button, Card, CardActionArea, CardContent, CardMedia, Skeleton, Typogra
 import { observer } from 'mobx-react-lite'
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { UserCard } from 'src/components/UserCard/UserCard'
 import { useStore } from 'src/utils/StoreProvider'
 
 export const MyAppartments = observer((): JSX.Element => {
@@ -28,7 +27,7 @@ export const MyAppartments = observer((): JSX.Element => {
   }
 
   useEffect(() => {
-    return () => { void getAppartmet() }
+    void getAppartmet()
   }, [])
 
   return <>
