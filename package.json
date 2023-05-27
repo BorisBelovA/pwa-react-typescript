@@ -41,8 +41,9 @@
     "workbox-streams": "^6.5.4"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start": "REACT_APP_HOST_TYPE=DEV craco start",
+    "start:prod": "REACT_APP_HOST_TYPE=PROD craco start",
+    "build": "REACT_APP_HOST_TYPE=PROD craco build",
     "test": "craco test",
     "eject": "craco eject",
     "predeploy": "npm run build",

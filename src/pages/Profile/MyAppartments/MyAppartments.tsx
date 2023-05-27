@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite'
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useStore } from 'src/utils/StoreProvider'
+import NoImage from '../../../assets/no-image.jpeg'
 
 export const MyAppartments = observer((): JSX.Element => {
   const { appartmentStore } = useStore()
@@ -12,7 +13,6 @@ export const MyAppartments = observer((): JSX.Element => {
   const navigate = useNavigate()
 
   const haveAppartment = appartmentStore.haveAppartment
-
   const createAppartment = (): void => {
     navigate('new/basic')
   }
@@ -41,8 +41,8 @@ export const MyAppartments = observer((): JSX.Element => {
           <CardMedia
             component="img"
             height="200"
-            src={`${appartment.photos[0]}`}
-            alt="green iguana"
+            src={`${appartment.photos[0] ?? NoImage}`}
+            alt="apartment-image"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
