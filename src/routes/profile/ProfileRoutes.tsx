@@ -1,37 +1,29 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import AboutMe from 'src/pages/Profile/MyPreferences/AboutMe/AboutMe'
-import BasicQuestions from 'src/pages/Profile/MyPreferences/BasicQuestions/BasicQuestions'
-import MyPreferences from 'src/pages/Profile/MyPreferences/MyPreferences'
+import { Navigate, Route } from 'react-router-dom'
+import AboutMe from 'src/pages/Profile/AboutMe/AboutMe'
 import BasicQuestionsRoommate from 'src/pages/Profile/RoommatePreferences/BasicQuestionsRoommate/BasicQuestionsRoommate'
 import RoommatePreferences from 'src/pages/Profile/RoommatePreferences/RoommatePreferences'
-import AccountSettings from 'src/pages/Profile/Settings/AccountSettings/AccountSettings'
-import Settings from 'src/pages/Profile/Settings/Settings'
-import ThemeSettings from 'src/pages/Profile/Settings/ThemeSettings/ThemeSettings'
-import appartmentsQuestionnaireRoutes from './appartments/routes'
-import { AppartmentQuestionnaire, MyAppartments } from 'src/pages/Profile/MyAppartments'
+import { appartmentsRoutes } from './appartments/routes'
+import { ProfileRoutes } from 'models'
+import { settingsRoutes } from './settings/routes'
+import { questionnaireRoutes } from './questionnaire/BasicInfo'
+import QuestionnaireBasic from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+import { NotFound } from 'src/pages/NotFound'
 
 export default [
-  <React.Fragment key='1'>
-    <Route path='my-preferences'>
-      <Route path='' element={<MyPreferences />} />
-      <Route path='about-me' element={<AboutMe />} />
-      <Route path='basic-questions' element={<BasicQuestions />} />
-    </Route>
-    <Route path='roommate-preferences'>
-      <Route path='' element={<RoommatePreferences />} />
-      <Route path='basic-questions' element={<BasicQuestionsRoommate />} />
-    </Route>
-    <Route path='settings'>
-      <Route path='' element={<Settings />} />
-      <Route path='account' element={<AccountSettings />} />
-      <Route path='theme' element={<ThemeSettings />} />
-    </Route>
-    <Route path='my-appartments'>
-      <Route path='' element={<MyAppartments/>} />
-      <Route path='new' element={<AppartmentQuestionnaire/>}>
-        {appartmentsQuestionnaireRoutes}
-      </Route>
-    </Route>
-  </React.Fragment>
+  <Route key='1' path={ProfileRoutes.ABOUT_ME} element={<AboutMe />}></Route>,
+  <Route key='2' path={ProfileRoutes.MY_APPARTMENT}>
+    {appartmentsRoutes}
+  </Route>,
+  <Route key='3' path={ProfileRoutes.ROOMMATE_PREFERENCES}>
+    <Route path='' element={<RoommatePreferences />} />
+    <Route path='basic-questions' element={<BasicQuestionsRoommate />} />
+  </Route>,
+  <Route key='4' path={ProfileRoutes.SETTINGS}>
+    {settingsRoutes}
+  </Route>,
+  <Route key='5' path={ProfileRoutes.BASIC_QUEST} element={<QuestionnaireBasic />} errorElement={<NotFound />}>
+    <Route path="" element={<Navigate to="who" replace />} />
+    {questionnaireRoutes}
+  </Route>
 ]

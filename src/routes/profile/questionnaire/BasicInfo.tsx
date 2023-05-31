@@ -8,7 +8,7 @@ import Apartment from 'src/pages/Profile/BasicQuestions/Apartment/Apartment'
 import { Route } from 'react-router-dom'
 import Summary from 'src/pages/Profile/BasicQuestions/Summary/Summary'
 
-export default [
+export const questionnaireRoutes = [
   <Route key='0' path='who' element={<Who />} />,
   <Route key='1' path='pets' element={<Pets />} />,
   <Route key='2' path='smoking' element={<Smoking />} />,

@@ -45,7 +45,7 @@ const Contacts: React.FunctionComponent = () => {
           className={styles.question__button_half}
           disabled={nextBtnDisabled}
           onClick={() => {
-            navigate('/profile/questionnaire-basic-info/apartment')
+            navigate('../apartment')
           }}>
           Next
         </Button>

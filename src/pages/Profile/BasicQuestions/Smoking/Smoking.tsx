@@ -82,7 +82,7 @@ const Smoking: React.FunctionComponent = () => {
           onClick={() => {
             setQuestions({ ...questions, smoker: undefined, smokingWhat: [] })
             setPercent(0, 1, 'smoking')
-            navigate('/profile/questionnaire-basic-info/languages')
+            navigate('../languages')
           }}>
           Skip
         </Button>
@@ -90,7 +90,7 @@ const Smoking: React.FunctionComponent = () => {
           fullWidth
           disabled={nextBtnDisabled}
           onClick={() => {
-            navigate('/profile/questionnaire-basic-info/languages')
+            navigate('../languages')
           }}>
           Next
         </Button>

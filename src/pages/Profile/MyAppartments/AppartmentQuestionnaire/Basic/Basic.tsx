@@ -1,7 +1,7 @@
 import { Box, MenuItem, Select, Slider, TextField, Typography } from '@mui/material'
 import styles from './Basic.module.scss'
 import { useEffect, useState } from 'react'
-import { AppartmentsRoutes, type Currency } from 'models'
+import { AppartmentsQuestionnaireRoutes, type Currency } from 'models'
 import { appartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { Controller, useForm } from 'react-hook-form'
 
@@ -10,7 +10,7 @@ export const Basic = (): JSX.Element => {
   const { appartment, setAppartment, setNextDisabled, setActive, setPercent } = appartmentQuestionnaireContext()
 
   useEffect(() => {
-    setActive(AppartmentsRoutes.BASIC)
+    setActive(AppartmentsQuestionnaireRoutes.BASIC)
   }, [null])
 
   const { register, watch, control, formState: { errors, isValid }, reset } = useForm<{
@@ -33,7 +33,7 @@ export const Basic = (): JSX.Element => {
     (appartment.totalPrice && control.getFieldState('price').error === undefined ? 25 : 0) +
     (appartment.countRooms && control.getFieldState('countRooms').error === undefined ? 25 : 0) +
     (appartment.countAvailableRooms && control.getFieldState('countAvailableRooms').error === undefined ? 25 : 0)
-    setPercent(percent, 100, AppartmentsRoutes.BASIC)
+    setPercent(percent, 100, AppartmentsQuestionnaireRoutes.BASIC)
   }
 
   useEffect(() => {

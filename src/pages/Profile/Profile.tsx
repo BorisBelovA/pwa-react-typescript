@@ -6,6 +6,7 @@ import SettingsNavigationButton from 'src/components/navigation/SettingsNavigati
 import EditIcon from '@mui/icons-material/Edit';
 import { ChangeEvent, useState } from 'react'
 import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
+import { ProfileRoutes } from 'models'
 const Profile: React.FunctionComponent = observer(() => {
   const { userStore } = useStore()
 
@@ -71,11 +72,11 @@ const Profile: React.FunctionComponent = observer(() => {
         <Typography variant='h2'>{userStore.firstName && ` ${userStore.firstName} ${userStore.lastName}`}</Typography>
       </Box>
       <Box className={styles.profile_items_container}>
-        <SettingsNavigationButton to='/profile/my-preferences/'>About me</SettingsNavigationButton>
-        <SettingsNavigationButton to='/profile/roommate-preferences/'>Roommate preferences</SettingsNavigationButton>
-        <SettingsNavigationButton to='/profile/my-appartments/'>My appartments</SettingsNavigationButton>
-        <SettingsNavigationButton to='/profile/settings/'>Settings</SettingsNavigationButton>
-        <SettingsNavigationButton to='/profile/questionnaire-basic-info/who'>Test Questionnaire</SettingsNavigationButton>
+        <SettingsNavigationButton to={`/profile/${ProfileRoutes.ABOUT_ME}`}>About me</SettingsNavigationButton>
+        <SettingsNavigationButton to={`/profile/${ProfileRoutes.ROOMMATE_PREFERENCES}`}>Roommate preferences</SettingsNavigationButton>
+        <SettingsNavigationButton to={`/profile/${ProfileRoutes.MY_APPARTMENT}`}>My appartments</SettingsNavigationButton>
+        <SettingsNavigationButton to={`/profile/${ProfileRoutes.SETTINGS}`}>Settings</SettingsNavigationButton>
+        <SettingsNavigationButton to={`/profile/${ProfileRoutes.BASIC_QUEST}`}>Test Questionnaire</SettingsNavigationButton>
         <SettingsNavigationButton to=''>Logout</SettingsNavigationButton>
       </Box>
     </Box>
