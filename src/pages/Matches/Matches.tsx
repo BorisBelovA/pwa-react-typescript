@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import utilityStyles from '../../styles/utility.module.scss'
 import styles from './Matches.module.scss'
 import type { Match } from 'models'
@@ -42,9 +43,10 @@ const matches: Match[] = [
 ]
 
 const Matches: React.FunctionComponent = () => {
+  const navigate = useNavigate()
   return <>
     <h2 className={utilityStyles.headerTemp}>Your matches</h2>
-    <div className={styles.matchesContainer}>
+    <div className={styles.matchesContainer} onClick={() => navigate('/chat')}>
       { matches.map((m, index) => <MatchCard key={index} match={m}></MatchCard>) }
     </div>
   </>

@@ -8,3 +8,7 @@ export const mapToRusFormat = (date: Date): string => {
 export const calculateAge = (date: Date): number => {
   return moment().diff(date, 'years')
 }
+
+export const getMessageTime = (date: Date): string => {
+  return moment(date).format('h:mm A')
+}

@@ -1,0 +1,63 @@
+.chat_header {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 5fr 1fr;
+  flex-basis: 60px;
+}
+
+#back_button,
+#more_button {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#back_button {
+  justify-self: start;
+}
+
+#more_button {
+  justify-self: end;
+}
+
+.user_name_container {
+  position: relative;
+}
+
+#user_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.typing_indicator {
+  position: absolute;
+}
+
+.typing__dot {
+  animation: loadingFade 1s infinite;
+  margin-left: 4px;
+}
+
+.typing__dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing__dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing__dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
