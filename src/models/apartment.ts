@@ -15,11 +15,3 @@ export interface Appartment {
   photos: string[]
   description: string
 }
-
-export const enum AppartmentsRoutes {
-  BASIC = 'basic',
-  LOCATION = 'location',
-  PHOTOS = 'photos',
-  ABOUT = 'about',
-  SUMMARY = 'summary'
-}

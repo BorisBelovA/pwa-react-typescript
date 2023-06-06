@@ -93,7 +93,7 @@ const Friends: React.FunctionComponent = () => {
           variant='contained'
           disabled={nextBtnDisabled()}
           onClick={() => {
-            navigate('/profile/questionnaire-basic-info/pets')
+            navigate('../pets')
           }}>Next</Button>
       </Box>
       {open && <AddPerson open={open} handleClose={handleClose} who='friend' addPerson={addPerson} />}

@@ -33,14 +33,14 @@ const About: React.FunctionComponent = () => {
           onClick={() => {
             setQuestions({ ...questions, about: '' })
             setPercent(0, 1, 'about')
-            navigate('/profile/questionnaire-basic-info/contacts')
+            navigate('../contacts')
           }}>
           Skip
         </Button>
         <Button variant='contained'
           fullWidth
           onClick={() => {
-            navigate('/profile/questionnaire-basic-info/contacts')
+            navigate('../contacts')
           }}>
           Next
         </Button>

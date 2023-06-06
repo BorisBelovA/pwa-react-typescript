@@ -5,7 +5,7 @@ import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
 import { type MainLayoutContext, useMainContext } from 'src/layouts/Main/MainLayout'
 import styles from './AppartmentQuestionnaire.module.scss'
 import { useEffect, useState } from 'react'
-import { type Appartment, AppartmentsRoutes } from 'models'
+import { type Appartment, AppartmentsQuestionnaireRoutes } from 'models'
 import { mapBase64ToFile, mapAppartmentToDto, mapFileToBase64, mapAppartmentToModel } from 'mapping-services'
 import { filesApiService } from 'src/api/api-services/files'
 import { appartmentService } from 'src/api/api-services/appartment'
@@ -34,11 +34,11 @@ const saveAllAppartmentsPhotos = async (photos: string[]): Promise<string[]> => 
 export const AppartmentQuestionnaire = (): JSX.Element => {
   const { items, setActive, completeStep, setPercent } = useProgressSlider({
     items: [
-      { text: AppartmentsRoutes.BASIC, progress: 0, to: AppartmentsRoutes.BASIC },
-      { text: AppartmentsRoutes.LOCATION, progress: 0, to: AppartmentsRoutes.LOCATION },
-      { text: AppartmentsRoutes.PHOTOS, progress: 0, to: AppartmentsRoutes.PHOTOS },
-      { text: AppartmentsRoutes.ABOUT, progress: 0, to: AppartmentsRoutes.ABOUT },
-      { text: AppartmentsRoutes.SUMMARY, progress: 0, to: AppartmentsRoutes.SUMMARY }
+      { text: AppartmentsQuestionnaireRoutes.BASIC, progress: 0, to: AppartmentsQuestionnaireRoutes.BASIC },
+      { text: AppartmentsQuestionnaireRoutes.LOCATION, progress: 0, to: AppartmentsQuestionnaireRoutes.LOCATION },
+      { text: AppartmentsQuestionnaireRoutes.PHOTOS, progress: 0, to: AppartmentsQuestionnaireRoutes.PHOTOS },
+      { text: AppartmentsQuestionnaireRoutes.ABOUT, progress: 0, to: AppartmentsQuestionnaireRoutes.ABOUT },
+      { text: AppartmentsQuestionnaireRoutes.SUMMARY, progress: 0, to: AppartmentsQuestionnaireRoutes.SUMMARY }
     ]
   })
 
@@ -69,57 +69,57 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
   const location = useLocation()
   const [nextDisabled, setNextDisabled] = useState(true)
 
-  const getActiveStepFromURI = (): AppartmentsRoutes => {
+  const getActiveStepFromURI = (): AppartmentsQuestionnaireRoutes => {
     const paths = location.pathname.split('/')
     const activeStep = paths[paths.length - 1]
     if (activeStep === undefined || activeStep === null || activeStep === '') {
       throw new Error('Unable to get active step from URI!')
     }
     if (![
-      AppartmentsRoutes.BASIC,
-      AppartmentsRoutes.LOCATION,
-      AppartmentsRoutes.PHOTOS,
-      AppartmentsRoutes.ABOUT,
-      AppartmentsRoutes.SUMMARY
-    ].includes(activeStep as AppartmentsRoutes)) {
+      AppartmentsQuestionnaireRoutes.BASIC,
+      AppartmentsQuestionnaireRoutes.LOCATION,
+      AppartmentsQuestionnaireRoutes.PHOTOS,
+      AppartmentsQuestionnaireRoutes.ABOUT,
+      AppartmentsQuestionnaireRoutes.SUMMARY
+    ].includes(activeStep as AppartmentsQuestionnaireRoutes)) {
       throw new Error('Incorrect appartments questionnaire step!')
     }
-    return activeStep as AppartmentsRoutes
+    return activeStep as AppartmentsQuestionnaireRoutes
   }
 
   useEffect(() => {
     const activeStep = getActiveStepFromURI()
-    setNextBtnVisible(activeStep !== AppartmentsRoutes.SUMMARY)
-    setBackBtnVisible(activeStep !== AppartmentsRoutes.BASIC)
-    setFinishBtnVisible(activeStep === AppartmentsRoutes.SUMMARY)
+    setNextBtnVisible(activeStep !== AppartmentsQuestionnaireRoutes.SUMMARY)
+    setBackBtnVisible(activeStep !== AppartmentsQuestionnaireRoutes.BASIC)
+    setFinishBtnVisible(activeStep === AppartmentsQuestionnaireRoutes.SUMMARY)
   }, [location.pathname])
 
   const onNextStep = (): void => {
     const activeStep = getActiveStepFromURI()
     switch (activeStep) {
-      case AppartmentsRoutes.BASIC: {
-        completeStep(AppartmentsRoutes.BASIC)
-        navigate(AppartmentsRoutes.LOCATION)
+      case AppartmentsQuestionnaireRoutes.BASIC: {
+        completeStep(AppartmentsQuestionnaireRoutes.BASIC)
+        navigate(AppartmentsQuestionnaireRoutes.LOCATION)
         break
       }
-      case AppartmentsRoutes.LOCATION: {
+      case AppartmentsQuestionnaireRoutes.LOCATION: {
         const stepProgress = items[1].progress
         if (stepProgress === 100) {
-          completeStep(AppartmentsRoutes.LOCATION)
+          completeStep(AppartmentsQuestionnaireRoutes.LOCATION)
         } else {
-          setActive(AppartmentsRoutes.PHOTOS)
+          setActive(AppartmentsQuestionnaireRoutes.PHOTOS)
         }
-        navigate(AppartmentsRoutes.PHOTOS)
+        navigate(AppartmentsQuestionnaireRoutes.PHOTOS)
         break
       }
-      case AppartmentsRoutes.PHOTOS: {
-        completeStep(AppartmentsRoutes.PHOTOS)
-        navigate(AppartmentsRoutes.ABOUT)
+      case AppartmentsQuestionnaireRoutes.PHOTOS: {
+        completeStep(AppartmentsQuestionnaireRoutes.PHOTOS)
+        navigate(AppartmentsQuestionnaireRoutes.ABOUT)
         break
       }
-      case AppartmentsRoutes.ABOUT: {
-        completeStep(AppartmentsRoutes.ABOUT)
-        navigate(AppartmentsRoutes.SUMMARY)
+      case AppartmentsQuestionnaireRoutes.ABOUT: {
+        completeStep(AppartmentsQuestionnaireRoutes.ABOUT)
+        navigate(AppartmentsQuestionnaireRoutes.SUMMARY)
         break
       }
       default: {
@@ -131,20 +131,20 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
   const onPrevStep = (): void => {
     const activeStep = getActiveStepFromURI()
     switch (activeStep) {
-      case AppartmentsRoutes.LOCATION: {
-        navigate(AppartmentsRoutes.BASIC)
+      case AppartmentsQuestionnaireRoutes.LOCATION: {
+        navigate(AppartmentsQuestionnaireRoutes.BASIC)
         break
       }
-      case AppartmentsRoutes.PHOTOS: {
-        navigate(AppartmentsRoutes.LOCATION)
+      case AppartmentsQuestionnaireRoutes.PHOTOS: {
+        navigate(AppartmentsQuestionnaireRoutes.LOCATION)
         break
       }
-      case AppartmentsRoutes.ABOUT: {
-        navigate(AppartmentsRoutes.PHOTOS)
+      case AppartmentsQuestionnaireRoutes.ABOUT: {
+        navigate(AppartmentsQuestionnaireRoutes.PHOTOS)
         break
       }
-      case AppartmentsRoutes.SUMMARY: {
-        navigate(AppartmentsRoutes.ABOUT)
+      case AppartmentsQuestionnaireRoutes.SUMMARY: {
+        navigate(AppartmentsQuestionnaireRoutes.ABOUT)
         break
       }
       default: {

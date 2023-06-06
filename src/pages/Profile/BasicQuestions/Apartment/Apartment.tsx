@@ -37,14 +37,14 @@ const Apartment: React.FunctionComponent = () => {
           onClick={() => {
             setQuestions({ ...questions, apartment: undefined })
             setPercent(0, 1, 'apartment')
-            navigate('/profile/questionnaire-basic-info/summary')
+            navigate('../summary')
           }}>
           Skip
         </Button>
         <Button variant='contained'
           fullWidth
           onClick={() => {
-            navigate('/profile/questionnaire-basic-info/summary')
+            navigate('../summary')
           }}>
           Next
         </Button>

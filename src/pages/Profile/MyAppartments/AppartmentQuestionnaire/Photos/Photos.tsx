@@ -4,7 +4,7 @@ import { type ChangeEvent, useEffect, useState } from 'react'
 import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
 import { appartmentQuestionnaireContext } from '../..'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
-import { AppartmentsRoutes } from 'models'
+import { AppartmentsQuestionnaireRoutes } from 'models'
 
 export const Photos = (): JSX.Element => {
   const { appartment, setAppartment, setPercent, setNextDisabled, setActive } = appartmentQuestionnaireContext()
@@ -14,12 +14,12 @@ export const Photos = (): JSX.Element => {
   const theme = useTheme()
 
   useEffect(() => {
-    setActive(AppartmentsRoutes.PHOTOS)
+    setActive(AppartmentsQuestionnaireRoutes.PHOTOS)
     setNextDisabled(false)
   }, [])
 
   useEffect(() => {
-    setPercent(appartment.photos.length > 0 ? 100 : 0, 100, AppartmentsRoutes.PHOTOS)
+    setPercent(appartment.photos.length > 0 ? 100 : 0, 100, AppartmentsQuestionnaireRoutes.PHOTOS)
   }, [appartment.photos])
 
   const addPhoto = (): void => {

@@ -1,20 +1,20 @@
 import { Box, TextField, Typography } from '@mui/material'
 import { appartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { useEffect, useState } from 'react'
-import { AppartmentsRoutes } from 'models'
+import { AppartmentsQuestionnaireRoutes } from 'models'
 
 export const Description = (): JSX.Element => {
   const { appartment, setAppartment, setPercent, setActive, setNextDisabled } = appartmentQuestionnaireContext()
 
   useEffect(() => {
     setNextDisabled(false)
-    setActive(AppartmentsRoutes.ABOUT)
+    setActive(AppartmentsQuestionnaireRoutes.ABOUT)
   }, [])
 
   const [description, setDescription] = useState(appartment.description ?? '')
 
   useEffect(() => {
-    setPercent(appartment.description.length > 0 ? 100 : 0, 100, AppartmentsRoutes.ABOUT)
+    setPercent(appartment.description.length > 0 ? 100 : 0, 100, AppartmentsQuestionnaireRoutes.ABOUT)
   }, [appartment.description])
 
   useEffect(() => {

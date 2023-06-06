@@ -1,6 +1,6 @@
 import { Box, IconButton, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import styles from '../../Profile.module.scss'
+import styles from '../Profile.module.scss'
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 
 const AboutMe = (): JSX.Element => {

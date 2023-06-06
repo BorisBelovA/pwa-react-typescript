@@ -12,5 +12,5 @@ export default axios.create({
     protocol: 'http',
     host: '194.58.109.74',
     port: 8080
-  },
+  }
 })

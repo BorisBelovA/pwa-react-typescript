@@ -3,7 +3,7 @@ import { Box, IconButton, ImageList, ImageListItem, Typography, useTheme } from 
 import { appartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { useEffect } from 'react'
 import EditIcon from '@mui/icons-material/Edit'
-import { AppartmentsRoutes, type Currency } from 'models'
+import { AppartmentsQuestionnaireRoutes, type Currency } from 'models'
 import { useNavigate } from 'react-router-dom'
 
 export const Summary = (): JSX.Element => {
@@ -12,8 +12,8 @@ export const Summary = (): JSX.Element => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    setActive(AppartmentsRoutes.SUMMARY)
-    setPercent(100, 100, AppartmentsRoutes.SUMMARY)
+    setActive(AppartmentsQuestionnaireRoutes.SUMMARY)
+    setPercent(100, 100, AppartmentsQuestionnaireRoutes.SUMMARY)
   }, [])
 
   const mapCurrencyToSign = (currency: Currency): string => {
@@ -25,7 +25,7 @@ export const Summary = (): JSX.Element => {
     }
   }
 
-  const goToStep = (step: AppartmentsRoutes): void => {
+  const goToStep = (step: AppartmentsQuestionnaireRoutes): void => {
     navigate(`../${step}`)
   }
 
@@ -35,7 +35,7 @@ export const Summary = (): JSX.Element => {
         <Typography variant="h5">{appartment.name}</Typography>
         <IconButton sx={{ color: theme.palette.primary.main }}
           aria-label="edit"
-          onClick={() => { goToStep(AppartmentsRoutes.BASIC) }}>
+          onClick={() => { goToStep(AppartmentsQuestionnaireRoutes.BASIC) }}>
           <EditIcon fontSize='small' />
         </IconButton>
       </Box>
@@ -54,7 +54,7 @@ export const Summary = (): JSX.Element => {
         }</Typography>
       <IconButton sx={{ color: theme.palette.primary.main }}
         aria-label="edit"
-        onClick={() => { goToStep(AppartmentsRoutes.LOCATION) }}>
+        onClick={() => { goToStep(AppartmentsQuestionnaireRoutes.LOCATION) }}>
         <EditIcon fontSize='small' />
       </IconButton>
     </Box>
@@ -64,7 +64,7 @@ export const Summary = (): JSX.Element => {
         <Typography variant="h5">Photos</Typography>
         <IconButton sx={{ color: theme.palette.primary.main }}
           aria-label="edit"
-          onClick={() => { goToStep(AppartmentsRoutes.PHOTOS) }}>
+          onClick={() => { goToStep(AppartmentsQuestionnaireRoutes.PHOTOS) }}>
           <EditIcon fontSize='small' />
         </IconButton>
       </Box>
@@ -89,7 +89,7 @@ export const Summary = (): JSX.Element => {
           <Typography variant="h5">Description</Typography>
           <IconButton sx={{ color: theme.palette.primary.main }}
             aria-label="edit"
-            onClick={() => { goToStep(AppartmentsRoutes.ABOUT) }}>
+            onClick={() => { goToStep(AppartmentsQuestionnaireRoutes.ABOUT) }}>
             <EditIcon fontSize='small' />
           </IconButton>
         </Box>

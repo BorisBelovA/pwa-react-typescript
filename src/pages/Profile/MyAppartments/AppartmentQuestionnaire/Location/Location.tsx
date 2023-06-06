@@ -4,7 +4,7 @@ import styles from './Location.module.scss'
 import { Autocomplete, Box, TextField, Typography } from '@mui/material'
 import { countries } from './countries'
 import { Controller, useForm } from 'react-hook-form'
-import { AppartmentsRoutes } from 'models'
+import { AppartmentsQuestionnaireRoutes } from 'models'
 
 export const Location = (): JSX.Element => {
   const { appartment, setAppartment, setNextDisabled, setActive, setPercent } = appartmentQuestionnaireContext()
@@ -27,7 +27,7 @@ export const Location = (): JSX.Element => {
     const percent = (country && control.getFieldState('country').error === undefined ? 33 : 0) +
     (city && control.getFieldState('city').error === undefined ? 33 : 0) +
     (district && control.getFieldState('district').error === undefined ? 34 : 0)
-    setPercent(percent, 100, AppartmentsRoutes.LOCATION)
+    setPercent(percent, 100, AppartmentsQuestionnaireRoutes.LOCATION)
   }
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export const Location = (): JSX.Element => {
   }, [watch])
 
   useEffect(() => {
-    setActive(AppartmentsRoutes.LOCATION)
+    setActive(AppartmentsQuestionnaireRoutes.LOCATION)
   }, [])
 
   return <>

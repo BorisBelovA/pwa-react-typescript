@@ -81,7 +81,7 @@ const Languages: React.FunctionComponent = () => {
           onClick={() => {
             setQuestions({ ...questions, languages: [] })
             setPercent(0, 1, 'languages')
-            navigate('/profile/questionnaire-basic-info/about')
+            navigate('../about')
           }}>
           Skip
         </Button>
@@ -89,7 +89,7 @@ const Languages: React.FunctionComponent = () => {
           fullWidth
           disabled={nextBtnDisabled}
           onClick={() => {
-            navigate('/profile/questionnaire-basic-info/about')
+            navigate('../about')
           }}>
           Next
         </Button>

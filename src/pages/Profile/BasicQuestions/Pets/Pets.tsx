@@ -118,7 +118,7 @@ const Pets: React.FunctionComponent = () => {
           onClick={() => {
             setQuestions({ ...questions, havePets: undefined, pets: undefined })
             setPercent(0, 1, 'pets')
-            navigate('/profile/questionnaire-basic-info/smoking')
+            navigate('../smoking')
           }}>
           Skip
         </Button>
@@ -126,7 +126,7 @@ const Pets: React.FunctionComponent = () => {
           fullWidth
           disabled={nextBtnDisabled}
           onClick={() => {
-            navigate('/profile/questionnaire-basic-info/smoking')
+            navigate('../smoking')
           }}>
           Next
         </Button>
