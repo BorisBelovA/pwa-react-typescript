@@ -21,7 +21,6 @@ export const components: Components<Omit<Theme, 'components'>> = {
   MuiPaper: {
     styleOverrides: {
       root: {
-        borderRadius: '1rem'
       }
     }
   },

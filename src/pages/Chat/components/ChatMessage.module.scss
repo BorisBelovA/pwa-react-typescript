@@ -1,0 +1,37 @@
+.chat_message {
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: fit-content;
+  min-width: 4rem;
+  max-width: 70%;
+  position: relative;
+
+  &_time {
+    position: absolute;
+    font-size: 10px;
+    top: 100%;
+  }
+
+  &_status {
+    position: absolute;
+  }
+}
+
+.roommate_message {
+  & .chat_message_status {
+    left: calc(100% + 4px);
+  }
+}
+
+.my_message {
+  align-self: flex-end;
+
+  & .chat_message_status {
+    right: calc(100% + 4px);
+  }
+}
+
+.user_name_container {
+  display: flex;
+  flex-direction: column;
+}

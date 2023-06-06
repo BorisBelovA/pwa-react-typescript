@@ -10,6 +10,7 @@ import ProfileRoutes from './profile/ProfileRoutes'
 import AuthRoutes from './auth/auth'
 import { AuthLayout } from 'src/layouts/Auth/AuthLayout'
 import { SessionGuard } from 'src/layouts/SessionGuard/SessionGuard'
+import { Chat } from 'src/pages/Chat/Chat'
 
 const Router: React.FunctionComponent = () => {
   return (
@@ -24,6 +25,7 @@ const Router: React.FunctionComponent = () => {
         <Route path="search/:id" element={<Search />} />
         <Route path="match" element={<Matches />} />
         <Route path="notifications" element={<Notifications />} />
+        <Route path="chat" element={<Chat />} />
         <Route path="/" element={<Navigate to="search" replace />} />
         <Route path="/*" element={<Navigate to="profile" replace />} />
       </Route>
