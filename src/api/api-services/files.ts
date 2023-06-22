@@ -12,10 +12,6 @@ class FilesApiService {
   public async uploadFile (file: File, type: 'avatar' | 'photo' | 'apartment'): Promise<string> {
     const formData = new FormData()
     formData.append('file', file)
-    /**
-     * Ребята сказали, что этот сервис тоже будет наинаться с api/v1
-     * так что потом это безобразие убереться
-     */
     return await http.post<HttpResponse<{
       key: string
     }>>(
@@ -38,33 +34,6 @@ class FilesApiService {
         console.error(errorResponse.response?.data?.message ?? errorResponse.message)
         throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
       })
-  }
-
-  public async getFile (name: string): Promise<string> {
-    return await http.get<HttpResponse<string>>('file/download', {
-      headers: {
-        Authorization: this.sessionService.authToken
-        // 'Content-Type': 'image/png'
-      },
-      params: {
-        path: name
-      }
-    })
-      .then(response => {
-        // if (response.data.status.severityCode === 'ERROR') {
-        //   throw new Error(response.data.status.statusCodeDescription)
-        // }
-        return response.data as unknown as string
-      })
-      .catch(errorResponse => {
-        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
-      })
-  }
-
-  public async getSeveralFiles (names: string[]): Promise<string[]> {
-    const requests = names.map(n => this.getFile(n))
-    return await Promise.all(requests)
   }
 }
 

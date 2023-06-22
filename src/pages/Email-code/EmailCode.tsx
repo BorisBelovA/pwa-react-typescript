@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { useStore } from 'src/utils/StoreProvider'
 import styles from './EmailCode.module.scss'
-import { filesApiService } from 'src/api/api-services/files'
-import { mapBase64ToFile, mapUserToDto } from 'mapping-services'
 
 export const EmailCode = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -27,24 +25,6 @@ export const EmailCode = (): JSX.Element => {
       .then(async () => {
         const token = await userApiService.login(registrationStore.email, registrationStore.password)
         sessionService.authToken = token
-        // let avatarName: string | null = null
-        // let photoName: string | null = null
-        // if (userStore.avatar !== null) {
-        //   const file = await mapBase64ToFile(userStore.avatar, `${new Date().toISOString()}`)
-        //   avatarName = await filesApiService.uploadFile(file, 'avatar')
-        // }
-        // if (userStore.photo !== null) {
-        //   const file = await mapBase64ToFile(userStore.photo, `${new Date().toISOString()}`)
-        //   photoName = await filesApiService.uploadFile(file, 'photo')
-        // }
-        // await userApiService.updateUser(
-        //   mapUserToDto({
-        //     ...userStore.user,
-        //     avatar: avatarName,
-        //     photo: photoName
-        //   }),
-        //   sessionService.authToken
-        // )
         navigate('/auth/terms')
       })
       .catch(error => {
