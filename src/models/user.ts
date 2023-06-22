@@ -1,5 +1,11 @@
 export type Gender = 'M' | 'F' | 'Other'
 
+//sewig18705@bodeem.com
+//qwerty123
+
+//selaxek843@camplvad.com
+//qwerty123
+
 export interface PersonalInfo {
   firstName: string
   lastName: string
@@ -18,12 +24,12 @@ export type User = PersonalInfo & {
   avatar: string | null
 }
 
-export type UserForm = User & {
+export interface UserCredentials {
   email: string
   password: string
 }
 
-export type AuthUser = UserForm & {
+export type AuthUser = User & {
   id: number
 }
 
@@ -33,6 +39,6 @@ export type EmptyPersonalInfo = {
 }
 
 export type NewUser = {
-  [key in keyof UserForm]: UserForm[key] | undefined
+  [key in keyof User]: User[key] | undefined
 }
 ///

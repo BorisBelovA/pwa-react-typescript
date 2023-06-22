@@ -1,44 +1,44 @@
 import { Box, Button } from '@mui/material'
-import { Outlet, useLocation, useNavigate, useOutletContext } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate, useOutletContext, useSearchParams } from 'react-router-dom'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
 import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
 import { type MainLayoutContext, useMainContext } from 'src/layouts/Main/MainLayout'
 import styles from './AppartmentQuestionnaire.module.scss'
 import { useEffect, useState } from 'react'
-import { type Appartment, AppartmentsQuestionnaireRoutes } from 'models'
-import { mapBase64ToFile, mapAppartmentToDto, mapFileToBase64, mapAppartmentToModel } from 'mapping-services'
+import { type Apartment, ApartmentsQuestionnaireRoutes, type NewApartmentForm } from 'models'
+import { mapBase64ToFile, mapApartmentToDto } from 'mapping-services'
 import { filesApiService } from 'src/api/api-services/files'
-import { appartmentService } from 'src/api/api-services/appartment'
+import { apartmentService } from 'src/api/api-services/appartment'
 import { useStore } from 'src/utils/StoreProvider'
 
-export type AppartmentQuestionnaireContext = MainLayoutContext & {
-  appartment: Appartment
-  setAppartment: React.Dispatch<React.SetStateAction<Appartment>>
+export type ApartmentQuestionnaireContext = MainLayoutContext & {
+  apartment: Apartment
+  setApartment: React.Dispatch<React.SetStateAction<Apartment>>
   setNextDisabled: React.Dispatch<React.SetStateAction<boolean>>
   setActive: (active: string) => void
   setPercent: (percent: number, total: number, to: string) => void
 }
 
-export const appartmentQuestionnaireContext = (): AppartmentQuestionnaireContext => {
-  return useOutletContext<AppartmentQuestionnaireContext>()
+export const apartmentQuestionnaireContext = (): ApartmentQuestionnaireContext => {
+  return useOutletContext<ApartmentQuestionnaireContext>()
 }
 
-const saveAllAppartmentsPhotos = async (photos: string[]): Promise<string[]> => {
+const saveAllApartmentsPhotos = async (photos: string[]): Promise<string[]> => {
   const requests = photos.map(async (photo, index) => {
     const file = await mapBase64ToFile(photo, `${new Date().toISOString()}-${index}`)
-    return await filesApiService.uploadFile(file)
+    return await filesApiService.uploadFile(file, 'apartment')
   })
   return await Promise.all(requests)
 }
 
-export const AppartmentQuestionnaire = (): JSX.Element => {
+export const ApartmentQuestionnaire = (): JSX.Element => {
   const { items, setActive, completeStep, setPercent } = useProgressSlider({
     items: [
-      { text: AppartmentsQuestionnaireRoutes.BASIC, progress: 0, to: AppartmentsQuestionnaireRoutes.BASIC },
-      { text: AppartmentsQuestionnaireRoutes.LOCATION, progress: 0, to: AppartmentsQuestionnaireRoutes.LOCATION },
-      { text: AppartmentsQuestionnaireRoutes.PHOTOS, progress: 0, to: AppartmentsQuestionnaireRoutes.PHOTOS },
-      { text: AppartmentsQuestionnaireRoutes.ABOUT, progress: 0, to: AppartmentsQuestionnaireRoutes.ABOUT },
-      { text: AppartmentsQuestionnaireRoutes.SUMMARY, progress: 0, to: AppartmentsQuestionnaireRoutes.SUMMARY }
+      { text: ApartmentsQuestionnaireRoutes.BASIC, progress: 0, to: ApartmentsQuestionnaireRoutes.BASIC },
+      { text: ApartmentsQuestionnaireRoutes.LOCATION, progress: 0, to: ApartmentsQuestionnaireRoutes.LOCATION },
+      { text: ApartmentsQuestionnaireRoutes.PHOTOS, progress: 0, to: ApartmentsQuestionnaireRoutes.PHOTOS },
+      { text: ApartmentsQuestionnaireRoutes.ABOUT, progress: 0, to: ApartmentsQuestionnaireRoutes.ABOUT },
+      { text: ApartmentsQuestionnaireRoutes.SUMMARY, progress: 0, to: ApartmentsQuestionnaireRoutes.SUMMARY }
     ]
   })
 
@@ -46,84 +46,93 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
   const [backBtnVisible, setBackBtnVisible] = useState(false)
   const [finishBtnVisible, setFinishBtnVisible] = useState(false)
 
-  const { setBackdropVisible, setBackdropMessage, setMessage } = appartmentQuestionnaireContext()
-  const { appartmentStore } = useStore()
+  const { setBackdropVisible, setBackdropMessage, setMessage } = apartmentQuestionnaireContext()
+  const { apartmentStore } = useStore()
+
+  const [searchParams] = useSearchParams()
+
+  let existingApartment: Apartment | undefined
+  const queryAppId = searchParams.get('id')
+  if (queryAppId) {
+    existingApartment = apartmentStore.apartments.find(a => a.id === +queryAppId)
+  }
 
   const navigate = useNavigate()
-  const [appartment, setAppartment] = useState<Appartment>({
-    id: appartmentStore.appartments[0]?.id ?? 0,
-    name: appartmentStore.appartments[0]?.name ?? '',
-    totalPrice: appartmentStore.appartments[0]?.totalPrice ?? null,
-    curency: appartmentStore.appartments[0]?.curency ?? 'ILS',
-    countRooms: appartmentStore.appartments[0]?.countRooms ?? 4,
-    countAvailableRooms: appartmentStore.appartments[0]?.countAvailableRooms ?? 2,
+  const [apartment, setApartment] = useState<NewApartmentForm>({
+    id: existingApartment?.id ?? 0,
+    name: existingApartment?.name ?? '',
+    totalPrice: existingApartment?.totalPrice ?? null,
+    currency: existingApartment?.currency ?? 'ILS',
+    countRooms: existingApartment?.countRooms ?? 4,
+    countAvailableRooms: existingApartment?.countAvailableRooms ?? 2,
     location: {
-      country: appartmentStore.appartments[0]?.location.country ?? '',
-      city: appartmentStore.appartments[0]?.location.city ?? '',
-      district: appartmentStore.appartments[0]?.location.district ?? ''
+      country: existingApartment?.location.country ?? undefined,
+      city: existingApartment?.location.city ?? undefined,
+      district: existingApartment?.location.district ?? undefined,
+      address: existingApartment?.location.address ?? undefined,
     },
-    photos: appartmentStore.appartments[0]?.photos ?? [],
-    description: appartmentStore.appartments[0]?.description ?? ''
+    photos: existingApartment?.photos ?? [],
+    description: existingApartment?.description ?? ''
   })
 
   const location = useLocation()
   const [nextDisabled, setNextDisabled] = useState(true)
 
-  const getActiveStepFromURI = (): AppartmentsQuestionnaireRoutes => {
+  const getActiveStepFromURI = (): ApartmentsQuestionnaireRoutes => {
     const paths = location.pathname.split('/')
     const activeStep = paths[paths.length - 1]
     if (activeStep === undefined || activeStep === null || activeStep === '') {
       throw new Error('Unable to get active step from URI!')
     }
     if (![
-      AppartmentsQuestionnaireRoutes.BASIC,
-      AppartmentsQuestionnaireRoutes.LOCATION,
-      AppartmentsQuestionnaireRoutes.PHOTOS,
-      AppartmentsQuestionnaireRoutes.ABOUT,
-      AppartmentsQuestionnaireRoutes.SUMMARY
-    ].includes(activeStep as AppartmentsQuestionnaireRoutes)) {
-      throw new Error('Incorrect appartments questionnaire step!')
+      ApartmentsQuestionnaireRoutes.BASIC,
+      ApartmentsQuestionnaireRoutes.LOCATION,
+      ApartmentsQuestionnaireRoutes.PHOTOS,
+      ApartmentsQuestionnaireRoutes.ABOUT,
+      ApartmentsQuestionnaireRoutes.SUMMARY
+    ].includes(activeStep as ApartmentsQuestionnaireRoutes)) {
+      throw new Error('Incorrect apartments questionnaire step!')
     }
-    return activeStep as AppartmentsQuestionnaireRoutes
+    return activeStep as ApartmentsQuestionnaireRoutes
   }
 
   useEffect(() => {
     const activeStep = getActiveStepFromURI()
-    setNextBtnVisible(activeStep !== AppartmentsQuestionnaireRoutes.SUMMARY)
-    setBackBtnVisible(activeStep !== AppartmentsQuestionnaireRoutes.BASIC)
-    setFinishBtnVisible(activeStep === AppartmentsQuestionnaireRoutes.SUMMARY)
+    setNextBtnVisible(activeStep !== ApartmentsQuestionnaireRoutes.SUMMARY)
+    setBackBtnVisible(activeStep !== ApartmentsQuestionnaireRoutes.BASIC)
+    setFinishBtnVisible(activeStep === ApartmentsQuestionnaireRoutes.SUMMARY)
   }, [location.pathname])
 
   const onNextStep = (): void => {
     const activeStep = getActiveStepFromURI()
     switch (activeStep) {
-      case AppartmentsQuestionnaireRoutes.BASIC: {
-        completeStep(AppartmentsQuestionnaireRoutes.BASIC)
-        navigate(AppartmentsQuestionnaireRoutes.LOCATION)
+      case ApartmentsQuestionnaireRoutes.BASIC: {
+        completeStep(ApartmentsQuestionnaireRoutes.BASIC)
+        navigate(ApartmentsQuestionnaireRoutes.LOCATION)
         break
       }
-      case AppartmentsQuestionnaireRoutes.LOCATION: {
+      case ApartmentsQuestionnaireRoutes.LOCATION: {
         const stepProgress = items[1].progress
         if (stepProgress === 100) {
-          completeStep(AppartmentsQuestionnaireRoutes.LOCATION)
+          completeStep(ApartmentsQuestionnaireRoutes.LOCATION)
         } else {
-          setActive(AppartmentsQuestionnaireRoutes.PHOTOS)
+          setActive(ApartmentsQuestionnaireRoutes.PHOTOS)
         }
-        navigate(AppartmentsQuestionnaireRoutes.PHOTOS)
+        navigate(ApartmentsQuestionnaireRoutes.PHOTOS)
         break
       }
-      case AppartmentsQuestionnaireRoutes.PHOTOS: {
-        completeStep(AppartmentsQuestionnaireRoutes.PHOTOS)
-        navigate(AppartmentsQuestionnaireRoutes.ABOUT)
+      case ApartmentsQuestionnaireRoutes.PHOTOS: {
+        completeStep(ApartmentsQuestionnaireRoutes.PHOTOS)
+        navigate(ApartmentsQuestionnaireRoutes.ABOUT)
         break
       }
-      case AppartmentsQuestionnaireRoutes.ABOUT: {
-        completeStep(AppartmentsQuestionnaireRoutes.ABOUT)
-        navigate(AppartmentsQuestionnaireRoutes.SUMMARY)
+      case ApartmentsQuestionnaireRoutes.ABOUT: {
+        completeStep(ApartmentsQuestionnaireRoutes.ABOUT)
+        navigate(ApartmentsQuestionnaireRoutes.SUMMARY)
         break
       }
       default: {
-        throw new Error('Unknow step to complete!')
+        throw new Error('Unknown step to complete!')
       }
     }
   }
@@ -131,43 +140,43 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
   const onPrevStep = (): void => {
     const activeStep = getActiveStepFromURI()
     switch (activeStep) {
-      case AppartmentsQuestionnaireRoutes.LOCATION: {
-        navigate(AppartmentsQuestionnaireRoutes.BASIC)
+      case ApartmentsQuestionnaireRoutes.LOCATION: {
+        navigate(ApartmentsQuestionnaireRoutes.BASIC)
         break
       }
-      case AppartmentsQuestionnaireRoutes.PHOTOS: {
-        navigate(AppartmentsQuestionnaireRoutes.LOCATION)
+      case ApartmentsQuestionnaireRoutes.PHOTOS: {
+        navigate(ApartmentsQuestionnaireRoutes.LOCATION)
         break
       }
-      case AppartmentsQuestionnaireRoutes.ABOUT: {
-        navigate(AppartmentsQuestionnaireRoutes.PHOTOS)
+      case ApartmentsQuestionnaireRoutes.ABOUT: {
+        navigate(ApartmentsQuestionnaireRoutes.PHOTOS)
         break
       }
-      case AppartmentsQuestionnaireRoutes.SUMMARY: {
-        navigate(AppartmentsQuestionnaireRoutes.ABOUT)
+      case ApartmentsQuestionnaireRoutes.SUMMARY: {
+        navigate(ApartmentsQuestionnaireRoutes.ABOUT)
         break
       }
       default: {
-        throw new Error('Unknow step to complete!')
+        throw new Error('Unknown step to complete!')
       }
     }
   }
 
-  const saveAppartment = async (appartment: Appartment): Promise<void> => {
+  const saveApartment = async (apartment: Apartment): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Saving your appartment!')
-    const photos = await saveAllAppartmentsPhotos(appartment.photos)
-    const dto = mapAppartmentToDto({
-      ...appartment,
+    setBackdropMessage('Saving your apartment!')
+    const photos = await saveAllApartmentsPhotos(apartment.photos)
+    const dto = mapApartmentToDto({
+      ...apartment,
       photos
     })
     try {
       setBackdropMessage('Almost done!')
-      const savedAppartment = await appartmentService.addNewAppartment(dto)
+      const savedApartment = await apartmentService.addNewApartment(dto)
       setBackdropVisible(false)
-      appartmentStore.setAppartments([{
-        ...appartment,
-        id: savedAppartment.id
+      apartmentStore.setApartments([{
+        ...apartment,
+        id: savedApartment.id
       }])
       navigate('../../')
     } catch (e) {
@@ -181,21 +190,21 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
     }
   }
 
-  const updateAppartment = async (appartment: Appartment): Promise<void> => {
+  const updateApartment = async (apartment: Apartment): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Updating your appartment!')
-    const photos = await saveAllAppartmentsPhotos(appartment.photos)
-    const dto = mapAppartmentToDto({
-      ...appartment,
+    setBackdropMessage('Updating your apartment!')
+    const photos = await saveAllApartmentsPhotos(apartment.photos)
+    const dto = mapApartmentToDto({
+      ...apartment,
       photos
     })
     try {
       setBackdropMessage('Almost done!')
-      const savedAppartment = await appartmentService.updateAppartment(dto)
+      const savedApartment = await apartmentService.updateApartment(dto)
       setBackdropVisible(false)
-      appartmentStore.setAppartments([{
-        ...mapAppartmentToModel(savedAppartment),
-        photos: appartment.photos
+      apartmentStore.setApartments([{
+        ...apartment,
+        id: savedApartment.id
       }])
       navigate('../../')
     } catch (e) {
@@ -210,10 +219,10 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
   }
 
   const onFinish = (): void => {
-    if (appartment.id === 0) {
-      saveAppartment(appartment)
+    if (apartment.id === 0) {
+      void saveApartment(apartment as unknown as Apartment)
     } else {
-      updateAppartment(appartment)
+      void updateApartment(apartment as unknown as Apartment)
     }
   }
 
@@ -225,8 +234,8 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
           setActive,
           setPercent,
           ...useMainContext(),
-          appartment,
-          setAppartment,
+          apartment,
+          setApartment,
           setNextDisabled
         }} />
       </Box>
@@ -235,7 +244,7 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
         <Box className={styles.buttons_container_column}>
           {backBtnVisible && <Button
             fullWidth
-            variant="outlined"
+            variant='outlined'
             onClick={onPrevStep}>
             Back
           </Button>
@@ -243,7 +252,7 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
         </Box>
         {nextBtnVisible && <Button className={styles.buttons_container_column}
           fullWidth
-          variant="contained"
+          variant='contained'
           disabled={nextDisabled}
           onClick={onNextStep}>
           Next
@@ -251,7 +260,7 @@ export const AppartmentQuestionnaire = (): JSX.Element => {
         }
         {finishBtnVisible && <Button className={styles.buttons_container_column}
           fullWidth
-          variant="contained"
+          variant='contained'
           onClick={onFinish}>
           Finish
         </Button>

@@ -3,7 +3,7 @@ import { Navigate, Route } from 'react-router-dom'
 import AboutMe from 'src/pages/Profile/AboutMe/AboutMe'
 import BasicQuestionsRoommate from 'src/pages/Profile/RoommatePreferences/BasicQuestionsRoommate/BasicQuestionsRoommate'
 import RoommatePreferences from 'src/pages/Profile/RoommatePreferences/RoommatePreferences'
-import { appartmentsRoutes } from './appartments/routes'
+import { apartmentsRoutes } from './appartments/routes'
 import { ProfileRoutes } from 'models'
 import { settingsRoutes } from './settings/routes'
 import { questionnaireRoutes } from './questionnaire/BasicInfo'
@@ -12,8 +12,8 @@ import { NotFound } from 'src/pages/NotFound'
 
 export default [
   <Route key='1' path={ProfileRoutes.ABOUT_ME} element={<AboutMe />}></Route>,
-  <Route key='2' path={ProfileRoutes.MY_APPARTMENT}>
-    {appartmentsRoutes}
+  <Route key='2' path={ProfileRoutes.MY_APARTMENT}>
+    {apartmentsRoutes}
   </Route>,
   <Route key='3' path={ProfileRoutes.ROOMMATE_PREFERENCES}>
     <Route path='' element={<RoommatePreferences />} />

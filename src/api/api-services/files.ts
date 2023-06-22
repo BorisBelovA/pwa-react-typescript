@@ -3,13 +3,13 @@ import { type HttpResponse } from '../dto/common-interfaces'
 import { type SessionService, sessionService } from './session'
 
 class FilesApiService {
-  private readonly sessnioService!: SessionService
+  private readonly sessionService!: SessionService
 
   constructor (sessionService: SessionService) {
-    this.sessnioService = sessionService
+    this.sessionService = sessionService
   }
 
-  public async uploadFile (file: File): Promise<string> {
+  public async uploadFile (file: File, type: 'avatar' | 'photo' | 'apartment'): Promise<string> {
     const formData = new FormData()
     formData.append('file', file)
     /**
@@ -19,12 +19,11 @@ class FilesApiService {
     return await http.post<HttpResponse<{
       key: string
     }>>(
-      '/files-storage/upload',
+      `/file/upload/${type}`,
       formData,
       {
-        baseURL: '/',
         headers: {
-          Authorization: this.sessnioService.authToken,
+          Authorization: this.sessionService.authToken,
           'Content-Type': 'multipart/form-data'
         }
       }
@@ -42,18 +41,20 @@ class FilesApiService {
   }
 
   public async getFile (name: string): Promise<string> {
-    return await http.get<HttpResponse<string>>(`files-storage/download/${name}`, {
-      baseURL: '/',
+    return await http.get<HttpResponse<string>>('file/download', {
       headers: {
-        Authorization: this.sessnioService.authToken,
-        'Content-Type': 'multipart/form-data'
+        Authorization: this.sessionService.authToken
+        // 'Content-Type': 'image/png'
+      },
+      params: {
+        path: name
       }
     })
       .then(response => {
-        if (response.data.status.severityCode === 'ERROR') {
-          throw new Error(response.data.status.statusCodeDescription)
-        }
-        return response.data.response
+        // if (response.data.status.severityCode === 'ERROR') {
+        //   throw new Error(response.data.status.statusCodeDescription)
+        // }
+        return response.data as unknown as string
       })
       .catch(errorResponse => {
         console.error(errorResponse.response?.data?.message ?? errorResponse.message)

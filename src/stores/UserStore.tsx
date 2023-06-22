@@ -1,10 +1,10 @@
-import { type Gender, type UserForm, type AuthUser } from '../models/user'
+import { type Gender, type AuthUser } from '../models/user'
 import { makeAutoObservable } from 'mobx'
 import { type RootStore } from './RootStore'
+import { sessionService } from 'api-services'
 
-export class UserStore implements UserForm {
-  email: string = ''
-  password: string = ''
+export class UserStore implements AuthUser {
+  id: number = 0
   firstName: string = ''
   lastName: string = ''
   gender: Gender = 'M'
@@ -49,16 +49,6 @@ export class UserStore implements UserForm {
     this.updateStorage()
   }
 
-  public setEmail (email: string): void {
-    this.email = email
-    this.updateStorage()
-  }
-
-  public setPassword (password: string): void {
-    this.password = password
-    this.updateStorage()
-  }
-
   setAvatar (name: string): void {
     this.avatar = name
     this.updateStorage()
@@ -69,9 +59,8 @@ export class UserStore implements UserForm {
     this.updateStorage()
   }
 
-  setUser (user: UserForm | AuthUser): void {
-    this.email = user.email
-    this.password = user.password
+  setUser (user: AuthUser): void {
+    this.id = user.id
     this.firstName = user.firstName
     this.lastName = user.lastName
     this.gender = user.gender
@@ -84,8 +73,7 @@ export class UserStore implements UserForm {
 
   updateStorage (): void {
     this.writeToLocalStorage({
-      email: this.email,
-      password: this.password,
+      id: this.id,
       firstName: this.firstName,
       lastName: this.lastName,
       gender: this.gender,
@@ -96,14 +84,33 @@ export class UserStore implements UserForm {
     })
   }
 
-  writeToLocalStorage = (user: UserForm): void => {
+  writeToLocalStorage = (user: AuthUser): void => {
     localStorage.setItem('user', JSON.stringify(user))
   }
 
-  readFromLocalStorage = (): UserForm | null => {
+  readFromLocalStorage = (): AuthUser | null => {
     const data = localStorage.getItem('user')
     return data !== null
-      ? JSON.parse(data) as UserForm
+      ? JSON.parse(data) as AuthUser
       : null
   }
+
+  public deleteFromStorage = (): void => {
+    localStorage.removeItem('user')
+    sessionService.removeFromLocalStorage()
+  }
+  
+  public get user (): AuthUser {
+    return {
+      id: this.id,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      gender: this.gender,
+      birthday: this.birthday,
+      phone: this.phone,
+      avatar: this.avatar,
+      photo: this.photo
+    }
+  }
+  
 }

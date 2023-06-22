@@ -11,6 +11,6 @@ export default axios.create({
   proxy: {
     protocol: 'http',
     host: '194.58.109.74',
-    port: 8080
+    port: 80
   }
 })

@@ -2,15 +2,18 @@ export type UserRoles = 'USER_ROLE' | 'Admin'
 export type UserGender = 'MALE' | 'FEMALE' | 'OTHER'
 
 export interface UserForm {
+  firstName: string | null
+  lastName: string | null
+  gender: UserGender | null
+  birthday: string | null
+  phone: string | null
+  photo: string | null
+  avatar: string | null
+}
+
+export interface UserCredentials {
   email: string
   password: string
-  firstName: string
-  lastName: string
-  gender: UserGender
-  birthday: string
-  phone?: string
-  photo?: string
-  avatar?: string
 }
 
 export type UserDto = UserForm & {

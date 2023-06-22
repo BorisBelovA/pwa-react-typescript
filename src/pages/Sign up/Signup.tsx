@@ -1,6 +1,6 @@
-import { Button, Divider, IconButton, InputAdornment, SxProps, TextField, Typography, useTheme } from '@mui/material'
+import { Button, Divider, IconButton, InputAdornment, TextField, Typography, useTheme } from '@mui/material'
 import { useState } from 'react'
-import { useForm, type ValidationRule } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Signup.module.scss'
 import { ReactComponent as AppleIcon } from '../../assets/sm-icons/AppleIcon.svg'
@@ -9,7 +9,12 @@ import { ReactComponent as GoogleIcon } from '../../assets/sm-icons/GoogleIcon.s
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { minLength } from 'src/utils/validations'
 import { useStore } from 'src/utils/StoreProvider'
+import { userApiService } from 'api-services'
+import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
+import { mapUserToModel } from 'mapping-services'
+import { UserStore } from 'src/stores/UserStore'
 
+//xiwabi4275@byorby.com
 interface SignUpForm {
   email: string
   password: string
@@ -31,9 +36,15 @@ export const SignUp = (): JSX.Element => {
     mode: 'all'
   })
 
+  const {
+    setBackdropMessage,
+    setBackdropVisible,
+    setMessage
+  } = useAuthContext()
+
   const navigate = useNavigate()
   const theme = useTheme()
-  const { userStore } = useStore()
+  const { registrationStore, userStore } = useStore()
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -42,15 +53,29 @@ export const SignUp = (): JSX.Element => {
     event.preventDefault()
   }
 
-  const onSubmit = (data: SignUpForm): void => {
-    userStore.setEmail(data.email)
-    userStore.setPassword(data.password)
-    navigate('/auth/terms')
-  }
-
-  const iconsProps: SxProps = {
-    widows: '20px',
-    height: '20px'
+  const onSubmit = async (data: SignUpForm): Promise<void> => {
+    if (!data.email || !data.password) {
+      throw new Error('No email or password provided!')
+    }
+    setBackdropVisible(true)
+    setBackdropMessage('Checking email')
+    try {
+      const { email, password } = data
+      const response = await userApiService.createUserV2({ email, password })
+      userStore.setUser(mapUserToModel(response))
+      registrationStore.setCredentials(email, password)
+      setBackdropVisible(false)
+      navigate('/auth/email-verification')
+    } catch (e) {
+      setMessage({
+        visible: true,
+        severity: 'error',
+        text: e instanceof Error
+          ? e.message
+          : 'Something went wtong'
+      })
+      setBackdropVisible(false)
+    }
   }
 
   return <>
@@ -116,35 +141,21 @@ export const SignUp = (): JSX.Element => {
       <Button disabled={!isValid}
         onClick={(e) => { void handleSubmit(onSubmit)(e) }}
         variant="contained"
-        sx={{width: '60%'}}>
+        sx={{ width: '60%' }}>
         Sign up
       </Button>
     </div>
-    {/* <Box sx={{ width: '100%', alignItems: 'center', marginY: '1.5rem' }}>
-      <Divider><Typography variant='h2'>or</Typography></Divider>
-    </Box>
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '.5rem', width: '100%' }}>
-      <Button variant="outlined" sx={sxSMButtons}>
-        <GoogleIcon className={styles.smIcon} />Sign up with Google
-      </Button>
-      <Button variant="outlined" sx={sxSMButtons}>
-        <FacebookIcon className={styles.smIcon} />Sign up with Facebook
-      </Button>
-      <Button variant="outlined" sx={sxSMButtons}>
-        <AppleIcon className={styles.smIcon} />Sign up with Apple
-      </Button>
-    </Box> */}
     <div className={styles.divider}>
       <Divider>OR</Divider>
       <Typography variant='h2'>Sign Up with</Typography>
     </div>
     <div className={styles.buttons}>
       <Button variant="outlined" size='small' startIcon={
-        <GoogleIcon width={20} height={20}/>}>
+        <GoogleIcon width={20} height={20} />}>
         Google
       </Button>
       <Button variant="outlined" size='small' startIcon={
-        <FacebookIcon width={20} height={20}/>}>
+        <FacebookIcon width={20} height={20} />}>
         Facebook
       </Button>
       <Button variant="outlined" size='small' startIcon={

@@ -1,19 +1,19 @@
 import { type SessionService, sessionService } from './session'
 import http from '../common-configuration'
 import { type HttpResponse } from '../dto/common-interfaces'
-import * as dto from 'dto'
+import type * as dto from 'dto'
 
-class Appartment {
-  private readonly sessnioService!: SessionService
+class Apartment {
+  private readonly sessionService!: SessionService
 
-  constructor(sessionService: SessionService) {
-    this.sessnioService = sessionService
+  constructor (sessionService: SessionService) {
+    this.sessionService = sessionService
   }
 
-  public async addNewAppartment(appartment: dto.Appartment): Promise<dto.Appartment> {
-    return await http.post<HttpResponse<dto.Appartment>>('/apartment', appartment, {
+  public async addNewApartment (apartment: dto.Apartment): Promise<dto.Apartment> {
+    return await http.post<HttpResponse<dto.Apartment>>('/apartment', apartment, {
       headers: {
-        Authorization: this.sessnioService.authToken
+        Authorization: this.sessionService.authToken
       }
     })
       .then(response => {
@@ -28,10 +28,10 @@ class Appartment {
       })
   }
 
-  public async updateAppartment (appartment: dto.Appartment): Promise<dto.Appartment> {
-    return await http.put<HttpResponse<dto.Appartment>>('/apartment', appartment, {
+  public async updateApartment (apartment: dto.Apartment): Promise<dto.Apartment> {
+    return await http.put<HttpResponse<dto.Apartment>>('/apartment', apartment, {
       headers: {
-        Authorization: this.sessnioService.authToken
+        Authorization: this.sessionService.authToken
       }
     })
       .then(response => {
@@ -46,10 +46,10 @@ class Appartment {
       })
   }
 
-  public async getAppartmentByUser (): Promise<dto.Appartment | null> {
-    return await http.get<HttpResponse<dto.Appartment | null>>('/apartment', {
+  public async getApartmentByUser (): Promise<dto.Apartment[]> {
+    return await http.get<HttpResponse<dto.Apartment[]>>('/apartment', {
       headers: {
-        Authorization: this.sessnioService.authToken
+        Authorization: this.sessionService.authToken
       }
     })
       .then(response => {
@@ -65,4 +65,4 @@ class Appartment {
   }
 }
 
-export const appartmentService = new Appartment(sessionService)
+export const apartmentService = new Apartment(sessionService)

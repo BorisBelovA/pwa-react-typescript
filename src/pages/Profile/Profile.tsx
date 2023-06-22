@@ -3,10 +3,13 @@ import { Avatar, Box, IconButton, Typography, useTheme } from '@mui/material'
 import { useStore } from 'src/utils/StoreProvider'
 import styles from './Profile.module.scss'
 import SettingsNavigationButton from 'src/components/navigation/SettingsNavigationButton/SettingsNavigationButton'
-import EditIcon from '@mui/icons-material/Edit';
-import { ChangeEvent, useState } from 'react'
+import EditIcon from '@mui/icons-material/Edit'
+import { type ChangeEvent, useState } from 'react'
 import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
 import { ProfileRoutes } from 'models'
+import { filesApiService } from 'src/api/api-services/files'
+import { mapBase64ToFile, mapUserToDto } from 'mapping-services'
+import { sessionService, userApiService } from 'api-services'
 const Profile: React.FunctionComponent = observer(() => {
   const { userStore } = useStore()
 
@@ -38,6 +41,21 @@ const Profile: React.FunctionComponent = observer(() => {
     const reader = new FileReader()
     reader.readAsDataURL(photo)
     return reader
+  }
+
+  const saveAvatar = async (avatar: string): Promise<void> => {
+    if (!sessionService.authToken) {
+      throw new Error('Can\'t save without session token')
+    }
+    userStore.setAvatar(avatar)
+    const file = await mapBase64ToFile(avatar, 'avatar')
+    const avatarName = await filesApiService.uploadFile(file, 'avatar')
+    await userApiService.updateUser(mapUserToDto({
+      ...userStore.user,
+      avatar: avatarName
+    }),
+    sessionService.authToken
+    )
   }
 
   const theme = useTheme()
@@ -74,10 +92,9 @@ const Profile: React.FunctionComponent = observer(() => {
       <Box className={styles.profile_items_container}>
         <SettingsNavigationButton to={`/profile/${ProfileRoutes.ABOUT_ME}`}>About me</SettingsNavigationButton>
         <SettingsNavigationButton to={`/profile/${ProfileRoutes.ROOMMATE_PREFERENCES}`}>Roommate preferences</SettingsNavigationButton>
-        <SettingsNavigationButton to={`/profile/${ProfileRoutes.MY_APPARTMENT}`}>My appartments</SettingsNavigationButton>
+        <SettingsNavigationButton to={`/profile/${ProfileRoutes.MY_APARTMENT}`}>My apartments</SettingsNavigationButton>
         <SettingsNavigationButton to={`/profile/${ProfileRoutes.SETTINGS}`}>Settings</SettingsNavigationButton>
         <SettingsNavigationButton to={`/profile/${ProfileRoutes.BASIC_QUEST}`}>Test Questionnaire</SettingsNavigationButton>
-        <SettingsNavigationButton to=''>Logout</SettingsNavigationButton>
       </Box>
     </Box>
 
@@ -87,7 +104,7 @@ const Profile: React.FunctionComponent = observer(() => {
         shape='round'
         acceptImage={photo => {
           setCropVisible(false)
-          userStore.setAvatar(photo);
+          saveAvatar(photo);
           (document.getElementById('photo-upload') as HTMLInputElement).value = ''
         }}
       />}

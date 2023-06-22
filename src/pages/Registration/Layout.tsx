@@ -2,19 +2,20 @@ import { Button } from '@mui/material'
 import moment from 'moment'
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { type NewUser, type UserForm } from '../../models/user'
+import { User, type NewUser } from '../../models/user'
 import { FifthStep } from './Fifth step/FifthStep'
 import { FirstStep } from './First step/FirstStep'
 import { ForthStep } from './Forth-Step/ForthStep'
 import styles from './Layout.module.scss'
 import { SecondStep } from './Second step/SecondStep'
-import { userApiService } from 'api-services'
-import { mapUserFormToDto } from 'mapping-services'
+import { sessionService, userApiService } from 'api-services'
+import { mapBase64ToFile, mapUserToDto } from 'mapping-services'
 import { useStore } from 'src/utils/StoreProvider'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
 import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
 import { type ProgressSliderProps } from 'src/components'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
+import { filesApiService } from 'src/api/api-services/files'
 
 export type RegistrationSteps = 'personal' | 'phone' | 'verification' | 'photo' | 'summary'
 
@@ -77,25 +78,36 @@ export const Layout = (): JSX.Element => {
     if ((firstName == null) || (lastName == null) || (gender === undefined) || (birthday == null)) {
       throw new Error('User form is not filled!')
     }
+    if (!sessionService.authToken) {
+      throw new Error('No session token provided')
+    }
     try {
-      const response = await userApiService.createUser(mapUserFormToDto({
-        email: userStore.email,
-        password: userStore.password,
+      let avatarName: string | null = null
+      let photoName: string | null = null
+      if (avatar) {
+        const file = await mapBase64ToFile(avatar, `${new Date().toISOString()}`)
+        avatarName = await filesApiService.uploadFile(file, 'avatar')
+      }
+      if (photo) {
+        const file = await mapBase64ToFile(photo, `${new Date().toISOString()}`)
+        photoName = await filesApiService.uploadFile(file, 'photo')
+      }
+      const response = await userApiService.updateUser(mapUserToDto({
+        id: userStore.id,
         firstName,
         lastName,
         gender,
         birthday,
         phone: phone ?? null,
-        avatar: avatar ?? null,
-        photo: photo ?? null
-      }))
-      setBackdropMessage('Acquiring your token')
-      // new request for activating user
-      // we wait until backend guys fix that
+        avatar: avatarName,
+        photo: photoName
+      }),
+        sessionService.authToken
+      )
+      setBackdropMessage('Finishing up!')
       setTimeout(() => {
         userStore.setUser({
-          email: userStore.email,
-          password: userStore.password,
+          id: response.id,
           firstName,
           lastName,
           gender,
@@ -105,7 +117,7 @@ export const Layout = (): JSX.Element => {
           avatar: avatar ?? null
         })
         setBackdropVisible(false)
-        navigate('/auth/email-verification')
+        navigate('/profile')
       }, 2000)
     } catch (error: any) {
       console.error(error)
@@ -118,7 +130,7 @@ export const Layout = (): JSX.Element => {
     }
   }
 
-  const isUser = (user: NewUser): user is UserForm => {
+  const isUser = (user: NewUser): user is User => {
     return user.firstName !== undefined &&
       user.lastName !== undefined &&
       user.birthday !== undefined &&

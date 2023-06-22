@@ -1,19 +1,19 @@
 import styles from './Summary.module.scss'
 import { Box, IconButton, ImageList, ImageListItem, Typography, useTheme } from '@mui/material'
-import { appartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
+import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { useEffect } from 'react'
 import EditIcon from '@mui/icons-material/Edit'
-import { AppartmentsQuestionnaireRoutes, type Currency } from 'models'
+import { ApartmentsQuestionnaireRoutes, type Currency } from 'models'
 import { useNavigate } from 'react-router-dom'
 
 export const Summary = (): JSX.Element => {
-  const { appartment, setActive, setPercent } = appartmentQuestionnaireContext()
+  const { apartment, setActive, setPercent } = apartmentQuestionnaireContext()
   const theme = useTheme()
   const navigate = useNavigate()
 
   useEffect(() => {
-    setActive(AppartmentsQuestionnaireRoutes.SUMMARY)
-    setPercent(100, 100, AppartmentsQuestionnaireRoutes.SUMMARY)
+    setActive(ApartmentsQuestionnaireRoutes.SUMMARY)
+    setPercent(100, 100, ApartmentsQuestionnaireRoutes.SUMMARY)
   }, [])
 
   const mapCurrencyToSign = (currency: Currency): string => {
@@ -25,51 +25,55 @@ export const Summary = (): JSX.Element => {
     }
   }
 
-  const goToStep = (step: AppartmentsQuestionnaireRoutes): void => {
+  const goToStep = (step: ApartmentsQuestionnaireRoutes): void => {
     navigate(`../${step}`)
+  }
+
+  const address = (): string => {
+    const { country, city, district } = apartment.location
+    return country.name
+      + (district ? ', ' + district.name : '')
+      + (city ? ', ' + city.name : '')
   }
 
   return <Box className={styles.summary_container}>
     <Box>
       <Box className={styles.header_row}>
-        <Typography variant="h5">{appartment.name}</Typography>
+        <Typography variant="h6">{apartment.name}</Typography>
         <IconButton sx={{ color: theme.palette.primary.main }}
           aria-label="edit"
-          onClick={() => { goToStep(AppartmentsQuestionnaireRoutes.BASIC) }}>
+          onClick={() => { goToStep(ApartmentsQuestionnaireRoutes.BASIC) }}>
           <EditIcon fontSize='small' />
         </IconButton>
       </Box>
       <Typography variant="body1" color={theme.palette.text.secondary}>
-        {appartment.totalPrice} {mapCurrencyToSign(appartment.curency)} per room
+        {apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room
       </Typography>
     </Box>
 
     <Box className={styles.header_row}>
-      <Typography variant="h5">
-        {appartment.location.country}
-        {', ' + appartment.location.city}
-        {appartment.location.district.length > 0
-          ? ', ' + appartment.location.district
-          : ''
-        }</Typography>
+      <Box>
+        <Typography variant="h6">{address()}</Typography>
+        <Typography variant="subtitle1">{apartment.location.address ?? ''}</Typography>
+      </Box>
       <IconButton sx={{ color: theme.palette.primary.main }}
         aria-label="edit"
-        onClick={() => { goToStep(AppartmentsQuestionnaireRoutes.LOCATION) }}>
+        onClick={() => { goToStep(ApartmentsQuestionnaireRoutes.LOCATION) }}>
         <EditIcon fontSize='small' />
       </IconButton>
     </Box>
 
     <Box>
       <Box className={styles.header_row}>
-        <Typography variant="h5">Photos</Typography>
+        <Typography variant="h6">Photos</Typography>
         <IconButton sx={{ color: theme.palette.primary.main }}
           aria-label="edit"
-          onClick={() => { goToStep(AppartmentsQuestionnaireRoutes.PHOTOS) }}>
+          onClick={() => { goToStep(ApartmentsQuestionnaireRoutes.PHOTOS) }}>
           <EditIcon fontSize='small' />
         </IconButton>
       </Box>
       <ImageList cols={3} gap={8}>
-        {appartment.photos.map((photo, index) => {
+        {apartment.photos.map((photo, index) => {
           return <ImageListItem key={index} sx={{
             borderRadius: '16px',
             border: '1px solid gray',
@@ -83,17 +87,17 @@ export const Summary = (): JSX.Element => {
     </Box>
 
     {
-      appartment.description.length > 0 &&
+      apartment.description.length > 0 &&
       <Box>
         <Box className={styles.header_row}>
-          <Typography variant="h5">Description</Typography>
+          <Typography variant="h6">Description</Typography>
           <IconButton sx={{ color: theme.palette.primary.main }}
             aria-label="edit"
-            onClick={() => { goToStep(AppartmentsQuestionnaireRoutes.ABOUT) }}>
+            onClick={() => { goToStep(ApartmentsQuestionnaireRoutes.ABOUT) }}>
             <EditIcon fontSize='small' />
           </IconButton>
         </Box>
-        <Typography>{appartment.description}</Typography>
+        <Typography>{apartment.description}</Typography>
       </Box>
     }
   </Box>

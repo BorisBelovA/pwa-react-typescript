@@ -1,64 +1,19 @@
 import http from '../common-configuration'
-import { type AuthenticatedUserData } from '../dto/api-responses'
 import { type HttpResponse } from '../dto/common-interfaces'
-import { type UserForm, type UserDto, type UserCredentials } from '../dto/user'
+import { type City, type District, type Country } from '../dto/location'
+import { type SessionService, sessionService } from './session'
 
-class UserApiService {
-  /**
-   * User's registration
-   * @param user form with users data
-   */
-  public async createUser (user: UserForm): Promise<UserDto> {
-    const payload = {
-      ...user,
-      role: 'USER_ROLE'
-    }
+class LocationService {
+  private readonly sessionService!: SessionService
 
-    return await http.post<HttpResponse<UserDto>>('/user', payload)
-      .then(response => {
-        if (response.data.status.severityCode === 'ERROR') {
-          throw new Error(response.data.status.statusCodeDescription)
-        }
-        return response.data.response
-      })
-      .catch(errorResponse => {
-        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
-      })
+  constructor (sessionService: SessionService) {
+    this.sessionService = sessionService
   }
 
-  public async createUserV2 (credentials: UserCredentials): Promise<UserDto> {
-    return await http.post<HttpResponse<UserDto>>('/user', credentials)
-      .then(response => {
-        if (response.data.status.severityCode === 'ERROR') {
-          throw new Error(response.data.status.statusCodeDescription)
-        }
-        return response.data.response
-      })
-      .catch(errorResponse => {
-        console.error(errorResponse.status?.statusCodeDescription ?? errorResponse.message)
-        throw new Error(errorResponse.status?.statusCodeDescription ?? errorResponse.message)
-      })
-  }
-
-  public async sendCode (email: string): Promise<null> {
-    return await http.post<HttpResponse<null>>('/reset', { email })
-      .then(response => {
-        if (response.data.status.severityCode === 'ERROR') {
-          throw new Error(response.data.status.statusCodeDescription)
-        }
-        return response.data.response
-      })
-      .catch(errorResponse => {
-        console.error(errorResponse.status?.statusCodeDescription ?? errorResponse.message)
-        throw new Error(errorResponse.status?.statusCodeDescription ?? errorResponse.message)
-      }) 
-  }
-
-  public async updateUser (user: UserForm, token: string): Promise<UserDto> {
-    return await http.put<HttpResponse<UserDto>>('/user', user, {
+  public async getCountries (): Promise<Country[]> {
+    return await http.get<HttpResponse<Country[]>>('/geo/countries', {
       headers: {
-        Authorization: token,
+        Authorization: this.sessionService.authToken
       }
     })
       .then(response => {
@@ -73,50 +28,10 @@ class UserApiService {
       })
   }
 
-  /**
-   * Activate users account after registration  
-   * Rught now it's in manual mode
-   * @param token 
-   * @returns 
-   */
-  public async activateUser(token: string): Promise<string> {
-    return await http.get<HttpResponse<string>>(`/login/${token}`)
-      .then(response => {
-        if (response.data.status.severityCode === 'ERROR') {
-          throw new Error(response.data.status.statusCodeDescription)
-        }
-        return response.data.response
-      })
-      .catch(errorResponse => {
-        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
-      })
-  }
-
-  /**
-   * Returns users session token
-   * @param email 
-   * @param password 
-   * @returns 
-   */
-  public async login(email: string, password: string): Promise<string> {
-    return await http.post<HttpResponse<string>>('/login', { email, password })
-      .then(response => {
-        if (response.data.status.severityCode === 'ERROR') {
-          throw new Error(response.data.status.statusCodeDescription)
-        }
-        return response.data.response
-      })
-      .catch(errorResponse => {
-        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
-      })
-  }
-
-  public async getAuthenticatedUser (token: string): Promise<AuthenticatedUserData> {
-    return await http.get<HttpResponse<AuthenticatedUserData>>('/user', {
+  public async getCountryById (id: number): Promise<Country> {
+    return await http.get<HttpResponse<Country>>(`/geo/country/${id}`, {
       headers: {
-        Authorization: token
+        Authorization: this.sessionService.authToken
       }
     })
       .then(response => {
@@ -131,5 +46,77 @@ class UserApiService {
       })
   }
 
+  public async getDistrictsByCountry (countryId: number): Promise<District[]> {
+    return await http.get<HttpResponse<District[]>>(`/geo/states/${countryId}`, {
+      headers: {
+        Authorization: this.sessionService.authToken
+      }
+    })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+      })
+  }
+
+  public async getDistrictsById (districtId: number): Promise<District> {
+    return await http.get<HttpResponse<District>>(`/geo/state/${districtId}`, {
+      headers: {
+        Authorization: this.sessionService.authToken
+      }
+    })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+      })
+  }
+
+  public async getCitiesByDistrictId (districtId: number): Promise<City[]> {
+    return await http.get<HttpResponse<City[]>>(`/geo/cities/${districtId}`, {
+      headers: {
+        Authorization: this.sessionService.authToken
+      }
+    })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+      })
+  }
+
+  public async getCityById (cityId: number): Promise<City> {
+    return await http.get<HttpResponse<City>>(`/geo/city/${cityId}`, {
+      headers: {
+        Authorization: this.sessionService.authToken
+      }
+    })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+      })
+  }
 }
-export const userApiService = new UserApiService()
+
+export const locationService = new LocationService(sessionService)

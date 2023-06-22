@@ -1,8 +1,8 @@
 import { Typography } from '@mui/material'
 import { MuiTelInput, matchIsValidTel } from 'mui-tel-input'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { NewUser, type UserForm } from '../../../models/user'
+import { type NewUser } from '../../../models/user'
 import styles from './SecondStep.module.scss'
 
 export interface SecondStepProps {
@@ -12,7 +12,7 @@ export interface SecondStepProps {
 }
 
 export const SecondStep = (props: SecondStepProps): JSX.Element => {
-  const { control, handleSubmit, register, watch, formState: { isValid } } = useForm<{ phone: string }>({
+  const { control, watch, formState: { isValid } } = useForm<{ phone: string }>({
     defaultValues: {
       phone: props.user.phone ?? ''
     },
