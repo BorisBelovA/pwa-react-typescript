@@ -21,44 +21,26 @@ export const mapGenderToDto = (model: models.Gender): dto.UserGender => {
 export const mapUserToDto = (model: models.AuthUser): dto.UserDto => {
   return {
     id: model.id,
-    email: model.email,
-    password: model.password,
     firstName: model.firstName,
     lastName: model.lastName,
     gender: mapGenderToDto(model.gender),
     birthday: moment(model.birthday).format('YYYY-MM-DD'),
-    phone: model.phone ?? undefined,
-    photo: model.phone ?? undefined,
-    avatar: model.avatar ?? undefined
+    phone: model.phone ?? null,
+    photo: model.photo ?? null,
+    avatar: model.avatar ?? null
   }
 }
 
 export const mapUserToModel = (dto: dto.UserDto): models.AuthUser => {
   return {
     id: dto.id,
-    email: dto.email,
-    password: dto.password,
-    firstName: dto.firstName,
-    lastName: dto.lastName,
-    gender: mapGenderToModel(dto.gender),
+    firstName: dto.firstName ?? '',
+    lastName: dto.lastName ?? '',
+    gender: dto.gender ? mapGenderToModel(dto.gender) : 'M',
     birthday: new Date(),
     phone: dto.phone ?? null,
     photo: dto.photo ?? null,
     avatar: dto.avatar ?? null
-  }
-}
-
-export const mapUserFormToDto = (model: models.UserForm): dto.UserForm => {
-  return {
-    email: model.email,
-    password: model.password,
-    firstName: model.firstName,
-    lastName: model.lastName,
-    gender: mapGenderToDto(model.gender),
-    birthday: moment(model.birthday).format('YYYY-MM-DD'),
-    phone: model.phone ?? undefined,
-    avatar: !!model.avatar ? 'avatar' : undefined,
-    photo: !!model.photo ? 'full-photo' : undefined
   }
 }
 
@@ -72,6 +54,4 @@ export const mapBase64ToFile = async (base64: string, name: string): Promise<Fil
   const res: Response = await fetch(base64)
   const blob: Blob = await res.blob()
   return new File([blob], name, { type: 'image/png' })
-
-  // return new File([new Blob([base64])], name, {type: 'image/png'})
 }

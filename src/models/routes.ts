@@ -1,17 +1,18 @@
 export const enum ProfileRoutes {
   ABOUT_ME = 'about-me',
   ROOMMATE_PREFERENCES = 'roommate-preferences',
-  MY_APPARTMENT = 'my-appartments',
+  MY_APARTMENT = 'my-apartments',
   SETTINGS = 'settings',
   BASIC_QUEST = 'questionnaire-basic-info'
 }
 
-export const enum AppartmentsRoutes {
+export const enum ApartmentsRoutes {
   INDEX = '',
-  NEW = 'new'
+  NEW = 'new',
+  EDIT = 'edit'
 }
 
-export const enum AppartmentsQuestionnaireRoutes {
+export const enum ApartmentsQuestionnaireRoutes {
   BASIC = 'basic',
   LOCATION = 'location',
   PHOTOS = 'photos',

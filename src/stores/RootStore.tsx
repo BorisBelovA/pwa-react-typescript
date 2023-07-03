@@ -1,14 +1,17 @@
-import { AppartmentsStore } from './Appartments'
+import { ApartmentsStore } from './Appartments'
+import { RegistrationStore } from './Registration'
 import { ThemeStore } from './ThemeStore'
 import { UserStore } from './UserStore'
 
 export class RootStore {
   userStore: UserStore
   themeStore: ThemeStore
-  appartmentStore: AppartmentsStore
+  apartmentStore: ApartmentsStore
+  registrationStore: RegistrationStore
   constructor () {
     this.userStore = new UserStore(this)
     this.themeStore = new ThemeStore(this)
-    this.appartmentStore = new AppartmentsStore(this)
+    this.apartmentStore = new ApartmentsStore(this)
+    this.registrationStore = new RegistrationStore(this)
   }
 }

@@ -1,5 +1,5 @@
 import { Avatar, Card, CardContent, CardHeader, IconButton, Typography, useTheme } from '@mui/material'
-import { type UserForm } from '../../../models/user'
+import { type NewUser } from '../../../models/user'
 import styles from './FifthStep.module.scss'
 import { calculateAge, mapToRusFormat } from 'src/utils/date-time'
 import EditIcon from '@mui/icons-material/Edit'
@@ -9,7 +9,7 @@ import PersonIcon from '@mui/icons-material/Person'
 import { type RegistrationSteps } from '../Layout'
 
 export interface FifthStepProps {
-  user: UserForm
+  user: NewUser
   onEditStep: (step: RegistrationSteps) => void
 }
 
@@ -25,7 +25,9 @@ export const FifthStep = ({ user, onEditStep }: FifthStepProps): JSX.Element => 
           : <Avatar><PersonIcon></PersonIcon></Avatar>
       }
         title={`${user.firstName} ${user.lastName}`}
-        subheader={`${user.gender === 'M' ? 'Male' : 'Female'}, ${mapToRusFormat(user.birthday)}`}
+        subheader={
+          `${user.gender === 'M' ? 'Male' : 'Female'}, ${user.birthday ? mapToRusFormat(user.birthday) : ''}`
+        }
         action={
           <IconButton sx={{ color: theme.palette.primary.main }}
             aria-label="edit"
@@ -48,8 +50,8 @@ export const FifthStep = ({ user, onEditStep }: FifthStepProps): JSX.Element => 
     </Card>
 
     <UserCard image={user.photo}
-      name={user.firstName}
-      age={calculateAge(user.birthday)}
+      name={user.firstName ?? ''}
+      age={user.birthday ? calculateAge(user.birthday) : undefined}
       action={
         <IconButton sx={{ color: theme.palette.primary.main }}
           size='small'

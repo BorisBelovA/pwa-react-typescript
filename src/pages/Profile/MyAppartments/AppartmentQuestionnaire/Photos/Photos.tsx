@@ -2,44 +2,44 @@ import { Box, Button, IconButton, ImageList, ImageListItem, ImageListItemBar, us
 import styles from './Photos.module.scss'
 import { type ChangeEvent, useEffect, useState } from 'react'
 import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
-import { appartmentQuestionnaireContext } from '../..'
+import { apartmentQuestionnaireContext } from '../..'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
-import { AppartmentsQuestionnaireRoutes } from 'models'
+import { ApartmentsQuestionnaireRoutes } from 'models'
 
 export const Photos = (): JSX.Element => {
-  const { appartment, setAppartment, setPercent, setNextDisabled, setActive } = appartmentQuestionnaireContext()
+  const { apartment, setApartment, setPercent, setNextDisabled, setActive } = apartmentQuestionnaireContext()
   const [cropVisible, setCropVisible] = useState(false)
   const [image, setImage] = useState('')
 
   const theme = useTheme()
 
   useEffect(() => {
-    setActive(AppartmentsQuestionnaireRoutes.PHOTOS)
+    setActive(ApartmentsQuestionnaireRoutes.PHOTOS)
     setNextDisabled(false)
   }, [])
 
   useEffect(() => {
-    setPercent(appartment.photos.length > 0 ? 100 : 0, 100, AppartmentsQuestionnaireRoutes.PHOTOS)
-  }, [appartment.photos])
+    setPercent(apartment.photos.length > 0 ? 100 : 0, 100, ApartmentsQuestionnaireRoutes.PHOTOS)
+  }, [apartment.photos])
 
   const addPhoto = (): void => {
     document.getElementById('photo-upload')?.click()
   }
 
-  const addPhotoToAppartmentCollection = (photo: string): void => {
-    setAppartment({
-      ...appartment,
+  const addPhotoToApartmentCollection = (photo: string): void => {
+    setApartment({
+      ...apartment,
       photos: [
-        ...appartment.photos,
+        ...apartment.photos,
         photo
       ]
     })
   }
 
   const removePhoto = (index: number): void => {
-    const photos = appartment.photos.filter((p, idx) => idx !== index)
-    setAppartment({
-      ...appartment,
+    const photos = apartment.photos.filter((p, idx) => idx !== index)
+    setApartment({
+      ...apartment,
       photos
     })
   }
@@ -72,7 +72,7 @@ export const Photos = (): JSX.Element => {
       <Button variant="outlined" onClick={addPhoto}>Add photos</Button>
       <Box className={styles.images_container}>
         <ImageList cols={3} gap={8}>
-          {appartment.photos.map((photo, index) => {
+          {apartment.photos.map((photo, index) => {
             return <ImageListItem key={index} sx={{
               borderRadius: '16px',
               border: '1px solid gray',
@@ -109,7 +109,7 @@ export const Photos = (): JSX.Element => {
         shape='wide-rect'
         acceptImage={photo => {
           setCropVisible(false)
-          addPhotoToAppartmentCollection(photo);
+          addPhotoToApartmentCollection(photo);
           (document.getElementById('photo-upload') as HTMLInputElement).value = ''
         }}
       />}

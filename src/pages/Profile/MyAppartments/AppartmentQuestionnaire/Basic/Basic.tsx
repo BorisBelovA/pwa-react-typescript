@@ -1,16 +1,16 @@
 import { Box, MenuItem, Select, Slider, TextField, Typography } from '@mui/material'
 import styles from './Basic.module.scss'
 import { useEffect, useState } from 'react'
-import { AppartmentsQuestionnaireRoutes, type Currency } from 'models'
-import { appartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
+import { ApartmentsQuestionnaireRoutes, type Currency } from 'models'
+import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { Controller, useForm } from 'react-hook-form'
 
 export const Basic = (): JSX.Element => {
   const [currency, setCurrency] = useState<Currency>('ILS')
-  const { appartment, setAppartment, setNextDisabled, setActive, setPercent } = appartmentQuestionnaireContext()
+  const { apartment, setApartment, setNextDisabled, setActive, setPercent } = apartmentQuestionnaireContext()
 
   useEffect(() => {
-    setActive(AppartmentsQuestionnaireRoutes.BASIC)
+    setActive(ApartmentsQuestionnaireRoutes.BASIC)
   }, [null])
 
   const { register, watch, control, formState: { errors, isValid }, reset } = useForm<{
@@ -20,48 +20,48 @@ export const Basic = (): JSX.Element => {
     countAvailableRooms: number | undefined
   }>({
     defaultValues: {
-      name: appartment.name ?? null,
-      price: appartment.totalPrice ?? null,
-      countRooms: appartment.countRooms ?? 5,
-      countAvailableRooms: appartment.countAvailableRooms ?? 2
+      name: apartment.name ?? null,
+      price: apartment.totalPrice ?? null,
+      countRooms: apartment.countRooms ?? 5,
+      countAvailableRooms: apartment.countAvailableRooms ?? 2
     },
     mode: 'all'
   })
 
   const refreshProgress = (): void => {
-    const percent = (appartment.name && control.getFieldState('name').error === undefined ? 25 : 0) +
-    (appartment.totalPrice && control.getFieldState('price').error === undefined ? 25 : 0) +
-    (appartment.countRooms && control.getFieldState('countRooms').error === undefined ? 25 : 0) +
-    (appartment.countAvailableRooms && control.getFieldState('countAvailableRooms').error === undefined ? 25 : 0)
-    setPercent(percent, 100, AppartmentsQuestionnaireRoutes.BASIC)
+    const percent = (apartment.name && control.getFieldState('name').error === undefined ? 25 : 0) +
+    (apartment.totalPrice && control.getFieldState('price').error === undefined ? 25 : 0) +
+    (apartment.countRooms && control.getFieldState('countRooms').error === undefined ? 25 : 0) +
+    (apartment.countAvailableRooms && control.getFieldState('countAvailableRooms').error === undefined ? 25 : 0)
+    setPercent(percent, 100, ApartmentsQuestionnaireRoutes.BASIC)
   }
 
   useEffect(() => {
     refreshProgress()
   }, [
     errors.name, errors.countAvailableRooms, errors.price, errors.countRooms,
-    appartment.name, appartment.totalPrice, appartment.countRooms, appartment.countAvailableRooms  
+    apartment.name, apartment.totalPrice, apartment.countRooms, apartment.countAvailableRooms
   ])
 
   useEffect(() => {
-    if (appartment.id > 0) {
+    if (apartment.id > 0) {
       reset({
-        name: appartment.name,
-        price: appartment.totalPrice,
-        countRooms: appartment.countRooms,
-        countAvailableRooms: appartment.countAvailableRooms
+        name: apartment.name,
+        price: apartment.totalPrice,
+        countRooms: apartment.countRooms,
+        countAvailableRooms: apartment.countAvailableRooms
       })
     }
-  }, [appartment.id])
+  }, [apartment.id])
 
   useEffect(() => {
     const subss = watch(({ name, price, countAvailableRooms, countRooms }) => {
-      setAppartment({
-        ...appartment,
-        name: name ?? appartment.name,
-        totalPrice: price ?? appartment.totalPrice,
-        countRooms: countRooms ?? appartment.countRooms,
-        countAvailableRooms: countAvailableRooms ?? appartment.countAvailableRooms
+      setApartment({
+        ...apartment,
+        name: name ?? apartment.name,
+        totalPrice: price ?? apartment.totalPrice,
+        countRooms: countRooms ?? apartment.countRooms,
+        countAvailableRooms: countAvailableRooms ?? apartment.countAvailableRooms
       })
     })
     return () => { subss.unsubscribe() }
@@ -75,14 +75,14 @@ export const Basic = (): JSX.Element => {
   return <Box className={styles.container}>
     <Box className={styles.container_section}>
       <Typography variant="h2">Basic data</Typography>
-      <TextField id="appartment-name"
+      <TextField id="apartment-name"
         size="small"
         fullWidth
-        label="Appartment name"
+        label="Apartment name"
         variant="outlined"
         {...register('name', {
-          required: 'Appartment name is required',
-          minLength: { value: 4, message: 'Appartment name shouldn\'t be less then 4 symbols' }
+          required: 'Apartment name is required',
+          minLength: { value: 4, message: 'Apartment name shouldn\'t be less then 4 symbols' }
         })}
         error={!(errors.name == null)}
         helperText={errors.name?.message ?? ''}
@@ -99,8 +99,8 @@ export const Basic = (): JSX.Element => {
           label="Price"
           variant="outlined"
           {...register('price', {
-            required: 'Appartment price is required',
-            min: { value: 1, message: 'Appartment price shouldn\'t be less then 1' }
+            required: 'Apartment price is required',
+            min: { value: 1, message: 'Apartment price shouldn\'t be less then 1' }
           })}
           error={!(errors.price == null)}
           helperText={errors.price?.message ?? ''}

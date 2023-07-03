@@ -1,0 +1,11 @@
+.description_container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.description_input_container {
+  & div {
+    height: 100%;
+  }
+}

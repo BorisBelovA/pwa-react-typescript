@@ -23,5 +23,10 @@ export class SessionService {
   private readonly readFromLocalStorage = (): string | null => {
     return localStorage.getItem('sessnioToken') ?? null
   }
+
+  public readonly removeFromLocalStorage = (): void => {
+    this.authToken = null
+    localStorage.removeItem('sessnioToken')
+  }
 }
 export const sessionService = new SessionService()

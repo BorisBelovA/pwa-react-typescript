@@ -10,7 +10,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { userApiService, sessionService } from 'api-services'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { emailPatternValidator } from 'src/utils/validations'
-import { mapAuthenticatedUserData } from 'mapping-services'
+import { mapAuthenticatedUserData, mapBase64ToFile, mapPhotoNameToURI } from 'mapping-services'
 import { useStore } from 'src/utils/StoreProvider'
 import { filesApiService } from 'src/api/api-services/files'
 interface SignUpForm {
@@ -54,17 +54,16 @@ export const Login = (): JSX.Element => {
     setBackdropMessage('Login to your account')
     try {
       const token = await userApiService.login(data.email, data.password)
+      sessionService.authToken = token
       const userInfo = await userApiService.getAuthenticatedUser(token)
       const [user, quest] = mapAuthenticatedUserData(userInfo)
-      let [avatar, photo]: Array<string | null> = [null, null]
-      // if (user.avatar) {
-      //   avatar = await filesApiService.getFile(user.avatar)
-      // }
-      // if (user.photo) {
-      //   photo = await filesApiService.getFile(user.photo)
-      // }
+      if (user.avatar) {
+        user.avatar = mapPhotoNameToURI(user.avatar)
+      }
+      if (user.photo) {
+        user.photo = mapPhotoNameToURI(user.photo)
+      }
       userStore.setUser(user)
-      sessionService.authToken = token
       setTimeout(() => {
         setBackdropVisible(false)
         navigate('/profile')

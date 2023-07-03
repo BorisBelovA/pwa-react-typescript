@@ -1,41 +1,70 @@
-import { type Appartment } from 'models'
+import { type City, type Apartment, type District } from 'models'
 import { type RootStore } from './RootStore'
-import { appartmentService } from 'src/api/api-services/appartment'
-import { filesApiService } from 'src/api/api-services/files'
-import { mapAppartmentToModel, mapFileToBase64 } from 'mapping-services'
+import { apartmentService } from 'src/api/api-services/appartment'
 import { action, computed, makeAutoObservable, observable } from 'mobx'
-export class AppartmentsStore {
-  appartments: Appartment[] = []
+import { locationService } from 'src/api/api-services/location'
+import { mapPhotoNameToURI } from 'mapping-services'
+export class ApartmentsStore {
+  public apartments: Apartment[] = []
 
   private readonly rootStore!: RootStore
 
   constructor (rootStore: RootStore) {
     makeAutoObservable(this, {
-      appartments: observable,
-      setAppartments: action,
-      getAppartmet: action,
-      haveAppartment: computed
+      apartments: observable,
+      setApartments: action,
+      getApartment: action,
+      haveApartment: computed
     })
     this.rootStore = rootStore
   }
 
-  public setAppartments (appartments: Appartment[]): void {
-    this.appartments = appartments
+  public setApartments (apartments: Apartment[]): void {
+    this.apartments = apartments
   }
 
-  get haveAppartment (): boolean {
-    return this.appartments.length > 0
+  get haveApartment (): boolean {
+    return this.apartments.length > 0
   }
 
-  public getAppartmet = async (): Promise<void> => {
+  public getApartment = async (): Promise<void> => {
     try {
-      const appartmentDto = await appartmentService.getAppartmentByUser()
-      if (appartmentDto !== null) {
-        const appartment = mapAppartmentToModel(appartmentDto)
-        const photos = await filesApiService.getSeveralFiles(appartment.photos)
-        const photosBase64 = photos.map(p => mapFileToBase64(p))
-        appartment.photos = photosBase64
-        this.setAppartments([appartment])
+      const apartmentDto = await apartmentService.getApartmentByUser()
+      if (apartmentDto !== null) {
+        const apartments = await Promise.all(apartmentDto.map(async dto => {
+          const apartment: Apartment = {
+            id: dto.id,
+            name: dto.name,
+            totalPrice: dto.price,
+            countRooms: dto.countRooms,
+            currency: 'ILS',
+            countAvailableRooms: dto.availableRooms,
+            location: {
+              city: { id: 0, name: '' },
+              country: { id: 0, name: '', emoji: '' },
+              district: { id: 0, name: '' }
+            },
+            photos: dto.photos.map(p => mapPhotoNameToURI(p)),
+            description: dto.aboutApartment ?? ''
+          }
+          try {
+            const country = await locationService.getCountryById(dto.country.id)
+            let city: City | undefined
+            let district: District | undefined
+            if (dto.state?.id) {
+              district = await locationService.getDistrictsById(dto.state.id)
+            }
+            if (dto.city?.id) {
+              city = await locationService.getCityById(dto.city.id)
+            }
+            apartment.location = { country, district, city }
+            return apartment
+          } catch (e) {
+            console.error(e)
+            throw new Error('Something went wrong')
+          }
+        }))
+        this.setApartments(apartments)
       }
     } catch (error) {
       console.error(error)

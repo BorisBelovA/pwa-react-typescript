@@ -17,8 +17,12 @@ export const ChatMessage = ({ message }: ChatMessageProp): JSX.Element => {
     sx={{
       backgroundColor: themeStore.theme === 'light'
       // Надо подумать куда добавить этот цвет
-        ? 'lightgreen'
-        : theme.palette.background.paper
+        ? message.mine
+          ? 'lightgreen'
+          : theme.palette.grey[300]
+        : message.mine
+          ? theme.palette.primary.dark
+          : theme.palette.background.paper
     }}
   >
     <DoneAllIcon fontSize='small' className={styles.chat_message_status}

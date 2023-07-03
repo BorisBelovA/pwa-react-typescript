@@ -1,64 +1,120 @@
-import { useEffect } from 'react'
-import { appartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
+import { useEffect, useState } from 'react'
+import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import styles from './Location.module.scss'
 import { Autocomplete, Box, TextField, Typography } from '@mui/material'
-import { countries } from './countries'
 import { Controller, useForm } from 'react-hook-form'
-import { AppartmentsQuestionnaireRoutes } from 'models'
+import { ApartmentsQuestionnaireRoutes, type City, type District, type Country } from 'models'
+import { locationService } from 'src/api/api-services/location'
 
 export const Location = (): JSX.Element => {
-  const { appartment, setAppartment, setNextDisabled, setActive, setPercent } = appartmentQuestionnaireContext()
+  const { apartment, setApartment, setNextDisabled, setActive, setPercent } = apartmentQuestionnaireContext()
 
-  const { control, watch, reset, formState: { errors, isValid } } = useForm<{
-    country: string | null
-    city: string | null
-    district: string | null
+  const [countries, setCountries] = useState<Country[]>([])
+  const [districts, setDistricts] = useState<District[]>([])
+  const [cities, setCities] = useState<City[]>([])
+
+  const getCountries = async (): Promise<void> => {
+    try {
+      const c = await locationService.getCountries()
+      setCountries(c)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  const getDistricts = async (countryId: number): Promise<void> => {
+    try {
+      const d = await locationService.getDistrictsByCountry(countryId)
+      setDistricts(d)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  const getCities = async (districtId: number): Promise<void> => {
+    try {
+      const d = await locationService.getCitiesByDistrictId(districtId)
+      setCities(d)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  const { control, register, watch, reset, resetField, formState: { errors, isValid } } = useForm<{
+    country: Country | null
+    city: City | null
+    district: District | null
+    address: string | null
   }>({
     defaultValues: {
-      country: appartment.location.country ?? null,
-      city: appartment.location.city ?? null,
-      district: appartment.location.district ?? null
+      country: apartment.location.country ?? null,
+      city: apartment.location.city ?? null,
+      district: apartment.location.district ?? null,
+      address: apartment.location.address ?? null
     },
     mode: 'all'
   })
 
+  // Load list of cities and districts if we came back to this page
+  useEffect(() => {
+    void getCountries()
+
+    const { country, district } = apartment.location
+    if (country) {
+      void getDistricts(country.id)
+    }
+    if (district) {
+      void getCities(district.id)
+    }
+  }, [])
+
   const refreshProgress = (): void => {
-    const { country, city, district } = appartment.location
+    const { country, city, district } = apartment.location
     const percent = (country && control.getFieldState('country').error === undefined ? 33 : 0) +
-    (city && control.getFieldState('city').error === undefined ? 33 : 0) +
-    (district && control.getFieldState('district').error === undefined ? 34 : 0)
-    setPercent(percent, 100, AppartmentsQuestionnaireRoutes.LOCATION)
+      (city && control.getFieldState('city').error === undefined ? 33 : 0) +
+      (district && control.getFieldState('district').error === undefined ? 34 : 0)
+    setPercent(percent, 100, ApartmentsQuestionnaireRoutes.LOCATION)
   }
 
   useEffect(() => {
     refreshProgress()
   }, [
     errors.country, errors.city, errors.district,
-    appartment.location.country, appartment.location.city, appartment.location.district
+    apartment.location.country, apartment.location.city, apartment.location.district
   ])
 
   useEffect(() => {
-    if (appartment.id > 0) {
+    if (apartment.id > 0) {
       reset({
-        country: appartment.location.country,
-        city: appartment.location.city,
-        district: appartment.location.district
+        country: apartment.location.country,
+        city: apartment.location.city,
+        district: apartment.location.district
       })
     }
-  }, [appartment.id])
+  }, [apartment.id])
 
   useEffect(() => {
     setNextDisabled(!isValid)
   }, [isValid])
 
   useEffect(() => {
-    const subss = watch(({ country, city, district }) => {
-      setAppartment({
-        ...appartment,
+    const subss = watch(({ country, city, district, address }, { name, type }) => {
+      // Each time we change country we load new list of districts
+      if (name === 'country' && country?.id) {
+        void getDistricts(country.id)
+      }
+      // Each time we change district we load list of cicites
+      if (name === 'district' && district?.id) {
+        void getCities(district.id)
+      }
+
+      setApartment({
+        ...apartment,
         location: {
-          country: country ?? appartment.location.country,
-          city: city ?? appartment.location.city,
-          district: district ?? appartment.location.district
+          country: country as unknown as Country ?? apartment.location.country,
+          city: city as unknown as City ?? apartment.location.city,
+          district: district as unknown as District ?? apartment.location.district,
+          address: address ?? apartment.location.address
         }
       })
     })
@@ -66,7 +122,7 @@ export const Location = (): JSX.Element => {
   }, [watch])
 
   useEffect(() => {
-    setActive(AppartmentsQuestionnaireRoutes.LOCATION)
+    setActive(ApartmentsQuestionnaireRoutes.LOCATION)
   }, [])
 
   return <>
@@ -85,24 +141,21 @@ export const Location = (): JSX.Element => {
                 options={countries}
                 fullWidth
                 onChange={(_, value) => {
-                  onChange(value?.name ?? null)
+                  onChange(value ?? null)
+                  resetField('district')
+                  resetField('city')
                 }}
                 onBlur={onBlur}
                 ref={ref}
                 value={
-                  appartment.location.country
-                    ? countries.find(c => c.name === appartment.location.country)
+                  apartment.location.country
+                    ? countries.find(c => c.id === apartment.location.country.id) ?? null
                     : null
                 }
                 getOptionLabel={(option) => option.name}
                 renderOption={(props, option) => (
                   <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                    <img loading="lazy"
-                      width="20"
-                      src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-                      srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-                      alt=""
-                    />
+                    <Box sx={{ marginRight: '0.5rem' }}>{option.emoji}</Box>
                     {option.name}
                   </Box>
                 )}
@@ -123,6 +176,44 @@ export const Location = (): JSX.Element => {
       </Box>
 
       <Box className={styles.container_section}>
+        <Typography variant="h2">District</Typography>
+        <Controller control={control}
+          name="district"
+          render={
+            ({ field: { onChange, value, onBlur, ref } }) =>
+              <Autocomplete
+                id="district-autocomplete"
+                options={districts}
+                fullWidth
+                disabled={districts.length === 0}
+                getOptionLabel={(option) => option.name}
+                onChange={(_, value) => {
+                  onChange(value ?? null)
+                  resetField('city')
+                }}
+                value={
+                  apartment.location.district?.id
+                    ? districts.find(c => c.id === apartment.location.district?.id) ?? null
+                    : null
+                }
+                onBlur={onBlur}
+                ref={ref}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Choose a district"
+                    inputProps={{
+                      ...params.inputProps,
+                      autoComplete: 'new-password' // disable autocomplete and autofill
+                    }}
+                  />
+                )}
+              />
+          }
+        />
+      </Box>
+
+      <Box className={styles.container_section}>
         <Typography variant="h2">City</Typography>
         <Controller control={control}
           name="city"
@@ -133,15 +224,16 @@ export const Location = (): JSX.Element => {
             ({ field: { onChange, value, onBlur, ref } }) =>
               <Autocomplete
                 id="city-autocomplete"
-                options={countries}
+                options={cities}
                 fullWidth
+                disabled={cities.length === 0}
                 getOptionLabel={(option) => option.name}
                 onChange={(_, value) => {
-                  onChange(value?.name ?? null)
+                  onChange(value ?? null)
                 }}
                 value={
-                  appartment.location.city
-                    ? countries.find(c => c.name === appartment.location.city)
+                  apartment.location.city?.id
+                    ? cities.find(c => c.id === apartment.location.city!.id) ?? null
                     : null
                 }
                 onBlur={onBlur}
@@ -164,40 +256,19 @@ export const Location = (): JSX.Element => {
       </Box>
 
       <Box className={styles.container_section}>
-        <Typography variant="h2">District</Typography>
-        <Controller control={control}
-          name="district"
-          render={
-            ({ field: { onChange, value, onBlur, ref } }) =>
-              <Autocomplete
-                id="district-autocomplete"
-                options={countries}
-                fullWidth
-                getOptionLabel={(option) => option.name}
-                onChange={(_, value) => {
-                  onChange(value?.name ?? null)
-                }}
-                value={
-                  appartment.location.district
-                    ? countries.find(c => c.name === appartment.location.district)
-                    : null
-                }
-                onBlur={onBlur}
-                ref={ref}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label="Choose a district"
-                    inputProps={{
-                      ...params.inputProps,
-                      autoComplete: 'new-password' // disable autocomplete and autofill
-                    }}
-                  />
-                )}
-              />
-          }
-        />
-      </Box>
+      <Typography variant="h2">Address</Typography>
+      <TextField id="apartment-address"
+        size="medium"
+        fullWidth
+        label="Apartment address"
+        variant="outlined"
+        {...register('address', {
+          minLength: { value: 4, message: 'Apartment address shouldn\'t be less then 4 symbols' }
+        })}
+        error={!(errors.address == null)}
+        helperText={errors.address?.message ?? ''}
+      />
+    </Box>
     </Box>
   </>
 }

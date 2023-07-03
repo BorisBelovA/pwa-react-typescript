@@ -1,36 +1,39 @@
 import { Box, TextField, Typography } from '@mui/material'
-import { appartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
+import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { useEffect, useState } from 'react'
-import { AppartmentsQuestionnaireRoutes } from 'models'
+import { ApartmentsQuestionnaireRoutes } from 'models'
+import styles from './Description.module.scss'
 
 export const Description = (): JSX.Element => {
-  const { appartment, setAppartment, setPercent, setActive, setNextDisabled } = appartmentQuestionnaireContext()
+  const { apartment, setApartment, setPercent, setActive, setNextDisabled } = apartmentQuestionnaireContext()
 
   useEffect(() => {
     setNextDisabled(false)
-    setActive(AppartmentsQuestionnaireRoutes.ABOUT)
+    setActive(ApartmentsQuestionnaireRoutes.ABOUT)
   }, [])
 
-  const [description, setDescription] = useState(appartment.description ?? '')
+  const [description, setDescription] = useState(apartment.description ?? '')
 
   useEffect(() => {
-    setPercent(appartment.description.length > 0 ? 100 : 0, 100, AppartmentsQuestionnaireRoutes.ABOUT)
-  }, [appartment.description])
+    setPercent(apartment.description.length > 0 ? 100 : 0, 100, ApartmentsQuestionnaireRoutes.ABOUT)
+  }, [apartment.description])
 
   useEffect(() => {
-    if (description !== appartment.description) {
-      setAppartment({ ...appartment, description })
+    if (description !== apartment.description) {
+      setApartment({ ...apartment, description })
     }
   }, [description])
 
-  return <Box>
-    <Typography variant='h2'>Few words about appartment</Typography>
-    <TextField sx={{ marginTop: '1rem' }}
+  return <Box className={styles.description_container}>
+    <Typography variant='h2'>Few words about apartment</Typography>
+    <TextField className={styles.description_input_container}
+      sx={{ marginTop: '1rem', height: '90%' }}
       fullWidth
-      label="Appartment description"
+      label="apartment description"
       multiline
-      value={description}
       rows={20}
+      value={description}
+      inputProps={{ style: { height: '90%' }}}
       onChange={(event) => {
         setDescription(event.target.value)
       }}

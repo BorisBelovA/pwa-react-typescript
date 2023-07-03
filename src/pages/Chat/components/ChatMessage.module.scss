@@ -6,6 +6,9 @@
   max-width: 70%;
   position: relative;
 
+  display: flex;
+  align-items: center;
+
   &_time {
     position: absolute;
     font-size: 10px;
