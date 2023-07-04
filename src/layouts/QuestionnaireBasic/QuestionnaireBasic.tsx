@@ -1,105 +1,124 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Outlet, useOutletContext } from 'react-router-dom'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
-import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
-import { type WhoCouple, type WhoFamily, type WhoFriends, type Pet, type QuestionnaireBasicType } from 'src/models/questionnaireBasic'
-import { useMainContext } from '../Main/MainLayout'
+import useProgressSlider, { type ProgressSliderInsertItemFunc, type ProgressSliderRemoveItemFunc, type ProgressSliderSetActiveFunc, type ProgressSliderSetPercentFunc } from 'src/components/ProgressSlider/useProgressSlider'
+import { type QuestionnaireBasicType } from 'src/models/questionnaireBasic'
+import { type MainLayoutContext, useMainContext } from '../Main/MainLayout'
+import { useStore } from 'src/utils/StoreProvider'
+import { observer } from 'mobx-react-lite'
+import { type ProgressSliderProps } from 'src/components'
 
-const QuestionnaireBasic: React.FunctionComponent = () => {
-  const { items, setPercent, setActive, setPercentAndGo } = useProgressSlider({
-    items: [
-      { text: 'who', progress: 0, to: 'who' },
-      { text: 'pets', progress: 0, to: 'pets' },
-      { text: 'smoking', progress: 0, to: 'smoking' },
-      { text: 'languages', progress: 0, to: 'languages' },
-      { text: 'about', progress: 0, to: 'about' },
-      { text: 'contacts', progress: 0, to: 'contacts' },
-      { text: 'apartment', progress: 0, to: 'apartment' },
-      { text: 'summary', progress: 0, to: 'summary' }
-    ]
-  })
-
-  const [questions, setQuestions] = useState<QuestionnaireBasicType>({
-    who: undefined,
-    contacts: [],
-    smokingWhat: [],
-    languages: [],
-    apartment: undefined,
-    about: ''
-  })
+const QuestionnaireBasic: React.FunctionComponent = observer(() => {
+  const defaultItems: ProgressSliderProps[] = [
+    { text: 'who', progress: 0, to: 'who' },
+    { text: 'pets', progress: 0, to: 'pets' },
+    { text: 'smoking', progress: 0, to: 'smoking' },
+    { text: 'languages', progress: 0, to: 'languages' },
+    { text: 'sleep', progress: 0, to: 'sleep' },
+    { text: 'alcohol', progress: 0, to: 'alcohol' },
+    { text: 'guests', progress: 0, to: 'guests' },
+    { text: 'location', progress: 0, to: 'location' },
+    { text: 'about', progress: 0, to: 'about' },
+    { text: 'apartment', progress: 0, to: 'apartment' },
+    { text: 'summary', progress: 0, to: 'summary' }
+  ]
 
   useEffect(() => {
-    if (questions.who === 'Alone') {
-      setPercent(1, 1, 'who')
-    } else if (questions.who === 'Couple') {
-      const isKind: number = (questions.whoContains as WhoCouple)?.kind !== undefined &&
-        (questions.whoContains as WhoCouple)?.kind !== null
-        ? 1
-        : 0
-      const isPartner: number = (questions.whoContains as WhoCouple)?.partner !== undefined ? 1 : 0
-      setPercent(1 + isKind + isPartner, 3, 'who')
-    } else if (questions.who === 'Friends') {
-      const isCount: number = (questions.whoContains as WhoFriends)?.count !== null &&
-        (questions.whoContains as WhoFriends)?.count > 0
-        ? 1
-        : 0
-      const friends = (questions.whoContains as WhoFriends)?.people ?? []
-      const isFriends: number = friends.length > 0
-        ? 1
-        : 0
-      setPercent(1 + isCount + isFriends, 3, 'who')
-    } else if (questions.who === 'Family') {
-      const isKids: number = (questions.whoContains as WhoFamily)?.kids !== undefined &&
-        (questions.whoContains as WhoFamily)?.kids > 0
-        ? 1
-        : 0
-      const isAdults: number = (questions.whoContains as WhoFamily)?.adults !== undefined &&
-        (questions.whoContains as WhoFamily)?.adults > 0
-        ? 1
-        : 0
-      const members = (questions.whoContains as WhoFamily)?.people ?? []
-      const isFamily: number = members.length > 0
-        ? 1
-        : 0
-      setPercent(1 + isKids + isAdults + isFamily, 4, 'who')
+    if (questions.who) {
+      defaultItems.find(i => i.to === 'who')!.progress = 100
     }
-  }, [questions.who, questions.whoContains])
 
-  useEffect(() => {
-    const isHavePets: number = questions.havePets === undefined || questions.havePets === null ? 0 : 1
-    const total: number = (questions.havePets === true) ? 2 : 1
-    const isPets: number = questions.pets?.some((pet: Pet) => (pet.count > 0)) === true && questions.havePets === true ? 1 : 0
-    setPercent(isHavePets + isPets, total, 'pets')
-  }, [questions.havePets, questions.pets])
+    if (!!questions.countKids || !!questions.countAdults) {
+      insertItem('Not Alone', 'not-alone', 1, 100)
+    }
 
-  useEffect(() => {
-    const isSmoking: number = questions.smoker === undefined || questions.smoker === null ? 0 : 1
-    const total: number = (questions.smoker === true) ? 2 : 1
-    const isSmokingWhat: number = questions.smokingWhat?.length > 0 && questions.smoker === true ? 1 : 0
-    setPercent(isSmoking + isSmokingWhat, total, 'smoking')
-  }, [questions.smoker, questions.smokingWhat])
+    if (questions.havePets) {
+      const count = questions.havePets && questions.pets?.length
+        ? 100
+        : 0
+      defaultItems.find(i => i.to === 'pets')!.progress = count
+    }
 
-  useEffect(() => {
-    questions.languages.length > 0 ? setPercent(1, 1, 'languages') : setPercent(0, 1, 'languages')
-  }, [questions.languages])
+    if (questions.smoker) {
+      const isSmoking: number = questions.smoker === undefined || questions.smoker === null ? 0 : 1
+      const isSmokingWhat: number = questions.smokingWhat?.length > 0 && questions.smoker ? 1 : 0
+      if (isSmoking + isSmokingWhat > 0) {
+        defaultItems.find(i => i.to === 'smoking')!.progress = 100
+      }
+    }
 
-  useEffect(() => {
-    questions.about !== '' ? setPercent(1, 1, 'about') : setPercent(0, 1, 'about')
-  }, [questions.about])
+    if (questions.languages.length > 0) {
+      defaultItems.find(i => i.to === 'languages')!.progress = 100
+    }
 
-  useEffect(() => {
-    questions.contacts.length > 0 ? setPercent(1, 1, 'contacts') : setPercent(0, 1, 'contacts')
-  }, [questions.contacts])
+    if (questions.sleepingHabits) {
+      defaultItems.find(i => i.to === 'sleep')!.progress = 100
+    }
 
-  useEffect(() => {
-    questions?.apartment !== undefined && questions?.apartment !== null ? setPercent(1, 1, 'apartment') : setPercent(0, 1, 'apartment')
-  }, [questions.apartment])
+    if (questions.alcohol) {
+      defaultItems.find(i => i.to === 'alcohol')!.progress = 100
+    }
+
+    if (questions.guests) {
+      defaultItems.find(i => i.to === 'guests')!.progress = 100
+    }
+
+    if (questions.location.city) {
+      defaultItems.find(i => i.to === 'location')!.progress = (questions.location.city ? 33 : 0) +
+        (questions.location.state ? 33 : 0) +
+        (questions.location.city ? 33 : 0)
+    }
+
+    if (questions.about) {
+      defaultItems.find(i => i.to === 'about')!.progress = 100
+    }
+
+    if (questions.apartment !== null) {
+      defaultItems.find(i => i.to === 'apartment')!.progress = 100
+    }
+
+    if (questions.who) {
+      defaultItems.forEach(i => i.state = 'Inactive')
+    }
+  }, [])
+
+  const { items, insertItem, removeItem, setPercent, setActive, setPercentAndGo } = useProgressSlider({
+    items: defaultItems
+  })
+
+  const { questionnaireStore } = useStore()
+
+  const questionnaire = useMemo(() => {
+    return questionnaireStore.questionnaire ?? {
+      id: 0,
+      who: null,
+      contacts: [],
+      smokingWhat: [],
+      languages: [],
+      apartment: null,
+      countAdults: null,
+      countKids: null,
+      sleepingHabits: null,
+      alcohol: null,
+      guests: null,
+      about: '',
+      location: {
+        country: null,
+        city: null,
+        state: null
+      }
+    }
+  }, [questionnaireStore.questionnaire])
+
+  const [questions, setQuestions] = useState<QuestionnaireBasicType>(questionnaire)
 
   return (
     <>
       <ProgressSlider items={items} setActive={setActive} />
       <Outlet context={{
         setActive,
+        insertItem,
+        removeItem,
         setPercent,
         questions,
         setQuestions,
@@ -108,11 +127,16 @@ const QuestionnaireBasic: React.FunctionComponent = () => {
       }} />
     </>
   )
-}
+})
+
 export default QuestionnaireBasic
 
-export interface BasicQuestionnaireContext {
+export type BasicQuestionnaireContext = MainLayoutContext & {
   questions: QuestionnaireBasicType
+  insertItem: ProgressSliderInsertItemFunc
+  removeItem: ProgressSliderRemoveItemFunc
+  setPercent: ProgressSliderSetPercentFunc
+  setActive: ProgressSliderSetActiveFunc
   setQuestions: React.Dispatch<React.SetStateAction<QuestionnaireBasicType>>
 }
 

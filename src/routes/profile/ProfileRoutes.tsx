@@ -1,4 +1,3 @@
-import React from 'react'
 import { Navigate, Route } from 'react-router-dom'
 import AboutMe from 'src/pages/Profile/AboutMe/AboutMe'
 import BasicQuestionsRoommate from 'src/pages/Profile/RoommatePreferences/BasicQuestionsRoommate/BasicQuestionsRoommate'

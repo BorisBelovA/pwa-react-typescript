@@ -7,6 +7,7 @@ import UploadFileIcon from '@mui/icons-material/UploadFile'
 import { UserCard } from 'src/components/UserCard/UserCard'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
 import { calculateAge } from 'src/utils/date-time'
+import { imageTypes } from 'src/utils/constants'
 
 export interface ForthStepProps {
   user: NewUser
@@ -90,7 +91,7 @@ export const ForthStep = ({ user, photoChange }: ForthStepProps): JSX.Element =>
     <input id='photo-upload'
       className={styles.hiddenInput}
       type="file"
-      accept='.jpeg,.jpg,.png'
+      accept={imageTypes}
       name=""
       onChange={handleFileChange}
     />

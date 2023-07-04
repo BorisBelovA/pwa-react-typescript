@@ -70,10 +70,14 @@ export const Login = (): JSX.Element => {
       }, 1500)
     } catch (e) {
       console.error(e)
+      let text = 'Something went wrong😮'
+      if (e instanceof Error) {
+        text = e.message
+      }
       setMessage({
         visible: true,
         severity: 'error',
-        text: 'Something went wrong😮'
+        text
       })
       setBackdropVisible(false)
     }

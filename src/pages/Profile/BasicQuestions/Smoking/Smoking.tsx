@@ -1,18 +1,25 @@
 import { Box, Button, Checkbox, FormControlLabel, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
-import { useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
-import { WhatSmoke } from 'models'
+import { type WhatSmoke } from 'models'
 
 const Smoking: React.FunctionComponent = () => {
-  const { setActive, setPercent } = useActive()
-  const { questions, setQuestions } = useBasicQuestions()
+  const { setActive } = useActive()
+  const { questions, setQuestions, setPercent } = useBasicQuestions()
   const navigate = useNavigate()
-  const options: WhatSmoke[] = ['cigarettes', 'vape', 'shisha', 'cigars', 'other']
+  const options: WhatSmoke[] = ['Cigarettes', 'Vape', 'Shisha', 'Cigars', 'Other']
 
   useEffect(() => { setActive('smoking') }, [])
+
+  useEffect(() => {
+    const isSmoking: number = questions.smoker === undefined || questions.smoker === null ? 0 : 1
+    const total: number = (questions.smoker === true) ? 2 : 1
+    const isSmokingWhat: number = questions.smokingWhat?.length > 0 && questions.smoker === true ? 1 : 0
+    setPercent(isSmoking + isSmokingWhat, total, 'smoking')
+  }, [questions.smoker, questions.smokingWhat])
 
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>, option: WhatSmoke): void => {
     if (e.target.checked) {
@@ -30,16 +37,6 @@ const Smoking: React.FunctionComponent = () => {
         : value
     })
   }
-
-  const nextBtnDisabled = useMemo(() => {
-    const smoker = questions.smoker
-    if (smoker === undefined) {
-      return true
-    }
-    return smoker
-      ? questions.smokingWhat.length === 0
-      : false
-  }, [questions.smoker, questions.smokingWhat])
 
   return (
     <Box className={styles.question}>
@@ -77,18 +74,15 @@ const Smoking: React.FunctionComponent = () => {
         )}
       </Box>
       <Box className={styles.question__nav}>
-        <Button variant='text'
+        <Button variant='outlined'
           fullWidth
           onClick={() => {
-            setQuestions({ ...questions, smoker: undefined, smokingWhat: [] })
-            setPercent(0, 1, 'smoking')
-            navigate('../languages')
+            navigate(-1)
           }}>
-          Skip
+          Back
         </Button>
         <Button variant='contained'
           fullWidth
-          disabled={nextBtnDisabled}
           onClick={() => {
             navigate('../languages')
           }}>

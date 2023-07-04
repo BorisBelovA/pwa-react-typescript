@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material'
 import { Outlet, useLocation, useNavigate, useOutletContext, useSearchParams } from 'react-router-dom'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
-import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
+import useProgressSlider, { type ProgressSliderSetActiveFunc, type ProgressSliderSetPercentFunc } from 'src/components/ProgressSlider/useProgressSlider'
 import { type MainLayoutContext, useMainContext } from 'src/layouts/Main/MainLayout'
 import styles from './AppartmentQuestionnaire.module.scss'
 import { useEffect, useState } from 'react'
@@ -15,8 +15,8 @@ export type ApartmentQuestionnaireContext = MainLayoutContext & {
   apartment: Apartment
   setApartment: React.Dispatch<React.SetStateAction<Apartment>>
   setNextDisabled: React.Dispatch<React.SetStateAction<boolean>>
-  setActive: (active: string) => void
-  setPercent: (percent: number, total: number, to: string) => void
+  setActive: ProgressSliderSetActiveFunc
+  setPercent: ProgressSliderSetPercentFunc
 }
 
 export const apartmentQuestionnaireContext = (): ApartmentQuestionnaireContext => {
@@ -69,7 +69,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
       country: existingApartment?.location.country ?? undefined,
       city: existingApartment?.location.city ?? undefined,
       district: existingApartment?.location.district ?? undefined,
-      address: existingApartment?.location.address ?? undefined,
+      address: existingApartment?.location.address ?? undefined
     },
     photos: existingApartment?.photos ?? [],
     description: existingApartment?.description ?? ''

@@ -34,7 +34,7 @@ export const ChatFooter = ({ onMessageSend }: ChatFooterProps): JSX.Element => {
       sx={{
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.background.paper,
-        ':hover': {
+        '&:hover': {
           backgroundColor: theme.palette.primary.main,
           color: theme.palette.background.paper
         }

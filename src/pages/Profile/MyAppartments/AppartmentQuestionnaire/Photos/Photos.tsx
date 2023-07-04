@@ -5,6 +5,7 @@ import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
 import { apartmentQuestionnaireContext } from '../..'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
 import { ApartmentsQuestionnaireRoutes } from 'models'
+import { imageTypes } from 'src/utils/constants'
 
 export const Photos = (): JSX.Element => {
   const { apartment, setApartment, setPercent, setNextDisabled, setActive } = apartmentQuestionnaireContext()
@@ -90,7 +91,7 @@ export const Photos = (): JSX.Element => {
                     onClick={() => { removePhoto(index) }}
                     sx={{
                       backgroundColor: theme.palette.secondary.main,
-                      ':hover': {
+                      '&:hover': {
                         backgroundColor: theme.palette.secondary.main
                       }
                     }}><CancelOutlinedIcon /></IconButton>
@@ -117,7 +118,7 @@ export const Photos = (): JSX.Element => {
       <input id='photo-upload'
         className={styles.hiddenInput}
         type="file"
-        accept='.jpeg,.jpg,.png'
+        accept={imageTypes}
         name=""
         onChange={handleFileChange}
       />
