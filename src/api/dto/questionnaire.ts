@@ -1,3 +1,6 @@
+import { Apartment } from "./apartment"
+import { City, Country, District } from "./location"
+
 export const enum PetEnum {
   CAT = 'CAT',
   DOG = 'DOG',
@@ -64,34 +67,41 @@ export const enum MeetingEnum {
   PERSON = 'PERSON'
 }
 
-/** */
+export const enum WhoLooking {
+  JUST_ME = 'JUST_ME',
+  COUPLE = 'COUPLE',
+  FAMILY = 'FAMILY',
+  FRIENDS = 'FRIENDS',
+}
 
 export interface Questionnaire {
+  id: number
+  whoLooking: WhoLooking | null
   isHavePets: boolean
   petTypes: PetEnum[]
   isSmoke: boolean
   smokeTypes: SmokeEnum[]
-  languageTypes: [1]
+  languageTypes: string[]
   aboutMe: string
-  contactTypes: ContactEnum[]
-  ageFrom: number
-  ageTo: number
+  contactTypes: ContactEnum[] | null
   isHaveApartment: boolean
-  country: string
-  city: string
-  priceFrom: number
-  priceTo: number
-  currency: CurrencyEnum
-  sleepingHabits: SleepingHabitsEnum
-  alcoholic: AlchoholicEnum
-  guests: GuestsEnum
-  occupation: OccupationEnum
-  householdType: HouseholdEnum
-  likeSmokers: boolean
-  meetingType: MeetingEnum
+  countKids: number | null
+  countAdults: number | null
+  country: Country | null
+  cities: City[] | null
+  state: District | null
+  sleepingHabits: SleepingHabitsEnum | null
+  alcoholic: AlchoholicEnum | null
+  guests: GuestsEnum | null
+  occupation: OccupationEnum | null
+  apartment: Apartment | null
 }
 
-export type CreateQuestFormResponse = Questionnaire & { 
+export type CreateQuestionnaireForm = Questionnaire & {
+  apartment: Apartment
+}
+
+export type CreateQuestFormResponse = Questionnaire & {
   id: number
   owner: {
 

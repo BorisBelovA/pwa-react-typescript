@@ -15,7 +15,7 @@ class FilesApiService {
     return await http.post<HttpResponse<{
       key: string
     }>>(
-      `/file/upload/${type}`,
+      `/file/upload/?typeFile=${type}`,
       formData,
       {
         headers: {

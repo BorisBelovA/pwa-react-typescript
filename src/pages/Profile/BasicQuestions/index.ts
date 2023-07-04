@@ -1,4 +1,3 @@
-export * from './Who/Who'
 export * from './Pets/Pets'
 export * from './Smoking/Smoking'
 export * from './Languages/Languages'

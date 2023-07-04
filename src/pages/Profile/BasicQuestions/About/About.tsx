@@ -11,6 +11,13 @@ const About: React.FunctionComponent = () => {
   const navigate = useNavigate()
 
   useEffect(() => { setActive('about') }, [])
+
+  useEffect(() => {
+    if (questions.about) {
+      setPercent(1, 1, 'about')
+    }
+  })
+  
   return (
     <Box className={styles.question}>
       <Box className={styles.question__head}>
@@ -28,19 +35,18 @@ const About: React.FunctionComponent = () => {
         />
       </Box>
       <Box className={styles.question__nav}>
-        <Button variant='text'
+        <Button variant='outlined'
           fullWidth
           onClick={() => {
-            setQuestions({ ...questions, about: '' })
-            setPercent(0, 1, 'about')
-            navigate('../contacts')
+            navigate(-1)
           }}>
-          Skip
+          Back
         </Button>
         <Button variant='contained'
           fullWidth
           onClick={() => {
-            navigate('../contacts')
+            setPercent(100, 100, 'about')
+            navigate('../apartment')
           }}>
           Next
         </Button>

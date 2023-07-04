@@ -4,14 +4,15 @@ import { useStore } from 'src/utils/StoreProvider'
 import styles from './Profile.module.scss'
 import SettingsNavigationButton from 'src/components/navigation/SettingsNavigationButton/SettingsNavigationButton'
 import EditIcon from '@mui/icons-material/Edit'
-import { type ChangeEvent, useState } from 'react'
+import { type ChangeEvent, useState, useEffect } from 'react'
 import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
 import { ProfileRoutes } from 'models'
 import { filesApiService } from 'src/api/api-services/files'
 import { mapBase64ToFile, mapUserToDto } from 'mapping-services'
 import { sessionService, userApiService } from 'api-services'
+import { imageTypes } from 'src/utils/constants'
 const Profile: React.FunctionComponent = observer(() => {
-  const { userStore } = useStore()
+  const { userStore, questionnaireStore } = useStore()
 
   const [cropVisible, setCropVisible] = useState(false)
   const [image, setImage] = useState('')
@@ -59,6 +60,17 @@ const Profile: React.FunctionComponent = observer(() => {
   }
 
   const theme = useTheme()
+
+  const getQuestionnaire = async () => {
+    await questionnaireStore.getQuestionnaire()
+  }
+
+  useEffect(() => {
+    if (!questionnaireStore.questionnaire?.id) {
+      void getQuestionnaire()
+    }
+  }, [])
+
   return <>
     <Box className={styles.profile_container}>
       <Box className={styles.profile_user_info_container}>
@@ -78,7 +90,7 @@ const Profile: React.FunctionComponent = observer(() => {
           <IconButton size='small' sx={{
             color: 'white',
             backgroundColor: theme.palette.primary.main,
-            ':hover': {
+            '&:hover': {
               backgroundColor: theme.palette.primary.main
             }
           }}
@@ -112,7 +124,7 @@ const Profile: React.FunctionComponent = observer(() => {
       <input id='photo-upload'
         className={styles.hiddenInput}
         type="file"
-        accept='.jpeg,.jpg,.png'
+        accept={imageTypes}
         name=""
         onChange={handleFileChange}
       />

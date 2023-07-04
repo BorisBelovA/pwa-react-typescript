@@ -1,3 +1,5 @@
+import { Apartment } from './apartment'
+import { City, Country, District } from './location'
 import { type ShortUser } from './user'
 
 export type Companion = string | ShortUser
@@ -33,52 +35,43 @@ export interface Contact {
   hidden: boolean
 }
 
-export type RelationsType = 'Friends' | 'Couple' | 'Family' | 'Alone' | undefined
+export type RelationsType = 'Friends' | 'Couple' | 'Family' | 'Alone'
 
-export type WhatSmoke = 'cigarettes' | 'vape' | 'shisha' | 'cigars' | 'other'
+export type WhatSmoke = 'Cigarettes' | 'Vape' | 'Shisha' | 'Cigars' | 'Other'
+
+export type SleepingHabits = 'Owl' | 'Lark' | 'Other'
+
+export type Alcoholic = 'Against drink'
+| 'Not against drink'
+| 'Partly drink'
+| 'Sometimes drink'
+| 'Other'
+| 'ARBUSER'
+
+export type GuestAttitude = 'Like guests'
+| 'Sometimes'
+| 'Prefer without guests'
+| 'No guests at all'
 
 export interface QuestionnaireBasicType {
-  who: RelationsType
+  id: number
+  who: RelationsType | null
+  countKids: number | null
+  countAdults: number | null
   whoContains?: WhoFriends | WhoFamily | WhoCouple
   havePets?: boolean
   pets?: Pet[]
   smoker?: boolean
   smokingWhat: WhatSmoke[]
   languages: string[]
+  sleepingHabits: SleepingHabits | null
+  alcohol: Alcoholic | null
   about: string
-  contacts: Contact[]
-  apartment?: boolean
+  apartment: Apartment | null
+  guests: GuestAttitude | null
+  location: {
+    country: Country | null
+    state: District | null
+    city: City | null
+  }
 }
-
-// Надо нам добавить типы для курения
-
-/*
-Users Questionnaire
-  Basic Info
-    Name
-    Surname
-    Gender
-    Birthday
-  Personal Info
-    who's looking
-    pets
-      have pets?
-      type of pets
-    smoke
-      do you smoke?
-      types of smoke
-    languages
-    about
-  Additional Info
-    sleeping habbits
-    alchohol?
-    like guests?
-    work
-  Contacts
-    Email
-    Telegram
-    Phone
-    FB
-    Instagram
-    Other? Мне кажется, что можно выпилить
-*/

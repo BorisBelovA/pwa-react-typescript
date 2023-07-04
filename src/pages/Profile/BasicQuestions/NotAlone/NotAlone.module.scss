@@ -1,0 +1,23 @@
+.container,
+.container_section {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  row-gap: 2rem;
+  height: 100%;
+  position: relative;
+  &_section {
+    row-gap: 0.5rem;
+  }
+}
+
+.button_container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+  display: flex;
+  column-gap: 1rem;
+}

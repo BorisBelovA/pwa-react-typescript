@@ -1,7 +1,8 @@
 import { type QuestionnaireBasicType } from 'models'
-import { ReactComponent as PetsSvg } from '../../../assets/icons/personInfo/Pets.svg'
-import { ReactComponent as SmokeSvg } from '../../../assets/icons/personInfo/Smoke.svg'
-import { ReactComponent as HouseSvg } from '../../../assets/icons/personInfo/House.svg'
+import WineBarIcon from '@mui/icons-material/WineBar'
+import PetsOutlinedIcon from '@mui/icons-material/PetsOutlined'
+import SmokingRoomsOutlinedIcon from '@mui/icons-material/SmokingRoomsOutlined'
+import HouseOutlinedIcon from '@mui/icons-material/HouseOutlined'
 import { Box, Chip, Typography } from '@mui/material'
 import styles from './Qualities.module.scss'
 
@@ -22,22 +23,44 @@ const Qualities = (props: Props): JSX.Element => {
           />
         ))}
       </Box>
-      {info.havePets !== undefined &&
+      {info.havePets &&
         <Box className={styles.qualities__item}>
-          <PetsSvg />
-          <Typography variant='subtitle1'>{info.havePets ? 'Have pets' : 'Don\'t have pets'}</Typography>
+          <PetsOutlinedIcon />
+          <Typography variant='subtitle1'>{
+            info.havePets
+              ? 'Have pets'
+              : 'Don\'t have pets'
+            }</Typography>
         </Box>
       }
-      {info.smoker !== undefined &&
+      {info.smoker &&
         <Box className={styles.qualities__item}>
-          <SmokeSvg />
-          <Typography variant='subtitle1'>{info.smoker ? 'Smokes' : 'Don\'t smoke'}</Typography>
+          <SmokingRoomsOutlinedIcon />
+          <Typography variant='subtitle1'>{
+            info.smoker
+              ? info.smokingWhat.join(', ')
+              : 'Don\'t smoke'
+          }</Typography>
+        </Box>
+      }
+      {info.alcohol &&
+        <Box className={styles.qualities__item}>
+          <WineBarIcon />
+          <Typography variant='subtitle1'>{
+            info.alcohol
+              ? info.alcohol
+              : 'Don\'t drink alcohol'
+          }</Typography>
         </Box>
       }
       {info.apartment !== undefined &&
         <Box className={styles.qualities__item}>
-          <HouseSvg />
-          <Typography variant='subtitle1'>{info.apartment ? 'Have an apartment' : 'Don\'t have an apartment'}</Typography>
+          <HouseOutlinedIcon />
+          <Typography variant='subtitle1'>{
+            info.apartment
+              ? 'Have an apartment'
+              : 'Don\'t have an apartment'
+            }</Typography>
         </Box>
       }
     </Box>

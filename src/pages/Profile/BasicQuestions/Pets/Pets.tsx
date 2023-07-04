@@ -16,8 +16,8 @@ import { useEffect, useMemo } from 'react'
 
 const Pets: React.FunctionComponent = () => {
   const navigate = useNavigate()
-  const { setActive, setPercent } = useActive()
-  const { questions, setQuestions } = useBasicQuestions()
+  const { setActive } = useActive()
+  const { questions, setQuestions, setPercent } = useBasicQuestions()
   const petTypes: Array<{ type: PetType, icon: React.FunctionComponent }> = [
     { type: 'cat', icon: CatSvg },
     { type: 'dog', icon: DogSvg },
@@ -33,6 +33,17 @@ const Pets: React.FunctionComponent = () => {
   useEffect(() => {
     setActive('pets')
   }, [])
+
+  useEffect(() => {
+    const count = questions.havePets && questions.pets?.length
+      ? 100
+      : 0
+    setPercent(
+      count,
+      100,
+      'pets'
+    )
+  }, [questions.havePets, questions.pets])
 
   const addPet = (type: PetType): void => {
     if (pets.length === 0) {
@@ -69,15 +80,6 @@ const Pets: React.FunctionComponent = () => {
     }, 0)
   }, [pets])
 
-  const nextBtnDisabled = useMemo(() => {
-    if (questions.havePets === undefined || questions.havePets === null) {
-      return true
-    }
-    return questions.havePets
-      ? totalAmountOfPets === 0
-      : false
-  }, [questions.havePets, totalAmountOfPets])
-
   return (
     <Box className={styles.question}>
       <Box className={styles.question__head}>
@@ -113,18 +115,15 @@ const Pets: React.FunctionComponent = () => {
 
       </Box>
       <Box className={styles.question__nav}>
-        <Button variant='text'
+        <Button variant='outlined'
           fullWidth
           onClick={() => {
-            setQuestions({ ...questions, havePets: undefined, pets: undefined })
-            setPercent(0, 1, 'pets')
-            navigate('../smoking')
+            navigate(-1)
           }}>
-          Skip
+          Back
         </Button>
         <Button variant='contained'
           fullWidth
-          disabled={nextBtnDisabled}
           onClick={() => {
             navigate('../smoking')
           }}>

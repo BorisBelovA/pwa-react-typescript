@@ -55,12 +55,12 @@ const ProfileCard = (props: Props): JSX.Element => {
         <Box
           component='img'
           className={styles.profileCard__photo}
-          src={require(`../../assets/temp/people/${person.photo !== null && person.photo !== '' ? person.photo : '1.jpg'}`)}
+          src={person.photo ?? ''}
         />
         <Box className={`${styles.profileCard__person}  ${scroll ? styles.profileCard__person_scroll : ''}`}>
           <Box className={styles.profileCard__personTexts}>
             <Typography variant='h1' color='constantLight.main'>{person.firstName}, {calculateAge(person.birthday)}</Typography>
-            <Typography color='constantLight.main'>{info.who !== undefined ? whoOptions[info.who] : 'By self'}</Typography>
+            <Typography color='constantLight.main'>{!!info.who ? whoOptions[info.who] : 'By self'}</Typography>
           </Box>
           <IconButton onClick={handleScroll}>
             <KeyboardDoubleArrowDownRoundedIcon
@@ -71,7 +71,7 @@ const ProfileCard = (props: Props): JSX.Element => {
           </IconButton>
           <Box className={styles.profileCard__personBadges}>
             {info.havePets === true && <Badge type='pet' />}
-            {info.apartment === true && <Badge type='house' />}
+            {!!info.apartment && <Badge type='house' />}
             {info.smoker === false && <Badge type='smokeFree' />}
           </Box>
         </Box>

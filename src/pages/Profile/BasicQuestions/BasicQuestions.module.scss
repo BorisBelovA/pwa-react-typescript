@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  height: calc(100% - 3.5rem);
+  height: calc(100% - 3rem);
 }
 .question__preview {
   margin: 0rem -1rem;
@@ -62,7 +62,7 @@
 .question__nav {
   display: flex;
   width: 100%;
-  gap: .5rem;
+  gap: 1rem;
   justify-content: space-between;
 }
 

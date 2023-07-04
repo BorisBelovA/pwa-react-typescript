@@ -6,12 +6,26 @@ interface Props {
   finished?: boolean
 }
 
+export type ProgressSliderInsertItemFunc = (text: string, to: string, index: number, progress?: number) => void
+
+export type ProgressSliderRemoveItemFunc = (text: string) => void
+
+export type ProgressSliderSetActiveFunc = (active: string) => void
+
+export type ProgressSliderSetPercentFunc = (percent: number, total: number, to: string) => void
+
+export type ProgressSliderSetPercentAndGoFunc = (progress: number, total: number, to: string, active: string) => void
+
+export type ProgressSliderCompleteStepFunc = (step: string) => void
+
 interface ReturnType {
   items: ProgressSliderProps[]
-  setActive: (active: string) => void
-  setPercent: (percent: number, total: number, to: string) => void
-  setPercentAndGo: (progress: number, total: number, to: string, active: string) => void
-  completeStep: (step: string) => void
+  insertItem: ProgressSliderInsertItemFunc
+  removeItem: ProgressSliderRemoveItemFunc
+  setActive: ProgressSliderSetActiveFunc
+  setPercent: ProgressSliderSetPercentFunc
+  setPercentAndGo: ProgressSliderSetPercentAndGoFunc
+  completeStep: ProgressSliderCompleteStepFunc
 }
 
 const useProgressSlider = (props: Props): ReturnType => {
@@ -22,7 +36,7 @@ const useProgressSlider = (props: Props): ReturnType => {
     const element = document.getElementById(step)
     if (element !== null) { element.scrollIntoView({ inline: 'center', behavior: 'smooth' }) }
   }
-  
+
   useEffect(() => {
     let found = false
     active !== '' && setItems(
@@ -46,7 +60,7 @@ const useProgressSlider = (props: Props): ReturnType => {
     scrollToStep(active)
   }, [active])
 
-  const completeStep = (step: string): void => {
+  const completeStep: ProgressSliderCompleteStepFunc = (step: string): void => {
     const nextItemIndex = items.findIndex(i => i.text === step) + 1
     if (nextItemIndex + 1 <= items.length) {
       const newItems: ProgressSliderProps[] = items.map((i, idx) => {
@@ -71,17 +85,18 @@ const useProgressSlider = (props: Props): ReturnType => {
     }
   }
 
-  const setPercent = (progress: number, total: number, to: string): void => {
+  const setPercent: ProgressSliderSetPercentFunc = (progress: number, total: number, to: string): void => {
+    const i = items.map((item) =>
+      item.to === to
+        ? { ...item, progress: progress !== null ? 100 / total * progress : item.progress }
+        : { ...item }
+    )
     setItems(
-      items.map((item) =>
-        item.to === to
-          ? { ...item, progress: progress !== null ? 100 / total * progress : item.progress }
-          : { ...item }
-      )
+      i
     )
   }
 
-  const setPercentAndGo = (progress: number, total: number, to: string, active: string): void => {
+  const setPercentAndGo: ProgressSliderSetPercentAndGoFunc = (progress: number, total: number, to: string, active: string): void => {
     setItems(
       items.map((item) => {
         let state: SliderState, percent
@@ -96,6 +111,21 @@ const useProgressSlider = (props: Props): ReturnType => {
     const element = document.getElementById(active)
     if (element !== null) { element.scrollIntoView({ inline: 'center', behavior: 'smooth' }) }
   }
-  return { items, setPercent, setActive, setPercentAndGo, completeStep } as const
+
+  const insertItem: ProgressSliderInsertItemFunc = (text: string, to: string, index: number, progress?: number): void => {
+    if (items.find(i => i.text === text)) {
+      return
+    }
+    setItems([
+      ...items.slice(0, index),
+      { text, to, progress: progress ?? 0, state: 'Inactive' },
+      ...items.slice(index)
+    ])
+  }
+
+  const removeItem: ProgressSliderRemoveItemFunc = (text: string): void => {
+    setItems(items.filter(i => i.text !== text))
+  }
+  return { items, insertItem, removeItem, setPercent, setActive, setPercentAndGo, completeStep } as const
 }
 export default useProgressSlider
