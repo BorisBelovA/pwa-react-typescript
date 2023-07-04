@@ -16,6 +16,7 @@ import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
 import { type ProgressSliderProps } from 'src/components'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { filesApiService } from 'src/api/api-services/files'
+import { IntroRoutes } from 'models'
 
 export type RegistrationSteps = 'personal' | 'phone' | 'verification' | 'photo' | 'summary'
 
@@ -117,7 +118,7 @@ export const Layout = (): JSX.Element => {
           avatar: avatar ?? null
         })
         setBackdropVisible(false)
-        navigate('/profile')
+        navigate(IntroRoutes.pathSelection)
       }, 2000)
     } catch (error: any) {
       console.error(error)

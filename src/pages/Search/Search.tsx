@@ -71,9 +71,9 @@ const Search: React.FunctionComponent = () => {
   //   </Box>
   // )
   return <Box>
-    <Typography>
+    {/* <Typography>
       Soon we will add matches here!
-    </Typography>
+    </Typography> */}
   </Box>
 }
 
