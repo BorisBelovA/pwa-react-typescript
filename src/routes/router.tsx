@@ -11,6 +11,8 @@ import AuthRoutes from './auth/auth'
 import { AuthLayout } from 'src/layouts/Auth/AuthLayout'
 import { SessionGuard } from 'src/layouts/SessionGuard/SessionGuard'
 import { Chat } from 'src/pages/Chat/Chat'
+import { IntroPage } from 'src/pages/Intro/IntroPage'
+import { PathSelection } from 'src/pages/Intro/PathSelection/PathSelection'
 
 const Router: React.FunctionComponent = () => {
   return (
@@ -26,6 +28,9 @@ const Router: React.FunctionComponent = () => {
         <Route path="match" element={<Matches />} />
         <Route path="notifications" element={<Notifications />} />
         <Route path="chat" element={<Chat />} />
+        <Route path="intro" element={<IntroPage />}>
+          <Route path="path" element={<PathSelection />}/>
+        </Route>
         <Route path="/" element={<Navigate to="search" replace />} />
         <Route path="/*" element={<Navigate to="profile" replace />} />
       </Route>

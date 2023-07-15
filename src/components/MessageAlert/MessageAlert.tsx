@@ -37,6 +37,7 @@ export const MessageAlert = ({ message, setMessage }: MessageAlertProps): JSX.El
       <Grow in={message?.visible}>
         <Alert sx={{
           position: 'absolute',
+          zIndex: 9999,
           bottom: 0,
           width: '100%'
         }} severity={message?.severity}>

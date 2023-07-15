@@ -25,3 +25,7 @@ export const enum SettingsRoutes {
   ACCOUNT = 'account',
   THEME = 'theme'
 }
+
+export const enum IntroRoutes {
+  pathSelection = '/intro/path'
+}
