@@ -9,7 +9,7 @@ import { questionnaireService } from 'api-services'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
-import { QuestionnaireBasicType } from 'models'
+import { QuestionnaireRoutes } from 'models'
 
 const Summary = observer((): JSX.Element => {
   const navigate = useNavigate()
@@ -102,7 +102,7 @@ const Summary = observer((): JSX.Element => {
         <Button variant='outlined'
           className={styles.question__button_half}
           onClick={(e) => {
-            navigate(-1)
+            navigate(`../${QuestionnaireRoutes.ABOUT}`)
           }}>
           Back
         </Button>

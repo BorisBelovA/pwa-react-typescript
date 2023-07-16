@@ -1,16 +1,13 @@
-import { Box, Button, Card, Typography, useTheme } from '@mui/material'
-import GroupsIcon from '@mui/icons-material/Groups'
-import PersonIcon from '@mui/icons-material/Person'
+import { Box, Button, Typography } from '@mui/material'
 import styles from './WhoSearching.module.scss'
 import commonStyles from '../BasicQuestions.module.scss'
-import { useStore } from 'src/utils/StoreProvider'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useMemo } from 'react'
+import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'
+import { QuestionnaireRoutes, type RelationsType } from 'models'
 
 export const WhoSearching = (): JSX.Element => {
-  const theme = useTheme()
-  const { themeStore } = useStore()
   const navigate = useNavigate()
   const { questions, setQuestions, setPercent, insertItem, removeItem, setActive } = useBasicQuestions()
 
@@ -39,7 +36,7 @@ export const WhoSearching = (): JSX.Element => {
   }
 
   const choseNotAlone = (): void => {
-    setQuestions({ ...questions, who: 'Friends', whoContains: undefined })
+    setQuestions({ ...questions, who: 'Couple', whoContains: undefined })
   }
 
   const handleNext = (): void => {
@@ -48,35 +45,18 @@ export const WhoSearching = (): JSX.Element => {
     }
     if (questions.who === 'Alone') {
       removeItem('Not Alone')
-      navigate('/profile/questionnaire-basic-info/pets')
+      navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.PETS}`)
     } else {
       setPercent(100, 100, 'who')
       insertItem('Not Alone', 'not-alone', 1)
-      navigate('/profile/questionnaire-basic-info/not-alone')
+      navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.NOT_ALONE}`)
     }
   }
 
-  const color = useMemo(() => {
-    return themeStore.theme === 'light'
-      ? theme.palette.primary.light
-      : ''
-  }, [themeStore.theme])
-
-  const unselectedStyle = {
-    border: themeStore.theme === 'light'
-      ? '2px solid'
-      : '',
-    color
-  }
-
-  const selectedStyle = {
-    backgroundColor: themeStore.theme === 'light'
-      ? theme.palette.primary.light
-      : theme.palette.primary.dark,
-    color: themeStore.theme === 'light'
-      ? theme.palette.background.default
-      : ''
-  }
+  const options: Array<Option<RelationsType>> = [
+    { text: 'Alone', value: 'Alone', icon: 'person' },
+    { text: 'Not alone', value: 'Couple', icon: 'groups' }
+  ]
 
   return <Box className={commonStyles.question}>
     <Box className={commonStyles.question__head}>
@@ -84,31 +64,15 @@ export const WhoSearching = (): JSX.Element => {
     </Box>
 
     <Box className={`${commonStyles.question__content} ${styles.justify_center}`}>
-      <Box className={styles.cards_container}>
-        <Card className={styles.card}
-          sx={
-            whoSearching === 'Alone'
-              ? selectedStyle
-              : unselectedStyle
+      <OptionCards options={options}
+        selected={whoSearching}
+        selectCallback={(value) => {
+          if (value === 'Alone') {
+            choseAlone()
+          } else {
+            choseNotAlone()
           }
-          onClick={choseAlone}
-        >
-          <PersonIcon sx={{ fontSize: 50 }}></PersonIcon>
-          <Typography variant='body1'>Alone</Typography>
-        </Card>
-
-        <Card className={styles.card}
-          sx={
-            whoSearching === 'Friends'
-              ? selectedStyle
-              : unselectedStyle
-          }
-          onClick={choseNotAlone}>
-          <GroupsIcon sx={{ fontSize: 50 }}></GroupsIcon>
-          <Typography variant='body1'>Not alone</Typography>
-        </Card>
-      </Box>
-
+        }}></OptionCards>
     </Box>
 
     <Box className={commonStyles.question__nav}>

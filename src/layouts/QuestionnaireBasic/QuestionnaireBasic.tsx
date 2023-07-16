@@ -18,8 +18,8 @@ const QuestionnaireBasic: React.FunctionComponent = observer(() => {
     { text: 'alcohol', progress: 0, to: 'alcohol' },
     { text: 'guests', progress: 0, to: 'guests' },
     { text: 'location', progress: 0, to: 'location' },
-    { text: 'about', progress: 0, to: 'about' },
     { text: 'apartment', progress: 0, to: 'apartment' },
+    { text: 'about', progress: 0, to: 'about' },
     { text: 'summary', progress: 0, to: 'summary' }
   ]
 
@@ -32,19 +32,19 @@ const QuestionnaireBasic: React.FunctionComponent = observer(() => {
       insertItem('Not Alone', 'not-alone', 1, 100)
     }
 
-    if (questions.havePets) {
-      const count = questions.havePets && questions.pets?.length
-        ? 100
-        : 0
-      defaultItems.find(i => i.to === 'pets')!.progress = count
-    }
+    const count = questions.havePets !== undefined
+      ? questions.havePets
+        ? questions.pets?.length
+          ? 100
+          : 0
+        : 100
+      : 0
+    defaultItems.find(i => i.to === 'pets')!.progress = count
 
-    if (questions.smoker) {
-      const isSmoking: number = questions.smoker === undefined || questions.smoker === null ? 0 : 1
-      const isSmokingWhat: number = questions.smokingWhat?.length > 0 && questions.smoker ? 1 : 0
-      if (isSmoking + isSmokingWhat > 0) {
-        defaultItems.find(i => i.to === 'smoking')!.progress = 100
-      }
+    const isSmoking: number = questions.smoker === undefined || questions.smoker === null ? 0 : 1
+    const isSmokingWhat: number = questions.smokingWhat?.length > 0 && questions.smoker ? 1 : 0
+    if (isSmoking + isSmokingWhat > 0) {
+      defaultItems.find(i => i.to === 'smoking')!.progress = 100
     }
 
     if (questions.languages.length > 0) {
@@ -69,9 +69,9 @@ const QuestionnaireBasic: React.FunctionComponent = observer(() => {
         (questions.location.city ? 33 : 0)
     }
 
-    if (questions.about) {
-      defaultItems.find(i => i.to === 'about')!.progress = 100
-    }
+    defaultItems.find(i => i.to === 'about')!.progress = questionnaire.about.length > 0
+      ? 100
+      : 0
 
     if (questions.apartment !== null) {
       defaultItems.find(i => i.to === 'apartment')!.progress = 100

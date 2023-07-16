@@ -13,6 +13,7 @@ export const enum ApartmentsRoutes {
 }
 
 export const enum ApartmentsQuestionnaireRoutes {
+  PURPOSE = 'purpose',
   BASIC = 'basic',
   LOCATION = 'location',
   PHOTOS = 'photos',
@@ -28,4 +29,19 @@ export const enum SettingsRoutes {
 
 export const enum IntroRoutes {
   pathSelection = '/intro/path'
+}
+
+export const enum QuestionnaireRoutes {
+  WHO = 'who',
+  NOT_ALONE = 'not-alone',
+  PETS = 'pets',
+  SMOKING = 'smoking',
+  LANGUAGES = 'languages',
+  SLEEP = 'sleep',
+  ALCOHOL = 'alcohol',
+  GUESTS = 'guests',
+  LOCATION = 'location',
+  APARTMENT = 'apartment',
+  ABOUT = 'about',
+  SUMMARY = 'summary'
 }

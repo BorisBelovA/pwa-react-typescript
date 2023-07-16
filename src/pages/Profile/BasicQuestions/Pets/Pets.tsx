@@ -10,7 +10,7 @@ import { ReactComponent as DogSvg } from '../../../../assets/icons/pets/Dog.svg'
 import { ReactComponent as FishSvg } from '../../../../assets/icons/pets/Fish.svg'
 import { ReactComponent as BirdSvg } from '../../../../assets/icons/pets/Bird.svg'
 import { ReactComponent as OtherSvg } from '../../../../assets/icons/pets/Other.svg'
-import { type PetType, type Pet } from 'models'
+import { type PetType, type Pet, QuestionnaireRoutes } from 'models'
 import PetList from 'src/components/PetList/PetList'
 import { useEffect, useMemo } from 'react'
 
@@ -35,9 +35,14 @@ const Pets: React.FunctionComponent = () => {
   }, [])
 
   useEffect(() => {
-    const count = questions.havePets && questions.pets?.length
-      ? 100
+    const count = questions.havePets !== undefined
+      ? questions.havePets
+        ? questions.pets?.length
+          ? 100
+          : 0
+        : 100
       : 0
+
     setPercent(
       count,
       100,
@@ -125,7 +130,7 @@ const Pets: React.FunctionComponent = () => {
         <Button variant='contained'
           fullWidth
           onClick={() => {
-            navigate('../smoking')
+            navigate(`../${QuestionnaireRoutes.SMOKING}`)
           }}>
           Next
         </Button>

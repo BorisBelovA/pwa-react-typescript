@@ -1,22 +1,3 @@
-.cards_container {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-around;
-  flex-flow: wrap;
-  row-gap: 0.5rem;
-}
-
-.card {
-  width: 10rem;
-  height: 10rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.15s ease;
-}
-
 .justify_center {
   justify-content: center;
 }

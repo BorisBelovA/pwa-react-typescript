@@ -5,6 +5,7 @@ import styles from './NotAlone.module.scss'
 import { useEffect, useMemo, useState } from 'react'
 import AddPerson from 'src/components/Modals/AddPerson/AddPerson'
 import { useNavigate } from 'react-router-dom'
+import { QuestionnaireRoutes } from 'models'
 
 export const NotAlone = (): JSX.Element => {
   const { questions, setQuestions, setPercent, setActive } = useBasicQuestions()
@@ -47,12 +48,12 @@ export const NotAlone = (): JSX.Element => {
   const howManyRoomsMarks = Array(11).fill(0).map((i, idx) => ({ value: idx, label: `${idx}` }))
 
   const handleBack = (): void => {
-    navigate('/profile/questionnaire-basic-info/who')
+    navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.WHO}`)
   }
 
   const handleNext = (): void => {
     setPercent(100, 100, 'not-alone')
-    navigate('/profile/questionnaire-basic-info/pets')
+    navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.PETS}`)
   }
 
   return <Box className={styles.container}>

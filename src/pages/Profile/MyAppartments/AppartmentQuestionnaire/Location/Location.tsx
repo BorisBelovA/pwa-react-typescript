@@ -7,7 +7,7 @@ import { ApartmentsQuestionnaireRoutes, type City, type District, type Country }
 import { locationService } from 'src/api/api-services/location'
 
 export const Location = (): JSX.Element => {
-  const { apartment, setApartment, setNextDisabled, setActive, setPercent } = apartmentQuestionnaireContext()
+  const { apartment, setApartment, setNextDisabled, setActive, setPercent, lockLocation } = apartmentQuestionnaireContext()
 
   const [countries, setCountries] = useState<Country[]>([])
   const [districts, setDistricts] = useState<District[]>([])
@@ -78,6 +78,7 @@ export const Location = (): JSX.Element => {
 
   useEffect(() => {
     refreshProgress()
+    setNextDisabled(Object.keys(errors).length !== 0 || !apartment.location.country)
   }, [
     errors.country, errors.city, errors.district,
     apartment.location.country, apartment.location.city, apartment.location.district
@@ -92,10 +93,6 @@ export const Location = (): JSX.Element => {
       })
     }
   }, [apartment.id])
-
-  useEffect(() => {
-    setNextDisabled(!isValid)
-  }, [isValid])
 
   useEffect(() => {
     const subss = watch(({ country, city, district, address }, { name, type }) => {
@@ -127,6 +124,11 @@ export const Location = (): JSX.Element => {
 
   return <>
     <Box className={styles.container}>
+      {lockLocation &&
+        <Typography variant='caption'>
+          This apartment is used in your questionnaire. You can change its location after you update your questionnaire.
+        </Typography>
+      }
       <Box className={styles.container_section}>
         <Typography variant="h2">Country</Typography>
         <Controller control={control}
@@ -139,6 +141,7 @@ export const Location = (): JSX.Element => {
               <Autocomplete
                 id="country-autocomplete"
                 options={countries}
+                disabled={lockLocation}
                 fullWidth
                 onChange={(_, value) => {
                   onChange(value ?? null)
@@ -185,7 +188,7 @@ export const Location = (): JSX.Element => {
                 id="district-autocomplete"
                 options={districts}
                 fullWidth
-                disabled={districts.length === 0}
+                disabled={lockLocation || districts.length === 0}
                 getOptionLabel={(option) => option.name}
                 onChange={(_, value) => {
                   onChange(value ?? null)
@@ -226,7 +229,7 @@ export const Location = (): JSX.Element => {
                 id="city-autocomplete"
                 options={cities}
                 fullWidth
-                disabled={cities.length === 0}
+                disabled={lockLocation || cities.length === 0}
                 getOptionLabel={(option) => option.name}
                 onChange={(_, value) => {
                   onChange(value ?? null)
@@ -242,8 +245,6 @@ export const Location = (): JSX.Element => {
                   <TextField
                     {...params}
                     label="Choose a city"
-                    error={errors.city !== undefined}
-                    helperText={errors.city !== undefined ? 'City is required' : ''}
                     inputProps={{
                       ...params.inputProps,
                       autoComplete: 'new-password' // disable autocomplete and autofill

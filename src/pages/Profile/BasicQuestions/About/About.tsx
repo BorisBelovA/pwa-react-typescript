@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
+import { QuestionnaireRoutes } from 'models'
 
 const About: React.FunctionComponent = () => {
   const { setActive, setPercent } = useActive()
@@ -21,7 +22,7 @@ const About: React.FunctionComponent = () => {
   return (
     <Box className={styles.question}>
       <Box className={styles.question__head}>
-        <Typography className={styles.question__head_text} variant='h1'>Something else you think will be helpfull?</Typography>
+        <Typography className={styles.question__head_text} variant='h1'>Something else you think will be helpful?</Typography>
       </Box>
       <Box className={styles.question__content}>
         <TextField
@@ -38,7 +39,7 @@ const About: React.FunctionComponent = () => {
         <Button variant='outlined'
           fullWidth
           onClick={() => {
-            navigate(-1)
+            navigate(`../${QuestionnaireRoutes.APARTMENT}`)
           }}>
           Back
         </Button>
@@ -46,7 +47,7 @@ const About: React.FunctionComponent = () => {
           fullWidth
           onClick={() => {
             setPercent(100, 100, 'about')
-            navigate('../apartment')
+            navigate(`../${QuestionnaireRoutes.SUMMARY}`)
           }}>
           Next
         </Button>

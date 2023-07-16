@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from './Location.module.scss'
 import { Autocomplete, Box, Button, TextField, Typography } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
-import { ApartmentsQuestionnaireRoutes, type City, type District, type Country } from 'models'
+import { ApartmentsQuestionnaireRoutes, type City, type District, type Country, QuestionnaireRoutes } from 'models'
 import { locationService } from 'src/api/api-services/location'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import commonStyles from '../BasicQuestions.module.scss'
@@ -14,6 +14,7 @@ export const Location = (): JSX.Element => {
   const [countries, setCountries] = useState<Country[]>([])
   const [districts, setDistricts] = useState<District[]>([])
   const [cities, setCities] = useState<City[]>([])
+  const [nextDisabled, setNextDisabled] = useState(true)
 
   const getCountries = async (): Promise<void> => {
     try {
@@ -83,16 +84,6 @@ export const Location = (): JSX.Element => {
     questions.location.country, questions.location.city, questions.location.state
   ])
 
-  //   useEffect(() => {
-  //     if (questions.id > 0) {
-  //       reset({
-  //         country: apartment.location.country,
-  //         city: apartment.location.city,
-  //         district: apartment.location.district
-  //       })
-  //     }
-  //   }, [apartment.id])
-
   useEffect(() => {
     const subss = watch(({ country, city, state }, { name, type }) => {
       // Each time we change country we load new list of districts
@@ -112,11 +103,14 @@ export const Location = (): JSX.Element => {
           state: state as unknown as District ?? questions.location.state,
         }
       })
+      setNextDisabled(!(country?.id && state?.id))
     })
     return () => { subss.unsubscribe() }
   }, [watch])
 
   useEffect(() => {
+    const {country, state} = questions.location
+    setNextDisabled(!(country?.id && state?.id))
     setActive(ApartmentsQuestionnaireRoutes.LOCATION)
   }, [])
 
@@ -255,14 +249,15 @@ export const Location = (): JSX.Element => {
       <Button variant='outlined'
         fullWidth
         onClick={() => {
-          navigate(-1)
+          navigate(`../${QuestionnaireRoutes.GUESTS}`)
         }}>
         Back
       </Button>
       <Button variant='contained'
+        disabled={nextDisabled}
         fullWidth
         onClick={() => {
-          navigate('../about')
+          navigate(`../${QuestionnaireRoutes.APARTMENT}`)
         }}>
         Next
       </Button>

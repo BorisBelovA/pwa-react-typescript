@@ -2,12 +2,12 @@ import { Box, Button, FormControlLabel, Radio, ToggleButton, ToggleButtonGroup, 
 import styles from '../BasicQuestions.module.scss'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import { useEffect, useState } from 'react'
-import { type Alcoholic } from 'models'
+import { QuestionnaireRoutes, type Alcoholic } from 'models'
 import { useNavigate } from 'react-router-dom'
 
 export const Alcohol = (): JSX.Element => {
   const { questions, setQuestions, setActive, setPercent } = useBasicQuestions()
-  const [drinkAlcohol, setDrinkAlcohol] = useState(false)
+  const [drinkAlcohol, setDrinkAlcohol] = useState<boolean | null>(null)
   const navigate = useNavigate()
 
   const options: Alcoholic[] = [
@@ -29,7 +29,9 @@ export const Alcohol = (): JSX.Element => {
 
   useEffect(() => {
     setActive('alcohol')
-    setDrinkAlcohol(!!questions.alcohol)
+    if (questions.alcohol !== null) {
+      setDrinkAlcohol(true)
+    }
     if (questions.alcohol) {
       setPercent(100, 100, 'alcohol')
     }
@@ -43,12 +45,14 @@ export const Alcohol = (): JSX.Element => {
         value={drinkAlcohol}
         exclusive
         onChange={(e, value) => {
-          setDrinkAlcohol(value)
-          setPercent(
-            value ? 0 : 100,
-            100,
-            'alcohol'
-          )
+          if (value !== null) {
+            setDrinkAlcohol(value)
+            setPercent(
+              value ? 100 : 0,
+              100,
+              'alcohol'
+            )
+          }
           if (!value) {
             setAlcoholicType(null)
           }
@@ -84,15 +88,15 @@ export const Alcohol = (): JSX.Element => {
       <Button variant='outlined'
         fullWidth
         onClick={() => {
-          navigate(-1)
+          navigate(`../${QuestionnaireRoutes.SLEEP}`)
         }}>
         Back
       </Button>
       <Button variant='contained'
         fullWidth
-        disabled={drinkAlcohol && !questions.alcohol}
+        disabled={!!drinkAlcohol && !questions.alcohol}
         onClick={() => {
-          navigate('../guests')
+          navigate(`../${QuestionnaireRoutes.GUESTS}`)
         }}>
         Next
       </Button>

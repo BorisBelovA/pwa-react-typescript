@@ -72,14 +72,14 @@ export const Photos = (): JSX.Element => {
     <Box className={styles.container}>
       <Button variant="outlined" onClick={addPhoto}>Add photos</Button>
       <Box className={styles.images_container}>
-        <ImageList cols={3} gap={8}>
+        <ImageList cols={2} gap={8} rowHeight={100}>
           {apartment.photos.map((photo, index) => {
             return <ImageListItem key={index} sx={{
               borderRadius: '16px',
               border: '1px solid gray',
               overflow: 'hidden'
             }}>
-              <img src={photo} height='100px' loading="lazy"
+              <img src={photo} loading="lazy"
               />
               <ImageListItemBar position="bottom"
                 sx={{

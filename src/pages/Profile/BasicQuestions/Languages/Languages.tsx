@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search'
 import LanguageButton from 'src/components/Buttons/LanguageButton/LanguageButton'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
+import { QuestionnaireRoutes } from 'models'
 
 const Languages: React.FunctionComponent = () => {
   const [search, setSearch] = useState<string>('')
@@ -78,14 +79,14 @@ const Languages: React.FunctionComponent = () => {
         <Button variant='outlined'
           fullWidth
           onClick={() => {
-            navigate(-1)
+            navigate(`../${QuestionnaireRoutes.SMOKING}`)
           }}>
           Back
         </Button>
         <Button variant='contained'
           fullWidth
           onClick={() => {
-            navigate('../sleep')
+            navigate(`../${QuestionnaireRoutes.SLEEP}`)
           }}>
           Next
         </Button>
