@@ -11,18 +11,19 @@ import { SleepingHabbits } from 'src/pages/Profile/BasicQuestions/SleepingHabbit
 import { Alcohol } from 'src/pages/Profile/BasicQuestions/Alchohol/Alcohol'
 import { Guests } from 'src/pages/Profile/BasicQuestions/Guests/Guests'
 import { Location } from 'src/pages/Profile/BasicQuestions/Location/Location'
+import { QuestionnaireRoutes } from 'models'
 
 export const questionnaireRoutes = [
-  <Route key='0' path='who' element={<WhoSearching />} />,
-  <Route key='1' path='not-alone' element={<NotAlone />} />,
-  <Route key='2' path='pets' element={<Pets />} />,
-  <Route key='3' path='smoking' element={<Smoking />} />,
-  <Route key='4' path='languages' element={<Languages />} />,
-  <Route key='5' path='sleep' element={<SleepingHabbits />} />,
-  <Route key='6' path='alcohol' element={<Alcohol />} />,
-  <Route key='7' path='guests' element={<Guests />} />,
-  <Route key='8' path='location' element={<Location />} />,
-  <Route key='9' path='about' element={<About />} />,
-  <Route key='10' path='apartment' element={<Apartment />} />,
-  <Route key='11' path='summary' element={<Summary />} />
+  <Route key='0' path={QuestionnaireRoutes.WHO} element={<WhoSearching />} />,
+  <Route key='1' path={QuestionnaireRoutes.NOT_ALONE} element={<NotAlone />} />,
+  <Route key='2' path={QuestionnaireRoutes.PETS} element={<Pets />} />,
+  <Route key='3' path={QuestionnaireRoutes.SMOKING} element={<Smoking />} />,
+  <Route key='4' path={QuestionnaireRoutes.LANGUAGES} element={<Languages />} />,
+  <Route key='5' path={QuestionnaireRoutes.SLEEP} element={<SleepingHabbits />} />,
+  <Route key='6' path={QuestionnaireRoutes.ALCOHOL} element={<Alcohol />} />,
+  <Route key='7' path={QuestionnaireRoutes.GUESTS} element={<Guests />} />,
+  <Route key='8' path={QuestionnaireRoutes.LOCATION} element={<Location />} />,
+  <Route key='9' path={QuestionnaireRoutes.APARTMENT} element={<Apartment />} />,
+  <Route key='10' path={QuestionnaireRoutes.ABOUT} element={<About />} />,
+  <Route key='11' path={QuestionnaireRoutes.SUMMARY} element={<Summary />} />
 ]

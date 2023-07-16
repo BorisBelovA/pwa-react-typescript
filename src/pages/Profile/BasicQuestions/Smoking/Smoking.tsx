@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
-import { type WhatSmoke } from 'models'
+import { QuestionnaireRoutes, type WhatSmoke } from 'models'
 
 const Smoking: React.FunctionComponent = () => {
   const { setActive } = useActive()
@@ -77,14 +77,14 @@ const Smoking: React.FunctionComponent = () => {
         <Button variant='outlined'
           fullWidth
           onClick={() => {
-            navigate(-1)
+            navigate(`../${QuestionnaireRoutes.PETS}`)
           }}>
           Back
         </Button>
         <Button variant='contained'
           fullWidth
           onClick={() => {
-            navigate('../languages')
+            navigate(`../${QuestionnaireRoutes.LANGUAGES}`)
           }}>
           Next
         </Button>

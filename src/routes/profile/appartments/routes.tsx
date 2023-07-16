@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import { ApartmentQuestionnaire, Basic, Location, MyApartments } from 'src/pages/Profile/MyAppartments'
 import { Description } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description'
 import { Photos } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Photos/Photos'
+import { Purpose } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose'
 import { Summary } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Summary/Summary'
 
 export const apartmentsQuestionnaireRoutes = [
@@ -10,7 +11,8 @@ export const apartmentsQuestionnaireRoutes = [
   <Route key='1' path={ApartmentsQuestionnaireRoutes.LOCATION} element={<Location />} />,
   <Route key='2' path={ApartmentsQuestionnaireRoutes.PHOTOS} element={<Photos />} />,
   <Route key='3' path={ApartmentsQuestionnaireRoutes.ABOUT} element={<Description />} />,
-  <Route key='4' path={ApartmentsQuestionnaireRoutes.SUMMARY} element={<Summary />} />
+  <Route key='4' path={ApartmentsQuestionnaireRoutes.SUMMARY} element={<Summary />} />,
+  <Route key='5' path={ApartmentsQuestionnaireRoutes.PURPOSE} element={<Purpose />} />
 ]
 
 export const apartmentsRoutes = [

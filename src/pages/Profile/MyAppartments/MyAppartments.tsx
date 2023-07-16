@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardContent, CardMedia, Skeleton, Typography } from '@mui/material'
+import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Skeleton, Typography } from '@mui/material'
 import { observer } from 'mobx-react-lite'
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -14,7 +14,7 @@ export const MyApartments = observer((): JSX.Element => {
 
   const haveApartment = apartmentStore.haveApartment
   const createApartment = (): void => {
-    navigate('new/basic')
+    navigate('new/basic?purpose=rent')
   }
 
   const editApartment = (apartmentId: number): void => {
@@ -38,16 +38,18 @@ export const MyApartments = observer((): JSX.Element => {
     {isLoading &&
       <Skeleton variant="rounded" width='100%' height={240} animation="wave" />
     }
-    {!isLoading && !haveApartment &&
+    {!isLoading &&
       <Button variant='contained'
         sx={{ marginBottom: '1rem' }}
         onClick={() => { createApartment() }}
       >Add apartment
       </Button>
     }
+    <Box sx={{ overflowY: 'auto' }}>
     {!isLoading && haveApartment &&
       apartments.map(ap =>
-        <Card key={ap.id}>
+        <Card key={ap.id} variant="outlined"
+        sx={{ marginBottom: '1rem' }}>
           <CardActionArea onClick={() => { editApartment(ap.id) }}>
             <CardMedia
               component="img"
@@ -67,5 +69,6 @@ export const MyApartments = observer((): JSX.Element => {
         </Card>
       )
     }
+    </Box>
   </>
 })

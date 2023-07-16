@@ -99,7 +99,7 @@ export class UserStore implements AuthUser {
     localStorage.removeItem('user')
     sessionService.removeFromLocalStorage()
   }
-  
+
   public get user (): AuthUser {
     return {
       id: this.id,

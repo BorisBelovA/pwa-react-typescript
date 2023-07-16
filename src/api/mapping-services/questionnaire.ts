@@ -1,5 +1,6 @@
 import * as models from 'models'
 import * as dto from '../dto/questionnaire'
+import { mapApartmentToDto, mapApartmentToModel } from './appartments'
 
 // Smoke mapper
 export const mapSmokeTypeToDto = (smoke: models.WhatSmoke): dto.SmokeEnum => {
@@ -307,7 +308,9 @@ export const mapSleepingHabitToDto = (habit: models.SleepingHabits): dto.Sleepin
 export const mapQuestionnaireToDto = (questionnaire: models.QuestionnaireBasicType): dto.Questionnaire => {
   return {
     id: questionnaire.id,
-    apartment: null,
+    apartment: questionnaire.apartment
+      ? mapApartmentToDto(questionnaire.apartment)
+      : null,
     whoLooking: questionnaire.who
       ? mapWhoLookingToDto(questionnaire.who)
       : null,
@@ -361,7 +364,9 @@ export const mapQuestionnaireToModel = (questionnaire: dto.Questionnaire): model
     guests: questionnaire.guests
       ? mapGuestToModel(questionnaire.guests)
       : null,
-    apartment: null,
+    apartment: questionnaire.apartment
+      ? mapApartmentToModel(questionnaire.apartment)
+      : null,
     countAdults: questionnaire.countAdults,
     countKids: questionnaire.countKids,
     location: {

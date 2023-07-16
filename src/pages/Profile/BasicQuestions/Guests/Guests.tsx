@@ -2,12 +2,12 @@ import { Box, Button, FormControlLabel, Radio, ToggleButton, ToggleButtonGroup, 
 import styles from '../BasicQuestions.module.scss'
 import { useBasicQuestions } from "src/layouts/QuestionnaireBasic/QuestionnaireBasic"
 import { useEffect, useState } from "react"
-import { GuestAttitude } from "models"
+import { GuestAttitude, QuestionnaireRoutes } from "models"
 import { useNavigate } from "react-router-dom"
 
 export const Guests = (): JSX.Element => {
   const { questions, setQuestions, setPercent, setActive } = useBasicQuestions()
-  const [displayGuests, setDisplayGuests] = useState(false)
+  const [displayGuests, setDisplayGuests] = useState<boolean | null>(null)
   const navigate = useNavigate()
 
   const options: GuestAttitude[] = [
@@ -27,7 +27,9 @@ export const Guests = (): JSX.Element => {
 
   useEffect(() => {
     setActive('guests')
-    setDisplayGuests(!!questions.guests)
+    if (questions.guests !== null) {
+      setDisplayGuests(true)
+    }
     if (questions.guests) {
       setPercent(100, 100, 'guests')
     }
@@ -41,12 +43,14 @@ export const Guests = (): JSX.Element => {
         value={displayGuests}
         exclusive
         onChange={(e, value) => {
-          setDisplayGuests(value)
-          setPercent(
-            value ? 0 : 100,
-            100,
-            'guests'
-          )
+          if (value !== null) {
+            setDisplayGuests(value)
+            setPercent(
+              value ? 0 : 100,
+              100,
+              'guests'
+            )
+          }
           if (!value) {
             setGuestType(null)
           }
@@ -82,15 +86,15 @@ export const Guests = (): JSX.Element => {
       <Button variant='outlined'
         fullWidth
         onClick={() => {
-          navigate(-1)
+          navigate(`../${QuestionnaireRoutes.ALCOHOL}`)
         }}>
         Back
       </Button>
       <Button variant='contained'
         fullWidth
-        disabled={displayGuests && !questions.guests}
+        disabled={!!displayGuests && !questions.guests}
         onClick={() => {
-          navigate('../location')
+          navigate(`../${QuestionnaireRoutes.LOCATION}`)
         }}>
         Next
       </Button>

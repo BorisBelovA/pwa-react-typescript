@@ -13,7 +13,10 @@ class Questionnaire {
   }
 
   public async createQuestForm (questionnaire: QuestionnaireBasicType): Promise<dtoQuestionnaire> {
-    const dto = mapQuestionnaireToDto(questionnaire)
+    const dto = {
+      ...mapQuestionnaireToDto(questionnaire),
+      id: null
+    }
     return await http.post<HttpResponse<dtoQuestionnaire>>('/form', dto, {
       headers: {
         Authorization: this.sessnioService.authToken

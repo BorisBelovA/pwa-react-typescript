@@ -71,7 +71,7 @@ export const Basic = (): JSX.Element => {
     setNextDisabled(!isValid)
   }, [isValid])
 
-  const howManyRoomsMarks = Array(9).fill(0).map((i, idx) => ({ value: idx + 2, label: `${idx + 2}` }))
+  const howManyRoomsMarks = Array(10).fill(0).map((i, idx) => ({ value: idx + 1, label: `${idx + 1}` }))
   return <Box className={styles.container}>
     <Box className={styles.container_section}>
       <Typography variant="h2">Basic data</Typography>
@@ -129,7 +129,7 @@ export const Basic = (): JSX.Element => {
             valueLabelDisplay="off"
             step={1}
             marks={howManyRoomsMarks}
-            min={2}
+            min={1}
             max={10}
             value={value}
             onChange={onChange}
@@ -150,7 +150,7 @@ export const Basic = (): JSX.Element => {
             valueLabelDisplay="off"
             step={1}
             marks={howManyRoomsMarks}
-            min={2}
+            min={1}
             max={10}
             value={value}
             onChange={onChange}
