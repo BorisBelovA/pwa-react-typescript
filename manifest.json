@@ -39,6 +39,6 @@
   "start_url": "https://borisbelova.github.io/pwa-react-typescript/",
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#000000",
+  "theme_color": "#fff",
   "background_color": "#ffffff"
 }
