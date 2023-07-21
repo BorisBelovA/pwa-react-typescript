@@ -1,8 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import utilityStyles from '../../styles/utility.module.scss'
 import styles from './Matches.module.scss'
-import type { Match } from 'models'
+import { Chat, type Match } from 'models'
 import { MatchCard } from 'src/components/MatchCard/MatchCard'
+import { useEffect, useState } from 'react'
+import { chatService } from 'api-services'
+import { mapChatToModel } from 'src/api/mapping-services/chat'
+import { Typography } from '@mui/material'
 
 const matches: Match[] = [
   {
@@ -44,10 +48,20 @@ const matches: Match[] = [
 
 const Matches: React.FunctionComponent = () => {
   const navigate = useNavigate()
+  const [chats, setChats] = useState<Chat[]>([])
+
+  const getAllChats = async (): Promise<void> => {
+    const cts = (await chatService.getAllChats()).map(c => mapChatToModel(c))
+    setChats(cts)
+  }
+  useEffect(() => { getAllChats() }, [])
   return <>
     <h2 className={utilityStyles.headerTemp}>Your matches</h2>
-    <div className={styles.matchesContainer} onClick={() => navigate('/chat')}>
-      { matches.map((m, index) => <MatchCard key={index} match={m}></MatchCard>) }
+    <div className={styles.matchesContainer}>
+      {/* { matches.map((m, index) => <MatchCard key={index} match={m}></MatchCard>) } */}
+      { chats.map((c, index) => <Typography key={index} onClick={() => navigate(`/chat?id=${c.roomId}`)}>
+        {c.roomId}
+      </Typography>) }
     </div>
   </>
 }

@@ -4,29 +4,6 @@ import { type HttpResponse } from '../dto/common-interfaces'
 import { type UserForm, type UserDto, type UserCredentials } from '../dto/user'
 
 class UserApiService {
-  /**
-   * User's registration
-   * @param user form with users data
-   */
-  public async createUser (user: UserForm): Promise<UserDto> {
-    const payload = {
-      ...user,
-      role: 'USER_ROLE'
-    }
-
-    return await http.post<HttpResponse<UserDto>>('/user', payload)
-      .then(response => {
-        if (response.data.status.severityCode === 'ERROR') {
-          throw new Error(response.data.status.statusCodeDescription)
-        }
-        return response.data.response
-      })
-      .catch(errorResponse => {
-        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
-      })
-  }
-
   public async createUserV2 (credentials: UserCredentials): Promise<UserDto> {
     return await http.post<HttpResponse<UserDto>>('/user', credentials)
       .then(response => {
@@ -79,8 +56,8 @@ class UserApiService {
    * @param token 
    * @returns 
    */
-  public async activateUser(token: string): Promise<string> {
-    return await http.get<HttpResponse<string>>(`/login/${token}`)
+  public async activateUser (token: string, email: string): Promise<string> {
+    return await http.get<HttpResponse<string>>(`/login/${token}?email=${email}`)
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
           throw new Error(response.data.status.statusCodeDescription)

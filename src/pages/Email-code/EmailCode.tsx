@@ -21,7 +21,7 @@ export const EmailCode = (): JSX.Element => {
       throw new Error('Code length is 0!!')
     }
     setLoading(true)
-    userApiService.activateUser(code)
+    userApiService.activateUser(code, registrationStore.email)
       .then(async () => {
         const token = await userApiService.login(registrationStore.email, registrationStore.password)
         sessionService.authToken = token
@@ -47,13 +47,13 @@ export const EmailCode = (): JSX.Element => {
     <OtpInput
       value={otp}
       onChange={setOtp}
-      numInputs={6}
+      numInputs={4}
       separator={<span className={styles.separator}>-</span>}
       inputStyle={styles.test}
       containerStyle={styles.otp_container}
     />
     <Button fullWidth
-      disabled={otp.length !== 6}
+      disabled={otp.length !== 4}
       variant='contained'
       onClick={(e) => { void verify(otp) }}
     >

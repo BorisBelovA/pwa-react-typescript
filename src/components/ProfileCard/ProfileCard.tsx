@@ -1,5 +1,5 @@
 import { Box, IconButton, Paper, Typography } from '@mui/material'
-import { type QuestionnaireBasicType, type User } from 'models'
+import { AuthUser, type QuestionnaireBasicType, type User } from 'models'
 import { useEffect, useState } from 'react'
 import { calculateAge } from 'src/utils/date-time'
 import styles from './ProfileCard.module.scss'
@@ -9,7 +9,7 @@ import Qualities from './Qualities/Qualities'
 
 interface Props {
   info: QuestionnaireBasicType
-  person: User
+  person: AuthUser
 }
 const ProfileCard = (props: Props): JSX.Element => {
   const [scroll, setScroll] = useState<boolean>(false)

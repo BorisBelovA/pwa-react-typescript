@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material"
+import { Box, Button, Typography, useTheme } from "@mui/material"
 import styles from './PathSelection.module.scss'
 import { useNavigate } from "react-router-dom"
 import { ProfileRoutes } from "models"

@@ -5,37 +5,67 @@
     {
       "src": "./icons/Logo_16.png",
       "sizes": "16x16",
-      "type": "image/x-icon"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "./icons/Logo_24.png",
       "sizes": "24x24",
-      "type": "image/x-icon"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "./icons/Logo_32.png",
       "sizes": "32x32",
-      "type": "image/x-icon"
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/Logo_48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "./icons/Logo_64.ico",
       "sizes": "64x64",
-      "type": "image/x-icon"
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/Logo_72.png",
+      "type": "image/png",
+      "sizes": "72x72",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/Logo_96.png",
+      "type": "image/png",
+      "sizes": "96x96",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/Logo_128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "maskable"
     },
     {
       "src": "./icons/Logo_192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "maskable"
     },
     {
       "src": "./icons/Logo_512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
   "start_url": "https://borisbelova.github.io/pwa-react-typescript/",
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#000000",
+  "theme_color": "#ffffff",
   "background_color": "#ffffff"
 }

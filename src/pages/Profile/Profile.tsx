@@ -106,7 +106,6 @@ const Profile: React.FunctionComponent = observer(() => {
         <SettingsNavigationButton to={`/profile/${ProfileRoutes.ROOMMATE_PREFERENCES}`}>Roommate preferences</SettingsNavigationButton>
         <SettingsNavigationButton to={`/profile/${ProfileRoutes.MY_APARTMENT}`}>My apartments</SettingsNavigationButton>
         <SettingsNavigationButton to={`/profile/${ProfileRoutes.SETTINGS}`}>Settings</SettingsNavigationButton>
-        <SettingsNavigationButton to={`/profile/${ProfileRoutes.BASIC_QUEST}`}>Test Questionnaire</SettingsNavigationButton>
       </Box>
     </Box>
 
