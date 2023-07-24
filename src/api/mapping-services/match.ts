@@ -5,14 +5,14 @@ import { mapUserToDto, mapUserToModel } from './user'
 
 export const mapMatchToModel = (match: dto.Match): models.MatchNew => {
   return {
-    ...mapQuestionnaireToModel(match),
+    form: mapQuestionnaireToModel(match.form),
     user: mapUserToModel(match.user)
   }
 }
 
 export const mapMatchToDto = (match: models.MatchNew): dto.Match => {
   return {
-    ...mapQuestionnaireToDto(match),
+    form: mapQuestionnaireToDto(match.form),
     user: mapUserToDto(match.user)
   }
 }

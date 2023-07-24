@@ -8,7 +8,7 @@ import { type ChangeEvent, useState, useEffect } from 'react'
 import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
 import { ProfileRoutes } from 'models'
 import { filesApiService } from 'src/api/api-services/files'
-import { mapBase64ToFile, mapUserToDto } from 'mapping-services'
+import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
 import { sessionService, userApiService } from 'api-services'
 import { imageTypes } from 'src/utils/constants'
 const Profile: React.FunctionComponent = observer(() => {
@@ -48,7 +48,6 @@ const Profile: React.FunctionComponent = observer(() => {
     if (!sessionService.authToken) {
       throw new Error('Can\'t save without session token')
     }
-    userStore.setAvatar(avatar)
     const file = await mapBase64ToFile(avatar, 'avatar')
     const avatarName = await filesApiService.uploadFile(file, 'avatar')
     await userApiService.updateUser(mapUserToDto({
@@ -57,6 +56,7 @@ const Profile: React.FunctionComponent = observer(() => {
     }),
     sessionService.authToken
     )
+    userStore.setAvatar(mapPhotoNameToURI(avatarName))
   }
 
   const theme = useTheme()

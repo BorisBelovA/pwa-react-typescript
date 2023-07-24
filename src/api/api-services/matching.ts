@@ -6,7 +6,7 @@ import type * as dto from 'dto'
 class Matching {
   private readonly sessionService!: SessionService
 
-  constructor(sessionService: SessionService) {
+  constructor (sessionService: SessionService) {
     this.sessionService = sessionService
   }
 
@@ -28,8 +28,8 @@ class Matching {
       })
   }
 
-  public async likeUser (formId: number): Promise<null> {
-    return await http.post<HttpResponse<null>>('/api/v1/match', { formId }, {
+  public async likeUser (formIdTo: number): Promise<null> {
+    return await http.post<HttpResponse<null>>('/match', { formIdTo }, {
       headers: {
         Authorization: this.sessionService.authToken
       }

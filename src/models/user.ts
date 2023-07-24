@@ -9,6 +9,9 @@ export type Gender = 'M' | 'F' | 'Other'
 //kiroca7086@nasskar.com
 //qwerty123
 
+//bekobi7445@rc3s.com
+// qwerty123
+
 export interface PersonalInfo {
   firstName: string
   lastName: string

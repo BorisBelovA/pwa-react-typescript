@@ -317,7 +317,7 @@ export const mapQuestionnaireToDto = (questionnaire: models.QuestionnaireBasicTy
     isHavePets: questionnaire.havePets ?? false,
     petTypes: questionnaire.pets ? questionnaire.pets.map(p => mapPetTypeToDto(p.type)) : [],
     isSmoke: questionnaire.smoker ?? false,
-    smokeTypes: questionnaire.smokingWhat.map(s => mapSmokeTypeToDto(s)),
+    smokeTypes: questionnaire.smokingWhat.map(s => mapSmokeTypeToDto(s)) ?? [],
     languageTypes: questionnaire.languages.map(l => l.toUpperCase()),
     aboutMe: questionnaire.about,
     contactTypes: [dto.ContactEnum.TELEGRAM],
@@ -352,7 +352,7 @@ export const mapQuestionnaireToModel = (questionnaire: dto.Questionnaire): model
     havePets: questionnaire.isHavePets,
     pets: mapPetToModel(questionnaire.petTypes),
     smoker: questionnaire.isSmoke,
-    smokingWhat: questionnaire.smokeTypes.map(s => mapSmokeTypeToModel(s)),
+    smokingWhat: questionnaire.smokeTypes?.map(s => mapSmokeTypeToModel(s)) ?? [],
     languages: questionnaire.languageTypes.map(l => `${l[0].toUpperCase()}${l.slice(1).toLowerCase()}`),
     about: questionnaire.aboutMe,
     sleepingHabits: questionnaire.sleepingHabits

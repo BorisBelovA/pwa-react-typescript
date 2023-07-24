@@ -2,11 +2,10 @@ import { useNavigate } from 'react-router-dom'
 import utilityStyles from '../../styles/utility.module.scss'
 import styles from './Matches.module.scss'
 import { Chat, type Match } from 'models'
-import { MatchCard } from 'src/components/MatchCard/MatchCard'
 import { useEffect, useState } from 'react'
 import { chatService } from 'api-services'
 import { mapChatToModel } from 'src/api/mapping-services/chat'
-import { Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 
 const matches: Match[] = [
   {
@@ -54,14 +53,30 @@ const Matches: React.FunctionComponent = () => {
     const cts = (await chatService.getAllChats()).map(c => mapChatToModel(c))
     setChats(cts)
   }
+
+  const goToChat = (roomId: number): void => {
+    navigate(`/chat?id=${roomId}`)
+  }
+
+  const searchSomeone = (): void => {
+    navigate('/search')
+  }
+
   useEffect(() => { getAllChats() }, [])
   return <>
     <h2 className={utilityStyles.headerTemp}>Your matches</h2>
-    <div className={styles.matchesContainer}>
-      {/* { matches.map((m, index) => <MatchCard key={index} match={m}></MatchCard>) } */}
-      { chats.map((c, index) => <Typography key={index} onClick={() => navigate(`/chat?id=${c.roomId}`)}>
-        {c.roomId}
-      </Typography>) }
+    <div className={styles.matches_container}>
+      { chats.map((c, index) =>
+        <Typography key={index} onClick={() => { goToChat(c.roomId) }}>
+          {c.roomId}
+        </Typography>)
+      }
+      { chats.length === 0 &&
+        <Box className={styles.no_match}>
+          <Typography>You have no matches yet! Try to search someone</Typography>
+          <Button variant="outlined" onClick={searchSomeone}>Go to search</Button>
+        </Box>
+      }
     </div>
   </>
 }
