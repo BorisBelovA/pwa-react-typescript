@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import styles from '../../Profile.module.scss'
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import { useStore } from 'src/utils/StoreProvider'
-import { ProfileRoutes } from 'models'
 
 const AccountSettings = (): JSX.Element => {
   const navigate = useNavigate()
-  const { userStore } = useStore()
+  const { userStore, questionnaireStore, apartmentStore } = useStore()
   return (
     <Box className={styles.profile__container}>
       <Box className={styles.profile__header}>
@@ -22,6 +21,8 @@ const AccountSettings = (): JSX.Element => {
           fullWidth
           onClick={() => {
             userStore.deleteFromStorage()
+            questionnaireStore.deleteQuestionnaire()
+            apartmentStore.deleteApartments()
             navigate('/profile')
           }}
         >Logout</Button>

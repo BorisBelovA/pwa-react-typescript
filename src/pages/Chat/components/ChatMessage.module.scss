@@ -13,6 +13,7 @@
     position: absolute;
     font-size: 10px;
     top: 100%;
+    right: 0;
   }
 
   &_status {
@@ -31,6 +32,10 @@
 
   & .chat_message_status {
     right: calc(100% + 4px);
+  }
+
+  & .chat_message_time {
+    left: 0;
   }
 }
 

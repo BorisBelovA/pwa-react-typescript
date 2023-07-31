@@ -1,6 +1,9 @@
 export interface Message {
-  text: string
-  date: Date
-  mine: boolean
-  read: boolean
+  // chatRoomId: number
+  content: string
+  // id: number
+  // recipientId: number
+  senderId: number
+  status: "DELIVERED" | 'SENT'
+  timestamp: Date
 }

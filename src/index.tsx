@@ -16,7 +16,7 @@ const App = (): JSX.Element => {
   const store = new RootStore()
 
   return <React.StrictMode>
-    <BrowserRouter basename="/pwa-react-typescript/">
+    <BrowserRouter basename="/">
       <StoreProvider store={store}>
         <CustomThemeProvider>
           <CssBaseline />
@@ -36,8 +36,13 @@ root.render(
 )
 
 const config = {
-  onUpdate: () => {
-    alert('New update found. Restart your application.')
+  onUpdate: (registration: ServiceWorkerRegistration) => {
+    const w = registration.waiting
+    const a = confirm('New update found. Restart your application?')
+    if (a) {
+      w?.postMessage({ type: 'SKIP_WAITING' })
+      window.location.reload()
+    }
   }
 }
 

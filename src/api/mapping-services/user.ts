@@ -1,6 +1,7 @@
 import type * as models from 'models'
 import type * as dto from 'dto'
 import moment from 'moment'
+import { mapPhotoNameToURI } from './file-mapping'
 
 export const mapGenderToModel = (dto: dto.UserGender): models.Gender => {
   return dto === 'MALE'
@@ -37,19 +38,13 @@ export const mapUserToModel = (dto: dto.UserDto): models.AuthUser => {
     firstName: dto.firstName ?? '',
     lastName: dto.lastName ?? '',
     gender: dto.gender ? mapGenderToModel(dto.gender) : 'M',
-    birthday: new Date(),
+    birthday: moment(dto.birthday, 'YYYY-MM-DD').utc(true).toDate(),
     phone: dto.phone ?? null,
-    photo: dto.photo ?? null,
-    avatar: dto.avatar ?? null
+    photo: dto.photo ? mapPhotoNameToURI(dto.photo) : null,
+    avatar: dto.avatar ? mapPhotoNameToURI(dto.avatar) : null
   }
 }
 
-export async function dataUrlToFile(dataUrl: string, fileName: string): Promise<File> {
-
-  const res: Response = await fetch(dataUrl);
-  const blob: Blob = await res.blob();
-  return new File([blob], fileName, { type: 'image/png' });
-}
 export const mapBase64ToFile = async (base64: string, name: string): Promise<File> => {
   const res: Response = await fetch(base64)
   const blob: Blob = await res.blob()

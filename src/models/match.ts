@@ -1,3 +1,6 @@
+import { type QuestionnaireBasicType } from './questionnaireBasic'
+import { type AuthUser } from './user'
+
 export interface Match {
   name: string
   age: number
@@ -12,4 +15,9 @@ export interface Match {
     facebook?: string
     instagram?: string
   }
+}
+
+export type MatchNew = {
+  user: AuthUser
+  form: QuestionnaireBasicType
 }

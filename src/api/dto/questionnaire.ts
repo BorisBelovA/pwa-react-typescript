@@ -96,14 +96,3 @@ export interface Questionnaire {
   occupation: OccupationEnum | null
   apartment: Apartment | null
 }
-
-export type CreateQuestionnaireForm = Questionnaire & {
-  apartment: Apartment
-}
-
-export type CreateQuestFormResponse = Questionnaire & {
-  id: number
-  owner: {
-
-  }
-}

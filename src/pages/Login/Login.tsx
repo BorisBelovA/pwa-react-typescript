@@ -10,9 +10,8 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { userApiService, sessionService } from 'api-services'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { emailPatternValidator } from 'src/utils/validations'
-import { mapAuthenticatedUserData, mapBase64ToFile, mapPhotoNameToURI } from 'mapping-services'
+import { mapAuthenticatedUserData } from 'mapping-services'
 import { useStore } from 'src/utils/StoreProvider'
-import { filesApiService } from 'src/api/api-services/files'
 interface SignUpForm {
   email: string
   password: string
@@ -57,12 +56,6 @@ export const Login = (): JSX.Element => {
       sessionService.authToken = token
       const userInfo = await userApiService.getAuthenticatedUser(token)
       const [user, quest] = mapAuthenticatedUserData(userInfo)
-      if (user.avatar) {
-        user.avatar = mapPhotoNameToURI(user.avatar)
-      }
-      if (user.photo) {
-        user.photo = mapPhotoNameToURI(user.photo)
-      }
       userStore.setUser(user)
       setTimeout(() => {
         setBackdropVisible(false)
@@ -94,6 +87,7 @@ export const Login = (): JSX.Element => {
         error={!(errors.email == null)}
         variant="outlined"
         size="small"
+        autoComplete='off'
         {...register('email', { pattern: emailPatternValidator, required: 'Email is required' })}
         helperText={errors.email?.message ?? ''} />
 
@@ -101,6 +95,7 @@ export const Login = (): JSX.Element => {
         type={showPassword ? 'text' : 'password'}
         error={!(errors.password == null)}
         variant="outlined"
+        autoComplete='off'
         size="small"
         {...register('password', { required: 'Password is required', minLength: minLength(8) })}
         helperText={errors.password?.message ?? ''}

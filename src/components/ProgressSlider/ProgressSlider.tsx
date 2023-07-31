@@ -17,7 +17,7 @@ interface ContextType {
 }
 
 const ProgressSlider: React.FunctionComponent<Props> = (props: Props) => {
-  const {items, useLinks = true, setActive} = props
+  const { items, useLinks = true, setActive } = props
   return (
     <Box>
       <Box sx={{

@@ -29,12 +29,16 @@ export class QuestionnaireStore {
 
   public getQuestionnaire = async (): Promise<void> => {
     try {
-    const questionnaire = await questionnaireService.getAuthorizedUserQuestionnaire()
+      const questionnaire = await questionnaireService.getAuthorizedUserQuestionnaire()
       if (questionnaire !== null) {
         this.setQuestionnaire(mapQuestionnaireToModel(questionnaire))
       }
     } catch (error) {
       console.error(error)
     }
+  }
+
+  public deleteQuestionnaire = (): void => {
+    this.questionnaire = null
   }
 }

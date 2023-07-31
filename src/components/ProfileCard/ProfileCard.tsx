@@ -1,17 +1,21 @@
-import { Box, IconButton, Paper, Typography } from '@mui/material'
-import { type QuestionnaireBasicType, type User } from 'models'
+import { Box, Typography, useTheme } from '@mui/material'
+import { type AuthUser, type QuestionnaireBasicType } from 'models'
 import { useEffect, useState } from 'react'
 import { calculateAge } from 'src/utils/date-time'
 import styles from './ProfileCard.module.scss'
-import KeyboardDoubleArrowDownRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowDownRounded'
 import Badge from './Badge/Badge'
 import Qualities from './Qualities/Qualities'
+import NoPhotographyIcon from '@mui/icons-material/NoPhotography'
+import SwipeUpIcon from '@mui/icons-material/SwipeUp'
 
 interface Props {
   info: QuestionnaireBasicType
-  person: User
+  person: AuthUser
 }
 const ProfileCard = (props: Props): JSX.Element => {
+  const theme = useTheme()
+  const [expanded, setExpanded] = useState(false)
+
   const [scroll, setScroll] = useState<boolean>(false)
   const [start, setStart] = useState<number>(0)
   const { info, person } = props
@@ -49,41 +53,48 @@ const ProfileCard = (props: Props): JSX.Element => {
     }
   })
 
-  return (
-    <>
-      <Paper className={styles.profileCard}>
-        <Box
-          component='img'
-          className={styles.profileCard__photo}
-          src={person.photo ?? ''}
-        />
-        <Box className={`${styles.profileCard__person}  ${scroll ? styles.profileCard__person_scroll : ''}`}>
-          <Box className={styles.profileCard__personTexts}>
-            <Typography variant='h1' color='constantLight.main'>{person.firstName}, {calculateAge(person.birthday)}</Typography>
-            <Typography color='constantLight.main'>{!!info.who ? whoOptions[info.who] : 'By self'}</Typography>
-          </Box>
-          <IconButton onClick={handleScroll}>
-            <KeyboardDoubleArrowDownRoundedIcon
-              sx={{ color: 'constantLight.main' }}
-              fontSize='large'
-              className={`${styles.profileCard__personButton} ${scroll ? '' : styles.profileCard__personButtonIcon}`}
-            />
-          </IconButton>
-          <Box className={styles.profileCard__personBadges}>
-            {info.havePets === true && <Badge type='pet' />}
-            {!!info.apartment && <Badge type='house' />}
-            {info.smoker === false && <Badge type='smokeFree' />}
-          </Box>
+  return <Box className={styles.container}>
+    <Box className={styles.background_image}
+      sx={{ backgroundColor: theme.palette.background.paper }}
+    >
+      {person.photo && <Box
+        component='img'
+        className={styles.image}
+        src={person.photo ?? ''}
+      />}
+
+      {!person.photo &&
+        <Box className={styles.no_image}>
+          <NoPhotographyIcon fontSize='large'></NoPhotographyIcon>
+          <Typography variant='h6'>No photo</Typography>
         </Box>
-      </Paper>
-      <Box className={`${styles.profileCard__contentBox} ${scroll ? styles.profileCard__contentBox_scroll : ''}`}>
-        <Box className={styles.profileCard__content}>
-          <Qualities info={info} />
-          <Typography variant='body2'>{info?.about}</Typography>
+      }
+    </Box>
+    <Box className={`${styles.info} ${expanded ? styles.expanded : ''}`}>
+      <Box className={styles.badges_container}>
+        {info.havePets === true && <Badge type='pet' />}
+        {!!info.apartment && <Badge type='house' />}
+        {info.smoker === false && <Badge type='smokeFree' />}
+      </Box>
+
+      <Box className={styles.users_general_container}>
+        <Box className={styles.users_general}>
+          <Typography variant='h1' color='constantLight.main'>
+            {person.firstName}, {person.birthday ? calculateAge(person.birthday) : 0}
+          </Typography>
+          <Typography color='constantLight.main'>{!!info.who ? whoOptions[info.who] : 'By self'}</Typography>
+        </Box>
+        <Box onClick={() => { setExpanded(!expanded) }}>
+          <SwipeUpIcon fontSize='large'></SwipeUpIcon>
         </Box>
       </Box>
-      <Box className={styles.profileCard__hide} />
-    </>
-  )
+
+    </Box>
+    <Box className={`${styles.description} ${expanded ? styles.expanded : ''}`}
+      sx={{ backgroundColor: theme.palette.background.paper }}>
+      <Qualities info={info} />
+      <Typography variant='body2'>{info?.about}</Typography>
+    </Box>
+  </Box>
 }
 export default ProfileCard

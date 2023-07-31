@@ -3,7 +3,7 @@ import http from '../common-configuration'
 import { type QuestionnaireBasicType } from 'models'
 import { mapQuestionnaireToDto } from '../mapping-services/questionnaire'
 import { type HttpResponse } from '../dto/common-interfaces'
-import { type CreateQuestFormResponse, Questionnaire as dtoQuestionnaire } from '../dto/questionnaire'
+import { type Questionnaire as dtoQuestionnaire } from '../dto/questionnaire'
 
 class Questionnaire {
   private readonly sessnioService!: SessionService
