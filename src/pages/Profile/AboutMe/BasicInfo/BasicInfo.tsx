@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography } from "@mui/material"
+import { Box, Button, ButtonBase, IconButton, Typography } from "@mui/material"
 import { EmptyPersonalInfo, NewUser } from "models"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
@@ -149,6 +149,9 @@ const BasicInfo = (props: Props) => {
           <Photo user={user} photoChange={({ profilePhoto, avatarPhoto }) => {
             setUser({ ...user, photo: profilePhoto, avatar: avatarPhoto })
           }} />
+        </Box>
+        <Box className={styles.content__part}>
+          <Button onClick={onFinish} variant='contained'>Save</Button>
         </Box>
       </Box>
     </Box>
