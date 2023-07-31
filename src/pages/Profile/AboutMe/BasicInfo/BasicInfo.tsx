@@ -93,7 +93,6 @@ const BasicInfo = (props: Props) => {
       }),
         sessionService.authToken
       )
-      console.log(firstName)
       setStatus('ok')
       setTimeout(() => {
         userStore.setUser({
@@ -123,7 +122,7 @@ const BasicInfo = (props: Props) => {
           {status === 'ready' ?
             <SaveIcon /> :
             status === 'saving' ?
-              <RotateRightIcon /> :
+              <RotateRightIcon className={styles.rotation} /> :
               status === 'error' ?
                 <WarningAmberIcon /> :
                 status === 'ok' && <CheckIcon />
