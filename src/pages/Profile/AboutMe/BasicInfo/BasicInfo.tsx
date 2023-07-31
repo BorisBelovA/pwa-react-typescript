@@ -14,12 +14,17 @@ import { filesApiService } from "src/api/api-services/files"
 import CheckIcon from '@mui/icons-material/Check';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import RotateRightIcon from '@mui/icons-material/RotateRight';
+import { useMainContext } from "src/layouts/Main/MainLayout"
 
 interface Props { }
 const BasicInfo = (props: Props) => {
   const { userStore } = useStore()
   const [user, setUser] = useState({ ...userStore } as NewUser)
-  const [status, setStatus] = useState<'ready' | 'saving' | 'error' | 'ok'>('ready')
+  const {
+    setBackdropVisible,
+    setBackdropMessage,
+    setMessage
+  } = useMainContext()
 
   const { register, control, watch, formState: { errors, isValid } } = useForm<EmptyPersonalInfo>({
     defaultValues: {
@@ -53,7 +58,8 @@ const BasicInfo = (props: Props) => {
   }, [watch_phone])
 
   const onFinish = async (): Promise<void> => {
-    setStatus('saving')
+    setBackdropVisible(true)
+    setBackdropMessage('Updating your information')
     const {
       firstName,
       lastName,
@@ -93,7 +99,7 @@ const BasicInfo = (props: Props) => {
       }),
         sessionService.authToken
       )
-      setStatus('ok')
+      setBackdropMessage('Finishing up!')
       setTimeout(() => {
         userStore.setUser({
           id: response.id,
@@ -105,12 +111,16 @@ const BasicInfo = (props: Props) => {
           photo: photo ?? null,
           avatar: avatar ?? null
         })
-        setStatus('ready')
+        setBackdropVisible(false)
       }, 2000)
     } catch (error: any) {
       console.error(error)
-      setStatus('error')
-      setTimeout(() => { setStatus('ready') }, 2000)
+      setBackdropVisible(false)
+      setMessage({
+        visible: true,
+        text: error.message,
+        severity: 'error'
+      })      
     }
   }
 
@@ -118,15 +128,8 @@ const BasicInfo = (props: Props) => {
     <Box className={styles.container}>
       <Box className={styles.header}>
         <Typography variant="h1">Basic information</Typography>
-        <IconButton disabled={!(isValid && isValid_phone && (status !== 'saving'))} color="primary" onClick={onFinish}>
-          {status === 'ready' ?
-            <SaveIcon /> :
-            status === 'saving' ?
-              <RotateRightIcon className={styles.rotation} /> :
-              status === 'error' ?
-                <WarningAmberIcon /> :
-                status === 'ok' && <CheckIcon />
-          }
+        <IconButton disabled={!(isValid && isValid_phone)} color="primary" onClick={onFinish}>
+            <SaveIcon />
         </IconButton>
       </Box>
       <Box className={styles.content}>
