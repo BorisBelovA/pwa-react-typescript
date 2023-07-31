@@ -126,5 +126,18 @@ class UserApiService {
       })
   }
 
+  public async resetEmailToken (email: string): Promise<string> {
+    return await http.post<HttpResponse<string>>('/login/reset', { email })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+      })
+  }
 }
 export const userApiService = new UserApiService()
