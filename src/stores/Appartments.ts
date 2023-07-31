@@ -48,4 +48,8 @@ export class ApartmentsStore {
       console.error(error)
     }
   }
+
+  public deleteApartments = (): void => {
+    this.apartments = [];
+  }
 }

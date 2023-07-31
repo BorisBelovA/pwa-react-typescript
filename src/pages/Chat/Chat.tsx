@@ -1,155 +1,133 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import styles from './Chat.module.scss'
 import { useEffect, useRef, useState } from 'react'
-import { type Message } from 'models'
-import { ChatMessage } from './components/ChatMessage'
+import { type AuthUser, type Message } from 'models'
+import { ChatMessage, ChatMessageSkeleton } from './components/ChatMessage'
 import { ChatHeader } from './components/ChatHeader'
 import { ChatFooter } from './components/ChatFooter'
 import { useSearchParams } from 'react-router-dom'
-import { chatService, sessionService } from 'api-services'
-
-import SockJS from 'sockjs-client'
-import { Client, CompatClient, IFrame, Stomp } from '@stomp/stompjs'
+import { chatService, sessionService, userApiService } from 'api-services'
+import { Client, type IFrame, type IMessage } from '@stomp/stompjs'
 import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
+import { mapAuthenticatedUserData, mapMessageToModel } from 'mapping-services'
+import { type NewMessage, type Message as dtoMessage } from 'dto'
 
-const INITIAL_MESSAGES: Message[] = [
-  {
-    text: 'Hey buddy!',
-    mine: true,
-    date: new Date(),
-    read: true
+const stompClient: Client = new Client({
+  brokerURL: 'wss://app.roommate.host/wss',
+  // connectHeaders: {
+  //   Authorization: sessionService.authToken
+  // },
+  debug: (str: any) => {
+    console.log(str)
   },
-  {
-    text: 'Hello hello! How\'s it going?',
-    mine: false,
-    date: new Date(),
-    read: true
-  },
-  {
-    text: 'So far so good. Haven\'t seen you a long time. Do you want to hang out?',
-    mine: true,
-    date: new Date(),
-    read: true
-  },
-  {
-    text: 'Sure! Where and when?',
-    mine: false,
-    date: new Date(),
-    read: true
-  },
-  {
-    text: 'Tomorrow at 8 PM. I\'ll send you the location a bit later!',
-    mine: true,
-    date: new Date(),
-    read: false
+  onStompError: (frame: IFrame): void => {
+    console.log('Broker reported error: ' + frame.headers['message'])
+    console.log('Additional details: ' + frame.body)
   }
-]
+})
 
-var stompClient: Client | null = null
+var storedMessages: Message[] = []
 
 export const Chat = observer((): JSX.Element => {
   const [searchParams] = useSearchParams()
   const { userStore } = useStore()
   const lastMessageRef = useRef<HTMLDivElement | null>(null)
-  const [messages, setMessages] = useState(INITIAL_MESSAGES)
+  const [messages, setMessages] = useState<Message[]>([])
+  const [user, setUser] = useState<AuthUser | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+
   const sendMessage = (text: string): void => {
-    setMessages(
-      messages.concat({
-        text,
-        mine: true,
-        date: new Date(),
-        read: false
-      })
-    )
+    const chatId = searchParams.get('id')
+    const m: NewMessage = {
+      chatRoomId: +chatId!,
+      senderId: userStore.id,
+      recipientId: user!.id,
+      content: text,
+      timestamp: new Date().toISOString(),
+      status: 'SENT'
+    }
+
+    stompClient?.publish({
+      destination: '/app/chat',
+      body: JSON.stringify(m)
+    })
+    storedMessages.push(mapMessageToModel(m))
+    setMessages([...storedMessages])
   }
 
   const getMessages = async (chatId: number): Promise<void> => {
     const messages = await chatService.getMessagesInChat(chatId)
-    setMessages(messages)
+    storedMessages = messages.reverse().map(m => mapMessageToModel(m))
+    setMessages([...storedMessages])
+    scrollToBottom('auto')
+    setIsLoading(false)
   }
 
-  const onConnected = (): void => {
-    console.log('connected')
-    console.log(userStore.user.id)
-    if (stompClient) {
-      stompClient.subscribe(
-        `/user/${userStore.user.id}/queue/messages`,
-        // onMessageReceived
-        (message) => {
-          console.log('message recieved', message)
-        }
-      )
+  const getUserInfo = async (email: string): Promise<void> => {
+    if (sessionService.authToken) {
+      const userDto = await userApiService.getUserByEmail(sessionService.authToken, email)
+      const [user] = mapAuthenticatedUserData(userDto)
+      setUser(user)
     }
   }
 
-  const onError = (err: Error): void => {
-    console.log(err)
+  const onMessageReceive = (message: IMessage): void => {
+    const body: dtoMessage = JSON.parse(message.body)
+    storedMessages.push(mapMessageToModel(body))
+    setMessages([...storedMessages])
   }
-
-  const connect = (): void => {
-    // const sockJS = new SockJS("http://194.58.109.74:8080/ws")
-    // stompClient = Stomp.over(sockJS)
-    
-    if (!sessionService.authToken) {
-      return
-    }
-    stompClient = new Client({
-      // brokerURL: 'wss://ws.cex.io/ws',
-      brokerURL: 'ws://194.58.109.74/ws',
-      connectHeaders: {
-        Authorization: sessionService.authToken
-      },
-    //   webSocketFactory: function() {
-    //     return new SockJS("http://194.58.109.74:8080/ws")
-    // } ,
-      debug: (str: any) => {
-        console.log(str)
-      }
-    })
-    // stompClient.connectHeaders = {
-    //   Authorization: sessionService.authToken
-    // },
-    stompClient.onConnect = (frame: IFrame): void => {
-      console.log(frame)
-    }
-
-    stompClient.onStompError = (frame: IFrame): void => {
-      // Will be invoked in case of error encountered at Broker
-      // Bad login/passcode typically will cause an error
-      // Complaint brokers will set `message` header with a brief message. Body may contain details.
-      // Compliant brokers will terminate the connection after any error
-      console.log('Broker reported error: ' + frame.headers['message'])
-      console.log('Additional details: ' + frame.body)
-    }
-    stompClient.activate()
-    // stompClient.connect({
-    //   Authorization: sessionService.authToken
-    // }, onConnected, onError);
-  };
 
   useEffect(() => {
     const chatId = searchParams.get('id')
+    const email = searchParams.get('email')
     if (chatId) {
-      getMessages(+chatId)
+      void getMessages(+chatId)
+    }
+    if (email) {
+      void getUserInfo(email)
     }
   }, [])
 
   useEffect(() => {
-    connect()
-    return () => {
-      stompClient?.deactivate()
+    if (sessionService.authToken && userStore.id && stompClient) {
+      stompClient.activate()
+      stompClient.onConnect = function () {
+        stompClient.subscribe(
+          `/user/${userStore.id}/queue/messages`,
+          onMessageReceive
+        )
+      }
     }
-  }, [sessionService.authToken])
+    return () => {
+      void stompClient.deactivate()
+    }
+  }, [sessionService.authToken, userStore.id])
+
+  const scrollToBottom = (behavior: ScrollBehavior): void => {
+    lastMessageRef?.current?.scrollIntoView({ behavior })
+  }
 
   useEffect(() => {
-    lastMessageRef?.current?.scrollIntoView({ behavior: 'smooth' })
+    scrollToBottom('smooth')
   }, [messages.length])
 
   return <Box className={styles.chat_container}>
-    <ChatHeader></ChatHeader>
+    <ChatHeader user={user}></ChatHeader>
     <Box className={styles.chat_content}>
-      {messages.map((m, i) => <ChatMessage key={i} message={m}></ChatMessage>)}
+      {isLoading && <>
+        <ChatMessageSkeleton mine={true}></ChatMessageSkeleton>
+        <ChatMessageSkeleton mine={false}></ChatMessageSkeleton>
+        <ChatMessageSkeleton mine={true}></ChatMessageSkeleton>
+        <ChatMessageSkeleton mine={false}></ChatMessageSkeleton>
+      </>}
+      {!isLoading && messages.map((m, i) => <ChatMessage key={i} mine={m.senderId === userStore.id} message={m}></ChatMessage>)}
+      {!isLoading && messages.length === 0 &&
+        <Box className={styles.no_messages}>
+          <Typography>No messages yet.</Typography>
+          <Typography>Type something to start conversation with {user?.firstName ?? ''}</Typography>
+        </Box>
+      }
       <div ref={lastMessageRef}></div>
     </Box>
     <ChatFooter onMessageSend={sendMessage} ></ChatFooter>

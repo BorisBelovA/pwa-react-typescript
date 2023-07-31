@@ -11,7 +11,11 @@ class Matching {
   }
 
   public async getMatches(page: number): Promise<dto.Match[]> {
-    return await http.get<HttpResponse<dto.Match[]>>(`/form/match/page/${page}`, {
+    return await http.post<HttpResponse<dto.Match[]>>('/form/match', {
+      pagination: {
+        page
+      }
+    }, {
       headers: {
         Authorization: this.sessionService.authToken
       }

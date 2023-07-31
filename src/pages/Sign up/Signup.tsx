@@ -60,7 +60,8 @@ export const SignUp = (): JSX.Element => {
     setBackdropVisible(true)
     setBackdropMessage('Checking email')
     try {
-      const { email, password } = data
+      const email = data.email.toLowerCase()
+      const password = data.password
       const response = await userApiService.createUserV2({ email, password })
       userStore.setUser(mapUserToModel(response))
       registrationStore.setCredentials(email, password)
@@ -96,9 +97,9 @@ export const SignUp = (): JSX.Element => {
       <TextField fullWidth label="Password"
         type={showPassword ? 'text' : 'password'}
         error={!(errors.password == null)}
-        autoComplete='new-password'
         variant="outlined"
         size="small"
+        autoComplete='off'
         {...register('password', {
           required: 'Code is required',
           minLength: minLength(8)

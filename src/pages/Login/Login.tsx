@@ -87,6 +87,7 @@ export const Login = (): JSX.Element => {
         error={!(errors.email == null)}
         variant="outlined"
         size="small"
+        autoComplete='off'
         {...register('email', { pattern: emailPatternValidator, required: 'Email is required' })}
         helperText={errors.email?.message ?? ''} />
 
@@ -94,6 +95,7 @@ export const Login = (): JSX.Element => {
         type={showPassword ? 'text' : 'password'}
         error={!(errors.password == null)}
         variant="outlined"
+        autoComplete='off'
         size="small"
         {...register('password', { required: 'Password is required', minLength: minLength(8) })}
         helperText={errors.password?.message ?? ''}

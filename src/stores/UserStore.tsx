@@ -98,6 +98,14 @@ export class UserStore implements AuthUser {
   public deleteFromStorage = (): void => {
     localStorage.removeItem('user')
     sessionService.removeFromLocalStorage()
+    this.id = 0
+    this.firstName = ''
+    this.lastName = ''
+    this.gender = 'M'
+    this.birthday = new Date()
+    this.phone = null
+    this.photo = null
+    this.avatar = null
   }
 
   public get user (): AuthUser {
@@ -112,5 +120,4 @@ export class UserStore implements AuthUser {
       photo: this.photo
     }
   }
-  
 }

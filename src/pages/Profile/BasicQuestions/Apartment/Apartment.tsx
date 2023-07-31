@@ -94,6 +94,12 @@ const Apartment: React.FunctionComponent = observer(() => {
       100,
       'apartment'
     )
+    if (!displayApartment) {
+      setQuestions({
+        ...questions,
+        apartment: null
+      })
+    }
   }, [displayApartment])
 
   useEffect(() => {

@@ -1,28 +1,35 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Outlet, useOutletContext } from 'react-router-dom'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
-import useProgressSlider, { type ProgressSliderInsertItemFunc, type ProgressSliderRemoveItemFunc, type ProgressSliderSetActiveFunc, type ProgressSliderSetPercentFunc } from 'src/components/ProgressSlider/useProgressSlider'
+import
+useProgressSlider,
+{
+  type ProgressSliderInsertItemFunc,
+  type ProgressSliderRemoveItemFunc,
+  type ProgressSliderSetActiveFunc,
+  type ProgressSliderSetPercentFunc
+} from 'src/components/ProgressSlider/useProgressSlider'
 import { type QuestionnaireBasicType } from 'src/models/questionnaireBasic'
 import { type MainLayoutContext, useMainContext } from '../Main/MainLayout'
 import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { type ProgressSliderProps } from 'src/components'
 
-const QuestionnaireBasic: React.FunctionComponent = observer(() => {
-  const defaultItems: ProgressSliderProps[] = [
-    { text: 'who', progress: 0, to: 'who' },
-    { text: 'pets', progress: 0, to: 'pets' },
-    { text: 'smoking', progress: 0, to: 'smoking' },
-    { text: 'languages', progress: 0, to: 'languages' },
-    { text: 'sleep', progress: 0, to: 'sleep' },
-    { text: 'alcohol', progress: 0, to: 'alcohol' },
-    { text: 'guests', progress: 0, to: 'guests' },
-    { text: 'location', progress: 0, to: 'location' },
-    { text: 'apartment', progress: 0, to: 'apartment' },
-    { text: 'about', progress: 0, to: 'about' },
-    { text: 'summary', progress: 0, to: 'summary' }
-  ]
+const defaultItems: ProgressSliderProps[] = [
+  { text: 'who', progress: 0, to: 'who' },
+  { text: 'pets', progress: 0, to: 'pets' },
+  { text: 'smoking', progress: 0, to: 'smoking' },
+  { text: 'languages', progress: 0, to: 'languages' },
+  { text: 'sleep', progress: 0, to: 'sleep' },
+  { text: 'alcohol', progress: 0, to: 'alcohol' },
+  { text: 'guests', progress: 0, to: 'guests' },
+  { text: 'location', progress: 0, to: 'location' },
+  { text: 'apartment', progress: 0, to: 'apartment' },
+  { text: 'about', progress: 0, to: 'about' },
+  { text: 'summary', progress: 0, to: 'summary' }
+]
 
+const QuestionnaireBasic: React.FunctionComponent = observer(() => {
   useEffect(() => {
     if (questions.who) {
       defaultItems.find(i => i.to === 'who')!.progress = 100
@@ -78,12 +85,14 @@ const QuestionnaireBasic: React.FunctionComponent = observer(() => {
     }
 
     if (questions.who) {
-      defaultItems.forEach(i => i.state = 'Inactive')
+      defaultItems.forEach(i => {
+        i.state = 'Inactive'
+      })
     }
   }, [])
 
   const { items, insertItem, removeItem, setPercent, setActive, setPercentAndGo } = useProgressSlider({
-    items: defaultItems
+    items: [...defaultItems]
   })
 
   const { questionnaireStore } = useStore()

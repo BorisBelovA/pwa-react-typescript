@@ -34,7 +34,7 @@ export const PathSelection = (): JSX.Element => {
       onClick={() => {
         navigate(`/profile/${ProfileRoutes.MY_APARTMENT}`)
       }}>
-        Rent apartment/room
+        Rent out apartment/room
     </Button>
   </Box>
 }

@@ -17,12 +17,13 @@ const Search: React.FunctionComponent = observer(() => {
   const [index, setIndex] = useState<number>(0)
   const { setMessage } = useMainContext()
   const [matches, setMatches] = useState<MatchNew[]>([])
+  const [page, setPage] = useState<number>(0)
   const { questionnaireStore } = useStore()
   const getMatches = async (): Promise<void> => {
     try {
-      const response = await matchingService.getMatches(0)
+      const response = await matchingService.getMatches(page)
       const m = response.map(r => mapMatchToModel(r))
-      setMatches(m)
+      setMatches(matches.concat(m))
     } catch (e) {
       setMessage({
         text: (e instanceof Error && e.message) ? e.message : 'Something went wrong',
@@ -36,7 +37,6 @@ const Search: React.FunctionComponent = observer(() => {
   const checkMatches = async (): Promise<void> => {
     if (questionnaireStore.haveQuestionnaire) {
       await getMatches()
-      console.log(matches)
     } else {
       await questionnaireStore.getQuestionnaire()
       await getMatches()
@@ -48,12 +48,19 @@ const Search: React.FunctionComponent = observer(() => {
   }, [])
 
   const handleIndexChange = (newIndex: number, matches: MatchNew[]): void => {
-    setIndex(newIndex < matches.length - 1 ? index + 1 : 0)
+    if (newIndex < matches.length - 1) {
+      setIndex(index + 1)
+    } else {
+      setPage(page + 1)
+      getMatches()
+      setIndex(0)
+    }
   }
 
   const likeUser = async (match: MatchNew): Promise<void> => {
     try {
       await matchingService.likeUser(match.form.id)
+      setMatches(matches.filter(m => m.form.id !== match.form.id))
     } catch (e) {
       setMessage({
         text: e instanceof Error ? e.message : 'Something went wrong',

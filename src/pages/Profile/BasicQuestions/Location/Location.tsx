@@ -89,27 +89,47 @@ export const Location = (): JSX.Element => {
       // Each time we change country we load new list of districts
       if (name === 'country' && country?.id) {
         void getDistricts(country.id)
+        setQuestions({
+          ...questions,
+          location: {
+            country: country as unknown as Country,
+            city: null,
+            state: null
+          }
+        })
       }
       // Each time we change district we load list of cicites
       if (name === 'state' && state?.id) {
         void getCities(state.id)
+        setQuestions({
+          ...questions,
+          location: {
+            // ...questions.location,
+            country: country as unknown as Country,
+            state: state as unknown as District,
+            city: null
+          }
+        })
       }
 
-      setQuestions({
-        ...questions,
-        location: {
-          country: country as unknown as Country ?? questions.location.country,
-          city: city as unknown as City ?? questions.location.city,
-          state: state as unknown as District ?? questions.location.state,
-        }
-      })
+      // Each time we change district we load list of cicites
+      if (name === 'city' && city?.id) {
+        setQuestions({
+          ...questions,
+          location: {
+            country: country as unknown as Country,
+            state: state as unknown as District,
+            city: city as unknown as City
+          }
+        })
+      }
       setNextDisabled(!(country?.id && state?.id))
     })
     return () => { subss.unsubscribe() }
   }, [watch])
 
   useEffect(() => {
-    const {country, state} = questions.location
+    const { country, state } = questions.location
     setNextDisabled(!(country?.id && state?.id))
     setActive(ApartmentsQuestionnaireRoutes.LOCATION)
   }, [])
@@ -131,8 +151,6 @@ export const Location = (): JSX.Element => {
                 fullWidth
                 onChange={(_, value) => {
                   onChange(value ?? null)
-                  resetField('state')
-                  resetField('city')
                 }}
                 onBlur={onBlur}
                 ref={ref}
@@ -178,7 +196,6 @@ export const Location = (): JSX.Element => {
                 getOptionLabel={(option) => option.name}
                 onChange={(_, value) => {
                   onChange(value ?? null)
-                  resetField('city')
                 }}
                 value={
                   questions.location.state?.id

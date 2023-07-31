@@ -1,4 +1,4 @@
-import { Box, IconButton, Avatar, Typography, useTheme, Menu, MenuItem } from '@mui/material'
+import { Box, IconButton, Avatar, Typography, useTheme, Menu, MenuItem, Skeleton } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import styles from './ChatHeader.module.scss'
@@ -9,8 +9,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom'
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import NotificationsOffIcon from '@mui/icons-material/NotificationsOff';
+import { AuthUser } from 'models'
 
-export const ChatHeader = (): JSX.Element => {
+interface ChatHeaderProps {
+  user: AuthUser | null
+}
+
+export const ChatHeader = ({ user }: ChatHeaderProps): JSX.Element => {
   const theme = useTheme()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const [chatMenuVisible, setChatMenuVisible] = useState(false)
@@ -42,18 +47,23 @@ export const ChatHeader = (): JSX.Element => {
         }}>
         <ArrowBackIcon />
       </IconButton>
-
+      {!user && <Skeleton variant='circular' animation="wave" width={36} height={36} />}
+      {user &&
       <Avatar alt='Test avatar'
+        src={user.avatar ?? ''}
         sx={{
           width: 36,
           height: 36,
           border: `2px solid ${theme.palette.background.default}`
         }}>
-      </Avatar>
+      </Avatar>}
 
       <Box className={styles.user_name_container}>
-        <Typography id={styles.user_name} variant='body1'>Testov Test Testovich</Typography>
-        <Box className={styles.typing_indicator}
+        {!user && <Skeleton animation="wave" width={'50%'} />}
+        {user && <Typography id={styles.user_name} variant='body1'>{user.firstName} {user.lastName}</Typography>}
+
+        {/* Для лучших времен, когда научимся определять пишет ли собеседник */}
+        {/* <Box className={styles.typing_indicator}
           sx={{
             color: theme.palette.primary.main
           }}>
@@ -61,7 +71,7 @@ export const ChatHeader = (): JSX.Element => {
           <small className={styles.typing__dot}>.</small>
           <small className={styles.typing__dot}>.</small>
           <small className={styles.typing__dot}>.</small>
-        </Box>
+        </Box> */}
       </Box>
 
       <IconButton id={styles.more_button} aria-label="delete" size="small" onClick={handleClick}>

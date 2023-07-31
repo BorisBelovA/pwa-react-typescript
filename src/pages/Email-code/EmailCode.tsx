@@ -47,6 +47,7 @@ export const EmailCode = (): JSX.Element => {
     <OtpInput
       value={otp}
       onChange={setOtp}
+      isInputNum={true}
       numInputs={4}
       separator={<span className={styles.separator}>-</span>}
       inputStyle={styles.test}

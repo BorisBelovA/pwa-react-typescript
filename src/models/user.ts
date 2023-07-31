@@ -12,6 +12,9 @@ export type Gender = 'M' | 'F' | 'Other'
 //bekobi7445@rc3s.com
 // qwerty123
 
+//meyawo6943@quipas.com
+// qwerty123
+
 export interface PersonalInfo {
   firstName: string
   lastName: string

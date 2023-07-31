@@ -37,4 +37,8 @@ export class QuestionnaireStore {
       console.error(error)
     }
   }
+
+  public deleteQuestionnaire = (): void => {
+    this.questionnaire = null
+  }
 }

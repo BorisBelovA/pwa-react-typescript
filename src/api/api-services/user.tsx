@@ -108,5 +108,23 @@ class UserApiService {
       })
   }
 
+  public async getUserByEmail (token: string, email: string): Promise<AuthenticatedUserData> {
+    return await http.get<HttpResponse<AuthenticatedUserData>>(`/user?email=${email}`, {
+      headers: {
+        Authorization: token
+      }
+    })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+      })
+  }
+
 }
 export const userApiService = new UserApiService()

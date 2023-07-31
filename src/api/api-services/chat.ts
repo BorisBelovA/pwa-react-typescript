@@ -28,8 +28,8 @@ class Chat {
       })
   }
 
-  public async getMessagesInChat (chatId: number): Promise<any> {
-    return await http.get<HttpResponse<dto.Chat[]>>(`/chatMessage/${chatId}`, {
+  public async getMessagesInChat (chatId: number): Promise<dto.Message[]> {
+    return await http.get<HttpResponse<dto.Message[]>>(`/chatMessage/${chatId}`, {
       headers: {
         Authorization: this.sessionService.authToken
       }

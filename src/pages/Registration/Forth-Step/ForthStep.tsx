@@ -52,7 +52,7 @@ export const ForthStep = ({ user, photoChange }: ForthStepProps): JSX.Element =>
 
   return <div className={styles.container}>
     <Typography variant='h1' >Upload a photo</Typography>
-    <UserCard image={user.photo}
+    <UserCard className={!user.photo ? styles.no_image : ''} image={user.photo}
       name={user.firstName ?? ''}
       age={user.birthday !== undefined ? calculateAge(user.birthday) : undefined}
       noImageComponent={<>
