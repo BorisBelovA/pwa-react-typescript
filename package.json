@@ -44,6 +44,7 @@
   },
   "scripts": {
     "start": "REACT_APP_HOST_TYPE=DEV craco start",
+    "start:win": "SET REACT_APP_HOST_TYPE=DEV & craco start",
     "start:prod": "REACT_APP_HOST_TYPE=PROD craco start",
     "build": "REACT_APP_HOST_TYPE=PROD craco build",
     "test": "craco test",
