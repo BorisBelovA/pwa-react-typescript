@@ -5,6 +5,9 @@
   justify-content: center;
   height: 100%;
   padding: 0 2rem;
+
+  /* padding for ios bottom line */
+  padding-bottom: env(safe-area-inset-bottom);
   gap: 0.5rem 0;
   max-width: 640px;
   min-width: 360px;
