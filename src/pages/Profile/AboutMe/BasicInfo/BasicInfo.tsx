@@ -11,14 +11,14 @@ import SaveIcon from '@mui/icons-material/Save';
 import { sessionService, userApiService } from "api-services"
 import { mapBase64ToFile, mapUserToDto } from "mapping-services"
 import { filesApiService } from "src/api/api-services/files"
-import CheckIcon from '@mui/icons-material/Check';
-import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import RotateRightIcon from '@mui/icons-material/RotateRight';
 import { useMainContext } from "src/layouts/Main/MainLayout"
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
+import { useNavigate } from "react-router-dom"
 
 interface Props { }
 const BasicInfo = (props: Props) => {
   const { userStore } = useStore()
+  const navigate = useNavigate()
   const [user, setUser] = useState({ ...userStore } as NewUser)
   const {
     setBackdropVisible,
@@ -38,7 +38,7 @@ const BasicInfo = (props: Props) => {
 
   useEffect(() => {
     const subss = watch(({ firstName, lastName, gender, birthday }) => {
-      setUser({...user, firstName, lastName, gender, birthday})
+      setUser({ ...user, firstName, lastName, gender, birthday })
     })
     return () => { subss.unsubscribe() }
   }, [watch, errors])
@@ -52,7 +52,7 @@ const BasicInfo = (props: Props) => {
 
   useEffect(() => {
     const subscription = watch_phone(({ phone }) => {
-      setUser({...user, phone})
+      setUser({ ...user, phone })
     })
     return () => { subscription.unsubscribe() }
   }, [watch_phone])
@@ -120,16 +120,19 @@ const BasicInfo = (props: Props) => {
         visible: true,
         text: error.message,
         severity: 'error'
-      })      
+      })
     }
   }
 
   return (
     <Box className={styles.container}>
       <Box className={styles.header}>
-        <Typography variant="h1">Basic information</Typography>
+        <IconButton onClick={() => { navigate(-1) }}>
+          <ArrowBackIosNewRoundedIcon color='primary' />
+        </IconButton>
+        <Typography variant="h1" className={styles.header__text}>Basic information</Typography>
         <IconButton disabled={!(isValid && isValid_phone)} color="primary" onClick={onFinish}>
-            <SaveIcon />
+          <SaveIcon />
         </IconButton>
       </Box>
       <Box className={styles.content}>
