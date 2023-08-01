@@ -19,9 +19,9 @@ const Search: React.FunctionComponent = observer(() => {
   const [matches, setMatches] = useState<MatchNew[]>([])
   const [page, setPage] = useState<number>(0)
   const { questionnaireStore } = useStore()
-  const getMatches = async (): Promise<void> => {
+  const getMatches = async (offset: number): Promise<void> => {
     try {
-      const response = await matchingService.getMatches(page)
+      const response = await matchingService.getMatches(offset)
       const m = response.map(r => mapMatchToModel(r))
       // preloading all images to cache
       m.forEach(i => {
@@ -41,10 +41,10 @@ const Search: React.FunctionComponent = observer(() => {
 
   const checkMatches = async (): Promise<void> => {
     if (questionnaireStore.haveQuestionnaire) {
-      await getMatches()
+      await getMatches(page)
     } else {
       await questionnaireStore.getQuestionnaire()
-      await getMatches()
+      await getMatches(page)
     }
   }
 
@@ -53,13 +53,18 @@ const Search: React.FunctionComponent = observer(() => {
   }, [])
 
   const handleIndexChange = (newIndex: number, matches: MatchNew[]): void => {
-    if (newIndex < matches.length - 1) {
-      setIndex(index + 1)
-    } else {
-      setPage(page + 1)
-      getMatches()
-      setIndex(0)
+    if (newIndex < matches.length - 3) {
+      setIndex(newIndex + 1)
+      return
     }
+    if (newIndex === matches.length - 1) {
+      setIndex(0)
+      return
+    }
+    const newPage = page + 1
+    setPage(newPage)
+    getMatches(newPage)
+    setIndex(newIndex + 1)
   }
 
   const likeUser = async (match: MatchNew): Promise<void> => {
