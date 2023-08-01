@@ -50,8 +50,15 @@ const AboutMe = observer((): JSX.Element => {
   const goToQuestionnaire = (): void => {
     navigate(`/profile/${ProfileRoutes.BASIC_QUEST}/${QuestionnaireRoutes.WHO}`)
   }
-  const { questionnaireStore } = useStore()
+  const { userStore, questionnaireStore } = useStore()
 
+  const basicInfoProgress = useMemo(() => {
+    const bioProgress = userStore.firstName.length > 0 && userStore.lastName.length > 0 ? 1 :0
+    const phoneProgress = userStore.phone ? 1 : 0
+    const photoProgress = userStore.photo ? 1 : 0
+    return (bioProgress + phoneProgress + photoProgress)/3*100
+  }, [userStore])
+  
   const questionnaireProgress = useMemo(() => {
     return questionnaireStore.questionnaire
       ? getPersonalInfoProgress(questionnaireStore.questionnaire)
@@ -70,7 +77,7 @@ const AboutMe = observer((): JSX.Element => {
         <Card variant="outlined" sx={{ padding: '1rem' }} onClick={() => navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.BASIC_INFO}`)}>
           <Typography variant='h6'>Basic Information</Typography>
           <Box sx={{ width: '100%', marginTop: '0.5rem' }}>
-            <LinearProgressWithLabel value={80} />
+            <LinearProgressWithLabel value={ basicInfoProgress } />
           </Box>
         </Card>
 
