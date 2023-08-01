@@ -47,7 +47,8 @@ const Matches = (): JSX.Element => {
   }
 
   const goToChat = (roomId: number, email: string): void => {
-    navigate(`/chat?id=${roomId}&email=${email}`)
+    const emailEncoded = encodeURIComponent(email)
+    navigate(`/chat?id=${roomId}&email=${emailEncoded}`)
   }
 
   const searchSomeone = (): void => {
