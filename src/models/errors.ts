@@ -1,7 +1,4 @@
 export const enum ErrorCodes {
   ENTITY_NOT_EXIST = 20,
   EMAIL_NOT_ACTIVATED = 86,
-  PAGE_NOT_FOUND = 404,
-  FORBIDDEN = 403,
-  SERVICE_UNAVAILIBLE = 503
 }

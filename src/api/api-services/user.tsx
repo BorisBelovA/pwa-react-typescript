@@ -88,8 +88,11 @@ class UserApiService {
       })
       .catch(errorResponse => {
         console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message,
-          { cause: errorResponse.response?.data?.cause ?? errorResponse.cause })
+        if (errorResponse instanceof Error) {
+          throw errorResponse
+        } else {
+          throw new Error(errorResponse.message ?? 'Unexpected behaviour')
+        }
       })
   }
 
