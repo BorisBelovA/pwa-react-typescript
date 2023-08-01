@@ -3,7 +3,8 @@ export const enum ProfileRoutes {
   ROOMMATE_PREFERENCES = 'roommate-preferences',
   MY_APARTMENT = 'my-apartments',
   SETTINGS = 'settings',
-  BASIC_QUEST = 'questionnaire-basic-info'
+  BASIC_QUEST = 'questionnaire-basic-info',
+  BASIC_INFO ='basic-information'
 }
 
 export const enum ApartmentsRoutes {

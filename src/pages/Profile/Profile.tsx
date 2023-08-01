@@ -11,11 +11,13 @@ import { filesApiService } from 'src/api/api-services/files'
 import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
 import { sessionService, userApiService } from 'api-services'
 import { imageTypes } from 'src/utils/constants'
+import { useNavigate } from 'react-router-dom'
 const Profile: React.FunctionComponent = observer(() => {
   const { userStore, questionnaireStore } = useStore()
 
   const [cropVisible, setCropVisible] = useState(false)
   const [image, setImage] = useState('')
+  const navigate = useNavigate()
 
   const pickAvatar = (): void => {
     document.getElementById('photo-upload')?.click()
@@ -54,7 +56,7 @@ const Profile: React.FunctionComponent = observer(() => {
       ...userStore.user,
       avatar: avatarName
     }),
-    sessionService.authToken
+      sessionService.authToken
     )
     userStore.setAvatar(mapPhotoNameToURI(avatarName))
   }
@@ -75,6 +77,7 @@ const Profile: React.FunctionComponent = observer(() => {
     <Box className={styles.profile_container}>
       <Box className={styles.profile_user_info_container}>
         <Box className={styles.profile_user_info_avatar}
+          onClick={() => navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.BASIC_INFO}`)}
           sx={{
             border: `2px solid ${theme.palette.primary.main}`,
             borderRadius: '100%'
@@ -95,7 +98,7 @@ const Profile: React.FunctionComponent = observer(() => {
             }
           }}
             className={styles.change_avatar} aria-label="delete"
-            onClick={pickAvatar}>
+          >
             <EditIcon />
           </IconButton>
         </Box>
@@ -110,23 +113,23 @@ const Profile: React.FunctionComponent = observer(() => {
     </Box>
 
     {cropVisible && <ImageCropper title='Select photo'
-        image={image}
-        acceptButtonText='Accept'
-        shape='round'
-        acceptImage={photo => {
-          setCropVisible(false)
-          saveAvatar(photo);
-          (document.getElementById('photo-upload') as HTMLInputElement).value = ''
-        }}
-      />}
+      image={image}
+      acceptButtonText='Accept'
+      shape='round'
+      acceptImage={photo => {
+        setCropVisible(false)
+        saveAvatar(photo);
+        (document.getElementById('photo-upload') as HTMLInputElement).value = ''
+      }}
+    />}
 
-      <input id='photo-upload'
-        className={styles.hiddenInput}
-        type="file"
-        accept={imageTypes}
-        name=""
-        onChange={handleFileChange}
-      />
+    <input id='photo-upload'
+      className={styles.hiddenInput}
+      type="file"
+      accept={imageTypes}
+      name=""
+      onChange={handleFileChange}
+    />
   </>
 })
 

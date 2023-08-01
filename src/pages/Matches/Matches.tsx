@@ -56,7 +56,7 @@ const Matches = (): JSX.Element => {
 
   useEffect(() => { getAllChats() }, [])
   return <>
-    <h2 className={utilityStyles.headerTemp}>Your matches</h2>
+    <Typography variant='h1'>Your matches</Typography>
     <Box className={styles.matches_container}>
       {chatsLoading && <>
         <CardSkeleton></CardSkeleton>

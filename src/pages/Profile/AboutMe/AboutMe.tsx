@@ -67,7 +67,7 @@ const AboutMe = observer((): JSX.Element => {
         <Typography variant='h1'>About me</Typography>
       </Box>
       <Box className={styles.profile__content}>
-        <Card variant="outlined" sx={{ padding: '1rem' }}>
+        <Card variant="outlined" sx={{ padding: '1rem' }} onClick={() => navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.BASIC_INFO}`)}>
           <Typography variant='h6'>Basic Information</Typography>
           <Box sx={{ width: '100%', marginTop: '0.5rem' }}>
             <LinearProgressWithLabel value={80} />

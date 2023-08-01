@@ -2,6 +2,7 @@ import { Typography } from '@mui/material'
 import { MuiTelInput, matchIsValidTel } from 'mui-tel-input'
 import { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
+import Phone from 'src/components/BasicInfoSteps/Phone'
 import { type NewUser } from '../../../models/user'
 import styles from './SecondStep.module.scss'
 
@@ -29,12 +30,7 @@ export const SecondStep = (props: SecondStepProps): JSX.Element => {
 
   return <div className={styles.container}>
     <Typography variant='h1' >Phone number</Typography>
-    <Controller name='phone' control={control}
-      rules={{ validate: matchIsValidTel }}
-      render={({ field, fieldState }) => (
-        <MuiTelInput {...field} fullWidth
-          helperText={(fieldState.error != null) ? 'Incorrect phone number' : ''}
-          error={!(fieldState.error == null)} />
-      )} />
+    <Phone control={control} />
   </div>
 }
+ 
