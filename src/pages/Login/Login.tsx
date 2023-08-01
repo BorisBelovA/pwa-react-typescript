@@ -60,7 +60,11 @@ export const Login = (): JSX.Element => {
       userStore.setUser(user)
       setTimeout(() => {
         setBackdropVisible(false)
-        navigate('/profile')
+        if (userStore.firstName !== '' && userStore.lastName !== '') {
+          navigate('/profile')
+        } else {
+          navigate('/auth/terms')
+        }
       }, 1500)
     } catch (e) {
       console.error(e)
