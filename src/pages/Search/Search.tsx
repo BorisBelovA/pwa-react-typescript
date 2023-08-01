@@ -23,6 +23,11 @@ const Search: React.FunctionComponent = observer(() => {
     try {
       const response = await matchingService.getMatches(page)
       const m = response.map(r => mapMatchToModel(r))
+      // preloading all images to cache
+      m.forEach(i => {
+        const img = new Image()
+        img.src = i.user.photo ?? ''
+      })
       setMatches(matches.concat(m))
     } catch (e) {
       setMessage({
