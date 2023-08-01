@@ -53,9 +53,11 @@ const AboutMe = observer((): JSX.Element => {
   const { userStore, questionnaireStore } = useStore()
 
   const basicInfoProgress = useMemo(() => {
+    const bioProgress = userStore.firstName.length > 0 && userStore.lastName.length > 0 ? 1 :0
+    const phoneProgress = userStore.phone ? 1 : 0
     const photoProgress = userStore.photo ? 1 : 0
-    return (2 + photoProgress)/3*100
-  }, [userStore.photo])
+    return (bioProgress + phoneProgress + photoProgress)/3*100
+  }, [userStore])
   
   const questionnaireProgress = useMemo(() => {
     return questionnaireStore.questionnaire
