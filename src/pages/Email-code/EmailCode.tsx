@@ -1,18 +1,21 @@
 import { Backdrop, Button, CircularProgress, Typography } from '@mui/material'
 import { sessionService, userApiService } from 'api-services'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import OtpInput from 'react-otp-input'
 import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { useStore } from 'src/utils/StoreProvider'
 import styles from './EmailCode.module.scss'
+import { observer } from 'mobx-react-lite'
 
-export const EmailCode = (): JSX.Element => {
+const sendAgainDebounce = 30
+
+export const EmailCode = observer((): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false)
   const { setMessage } = useAuthContext()
   const [otp, setOtp] = useState('')
-
   const { registrationStore } = useStore()
+  const [timeLeft, setTimeLeft] = useState<number>(sendAgainDebounce)
 
   const navigate = useNavigate()
 
@@ -40,9 +43,37 @@ export const EmailCode = (): JSX.Element => {
       })
   }
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (timeLeft > 0) {
+        setTimeLeft(timeLeft - 1)
+      }
+    }, 1000)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [timeLeft])
+
+  const sendAgain = async (): Promise<void> => {
+    setTimeLeft(sendAgainDebounce)
+    try {
+      await userApiService.resetEmailToken(registrationStore.email)
+    } catch (e) {
+      setTimeLeft(0)
+      setMessage({
+        text: e instanceof Error
+          ? e.message
+          : 'Unable to send email again',
+        severity: 'error',
+        life: 5000,
+        visible: true
+      })
+    }
+  }
+
   return <>
     <Typography variant='h2'>Verify you email</Typography>
-    <Typography variant='subtitle2'>paste the code you've recieved on your email</Typography>
 
     <OtpInput
       value={otp}
@@ -53,11 +84,17 @@ export const EmailCode = (): JSX.Element => {
       inputStyle={styles.test}
       containerStyle={styles.otp_container}
     />
+
+    <Typography variant='subtitle2'>A verification code has been sent to you</Typography>
+
+    {timeLeft > 0 && <Typography variant='body1'>You can send new one in {timeLeft} seconds</Typography>}
+    {timeLeft === 0 && <Button onClick={sendAgain}>Send again</Button>}
+
     <Button fullWidth
       disabled={otp.length !== 4}
       variant='contained'
-      onClick={(e) => { void verify(otp) }}
-    >
+      sx={{ marginTop: '1rem'}}
+      onClick={(e) => { void verify(otp) }}>
       Verify
     </Button>
 
@@ -68,4 +105,4 @@ export const EmailCode = (): JSX.Element => {
       <CircularProgress color='inherit' />
     </Backdrop>
   </>
-}
+})
