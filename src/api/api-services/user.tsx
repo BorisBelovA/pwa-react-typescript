@@ -58,8 +58,8 @@ class UserApiService {
    * @returns 
    */
   public async activateUser(token: string, email: string): Promise<string> {
-    const email_encoded = encodeURIComponent(email)
-    return await http.get<HttpResponse<string>>(`/login/${token}?email=${email_encoded}`)
+    const emailEncoded = encodeURIComponent(email)
+    return await http.get<HttpResponse<string>>(`/login/${token}?email=${emailEncoded}`)
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
           throw new Error(response.data.status.statusCodeDescription)

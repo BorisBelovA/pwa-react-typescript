@@ -85,7 +85,8 @@ export const Chat = observer((): JSX.Element => {
       void getMessages(+chatId)
     }
     if (email) {
-      void getUserInfo(email)
+      const emailEncoded = encodeURIComponent(email)
+      void getUserInfo(emailEncoded)
     }
   }, [])
 
