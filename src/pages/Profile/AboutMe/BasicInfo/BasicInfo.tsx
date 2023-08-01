@@ -151,7 +151,7 @@ const BasicInfo = (props: Props) => {
           }} />
         </Box>
         <Box className={styles.content__part}>
-          <Button onClick={onFinish} variant='outlined'>Save</Button>
+          <Button onClick={onFinish} variant='contained' disableElevation>Save</Button>
         </Box>
       </Box>
     </Box>
