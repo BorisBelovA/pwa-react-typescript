@@ -12,6 +12,7 @@ import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { emailPatternValidator } from 'src/utils/validations'
 import { mapAuthenticatedUserData } from 'mapping-services'
 import { useStore } from 'src/utils/StoreProvider'
+import { ErrorCodes } from 'src/models/errors'
 interface SignUpForm {
   email: string
   password: string
@@ -32,7 +33,7 @@ const sxSMButtons: SxProps = {
 export const Login = (): JSX.Element => {
   const navigate = useNavigate()
   const { setMessage, setBackdropMessage, setBackdropVisible } = useAuthContext()
-  const { userStore } = useStore()
+  const { registrationStore, userStore } = useStore()
   const theme = useTheme()
   const { register, handleSubmit, formState: { errors, isValid } } = useForm<SignUpForm>({
     defaultValues: {
@@ -66,6 +67,10 @@ export const Login = (): JSX.Element => {
       let text = 'Something went wrong😮'
       if (e instanceof Error) {
         text = e.message
+        if (e.cause === ErrorCodes.EMAIL_NOT_ACTIVATED){
+          registrationStore.setCredentials(data.email, data.password)
+          navigate('/auth/email-verification')
+        }
       }
       setMessage({
         visible: true,

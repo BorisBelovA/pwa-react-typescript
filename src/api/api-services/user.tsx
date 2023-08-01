@@ -1,10 +1,11 @@
+import { ErrorCodes } from 'src/models/errors'
 import http from '../common-configuration'
 import { type AuthenticatedUserData } from '../dto/api-responses'
 import { type HttpResponse } from '../dto/common-interfaces'
 import { type UserForm, type UserDto, type UserCredentials } from '../dto/user'
 
 class UserApiService {
-  public async createUserV2 (credentials: UserCredentials): Promise<UserDto> {
+  public async createUserV2(credentials: UserCredentials): Promise<UserDto> {
     return await http.post<HttpResponse<UserDto>>('/user', credentials)
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
@@ -18,7 +19,7 @@ class UserApiService {
       })
   }
 
-  public async sendCode (email: string): Promise<null> {
+  public async sendCode(email: string): Promise<null> {
     return await http.post<HttpResponse<null>>('/reset', { email })
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
@@ -29,10 +30,10 @@ class UserApiService {
       .catch(errorResponse => {
         console.error(errorResponse.status?.statusCodeDescription ?? errorResponse.message)
         throw new Error(errorResponse.status?.statusCodeDescription ?? errorResponse.message)
-      }) 
+      })
   }
 
-  public async updateUser (user: UserForm, token: string): Promise<UserDto> {
+  public async updateUser(user: UserForm, token: string): Promise<UserDto> {
     return await http.put<HttpResponse<UserDto>>('/user', user, {
       headers: {
         Authorization: token,
@@ -56,7 +57,7 @@ class UserApiService {
    * @param token 
    * @returns 
    */
-  public async activateUser (token: string, email: string): Promise<string> {
+  public async activateUser(token: string, email: string): Promise<string> {
     const email_encoded = encodeURIComponent(email)
     return await http.get<HttpResponse<string>>(`/login/${token}?email=${email_encoded}`)
       .then(response => {
@@ -81,17 +82,18 @@ class UserApiService {
     return await http.post<HttpResponse<string>>('/login', { email, password })
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
-          throw new Error(response.data.status.statusCodeDescription)
+          throw new Error(response.data.status.statusCodeDescription, { cause: response.data.status.statusCode as ErrorCodes })
         }
         return response.data.response
       })
       .catch(errorResponse => {
         console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message,
+          { cause: errorResponse.response?.data?.cause ?? errorResponse.cause })
       })
   }
 
-  public async getAuthenticatedUser (token: string): Promise<AuthenticatedUserData> {
+  public async getAuthenticatedUser(token: string): Promise<AuthenticatedUserData> {
     return await http.get<HttpResponse<AuthenticatedUserData>>('/user', {
       headers: {
         Authorization: token
@@ -109,7 +111,7 @@ class UserApiService {
       })
   }
 
-  public async getUserByEmail (token: string, email: string): Promise<AuthenticatedUserData> {
+  public async getUserByEmail(token: string, email: string): Promise<AuthenticatedUserData> {
     return await http.get<HttpResponse<AuthenticatedUserData>>(`/user?email=${email}`, {
       headers: {
         Authorization: token
@@ -127,7 +129,7 @@ class UserApiService {
       })
   }
 
-  public async resetEmailToken (email: string): Promise<string> {
+  public async resetEmailToken(email: string): Promise<string> {
     return await http.post<HttpResponse<string>>('/login/reset', { email })
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
