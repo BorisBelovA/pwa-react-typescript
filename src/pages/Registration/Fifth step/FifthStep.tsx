@@ -52,6 +52,7 @@ export const FifthStep = ({ user, onEditStep }: FifthStepProps): JSX.Element => 
     <UserCard image={user.photo}
       name={user.firstName ?? ''}
       age={user.birthday ? calculateAge(user.birthday) : undefined}
+      className={ user.photo ? '' : styles.no_image }
       action={
         <IconButton sx={{ color: theme.palette.primary.main }}
           size='small'

@@ -35,20 +35,19 @@ const Summary = observer((): JSX.Element => {
         })
         setBackdropMessage('Almost done')
         setTimeout(() => {
+          setBackdropVisible(false)
           navigate('/profile/')
         }, 2000)
       })
       .catch(err => {
         console.error(err)
         questionnaireStore.setQuestionnaire(questions)
+        setBackdropVisible(false)
         setMessage({
           visible: true,
           text: err.message,
           severity: 'error'
         })
-      })
-      .finally(() => {
-        setBackdropVisible(false)
       })
   }
 

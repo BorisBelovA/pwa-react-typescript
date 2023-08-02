@@ -1,4 +1,4 @@
-import { Box, Card, IconButton, Typography, colors, useTheme } from '@mui/material'
+import { Box, Card, IconButton, Typography, useTheme } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import commonStyles from '../Profile.module.scss'
 import styles from './AboutMe.module.scss'
@@ -20,17 +20,19 @@ const getPersonalInfoProgress = (questionnaire: QuestionnaireBasicType): number 
     ? questionnaire.countAdults !== null && questionnaire.countAdults !== null
       ? 5
       : 0
-    : 10
+    : 0
   const petsProgress = questionnaire.havePets
     ? questionnaire.pets && questionnaire.pets.length > 0
       ? 10
       : 0
     : 10
-  const smokingProgress = questionnaire.smoker
-    ? questionnaire.smokingWhat.length > 0
-      ? 10
-      : 0
-    : 0
+  const smokingProgress = questionnaire.smoker === undefined
+    ? 0
+    : questionnaire.smoker
+      ? questionnaire.smokingWhat.length > 0
+        ? 10
+        : 0
+      : 10
   const languagePregress = questionnaire.languages.length > 0 ? 10 : 0
   const sleepingHabitProgress = questionnaire.sleepingHabits !== null ? 10 : 0
   const alcoholProgress = questionnaire.alcohol ? 10 : 0
@@ -58,7 +60,7 @@ const AboutMe = observer((): JSX.Element => {
     const photoProgress = userStore.photo ? 1 : 0
     return (bioProgress + phoneProgress + photoProgress)/3*100
   }, [userStore])
-  
+
   const questionnaireProgress = useMemo(() => {
     return questionnaireStore.questionnaire
       ? getPersonalInfoProgress(questionnaireStore.questionnaire)

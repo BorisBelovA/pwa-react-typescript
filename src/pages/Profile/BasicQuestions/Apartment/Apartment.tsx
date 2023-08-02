@@ -41,6 +41,20 @@ const ApartmentItem = ({ apartment, name, onSelect }: ApartmentProps): JSX.Eleme
   </Box>
 }
 
+interface ApartmentsListProps {
+  apartments: models.Apartment[]
+  name: string
+  onSelect: (apartment: models.Apartment | null) => void
+}
+
+const ApartmentsList = ({ apartments, name, onSelect }: ApartmentsListProps): JSX.Element => {
+  return <>
+    {apartments.map(a => <ApartmentItem apartment={a} key={`${a.name}-${a.totalPrice}`}
+    name={name}
+    onSelect={onSelect}></ApartmentItem>)}
+  </>
+}
+
 const Apartment: React.FunctionComponent = observer(() => {
   const navigate = useNavigate()
   const { setActive, setPercent } = useActive()
@@ -94,17 +108,8 @@ const Apartment: React.FunctionComponent = observer(() => {
       100,
       'apartment'
     )
-    if (!displayApartment) {
-      setQuestions({
-        ...questions,
-        apartment: null
-      })
-    }
   }, [displayApartment])
 
-  useEffect(() => {
-    setDisplayApartment(!!questions.apartment)
-  }, [])
   const handleNext = (): void => {
     navigate(`../${models.QuestionnaireRoutes.ABOUT}`)
   }
@@ -133,6 +138,12 @@ const Apartment: React.FunctionComponent = observer(() => {
     setNewApartment(null)
   }
 
+  const selectedApartmentsName = useMemo(() => {
+    return questions.apartment
+      ? questions.apartment.name
+      : ''
+  }, [questions.apartment])
+
   return (
     <Box className={styles.question}>
       <Box className={styles.question__head}>
@@ -147,6 +158,12 @@ const Apartment: React.FunctionComponent = observer(() => {
           fullWidth
           onChange={(e, value) => {
             setDisplayApartment(value)
+            if (!value) {
+              setQuestions({
+                ...questions,
+                apartment: null
+              })
+            }
           }}>
           <ToggleButton value={false}>no</ToggleButton>
           <ToggleButton value={true}>yes</ToggleButton>
@@ -156,9 +173,10 @@ const Apartment: React.FunctionComponent = observer(() => {
           <>
             <Typography>Select apartment from the list or create new</Typography>
             <Box className={apartmentStyles.list}>
-              {apartments.map((a, idx) => <ApartmentItem apartment={a} key={`${a.name}-${a.totalPrice}`}
-                  name={questions.apartment?.name ?? ''}
-                  onSelect={setSelectedApartment}></ApartmentItem>)}
+              <ApartmentsList apartments={apartments}
+                onSelect={setSelectedApartment}
+                name={selectedApartmentsName}
+              ></ApartmentsList>
             </Box>
             {questions.apartment === null && !newApartment &&
               <Button variant='outlined'
