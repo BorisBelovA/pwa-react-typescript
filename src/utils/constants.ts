@@ -1,1 +1,1 @@
-export const imageTypes = '.jpeg,.jpg,.png'
+export const imageTypes = '.jpeg,.jpg,.png,.heic'
