@@ -6,11 +6,18 @@ import { apartmentQuestionnaireContext } from '../..'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
 import { ApartmentsQuestionnaireRoutes } from 'models'
 import { imageTypes } from 'src/utils/constants'
+import heic2any from 'heic2any'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 export const Photos = (): JSX.Element => {
   const { apartment, setApartment, setPercent, setNextDisabled, setActive } = apartmentQuestionnaireContext()
   const [cropVisible, setCropVisible] = useState(false)
   const [image, setImage] = useState('')
+  const {
+    setBackdropVisible,
+    setBackdropMessage,
+    setMessage
+  } = useMainContext()
 
   const theme = useTheme()
 
@@ -54,15 +61,41 @@ export const Photos = (): JSX.Element => {
     }
   }
 
-  const openCrop = (photo: File): void => {
-    const reader = photoReader(photo)
+  const openCrop = async (photo: File): Promise<void> => {
+    const reader = await photoReader(photo)
     reader.onloadend = () => {
       setImage(reader.result as string)
       setCropVisible(true)
     }
   }
 
-  const photoReader = (photo: File): FileReader => {
+  const photoReader = async (photo: File): Promise<FileReader> => {
+    const extension = photo.name.match(/\.[0-9a-z]+$/i)?.[0].toLowerCase()
+    if (extension === '.heic') {
+      setBackdropVisible(true)
+      setBackdropMessage('Converting iOs format')
+      const reader = await heic2any({
+        blob: photo,
+        toType: 'image/jpeg',
+        quality: 0.3
+      })
+        .then((result) => {
+          const file = new File([result as Blob], 'image.jpg')
+          const reader = new FileReader()
+          reader.readAsDataURL(file)
+          return reader
+        }).catch((e) => {
+          setMessage({
+            visible: true,
+            severity: 'error',
+            text: 'Can\'t use this photo, please try another one'
+          })
+          setBackdropVisible(false)
+          console.log(e)
+        })
+      setBackdropVisible(false)
+      return reader as FileReader
+    }
     const reader = new FileReader()
     reader.readAsDataURL(photo)
     return reader
