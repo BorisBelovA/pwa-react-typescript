@@ -8,9 +8,10 @@ import { UserCard } from 'src/components/UserCard/UserCard'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
 import { calculateAge } from 'src/utils/date-time'
 import { imageTypes } from 'src/utils/constants'
+import heic2any from 'heic2any'
 
 interface Props {
-  user: NewUser,
+  user: NewUser
   photoChange: ({ profilePhoto, avatarPhoto }: { profilePhoto: string, avatarPhoto: string }) => void
 }
 
@@ -26,7 +27,23 @@ const Photo = ({ user, photoChange }: Props) => {
     document.getElementById('photo-upload')?.click()
   }
 
-  const photoReader = (photo: File): FileReader => {
+  const photoReader = async (photo: File): Promise<FileReader> => {
+    const extension = photo.name.match(/\.[0-9a-z]+$/i)?.[0].toLowerCase()
+    if (extension === '.heic') {
+      const reader = await heic2any({
+        blob: photo,
+        toType: 'image/jpeg'
+      })
+        .then((result) => {
+          const file = new File([result as Blob], 'image.jpg')
+          const reader = new FileReader()
+          reader.readAsDataURL(file)
+          return reader
+        }).catch((e) => {
+          console.log(e)
+        })
+      return reader as FileReader
+    }
     const reader = new FileReader()
     reader.readAsDataURL(photo)
     return reader
@@ -42,8 +59,9 @@ const Photo = ({ user, photoChange }: Props) => {
     }
   }
 
-  const openCrop = (photo: File): void => {
-    const reader = photoReader(photo)
+  const openCrop = async (photo: File): Promise<void> => {
+    const reader = await photoReader(photo)
+    console.log('ok')
     reader.onloadend = () => {
       setTest(reader.result as string)
       setProfileCropVisible(true)
