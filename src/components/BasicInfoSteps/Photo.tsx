@@ -45,7 +45,6 @@ const Photo = ({ user, photoChange }: Props): JSX.Element => {
 
   const openCrop = async (photo: File): Promise<void> => {
     const reader = await photoReader({ photo, setBackdropVisible, setBackdropMessage, setMessage })
-    console.log('ok')
     reader.onloadend = () => {
       setTest(reader.result as string)
       setProfileCropVisible(true)
