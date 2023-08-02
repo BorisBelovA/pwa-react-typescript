@@ -24,7 +24,7 @@ export const FifthStep = ({ user, onEditStep }: FifthStepProps): JSX.Element => 
           ? <img id={styles.userAvatar} data-id='user-avatar' src={user.avatar} alt="avatar" />
           : <Avatar><PersonIcon></PersonIcon></Avatar>
       }
-        title={`${user.firstName} ${user.lastName}`}
+        title={`${user.firstName ?? ''} ${user.lastName ?? ''}`}
         subheader={
           `${user.gender === 'M' ? 'Male' : 'Female'}, ${user.birthday ? mapToRusFormat(user.birthday) : ''}`
         }

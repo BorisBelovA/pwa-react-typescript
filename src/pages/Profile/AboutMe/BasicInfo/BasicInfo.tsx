@@ -1,25 +1,25 @@
-import { Box, Button, ButtonBase, IconButton, Typography } from "@mui/material"
-import { EmptyPersonalInfo, NewUser } from "models"
-import { useEffect, useState } from "react"
-import { useForm } from "react-hook-form"
-import About from "src/components/BasicInfoSteps/About"
-import Phone from "src/components/BasicInfoSteps/Phone"
-import Photo from "src/components/BasicInfoSteps/Photo"
-import { useStore } from "src/utils/StoreProvider"
+import { Box, Button, IconButton, Typography } from '@mui/material'
+import { type EmptyPersonalInfo, type NewUser } from 'models'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import About from 'src/components/BasicInfoSteps/About'
+import Phone from 'src/components/BasicInfoSteps/Phone'
+import Photo from 'src/components/BasicInfoSteps/Photo'
+import { useStore } from 'src/utils/StoreProvider'
 import styles from './BasicInfo.module.scss'
-import SaveIcon from '@mui/icons-material/Save';
-import { sessionService, userApiService } from "api-services"
-import { mapBase64ToFile, mapUserToDto } from "mapping-services"
-import { filesApiService } from "src/api/api-services/files"
-import { useMainContext } from "src/layouts/Main/MainLayout"
+import SaveIcon from '@mui/icons-material/Save'
+import { sessionService, userApiService } from 'api-services'
+import { mapBase64ToFile, mapUserToDto } from 'mapping-services'
+import { filesApiService } from 'src/api/api-services/files'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 
-interface Props { }
-const BasicInfo = (props: Props) => {
+const BasicInfo = (): JSX.Element => {
   const { userStore } = useStore()
   const navigate = useNavigate()
   const [user, setUser] = useState({ ...userStore } as NewUser)
+  const [allValid, setAllValid] = useState<boolean>()
   const {
     setBackdropVisible,
     setBackdropMessage,
@@ -43,7 +43,7 @@ const BasicInfo = (props: Props) => {
     return () => { subss.unsubscribe() }
   }, [watch, errors])
 
-  const { control: control_phone, watch: watch_phone, formState: { isValid: isValid_phone } } = useForm<{ phone: string }>({
+  const { control: controlPhone, watch: watchPhone, formState: { isValid: isValidPhone } } = useForm<{ phone: string }>({
     defaultValues: {
       phone: userStore.phone ?? ''
     },
@@ -51,11 +51,19 @@ const BasicInfo = (props: Props) => {
   })
 
   useEffect(() => {
-    const subscription = watch_phone(({ phone }) => {
+    const subscription = watchPhone(({ phone }) => {
       setUser({ ...user, phone })
     })
     return () => { subscription.unsubscribe() }
-  }, [watch_phone])
+  }, [watchPhone])
+
+  useEffect(() => {
+    const subscription = watchPhone(({ phone }) => {
+      const isPhoneOk = isValidPhone || phone === '' || phone === undefined
+      setAllValid(!(isValid && isPhoneOk))
+    })
+    return () => { subscription.unsubscribe() }
+  }, [isValid, isValidPhone, watchPhone])
 
   const onFinish = async (): Promise<void> => {
     setBackdropVisible(true)
@@ -97,7 +105,7 @@ const BasicInfo = (props: Props) => {
         avatar: avatarName,
         photo: photoName
       }),
-        sessionService.authToken
+      sessionService.authToken
       )
       setBackdropMessage('Finishing up!')
       setTimeout(() => {
@@ -130,28 +138,28 @@ const BasicInfo = (props: Props) => {
         <IconButton onClick={() => { navigate(-1) }}>
           <ArrowBackIosNewRoundedIcon color='primary' />
         </IconButton>
-        <Typography variant="h1" className={styles.header__text}>Basic information</Typography>
-        <IconButton disabled={!(isValid && isValid_phone)} color="primary" onClick={onFinish}>
+        <Typography variant='h1' className={styles.header__text}>Basic information</Typography>
+        <IconButton disabled={allValid} color='primary' onClick={() => { void onFinish() }}>
           <SaveIcon />
         </IconButton>
       </Box>
       <Box className={styles.content}>
         <Box className={styles.content__part}>
-          <Typography variant="h2">Bio</Typography>
+          <Typography variant='h2'>Bio</Typography>
           <About errors={errors} control={control} register={register} user={user} />
         </Box>
         <Box className={styles.content__part}>
-          <Typography variant="h2">Phone</Typography>
-          <Phone control={control_phone} />
+          <Typography variant='h2'>Phone</Typography>
+          <Phone control={controlPhone} />
         </Box>
         <Box className={styles.content__part}>
-          <Typography variant="h2">Photo</Typography>
+          <Typography variant='h2'>Photo</Typography>
           <Photo user={user} photoChange={({ profilePhoto, avatarPhoto }) => {
             setUser({ ...user, photo: profilePhoto, avatar: avatarPhoto })
           }} />
         </Box>
         <Box className={styles.content__part}>
-          <Button onClick={onFinish} disabled={!(isValid && isValid_phone)} variant='contained' disableElevation>Save</Button>
+          <Button onClick={() => { void onFinish() }} disabled={allValid} variant='contained' disableElevation>Save</Button>
         </Box>
       </Box>
     </Box>

@@ -49,7 +49,7 @@ const Search: React.FunctionComponent = observer(() => {
   }
 
   useEffect(() => {
-    checkMatches()
+    void checkMatches()
   }, [])
 
   const handleIndexChange = (newIndex: number, matches: MatchNew[]): void => {
@@ -63,7 +63,7 @@ const Search: React.FunctionComponent = observer(() => {
     }
     const newPage = page + 1
     setPage(newPage)
-    getMatches(newPage)
+    void getMatches(newPage)
     setIndex(newIndex + 1)
   }
 
@@ -116,7 +116,7 @@ const Search: React.FunctionComponent = observer(() => {
             color='primary'
             onClick={() => {
               handleIndexChange(index, matches)
-              likeUser(matches[index])
+              void likeUser(matches[index])
             }}
             sx={{ '&:hover': { boxShadow: theme.shadows[2] } }}>
             <FavoriteIcon sx={{
