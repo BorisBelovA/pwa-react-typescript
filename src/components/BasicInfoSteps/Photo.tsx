@@ -20,7 +20,8 @@ const Photo = ({ user, photoChange }: Props): JSX.Element => {
   const theme = useTheme()
   const {
     setBackdropVisible,
-    setBackdropMessage
+    setBackdropMessage,
+    setMessage
   } = useMainContext()
   const [imageSizeError, setImageSizeError] = useState(false)
   const [profileCropVisible, setProfileCropVisible] = useState(false)
@@ -48,6 +49,12 @@ const Photo = ({ user, photoChange }: Props): JSX.Element => {
           reader.readAsDataURL(file)
           return reader
         }).catch((e) => {
+          setMessage({
+            visible: true,
+            severity: 'error',
+            text: `Can't use this photo, please try another one`
+          } )
+          setBackdropVisible(false)
           console.log(e)
         })
       setBackdropVisible(false)

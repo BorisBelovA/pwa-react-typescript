@@ -59,7 +59,7 @@ const BasicInfo = (): JSX.Element => {
 
   useEffect(() => {
     const subscription = watchPhone(({ phone }) => {
-      const isPhoneOk = isValidPhone || phone === '' || phone === undefined
+      const isPhoneOk = isValidPhone || !phone
       setAllValid(!(isValid && isPhoneOk))
     })
     return () => { subscription.unsubscribe() }
