@@ -16,11 +16,11 @@ interface Props {
   photoChange: ({ profilePhoto, avatarPhoto }: { profilePhoto: string, avatarPhoto: string }) => void
 }
 
-const Photo = ({ user, photoChange }: Props) => {
+const Photo = ({ user, photoChange }: Props): JSX.Element => {
   const theme = useTheme()
   const {
     setBackdropVisible,
-    setBackdropMessage,
+    setBackdropMessage
   } = useMainContext()
   const [imageSizeError, setImageSizeError] = useState(false)
   const [profileCropVisible, setProfileCropVisible] = useState(false)
@@ -50,7 +50,7 @@ const Photo = ({ user, photoChange }: Props) => {
         }).catch((e) => {
           console.log(e)
         })
-        setBackdropVisible(false)
+      setBackdropVisible(false)
       return reader as FileReader
     }
     const reader = new FileReader()
@@ -63,7 +63,7 @@ const Photo = ({ user, photoChange }: Props) => {
       const oversize = (e.target.files[0].size / (1024 * 1024)) > 20
       setImageSizeError(oversize)
       if (!oversize) {
-        openCrop(e.target.files[0])
+        void openCrop(e.target.files[0])
       }
     }
   }
