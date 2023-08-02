@@ -1,7 +1,7 @@
 import { Grow, Alert, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 
-interface Message {
+export interface Message {
   visible: boolean
   severity: 'error' | 'info' | 'success' | 'warning'
   text: string
