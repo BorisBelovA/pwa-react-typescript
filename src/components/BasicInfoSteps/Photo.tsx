@@ -9,6 +9,7 @@ import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
 import { calculateAge } from 'src/utils/date-time'
 import { imageTypes } from 'src/utils/constants'
 import heic2any from 'heic2any'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 interface Props {
   user: NewUser
@@ -17,6 +18,10 @@ interface Props {
 
 const Photo = ({ user, photoChange }: Props) => {
   const theme = useTheme()
+  const {
+    setBackdropVisible,
+    setBackdropMessage,
+  } = useMainContext()
   const [imageSizeError, setImageSizeError] = useState(false)
   const [profileCropVisible, setProfileCropVisible] = useState(false)
   const [test, setTest] = useState('')
@@ -30,9 +35,12 @@ const Photo = ({ user, photoChange }: Props) => {
   const photoReader = async (photo: File): Promise<FileReader> => {
     const extension = photo.name.match(/\.[0-9a-z]+$/i)?.[0].toLowerCase()
     if (extension === '.heic') {
+      setBackdropVisible(true)
+      setBackdropMessage('Converting iOs format')
       const reader = await heic2any({
         blob: photo,
-        toType: 'image/jpeg'
+        toType: 'image/jpeg',
+        quality: 0.3
       })
         .then((result) => {
           const file = new File([result as Blob], 'image.jpg')
@@ -42,6 +50,7 @@ const Photo = ({ user, photoChange }: Props) => {
         }).catch((e) => {
           console.log(e)
         })
+        setBackdropVisible(false)
       return reader as FileReader
     }
     const reader = new FileReader()
