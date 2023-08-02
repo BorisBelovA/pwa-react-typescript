@@ -52,8 +52,8 @@ const Photo = ({ user, photoChange }: Props): JSX.Element => {
           setMessage({
             visible: true,
             severity: 'error',
-            text: `Can't use this photo, please try another one`
-          } )
+            text: 'Can\'t use this photo, please try another one'
+          })
           setBackdropVisible(false)
           console.log(e)
         })

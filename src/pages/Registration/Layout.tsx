@@ -2,14 +2,14 @@ import { Button } from '@mui/material'
 import moment from 'moment'
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { User, type NewUser } from '../../models/user'
+import { type User, type NewUser } from '../../models/user'
 import { FifthStep } from './Fifth step/FifthStep'
 import { FirstStep } from './First step/FirstStep'
 import { ForthStep } from './Forth-Step/ForthStep'
 import styles from './Layout.module.scss'
 import { SecondStep } from './Second step/SecondStep'
 import { sessionService, userApiService } from 'api-services'
-import { mapBase64ToFile, mapUserToDto } from 'mapping-services'
+import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
 import { useStore } from 'src/utils/StoreProvider'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
 import useProgressSlider from 'src/components/ProgressSlider/useProgressSlider'
@@ -103,7 +103,7 @@ export const Layout = (): JSX.Element => {
         avatar: avatarName,
         photo: photoName
       }),
-        sessionService.authToken
+      sessionService.authToken
       )
       setBackdropMessage('Finishing up!')
       setTimeout(() => {
@@ -114,8 +114,8 @@ export const Layout = (): JSX.Element => {
           gender,
           birthday,
           phone: phone ?? null,
-          photo: photo ?? null,
-          avatar: avatar ?? null
+          photo: mapPhotoNameToURI(photoName ?? '') ?? null,
+          avatar: mapPhotoNameToURI(avatarName ?? '') ?? null
         })
         setBackdropVisible(false)
         navigate(IntroRoutes.pathSelection)
@@ -180,7 +180,7 @@ export const Layout = (): JSX.Element => {
           activeStep === 'summary' &&
           <Button fullWidth
             variant='contained'
-            onClick={onFinish}>
+            onClick={() => { void onFinish() }}>
             Create Account
           </Button>
         }
