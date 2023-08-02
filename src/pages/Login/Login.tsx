@@ -56,7 +56,7 @@ export const Login = (): JSX.Element => {
       const token = await userApiService.login(data.email, data.password)
       sessionService.authToken = token
       const userInfo = await userApiService.getAuthenticatedUser(token)
-      const [user, quest] = mapAuthenticatedUserData(userInfo)
+      const [user] = mapAuthenticatedUserData(userInfo)
       userStore.setUser(user)
       setTimeout(() => {
         setBackdropVisible(false)
@@ -71,7 +71,7 @@ export const Login = (): JSX.Element => {
       let text = 'Something went wrong😮'
       if (e instanceof Error) {
         text = e.message
-        if (e.cause === ErrorCodes.EMAIL_NOT_ACTIVATED){
+        if (e.cause === ErrorCodes.EMAIL_NOT_ACTIVATED) {
           registrationStore.setCredentials(data.email, data.password)
           navigate('/auth/email-verification')
         }
@@ -88,7 +88,8 @@ export const Login = (): JSX.Element => {
   return <>
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '.5rem', alignItems: 'center' }}>
       <Typography variant='h1'>Log in</Typography>
-      <Typography>New to roommate.host? <Link to='/auth/signup'><Typography component='span' sx={{ color: theme.palette.primary.main }}>Sign up</Typography></Link></Typography>
+      <Typography>New to roommate.host? <Link to='/auth/signup'>
+        <Typography component='span' sx={{ color: theme.palette.primary.main }}>Sign up</Typography></Link></Typography>
     </Box>
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem', width: '100%', alignItems: 'center' }}>
       <TextField fullWidth label="E-mail"

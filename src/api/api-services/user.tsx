@@ -1,11 +1,11 @@
-import { ErrorCodes } from 'src/models/errors'
+import { type ErrorCodes } from 'src/models/errors'
 import http from '../common-configuration'
 import { type AuthenticatedUserData } from '../dto/api-responses'
 import { type HttpResponse } from '../dto/common-interfaces'
 import { type UserForm, type UserDto, type UserCredentials } from '../dto/user'
 
 class UserApiService {
-  public async createUserV2(credentials: UserCredentials): Promise<UserDto> {
+  public async createUserV2 (credentials: UserCredentials): Promise<UserDto> {
     return await http.post<HttpResponse<UserDto>>('/user', credentials)
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
@@ -19,7 +19,7 @@ class UserApiService {
       })
   }
 
-  public async sendCode(email: string): Promise<null> {
+  public async sendCode (email: string): Promise<null> {
     return await http.post<HttpResponse<null>>('/reset', { email })
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
@@ -33,10 +33,10 @@ class UserApiService {
       })
   }
 
-  public async updateUser(user: UserForm, token: string): Promise<UserDto> {
+  public async updateUser (user: UserForm, token: string): Promise<UserDto> {
     return await http.put<HttpResponse<UserDto>>('/user', user, {
       headers: {
-        Authorization: token,
+        Authorization: token
       }
     })
       .then(response => {
@@ -52,12 +52,12 @@ class UserApiService {
   }
 
   /**
-   * Activate users account after registration  
+   * Activate users account after registration
    * Rught now it's in manual mode
-   * @param token 
-   * @returns 
+   * @param token
+   * @returns
    */
-  public async activateUser(token: string, email: string): Promise<string> {
+  public async activateUser (token: string, email: string): Promise<string> {
     const emailEncoded = encodeURIComponent(email)
     return await http.get<HttpResponse<string>>(`/login/${token}?email=${emailEncoded}`)
       .then(response => {
@@ -74,11 +74,11 @@ class UserApiService {
 
   /**
    * Returns users session token
-   * @param email 
-   * @param password 
-   * @returns 
+   * @param email
+   * @param password
+   * @returns
    */
-  public async login(email: string, password: string): Promise<string> {
+  public async login (email: string, password: string): Promise<string> {
     return await http.post<HttpResponse<string>>('/login', { email, password })
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
@@ -96,7 +96,7 @@ class UserApiService {
       })
   }
 
-  public async getAuthenticatedUser(token: string): Promise<AuthenticatedUserData> {
+  public async getAuthenticatedUser (token: string): Promise<AuthenticatedUserData> {
     return await http.get<HttpResponse<AuthenticatedUserData>>('/user', {
       headers: {
         Authorization: token
@@ -114,7 +114,7 @@ class UserApiService {
       })
   }
 
-  public async getUserByEmail(token: string, email: string): Promise<AuthenticatedUserData> {
+  public async getUserByEmail (token: string, email: string): Promise<AuthenticatedUserData> {
     return await http.get<HttpResponse<AuthenticatedUserData>>(`/user?email=${email}`, {
       headers: {
         Authorization: token
@@ -132,7 +132,7 @@ class UserApiService {
       })
   }
 
-  public async resetEmailToken(email: string): Promise<string> {
+  public async resetEmailToken (email: string): Promise<string> {
     return await http.post<HttpResponse<string>>('/login/reset', { email })
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
