@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import utilityStyles from '../../styles/utility.module.scss'
 import styles from './Matches.module.scss'
 import { type Chat } from 'models'
 import { useEffect, useState } from 'react'
@@ -8,7 +7,7 @@ import { mapChatToModel } from 'src/api/mapping-services/chat'
 import { Avatar, Box, Button, Card, CardContent, Skeleton, Typography } from '@mui/material'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 
-const CardSkeleton = ():JSX.Element => {
+const CardSkeleton = (): JSX.Element => {
   return <Card sx={{ width: '100%', marginBottom: '24px' }} variant="outlined">
   <CardContent className={styles.match_card}>
     <Skeleton variant='circular' animation="wave" width={50} height={40} />
@@ -55,7 +54,7 @@ const Matches = (): JSX.Element => {
     navigate('/search')
   }
 
-  useEffect(() => { getAllChats() }, [])
+  useEffect(() => { void getAllChats() }, [])
   return <>
     <Typography variant='h1'>Your matches</Typography>
     <Box className={styles.matches_container}>

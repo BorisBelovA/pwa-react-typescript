@@ -7,7 +7,7 @@ import { LinearProgressWithLabel } from 'src/components/LinearProgressWithLabel/
 import { ProfileRoutes, type QuestionnaireBasicType, QuestionnaireRoutes } from 'models'
 import { observer } from 'mobx-react-lite'
 import { useStore } from 'src/utils/StoreProvider'
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import { useMemo } from 'react'
 
 const getPersonalInfoProgress = (questionnaire: QuestionnaireBasicType): number => {
@@ -55,10 +55,10 @@ const AboutMe = observer((): JSX.Element => {
   const { userStore, questionnaireStore } = useStore()
 
   const basicInfoProgress = useMemo(() => {
-    const bioProgress = userStore.firstName.length > 0 && userStore.lastName.length > 0 ? 1 :0
+    const bioProgress = userStore.firstName.length > 0 && userStore.lastName.length > 0 ? 1 : 0
     const phoneProgress = userStore.phone ? 1 : 0
     const photoProgress = userStore.photo ? 1 : 0
-    return (bioProgress + phoneProgress + photoProgress)/3*100
+    return (bioProgress + phoneProgress + photoProgress) / 3 * 100
   }, [userStore])
 
   const questionnaireProgress = useMemo(() => {
@@ -76,10 +76,13 @@ const AboutMe = observer((): JSX.Element => {
         <Typography variant='h1'>About me</Typography>
       </Box>
       <Box className={styles.profile__content}>
-        <Card variant="outlined" sx={{ padding: '1rem' }} onClick={() => navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.BASIC_INFO}`)}>
+        <Card
+          variant="outlined"
+          sx={{ padding: '1rem' }}
+          onClick={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.BASIC_INFO}`) }}>
           <Typography variant='h6'>Basic Information</Typography>
           <Box sx={{ width: '100%', marginTop: '0.5rem' }}>
-            <LinearProgressWithLabel value={ basicInfoProgress } />
+            <LinearProgressWithLabel value={basicInfoProgress} />
           </Box>
         </Card>
 
@@ -89,7 +92,7 @@ const AboutMe = observer((): JSX.Element => {
             {questionnaireProgress === 100 && <CheckCircleOutlineIcon sx={{ color: theme.palette.primary.main }}></CheckCircleOutlineIcon>}
           </Box>
           <Box sx={{ width: '100%', marginTop: '0.5rem' }}>
-            <LinearProgressWithLabel value={ questionnaireProgress } />
+            <LinearProgressWithLabel value={questionnaireProgress} />
           </Box>
         </Card>
       </Box>

@@ -22,12 +22,12 @@ const stompClient: Client = new Client({
     console.log(str)
   },
   onStompError: (frame: IFrame): void => {
-    console.log('Broker reported error: ' + frame.headers['message'])
+    console.log('Broker reported error: ' + frame.headers.message)
     console.log('Additional details: ' + frame.body)
   }
 })
 
-var storedMessages: Message[] = []
+let storedMessages: Message[] = []
 
 export const Chat = observer((): JSX.Element => {
   const [searchParams] = useSearchParams()

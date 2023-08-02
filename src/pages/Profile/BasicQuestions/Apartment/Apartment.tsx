@@ -7,7 +7,7 @@ import styles from '../BasicQuestions.module.scss'
 import apartmentStyles from './Apartment.module.scss'
 import { useStore } from 'src/utils/StoreProvider'
 import * as models from 'models'
-import HomeIcon from '@mui/icons-material/Home';
+import HomeIcon from '@mui/icons-material/Home'
 import { ApartmentsRoutes, ProfileRoutes } from 'models'
 import { observer } from 'mobx-react-lite'
 
