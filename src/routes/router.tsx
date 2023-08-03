@@ -13,6 +13,7 @@ import { SessionGuard } from 'src/layouts/SessionGuard/SessionGuard'
 import { Chat } from 'src/pages/Chat/Chat'
 import { IntroPage } from 'src/pages/Intro/IntroPage'
 import { PathSelection } from 'src/pages/Intro/PathSelection/PathSelection'
+import Testing from 'src/pages/Testing/Testing'
 
 const Router: React.FunctionComponent = () => {
   return (
@@ -31,6 +32,7 @@ const Router: React.FunctionComponent = () => {
         <Route path="intro" element={<IntroPage />}>
           <Route path="path" element={<PathSelection />}/>
         </Route>
+        <Route path='testing' element={<Testing />} />
         <Route path="/" element={<Navigate to="search" replace />} />
         <Route path="/*" element={<Navigate to="profile" replace />} />
       </Route>
