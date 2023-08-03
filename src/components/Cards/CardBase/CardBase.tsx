@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme } from '@mui/material'
+import { Box, IconButton, Typography, useTheme } from '@mui/material'
 import { useEffect, useState } from 'react'
 import styles from './CardBase.module.scss'
 import Badge from '../../Badge/Badge'
@@ -78,7 +78,7 @@ const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
               {header}
             </Box>
             <Box onClick={() => { setExpanded(!expanded) }}>
-              <SwipeUpIcon fontSize='large'></SwipeUpIcon>
+              <SwipeUpIcon fontSize='large' className={styles.icon__swipe} />
             </Box>
           </Box>
           <Box className={`${styles.description} ${expanded ? styles.expanded : ''}`}

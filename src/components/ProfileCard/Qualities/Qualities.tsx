@@ -7,10 +7,13 @@ import { Box, Chip, Typography } from '@mui/material'
 import styles from './Qualities.module.scss'
 
 interface Props {
-  info: QuestionnaireBasicType
+  info: QuestionnaireBasicType | null
 }
 const Qualities = (props: Props): JSX.Element => {
   const { info } = props
+
+  if (!info) return <></>
+
   return (
     <Box className={styles.qualities}>
       <Box className={styles.qualities__languages}>

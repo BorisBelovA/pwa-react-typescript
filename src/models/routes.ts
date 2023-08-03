@@ -1,5 +1,6 @@
 export const enum ProfileRoutes {
   ABOUT_ME = 'about-me',
+  PREVIEW = 'preview',
   ROOMMATE_PREFERENCES = 'roommate-preferences',
   MY_APARTMENT = 'my-apartments',
   SETTINGS = 'settings',
