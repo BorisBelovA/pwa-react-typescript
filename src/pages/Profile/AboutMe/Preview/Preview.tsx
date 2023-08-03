@@ -1,11 +1,15 @@
-import { Typography } from '@mui/material'
-import styles from './Preview.module.scss'
+import { Box, Typography } from '@mui/material'
+import commonStyles from '../../Profile.module.scss'
 import CardMyProfile from 'src/components/Cards/CardMyProfile/CardMyProfile'
+import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const Preview = () => {
   return (
     <>
-      <Typography variant='h1' className={styles.header}>Your profile</Typography>
+      <Box className={commonStyles.profile__header}>
+        <BackButton />
+        <Typography variant='h1'>Your profile</Typography>
+      </Box>
       <CardMyProfile />
     </>
   )

@@ -3,16 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import styles from '../../Profile.module.scss'
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import { useStore } from 'src/utils/StoreProvider'
+import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const AccountSettings = (): JSX.Element => {
   const navigate = useNavigate()
   const { userStore, questionnaireStore, apartmentStore } = useStore()
   return (
     <Box className={styles.profile__container}>
-      <Box className={styles.profile__header}>
-        <IconButton onClick={() => { navigate(-1) }}>
-          <ArrowBackIosNewRoundedIcon color='primary' />
-        </IconButton>
+      <Box className={`${styles.profile__header} ${styles.mb1}`}>
+        <BackButton />
         <Typography variant='h1'>Account</Typography>
       </Box>
       <Box>

@@ -5,6 +5,7 @@ import styles from './ThemeSettings.module.scss'
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'
 import { useStore } from 'src/utils/StoreProvider'
+import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const ThemeSettings = (): JSX.Element => {
   const navigate = useNavigate()
@@ -25,9 +26,7 @@ const ThemeSettings = (): JSX.Element => {
   return (
     <Box className={commonStyles.profile__container}>
       <Box className={commonStyles.profile__header}>
-        <IconButton onClick={() => { navigate(-1) }}>
-          <ArrowBackIosNewRoundedIcon color='primary' />
-        </IconButton>
+        <BackButton />
         <Typography variant='h1'>Color theme</Typography>
       </Box>
       <Box className={styles.content}>
