@@ -17,7 +17,7 @@ export interface Match {
   }
 }
 
-export type MatchNew = {
+export interface MatchNew {
   user: AuthUser
   form: QuestionnaireBasicType
 }

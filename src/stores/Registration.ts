@@ -1,4 +1,4 @@
-import { type Gender, NewUser, UserCredentials } from '../models/user'
+import { type UserCredentials } from '../models/user'
 import { makeAutoObservable } from 'mobx'
 import { type RootStore } from './RootStore'
 

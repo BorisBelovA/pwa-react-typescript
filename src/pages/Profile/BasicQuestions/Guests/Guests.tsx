@@ -1,9 +1,9 @@
-import { Box, Button, FormControlLabel, Radio, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material"
+import { Box, Button, FormControlLabel, Radio, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
 import styles from '../BasicQuestions.module.scss'
-import { useBasicQuestions } from "src/layouts/QuestionnaireBasic/QuestionnaireBasic"
-import { useEffect, useState } from "react"
-import { GuestAttitude, QuestionnaireRoutes } from "models"
-import { useNavigate } from "react-router-dom"
+import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+import { useEffect, useState } from 'react'
+import { type GuestAttitude, QuestionnaireRoutes } from 'models'
+import { useNavigate } from 'react-router-dom'
 
 export const Guests = (): JSX.Element => {
   const { questions, setQuestions, setPercent, setActive } = useBasicQuestions()

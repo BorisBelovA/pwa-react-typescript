@@ -1,4 +1,4 @@
-import { AuthUser, User } from "./user";
+import { type AuthUser } from './user'
 
 export type Recipient = AuthUser & {
   email: string

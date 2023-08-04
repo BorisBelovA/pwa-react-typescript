@@ -16,7 +16,7 @@ const AddPerson = ({ open, handleClose, who, addPerson }: Props): JSX.Element =>
   const [name, setName] = useState<string>('')
   const [age, setAge] = useState<string>('')
 
-  //Email form
+  // Email form
   const { register, handleSubmit, formState: { errors, isValid } } = useForm<{ email: string }>({
     defaultValues: {
       email: ''
@@ -73,7 +73,7 @@ const AddPerson = ({ open, handleClose, who, addPerson }: Props): JSX.Element =>
               className={styles.addPerson__inviteInput} />
             <Button className={styles.addPerson__inviteButton}
               disabled={!isValid}
-              onClick={handleSubmit(inviteUser)}>
+              onClick={() => { handleSubmit(inviteUser) }}>
               Invite
             </Button>
           </Box>

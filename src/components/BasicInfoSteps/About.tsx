@@ -1,44 +1,43 @@
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material"
-import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers"
-import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
-import { EmptyPersonalInfo, NewUser } from "models"
-import moment from "moment"
-import { render } from "react-dom"
-import { Control, Controller, FieldErrorsImpl, UseFormRegister } from "react-hook-form"
+import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import { LocalizationProvider, MobileDatePicker } from '@mui/x-date-pickers'
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
+import { type EmptyPersonalInfo, type NewUser } from 'models'
+import moment from 'moment'
+import { type Control, Controller, type FieldErrorsImpl, type UseFormRegister } from 'react-hook-form'
 
 interface Props {
-  register: UseFormRegister<EmptyPersonalInfo>,
-  control: Control<EmptyPersonalInfo>,
-  user: NewUser,
+  register: UseFormRegister<EmptyPersonalInfo>
+  control: Control<EmptyPersonalInfo>
+  user: NewUser
   errors: Partial<FieldErrorsImpl<EmptyPersonalInfo>>
 }
-const About = ({errors, register, control, user}: Props) => {
+const About = ({ errors, register, control, user }: Props): JSX.Element => {
   return (
     <>
-    <TextField fullWidth label="First name"
+    <TextField fullWidth label='First name'
           error={!(errors.firstName == null)}
-          variant="outlined"
-          size="small"
+          variant='outlined'
+          size='small'
           {...register('firstName', {
             required: 'First name is required'
           })}
           helperText={errors.firstName?.message ?? ''} />
 
-        <TextField fullWidth label="Last name"
+        <TextField fullWidth label='Last name'
           error={!(errors.lastName == null)}
-          variant="outlined"
-          size="small"
+          variant='outlined'
+          size='small'
           {...register('lastName', { required: 'Last name is required' })}
           helperText={errors.lastName?.message ?? ''} />
 
-        <FormControl fullWidth size="small">
-          <InputLabel id="gender-select-label">Gender</InputLabel>
+        <FormControl fullWidth size='small'>
+          <InputLabel id='gender-select-label'>Gender</InputLabel>
           <Controller
             render={({ field: { onChange, onBlur, value, ref } }) =>
-              <Select labelId="gender-select-label"
-                id="gender-select"
+              <Select labelId='gender-select-label'
+                id='gender-select'
                 defaultValue={user.gender}
-                label="Gender"
+                label='Gender'
                 onChange={onChange} // send value to hook form
                 onBlur={onBlur} // notify when input is touched
                 value={value} // return updated value
@@ -58,8 +57,8 @@ const About = ({errors, register, control, user}: Props) => {
           render={({ field: { onChange, onBlur, value, ref } }) => (
             <LocalizationProvider dateAdapter={AdapterMoment}>
               <MobileDatePicker
-                label="Birthdate"
-                inputFormat="MM/DD/YYYY"
+                label='Birthdate'
+                inputFormat='MM/DD/YYYY'
                 {...register('birthday')}
                 value={value}
                 onChange={(date) => {

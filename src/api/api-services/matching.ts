@@ -10,7 +10,7 @@ class Matching {
     this.sessionService = sessionService
   }
 
-  public async getMatches(page: number): Promise<dto.Match[]> {
+  public async getMatches (page: number): Promise<dto.Match[]> {
     return await http.post<HttpResponse<dto.Match[]>>('/form/match', {
       pagination: {
         page

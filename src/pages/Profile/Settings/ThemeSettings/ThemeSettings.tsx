@@ -1,4 +1,4 @@
-import { Box, PaletteMode, Typography } from '@mui/material'
+import { Box, type PaletteMode, Typography } from '@mui/material'
 import commonStyles from '../../Profile.module.scss'
 import styles from './ThemeSettings.module.scss'
 import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'

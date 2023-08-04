@@ -1,7 +1,9 @@
 import { Box, Button } from '@mui/material'
-import { Location, Outlet, useLocation, useNavigate, useOutletContext, useSearchParams } from 'react-router-dom'
+import { type Location, Outlet, useLocation, useNavigate, useOutletContext, useSearchParams } from 'react-router-dom'
 import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
-import useProgressSlider, { type ProgressSliderSetActiveFunc, type ProgressSliderSetPercentFunc } from 'src/components/ProgressSlider/useProgressSlider'
+import useProgressSlider, {
+  type ProgressSliderSetActiveFunc, type ProgressSliderSetPercentFunc
+} from 'src/components/ProgressSlider/useProgressSlider'
 import { type MainLayoutContext, useMainContext } from 'src/layouts/Main/MainLayout'
 import styles from './AppartmentQuestionnaire.module.scss'
 import { useEffect, useState } from 'react'
@@ -321,7 +323,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
   const onFinish = (): void => {
     if (apartment.id === null) {
       if (apartment.purpose === 'Questionnaire') {
-        linkApartmentToQuestionnaire()
+        void linkApartmentToQuestionnaire()
       } else {
         void saveApartment(apartment as unknown as Apartment)
       }

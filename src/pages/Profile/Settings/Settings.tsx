@@ -1,7 +1,7 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Typography } from '@mui/material'
 import styles from '../Profile.module.scss'
-import SettingsNavigationButton from "src/components/navigation/SettingsNavigationButton/SettingsNavigationButton"
-import BackButton from "src/components/Buttons/BackButton/BackButton"
+import SettingsNavigationButton from 'src/components/navigation/SettingsNavigationButton/SettingsNavigationButton'
+import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const Settings = (): JSX.Element => {
   return (

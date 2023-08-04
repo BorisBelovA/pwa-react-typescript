@@ -1,4 +1,4 @@
-import { City, Country, District } from "./location"
+import { type City, type Country, type District } from './location'
 
 export const enum ApartmentPurpose {
   Rent = 'LINK_TO_USER',

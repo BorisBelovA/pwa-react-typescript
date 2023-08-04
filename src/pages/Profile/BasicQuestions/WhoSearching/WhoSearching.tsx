@@ -60,7 +60,7 @@ export const WhoSearching = (): JSX.Element => {
 
   return <Box className={commonStyles.question}>
     <Box className={commonStyles.question__head}>
-      <Typography variant='h1'>Who's looking</Typography>
+      <Typography variant='h1'>Who&apos;s looking</Typography>
     </Box>
 
     <Box className={`${commonStyles.question__content} ${styles.justify_center}`}>

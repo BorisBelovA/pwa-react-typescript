@@ -1,15 +1,15 @@
-import { Box, Button, Typography, useTheme } from "@mui/material"
+import { Box, Button, Typography } from '@mui/material'
 import styles from './PathSelection.module.scss'
-import { useNavigate } from "react-router-dom"
-import { ProfileRoutes } from "models"
-import { useMainContext } from "src/layouts/Main/MainLayout"
+import { useNavigate } from 'react-router-dom'
+import { ProfileRoutes } from 'models'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 export const PathSelection = (): JSX.Element => {
   const navigate = useNavigate()
   const { setMessage } = useMainContext()
 
   return <Box className={styles.container}>
-    <Typography variant="h2">Choose what you want to do</Typography>
+    <Typography variant='h2'>Choose what you want to do</Typography>
     <Button variant='contained'
       fullWidth
       onClick={() => {

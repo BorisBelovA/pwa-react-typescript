@@ -1,12 +1,8 @@
-import { TextField, FormControl, InputLabel, Select, MenuItem, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { useEffect } from 'react'
-import { useForm, Controller } from 'react-hook-form'
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider/LocalizationProvider'
-import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
+import { useForm } from 'react-hook-form'
 import styles from './FirstStep.module.scss'
 import { type EmptyPersonalInfo, type NewUser } from '../../../models/user'
-import moment from 'moment'
 import About from 'src/components/BasicInfoSteps/About'
 
 export interface FirstStepProps {
@@ -28,7 +24,7 @@ export const FirstStep = ({ user, stepValid, userInfoChange }: FirstStepProps): 
 
   useEffect(() => {
     const subss = watch(({ firstName, lastName, gender, birthday }) => {
-      const valid = !!firstName && !!lastName 
+      const valid = !!firstName && !!lastName
       stepValid(valid)
       userInfoChange({ firstName, lastName, birthday, gender })
     })

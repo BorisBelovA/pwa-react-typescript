@@ -18,7 +18,7 @@ const About: React.FunctionComponent = () => {
       setPercent(1, 1, 'about')
     }
   })
-  
+
   return (
     <Box className={styles.question}>
       <Box className={styles.question__head}>

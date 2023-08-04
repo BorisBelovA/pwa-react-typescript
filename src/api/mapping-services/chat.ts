@@ -1,5 +1,5 @@
-import * as dto from 'dto'
-import * as models from 'models'
+import type * as dto from 'dto'
+import type * as models from 'models'
 import { mapGenderToModel } from './user'
 import moment from 'moment'
 import { mapPhotoNameToURI } from './file-mapping'
@@ -13,7 +13,7 @@ export const mapRecipientToModel = (recipient: dto.Recipient): models.Recipient 
     firstName: recipient.firstName ?? '',
     lastName: recipient.lastName ?? '',
     gender: mapGenderToModel(recipient.gender ?? 'FEMALE'),
-    birthday: moment(`${recipient.birthday}:24:00:00`, 'YYYY-MM-DD:hh:mm:ss').toDate(),
+    birthday: moment(`${recipient.birthday ?? ''}:24:00:00`, 'YYYY-MM-DD:hh:mm:ss').toDate(),
     email: recipient.email,
     phone: null,
     photo: null,

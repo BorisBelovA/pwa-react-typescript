@@ -79,11 +79,11 @@ const Pets: React.FunctionComponent = () => {
     }
   }
 
-  const totalAmountOfPets = useMemo(() => {
-    return pets.reduce((total, pet) => {
-      return total + pet.count
-    }, 0)
-  }, [pets])
+  // const totalAmountOfPets = useMemo(() => {
+  //   return pets.reduce((total, pet) => {
+  //     return total + pet.count
+  //   }, 0)
+  // }, [pets])
 
   return (
     <Box className={styles.question}>

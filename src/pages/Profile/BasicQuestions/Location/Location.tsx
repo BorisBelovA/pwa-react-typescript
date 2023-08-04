@@ -43,7 +43,7 @@ export const Location = (): JSX.Element => {
     }
   }
 
-  const { control, register, watch, reset, resetField, formState: { errors, isValid } } = useForm<{
+  const { control, watch, formState: { errors } } = useForm<{
     country: Country | null
     city: City | null
     state: District | null
@@ -51,7 +51,7 @@ export const Location = (): JSX.Element => {
     defaultValues: {
       country: questions.location.country ?? null,
       city: questions.location.city ?? null,
-      state: questions.location.state ?? null,
+      state: questions.location.state ?? null
     },
     mode: 'all'
   })

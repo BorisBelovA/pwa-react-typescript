@@ -88,13 +88,13 @@ export const EmailCode = observer((): JSX.Element => {
     <Typography variant='subtitle2'>A verification code has been sent to you</Typography>
 
     {timeLeft > 0 && <Typography variant='body1'>You can send new one in {timeLeft} seconds</Typography>}
-    {timeLeft === 0 && <Button onClick={sendAgain}>Send again</Button>}
+    {timeLeft === 0 && <Button onClick={ () => { void sendAgain() }}>Send again</Button>}
 
     <Button fullWidth
       disabled={otp.length !== 4}
       variant='contained'
-      sx={{ marginTop: '1rem'}}
-      onClick={(e) => { void verify(otp) }}>
+      sx={{ marginTop: '1rem' }}
+      onClick={() => { verify(otp) }}>
       Verify
     </Button>
 
