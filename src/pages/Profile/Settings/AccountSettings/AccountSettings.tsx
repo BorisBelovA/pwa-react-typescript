@@ -1,7 +1,6 @@
-import { Box, Button, IconButton, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import styles from '../../Profile.module.scss'
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import { useStore } from 'src/utils/StoreProvider'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
 

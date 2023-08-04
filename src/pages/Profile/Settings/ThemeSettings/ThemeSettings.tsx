@@ -1,14 +1,11 @@
-import { Box, IconButton, PaletteMode, Typography } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import { Box, PaletteMode, Typography } from '@mui/material'
 import commonStyles from '../../Profile.module.scss'
 import styles from './ThemeSettings.module.scss'
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'
 import { useStore } from 'src/utils/StoreProvider'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const ThemeSettings = (): JSX.Element => {
-  const navigate = useNavigate()
   const { themeStore } = useStore()
   const options: Array<Option<PaletteMode | null>> = [
     { text: 'Light', value: 'light', icon: 'light_mode' },

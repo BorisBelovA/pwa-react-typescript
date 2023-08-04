@@ -1,10 +1,10 @@
-import { Box, IconButton, Typography, useTheme } from '@mui/material'
-import { useEffect, useState } from 'react'
+import { Box, Typography, useTheme } from '@mui/material'
+import { useState } from 'react'
 import styles from './CardBase.module.scss'
 import Badge from '../../Badge/Badge'
 import NoPhotographyIcon from '@mui/icons-material/NoPhotography'
 import SwipeUpIcon from '@mui/icons-material/SwipeUp'
-import { Badges } from 'src/models/badges'
+import { type Badges } from 'src/models/badges'
 
 interface Props {
   header: JSX.Element
@@ -17,8 +17,8 @@ const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
   const theme = useTheme()
   const [expanded, setExpanded] = useState(false)
 
-  const [scroll, setScroll] = useState<boolean>(false)
-  const [start, setStart] = useState<number>(0)
+  // const [scroll, setScroll] = useState<boolean>(false)
+  // const [start, setStart] = useState<number>(0)
 
   // const handleScroll = (): void => {
   //   setScroll(!scroll)
@@ -26,26 +26,26 @@ const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
 
   // touch scrolling for info, need to add functionality
   // to prevent switching if content inside scrolled
-  const onTouchStart = (e: TouchEvent): void => {
-    setStart(e.touches[0].clientY)
-  }
-  const onTouchEnd = (e: TouchEvent): void => {
-    start - e.changedTouches[0].clientY > 0 ? setScroll(true) : setScroll(false)
-  }
+  // const onTouchStart = (e: TouchEvent): void => {
+  //   setStart(e.touches[0].clientY)
+  // }
+  // const onTouchEnd = (e: TouchEvent): void => {
+  //   start - e.changedTouches[0].clientY > 0 ? setScroll(true) : setScroll(false)
+  // }
 
-  useEffect(() => {
-    window.addEventListener('touchstart', onTouchStart)
-    return () => {
-      window.removeEventListener('touchstart', onTouchStart)
-    }
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener('touchstart', onTouchStart)
+  //   return () => {
+  //     window.removeEventListener('touchstart', onTouchStart)
+  //   }
+  // }, [])
 
-  useEffect(() => {
-    window.addEventListener('touchmove', onTouchEnd)
-    return () => {
-      window.removeEventListener('touchmove', onTouchEnd)
-    }
-  })
+  // useEffect(() => {
+  //   window.addEventListener('touchmove', onTouchEnd)
+  //   return () => {
+  //     window.removeEventListener('touchmove', onTouchEnd)
+  //   }
+  // })
 
   return (
     <Box className={styles.container}>
@@ -72,7 +72,6 @@ const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
           ))}
         </Box>
 
-
           <Box className={styles.header}>
             <Box className={`${styles.header_general}  ${expanded ? styles.expanded : ''}`}>
               {header}
@@ -85,7 +84,6 @@ const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
             sx={{ backgroundColor: theme.palette.background.paper }}>
             <Box className={styles.description__content}>{content}</Box>
           </Box>
-
 
       </Box>
 

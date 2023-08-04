@@ -1,11 +1,8 @@
-import { Box, IconButton, Typography } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import { Box, Typography } from '@mui/material'
 import styles from '../../Profile.module.scss'
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const BasicQuestionsRoommate = (): JSX.Element => {
-  const navigate = useNavigate()
   return (
     <Box className={styles.profile__container}>
       <Box className={styles.profile__header}>

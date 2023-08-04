@@ -3,7 +3,7 @@ import { Avatar, Box, IconButton, Typography, useTheme } from '@mui/material'
 import { useStore } from 'src/utils/StoreProvider'
 import styles from './Profile.module.scss'
 import SettingsNavigationButton from 'src/components/navigation/SettingsNavigationButton/SettingsNavigationButton'
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import { type ChangeEvent, useState, useEffect } from 'react'
 import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
 import { ProfileRoutes } from 'models'
@@ -18,10 +18,6 @@ const Profile: React.FunctionComponent = observer(() => {
   const [cropVisible, setCropVisible] = useState(false)
   const [image, setImage] = useState('')
   const navigate = useNavigate()
-
-  const pickAvatar = (): void => {
-    document.getElementById('photo-upload')?.click()
-  }
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if ((e.target.files != null)) {
@@ -56,14 +52,14 @@ const Profile: React.FunctionComponent = observer(() => {
       ...userStore.user,
       avatar: avatarName
     }),
-      sessionService.authToken
+    sessionService.authToken
     )
     userStore.setAvatar(mapPhotoNameToURI(avatarName))
   }
 
   const theme = useTheme()
 
-  const getQuestionnaire = async () => {
+  const getQuestionnaire = async (): Promise<void> => {
     await questionnaireStore.getQuestionnaire()
   }
 
@@ -77,7 +73,7 @@ const Profile: React.FunctionComponent = observer(() => {
     <Box className={styles.profile_container}>
       <Box className={styles.profile_user_info_container}>
         <Box className={styles.profile_user_info_avatar}
-          onClick={() => navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.PREVIEW}`)}
+          onClick={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.PREVIEW}`) }}
           sx={{
             border: `2px solid ${theme.palette.primary.main}`,
             borderRadius: '100%'
@@ -118,7 +114,7 @@ const Profile: React.FunctionComponent = observer(() => {
       shape='round'
       acceptImage={photo => {
         setCropVisible(false)
-        saveAvatar(photo);
+        void saveAvatar(photo);
         (document.getElementById('photo-upload') as HTMLInputElement).value = ''
       }}
     />}

@@ -3,7 +3,7 @@ import commonStyles from '../../Profile.module.scss'
 import CardMyProfile from 'src/components/Cards/CardMyProfile/CardMyProfile'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
-const Preview = () => {
+const Preview = (): JSX.Element => {
   return (
     <>
       <Box className={commonStyles.profile__header}>

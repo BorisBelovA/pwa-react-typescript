@@ -5,7 +5,7 @@ export const enum ProfileRoutes {
   MY_APARTMENT = 'my-apartments',
   SETTINGS = 'settings',
   BASIC_QUEST = 'questionnaire-basic-info',
-  BASIC_INFO ='basic-information'
+  BASIC_INFO = 'basic-information'
 }
 
 export const enum ApartmentsRoutes {

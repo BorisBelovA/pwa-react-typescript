@@ -1,4 +1,13 @@
 .head {
   padding-bottom: 0rem;
   transition: padding-bottom 0.3s ease-in-out;
+  &__bio {
+    display: flex;
+  }
+}
+
+.content__qualities {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
 }

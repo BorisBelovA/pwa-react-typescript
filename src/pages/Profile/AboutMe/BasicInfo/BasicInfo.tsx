@@ -13,12 +13,10 @@ import { sessionService, userApiService } from 'api-services'
 import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
 import { filesApiService } from 'src/api/api-services/files'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
-import { useNavigate } from 'react-router-dom'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const BasicInfo = (): JSX.Element => {
   const { userStore } = useStore()
-  const navigate = useNavigate()
   const [user, setUser] = useState({ ...userStore } as NewUser)
   const [allValid, setAllValid] = useState<boolean>()
   const {
