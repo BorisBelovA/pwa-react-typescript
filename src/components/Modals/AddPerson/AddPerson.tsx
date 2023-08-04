@@ -67,7 +67,8 @@ const AddPerson = ({ open, handleClose, who, addPerson }: Props): JSX.Element =>
               size="small"
               {...register('email', {
                 pattern: emailPatternValidator,
-                required: 'Email is required' })
+                required: 'Email is required'
+              })
               }
               helperText={errors.email?.message ?? ''}
               className={styles.addPerson__inviteInput} />

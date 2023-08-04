@@ -1,5 +1,7 @@
-import { Box, Button, Card, IconButton, Modal, styled, 
-  SvgIcon, TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
+import {
+  Box, Button, Card, IconButton, Modal, styled,
+  SvgIcon, TextField, ToggleButton, ToggleButtonGroup, Typography
+} from '@mui/material'
 import { type Contact } from 'models'
 import styles from './AddContact.module.scss'
 import CloseIcon from '@mui/icons-material/Close'
