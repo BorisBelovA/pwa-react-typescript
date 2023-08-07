@@ -20,7 +20,7 @@ class UserApiService {
   }
 
   public async sendCode (email: string): Promise<null> {
-    return await http.post<HttpResponse<null>>('/reset', { email })
+    return await http.post<HttpResponse<null>>('/login/reset', { email })
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
           throw new Error(response.data.status.statusCodeDescription)
