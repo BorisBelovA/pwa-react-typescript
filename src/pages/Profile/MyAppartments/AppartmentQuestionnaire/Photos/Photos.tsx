@@ -6,11 +6,18 @@ import { apartmentQuestionnaireContext } from '../..'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
 import { ApartmentsQuestionnaireRoutes } from 'models'
 import { imageTypes } from 'src/utils/constants'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { photoReader } from 'src/utils/photoReader'
 
 export const Photos = (): JSX.Element => {
   const { apartment, setApartment, setPercent, setNextDisabled, setActive } = apartmentQuestionnaireContext()
   const [cropVisible, setCropVisible] = useState(false)
   const [image, setImage] = useState('')
+  const {
+    setBackdropVisible,
+    setBackdropMessage,
+    setMessage
+  } = useMainContext()
 
   const theme = useTheme()
 
@@ -49,23 +56,17 @@ export const Photos = (): JSX.Element => {
     if ((e.target.files != null)) {
       const oversize = (e.target.files[0].size / (1024 * 1024)) > 20
       if (!oversize) {
-        openCrop(e.target.files[0])
+        void openCrop(e.target.files[0])
       }
     }
   }
 
-  const openCrop = (photo: File): void => {
-    const reader = photoReader(photo)
+  const openCrop = async (photo: File): Promise<void> => {
+    const reader = await photoReader({ photo, setBackdropVisible, setBackdropMessage, setMessage })
     reader.onloadend = () => {
       setImage(reader.result as string)
       setCropVisible(true)
     }
-  }
-
-  const photoReader = (photo: File): FileReader => {
-    const reader = new FileReader()
-    reader.readAsDataURL(photo)
-    return reader
   }
 
   return <>

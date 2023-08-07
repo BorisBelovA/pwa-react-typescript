@@ -9,7 +9,7 @@ import { useStore } from 'src/utils/StoreProvider'
 import styles from './BasicInfo.module.scss'
 import SaveIcon from '@mui/icons-material/Save'
 import { sessionService, userApiService } from 'api-services'
-import { mapBase64ToFile, mapUserToDto } from 'mapping-services'
+import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
 import { filesApiService } from 'src/api/api-services/files'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
@@ -95,7 +95,7 @@ const BasicInfo = (): JSX.Element => {
         const file = await mapBase64ToFile(photo, `${new Date().toISOString()}`)
         photoName = await filesApiService.uploadFile(file, 'photo')
       }
-      const response = await userApiService.updateUser(mapUserToDto({
+      await userApiService.updateUser(mapUserToDto({
         id: userStore.id,
         firstName,
         lastName,
@@ -110,14 +110,14 @@ const BasicInfo = (): JSX.Element => {
       setBackdropMessage('Finishing up!')
       setTimeout(() => {
         userStore.setUser({
-          id: response.id,
+          id: userStore.id,
           firstName,
           lastName,
           gender,
           birthday,
           phone: phone ?? null,
-          photo: photo ?? null,
-          avatar: avatar ?? null
+          photo: mapPhotoNameToURI(photoName ?? '') ?? null,
+          avatar: mapPhotoNameToURI(avatarName ?? '') ?? null
         })
         setBackdropVisible(false)
       }, 2000)
