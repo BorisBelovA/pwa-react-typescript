@@ -2,7 +2,6 @@ import { Box, Button, Typography } from '@mui/material'
 import { useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useActive } from 'src/components'
-import ProfileCard from 'src/components/ProfileCard/ProfileCard'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
 import { questionnaireService } from 'api-services'
@@ -10,6 +9,7 @@ import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { QuestionnaireRoutes } from 'models'
+import CardProfile from 'src/components/Cards/CardProfile/CardProfile'
 
 const Summary = observer((): JSX.Element => {
   const navigate = useNavigate()
@@ -95,7 +95,7 @@ const Summary = observer((): JSX.Element => {
         <Typography className={styles.question__head_text} variant='h1'>Everything is correct?</Typography>
       </Box>
       <Box className={styles.question__content_preview}>
-        <ProfileCard info={questions} person={user} />
+        <CardProfile info={questions} person={user} />
       </Box>
       <Box className={styles.question__nav_preview}>
         <Button variant='outlined'
