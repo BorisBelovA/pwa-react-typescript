@@ -23,6 +23,8 @@
         "no-extra-boolean-cast": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
         "max-len": [ "warn", { "code": 140 } ],
-        "@typescript-eslint/strict-boolean-expressions": "off"
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/restrict-template-expressions": "off"
     }
 }

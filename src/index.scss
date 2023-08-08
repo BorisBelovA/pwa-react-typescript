@@ -32,7 +32,8 @@ a {
   --constant-dark-color: #0D1B2A;
   --constant-dark-color-70: RGBA(13, 27, 42, .7);
   --constant-dark-color-80: RGBA(13, 27, 42, .8);
-  --constant-light-color: #D4E2F2;
+  --constant-light-color: rgb(212, 226, 242);
+  --constant-light-color-50: rgba(212, 226, 242, .3);
   --contrast-light-color: white;
   --safe-area-inset: calc(env(safe-area-inset-bottom) / 2);
 

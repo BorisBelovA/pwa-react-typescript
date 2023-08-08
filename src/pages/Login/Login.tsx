@@ -1,11 +1,7 @@
-import { Box, Button, Divider, IconButton, InputAdornment, type SxProps, TextField, Typography, useTheme } from '@mui/material'
-import { ReactComponent as GoogleIcon } from '../../assets/sm-icons/GoogleIcon.svg'
-import { ReactComponent as AppleIcon } from '../../assets/sm-icons/AppleIcon.svg'
-import { ReactComponent as FacebookIcon } from '../../assets/sm-icons/FacebookIcon.svg'
+import { Box, Button, IconButton, InputAdornment, TextField, Typography, useTheme } from '@mui/material'
 import { useState } from 'react'
 import { useForm, type ValidationRule } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
-import utilityStyles from '../../styles/utility.module.scss'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { userApiService, sessionService } from 'api-services'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
@@ -22,13 +18,6 @@ const minLength = (length: number): ValidationRule<number> => ({
   value: length,
   message: `Min length ${length} symbols`
 })
-
-const sxSMButtons: SxProps = {
-  display: 'flex',
-  gap: '1rem',
-  paddingY: '.75rem',
-  justifyContent: 'left'
-}
 
 export const Login = (): JSX.Element => {
   const navigate = useNavigate()
@@ -123,24 +112,15 @@ export const Login = (): JSX.Element => {
       <Button disabled={!isValid}
         onClick={(e) => { void handleSubmit(onSubmit)(e) }}
         variant="contained"
-        sx={{ width: '50%' }}
+        sx={{ width: '100%' }}
       >
         Log in
       </Button>
     </Box>
-    <Box sx={{ width: '100%', alignItems: 'center', marginY: '1.5rem' }}>
-      <Divider><Typography variant='h2'>or</Typography></Divider>
-    </Box>
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '.5rem', width: '100%' }}>
-      <Button variant="outlined" sx={sxSMButtons}>
-        <GoogleIcon className={utilityStyles.smIcon} />Log in with Google
-      </Button>
-      <Button variant="outlined" sx={sxSMButtons}>
-        <FacebookIcon className={utilityStyles.smIcon} />Log in with Facebook
-      </Button>
-      <Button variant="outlined" sx={sxSMButtons}>
-        <AppleIcon className={utilityStyles.smIcon} />Log in with Apple
-      </Button>
+    <Box sx={{ width: '100%', textAlign: 'right' }}>
+      <Link to='/auth/reset-password/get-code'>
+        <Typography component='span' sx={{ color: theme.palette.primary.main }}>Forgot password?</Typography>
+      </Link>
     </Box>
   </>
 }
