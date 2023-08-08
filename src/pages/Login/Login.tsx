@@ -1,8 +1,7 @@
-import { Box, Button, IconButton, InputAdornment, type SxProps, TextField, Typography, useTheme, Link as MUILink } from '@mui/material'
+import { Box, Button, IconButton, InputAdornment, TextField, Typography, useTheme } from '@mui/material'
 import { useState } from 'react'
 import { useForm, type ValidationRule } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
-import utilityStyles from '../../styles/utility.module.scss'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { userApiService, sessionService } from 'api-services'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
@@ -19,13 +18,6 @@ const minLength = (length: number): ValidationRule<number> => ({
   value: length,
   message: `Min length ${length} symbols`
 })
-
-const sxSMButtons: SxProps = {
-  display: 'flex',
-  gap: '1rem',
-  paddingY: '.75rem',
-  justifyContent: 'left'
-}
 
 export const Login = (): JSX.Element => {
   const navigate = useNavigate()
