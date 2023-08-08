@@ -4,7 +4,7 @@ import CardBase from '../CardBase/CardBase'
 import { useEffect } from 'react'
 import { type Badges } from 'src/models/badges'
 import { calculateAge } from 'src/utils/date-time'
-import Qualities from 'src/components/ProfileCard/Qualities/Qualities'
+import Qualities from 'src/components/Qualities/Qualities'
 import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import EditIcon from '@mui/icons-material/Edit'
@@ -44,6 +44,7 @@ const CardMyProfile = (): JSX.Element => {
           {`${userStore.firstName}, ${userStore.birthday ? calculateAge(userStore.birthday) : 0}`}
         </Typography>
         <IconButton sx={{ color: theme.palette.primary.main }}
+          className={styles.icon__edit}
           size='small'
           aria-label="edit"
           onClick={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.BASIC_INFO}`) }}>
