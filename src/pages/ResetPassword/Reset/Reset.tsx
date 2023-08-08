@@ -21,7 +21,7 @@ const Reset = (): JSX.Element => {
   const navigate = useNavigate()
   const { registrationStore } = useStore()
   const [otp, setOtp] = useState('')
-  const [ searchParams ] = useSearchParams()
+  const [searchParams] = useSearchParams()
   const { register, handleSubmit, getValues, formState: { errors, isValid } } = useForm<ResetForm>({
     defaultValues: {
       email: '',
