@@ -1,7 +1,7 @@
 import styles from './UserCard.module.scss'
 import PersonIcon from '@mui/icons-material/Person'
 import { Typography } from '@mui/material'
-import { CommonProps } from '@mui/material/OverridableComponent'
+import { type CommonProps } from '@mui/material/OverridableComponent'
 
 export type UserCardProps = CommonProps & {
   image: string | null | undefined
@@ -12,7 +12,7 @@ export type UserCardProps = CommonProps & {
 }
 
 export const UserCard = ({ image, noImageComponent, name, age, action, className }: UserCardProps): JSX.Element => {
-  return <div className={`${styles.userCard} ${className}`}
+  return <div className={`${styles.userCard} ${className ?? ''}`}
     style={{ backgroundColor: Boolean(image) ? 'transparent' : '#2EAB67' }}>
     <div className={styles.userCardContent}>
       {

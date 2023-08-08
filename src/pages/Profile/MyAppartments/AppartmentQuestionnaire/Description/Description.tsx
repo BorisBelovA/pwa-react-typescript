@@ -33,7 +33,7 @@ export const Description = (): JSX.Element => {
       multiline
       rows={20}
       value={description}
-      inputProps={{ style: { height: '90%' }}}
+      inputProps={{ style: { height: '90%' } }}
       onChange={(event) => {
         setDescription(event.target.value)
       }}

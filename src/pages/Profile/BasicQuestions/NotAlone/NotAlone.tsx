@@ -2,18 +2,13 @@ import { Box, Button, Slider, Typography } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from './NotAlone.module.scss'
-import { useEffect, useMemo, useState } from 'react'
-import AddPerson from 'src/components/Modals/AddPerson/AddPerson'
+import { useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { QuestionnaireRoutes } from 'models'
 
 export const NotAlone = (): JSX.Element => {
   const { questions, setQuestions, setPercent, setActive } = useBasicQuestions()
-  const [open, setOpen] = useState(false)
   const navigate = useNavigate()
-
-  const handleOpen = (): void => { setOpen(true) }
-  const handleClose = (): void => { setOpen(false) }
 
   useEffect(() => {
     setActive('not-alone')

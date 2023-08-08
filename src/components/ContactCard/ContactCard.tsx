@@ -34,7 +34,8 @@
 //           setQuestions({
 //             ...questions,
 //             contacts: questions.contacts.map((contact) => (
-//               contact.type === props.contact.type && contact.contact === props.contact.contact ? { ...contact, hidden: contact.hidden === false } : { ...contact }
+//               contact.type === props.contact.type && contact.contact === props.contact.contact ?
+//                { ...contact, hidden: contact.hidden === false } : { ...contact }
 //             ))
 //           })
 //         }}
@@ -43,7 +44,8 @@
 //         onClick={() => {
 //           setQuestions({
 //             ...questions,
-//             contacts: questions.contacts.filter(contact => (contact.contact !== props.contact.contact || contact.type !== props.contact.type))
+//             contacts: questions.contacts.filter(contact =>
+//              (contact.contact !== props.contact.contact || contact.type !== props.contact.type))
 //           })
 //         }}
 //       ><ClearIcon /></IconButton>
@@ -55,4 +57,3 @@
 export const ContactCard = (): JSX.Element => {
   return <></>
 }
-

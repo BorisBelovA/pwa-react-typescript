@@ -1,4 +1,4 @@
-import * as models from 'models'
+import type * as models from 'models'
 import * as dto from '../dto/questionnaire'
 import { mapApartmentToDto, mapApartmentToModel } from './appartments'
 
@@ -87,7 +87,6 @@ export const mapPetTypeToModel = (pet: dto.PetEnum): models.PetType => {
   }
 }
 // End Pet mapper
-
 
 // Contact mapper
 export const mapContactTypeToDto = (contact: models.ContactType): dto.ContactEnum => {

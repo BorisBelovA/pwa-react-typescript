@@ -4,7 +4,7 @@ import axios from 'axios'
 export default axios.create({
   baseURL: '/api/v1',
   headers: {
-    'Content-type': 'application/json',
+    'Content-type': 'application/json'
     // 'Connection': 'keep-alive',
     // 'Accept-Encoding': 'gzip, deflate, br'
   },

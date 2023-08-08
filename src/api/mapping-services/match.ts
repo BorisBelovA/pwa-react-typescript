@@ -1,5 +1,5 @@
-import * as dto from 'dto'
-import * as models from 'models'
+import type * as dto from 'dto'
+import type * as models from 'models'
 import { mapQuestionnaireToDto, mapQuestionnaireToModel } from './questionnaire'
 import { mapUserToDto, mapUserToModel } from './user'
 

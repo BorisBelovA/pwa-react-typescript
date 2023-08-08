@@ -1,8 +1,6 @@
 import { Box } from '@mui/material'
 import { useOutletContext } from 'react-router-dom'
-
 import ProgressSliderItem, { type ProgressSliderProps } from './ProgressSliderItem/ProgressSliderItem'
-import { useEffect } from 'react'
 
 interface Props {
   items: ProgressSliderProps[]

@@ -3,13 +3,13 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import styles from './ChatHeader.module.scss'
 import { useState } from 'react'
-import VolumeOffIcon from '@mui/icons-material/VolumeOff';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-import SearchIcon from '@mui/icons-material/Search';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff'
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline'
+import SearchIcon from '@mui/icons-material/Search'
 import { useNavigate } from 'react-router-dom'
-import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
-import NotificationsOffIcon from '@mui/icons-material/NotificationsOff';
-import { AuthUser } from 'models'
+import QueryBuilderIcon from '@mui/icons-material/QueryBuilder'
+import NotificationsOffIcon from '@mui/icons-material/NotificationsOff'
+import { type AuthUser } from 'models'
 
 interface ChatHeaderProps {
   user: AuthUser | null

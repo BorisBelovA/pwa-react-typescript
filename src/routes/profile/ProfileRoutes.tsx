@@ -9,11 +9,13 @@ import { questionnaireRoutes } from './questionnaire/BasicInfo'
 import QuestionnaireBasic from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import { NotFound } from 'src/pages/NotFound'
 import BasicInfo from 'src/pages/Profile/AboutMe/BasicInfo/BasicInfo'
+import Preview from 'src/pages/Profile/AboutMe/Preview/Preview'
 
 export default [
   <Route key='1' path={ProfileRoutes.ABOUT_ME}>
     <Route path='' element={<AboutMe />} />
     <Route path={ProfileRoutes.BASIC_INFO} element={<BasicInfo />} />
+    <Route path={ProfileRoutes.PREVIEW} element={<Preview />} />
   </Route>,
   <Route key='2' path={ProfileRoutes.MY_APARTMENT}>
     {apartmentsRoutes}

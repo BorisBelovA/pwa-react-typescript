@@ -7,17 +7,16 @@ import Phone from 'src/components/BasicInfoSteps/Phone'
 import Photo from 'src/components/BasicInfoSteps/Photo'
 import { useStore } from 'src/utils/StoreProvider'
 import styles from './BasicInfo.module.scss'
+import commonStyles from '../../Profile.module.scss'
 import SaveIcon from '@mui/icons-material/Save'
 import { sessionService, userApiService } from 'api-services'
 import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
 import { filesApiService } from 'src/api/api-services/files'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
-import { useNavigate } from 'react-router-dom'
+import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const BasicInfo = (): JSX.Element => {
   const { userStore } = useStore()
-  const navigate = useNavigate()
   const [user, setUser] = useState({ ...userStore } as NewUser)
   const [allValid, setAllValid] = useState<boolean>()
   const {
@@ -134,10 +133,8 @@ const BasicInfo = (): JSX.Element => {
 
   return (
     <Box className={styles.container}>
-      <Box className={styles.header}>
-        <IconButton onClick={() => { navigate(-1) }}>
-          <ArrowBackIosNewRoundedIcon color='primary' />
-        </IconButton>
+      <Box className={commonStyles.profile__header}>
+        <BackButton />
         <Typography variant='h1' className={styles.header__text}>Basic information</Typography>
         <IconButton disabled={allValid} color='primary' onClick={() => { void onFinish() }}>
           <SaveIcon />

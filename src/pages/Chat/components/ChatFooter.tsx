@@ -29,7 +29,7 @@ export const ChatFooter = ({ onMessageSend }: ChatFooterProps): JSX.Element => {
       }}
     />
     <IconButton aria-label='delete' size='small'
-      onClick={() => (sendMessage())}
+      onClick={() => { sendMessage() }}
       disabled={typedMessage.length === 0}
       sx={{
         backgroundColor: theme.palette.primary.main,

@@ -31,9 +31,9 @@ export const Summary = (): JSX.Element => {
 
   const address = (): string => {
     const { country, city, district } = apartment.location
-    return country.name
-      + (district ? ', ' + district.name : '')
-      + (city ? ', ' + city.name : '')
+    return country.name +
+      (district ? ', ' + district.name : '') +
+      (city ? ', ' + city.name : '')
   }
 
   return <Box className={styles.summary_container}>

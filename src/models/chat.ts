@@ -1,8 +1,9 @@
-import { AuthUser, User } from "./user";
-
-export type Recipient = AuthUser & {
+export interface Recipient {
+  id: number
   email: string
-  isActiveProfile: boolean | null
+  firstName: string
+  lastName: string
+  avatar: string | null
 }
 
 export interface Chat {

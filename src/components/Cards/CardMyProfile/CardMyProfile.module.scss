@@ -1,0 +1,18 @@
+.head {
+  padding-bottom: 0rem;
+  transition: padding-bottom 1s ease-in;
+  &__bio {
+    display: flex;
+  }
+}
+
+.content__qualities {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+.icon__edit {
+  display: flex;
+  padding-bottom: 0;
+}

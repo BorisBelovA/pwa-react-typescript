@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
-import { MuiTelInput, matchIsValidTel } from 'mui-tel-input'
+import { matchIsValidTel } from 'mui-tel-input'
 import { useEffect } from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import Phone from 'src/components/BasicInfoSteps/Phone'
 import { type NewUser } from '../../../models/user'
 import styles from './SecondStep.module.scss'
@@ -33,4 +33,3 @@ export const SecondStep = (props: SecondStepProps): JSX.Element => {
     <Phone control={control} />
   </div>
 }
- 

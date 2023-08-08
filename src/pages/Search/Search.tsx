@@ -4,7 +4,6 @@ import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined'
 import { ReactComponent as SwitchIcon } from '../../assets/icons/switch.svg'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
-import ProfileCard from 'src/components/ProfileCard/ProfileCard'
 import { type MatchNew } from 'models'
 import { useEffect, useState } from 'react'
 import { matchingService } from 'src/api/api-services/matching'
@@ -12,6 +11,7 @@ import { mapMatchToModel } from 'mapping-services'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { observer } from 'mobx-react-lite'
 import { useStore } from 'src/utils/StoreProvider'
+import CardProfile from 'src/components/Cards/CardProfile/CardProfile'
 
 const Search: React.FunctionComponent = observer(() => {
   const [index, setIndex] = useState<number>(0)
@@ -93,7 +93,7 @@ const Search: React.FunctionComponent = observer(() => {
       </Box>
       <Box className={styles.search__content}>
         {matches.length > 0 && matches[index] &&
-          <ProfileCard info={matches[index].form} person={matches[index].user} />
+          <CardProfile info={matches[index].form} person={matches[index].user} />
         }
         {matches.length === 0 &&
           <Typography variant='h6'>No matches yet</Typography>

@@ -7,10 +7,13 @@
 .profile__header {
   display: flex;
   align-items: center;
-  column-gap: 1rem;
   & button {
-    padding-left: 0;
+    padding: 0 .5rem 0 0;
   }
+}
+
+.mb1 {
+  margin-bottom: 1rem;
 }
 
 .profile_user_info_container {
