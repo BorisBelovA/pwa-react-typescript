@@ -40,7 +40,7 @@ export const Location = (): JSX.Element => {
     }
   }
 
-  const { control, register, watch, reset, resetField, formState: { errors, isValid } } = useForm<{
+  const { control, register, watch, reset, resetField, formState: { errors } } = useForm<{
     country: Country | null
     city: City | null
     district: District | null

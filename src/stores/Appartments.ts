@@ -50,6 +50,6 @@ export class ApartmentsStore {
   }
 
   public deleteApartments = (): void => {
-    this.apartments = [];
+    this.apartments = []
   }
 }

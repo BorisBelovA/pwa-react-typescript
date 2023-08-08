@@ -1,5 +1,5 @@
-import { Apartment } from './apartment'
-import { City, Country, District } from './location'
+import { type Apartment } from './apartment'
+import { type City, type Country, type District } from './location'
 import { type ShortUser } from './user'
 
 export type Companion = string | ShortUser

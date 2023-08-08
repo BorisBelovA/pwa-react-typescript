@@ -49,6 +49,7 @@
     "start:prod": "REACT_APP_HOST_TYPE=PROD craco start",
     "build": "REACT_APP_HOST_TYPE=PROD craco build",
     "build:win": "SET REACT_APP_HOST_TYPE=PROD & craco build",
+    "lint": "eslint src",
     "test": "craco test",
     "eject": "craco eject",
     "predeploy": "npm run build",

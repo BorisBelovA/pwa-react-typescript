@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
-type Props = {
-    to: string
-    
+interface Props {
+  to: string
 }
 
 const MenuButton: React.FunctionComponent<Props> = (props: Props) => {

@@ -4,6 +4,6 @@ export interface Message {
   // id: number
   // recipientId: number
   senderId: number
-  status: "DELIVERED" | 'SENT'
+  status: 'DELIVERED' | 'SENT'
   timestamp: Date
 }

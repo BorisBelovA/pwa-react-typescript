@@ -5,11 +5,11 @@ import { type RootStore } from './RootStore'
 export class ThemeStore {
   theme: PaletteMode = 'light'
 
-  private storageKey = 'UI_Theme'
+  private readonly storageKey = 'UI_Theme'
 
   rootStore: RootStore
 
-  constructor(rootStore: RootStore) {
+  constructor (rootStore: RootStore) {
     makeAutoObservable(this, { rootStore: false })
     this.rootStore = rootStore
     const savedTheme = this.readFromStorage()

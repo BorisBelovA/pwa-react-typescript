@@ -1,11 +1,11 @@
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, Typography } from '@mui/material'
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import styles from '../../Profile.module.scss'
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import { useStore } from 'src/utils/StoreProvider'
 import { useState } from 'react'
 import { sessionService, userApiService } from 'api-services'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
+import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const AccountSettings = (): JSX.Element => {
   const navigate = useNavigate()
@@ -44,10 +44,8 @@ const AccountSettings = (): JSX.Element => {
   }
   return (
     <Box className={styles.profile__container}>
-      <Box className={styles.profile__header}>
-        <IconButton onClick={() => { navigate(-1) }}>
-          <ArrowBackIosNewRoundedIcon color='primary' />
-        </IconButton>
+      <Box className={`${styles.profile__header} ${styles.mb1}`}>
+        <BackButton />
         <Typography variant='h1'>Account</Typography>
       </Box>
       <Box>

@@ -3,7 +3,7 @@
     min-width: 360px;
     margin: 0 auto;
     padding: 1rem;
-    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    padding-bottom: calc(4rem + var(--safe-area-inset));
     display: flex;
     flex-direction: column;
     height: 100%;

@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useStore } from 'src/utils/StoreProvider'
 import NoImage from '../../../assets/no-image.jpeg'
+import commonStyles from '../Profile.module.scss'
+import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 export const MyApartments = observer((): JSX.Element => {
   const { apartmentStore } = useStore()
@@ -35,6 +37,10 @@ export const MyApartments = observer((): JSX.Element => {
   }, [])
 
   return <>
+    <Box className={`${commonStyles.profile__header} ${commonStyles.mb1}`}>
+      <BackButton />
+      <Typography variant='h1'>My appartments</Typography>
+    </Box>
     {isLoading &&
       <Skeleton variant="rounded" width='100%' height={240} animation="wave" />
     }

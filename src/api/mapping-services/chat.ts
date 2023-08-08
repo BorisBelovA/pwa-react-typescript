@@ -1,7 +1,5 @@
-import * as dto from 'dto'
-import * as models from 'models'
-import { mapGenderToModel } from './user'
-import moment from 'moment'
+import type * as dto from 'dto'
+import type * as models from 'models'
 import { mapPhotoNameToURI } from './file-mapping'
 
 export const mapRecipientToModel = (recipient: dto.Recipient): models.Recipient => {
@@ -12,13 +10,8 @@ export const mapRecipientToModel = (recipient: dto.Recipient): models.Recipient 
     id: recipient.id,
     firstName: recipient.firstName ?? '',
     lastName: recipient.lastName ?? '',
-    gender: mapGenderToModel(recipient.gender ?? 'FEMALE'),
-    birthday: moment(`${recipient.birthday}:24:00:00`, 'YYYY-MM-DD:hh:mm:ss').toDate(),
     email: recipient.email,
-    phone: null,
-    photo: null,
-    avatar: recipient.avatar ? mapPhotoNameToURI(recipient.avatar) : null,
-    isActiveProfile: null
+    avatar: recipient.avatar ? mapPhotoNameToURI(recipient.avatar) : null
   }
 }
 

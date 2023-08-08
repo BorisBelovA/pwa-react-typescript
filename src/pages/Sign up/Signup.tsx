@@ -12,9 +12,8 @@ import { useStore } from 'src/utils/StoreProvider'
 import { userApiService } from 'api-services'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { mapUserToModel } from 'mapping-services'
-import { UserStore } from 'src/stores/UserStore'
 
-//xiwabi4275@byorby.com
+// xiwabi4275@byorby.com
 interface SignUpForm {
   email: string
   password: string
@@ -82,7 +81,9 @@ export const SignUp = (): JSX.Element => {
   return <>
     <div className={styles.headerSection}>
       <Typography variant='h1'>Sign Up</Typography>
-      <Typography variant='body1'>Already have an account? <Link to='/auth/login'><Typography component='span' sx={{ color: theme.palette.primary.main }}>Log in</Typography></Link></Typography>
+      <Typography variant='body1'>Already have an account? <Link to='/auth/login'>
+        <Typography component='span' sx={{ color: theme.palette.primary.main }}>Log in</Typography>
+      </Link></Typography>
     </div>
     <div className={styles.group}>
       <TextField fullWidth label="E-mail"

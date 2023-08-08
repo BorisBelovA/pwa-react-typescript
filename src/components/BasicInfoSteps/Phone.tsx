@@ -1,10 +1,10 @@
-import { matchIsValidTel, MuiTelInput } from "mui-tel-input"
-import { Control, Controller } from "react-hook-form"
+import { matchIsValidTel, MuiTelInput } from 'mui-tel-input'
+import { type Control, Controller } from 'react-hook-form'
 
 interface Props {
-  control: Control<{ phone: string; }, any>
+  control: Control<{ phone: string }, any>
 }
-const Phone = ({ control }: Props) => {
+const Phone = ({ control }: Props): JSX.Element => {
   return (
     <Controller name='phone' control={control}
       rules={{ validate: matchIsValidTel }}

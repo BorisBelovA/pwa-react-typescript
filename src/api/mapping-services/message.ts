@@ -1,6 +1,6 @@
-import { type Message } from 'models';
-import { type Message as dtoMessage } from '../dto/message';
-import moment from 'moment';
+import { type Message } from 'models'
+import { type Message as dtoMessage } from '../dto/message'
+import moment from 'moment'
 
 export const mapMessageToModel = (message: dtoMessage): Message => {
   const zoneOffset = new Date().getTimezoneOffset()

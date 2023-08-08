@@ -31,8 +31,10 @@ a {
   --accent-color:  #F55D3E;
   --constant-dark-color: #0D1B2A;
   --constant-dark-color-70: RGBA(13, 27, 42, .7);
+  --constant-dark-color-80: RGBA(13, 27, 42, .8);
   --constant-light-color: #D4E2F2;
   --contrast-light-color: white;
+  --safe-area-inset: calc(env(safe-area-inset-bottom) / 2);
 
   .dark {
     // Variables for dark palete

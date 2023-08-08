@@ -1,14 +1,14 @@
-import { Box, Card, IconButton, Typography, useTheme } from '@mui/material'
+import { Box, Card, Typography, useTheme } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import commonStyles from '../Profile.module.scss'
 import styles from './AboutMe.module.scss'
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import { LinearProgressWithLabel } from 'src/components/LinearProgressWithLabel/LinearProgressWithLabel'
 import { ProfileRoutes, type QuestionnaireBasicType, QuestionnaireRoutes } from 'models'
 import { observer } from 'mobx-react-lite'
 import { useStore } from 'src/utils/StoreProvider'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import { useMemo } from 'react'
+import BackButton from 'src/components/Buttons/BackButton/BackButton'
 
 const getPersonalInfoProgress = (questionnaire: QuestionnaireBasicType): number => {
   const whoProgress = questionnaire.who === null
@@ -70,9 +70,7 @@ const AboutMe = observer((): JSX.Element => {
   return (
     <Box className={commonStyles.profile__container}>
       <Box className={commonStyles.profile__header}>
-        <IconButton onClick={() => { navigate(-1) }}>
-          <ArrowBackIosNewRoundedIcon color='primary' />
-        </IconButton>
+        <BackButton />
         <Typography variant='h1'>About me</Typography>
       </Box>
       <Box className={styles.profile__content}>
