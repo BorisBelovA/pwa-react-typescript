@@ -6,6 +6,9 @@ import OtpInput from 'react-otp-input'
 import { useState } from 'react'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { minLength } from 'src/utils/validations'
+import { useStore } from 'src/utils/StoreProvider'
+import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
+import { userApiService } from 'api-services'
 
 interface ResetForm {
   email: string
@@ -15,6 +18,7 @@ interface ResetForm {
 
 const Reset = (): JSX.Element => {
   const navigate = useNavigate()
+  const { registrationStore } = useStore()
   const [otp, setOtp] = useState('')
   const { register, handleSubmit, getValues, formState: { errors, isValid } } = useForm<ResetForm>({
     defaultValues: {
@@ -24,6 +28,11 @@ const Reset = (): JSX.Element => {
     },
     mode: 'all'
   })
+  const {
+    setBackdropMessage,
+    setBackdropVisible,
+    setMessage
+  } = useAuthContext()
 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfPassword, setShowConfPassword] = useState(false)
@@ -33,14 +42,31 @@ const Reset = (): JSX.Element => {
   }
 
   const onSubmit = async (data: ResetForm): Promise<void> => {
-    navigate('/auth/reset-password/success')
+    setBackdropVisible(true)
+    setBackdropMessage('Updating password')
+
+    try {
+      await userApiService.resetPassword(registrationStore.email, data.password, otp)
+      registrationStore.setCredentials(registrationStore.email, data.password)
+      setBackdropVisible(false)
+      navigate('/auth/reset-password/success')
+    } catch (e) {
+      setMessage({
+        visible: true,
+        severity: 'error',
+        text: e instanceof Error
+          ? e.message
+          : 'Something went wtong'
+      })
+      setBackdropVisible(false)
+    }
   }
 
   return (
     <Box className={styles.form}>
       <Box className={styles.form__head}>
         <Typography variant='h1'>Reset password</Typography>
-        <Typography>for mail@mail.com</Typography>
+        <Typography>for {registrationStore.email}</Typography>
       </Box>
 
       <Box className={`${styles.form__input} ${styles.center}`}>

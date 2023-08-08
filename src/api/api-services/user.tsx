@@ -33,6 +33,20 @@ class UserApiService {
       })
   }
 
+  public async resetPassword (email: string, password: string, token: string): Promise<null> {
+    return await http.post<HttpResponse<null>>('/user/reset', { userDto: { email, password }, token })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.status?.statusCodeDescription ?? errorResponse.message)
+        throw new Error(errorResponse.status?.statusCodeDescription ?? errorResponse.message)
+      })
+  }
+
   public async updateUser (user: UserForm, token: string): Promise<UserDto> {
     return await http.put<HttpResponse<UserDto>>('/user', user, {
       headers: {
