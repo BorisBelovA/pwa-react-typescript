@@ -1,14 +1,15 @@
 import { Box, Button, IconButton, InputAdornment, Link, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
-import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import { Link as RouterLink, useNavigate, useSearchParams } from 'react-router-dom'
 import styles from '../ResetPassword.module.scss'
 import OtpInput from 'react-otp-input'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { minLength } from 'src/utils/validations'
 import { useStore } from 'src/utils/StoreProvider'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { userApiService } from 'api-services'
+import { observer } from 'mobx-react-lite'
 
 interface ResetForm {
   email: string
@@ -20,6 +21,7 @@ const Reset = (): JSX.Element => {
   const navigate = useNavigate()
   const { registrationStore } = useStore()
   const [otp, setOtp] = useState('')
+  const [ searchParams ] = useSearchParams()
   const { register, handleSubmit, getValues, formState: { errors, isValid } } = useForm<ResetForm>({
     defaultValues: {
       email: '',
@@ -36,6 +38,13 @@ const Reset = (): JSX.Element => {
 
   const [showPassword, setShowPassword] = useState(false)
   const [showConfPassword, setShowConfPassword] = useState(false)
+
+  useEffect(() => {
+    const email = searchParams.get('email')
+    const token = searchParams.get('code')
+    email && registrationStore.setCredentials(email, '')
+    token && setOtp(token)
+  }, [])
 
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault()
@@ -144,4 +153,4 @@ const Reset = (): JSX.Element => {
     </Box>
   )
 }
-export default Reset
+export default observer(Reset)
