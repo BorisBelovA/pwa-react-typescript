@@ -44,6 +44,7 @@ const CardMyProfile = (): JSX.Element => {
           {`${userStore.firstName}, ${userStore.birthday ? calculateAge(userStore.birthday) : 0}`}
         </Typography>
         <IconButton sx={{ color: theme.palette.primary.main }}
+          className={styles.icon__edit}
           size='small'
           aria-label="edit"
           onClick={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.BASIC_INFO}`) }}>
