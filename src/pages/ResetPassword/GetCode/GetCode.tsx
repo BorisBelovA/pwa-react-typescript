@@ -35,7 +35,7 @@ const GetCode = (): JSX.Element => {
 
     try {
       const email = data.email.toLowerCase()
-      const respone = await userApiService.sendCode(email)
+      await userApiService.sendCode(email)
       registrationStore.setCredentials(email, '')
       setBackdropVisible(false)
       navigate('/auth/reset-password/reset')
