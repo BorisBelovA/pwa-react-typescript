@@ -60,8 +60,10 @@ export const Chat = observer((): JSX.Element => {
     const messages = await chatService.getMessagesInChat(chatId)
     storedMessages = messages.reverse().map(m => mapMessageToModel(m))
     setMessages([...storedMessages])
-    scrollToBottom('auto')
-    setIsLoading(false)
+    setTimeout(() => {
+      scrollToBottom('auto')
+      setIsLoading(false)
+    }, 1000)
   }
 
   const getUserInfo = async (email: string): Promise<void> => {

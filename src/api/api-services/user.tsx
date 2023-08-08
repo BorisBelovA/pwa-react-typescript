@@ -159,5 +159,27 @@ class UserApiService {
         throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
       })
   }
+
+  public async deleteAccount (token: string): Promise<null> {
+    return await http.delete<HttpResponse<null>>('/user', {
+      headers: {
+        Authorization: token
+      }
+    })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        if (errorResponse instanceof Error) {
+          throw errorResponse
+        } else {
+          throw new Error(errorResponse.message ?? 'Unexpected behaviour')
+        }
+      })
+  }
 }
 export const userApiService = new UserApiService()
