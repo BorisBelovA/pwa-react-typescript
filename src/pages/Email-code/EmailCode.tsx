@@ -81,7 +81,7 @@ export const EmailCode = observer((): JSX.Element => {
       isInputNum={true}
       numInputs={4}
       separator={<span className={styles.separator}>-</span>}
-      inputStyle={styles.test}
+      inputStyle={styles.otp}
       containerStyle={styles.otp_container}
     />
 

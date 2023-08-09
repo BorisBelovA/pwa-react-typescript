@@ -1,4 +1,16 @@
-import { Avatar, Box, Button, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
+import {
+  Avatar,
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography
+} from '@mui/material'
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
@@ -63,6 +75,7 @@ const Apartment: React.FunctionComponent = observer(() => {
   const { apartmentStore, questionnaireStore } = useStore()
 
   const [newApartment, setNewApartment] = useState<models.Apartment | null>(null)
+  const [deleteDialogVisible, setDeleteDialogVisible] = useState<boolean>(false)
 
   useEffect(() => {
     if (!apartmentStore.haveApartment) {
@@ -136,6 +149,7 @@ const Apartment: React.FunctionComponent = observer(() => {
       apartment: null
     })
     setNewApartment(null)
+    setDeleteDialogVisible(false)
   }
 
   const selectedApartmentsName = useMemo(() => {
@@ -189,7 +203,7 @@ const Apartment: React.FunctionComponent = observer(() => {
             {questions.apartment?.id === null &&
               <Button variant='outlined'
                 fullWidth
-                onClick={removeNewApartment}>
+                onClick={() => { setDeleteDialogVisible(true) }}>
                 Remove
               </Button>
             }
@@ -211,6 +225,22 @@ const Apartment: React.FunctionComponent = observer(() => {
           Next
         </Button>
       </Box>
+
+      <Dialog
+        open={deleteDialogVisible}
+        onClose={() => { setDeleteDialogVisible(false) }}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">Remove apartment</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">Do you really want to delete this apartment?</DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button variant='outlined' onClick={removeNewApartment}>Yes</Button>
+          <Button variant='contained' onClick={() => { setDeleteDialogVisible(false) }} autoFocus>No</Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   )
 })

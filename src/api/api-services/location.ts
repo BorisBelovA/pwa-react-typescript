@@ -11,21 +11,24 @@ class LocationService {
   }
 
   public async getCountries (): Promise<Country[]> {
-    return await http.get<HttpResponse<Country[]>>('/geo/countries', {
-      headers: {
-        Authorization: this.sessionService.authToken
-      }
-    })
-      .then(response => {
-        if (response.data.status.severityCode === 'ERROR') {
-          throw new Error(response.data.status.statusCodeDescription)
-        }
-        return response.data.response
-      })
-      .catch(errorResponse => {
-        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
-        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
-      })
+    const country = await this.getCountryById(106)
+    return [country]
+    // До лучших времен пока не откроем показ всех стран
+    // return await http.get<HttpResponse<Country[]>>('/geo/countries', {
+    //   headers: {
+    //     Authorization: this.sessionService.authToken
+    //   }
+    // })
+    //   .then(response => {
+    //     if (response.data.status.severityCode === 'ERROR') {
+    //       throw new Error(response.data.status.statusCodeDescription)
+    //     }
+    //     return response.data.response
+    //   })
+    //   .catch(errorResponse => {
+    //     console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+    //     throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+    //   })
   }
 
   public async getCountryById (id: number): Promise<Country> {
