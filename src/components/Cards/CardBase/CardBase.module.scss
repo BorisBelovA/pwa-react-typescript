@@ -48,6 +48,11 @@ $top-gap: 0rem;
   display: flex;
   align-items: last baseline;
   padding: 1rem 1rem;
+  padding-bottom: var(--header-padding);
+  transition: padding-bottom .3s ease-in;
+  &.expanded{
+    padding-bottom: 1rem;
+  }
 }
 
 .header_general {
@@ -55,11 +60,6 @@ $top-gap: 0rem;
   flex-direction: column;
   gap: .25rem;
   flex: 1;
-  &.expanded{
-    & :last-child {
-      padding-bottom: 0;
-    }
-  }
 }
 
 .description {

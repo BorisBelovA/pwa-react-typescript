@@ -93,7 +93,7 @@ const Search: React.FunctionComponent = observer(() => {
       </Box>
       <Box className={styles.search__content}>
         {matches.length > 0 && matches[index] &&
-          <CardProfile info={matches[index].form} person={matches[index].user} />
+          <CardProfile info={matches[index].form} person={matches[index].user} padding='3rem' />
         }
         {matches.length === 0 &&
           <Typography variant='h6'>No matches yet</Typography>

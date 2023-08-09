@@ -11,9 +11,10 @@ interface Props {
   content: JSX.Element
   photo?: string
   badges?: Badges[]
+  padding?: string
 
 }
-const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
+const CardBase = ({ header, content, photo, badges, padding }: Props): JSX.Element => {
   const theme = useTheme()
   const [expanded, setExpanded] = useState(false)
 
@@ -72,18 +73,20 @@ const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
           ))}
         </Box>
 
-          <Box className={styles.header}>
-            <Box className={`${styles.header_general}  ${expanded ? styles.expanded : ''}`}>
-              {header}
-            </Box>
-            <Box onClick={() => { setExpanded(!expanded) }}>
-              <SwipeUpIcon fontSize='large' className={styles.icon__swipe} />
-            </Box>
+        <Box
+          className={`${styles.header}  ${expanded ? styles.expanded : ''}`}
+          style={{ '--header-padding': padding ?? '1rem' } as React.CSSProperties}>
+          <Box className={`${styles.header_general}`}>
+            {header}
           </Box>
-          <Box className={`${styles.description} ${expanded ? styles.expanded : ''}`}
-            sx={{ backgroundColor: theme.palette.background.paper }}>
-            <Box className={styles.description__content}>{content}</Box>
+          <Box onClick={() => { setExpanded(!expanded) }}>
+            <SwipeUpIcon fontSize='large' className={styles.icon__swipe} />
           </Box>
+        </Box>
+        <Box className={`${styles.description} ${expanded ? styles.expanded : ''}`}
+          sx={{ backgroundColor: theme.palette.background.paper }}>
+          <Box className={styles.description__content}>{content}</Box>
+        </Box>
 
       </Box>
 
