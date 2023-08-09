@@ -79,7 +79,7 @@ const CardProfile = (props: Props): JSX.Element => {
   )
 
   return (
-    <CardBase header={header} content={content} badges={badges()} photo={person.photo ?? ''} padding={padding} />
+    <CardBase header={header} content={content} badges={badges()} photo={[person.photo ?? '']} padding={padding} />
   )
 }
 export default CardProfile

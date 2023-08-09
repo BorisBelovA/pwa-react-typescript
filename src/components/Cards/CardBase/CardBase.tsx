@@ -9,7 +9,7 @@ import { type Badges } from 'src/models/badges'
 interface Props {
   header: JSX.Element
   content: JSX.Element
-  photo?: string
+  photo?: string[]
   badges?: Badges[]
   padding?: string
 
@@ -56,7 +56,7 @@ const CardBase = ({ header, content, photo, badges, padding }: Props): JSX.Eleme
         {photo && <Box
           component='img'
           className={styles.image}
-          src={photo ?? ''}
+          src={photo[0] ?? ''}
         />}
 
         {!photo &&
