@@ -64,9 +64,11 @@ export const MyApartments = observer((): JSX.Element => {
               alt="apartment-image"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {ap.name}
-              </Typography>
+              <Box>
+                <Typography gutterBottom variant="h5" component="div">
+                  {ap.name}
+                </Typography>
+              </Box>
               <Typography variant="body2" color="text.secondary">
                 {ap.description}
               </Typography>
