@@ -1,12 +1,11 @@
 import { Typography } from '@mui/material'
-import styles from './CardApartment.module.scss'
 import CardBase from '../CardBase/CardBase'
-import { Apartment } from 'models'
+import { type Apartment } from 'models'
 
 interface Props {
   apartment: Apartment
 }
-const CardApartment = ({apartment}: Props): JSX.Element => {
+const CardApartment = ({ apartment }: Props): JSX.Element => {
   const header = (<>
     <Typography variant='h1'>{apartment.totalPrice} {apartment.currency} per room</Typography>
     <Typography>{apartment.countAvailableRooms} out of {apartment.countRooms} rooms available</Typography>
