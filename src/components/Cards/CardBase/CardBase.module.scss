@@ -84,7 +84,7 @@ $top-gap: 0rem;
   height: 100%;
   border-radius: calc($rad + 3px);
   object-fit: cover;
-  object-position: top;
+  object-position: center;
 }
 
 .icon__swipe {

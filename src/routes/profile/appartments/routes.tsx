@@ -5,6 +5,7 @@ import { Description } from 'src/pages/Profile/MyAppartments/AppartmentQuestionn
 import { Photos } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Photos/Photos'
 import { Purpose } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose'
 import { Summary } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Summary/Summary'
+import PreviewAppartment from 'src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment'
 
 export const apartmentsQuestionnaireRoutes = [
   <Route key='0' path={ApartmentsQuestionnaireRoutes.BASIC} element={<Basic />} />,
@@ -22,5 +23,7 @@ export const apartmentsRoutes = [
   </Route>,
   <Route key='2' path={ApartmentsRoutes.EDIT} element={<ApartmentQuestionnaire />}>
     {apartmentsQuestionnaireRoutes}
-  </Route>
+  </Route>,
+  <Route key='3' path={`${ApartmentsRoutes.PREVIEW}`} element={<PreviewAppartment />} />,
+  <Route key='4' path={`${ApartmentsRoutes.PREVIEW}/:id`} element={<PreviewAppartment />} />
 ]
