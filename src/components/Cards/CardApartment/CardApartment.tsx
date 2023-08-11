@@ -4,7 +4,7 @@ import { type AuthUser, type Apartment, ProfileRoutes, ApartmentsRoutes } from '
 import { mapCurrencyToSign } from 'src/utils/currency'
 import { calculateAge } from 'src/utils/date-time'
 import styles from './CardApartment.module.scss'
-import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
+import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'
 import { useNavigate } from 'react-router-dom'
 import EditIcon from '@mui/icons-material/Edit'
 
@@ -14,8 +14,9 @@ interface Props {
   who?: string
   flipCard?: () => void
   editable?: boolean
+  padding?: string
 }
-const CardApartment = ({ apartment, user, who, flipCard, editable }: Props): JSX.Element => {
+const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Props): JSX.Element => {
   const navigate = useNavigate()
   const theme = useTheme()
   const header = (<>
@@ -49,7 +50,7 @@ const CardApartment = ({ apartment, user, who, flipCard, editable }: Props): JSX
   </>)
 
   return (
-    <CardBase header={header} content={content} photo={apartment.photos} />
+    <CardBase header={header} content={content} photo={apartment.photos} padding={padding} />
   )
 }
 export default CardApartment

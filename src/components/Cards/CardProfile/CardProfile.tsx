@@ -8,7 +8,7 @@ import Qualities from 'src/components/Qualities/Qualities'
 import EditIcon from '@mui/icons-material/Edit'
 import { useNavigate } from 'react-router-dom'
 import { mapCurrencyToSign } from 'src/utils/currency'
-import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
+import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'
 
 interface Props {
   info: QuestionnaireBasicType
