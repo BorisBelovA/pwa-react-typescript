@@ -59,7 +59,7 @@ const CardBase = ({ header, content, photo, badges, padding }: Props): JSX.Eleme
       <Box className={styles.background_image}
         sx={{ backgroundColor: theme.palette.background.paper }}
       >
-        {!photo
+        {!photo?.[0]
           ? <Box className={styles.no_image}>
             <NoPhotographyIcon fontSize='large'></NoPhotographyIcon>
             <Typography variant='h6'>No photo</Typography>
