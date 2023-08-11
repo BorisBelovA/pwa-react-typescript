@@ -77,7 +77,7 @@ export const MyApartments = observer((): JSX.Element => {
                 </Typography>
               </Box>
               <Link to={`/profile/my-apartments/preview/${ap.id}`}>
-                <Typography color={theme.palette.primary.main} sx={{ display: 'flex', gap: '.5rem', alignItems: 'center'}}>
+                <Typography color={theme.palette.primary.main} sx={{ display: 'flex', gap: '.5rem', alignItems: 'center' }}>
                   <RemoveRedEyeIcon /> Preview
                 </Typography>
               </Link>

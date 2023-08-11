@@ -12,7 +12,6 @@ interface Props {
   photo?: string[]
   badges?: Badges[]
   padding?: string
-
 }
 const CardBase = ({ header, content, photo, badges, padding }: Props): JSX.Element => {
   const theme = useTheme()

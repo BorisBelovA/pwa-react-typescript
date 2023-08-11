@@ -12,3 +12,10 @@
   display: flex;
   padding-bottom: 0 !important;
 }
+
+.apartment__thumb {
+  margin-block: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
