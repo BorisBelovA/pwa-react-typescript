@@ -8,16 +8,16 @@ interface Props {
 }
 const CardApartment = ({apartment}: Props): JSX.Element => {
   const header = (<>
-    <Typography variant='h1'>Apartment</Typography>
-    <Typography>text</Typography>
+    <Typography variant='h1'>{apartment.totalPrice} {apartment.currency} per room</Typography>
+    <Typography>{apartment.countAvailableRooms} out of {apartment.countRooms} rooms available</Typography>
   </>)
 
   const content = (<>
-    <Typography>Description</Typography>
+    <Typography>{apartment.description}</Typography>
   </>)
 
   return (
-    <CardBase header={header} content={content} />
+    <CardBase header={header} content={content} photo={apartment.photos}/>
   )
 }
 export default CardApartment
