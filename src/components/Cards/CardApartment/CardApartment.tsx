@@ -1,20 +1,37 @@
-import { Avatar, Box, Typography } from '@mui/material'
+import { Avatar, Box, IconButton, Typography, useTheme } from '@mui/material'
 import CardBase from '../CardBase/CardBase'
-import { type AuthUser, type Apartment } from 'models'
+import { type AuthUser, type Apartment, ProfileRoutes, ApartmentsRoutes } from 'models'
 import { mapCurrencyToSign } from 'src/utils/currency'
 import { calculateAge } from 'src/utils/date-time'
 import styles from './CardApartment.module.scss'
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
+import { useNavigate } from 'react-router-dom'
+import EditIcon from '@mui/icons-material/Edit'
 
 interface Props {
   apartment: Apartment
   user?: AuthUser
   who?: string
   flipCard?: () => void
+  editable?: boolean
 }
-const CardApartment = ({ apartment, user, who, flipCard }: Props): JSX.Element => {
+const CardApartment = ({ apartment, user, who, flipCard, editable }: Props): JSX.Element => {
+  const navigate = useNavigate()
+  const theme = useTheme()
   const header = (<>
-    <Typography variant='h1'>{apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room</Typography>
+    <Box className={styles.head}>
+      <Typography variant='h1'>{apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room</Typography>
+      {editable &&
+        <IconButton sx={{ color: theme.palette.primary.main }}
+          className={styles.icon__edit}
+          size='small'
+          aria-label="edit"
+          onClick={() => { navigate(`/profile/${ProfileRoutes.MY_APARTMENT}/${ApartmentsRoutes.EDIT}/basic?id=${apartment.id}`) }}>
+          <EditIcon fontSize='small' />
+          <Typography fontSize={14} marginLeft='0.5rem'>Edit</Typography>
+        </IconButton>
+      }
+    </Box>
     <Typography>{apartment.countAvailableRooms} out of {apartment.countRooms} rooms available</Typography>
   </>)
 

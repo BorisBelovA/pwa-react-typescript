@@ -46,6 +46,7 @@ const Preview = (): JSX.Element => {
               apartment={questionnaireStore.questionnaire.apartment}
               user={userStore}
               flipCard={handleFlip}
+              editable
               who={!!questionnaireStore.questionnaire.who ? whoOptions[questionnaireStore.questionnaire.who] : 'By self'}
             />
           </ReactCardFlip>
