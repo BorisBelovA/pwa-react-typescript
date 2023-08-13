@@ -21,6 +21,7 @@ export interface Apartment {
   country: Country
   city: City | null
   state: District | null
+  address: string | null
   photos: string[]
   aboutApartment: string | null
   status: ApartmentPurpose

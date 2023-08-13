@@ -15,7 +15,7 @@ export interface Apartment {
     country: Country
     district: District | null
     city: City | null
-    address?: string
+    address: string | null
   }
   photos: string[]
   description: string
@@ -34,7 +34,7 @@ export interface NewApartmentForm {
     country?: Country | null
     district?: District | null
     city?: City | null
-    address?: string
+    address?: string | null
   }
   photos: string[]
   description: string | null

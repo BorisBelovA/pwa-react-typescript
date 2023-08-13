@@ -15,3 +15,18 @@
 .otp_container {
     margin: 1rem 0;
 }
+
+.otp {
+    height: 3rem;
+    width: 2rem !important;
+    border-radius: .5rem;
+    border: 1px solid var(--constant-light-color-50);
+    font-size: 1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    &:focus-visible {
+        outline-width: 0;
+    }
+    
+  }

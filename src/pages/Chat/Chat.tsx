@@ -12,6 +12,7 @@ import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { mapAuthenticatedUserData, mapMessageToModel } from 'mapping-services'
 import { type NewMessage, type Message as dtoMessage } from 'dto'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 const stompClient: Client = new Client({
   brokerURL: 'wss://app.roommate.host/wss',
@@ -20,10 +21,6 @@ const stompClient: Client = new Client({
   // },
   debug: (str: any) => {
     console.log(str)
-  },
-  onStompError: (frame: IFrame): void => {
-    console.log('Broker reported error: ' + frame.headers.message)
-    console.log('Additional details: ' + frame.body)
   }
 })
 
@@ -36,6 +33,7 @@ export const Chat = observer((): JSX.Element => {
   const [messages, setMessages] = useState<Message[]>([])
   const [user, setUser] = useState<AuthUser | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const { setMessage } = useMainContext()
 
   const sendMessage = (text: string): void => {
     const chatId = searchParams.get('id')
@@ -100,6 +98,26 @@ export const Chat = observer((): JSX.Element => {
           `/user/${userStore.id}/queue/messages`,
           onMessageReceive
         )
+      }
+
+      stompClient.onStompError = (frame: IFrame): void => {
+        console.log('Broker reported error: ' + frame.headers.message)
+        console.log('Additional details: ' + frame.body)
+        setMessage({
+          text: 'Error happened during communication.',
+          severity: 'error',
+          life: 5000,
+          visible: true
+        })
+      }
+
+      stompClient.onWebSocketError = (): void => {
+        setMessage({
+          text: 'Couldn\'t establish connection with server. Try again.',
+          severity: 'error',
+          life: 5000,
+          visible: true
+        })
       }
     }
     return () => {

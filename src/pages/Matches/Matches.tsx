@@ -31,7 +31,9 @@ const Matches = (): JSX.Element => {
     try {
       const cts = (await chatService.getAllChats()).map(c => mapChatToModel(c))
       setChats(cts)
-      setChatsLoading(false)
+      setTimeout(() => {
+        setChatsLoading(false)
+      }, 1000)
     } catch (error) {
       setMessage({
         text: error instanceof Error
@@ -41,7 +43,9 @@ const Matches = (): JSX.Element => {
         life: 5000,
         visible: true
       })
-      setChatsLoading(false)
+      setTimeout(() => {
+        setChatsLoading(false)
+      }, 1000)
     }
   }
 
