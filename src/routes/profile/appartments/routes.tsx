@@ -1,5 +1,5 @@
-import { ApartmentsQuestionnaireRoutes, ApartmentsRoutes } from 'models'
-import { Route } from 'react-router-dom'
+import { ApartmentsQuestionnaireRoutes, ApartmentsRoutes, ProfileRoutes } from 'models'
+import { Navigate, Route } from 'react-router-dom'
 import { ApartmentQuestionnaire, Basic, Location, MyApartments } from 'src/pages/Profile/MyAppartments'
 import { Description } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description'
 import { Photos } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Photos/Photos'
@@ -24,6 +24,6 @@ export const apartmentsRoutes = [
   <Route key='2' path={ApartmentsRoutes.EDIT} element={<ApartmentQuestionnaire />}>
     {apartmentsQuestionnaireRoutes}
   </Route>,
-  <Route key='3' path={`${ApartmentsRoutes.PREVIEW}`} element={<PreviewAppartment />} />,
+  <Route key='3' path={`${ApartmentsRoutes.PREVIEW}`} element={<Navigate to={`/profile/${ProfileRoutes.MY_APARTMENT}`} replace />} />,
   <Route key='4' path={`${ApartmentsRoutes.PREVIEW}/:id`} element={<PreviewAppartment />} />
 ]
