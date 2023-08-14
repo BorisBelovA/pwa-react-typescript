@@ -9,12 +9,13 @@ import { type Badges } from 'src/models/badges'
 interface Props {
   header: JSX.Element
   content: JSX.Element
-  photo?: string
+  photo?: string[]
   badges?: Badges[]
-
+  padding?: string
 }
-const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
+const CardBase = ({ header, content, photo, badges, padding }: Props): JSX.Element => {
   const theme = useTheme()
+  const [photoIndex, setPhotoIndex] = useState<number>(0)
   const [expanded, setExpanded] = useState(false)
 
   // const [scroll, setScroll] = useState<boolean>(false)
@@ -46,23 +47,45 @@ const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
   //     window.removeEventListener('touchmove', onTouchEnd)
   //   }
   // })
+  const nextPhoto = (max: number): void => {
+    photoIndex !== max - 1
+      ? setPhotoIndex(photoIndex + 1)
+      : setPhotoIndex(0)
+  }
 
   return (
     <Box className={styles.container}>
       <Box className={styles.background_image}
         sx={{ backgroundColor: theme.palette.background.paper }}
       >
-        {photo && <Box
-          component='img'
-          className={styles.image}
-          src={photo ?? ''}
-        />}
-
-        {!photo &&
-          <Box className={styles.no_image}>
+        {!photo?.[0]
+          ? <Box className={styles.no_image}>
             <NoPhotographyIcon fontSize='large'></NoPhotographyIcon>
             <Typography variant='h6'>No photo</Typography>
           </Box>
+          : photo.length > 1
+            ? <>
+              <Box className={styles.photoSlider}>
+                {
+                  photo.map((photo, index) => (
+                    <Box
+                      className={`${styles.photoSlider__point} ${index === photoIndex && styles.photoSlider__point_active}`}
+                      key={index} />
+                  ))
+                }
+              </Box>
+              <Box
+                onClick={() => { nextPhoto(photo.length) }}
+                component='img'
+                className={styles.image}
+                src={photo[photoIndex] ?? ''}
+              />
+            </>
+            : <Box
+              component='img'
+              className={styles.image}
+              src={photo[0] ?? ''}
+            />
         }
       </Box>
       <Box className={`${styles.info}`}>
@@ -72,18 +95,20 @@ const CardBase = ({ header, content, photo, badges }: Props): JSX.Element => {
           ))}
         </Box>
 
-          <Box className={styles.header}>
-            <Box className={`${styles.header_general}  ${expanded ? styles.expanded : ''}`}>
-              {header}
-            </Box>
-            <Box onClick={() => { setExpanded(!expanded) }}>
-              <SwipeUpIcon fontSize='large' className={styles.icon__swipe} />
-            </Box>
+        <Box
+          className={`${styles.header}  ${expanded ? styles.expanded : ''}`}
+          style={{ '--header-padding': padding ?? '1rem' } as React.CSSProperties}>
+          <Box className={`${styles.header_general}`}>
+            {header}
           </Box>
-          <Box className={`${styles.description} ${expanded ? styles.expanded : ''}`}
-            sx={{ backgroundColor: theme.palette.background.paper }}>
-            <Box className={styles.description__content}>{content}</Box>
+          <Box onClick={() => { setExpanded(!expanded) }}>
+            <SwipeUpIcon fontSize='large' className={styles.icon__swipe} />
           </Box>
+        </Box>
+        <Box className={`${styles.description} ${expanded ? styles.expanded : ''}`}
+          sx={{ backgroundColor: theme.palette.background.paper }}>
+          <Box className={styles.description__content}>{content}</Box>
+        </Box>
 
       </Box>
 

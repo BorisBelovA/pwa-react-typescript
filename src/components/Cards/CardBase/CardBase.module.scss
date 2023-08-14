@@ -48,6 +48,11 @@ $top-gap: 0rem;
   display: flex;
   align-items: last baseline;
   padding: 1rem 1rem;
+  padding-bottom: var(--header-padding);
+  transition: padding-bottom .3s ease-in;
+  &.expanded{
+    padding-bottom: 1rem;
+  }
 }
 
 .header_general {
@@ -55,11 +60,6 @@ $top-gap: 0rem;
   flex-direction: column;
   gap: .25rem;
   flex: 1;
-  &.expanded{
-    & :last-child {
-      padding-bottom: 0;
-    }
-  }
 }
 
 .description {
@@ -84,9 +84,29 @@ $top-gap: 0rem;
   height: 100%;
   border-radius: calc($rad + 3px);
   object-fit: cover;
-  object-position: top;
+  object-position: center;
 }
 
 .icon__swipe {
   color: var(--constant-light-color);
+}
+
+.photoSlider {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: .5rem;
+
+  &__point {
+    width: 100%;
+    height: .25rem;
+    border-radius: 1rem;
+    background-color: var(--constant-light-color);
+    opacity: .5;
+    &_active {
+      opacity: 1;
+    }
+  }
 }

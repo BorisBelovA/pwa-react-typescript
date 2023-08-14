@@ -46,6 +46,24 @@ class Apartment {
       })
   }
 
+  public getApartmentById = async (id: string): Promise<dto.Apartment> => {
+    return await http.get<HttpResponse<dto.Apartment>>(`/apartment/${id}`, {
+      headers: {
+        Authorization: this.sessionService.authToken
+      }
+    })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+      })
+  }
+
   public async getApartmentByUser (): Promise<dto.Apartment[]> {
     return await http.get<HttpResponse<dto.Apartment[]>>('/apartment', {
       headers: {

@@ -11,7 +11,7 @@ import { mapMatchToModel } from 'mapping-services'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { observer } from 'mobx-react-lite'
 import { useStore } from 'src/utils/StoreProvider'
-import CardProfile from 'src/components/Cards/CardProfile/CardProfile'
+import SearchCardController from 'src/components/Cards/SearchCardController/SearchCardController'
 
 const Search: React.FunctionComponent = observer(() => {
   const [index, setIndex] = useState<number>(0)
@@ -93,7 +93,7 @@ const Search: React.FunctionComponent = observer(() => {
       </Box>
       <Box className={styles.search__content}>
         {matches.length > 0 && matches[index] &&
-          <CardProfile info={matches[index].form} person={matches[index].user} />
+          <SearchCardController matchNew={matches[index]} />
         }
         {matches.length === 0 &&
           <Typography variant='h6'>No matches yet</Typography>

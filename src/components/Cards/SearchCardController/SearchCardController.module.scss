@@ -1,0 +1,22 @@
+.card__container, .card {
+  height: 100%;
+}
+.card {
+  position: relative;
+  overflow-x: hidden;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.card__container {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  transition: all .3s ease-in;
+  &_right {
+    left: 40rem;
+    right: -38rem;
+  }
+}

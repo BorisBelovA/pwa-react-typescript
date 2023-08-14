@@ -1,4 +1,21 @@
-.head {
-  padding-bottom: 2rem;
-  transition: padding-bottom .3s ease-in;
+.head__bio {
+  display: flex;
+}
+
+.content__qualities {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+.icon__edit {
+  display: flex;
+  padding-bottom: 0 !important;
+}
+
+.apartment__thumb {
+  margin-block: 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }

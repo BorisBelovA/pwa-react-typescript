@@ -3,8 +3,9 @@ import { Box, IconButton, ImageList, ImageListItem, Typography, useTheme } from 
 import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { useEffect } from 'react'
 import EditIcon from '@mui/icons-material/Edit'
-import { ApartmentsQuestionnaireRoutes, type Currency } from 'models'
+import { ApartmentsQuestionnaireRoutes } from 'models'
 import { useNavigate } from 'react-router-dom'
+import { mapCurrencyToSign } from 'src/utils/currency'
 
 export const Summary = (): JSX.Element => {
   const { apartment, setActive, setPercent } = apartmentQuestionnaireContext()
@@ -15,15 +16,6 @@ export const Summary = (): JSX.Element => {
     setActive(ApartmentsQuestionnaireRoutes.SUMMARY)
     setPercent(100, 100, ApartmentsQuestionnaireRoutes.SUMMARY)
   }, [])
-
-  const mapCurrencyToSign = (currency: Currency): string => {
-    switch (currency) {
-      case 'EUR': return '€'
-      case 'USD': return '$'
-      case 'ILS': return '₪'
-      default: throw new Error('Unknown currency type!')
-    }
-  }
 
   const goToStep = (step: ApartmentsQuestionnaireRoutes): void => {
     navigate(`../${step}`)

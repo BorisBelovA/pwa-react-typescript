@@ -11,7 +11,8 @@ export const enum ProfileRoutes {
 export const enum ApartmentsRoutes {
   INDEX = '',
   NEW = 'new',
-  EDIT = 'edit'
+  EDIT = 'edit',
+  PREVIEW = 'preview'
 }
 
 export const enum ApartmentsQuestionnaireRoutes {
