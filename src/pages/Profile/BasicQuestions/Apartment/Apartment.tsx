@@ -9,10 +9,11 @@ import {
   DialogTitle,
   ToggleButton,
   ToggleButtonGroup,
-  Typography
+  Typography,
+  useTheme
 } from '@mui/material'
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
@@ -62,12 +63,13 @@ interface ApartmentsListProps {
 const ApartmentsList = ({ apartments, name, onSelect }: ApartmentsListProps): JSX.Element => {
   return <>
     {apartments.map(a => <ApartmentItem apartment={a} key={`${a.name}-${a.totalPrice}`}
-    name={name}
-    onSelect={onSelect}></ApartmentItem>)}
+      name={name}
+      onSelect={onSelect}></ApartmentItem>)}
   </>
 }
 
 const Apartment: React.FunctionComponent = observer(() => {
+  const theme = useTheme()
   const navigate = useNavigate()
   const { setActive, setPercent } = useActive()
   const [displayApartment, setDisplayApartment] = useState(false)
@@ -183,7 +185,15 @@ const Apartment: React.FunctionComponent = observer(() => {
           <ToggleButton value={true}>yes</ToggleButton>
         </ToggleButtonGroup>
 
-        {displayApartment &&
+        {displayApartment && !questions.location.city &&
+          <Typography>To select or create new apartment you need to select your city&nbsp;
+            <Link to={`/profile/${ProfileRoutes.BASIC_QUEST}/${models.QuestionnaireRoutes.LOCATION}`}>
+              <Typography component='span' color={theme.palette.primary.main}>in previous step</Typography>
+            </Link>
+          </Typography>
+        }
+
+        {displayApartment && questions.location.city &&
           <>
             <Typography>Select apartment from the list or create new</Typography>
             <Box className={apartmentStyles.list}>
