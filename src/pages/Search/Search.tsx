@@ -11,13 +11,10 @@ import { mapMatchToModel } from 'mapping-services'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { observer } from 'mobx-react-lite'
 import { useStore } from 'src/utils/StoreProvider'
-import CardProfile from 'src/components/Cards/CardProfile/CardProfile'
-import ReactCardFlip from 'react-card-flip'
-import CardApartment from 'src/components/Cards/CardApartment/CardApartment'
+import SearchCardController from 'src/components/Cards/SearchCardController/SearchCardController'
 
 const Search: React.FunctionComponent = observer(() => {
   const [index, setIndex] = useState<number>(0)
-  const [isFlipped, setIsFlipped] = useState<boolean>(false)
   const { setMessage } = useMainContext()
   const [matches, setMatches] = useState<MatchNew[]>([])
   const [page, setPage] = useState<number>(0)
@@ -84,10 +81,6 @@ const Search: React.FunctionComponent = observer(() => {
     }
   }
 
-  const handleFlip = (): void => {
-    setIsFlipped(!isFlipped)
-  }
-
   const theme = useTheme()
   return (
     <Box className={styles.search}>
@@ -100,12 +93,7 @@ const Search: React.FunctionComponent = observer(() => {
       </Box>
       <Box className={styles.search__content}>
         {matches.length > 0 && matches[index] &&
-          (matches[index].form.apartment?.id
-            ? <ReactCardFlip isFlipped={isFlipped} containerClassName={styles.flip__container}>
-              <CardProfile info={matches[index].form} person={matches[index].user} padding='3rem' flipCard={handleFlip} />
-              <CardApartment apartment={matches[index].form.apartment!} user={matches[index].user} padding='3rem' flipCard={handleFlip} />
-            </ReactCardFlip>
-            : <CardProfile info={matches[index].form} person={matches[index].user} padding='3rem' />)
+          <SearchCardController matchNew={matches[index]} />
         }
         {matches.length === 0 &&
           <Typography variant='h6'>No matches yet</Typography>
