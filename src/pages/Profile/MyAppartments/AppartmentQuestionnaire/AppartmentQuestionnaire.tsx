@@ -101,6 +101,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
 
   const [nextBtnVisible, setNextBtnVisible] = useState(true)
   const [backBtnVisible, setBackBtnVisible] = useState(false)
+  const [backToQuestVisible, setBackToQuestVisible] = useState(false)
   const [finishBtnVisible, setFinishBtnVisible] = useState(false)
 
   const { setBackdropVisible, setBackdropMessage, setMessage } = apartmentQuestionnaireContext()
@@ -170,6 +171,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
     const activeStep = getActiveStepFromURI(location)
     setNextBtnVisible(activeStep !== ApartmentsQuestionnaireRoutes.SUMMARY)
     setBackBtnVisible(activeStep !== ApartmentsQuestionnaireRoutes.BASIC)
+    setBackToQuestVisible(activeStep === ApartmentsQuestionnaireRoutes.BASIC)
     setFinishBtnVisible(activeStep === ApartmentsQuestionnaireRoutes.SUMMARY)
   }, [location.pathname])
 
@@ -354,6 +356,13 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
             variant='outlined'
             onClick={onPrevStep}>
             Back
+          </Button>
+          }
+          {apartment.purpose === 'Questionnaire' && backToQuestVisible && <Button
+            fullWidth
+            variant='outlined'
+            onClick={() => { navigate(`/profile/${ProfileRoutes.BASIC_QUEST}/${QuestionnaireRoutes.APARTMENT}`) }}>
+            To personal info
           </Button>
           }
         </Box>
