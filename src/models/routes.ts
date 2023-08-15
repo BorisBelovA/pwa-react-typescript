@@ -26,7 +26,8 @@ export const enum ApartmentsQuestionnaireRoutes {
 export const enum SettingsRoutes {
   INDEX = '',
   ACCOUNT = 'account',
-  THEME = 'theme'
+  THEME = 'theme',
+  FEEDBACK = 'feedback'
 }
 
 export const enum IntroRoutes {
