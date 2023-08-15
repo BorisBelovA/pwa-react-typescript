@@ -86,7 +86,7 @@ const AccountSettings = (): JSX.Element => {
           rowGap: '1rem'
         }}>
           <Button fullWidth variant='contained' onClick={() => { setDeleteDialogVisible(false) }} autoFocus>
-            No, I've changed my mind
+            No, I&apos;ve changed my mind
           </Button>
           <Button fullWidth variant="outlined" color='error' onClick={() => { void deleteAccount() }}>Yes, delete my account</Button>
         </DialogActions>
