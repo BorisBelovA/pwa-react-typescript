@@ -49,6 +49,7 @@ export const Login = (): JSX.Element => {
       userStore.setUser(user)
       setTimeout(() => {
         setBackdropVisible(false)
+        registrationStore.setCredentials(data.email, data.password)
         if (userStore.firstName !== '' && userStore.lastName !== '') {
           navigate('/profile')
         } else {
