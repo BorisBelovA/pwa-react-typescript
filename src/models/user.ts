@@ -45,6 +45,10 @@ export type AuthUser = User & {
   id: number
 }
 
+export type AuthUserWithEmail = AuthUser & {
+  email: string
+}
+
 // Additional types for non-registered user
 export type EmptyPersonalInfo = {
   [key in keyof PersonalInfo]: PersonalInfo[key] | undefined

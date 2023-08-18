@@ -6,3 +6,7 @@ export type AuthenticatedUserData = UserDto & {
   form: Questionnaire
   apartment: Apartment
 }
+
+export type FullUser = UserDto & {
+  email: string
+}

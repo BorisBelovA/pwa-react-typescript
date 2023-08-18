@@ -5,26 +5,36 @@ import styles from './ChatHeader.module.scss'
 import { useState } from 'react'
 import VolumeOffIcon from '@mui/icons-material/VolumeOff'
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline'
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt'
 import SearchIcon from '@mui/icons-material/Search'
 import { useNavigate } from 'react-router-dom'
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder'
 import NotificationsOffIcon from '@mui/icons-material/NotificationsOff'
-import { type AuthUser } from 'models'
+import { type AuthUserWithEmail } from 'models'
+import { useStore } from 'src/utils/StoreProvider'
+import { observer } from 'mobx-react-lite'
+import { ComplainDialog } from './ComplainDialog'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { feedbackService } from 'api-services'
 
 interface ChatHeaderProps {
-  user: AuthUser | null
+  user: AuthUserWithEmail | null
 }
 
-export const ChatHeader = ({ user }: ChatHeaderProps): JSX.Element => {
+export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
   const theme = useTheme()
+  const { registrationStore } = useStore()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const [chatMenuVisible, setChatMenuVisible] = useState(false)
   const [muteMenuVisible, setMuteMenuVisible] = useState(false)
+  const [complainDialogVisible, setComplainDialogVisible] = useState<boolean>(false)
+  const { setBackdropMessage, setBackdropVisible, setMessage } = useMainContext()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setChatMenuVisible(true)
     setAnchorEl(event.currentTarget)
   }
+
   const handleClose = (): void => {
     setChatMenuVisible(false)
   }
@@ -37,6 +47,47 @@ export const ChatHeader = ({ user }: ChatHeaderProps): JSX.Element => {
     closeMuteMenu()
     setChatMenuVisible(true)
   }
+
+  const complain = async (message: string): Promise<void> => {
+    setComplainDialogVisible(false)
+    setBackdropVisible(true)
+    setBackdropMessage('Sending your feedback!')
+    try {
+      if (!user?.email || !registrationStore.email) {
+        throw new Error('No pretension or sender email')
+      }
+      await feedbackService.sendComplain(
+        user?.email,
+        registrationStore.email,
+        message
+      )
+      setTimeout(() => {
+        setMessage({
+          text: 'We have received your feedback. Thank you!',
+          life: 5000,
+          severity: 'success',
+          visible: true
+        })
+        setBackdropVisible(false)
+      }, 1500)
+    } catch (e) {
+      setMessage({
+        text: e instanceof Error
+          ? e.message
+          : 'Something went wrong',
+        severity: 'error',
+        visible: true,
+        life: 5000
+      })
+      setBackdropVisible(false)
+      setComplainDialogVisible(false)
+    }
+  }
+
+  const onComplainDialogCancel = (): void => {
+    setComplainDialogVisible(false)
+  }
+
   const navigate = useNavigate()
 
   return <>
@@ -49,14 +100,14 @@ export const ChatHeader = ({ user }: ChatHeaderProps): JSX.Element => {
       </IconButton>
       {!user && <Skeleton variant='circular' animation="wave" width={36} height={36} />}
       {user &&
-      <Avatar alt='Test avatar'
-        src={user.avatar ?? ''}
-        sx={{
-          width: 36,
-          height: 36,
-          border: `2px solid ${theme.palette.background.default}`
-        }}>
-      </Avatar>}
+        <Avatar alt='Test avatar'
+          src={user.avatar ?? ''}
+          sx={{
+            width: 36,
+            height: 36,
+            border: `2px solid ${theme.palette.background.default}`
+          }}>
+        </Avatar>}
 
       <Box className={styles.user_name_container}>
         {!user && <Skeleton animation="wave" width={'50%'} />}
@@ -84,12 +135,16 @@ export const ChatHeader = ({ user }: ChatHeaderProps): JSX.Element => {
       open={chatMenuVisible}
       onClose={handleClose}
     >
-      <MenuItem onClick={handleClose}><RemoveCircleOutlineIcon sx={{ marginRight: '0.5rem' }} ></RemoveCircleOutlineIcon>Ignore</MenuItem>
+      <MenuItem onClick={handleClose}><RemoveCircleOutlineIcon sx={{ marginRight: '0.5rem' }} />Ignore</MenuItem>
+      <MenuItem onClick={() => {
+        setComplainDialogVisible(true)
+        handleClose()
+      }}><ThumbDownOffAltIcon sx={{ marginRight: '0.5rem' }} />Complain</MenuItem>
       <MenuItem onClick={() => {
         setChatMenuVisible(false)
         setMuteMenuVisible(true)
-      }}><VolumeOffIcon sx={{ marginRight: '0.5rem' }}></VolumeOffIcon> Mute</MenuItem>
-      <MenuItem onClick={handleClose}><SearchIcon sx={{ marginRight: '0.5rem' }}></SearchIcon> Search</MenuItem>
+      }}><VolumeOffIcon sx={{ marginRight: '0.5rem' }} /> Mute</MenuItem>
+      <MenuItem onClick={handleClose}><SearchIcon sx={{ marginRight: '0.5rem' }} /> Search</MenuItem>
     </Menu>
 
     <Menu
@@ -104,8 +159,12 @@ export const ChatHeader = ({ user }: ChatHeaderProps): JSX.Element => {
       <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon sx={{ marginRight: '0.5rem' }}></QueryBuilderIcon>8 hours</MenuItem>
       <MenuItem sx={{ color: theme.palette.accent.main }}
         onClick={closeMuteMenu}>
-          <NotificationsOffIcon sx={{ marginRight: '0.5rem' }}></NotificationsOffIcon>Mute forever
-        </MenuItem>
+        <NotificationsOffIcon sx={{ marginRight: '0.5rem' }}></NotificationsOffIcon>Mute forever
+      </MenuItem>
     </Menu>
+
+    <ComplainDialog visible={complainDialogVisible}
+      sendComplainCallback={complain}
+      closeDialog={onComplainDialogCancel}/>
   </>
-}
+})

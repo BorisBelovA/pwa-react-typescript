@@ -45,6 +45,13 @@ export const mapUserToModel = (dto: dto.UserDto): models.AuthUser => {
   }
 }
 
+export const mapFullUser = (dto: dto.FullUser): models.AuthUserWithEmail => {
+  return {
+    ...mapUserToModel(dto),
+    email: dto.email
+  }
+}
+
 export const mapBase64ToFile = async (base64: string, name: string): Promise<File> => {
   const res: Response = await fetch(base64)
   const blob: Blob = await res.blob()

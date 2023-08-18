@@ -32,6 +32,34 @@ class Feedback {
         }
       })
   }
+
+  public async sendComplain (
+    pretensionEmail: string,
+    senderEmail: string,
+    message: string
+  ): Promise<null> {
+    return await http.post<HttpResponse<null>>('/bot/claim', {
+      pretensionEmail, senderEmail, message
+    }, {
+      headers: {
+        Authorization: this.sessionService.authToken
+      }
+    })
+      .then(response => {
+        if (response?.data?.status?.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return null
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        if (errorResponse instanceof Error) {
+          throw errorResponse
+        } else {
+          throw new Error(errorResponse.message ?? 'Unexpected behavior')
+        }
+      })
+  }
 }
 
 export const feedbackService = new Feedback(sessionService)
