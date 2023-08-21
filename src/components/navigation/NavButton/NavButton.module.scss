@@ -18,6 +18,10 @@
     &_active {
         transform: scale(1.15);
 
+        path {
+            fill: var(--primary-color);
+        }
+        
         & .navButton__icon {
             stroke: var(--primary-color);
             stroke-width: 2px;

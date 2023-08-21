@@ -13,6 +13,8 @@ import { SessionGuard } from 'src/layouts/SessionGuard/SessionGuard'
 import { Chat } from 'src/pages/Chat/Chat'
 import { IntroPage } from 'src/pages/Intro/IntroPage'
 import { PathSelection } from 'src/pages/Intro/PathSelection/PathSelection'
+import { SettingsRoutes } from 'models'
+import { Feedbcak } from 'src/pages/Profile/Settings/Feedback/Feedback'
 
 const Router: React.FunctionComponent = () => {
   return (
@@ -26,7 +28,8 @@ const Router: React.FunctionComponent = () => {
         <Route path="search" element={<Search />} />
         <Route path="search/:id" element={<Search />} />
         <Route path="match" element={<Matches />} />
-        <Route path="notifications" element={<Notifications />} />
+        {/* <Route path="notifications" element={<Notifications />} /> */}
+        <Route key='3' path={SettingsRoutes.FEEDBACK} element={< Feedbcak />} />
         <Route path="chat" element={<Chat />} />
         <Route path="intro" element={<IntroPage />}>
           <Route path="path" element={<PathSelection />}/>
