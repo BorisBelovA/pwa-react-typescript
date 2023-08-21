@@ -27,6 +27,7 @@ export const Feedbcak = observer((): JSX.Element => {
         severity: 'success',
         visible: true
       })
+      setFeedbackMessage('')
     } catch (e) {
       setBackdropVisible(false)
       setMessage({
