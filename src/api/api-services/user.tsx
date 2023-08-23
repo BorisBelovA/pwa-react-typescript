@@ -1,6 +1,6 @@
 import { type ErrorCodes } from 'src/models/errors'
 import http from '../common-configuration'
-import { type AuthenticatedUserData } from '../dto/api-responses'
+import { type FullUser, type AuthenticatedUserData } from '../dto/api-responses'
 import { type HttpResponse } from '../dto/common-interfaces'
 import { type UserForm, type UserDto, type UserCredentials } from '../dto/user'
 
@@ -128,8 +128,8 @@ class UserApiService {
       })
   }
 
-  public async getUserByEmail (token: string, email: string): Promise<AuthenticatedUserData> {
-    return await http.get<HttpResponse<AuthenticatedUserData>>(`/user?email=${email}`, {
+  public async getUserByEmail (token: string, email: string): Promise<FullUser> {
+    return await http.get<HttpResponse<FullUser>>(`/user?email=${email}`, {
       headers: {
         Authorization: token
       }

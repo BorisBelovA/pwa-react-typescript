@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import styles from './Chat.module.scss'
 import { useEffect, useRef, useState } from 'react'
-import { type AuthUser, type Message } from 'models'
+import { type AuthUserWithEmail, type Message } from 'models'
 import { ChatMessage, ChatMessageSkeleton } from './components/ChatMessage'
 import { ChatHeader } from './components/ChatHeader'
 import { ChatFooter } from './components/ChatFooter'
@@ -10,7 +10,7 @@ import { chatService, sessionService, userApiService } from 'api-services'
 import { Client, type IFrame, type IMessage } from '@stomp/stompjs'
 import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
-import { mapAuthenticatedUserData, mapMessageToModel } from 'mapping-services'
+import { mapFullUser, mapMessageToModel } from 'mapping-services'
 import { type NewMessage, type Message as dtoMessage } from 'dto'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 
@@ -31,7 +31,7 @@ export const Chat = observer((): JSX.Element => {
   const { userStore } = useStore()
   const lastMessageRef = useRef<HTMLDivElement | null>(null)
   const [messages, setMessages] = useState<Message[]>([])
-  const [user, setUser] = useState<AuthUser | null>(null)
+  const [user, setUser] = useState<AuthUserWithEmail | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const { setMessage } = useMainContext()
 
@@ -67,7 +67,7 @@ export const Chat = observer((): JSX.Element => {
   const getUserInfo = async (email: string): Promise<void> => {
     if (sessionService.authToken) {
       const userDto = await userApiService.getUserByEmail(sessionService.authToken, email)
-      const [user] = mapAuthenticatedUserData(userDto)
+      const user = mapFullUser(userDto)
       setUser(user)
     }
   }
