@@ -27,6 +27,9 @@ export default async function getCroppedImg (imageSrc: string, pixelCrop: Area):
 
   ctx.beginPath()
 
+  canvas.width = pixelCrop.width
+  canvas.height = pixelCrop.height
+
   const sourceX = pixelCrop.x
   const sourceY = pixelCrop.y
   const sourceWidth = pixelCrop.width
