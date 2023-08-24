@@ -14,6 +14,7 @@ import { useStore } from 'src/utils/StoreProvider'
 import SearchCardController from 'src/components/Cards/SearchCardController/SearchCardController'
 
 const Search: React.FunctionComponent = observer(() => {
+  const [action, setAction] = useState<'like' | 'dislike'>('dislike')
   const [index, setIndex] = useState<number>(0)
   const { setMessage } = useMainContext()
   const [matches, setMatches] = useState<MatchNew[]>([])
@@ -92,7 +93,7 @@ const Search: React.FunctionComponent = observer(() => {
       </Box>
       <Box className={styles.search__content}>
         {matches.length > 0 && matches[index] &&
-          <SearchCardController matchNew={matches[index]} />
+          <SearchCardController matchNew={matches[index]} action={action} />
         }
         {matches.length === 0 &&
           <Typography variant='h6'>No matches yet</Typography>
@@ -103,7 +104,10 @@ const Search: React.FunctionComponent = observer(() => {
         <Box className={styles.search__matchButtons}>
           <Button
             variant='contained'
-            onClick={() => { handleIndexChange(index, matches) }}
+            onClick={() => {
+              setAction('dislike')
+              handleIndexChange(index, matches)
+            }}
             sx={{
               backgroundColor: theme.palette.background.paper,
               '&:hover': { backgroundColor: theme.palette.background.paper, boxShadow: theme.shadows[2] }
@@ -114,6 +118,7 @@ const Search: React.FunctionComponent = observer(() => {
             variant='contained'
             color='primary'
             onClick={() => {
+              setAction('like')
               void likeUser(matches[index])
               // if last one in matches handle index if not, just filter matches
               matches.length - 1 === index && handleIndexChange(index, matches)
