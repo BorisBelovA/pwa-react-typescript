@@ -1,12 +1,6 @@
 .flip__container {
-  margin: 0 -1rem;
-  padding: 0 1rem;
-  margin-top: -1.125rem;
-  padding-top: 1.125rem;
-  margin-bottom: -3rem;
-  padding-bottom: calc(1rem + var(--safe-area-inset));
+  padding-bottom: var(--safe-area-inset);
   height: 100%;
   overflow-y: hidden;
-  position: relative;
 }
 
