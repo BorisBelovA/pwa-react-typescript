@@ -69,8 +69,9 @@ const Search: React.FunctionComponent = observer(() => {
 
   const likeUser = async (match: MatchNew): Promise<void> => {
     try {
-      await matchingService.likeUser(match.form.id)
       setMatches(matches.filter(m => m.form.id !== match.form.id))
+      handleIndexChange(index, matches)
+      await matchingService.likeUser(match.form.id)
     } catch (e) {
       setMessage({
         text: e instanceof Error ? e.message : 'Something went wrong',
@@ -115,7 +116,6 @@ const Search: React.FunctionComponent = observer(() => {
             variant='contained'
             color='primary'
             onClick={() => {
-              handleIndexChange(index, matches)
               void likeUser(matches[index])
             }}
             sx={{ '&:hover': { boxShadow: theme.shadows[2] } }}>
