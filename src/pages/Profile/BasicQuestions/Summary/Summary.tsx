@@ -10,6 +10,7 @@ import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { QuestionnaireRoutes } from 'models'
 import CardProfile from 'src/components/Cards/CardProfile/CardProfile'
+import CardDualPA from 'src/components/Cards/CardDualPA/CardDualPA'
 
 const Summary = observer((): JSX.Element => {
   const navigate = useNavigate()
@@ -95,7 +96,10 @@ const Summary = observer((): JSX.Element => {
         <Typography className={styles.question__head_text} variant='h1'>Everything is correct?</Typography>
       </Box>
       <Box className={styles.question__content_preview}>
-        <CardProfile info={questions} person={user} />
+        {questions.apartment
+          ? <CardDualPA match={{ user, form: questions }} />
+          : <CardProfile info={questions} person={user} />
+        }
       </Box>
       <Box className={styles.question__nav_preview}>
         <Button variant='outlined'
