@@ -97,7 +97,7 @@ const Summary = observer((): JSX.Element => {
       </Box>
       <Box className={styles.question__content_preview}>
         {questions.apartment
-          ? <CardDualPA match={{ user, form: questions }} />
+          ? <CardDualPA match={{ user, form: questions }} padding='1rem'/>
           : <CardProfile info={questions} person={user} />
         }
       </Box>

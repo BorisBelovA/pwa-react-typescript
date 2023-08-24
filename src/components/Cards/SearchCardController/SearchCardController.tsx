@@ -33,7 +33,7 @@ const SearchCardController = ({ matchNew, action }: Props): JSX.Element => {
         match.form.apartment?.id
           ? <Box key={match.user.id} className={`${styles.card__container} 
           ${index === 1 && (action === 'like' ? styles.card__container_right : styles.card__container_left)}`}>
-            <CardDualPA match={match} />
+            <CardDualPA match={match} padding='3rem' />
           </Box>
           : <Box
             key={match.user.id}
