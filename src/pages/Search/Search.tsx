@@ -70,6 +70,12 @@ const Search: React.FunctionComponent = observer(() => {
 
   const likeUser = async (match: MatchNew): Promise<void> => {
     try {
+      setAction('like')
+      // if last one in matches handle index if not, just filter matches
+      if (matches.length - 1 === index) {
+        handleIndexChange(index, matches)
+      }
+      setMatches(matches.filter(m => m.form.id !== matches[index].form.id))
       await matchingService.likeUser(match.form.id)
     } catch (e) {
       setMessage({
@@ -118,11 +124,7 @@ const Search: React.FunctionComponent = observer(() => {
             variant='contained'
             color='primary'
             onClick={() => {
-              setAction('like')
               void likeUser(matches[index])
-              // if last one in matches handle index if not, just filter matches
-              matches.length - 1 === index && handleIndexChange(index, matches)
-              setMatches(matches.filter(m => m.form.id !== matches[index].form.id))
             }}
             sx={{ '&:hover': { boxShadow: theme.shadows[2] } }}>
             <FavoriteIcon sx={{
