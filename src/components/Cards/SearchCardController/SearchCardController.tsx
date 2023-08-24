@@ -7,8 +7,9 @@ import CardDualPA from '../CardDualPA/CardDualPA'
 
 interface Props {
   matchNew: MatchNew
+  action: 'like' | 'dislike'
 }
-const SearchCardController = ({ matchNew }: Props): JSX.Element => {
+const SearchCardController = ({ matchNew, action }: Props): JSX.Element => {
   const [matches, setMatches] = useState<MatchNew[]>([])
 
   const switchCards = (): void => {
@@ -30,12 +31,14 @@ const SearchCardController = ({ matchNew }: Props): JSX.Element => {
     <Box className={styles.card}>
       {matches.map((match, index) => (
         match.form.apartment?.id
-          ? <Box key={match.user.id} className={`${styles.card__container} ${index === 1 && styles.card__container_right}`}>
+          ? <Box key={match.user.id} className={`${styles.card__container} 
+          ${index === 1 && (action === 'like' ? styles.card__container_right : styles.card__container_left)}`}>
             <CardDualPA match={match} />
           </Box>
           : <Box
             key={match.user.id}
-            className={`${styles.card__container} ${index === 1 && styles.card__container_right}`}>
+            className={`${styles.card__container} 
+            ${index === 1 && (action === 'like' ? styles.card__container_right : styles.card__container_left)}`}>
             <CardProfile info={match.form} person={match.user} padding='3rem' />
           </Box>
       ))}
