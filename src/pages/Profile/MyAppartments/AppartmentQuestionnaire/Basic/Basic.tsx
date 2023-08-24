@@ -68,6 +68,13 @@ export const Basic = (): JSX.Element => {
   }, [watch, errors])
 
   useEffect(() => {
+    setApartment({
+      ...apartment,
+      currency
+    })
+  }, [currency])
+
+  useEffect(() => {
     setNextDisabled(!isValid)
   }, [isValid])
 
