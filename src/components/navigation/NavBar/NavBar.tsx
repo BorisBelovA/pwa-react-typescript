@@ -7,6 +7,7 @@ import { ReactComponent as SearchSvg } from '../../../assets/nav-bar/search.svg'
 import { ReactComponent as MatchSvg } from '../../../assets/nav-bar/Match.svg'
 import { ReactComponent as SupportSvg } from '../../../assets/nav-bar/Support.svg'
 import { useLocation } from 'react-router-dom'
+import { SettingsRoutes } from 'models'
 
 const NavBar: React.FunctionComponent = () => {
   const [locBase, setLocBase] = useState('')
@@ -16,7 +17,7 @@ const NavBar: React.FunctionComponent = () => {
     { to: '/household', icon: HouseholdSvg, abbr: 'house' },
     { to: '/search', icon: SearchSvg, abbr: 'searc' },
     { to: '/match', icon: MatchSvg, abbr: 'match' },
-    { to: '/notifications', icon: SupportSvg, abbr: 'notif' }
+    { to: SettingsRoutes.FEEDBACK, icon: SupportSvg, abbr: 'feedb' }
   ]
 
   useEffect(() => {
