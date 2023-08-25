@@ -183,6 +183,7 @@ export const Location = (): JSX.Element => {
       {(questions.apartment ?? questionnaireStore.questionnaire?.apartment) &&
         <Box className={styles.alert}>
           <Typography>To change location you need to unlink your apartment first</Typography>
+          <Typography variant='subtitle1' sx={{opacity: '.5'}}>If you change your mind you will need to link your apartment again</Typography>
           <Button variant='contained' onClick={() => { void unlinkApartment() }}>Unlink</Button>
         </Box>
       }
