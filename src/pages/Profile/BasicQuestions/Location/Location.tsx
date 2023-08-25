@@ -150,7 +150,7 @@ export const Location = (): JSX.Element => {
         setBackdropVisible(true)
         setBackdropMessage('Unlinking apartment')
 
-        const dto = await questionnaireService.updateQuestForm({...questions, apartment: null})
+        const dto = await questionnaireService.updateQuestForm({ ...questions, apartment: null })
         setQuestions({ ...questions, apartment: null })
         questionnaireStore.setQuestionnaire({
           ...questions,
