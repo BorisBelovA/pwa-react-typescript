@@ -8,7 +8,7 @@ import { useStore } from 'src/utils/StoreProvider'
 import { useState } from 'react'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 
-export const Feedbcak = observer((): JSX.Element => {
+export const Feedback = observer((): JSX.Element => {
   const { registrationStore } = useStore()
   const [feedbackMessage, setFeedbackMessage] = useState('')
   const { setBackdropMessage, setBackdropVisible, setMessage } = useMainContext()
@@ -48,7 +48,6 @@ export const Feedbcak = observer((): JSX.Element => {
     </Box>
     <Box className={styles.feedback_container}>
       <Typography variant='body1'>Please describe your issue or suggestion.</Typography>
-      <Typography variant='body1'>Or contact us via email: </Typography>
 
       <TextField
         label="Your feedback"
