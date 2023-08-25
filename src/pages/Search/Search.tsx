@@ -109,7 +109,8 @@ const Search: React.FunctionComponent = observer(() => {
     <Box className={styles.search}>
       <Box className={styles.search__header}>
         <Box className={styles.search__headerContent}>
-          <Typography variant='h1'>Israel, Haifa</Typography>
+          <Typography variant='h1'>{questionnaireStore.questionnaire?.location.country?.name},&nbsp;
+          {questionnaireStore.questionnaire?.location.city?.name}</Typography>
           <IconButton><SwitchIcon /></IconButton>
         </Box>
         <IconButton color='primary'><FilterAltOutlinedIcon /></IconButton>
