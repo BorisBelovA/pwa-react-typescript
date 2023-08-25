@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Household from '../pages/Household/Household'
 import Matches from '../pages/Matches/Matches'
-import Notifications from '../pages/Notifications/Notifications'
 import Profile from '../pages/Profile/Profile'
 import Search from '../pages/Search/Search'
 import MainLayout from '../layouts/Main/MainLayout'
@@ -13,6 +12,7 @@ import { SessionGuard } from 'src/layouts/SessionGuard/SessionGuard'
 import { Chat } from 'src/pages/Chat/Chat'
 import { IntroPage } from 'src/pages/Intro/IntroPage'
 import { PathSelection } from 'src/pages/Intro/PathSelection/PathSelection'
+import { Feedbcak } from 'src/pages/Profile/Settings/Feedback/Feedback'
 
 const Router: React.FunctionComponent = () => {
   return (
@@ -26,7 +26,7 @@ const Router: React.FunctionComponent = () => {
         <Route path="search" element={<Search />} />
         <Route path="search/:id" element={<Search />} />
         <Route path="match" element={<Matches />} />
-        <Route path="notifications" element={<Notifications />} />
+        <Route path="notifications" element={<Feedbcak />} />
         <Route path="chat" element={<Chat />} />
         <Route path="intro" element={<IntroPage />}>
           <Route path="path" element={<PathSelection />}/>
