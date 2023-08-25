@@ -67,12 +67,13 @@ export const Basic = (): JSX.Element => {
     return () => { subss.unsubscribe() }
   }, [watch, errors])
 
-  useEffect(() => {
+  const changeCurrency = (newCurrency: Currency): void => {
+    setCurrency(newCurrency)
     setApartment({
       ...apartment,
-      currency
+      currency: newCurrency
     })
-  }, [currency])
+  }
 
   useEffect(() => {
     setNextDisabled(!isValid)
@@ -117,7 +118,7 @@ export const Basic = (): JSX.Element => {
           id="demo-customized-select"
           size="small"
           value={currency}
-          onChange={(event) => { setCurrency(event.target.value as Currency) }}
+          onChange={(event) => { changeCurrency(event.target.value as Currency) }}
         >
           <MenuItem value={'USD'}>$</MenuItem>
           <MenuItem value={'EUR'}>€</MenuItem>
