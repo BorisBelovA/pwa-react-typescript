@@ -21,7 +21,9 @@ const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Pr
   const theme = useTheme()
   const header = (<>
     <Box className={styles.head}>
-      <Typography variant='h1'>{apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room</Typography>
+      <Typography variant='h1' color='constantLight.main'>
+        {apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room
+      </Typography>
       {editable &&
         <IconButton sx={{ color: theme.palette.primary.main }}
           className={styles.icon__edit}
@@ -33,7 +35,7 @@ const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Pr
         </IconButton>
       }
     </Box>
-    <Typography>{apartment.countAvailableRooms} out of {apartment.countRooms} rooms available</Typography>
+    <Typography color='constantLight.main'>{apartment.countAvailableRooms} out of {apartment.countRooms} rooms available</Typography>
   </>)
 
   const content = (<>
