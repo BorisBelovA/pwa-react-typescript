@@ -76,7 +76,7 @@ const CardProfile = (props: Props): JSX.Element => {
           </Box>
         }
       </Box>
-      {info.apartment?.id &&
+      {info.apartment &&
         <Box className={styles.apartment__thumb} onClick={flipCard}>
           <Avatar variant='rounded' src={info.apartment.photos[0]} alt={info.apartment.name}/>
           <Box>

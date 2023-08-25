@@ -73,15 +73,16 @@ export const Photos = (): JSX.Element => {
     <Box className={styles.container}>
       <Button variant="outlined" onClick={addPhoto}>Add photos</Button>
       <Box className={styles.images_container}>
-        <ImageList cols={2} gap={8} rowHeight={100}>
+        <ImageList cols={3} gap={8} rowHeight={240}>
           {apartment.photos.map((photo, index) => {
             return <ImageListItem key={index} sx={{
               borderRadius: '16px',
-              border: '1px solid gray',
               overflow: 'hidden'
             }}>
-              <img src={photo} loading="lazy"
-              />
+              <div className={styles.image}>
+                <img src={photo} loading="lazy" className={styles.image}
+                />
+              </div>
               <ImageListItemBar position="bottom"
                 sx={{
                   background: 'transparent',
@@ -108,7 +109,7 @@ export const Photos = (): JSX.Element => {
       {cropVisible && <ImageCropper title='Select photo'
         image={image}
         acceptButtonText='Accept'
-        shape='wide-rect'
+        shape='high-rect'
         acceptImage={photo => {
           setCropVisible(false)
           addPhotoToApartmentCollection(photo);

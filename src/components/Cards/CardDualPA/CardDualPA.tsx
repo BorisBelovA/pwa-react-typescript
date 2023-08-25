@@ -7,8 +7,9 @@ import styles from './CardDualPA.module.scss'
 
 interface Props {
   match: MatchNew
+  padding: string
 }
-const CardDualPA = ({ match }: Props): JSX.Element => {
+const CardDualPA = ({ match, padding }: Props): JSX.Element => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
   const handleFlip = (): void => {
@@ -19,8 +20,8 @@ const CardDualPA = ({ match }: Props): JSX.Element => {
       key={match.user.id}
       isFlipped={isFlipped}
       containerClassName={styles.card}>
-      <CardProfile info={match.form} person={match.user} padding='3rem' flipCard={handleFlip} />
-      <CardApartment apartment={match.form.apartment!} user={match.user} padding='3rem' flipCard={handleFlip} />
+      <CardProfile info={match.form} person={match.user} padding={padding} flipCard={handleFlip} />
+      <CardApartment apartment={match.form.apartment!} user={match.user} padding={padding} flipCard={handleFlip} />
     </ReactCardFlip>
   )
 }
