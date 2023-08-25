@@ -180,7 +180,7 @@ export const Location = (): JSX.Element => {
 
   return <Box className={commonStyles.question}>
     <Box className={commonStyles.question__content}>
-      {questions.apartment &&
+      {(questions.apartment ?? questionnaireStore.questionnaire?.apartment) &&
         <Box className={styles.alert}>
           <Typography>To change location you need to unlink your apartment first</Typography>
           <Button variant='contained' onClick={() => { void unlinkApartment() }}>Unlink</Button>
@@ -197,7 +197,7 @@ export const Location = (): JSX.Element => {
             ({ field: { onChange, value, onBlur, ref } }) =>
               <Autocomplete
                 id="country-autocomplete"
-                disabled={!!questions.apartment}
+                disabled={!!(questions.apartment ?? questionnaireStore.questionnaire?.apartment)}
                 options={countries}
                 fullWidth
                 onChange={(_, value) => {
@@ -243,7 +243,7 @@ export const Location = (): JSX.Element => {
                 id="district-autocomplete"
                 options={districts}
                 fullWidth
-                disabled={districts.length === 0 || !!questions.apartment}
+                disabled={districts.length === 0 || !!(questions.apartment ?? questionnaireStore.questionnaire?.apartment)}
                 getOptionLabel={(option) => option.name}
                 onChange={(_, value) => {
                   onChange(value ?? null)
@@ -283,7 +283,7 @@ export const Location = (): JSX.Element => {
                 id="city-autocomplete"
                 options={cities}
                 fullWidth
-                disabled={cities.length === 0 || !!questions.apartment}
+                disabled={cities.length === 0 || !!(questions.apartment ?? questionnaireStore.questionnaire?.apartment)}
                 getOptionLabel={(option) => option.name}
                 onChange={(_, value) => {
                   onChange(value ?? null)
