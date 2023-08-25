@@ -7,6 +7,9 @@ import { locationService } from 'src/api/api-services/location'
 import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
 import commonStyles from '../BasicQuestions.module.scss'
 import { useNavigate } from 'react-router-dom'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { useStore } from 'src/utils/StoreProvider'
+import { questionnaireService } from 'api-services'
 
 export const Location = (): JSX.Element => {
   const { questions, setQuestions, setActive, setPercent } = useBasicQuestions()
@@ -15,6 +18,13 @@ export const Location = (): JSX.Element => {
   const [districts, setDistricts] = useState<District[]>([])
   const [cities, setCities] = useState<City[]>([])
   const [nextDisabled, setNextDisabled] = useState(true)
+  const { questionnaireStore } = useStore()
+
+  const {
+    setBackdropVisible,
+    setBackdropMessage,
+    setMessage
+  } = useMainContext()
 
   const getCountries = async (): Promise<void> => {
     try {
@@ -134,8 +144,49 @@ export const Location = (): JSX.Element => {
     setActive(ApartmentsQuestionnaireRoutes.LOCATION)
   }, [])
 
+  const unlinkApartment = async (): Promise<void> => {
+    if (questionnaireStore.questionnaire?.apartment?.id) {
+      try {
+        setBackdropVisible(true)
+        setBackdropMessage('Unlinking apartment')
+        console.log('unlink all')
+
+        const dto = await questionnaireService.updateQuestForm({...questions, apartment: null})
+        setQuestions({ ...questions, apartment: null })
+        questionnaireStore.setQuestionnaire({
+          ...questions,
+          id: dto.id
+        })
+        
+        setTimeout(() => {
+          setBackdropMessage('Almost done')
+        }, 1000)
+
+        setBackdropVisible(false)
+      } catch (error) {
+        console.error(error)
+        setBackdropVisible(false)
+        if (error instanceof Error) {
+          setMessage({
+            visible: true,
+            text: error.message,
+            severity: 'error'
+          })
+        }
+      }
+    } else {
+      setQuestions({ ...questions, apartment: null })
+    }
+  }
+
   return <Box className={commonStyles.question}>
     <Box className={commonStyles.question__content}>
+      {questions.apartment &&
+        <Box className={styles.alert}>
+          <Typography>To change location you need to unlink your apartment.</Typography>
+          <Button variant='contained' onClick={() => { void unlinkApartment() }}>Unlink</Button>
+        </Box>
+      }
       <Box className={styles.container_section}>
         <Typography variant="h2">Country</Typography>
         <Controller control={control}
@@ -147,6 +198,7 @@ export const Location = (): JSX.Element => {
             ({ field: { onChange, value, onBlur, ref } }) =>
               <Autocomplete
                 id="country-autocomplete"
+                disabled={!!questions.apartment}
                 options={countries}
                 fullWidth
                 onChange={(_, value) => {
@@ -192,7 +244,7 @@ export const Location = (): JSX.Element => {
                 id="district-autocomplete"
                 options={districts}
                 fullWidth
-                disabled={districts.length === 0}
+                disabled={districts.length === 0 || !!questions.apartment}
                 getOptionLabel={(option) => option.name}
                 onChange={(_, value) => {
                   onChange(value ?? null)
@@ -232,7 +284,7 @@ export const Location = (): JSX.Element => {
                 id="city-autocomplete"
                 options={cities}
                 fullWidth
-                disabled={cities.length === 0}
+                disabled={cities.length === 0 || !!questions.apartment}
                 getOptionLabel={(option) => option.name}
                 onChange={(_, value) => {
                   onChange(value ?? null)
