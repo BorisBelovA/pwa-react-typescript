@@ -13,6 +13,11 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from 'src/utils/StoreProvider'
 import SearchCardController from 'src/components/Cards/SearchCardController/SearchCardController'
 
+interface SearchOffset {
+  index: number
+  page: number
+}
+
 const Search: React.FunctionComponent = observer(() => {
   const [action, setAction] = useState<'like' | 'dislike'>('dislike')
   const [index, setIndex] = useState<number>(0)
@@ -50,22 +55,34 @@ const Search: React.FunctionComponent = observer(() => {
   }
 
   useEffect(() => {
+    const storage = localStorage.getItem('search_offset')
+    if (storage) {
+      const resStorage: SearchOffset = JSON.parse(storage)
+      setIndex(resStorage.index)
+      setPage(resStorage.page)
+    }
     void checkMatches()
   }, [])
 
   const handleIndexChange = (newIndex: number, matches: MatchNew[]): void => {
     if (newIndex < matches.length - 3) {
       setIndex(newIndex + 1)
+      const toStorage: SearchOffset = { index: newIndex + 1, page }
+      localStorage.setItem('search_offset', JSON.stringify(toStorage))
       return
     }
     if (newIndex === matches.length - 1) {
       setIndex(0)
+      const toStorage: SearchOffset = { index: 0, page }
+      localStorage.setItem('search_offset', JSON.stringify(toStorage))
       return
     }
     const newPage = page + 1
     setPage(newPage)
     void getMatches(newPage)
     setIndex(newIndex + 1)
+    const toStorage: SearchOffset = { index: newIndex + 1, page: newPage }
+    localStorage.setItem('search_offset', JSON.stringify(toStorage))
   }
 
   const likeUser = async (match: MatchNew): Promise<void> => {
@@ -92,7 +109,8 @@ const Search: React.FunctionComponent = observer(() => {
     <Box className={styles.search}>
       <Box className={styles.search__header}>
         <Box className={styles.search__headerContent}>
-          <Typography variant='h1'>Israel, Haifa</Typography>
+          <Typography variant='h1'>{questionnaireStore.questionnaire?.location.country?.name},&nbsp;
+          {questionnaireStore.questionnaire?.location.city?.name}</Typography>
           <IconButton><SwitchIcon /></IconButton>
         </Box>
         <IconButton color='primary'><FilterAltOutlinedIcon /></IconButton>

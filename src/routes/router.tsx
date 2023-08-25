@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Household from '../pages/Household/Household'
 import Matches from '../pages/Matches/Matches'
-import Notifications from '../pages/Notifications/Notifications'
 import Profile from '../pages/Profile/Profile'
 import Search from '../pages/Search/Search'
 import MainLayout from '../layouts/Main/MainLayout'
