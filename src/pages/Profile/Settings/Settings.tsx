@@ -13,7 +13,6 @@ const Settings = (): JSX.Element => {
       <Box className={styles.profile__menu}>
         <SettingsNavigationButton to='/profile/settings/account/'>Account</SettingsNavigationButton>
         <SettingsNavigationButton to='/profile/settings/theme/'>Color theme</SettingsNavigationButton>
-        <SettingsNavigationButton to='/feedback/'>Feedback form</SettingsNavigationButton>
       </Box>
     </Box>
   )
