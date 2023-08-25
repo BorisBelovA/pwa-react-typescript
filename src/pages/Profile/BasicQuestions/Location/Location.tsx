@@ -175,6 +175,9 @@ export const Location = (): JSX.Element => {
       }
     } else {
       setQuestions({ ...questions, apartment: null })
+      questionnaireStore.setQuestionnaire({
+        ...questions, apartment: null
+      })
     }
   }
 
