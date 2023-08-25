@@ -149,7 +149,6 @@ export const Location = (): JSX.Element => {
       try {
         setBackdropVisible(true)
         setBackdropMessage('Unlinking apartment')
-        console.log('unlink all')
 
         const dto = await questionnaireService.updateQuestForm({...questions, apartment: null})
         setQuestions({ ...questions, apartment: null })
@@ -157,7 +156,7 @@ export const Location = (): JSX.Element => {
           ...questions,
           id: dto.id
         })
-        
+
         setTimeout(() => {
           setBackdropMessage('Almost done')
         }, 1000)
