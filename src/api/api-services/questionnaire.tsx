@@ -70,6 +70,28 @@ class Questionnaire {
         throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
       })
   }
+
+  public async getQuestionnaireByUserId (userId: number): Promise<dtoQuestionnaire | null> {
+    return await http.get<HttpResponse<dtoQuestionnaire | null>>(`/form/active/user/${userId}`, {
+      headers: {
+        Authorization: this.sessnioService.authToken
+      }
+    })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        if (errorResponse instanceof Error) {
+          throw errorResponse
+        } else {
+          throw new Error(errorResponse.message ?? 'Unexpected behavior')
+        }
+      })
+  }
 }
 
 export const questionnaireService = new Questionnaire(sessionService)
