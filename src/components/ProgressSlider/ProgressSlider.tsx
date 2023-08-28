@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 import { useOutletContext } from 'react-router-dom'
 import ProgressSliderItem, { type ProgressSliderProps } from './ProgressSliderItem/ProgressSliderItem'
+import { observer } from 'mobx-react-lite'
 
 interface Props {
   items: ProgressSliderProps[]
@@ -41,8 +42,7 @@ const ProgressSlider: React.FunctionComponent<Props> = (props: Props) => {
     </Box>
   )
 }
-export default ProgressSlider
-
+export default observer(ProgressSlider)
 export const useActive = (): ContextType => {
   return useOutletContext<ContextType>()
 }
