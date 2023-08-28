@@ -154,6 +154,7 @@ export const Location = (): JSX.Element => {
         setQuestions({ ...questions, apartment: null })
         questionnaireStore.setQuestionnaire({
           ...questions,
+          apartment: null,
           id: dto.id
         })
 
