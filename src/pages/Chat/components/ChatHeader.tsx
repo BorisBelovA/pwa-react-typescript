@@ -202,7 +202,7 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
             : <CardProfile person={user} info={questionnaire} />
         }
         <Button variant="outlined" fullWidth onClick={() => { setShowProfileCard(false) }}>
-          Close
+          Back to chat
         </Button>
       </Box>
     </>}
