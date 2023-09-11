@@ -46,7 +46,7 @@ const Search: React.FunctionComponent = observer(() => {
     }
   }
 
-  const checkMatches = async (): Promise<void> => {
+  const checkMatches = async (page: number): Promise<void> => {
     if (questionnaireStore.haveQuestionnaire) {
       await getMatches(page)
     } else {
@@ -56,13 +56,16 @@ const Search: React.FunctionComponent = observer(() => {
   }
 
   useEffect(() => {
-    // const storage = localStorage.getItem('search_offset')
-    // if (storage) {
-    //   const resStorage: SearchOffset = JSON.parse(storage)
-    //   setIndex(resStorage.index)
-    //   setPage(resStorage.page)
-    // }
-    void checkMatches()
+    const storage = localStorage.getItem('search_offset')
+    if (storage) {
+      const resStorage: SearchOffset = JSON.parse(storage)
+      setIndex(resStorage.index)
+      setPage(resStorage.page)
+      setCurrentPage(resStorage.page)
+      void checkMatches(resStorage.page)
+    } else {
+      void checkMatches(page)
+    }
   }, [])
 
   const handleLocalStorage = (newIndex: number, newPage: number): void => {
@@ -73,17 +76,17 @@ const Search: React.FunctionComponent = observer(() => {
   const handleIndexChange = (newIndex: number, matches: MatchNew[]): void => {
     if (newIndex < matches.length - 3) {
       setIndex(newIndex + 1)
-      if ( newIndex % 10 === 9){
-        handleLocalStorage( newIndex + 1, currentPage + 1 )
+      if (newIndex % 10 === 9) {
+        handleLocalStorage(newIndex + 1, currentPage + 1)
         setCurrentPage(currentPage + 1)
       } else {
-        handleLocalStorage( newIndex + 1, currentPage )
+        handleLocalStorage(newIndex + 1, currentPage)
       }
       return
     }
     if (newIndex === matches.length - 1) {
       setIndex(0)
-      handleLocalStorage( 0, 0 )
+      handleLocalStorage(0, 0)
       setCurrentPage(0)
       return
     }
@@ -91,7 +94,7 @@ const Search: React.FunctionComponent = observer(() => {
     setPage(newPage)
     void getMatches(newPage)
     setIndex(newIndex + 1)
-    handleLocalStorage( newIndex + 1, currentPage )
+    handleLocalStorage(newIndex + 1, currentPage)
   }
 
   const likeUser = async (match: MatchNew): Promise<void> => {
