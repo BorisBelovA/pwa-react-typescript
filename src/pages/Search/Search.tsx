@@ -55,12 +55,12 @@ const Search: React.FunctionComponent = observer(() => {
   }
 
   useEffect(() => {
-    const storage = localStorage.getItem('search_offset')
-    if (storage) {
-      const resStorage: SearchOffset = JSON.parse(storage)
-      setIndex(resStorage.index)
-      setPage(resStorage.page)
-    }
+    // const storage = localStorage.getItem('search_offset')
+    // if (storage) {
+    //   const resStorage: SearchOffset = JSON.parse(storage)
+    //   setIndex(resStorage.index)
+    //   setPage(resStorage.page)
+    // }
     void checkMatches()
   }, [])
 
