@@ -24,6 +24,7 @@ const Search: React.FunctionComponent = observer(() => {
   const { setMessage } = useMainContext()
   const [matches, setMatches] = useState<MatchNew[]>([])
   const [page, setPage] = useState<number>(0)
+  const [currentPage, setCurrentPage] = useState<number>(0)
   const { questionnaireStore } = useStore()
   const getMatches = async (offset: number): Promise<void> => {
     try {
@@ -64,25 +65,33 @@ const Search: React.FunctionComponent = observer(() => {
     void checkMatches()
   }, [])
 
+  const handleLocalStorage = (newIndex: number, newPage: number): void => {
+    const toStorage: SearchOffset = { index: newIndex % 10, page: newPage }
+    localStorage.setItem('search_offset', JSON.stringify(toStorage))
+  }
+
   const handleIndexChange = (newIndex: number, matches: MatchNew[]): void => {
     if (newIndex < matches.length - 3) {
       setIndex(newIndex + 1)
-      const toStorage: SearchOffset = { index: (newIndex + 1) % 10, page }
-      localStorage.setItem('search_offset', JSON.stringify(toStorage))
+      if ( newIndex % 10 === 9){
+        handleLocalStorage( newIndex + 1, currentPage + 1 )
+        setCurrentPage(currentPage + 1)
+      } else {
+        handleLocalStorage( newIndex + 1, currentPage )
+      }
       return
     }
     if (newIndex === matches.length - 1) {
       setIndex(0)
-      const toStorage: SearchOffset = { index: 0, page }
-      localStorage.setItem('search_offset', JSON.stringify(toStorage))
+      handleLocalStorage( 0, 0 )
+      setCurrentPage(0)
       return
     }
     const newPage = page + 1
     setPage(newPage)
     void getMatches(newPage)
     setIndex(newIndex + 1)
-    const toStorage: SearchOffset = { index: (newIndex + 1) % 10, page: newPage }
-    localStorage.setItem('search_offset', JSON.stringify(toStorage))
+    handleLocalStorage( newIndex + 1, currentPage )
   }
 
   const likeUser = async (match: MatchNew): Promise<void> => {
@@ -110,7 +119,7 @@ const Search: React.FunctionComponent = observer(() => {
       <Box className={styles.search__header}>
         <Box className={styles.search__headerContent}>
           <Typography variant='h1'>{questionnaireStore.questionnaire?.location.country?.name},&nbsp;
-          {questionnaireStore.questionnaire?.location.city?.name}</Typography>
+            {questionnaireStore.questionnaire?.location.city?.name}</Typography>
           <IconButton><SwitchIcon /></IconButton>
         </Box>
         <IconButton color='primary'><FilterAltOutlinedIcon /></IconButton>
