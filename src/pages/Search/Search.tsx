@@ -67,7 +67,7 @@ const Search: React.FunctionComponent = observer(() => {
   const handleIndexChange = (newIndex: number, matches: MatchNew[]): void => {
     if (newIndex < matches.length - 3) {
       setIndex(newIndex + 1)
-      const toStorage: SearchOffset = { index: newIndex + 1, page }
+      const toStorage: SearchOffset = { index: (newIndex + 1) % 10, page }
       localStorage.setItem('search_offset', JSON.stringify(toStorage))
       return
     }
@@ -81,7 +81,7 @@ const Search: React.FunctionComponent = observer(() => {
     setPage(newPage)
     void getMatches(newPage)
     setIndex(newIndex + 1)
-    const toStorage: SearchOffset = { index: newIndex + 1, page: newPage }
+    const toStorage: SearchOffset = { index: (newIndex + 1) % 10, page: newPage }
     localStorage.setItem('search_offset', JSON.stringify(toStorage))
   }
 
