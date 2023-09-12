@@ -22,20 +22,25 @@ const Search: React.FunctionComponent = observer(() => {
   const [action, setAction] = useState<'like' | 'dislike'>('dislike')
   const [index, setIndex] = useState<number>(0)
   const { setMessage } = useMainContext()
-  const [matches, setMatches] = useState<MatchNew[]>([])
-  const [page, setPage] = useState<number>(0)
+
+  const [currentMatches, setCurrentMatches] = useState<MatchNew[]>([])
+  const [nextMatches, setNextMatches] = useState<MatchNew[]>([])
+
+  const [currentImages, setCurrentImages] = useState<HTMLImageElement[]>([])
+  const [nextImages, setNextImages] = useState<HTMLImageElement[]>([])
+
   const [currentPage, setCurrentPage] = useState<number>(0)
+  const [nextPage, setNextPage] = useState<number>(1)
+
+  const [startPage, setStartPage] = useState<number>(0)
+
   const { questionnaireStore } = useStore()
-  const getMatches = async (offset: number): Promise<void> => {
+
+  const getMatches = async (offset: number): Promise<MatchNew[]> => {
     try {
       const response = await matchingService.getMatches(offset)
       const m = response.map(r => mapMatchToModel(r))
-      // preloading all images to cache
-      m.forEach(i => {
-        const img = new Image()
-        img.src = i.user.photo ?? ''
-      })
-      setMatches(matches.concat(m))
+      return m
     } catch (e) {
       setMessage({
         text: (e instanceof Error && e.message) ? e.message : 'Something went wrong',
@@ -43,16 +48,62 @@ const Search: React.FunctionComponent = observer(() => {
         life: 5000,
         visible: true
       })
+      return []
+    }
+  }
+
+  const preloadImages = (matches: MatchNew[]): HTMLImageElement[] => {
+    const images = matches.map(i => {
+      const img = new Image()
+      img.src = i.user.photo ?? ''
+      return img
+    })
+    return images
+  }
+
+  const startMatching = async (page: number): Promise<void> => {
+    const m = await getMatches(page)
+    if (m.length > 0) {
+      setCurrentMatches(m)
+      setCurrentImages(preloadImages(m))
+      if (index > m.length - 1 && m.length > 0) setIndex(m.length - 1)
+    } else {
+      const nextM = await getMatches(0)
+      setCurrentMatches(nextM)
+      setCurrentImages(preloadImages(nextM))
+      if (index > m.length - 1 && m.length > 0) setIndex(m.length - 1)
+    }
+  }
+
+  const getNextMatches = async (page: number): Promise<void> => {
+    const m = await getMatches(page)
+    if (m.length > 0) {
+      setNextMatches(m)
+      setNextImages(preloadImages(m))
+    } else {
+      setNextPage(0)
+      const nextM = await getMatches(0)
+      setNextMatches(nextM)
+      setNextImages(preloadImages(nextM))
+    }
+  }
+
+  const matchesSwitch = (): void => {
+    if (nextMatches.length > 0) {
+      setCurrentMatches([...nextMatches])
+      setCurrentImages([...nextImages])
+      setIndex(0)
+      setCurrentPage(nextPage)
+      handleLocalStorage(0, nextPage)
+      setNextPage(nextPage + 1)
     }
   }
 
   const checkMatches = async (page: number): Promise<void> => {
-    if (questionnaireStore.haveQuestionnaire) {
-      await getMatches(page)
-    } else {
+    if (questionnaireStore.haveQuestionnaire === false) {
       await questionnaireStore.getQuestionnaire()
-      await getMatches(page)
     }
+    await startMatching(page)
   }
 
   useEffect(() => {
@@ -60,51 +111,43 @@ const Search: React.FunctionComponent = observer(() => {
     if (storage) {
       const resStorage: SearchOffset = JSON.parse(storage)
       setIndex(resStorage.index)
-      setPage(resStorage.page)
       setCurrentPage(resStorage.page)
+      setNextPage(resStorage.page + 1)
+      setStartPage(resStorage.page)
       void checkMatches(resStorage.page)
     } else {
-      void checkMatches(page)
+      void checkMatches(currentPage)
     }
   }, [])
 
   const handleLocalStorage = (newIndex: number, newPage: number): void => {
-    const toStorage: SearchOffset = { index: newIndex % 10, page: newPage }
+    const toStorage: SearchOffset = { index: newIndex, page: newPage }
     localStorage.setItem('search_offset', JSON.stringify(toStorage))
   }
 
-  const handleIndexChange = (newIndex: number, matches: MatchNew[]): void => {
-    if (newIndex < matches.length - 3) {
-      setIndex(newIndex + 1)
-      if (newIndex % 10 === 9) {
-        handleLocalStorage(newIndex + 1, currentPage + 1)
-        setCurrentPage(currentPage + 1)
-      } else {
-        handleLocalStorage(newIndex + 1, currentPage)
-      }
+  const handleIndexChange = (currentIndex: number, matches: MatchNew[]): void => {
+    if (currentIndex === matches.length - 1) {
+      matchesSwitch()
       return
     }
-    if (newIndex === matches.length - 1) {
-      setIndex(0)
-      handleLocalStorage(0, 0)
-      setCurrentPage(0)
+    if (currentIndex < matches.length - 3) {
+      setIndex(currentIndex + 1)
+      handleLocalStorage(currentIndex + 1, currentPage)
       return
     }
-    const newPage = page + 1
-    setPage(newPage)
-    void getMatches(newPage)
-    setIndex(newIndex + 1)
-    handleLocalStorage(newIndex + 1, currentPage)
+    getNextMatches(nextPage)
+    setIndex(currentIndex + 1)
+    handleLocalStorage(currentIndex + 1, currentPage)
   }
 
   const likeUser = async (match: MatchNew): Promise<void> => {
     try {
       setAction('like')
       // if last one in matches handle index if not, just filter matches
-      if (matches.length - 1 === index) {
-        handleIndexChange(index, matches)
+      if (currentMatches.length - 1 === index) {
+        handleIndexChange(index, currentMatches)
       }
-      setMatches(matches.filter(m => m.form.id !== matches[index].form.id))
+      setCurrentMatches(currentMatches.filter(m => m.form.id !== currentMatches[index].form.id))
       await matchingService.likeUser(match.form.id)
     } catch (e) {
       setMessage({
@@ -128,21 +171,21 @@ const Search: React.FunctionComponent = observer(() => {
         <IconButton color='primary'><FilterAltOutlinedIcon /></IconButton>
       </Box>
       <Box className={styles.search__content}>
-        {matches.length > 0 && matches[index] &&
-          <SearchCardController matchNew={matches[index]} action={action} />
+        {currentMatches.length > 0 && currentMatches[index] &&
+          <SearchCardController matchNew={currentMatches[index]} action={action} />
         }
-        {matches.length === 0 &&
+        {currentMatches.length === 0 &&
           <Typography variant='h6'>No matches yet</Typography>
         }
       </Box>
       {
-        matches.length > 0 &&
+        currentMatches.length > 0 &&
         <Box className={styles.search__matchButtons}>
           <Button
             variant='contained'
             onClick={() => {
               setAction('dislike')
-              handleIndexChange(index, matches)
+              handleIndexChange(index, currentMatches)
             }}
             sx={{
               backgroundColor: theme.palette.background.paper,
@@ -154,7 +197,7 @@ const Search: React.FunctionComponent = observer(() => {
             variant='contained'
             color='primary'
             onClick={() => {
-              void likeUser(matches[index])
+              void likeUser(currentMatches[index])
             }}
             sx={{ '&:hover': { boxShadow: theme.shadows[2] } }}>
             <FavoriteIcon sx={{
