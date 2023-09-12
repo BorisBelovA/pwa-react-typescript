@@ -26,13 +26,11 @@ const Search: React.FunctionComponent = observer(() => {
   const [currentMatches, setCurrentMatches] = useState<MatchNew[]>([])
   const [nextMatches, setNextMatches] = useState<MatchNew[]>([])
 
-  const [currentImages, setCurrentImages] = useState<HTMLImageElement[]>([])
-  const [nextImages, setNextImages] = useState<HTMLImageElement[]>([])
+  // const [currentImages, setCurrentImages] = useState<HTMLImageElement[]>([])
+  // const [nextImages, setNextImages] = useState<HTMLImageElement[]>([])
 
   const [currentPage, setCurrentPage] = useState<number>(0)
   const [nextPage, setNextPage] = useState<number>(1)
-
-  const [startPage, setStartPage] = useState<number>(0)
 
   const { questionnaireStore } = useStore()
 
@@ -65,12 +63,14 @@ const Search: React.FunctionComponent = observer(() => {
     const m = await getMatches(page)
     if (m.length > 0) {
       setCurrentMatches(m)
-      setCurrentImages(preloadImages(m))
+      preloadImages(m)
+      // setCurrentImages(preloadImages(m))
       if (index > m.length - 1 && m.length > 0) setIndex(m.length - 1)
     } else {
       const nextM = await getMatches(0)
       setCurrentMatches(nextM)
-      setCurrentImages(preloadImages(nextM))
+      preloadImages(nextM)
+      // setCurrentImages(preloadImages(nextM))
       if (index > m.length - 1 && m.length > 0) setIndex(m.length - 1)
     }
   }
@@ -79,28 +79,32 @@ const Search: React.FunctionComponent = observer(() => {
     const m = await getMatches(page)
     if (m.length > 0) {
       setNextMatches(m)
-      setNextImages(preloadImages(m))
+      preloadImages(m)
+      // setNextImages(preloadImages(m))
     } else {
       setNextPage(0)
       const nextM = await getMatches(0)
       setNextMatches(nextM)
-      setNextImages(preloadImages(nextM))
+      preloadImages(nextM)
+      // setNextImages(preloadImages(nextM))
     }
   }
 
   const matchesSwitch = (): void => {
     if (nextMatches.length > 0) {
       setCurrentMatches([...nextMatches])
-      setCurrentImages([...nextImages])
+      // setCurrentImages([...nextImages])
       setIndex(0)
       setCurrentPage(nextPage)
       handleLocalStorage(0, nextPage)
       setNextPage(nextPage + 1)
+    } else {
+      setIndex(0)
     }
   }
 
   const checkMatches = async (page: number): Promise<void> => {
-    if (questionnaireStore.haveQuestionnaire === false) {
+    if (!questionnaireStore.haveQuestionnaire) {
       await questionnaireStore.getQuestionnaire()
     }
     await startMatching(page)
@@ -113,7 +117,6 @@ const Search: React.FunctionComponent = observer(() => {
       setIndex(resStorage.index)
       setCurrentPage(resStorage.page)
       setNextPage(resStorage.page + 1)
-      setStartPage(resStorage.page)
       void checkMatches(resStorage.page)
     } else {
       void checkMatches(currentPage)
@@ -135,7 +138,7 @@ const Search: React.FunctionComponent = observer(() => {
       handleLocalStorage(currentIndex + 1, currentPage)
       return
     }
-    getNextMatches(nextPage)
+    void getNextMatches(nextPage)
     setIndex(currentIndex + 1)
     handleLocalStorage(currentIndex + 1, currentPage)
   }
