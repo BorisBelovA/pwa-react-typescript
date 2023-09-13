@@ -171,7 +171,7 @@ const Search: React.FunctionComponent = observer(() => {
             {questionnaireStore.questionnaire?.location.city?.name}</Typography>
           <IconButton><SwitchIcon /></IconButton>
         </Box>
-        <IconButton color='primary'><FilterAltOutlinedIcon /></IconButton>
+        {/* <IconButton color='primary'><FilterAltOutlinedIcon /></IconButton> */}
       </Box>
       <Box className={styles.search__content}>
         {currentMatches.length > 0 && currentMatches[index] &&
