@@ -71,7 +71,7 @@ const Search: React.FunctionComponent = observer(() => {
       setCurrentMatches(nextM)
       preloadImages(nextM)
       // setCurrentImages(preloadImages(nextM))
-      if (index > m.length - 1 && m.length > 0) setIndex(m.length - 1)
+      if (index > nextM.length - 1 && nextM.length > 0) setIndex(nextM.length - 1)
     }
   }
 
