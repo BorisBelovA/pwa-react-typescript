@@ -32,6 +32,7 @@ const Search: React.FunctionComponent = observer(() => {
   const [hadMatches, setHadMatches] = useState<boolean>(false)
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [needSwitch, setNeedSwitch] = useState<boolean>(false)
 
   // const [currentImages, setCurrentImages] = useState<HTMLImageElement[]>([])
   // const [nextImages, setNextImages] = useState<HTMLImageElement[]>([])
@@ -94,7 +95,9 @@ const Search: React.FunctionComponent = observer(() => {
 
   const matchesSwitch = async (): Promise<void> => {
     setCurrentMatches([])
+    setNeedSwitch(true)
     if (!isLoading && nextMatches.length > 0) {
+      setNeedSwitch(false)
       setCurrentMatches([...nextMatches])
       // setCurrentImages([...nextImages])
       setIndex(0)
@@ -105,6 +108,12 @@ const Search: React.FunctionComponent = observer(() => {
       setNextPage(nextPage + 1)
     }
   }
+
+  useEffect(() => {
+    if (needSwitch) {
+      void matchesSwitch()
+    }
+  }, [needSwitch, nextMatches])
 
   const checkMatches = async (page: number): Promise<void> => {
     if (!questionnaireStore.haveQuestionnaire) {
