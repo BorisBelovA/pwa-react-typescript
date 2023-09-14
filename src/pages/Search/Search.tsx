@@ -80,6 +80,7 @@ const Search: React.FunctionComponent = observer(() => {
   }
 
   const getNextMatches = async (page: number): Promise<void> => {
+    setIsLoading(true)
     const m = await getMatches(page)
     if (m.length > 0) {
       setNextMatches(m)
@@ -88,11 +89,12 @@ const Search: React.FunctionComponent = observer(() => {
       setHadMatches(true)
       // setNextImages(preloadImages(m))
     }
+    setIsLoading(false)
   }
 
   const matchesSwitch = async (): Promise<void> => {
     setCurrentMatches([])
-    if (!isLoading) {
+    if (!isLoading && nextMatches.length > 0) {
       setCurrentMatches([...nextMatches])
       // setCurrentImages([...nextImages])
       setIndex(0)
@@ -129,15 +131,14 @@ const Search: React.FunctionComponent = observer(() => {
     localStorage.setItem('search_offset', JSON.stringify(toStorage))
   }
 
-  const handleIndexChange = (currentIndex: number, matches: MatchNew[]): void => {
+  const handleIndexChange = async (currentIndex: number, matches: MatchNew[]): Promise<void> => {
     if (currentIndex > matches.length - 3 && !haveNewMatches) {
       if (!isLoading) {
-        setIsLoading(true)
-        void getNextMatches(nextPage).then(() => { setIsLoading(false) })
+        void getNextMatches(nextPage)
       }
     }
     if (currentIndex === matches.length - 1) {
-      void matchesSwitch()
+        void matchesSwitch()
       return
     }
     if (currentIndex > matches.length - 1) {
