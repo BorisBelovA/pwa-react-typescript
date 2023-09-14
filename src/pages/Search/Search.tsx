@@ -105,7 +105,7 @@ const Search: React.FunctionComponent = observer(() => {
       setNextMatches([])
       setHaveNewMatches(false)
       setNextPage(nextPage + 1)
-    } else if (!isLoading && nextMatches.length === 0){
+    } else if (!isLoading && nextMatches.length === 0) {
       const newIndex = index < 9 ? index + 1 : 0
       const newPage = index < 9 ? currentPage : nextPage
       setIndex(newIndex)
@@ -221,12 +221,12 @@ const Search: React.FunctionComponent = observer(() => {
           <SearchCardController matchNew={currentMatches[index]} action={action} />
         }
         {currentMatches.length === 0 && isLoading &&
-          <>
+          <div className={styles.noMatches}>
             <Typography>Loading...</Typography>
-          </>
+          </div>
         }
         {currentMatches.length === 0 && !isLoading &&
-          <>
+          <div className={styles.noMatches}>
             <Typography variant='h6'>No matches yet</Typography>
             <Button
               variant='contained'
@@ -241,7 +241,7 @@ const Search: React.FunctionComponent = observer(() => {
                 onClick={() => { startAgain() }}
               >Start again</Button>
             }
-          </>
+          </div>
         }
       </Box>
       {
