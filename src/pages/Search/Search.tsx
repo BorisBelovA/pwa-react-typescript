@@ -1,6 +1,5 @@
 import { Box, Button, IconButton, Typography, useTheme } from '@mui/material'
 import styles from './Search.module.scss'
-import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined'
 import { ReactComponent as SwitchIcon } from '../../assets/icons/switch.svg'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
@@ -25,6 +24,8 @@ const Search: React.FunctionComponent = observer(() => {
 
   const [currentMatches, setCurrentMatches] = useState<MatchNew[]>([])
   const [nextMatches, setNextMatches] = useState<MatchNew[]>([])
+
+  const [haveNewMatches, setHaveNewMatches] = useState<boolean>(false)
 
   // const [currentImages, setCurrentImages] = useState<HTMLImageElement[]>([])
   // const [nextImages, setNextImages] = useState<HTMLImageElement[]>([])
@@ -80,12 +81,16 @@ const Search: React.FunctionComponent = observer(() => {
     if (m.length > 0) {
       setNextMatches(m)
       preloadImages(m)
+      setHaveNewMatches(true)
       // setNextImages(preloadImages(m))
     } else {
       setNextPage(0)
       const nextM = await getMatches(0)
-      setNextMatches(nextM)
-      preloadImages(nextM)
+      if (nextM.length > 0){
+        setNextMatches(nextM)
+        preloadImages(nextM)
+        setHaveNewMatches(true)
+      }
       // setNextImages(preloadImages(nextM))
     }
   }
@@ -97,6 +102,8 @@ const Search: React.FunctionComponent = observer(() => {
       setIndex(0)
       setCurrentPage(nextPage)
       handleLocalStorage(0, nextPage)
+      setNextMatches([])
+      setHaveNewMatches(false)
       setNextPage(nextPage + 1)
     } else {
       setIndex(0)
@@ -129,16 +136,17 @@ const Search: React.FunctionComponent = observer(() => {
   }
 
   const handleIndexChange = (currentIndex: number, matches: MatchNew[]): void => {
+    if (currentIndex > matches.length - 3 && !haveNewMatches) {
+      void getNextMatches(nextPage)
+    }
     if (currentIndex === matches.length - 1) {
       matchesSwitch()
       return
     }
-    if (currentIndex < matches.length - 3) {
-      setIndex(currentIndex + 1)
-      handleLocalStorage(currentIndex + 1, currentPage)
-      return
+    if (currentIndex > matches.length - 1){
+      setIndex(matches.length - 1)
+      handleLocalStorage(matches.length - 1, currentPage)
     }
-    void getNextMatches(nextPage)
     setIndex(currentIndex + 1)
     handleLocalStorage(currentIndex + 1, currentPage)
   }
