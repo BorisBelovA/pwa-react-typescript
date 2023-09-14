@@ -131,14 +131,14 @@ const Search: React.FunctionComponent = observer(() => {
     localStorage.setItem('search_offset', JSON.stringify(toStorage))
   }
 
-  const handleIndexChange = async (currentIndex: number, matches: MatchNew[]): Promise<void> => {
+  const handleIndexChange = (currentIndex: number, matches: MatchNew[]): void => {
     if (currentIndex > matches.length - 3 && !haveNewMatches) {
       if (!isLoading) {
         void getNextMatches(nextPage)
       }
     }
     if (currentIndex === matches.length - 1) {
-        void matchesSwitch()
+      void matchesSwitch()
       return
     }
     if (currentIndex > matches.length - 1) {
