@@ -183,7 +183,7 @@ const Search: React.FunctionComponent = observer(() => {
       setCurrentPage(page)
       setNextPage(page + 1)
     }
-    setIsLoading(false)
+    setTimeout(() => { setIsLoading(false) }, 200)
   }
 
   const likeUser = async (match: MatchNew): Promise<void> => {
