@@ -1,6 +1,5 @@
 import { Box, Button, IconButton, Typography, useTheme } from '@mui/material'
 import styles from './Search.module.scss'
-import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined'
 import { ReactComponent as SwitchIcon } from '../../assets/icons/switch.svg'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
@@ -25,6 +24,15 @@ const Search: React.FunctionComponent = observer(() => {
 
   const [currentMatches, setCurrentMatches] = useState<MatchNew[]>([])
   const [nextMatches, setNextMatches] = useState<MatchNew[]>([])
+
+  // may be change to newMatches.length > 0, not sure about microqueue
+  const [haveNewMatches, setHaveNewMatches] = useState<boolean>(false)
+
+  // only show "go from start" button if there were matches before
+  const [hadMatches, setHadMatches] = useState<boolean>(false)
+
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [needSwitch, setNeedSwitch] = useState<boolean>(false)
 
   // const [currentImages, setCurrentImages] = useState<HTMLImageElement[]>([])
   // const [nextImages, setNextImages] = useState<HTMLImageElement[]>([])
@@ -59,55 +67,65 @@ const Search: React.FunctionComponent = observer(() => {
     return images
   }
 
-  const startMatching = async (page: number): Promise<void> => {
+  const startMatching = async (page: number, startIndex: number): Promise<void> => {
+    setIsLoading(true)
     const m = await getMatches(page)
-    if (m.length > 0) {
+    if (m.length > 0 && startIndex < m.length) {
       setCurrentMatches(m)
       preloadImages(m)
       // setCurrentImages(preloadImages(m))
-      if (index > m.length - 1 && m.length > 0) setIndex(m.length - 1)
-    } else {
-      const nextM = await getMatches(0)
-      setCurrentMatches(nextM)
-      preloadImages(nextM)
-      // setCurrentImages(preloadImages(nextM))
-      if (index > nextM.length - 1 && nextM.length > 0) setIndex(nextM.length - 1)
+      setNextPage(page + 1)
     }
+    setIsLoading(false)
   }
 
   const getNextMatches = async (page: number): Promise<void> => {
+    setIsLoading(true)
     const m = await getMatches(page)
     if (m.length > 0) {
       setNextMatches(m)
       preloadImages(m)
+      setHaveNewMatches(true)
+      setHadMatches(true)
       // setNextImages(preloadImages(m))
-    } else {
-      setNextPage(0)
-      const nextM = await getMatches(0)
-      setNextMatches(nextM)
-      preloadImages(nextM)
-      // setNextImages(preloadImages(nextM))
     }
+    setIsLoading(false)
   }
 
-  const matchesSwitch = (): void => {
-    if (nextMatches.length > 0) {
+  const matchesSwitch = async (): Promise<void> => {
+    setCurrentMatches([])
+    setNeedSwitch(true)
+    if (!isLoading && nextMatches.length > 0) {
+      setNeedSwitch(false)
       setCurrentMatches([...nextMatches])
       // setCurrentImages([...nextImages])
       setIndex(0)
       setCurrentPage(nextPage)
       handleLocalStorage(0, nextPage)
+      setNextMatches([])
+      setHaveNewMatches(false)
       setNextPage(nextPage + 1)
-    } else {
-      setIndex(0)
+    } else if (!isLoading && nextMatches.length === 0) {
+      const newIndex = index < 9 ? index + 1 : 0
+      const newPage = index < 9 ? currentPage : nextPage
+      setIndex(newIndex)
+      setCurrentPage(newPage)
+      setNextPage(newPage + 1)
+      handleLocalStorage(newIndex, newPage)
     }
   }
 
-  const checkMatches = async (page: number): Promise<void> => {
+  useEffect(() => {
+    if (needSwitch) {
+      void matchesSwitch()
+    }
+  }, [needSwitch, nextMatches])
+
+  const checkMatches = async (page: number, startIndex: number): Promise<void> => {
     if (!questionnaireStore.haveQuestionnaire) {
       await questionnaireStore.getQuestionnaire()
     }
-    await startMatching(page)
+    await startMatching(page, startIndex)
   }
 
   useEffect(() => {
@@ -117,9 +135,9 @@ const Search: React.FunctionComponent = observer(() => {
       setIndex(resStorage.index)
       setCurrentPage(resStorage.page)
       setNextPage(resStorage.page + 1)
-      void checkMatches(resStorage.page)
+      void checkMatches(resStorage.page, resStorage.index)
     } else {
-      void checkMatches(currentPage)
+      void checkMatches(currentPage, index)
     }
   }, [])
 
@@ -129,18 +147,43 @@ const Search: React.FunctionComponent = observer(() => {
   }
 
   const handleIndexChange = (currentIndex: number, matches: MatchNew[]): void => {
+    if (currentIndex > matches.length - 3 && !haveNewMatches) {
+      if (!isLoading) {
+        void getNextMatches(nextPage)
+      }
+    }
     if (currentIndex === matches.length - 1) {
-      matchesSwitch()
+      void matchesSwitch()
       return
     }
-    if (currentIndex < matches.length - 3) {
-      setIndex(currentIndex + 1)
-      handleLocalStorage(currentIndex + 1, currentPage)
-      return
+    if (currentIndex > matches.length - 1) {
+      setIndex(matches.length - 1)
+      handleLocalStorage(matches.length - 1, currentPage)
     }
-    void getNextMatches(nextPage)
     setIndex(currentIndex + 1)
     handleLocalStorage(currentIndex + 1, currentPage)
+  }
+
+  const startAgain = (): void => {
+    void startMatching(0, 0)
+    setCurrentPage(0)
+    setIndex(0)
+    setNextPage(1)
+    handleLocalStorage(0, 0)
+  }
+
+  const refresh = async (): Promise<void> => {
+    setCurrentMatches([])
+    setIsLoading(true)
+    const page = index < 9 ? currentPage : nextPage
+    const m = await getMatches(page)
+    if (m.length > 0 && index < m.length) {
+      setCurrentMatches(m)
+      preloadImages(m)
+      setCurrentPage(page)
+      setNextPage(page + 1)
+    }
+    setTimeout(() => { setIsLoading(false) }, 200)
   }
 
   const likeUser = async (match: MatchNew): Promise<void> => {
@@ -177,8 +220,28 @@ const Search: React.FunctionComponent = observer(() => {
         {currentMatches.length > 0 && currentMatches[index] &&
           <SearchCardController matchNew={currentMatches[index]} action={action} />
         }
-        {currentMatches.length === 0 &&
-          <Typography variant='h6'>No matches yet</Typography>
+        {currentMatches.length === 0 && isLoading &&
+          <div className={styles.noMatches}>
+            <Typography>Loading...</Typography>
+          </div>
+        }
+        {currentMatches.length === 0 && !isLoading &&
+          <div className={styles.noMatches}>
+            <Typography variant='h6'>No matches yet</Typography>
+            <Button
+              variant='contained'
+              fullWidth
+              onClick={() => { void refresh() }}>
+              Refresh
+            </Button>
+            {(hadMatches || currentPage > 0 || index > 0) &&
+              <Button
+                variant='contained'
+                fullWidth
+                onClick={() => { startAgain() }}
+              >Start again</Button>
+            }
+          </div>
         }
       </Box>
       {
