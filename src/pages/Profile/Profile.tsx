@@ -2,7 +2,6 @@ import { observer } from 'mobx-react-lite'
 import { Avatar, Box, IconButton, Typography, useTheme } from '@mui/material'
 import { useStore } from 'src/utils/StoreProvider'
 import styles from './Profile.module.scss'
-import SettingsNavigationButton from 'src/components/navigation/SettingsNavigationButton/SettingsNavigationButton'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import { type ChangeEvent, useState, useEffect } from 'react'
 import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
@@ -12,6 +11,13 @@ import { mapAuthenticatedUserData, mapBase64ToFile, mapPhotoNameToURI, mapUserTo
 import { sessionService, userApiService } from 'api-services'
 import { imageTypes } from 'src/utils/constants'
 import { useNavigate } from 'react-router-dom'
+
+import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined'
+import RoomPreferencesOutlinedIcon from '@mui/icons-material/RoomPreferencesOutlined'
+import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined'
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import { MyListItemButton } from 'src/components/ListItemButton/ListItemButton'
+
 const Profile: React.FunctionComponent = observer(() => {
   const { userStore, questionnaireStore } = useStore()
 
@@ -52,7 +58,7 @@ const Profile: React.FunctionComponent = observer(() => {
       ...userStore.user,
       avatar: avatarName
     }),
-    sessionService.authToken
+      sessionService.authToken
     )
     userStore.setAvatar(mapPhotoNameToURI(avatarName))
   }
@@ -115,10 +121,25 @@ const Profile: React.FunctionComponent = observer(() => {
         <Typography variant='h2'>{userStore.firstName && ` ${userStore.firstName} ${userStore.lastName}`}</Typography>
       </Box>
       <Box className={styles.profile_items_container}>
-        <SettingsNavigationButton to={`/profile/${ProfileRoutes.ABOUT_ME}`}>About me</SettingsNavigationButton>
-        <SettingsNavigationButton to={`/profile/${ProfileRoutes.ROOMMATE_PREFERENCES}`}>Roommate preferences</SettingsNavigationButton>
-        <SettingsNavigationButton to={`/profile/${ProfileRoutes.MY_APARTMENT}`}>My apartments</SettingsNavigationButton>
-        <SettingsNavigationButton to={`/profile/${ProfileRoutes.SETTINGS}`}>Settings</SettingsNavigationButton>
+        <MyListItemButton label='About me'
+          icon={TextSnippetOutlinedIcon}
+          action={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}`) }}
+        />
+
+        <MyListItemButton label='Roommate preferences'
+          icon={RoomPreferencesOutlinedIcon}
+          action={() => { navigate(`/profile/${ProfileRoutes.ROOMMATE_PREFERENCES}`) }}
+        />
+
+        <MyListItemButton label='My apartments'
+          icon={ChairOutlinedIcon}
+          action={() => { navigate(`/profile/${ProfileRoutes.MY_APARTMENT}`) }}
+        />
+
+        <MyListItemButton label='Settings'
+          icon={SettingsOutlinedIcon}
+          action={() => { navigate(`/profile/${ProfileRoutes.SETTINGS}`) }}
+        />
       </Box>
     </Box>
 

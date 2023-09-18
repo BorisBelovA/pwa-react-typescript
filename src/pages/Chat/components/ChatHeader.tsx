@@ -199,7 +199,7 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
       <Box className={styles.card_container}>
         {
           questionnaire.apartment?.id
-            ? <CardDualPA match={{ user, form: questionnaire }} padding={''}/>
+            ? <CardDualPA match={{ user, form: questionnaire }} padding={'1rem'}/>
             : <CardProfile person={user} info={questionnaire} />
         }
         <Button variant="outlined" fullWidth onClick={() => { setShowProfileCard(false) }}>
