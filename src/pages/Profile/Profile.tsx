@@ -8,7 +8,7 @@ import { type ChangeEvent, useState, useEffect } from 'react'
 import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
 import { ProfileRoutes } from 'models'
 import { filesApiService } from 'src/api/api-services/files'
-import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
+import { mapAuthenticatedUserData, mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
 import { sessionService, userApiService } from 'api-services'
 import { imageTypes } from 'src/utils/constants'
 import { useNavigate } from 'react-router-dom'
@@ -64,6 +64,20 @@ const Profile: React.FunctionComponent = observer(() => {
   }
 
   useEffect(() => {
+    const getUserData = async (token: string): Promise<void> => {
+      try {
+        const userInfo = await userApiService.getAuthenticatedUser(token)
+        const [user] = mapAuthenticatedUserData(userInfo)
+        userStore.setUser(user)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    if (sessionService.authToken) {
+      getUserData(sessionService.authToken)
+    }
+
     if (!questionnaireStore.questionnaire?.id) {
       void getQuestionnaire()
     }
