@@ -1,4 +1,4 @@
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@mui/material'
+import { Backdrop, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography, useTheme } from '@mui/material'
 import styles from '../Profile.module.scss'
 import settignsStyles from './Settings.module.scss'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
@@ -7,118 +7,32 @@ import AddToHomeScreenOutlinedIcon from '@mui/icons-material/AddToHomeScreenOutl
 import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined'
 import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined'
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useMemo, useState } from 'react'
-
-interface IBeforeInstallPromptEvent extends Event {
-  readonly platforms: string[]
-  readonly userChoice: Promise<{
-    outcome: 'accepted' | 'dismissed'
-    platform: string
-  }>
-  prompt(): Promise<void>
-}
-
-export function useAddToHomescreenPrompt(): [
-  IBeforeInstallPromptEvent | null,
-  () => void,
-  (arg: IBeforeInstallPromptEvent | null) => void
-] {
-  const [prompt, setPrompt] = useState<IBeforeInstallPromptEvent | null>(
-    null
-  )
-
-  const promptToInstall = () => {
-    if (prompt) {
-      return prompt.prompt()
-    }
-    return Promise.reject(
-      new Error(
-        'Tried installing before browser sent \'beforeinstallprompt\' event'
-      )
-    )
-  }
-
-  useEffect(() => {
-    const ready = (e: IBeforeInstallPromptEvent) => {
-      e.preventDefault()
-      setPrompt(e)
-    }
-
-    window.addEventListener('beforeinstallprompt', ready as any)
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', ready as any)
-    }
-  }, [])
-
-  return [prompt, promptToInstall, setPrompt]
-}
-
-export function usePwaAppInstalled (): [
-  boolean,
-] {
-  const [appInstalled, setAppInstalled] = useState<boolean>(false)
-
-  useEffect(() => {
-    const installed = () => {
-      alert('app installed')
-      setAppInstalled(true)
-    }
-
-    window.addEventListener('appinstalled', installed as any)
-
-    return () => {
-      window.removeEventListener('appinstalled', installed as any)
-    }
-  }, [])
-
-  return [appInstalled]
-}
-
-export function useDetectDevice () {
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-  const navigatorStandAlone = 'standalone' in navigator && navigator.standalone
-  const [type, setType] = useState<'pwa' | 'standalone' | 'browser'>('browser')
-  useEffect(() => {
-    if (document.referrer.startsWith('android-app://')) {
-      setType('pwa');
-      return
-    }
-    if (!!navigatorStandAlone || isStandalone) {
-      setType('standalone');
-      return
-    }
-    setType('browser');
-  }, [])
-
-  return [type]
-}
+import { useMemo, useState } from 'react'
+import { usePromptToInstall } from 'src/context/promptToInstall'
+import { useDetectDevice } from 'src/effects/detectDevice'
+import { useDetectBrowser } from 'src/effects/detectBrowser'
+import { InstallationInstruction } from './InstallationInstruction/InstallationInstruction'
 
 const Settings = (): JSX.Element => {
   const navigate = useNavigate()
-  const [prompt, promptToInstall, setPrompt] = useAddToHomescreenPrompt()
+  const { deferredEvt, hidePrompt } = usePromptToInstall()
   const [installPromptVisible, setInstallPromptVisible] = useState(false)
   const [deviceType] = useDetectDevice()
-  const onInstallClick = async () => {
-    // Hide the app provided install promotion
-    // hideInstallPromotion()
-    // Show the install prompt
-
-    // if (!deferredPrompt) {
-    //   return
-    // }
-
-    // deferredPrompt.prompt()
-    // // Wait for the user to respond to the prompt
-    // const { outcome } = await deferredPrompt?.userChoice
-    // // Optionally, send analytics event with outcome of user choice
-    // console.log(`User response to the install prompt: ${outcome}`)
-    // // We've used the prompt, and can't use it again, throw it away
-    // deferredPrompt = null
+  const browser = useDetectBrowser()
+  const [instructionVisible, setInstructionVisible] = useState<boolean>(false)
+  const theme = useTheme()
+  const onInstallClick = async (): Promise<void> => {
     setInstallPromptVisible(false)
-    promptToInstall()
-    setPrompt(null)
+    if (deferredEvt) {
+      void deferredEvt.prompt()
+      hidePrompt()
+    }
   }
+
+  const installBtnVisible = useMemo(() => {
+    return deviceType === 'browser' &&
+      (browser === 'Chrome' || browser === 'Safari' || browser === 'Edge')
+  }, [deviceType, browser])
 
   return (<>
     <Box className={styles.profile__container}>
@@ -135,10 +49,17 @@ const Settings = (): JSX.Element => {
           icon={PaletteOutlinedIcon}
           action={() => { navigate('/profile/settings/theme/') }}
         />
-        { deviceType === 'browser' && !!prompt &&
+        {installBtnVisible &&
           <ListItemButton label='Add to Home Screen'
             icon={AddToHomeScreenOutlinedIcon}
-            action={() => { setInstallPromptVisible(true) }}
+            action={() => {
+              if (browser === 'Chrome' || browser === 'Edge') {
+                setInstallPromptVisible(true)
+              }
+              if (browser === 'Safari') {
+                setInstructionVisible(true)
+              }
+            }}
           />
         }
       </Box>
@@ -156,6 +77,18 @@ const Settings = (): JSX.Element => {
         <Button onClick={() => { void onInstallClick() }} autoFocus>Yes</Button>
       </DialogActions>
     </Dialog>
+
+    {instructionVisible &&
+      <Backdrop
+        sx={{
+          backgroundColor: theme.palette.background.default,
+          zIndex: 9999
+        }}
+        open={instructionVisible}
+        onClick={() => setInstructionVisible(false)}>
+        <InstallationInstruction />
+      </Backdrop>
+    }
   </>
   )
 }

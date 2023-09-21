@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+img {
+    width: 80vw;
+    align-self: center;
+}
