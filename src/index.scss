@@ -23,6 +23,7 @@ a {
 :root {
   // Variables for light palete
   --text-color: #0D1B2A;
+  --text-color-50: #b4b4b4;
   --bg-color: #FFFBFF;
   --secondary-bg-color: #fff;
   --primary-color: #2EAB67;
@@ -40,6 +41,7 @@ a {
   .dark {
     // Variables for dark palete
     --text-color: #D4E2F2;
+    --text-color-50: #707070;
     --bg-color: #0D1B2A;
     --secondary-bg-color: #192B3E;
   }

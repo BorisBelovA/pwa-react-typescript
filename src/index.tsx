@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.scss'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
@@ -10,18 +10,42 @@ import { StoreProvider } from './utils/StoreProvider'
 import { RootStore } from './stores/RootStore'
 import { configure } from 'mobx'
 import CustomThemeProvider from './styles/CustomThemeProvider'
+import { type IBeforeInstallPromptEvent, PromptToInstall } from './context/promptToInstall'
+
 configure({ enforceActions: 'always' })
 
 const App = (): JSX.Element => {
   const store = new RootStore()
+  const [deferredEvt, setDeferredEvt] = useState<IBeforeInstallPromptEvent | null>(
+    null
+  )
+
+  const hidePrompt = useCallback(() => {
+    setDeferredEvt(null);
+  }, [])
+
+  useEffect(() => {
+    const ready = (e: IBeforeInstallPromptEvent): void => {
+      e.preventDefault()
+      setDeferredEvt(e)
+    }
+
+    window.addEventListener('beforeinstallprompt', ready as any)
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', ready as any)
+    }
+  }, [])
 
   return <React.StrictMode>
     <BrowserRouter basename="/">
       <StoreProvider store={store}>
-        <CustomThemeProvider>
-          <CssBaseline />
-            <Router />
-        </CustomThemeProvider>
+        <PromptToInstall.Provider value={{deferredEvt, hidePrompt}}> 
+          <CustomThemeProvider>
+            <CssBaseline />
+              <Router />
+          </CustomThemeProvider>
+        </PromptToInstall.Provider>
       </StoreProvider>
     </BrowserRouter>
   </React.StrictMode>
