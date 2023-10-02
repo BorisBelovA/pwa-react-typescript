@@ -2,6 +2,7 @@ import { type SessionService, sessionService } from './session'
 import http from '../common-configuration'
 import { type HttpResponse } from '../dto/common-interfaces'
 import type * as dto from 'dto'
+import { type ApartmentFilters } from 'models'
 
 class Apartment {
   private readonly sessionService!: SessionService
@@ -70,6 +71,27 @@ class Apartment {
         Authorization: this.sessionService.authToken
       }
     })
+      .then(response => {
+        if (response.data.status.severityCode === 'ERROR') {
+          throw new Error(response.data.status.statusCodeDescription)
+        }
+        return response.data.response
+      })
+      .catch(errorResponse => {
+        console.error(errorResponse.response?.data?.message ?? errorResponse.message)
+        throw new Error(errorResponse.response?.data?.message ?? errorResponse.message)
+      })
+  }
+
+  public async searchApartments (filters: ApartmentFilters): Promise<dto.Apartment[]> {
+    return await http.post<HttpResponse<dto.Apartment[]>>(
+      '/apartment/search',
+      filters,
+      {
+        headers: {
+          Authorization: this.sessionService.authToken
+        }
+      })
       .then(response => {
         if (response.data.status.severityCode === 'ERROR') {
           throw new Error(response.data.status.statusCodeDescription)

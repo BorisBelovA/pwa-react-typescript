@@ -1,0 +1,23 @@
+.apartmentThumbnail {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--secondary-bg-color);
+  border-radius: 1rem;
+  overflow: hidden;
+
+  &__photo {
+    width: 5rem;
+    height: 8rem;
+    overflow: hidden;
+
+    &_img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    padding-block: 1rem;
+  }
+}

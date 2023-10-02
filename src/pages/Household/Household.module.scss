@@ -1,0 +1,6 @@
+.householdContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: calc(4rem + var(--safe-area-inset));
+}

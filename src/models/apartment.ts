@@ -41,3 +41,27 @@ export interface NewApartmentForm {
   purpose: ApartmentPurpose | null
   formId: number | null
 }
+
+export interface ApartmentFilters {
+  country: {
+    id: number
+  }
+  city: {
+    id: number
+  }
+  state: {
+    id: number
+  }
+  sort: {
+    field: string
+    direction: string
+  }
+  priceFrom: number
+  priceTo: number
+  currency: string
+
+  pagination: {
+    page: number
+    size: number
+  }
+}
