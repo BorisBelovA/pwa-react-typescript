@@ -50,14 +50,16 @@ const Household: React.FunctionComponent = () => {
           page: filters.pagination.page + 1
         }
       })
-      setApartments([...apartments, ...response.map((apt) => mapApartmentToModel(apt))])
-      setFilters({
-        ...filters,
-        pagination: {
-          ...filters.pagination,
-          page: filters.pagination.page + 1
-        }
-      })
+      if (response.length > 0) {
+        setApartments([...apartments, ...response.map((apt) => mapApartmentToModel(apt))])
+        setFilters({
+          ...filters,
+          pagination: {
+            ...filters.pagination,
+            page: filters.pagination.page + 1
+          }
+        })
+      }
     } catch (error) {
 
     }
