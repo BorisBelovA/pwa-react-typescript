@@ -6,6 +6,8 @@ export const mapMessageToModel = (message: dtoMessage): Message => {
   const zoneOffset = new Date().getTimezoneOffset()
 
   return {
+    recipientId: message.recipientId,
+    chatRoomId: message.chatRoomId,
     content: message.content,
     senderId: message.senderId,
     status: message.status,

@@ -1,10 +1,21 @@
 .container {
-    max-width: 640px;
-    min-width: 360px;
-    margin: 0 auto;
-    padding: 1rem;
-    padding-bottom: calc(4rem + var(--safe-area-inset));
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+  max-width: 640px;
+  min-width: 360px;
+  margin: 0 auto;
+  padding: 1rem;
+  padding-bottom: calc(4rem + var(--safe-area-inset));
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  padding: 1rem;
+  column-gap: 1rem;
+}

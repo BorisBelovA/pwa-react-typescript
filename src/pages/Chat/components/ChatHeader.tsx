@@ -135,7 +135,7 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
           onClick={() => { void onAvatarClick() }}>
         </Avatar>}
 
-      <Box className={styles.user_name_container} 
+      <Box className={styles.user_name_container}
           onClick={() => { void onAvatarClick() }}>
         {!user && <Skeleton animation="wave" width={'50%'} />}
         {user && <Typography id={styles.user_name} variant='body1'>{user.firstName} {user.lastName}</Typography>}
