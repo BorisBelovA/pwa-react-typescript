@@ -4,3 +4,8 @@
   gap: 1rem;
   padding-bottom: calc(4rem + var(--safe-area-inset));
 }
+.household__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

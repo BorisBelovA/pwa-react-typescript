@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, IconButton, Typography } from '@mui/material'
 import { mapApartmentToModel } from 'mapping-services'
 import { type ApartmentFilters, type Apartment } from 'models'
 import { useEffect, useState } from 'react'
@@ -7,6 +7,7 @@ import ApartmentThumbnail from 'src/components/Cards/ApartmentThumbnail/Apartmen
 import styles from './ApartmentSearch.module.scss'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { useStore } from 'src/utils/StoreProvider'
+import { FilterAltOutlined } from '@mui/icons-material'
 
 const ApartmentSearch: React.FunctionComponent = () => {
   const [apartments, setApartments] = useState<Apartment[]>([])
@@ -84,7 +85,15 @@ const ApartmentSearch: React.FunctionComponent = () => {
 
   return (
     <Box className={styles.householdContainer}>
-      <Typography variant='h1'>Search for apartments</Typography>
+      <Box className={styles.household__header}>
+        <Typography variant='h1'>Search for apartments</Typography>
+        <IconButton
+          color='primary'
+          sx={{ paddingBlock: '0' }}
+          onClick={() => {}}>
+          <FilterAltOutlined />
+        </IconButton>
+      </Box>
       {apartments.map((apartment) => <ApartmentThumbnail apartment={apartment} key={apartment.id} />)}
       <Button variant='contained' onClick={() => { void getMoreApartments() }}>Load more</Button>
     </Box>
