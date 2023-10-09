@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import Household from '../pages/Household/Household'
+import ApartmentSearch from '../pages/ApartmentSearch/ApartmentSearch'
 import Matches from '../pages/Matches/Matches'
 import Profile from '../pages/Profile/Profile'
 import Search from '../pages/Search/Search'
@@ -23,7 +23,7 @@ const Router: React.FunctionComponent = () => {
           <Route path='' element={<Profile />} />
           {ProfileRoutes}
         </Route>
-        <Route path="household" element={<Household />} />
+        <Route path="apartment-search" element={<ApartmentSearch />} />
         <Route path="search" element={<Search />} />
         <Route path="search/:id" element={<Search />} />
         <Route path="match" element={<Matches />} />

@@ -14,7 +14,7 @@ const NavBar: React.FunctionComponent = () => {
   const location = useLocation()
   const menu = [
     { to: '/profile', icon: ProfileSvg, abbr: 'profi' },
-    { to: '/household', icon: HouseholdSvg, abbr: 'house' },
+    { to: '/apartment-search', icon: HouseholdSvg, abbr: 'apar' },
     { to: '/search', icon: SearchSvg, abbr: 'searc' },
     { to: '/match', icon: MatchSvg, abbr: 'match' },
     { to: SettingsRoutes.FEEDBACK, icon: SupportSvg, abbr: 'feedb' }

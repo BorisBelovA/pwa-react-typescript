@@ -4,10 +4,10 @@ import { type ApartmentFilters, type Apartment } from 'models'
 import { useEffect, useState } from 'react'
 import { apartmentService } from 'src/api/api-services/appartment'
 import ApartmentThumbnail from 'src/components/Cards/ApartmentThumbnail/ApartmentThumbnail'
-import styles from './Household.module.scss'
+import styles from './ApartmentSearch.module.scss'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 
-const Household: React.FunctionComponent = () => {
+const ApartmentSearch: React.FunctionComponent = () => {
   const [apartments, setApartments] = useState<Apartment[]>([])
   const { setMessage } = useMainContext()
   const [filters, setFilters] = useState<ApartmentFilters>({
@@ -94,4 +94,4 @@ const Household: React.FunctionComponent = () => {
   )
 }
 
-export default Household
+export default ApartmentSearch
