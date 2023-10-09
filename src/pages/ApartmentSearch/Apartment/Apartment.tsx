@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { apartmentService } from 'src/api/api-services/appartment'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
-import CardApartment from 'src/components/Cards/CardApartment/CardApartment'
+import CardFullApartment from 'src/components/Cards/CardFullApartment/CardFullApartment'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { type Apartment as ApartmentModel } from 'src/models/apartment'
 import commonStyles from 'src/pages/Profile/Profile.module.scss'
@@ -46,7 +46,7 @@ const Apartment = (): JSX.Element => {
       </Box>
       {id
         ? apartment
-          ? <CardApartment apartment={apartment} />
+          ? <CardFullApartment apartment={apartment} />
           : <Skeleton variant="rounded" width={'100%'} height={'100%'} sx={{ marginTop: '1rem', borderRadius: '1rem' }} />
         : <Typography>Sorry there is no apartment</Typography>
       }
