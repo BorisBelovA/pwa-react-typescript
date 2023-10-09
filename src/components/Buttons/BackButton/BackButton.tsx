@@ -5,8 +5,8 @@ import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRound
 const BackButton = (): JSX.Element => {
   const navigate = useNavigate()
   return (
-    <IconButton onClick={() => { navigate(-1) }}>
-      <ArrowBackIosNewRoundedIcon color='primary' fontSize='medium'/>
+    <IconButton onClick={() => { navigate(-1) }} sx={{ paddingBlock: '0' }}>
+      <ArrowBackIosNewRoundedIcon color='primary' fontSize='medium' />
     </IconButton>
   )
 }

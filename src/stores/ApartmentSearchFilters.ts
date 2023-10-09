@@ -46,4 +46,8 @@ export class ApartmentFiltersStore implements ApartmentFilters {
       sort: this.sort
     }
   }
+
+  public setPage = (page: number): void => {
+    this.pagination.page = page
+  }
 }

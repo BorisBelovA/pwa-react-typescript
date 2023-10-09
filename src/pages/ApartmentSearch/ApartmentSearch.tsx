@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, Typography } from '@mui/material'
 import { mapApartmentToModel } from 'mapping-services'
-import { type ApartmentFilters, type Apartment } from 'models'
+import { type Apartment } from 'models'
 import { useEffect, useState } from 'react'
 import { apartmentService } from 'src/api/api-services/appartment'
 import ApartmentThumbnail from 'src/components/Cards/ApartmentThumbnail/ApartmentThumbnail'
@@ -15,24 +15,6 @@ const ApartmentSearch: React.FunctionComponent = () => {
   const { setMessage } = useMainContext()
   const { apartmentFiltersStore } = useStore()
   const navigate = useNavigate()
-  const [filters, setFilters] = useState<ApartmentFilters>({
-    country: {
-      id: 106
-    },
-
-    sort: {
-      field: 'price',
-      direction: 'DESC'
-    },
-    priceFrom: 0,
-    priceTo: 20000,
-    currency: 'NIS',
-
-    pagination: {
-      page: 0,
-      size: 5
-    }
-  })
 
   const getApartments = async (): Promise<void> => {
     try {
@@ -61,13 +43,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
       })
       if (response.length > 0) {
         setApartments([...apartments, ...response.map((apt) => mapApartmentToModel(apt))])
-        setFilters({
-          ...filters,
-          pagination: {
-            ...filters.pagination,
-            page: filters.pagination.page + 1
-          }
-        })
+        apartmentFiltersStore.setPage(apartmentFiltersStore.pagination.page + 1)
       }
     } catch (error) {
       setMessage({
@@ -83,6 +59,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
 
   useEffect(() => {
     void getApartments()
+    apartmentFiltersStore.setPage(0)
   }, [])
 
   return (
