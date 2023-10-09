@@ -15,6 +15,7 @@ import { PathSelection } from 'src/pages/Intro/PathSelection/PathSelection'
 import { SettingsRoutes } from 'models'
 import { Feedback } from 'src/pages/Profile/Settings/Feedback/Feedback'
 import ApartmentFilters from 'src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters'
+import Apartment from 'src/pages/ApartmentSearch/Apartment/Apartment'
 
 const Router: React.FunctionComponent = () => {
   return (
@@ -27,6 +28,7 @@ const Router: React.FunctionComponent = () => {
         <Route path="apartment-search">
           <Route path='' element={<ApartmentSearch />} />
           <Route path='filters' element={<ApartmentFilters />} />
+          <Route path='apartment/:id' element={<Apartment />} />
         </Route>
         <Route path="search" element={<Search />} />
         <Route path="search/:id" element={<Search />} />

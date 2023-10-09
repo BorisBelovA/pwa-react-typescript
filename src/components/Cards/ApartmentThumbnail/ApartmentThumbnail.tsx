@@ -1,13 +1,15 @@
 import { type Apartment } from 'models'
 import styles from './ApartmentThumbnail.module.scss'
 import { Box, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
   apartment: Apartment
 }
 const ApartmentThumbnail = ({ apartment }: Props): JSX.Element => {
+  const navigate = useNavigate()
   return (
-    <Box key={apartment.id} className={styles.apartmentThumbnail}>
+    <Box key={apartment.id} className={styles.apartmentThumbnail} onClick={() => { navigate(`apartment/${apartment.id}`) }}>
       <Box className={styles.apartmentThumbnail__photo}>
         {apartment.photos.length > 0
           ? <img src={apartment.photos[0]} height='120' className={styles.apartmentThumbnail__photo_img} />
