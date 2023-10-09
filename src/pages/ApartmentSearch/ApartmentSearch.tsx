@@ -8,11 +8,13 @@ import styles from './ApartmentSearch.module.scss'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { useStore } from 'src/utils/StoreProvider'
 import { FilterAltOutlined } from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom'
 
 const ApartmentSearch: React.FunctionComponent = () => {
   const [apartments, setApartments] = useState<Apartment[]>([])
   const { setMessage } = useMainContext()
   const { apartmentFiltersStore } = useStore()
+  const navigate = useNavigate()
   const [filters, setFilters] = useState<ApartmentFilters>({
     country: {
       id: 106
@@ -90,7 +92,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
         <IconButton
           color='primary'
           sx={{ paddingBlock: '0' }}
-          onClick={() => {}}>
+          onClick={() => { navigate('filters') }}>
           <FilterAltOutlined />
         </IconButton>
       </Box>
