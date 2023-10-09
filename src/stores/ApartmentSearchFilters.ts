@@ -27,10 +27,23 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     size: 5
   }
 
-  private readonly rootStore!: RootStore
+  rootStore: RootStore
 
   constructor (rootStore: RootStore) {
-    makeAutoObservable(this)
+    makeAutoObservable(this, { rootStore: false })
     this.rootStore = rootStore
+  }
+
+  public getFilters = (): ApartmentFilters => {
+    return {
+      country: this.country,
+      city: this.city,
+      state: this.state,
+      priceFrom: this.priceFrom,
+      priceTo: this.priceTo,
+      currency: this.currency,
+      pagination: this.pagination,
+      sort: this.sort
+    }
   }
 }

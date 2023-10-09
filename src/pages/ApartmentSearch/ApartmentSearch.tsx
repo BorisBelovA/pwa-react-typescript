@@ -6,10 +6,12 @@ import { apartmentService } from 'src/api/api-services/appartment'
 import ApartmentThumbnail from 'src/components/Cards/ApartmentThumbnail/ApartmentThumbnail'
 import styles from './ApartmentSearch.module.scss'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { useStore } from 'src/utils/StoreProvider'
 
 const ApartmentSearch: React.FunctionComponent = () => {
   const [apartments, setApartments] = useState<Apartment[]>([])
   const { setMessage } = useMainContext()
+  const { apartmentFiltersStore } = useStore()
   const [filters, setFilters] = useState<ApartmentFilters>({
     country: {
       id: 106
@@ -31,7 +33,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
 
   const getApartments = async (): Promise<void> => {
     try {
-      const response = await apartmentService.searchApartments(filters)
+      const response = await apartmentService.searchApartments(apartmentFiltersStore.getFilters())
       setApartments(response.map((apt) => mapApartmentToModel(apt)))
     } catch (error) {
       setMessage({
@@ -48,10 +50,10 @@ const ApartmentSearch: React.FunctionComponent = () => {
   const getMoreApartments = async (): Promise<void> => {
     try {
       const response = await apartmentService.searchApartments({
-        ...filters,
+        ...apartmentFiltersStore.getFilters(),
         pagination: {
-          ...filters.pagination,
-          page: filters.pagination.page + 1
+          ...apartmentFiltersStore.getFilters().pagination,
+          page: apartmentFiltersStore.pagination.page + 1
         }
       })
       if (response.length > 0) {
@@ -82,7 +84,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
 
   return (
     <Box className={styles.householdContainer}>
-      <Typography variant='h1'>Household</Typography>
+      <Typography variant='h1'>Search for apartments</Typography>
       {apartments.map((apartment) => <ApartmentThumbnail apartment={apartment} key={apartment.id} />)}
       <Button variant='contained' onClick={() => { void getMoreApartments() }}>Load more</Button>
     </Box>
