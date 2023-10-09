@@ -9,7 +9,12 @@ const ApartmentThumbnail = ({ apartment }: Props): JSX.Element => {
   return (
     <Box key={apartment.id} className={styles.apartmentThumbnail}>
       <Box className={styles.apartmentThumbnail__photo}>
-        <img src={apartment.photos[0]} height='120' className={styles.apartmentThumbnail__photo_img} />
+        {apartment.photos.length > 0
+          ? <img src={apartment.photos[0]} height='120' className={styles.apartmentThumbnail__photo_img} />
+          : <Box className={styles.apartmentThumbnail__photo_nophoto}>
+            <Typography variant='subtitle1'>No photo</Typography>
+          </Box>
+        }
       </Box>
       <Box className={styles.apartmentThumbnail__content}>
         <Typography variant='h2'>{apartment.totalPrice} ₪</Typography>

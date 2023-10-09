@@ -14,12 +14,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
     country: {
       id: 106
     },
-    city: {
-      id: 57564
-    },
-    state: {
-      id: 1371
-    },
+
     sort: {
       field: 'price',
       direction: 'DESC'

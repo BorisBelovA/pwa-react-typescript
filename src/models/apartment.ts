@@ -46,10 +46,10 @@ export interface ApartmentFilters {
   country: {
     id: number
   }
-  city: {
+  city?: {
     id: number
   }
-  state: {
+  state?: {
     id: number
   }
   sort: {
