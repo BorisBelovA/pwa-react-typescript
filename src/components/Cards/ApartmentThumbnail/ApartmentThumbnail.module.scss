@@ -18,6 +18,11 @@
   }
 
   &__content {
+    display: flex;
+    flex-direction: column;
     padding-block: 1rem;
+    &_location {
+      flex-grow: 1;
+    }
   }
 }

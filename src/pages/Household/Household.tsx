@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react'
 import { apartmentService } from 'src/api/api-services/appartment'
 import ApartmentThumbnail from 'src/components/Cards/ApartmentThumbnail/ApartmentThumbnail'
 import styles from './Household.module.scss'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 const Household: React.FunctionComponent = () => {
   const [apartments, setApartments] = useState<Apartment[]>([])
+  const { setMessage } = useMainContext()
   const [filters, setFilters] = useState<ApartmentFilters>({
     country: {
       id: 106
@@ -37,7 +39,14 @@ const Household: React.FunctionComponent = () => {
       const response = await apartmentService.searchApartments(filters)
       setApartments(response.map((apt) => mapApartmentToModel(apt)))
     } catch (error) {
-
+      setMessage({
+        text: error instanceof Error
+          ? error.message
+          : 'Something went wrong',
+        severity: 'error',
+        life: 5000,
+        visible: true
+      })
     }
   }
 
@@ -61,7 +70,14 @@ const Household: React.FunctionComponent = () => {
         })
       }
     } catch (error) {
-
+      setMessage({
+        text: error instanceof Error
+          ? error.message
+          : 'Something went wrong',
+        severity: 'error',
+        life: 5000,
+        visible: true
+      })
     }
   }
 
