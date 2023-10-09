@@ -16,9 +16,9 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     direction: 'DESC'
   }
 
-  priceFrom = 0
+  priceFrom: number | undefined = 0
 
-  priceTo = 20000
+  priceTo: number | undefined = 20000
 
   currency = 'NIS'
 
@@ -49,5 +49,30 @@ export class ApartmentFiltersStore implements ApartmentFilters {
 
   public setPage = (page: number): void => {
     this.pagination.page = page
+  }
+
+  public setCountry = (id: number): void => {
+    this.country = { id }
+  }
+
+  public setState = (id: number | undefined): void => {
+    if (id) {
+      this.state = { id }
+    } else {
+      this.state = undefined
+    }
+  }
+
+  public setCity = (id: number | undefined): void => {
+    if (id) {
+      this.city = { id }
+    } else {
+      this.city = undefined
+    }
+  }
+
+  public setPrice = (from: number | undefined, to: number | undefined): void => {
+    this.priceFrom = from
+    this.priceTo = to
   }
 }

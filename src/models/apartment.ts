@@ -56,8 +56,8 @@ export interface ApartmentFilters {
     field: string
     direction: string
   }
-  priceFrom: number
-  priceTo: number
+  priceFrom?: number
+  priceTo?: number
   currency: string
 
   pagination: {

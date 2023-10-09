@@ -43,10 +43,13 @@ const ApartmentFilters = (): JSX.Element => {
   // Load list of cities and districts if we came back to this page
   useEffect(() => {
     void getCountries()
-    void getDistricts(apartmentFiltersStore.country.id)
+    if (apartmentFiltersStore.country) void getDistricts(apartmentFiltersStore.country.id)
+    if (apartmentFiltersStore.state?.id) {
+      void getCities(apartmentFiltersStore.state.id)
+    }
   }, [])
 
-  const { control, register, watch, reset, resetField, formState: { errors } } = useForm<{
+  const { control, register, watch, resetField, formState: { errors } } = useForm<{
     country: Country | null
     city: City | null
     district: District | null
@@ -64,7 +67,7 @@ const ApartmentFilters = (): JSX.Element => {
   })
 
   useEffect(() => {
-    const subss = watch(({ country, city, district }, { name, type }) => {
+    const subss = watch(({ country, city, district, priceFrom, priceTo }, { name, type }) => {
       // Each time we change country we load new list of districts
       if (name === 'country' && country?.id) {
         void getDistricts(country.id)
@@ -73,15 +76,16 @@ const ApartmentFilters = (): JSX.Element => {
       if (name === 'district' && district?.id) {
         void getCities(district.id)
       }
+      apartmentFiltersStore.setPrice(priceFrom, priceTo)
     })
     return () => { subss.unsubscribe() }
   }, [watch])
 
   return (
-    <Box>
+    <Box className={styles.container}>
       <Box className={styles.head}>
         <BackButton />
-        <Typography variant='h1'>ApartmentFilters</Typography>
+        <Typography variant='h1'>Apartment Filters</Typography>
       </Box>
       <Box className={styles.location__container}>
         <Box className={styles.container_section}>
@@ -97,8 +101,10 @@ const ApartmentFilters = (): JSX.Element => {
                   id="country-autocomplete"
                   options={countries}
                   fullWidth
+                  disabled
                   onChange={(_, value) => {
                     onChange(value ?? null)
+                    apartmentFiltersStore.setCountry(value?.id ?? 106)
                     resetField('district')
                     resetField('city')
                   }}
@@ -106,7 +112,7 @@ const ApartmentFilters = (): JSX.Element => {
                   ref={ref}
                   value={
                     apartmentFiltersStore.country
-                      ? countries.find(c => c.id === apartmentFiltersStore.country.id) ?? null
+                      ? countries.find(c => c.id === apartmentFiltersStore.country?.id) ?? null
                       : null
                   }
                   getOptionLabel={(option) => option.name}
@@ -146,6 +152,7 @@ const ApartmentFilters = (): JSX.Element => {
                   getOptionLabel={(option) => option.name}
                   onChange={(_, value) => {
                     onChange(value ?? null)
+                    apartmentFiltersStore.setState(value?.id ?? undefined)
                     resetField('city')
                   }}
                   value={
@@ -186,6 +193,7 @@ const ApartmentFilters = (): JSX.Element => {
                   getOptionLabel={(option) => option.name}
                   onChange={(_, value) => {
                     onChange(value ?? null)
+                    apartmentFiltersStore.setCity(value?.id ?? undefined)
                   }}
                   value={
                     apartmentFiltersStore.city
@@ -207,6 +215,35 @@ const ApartmentFilters = (): JSX.Element => {
                 />
             }
           />
+        </Box>
+      </Box>
+      <Box className={styles.budget__container}>
+        <Typography variant='h1'>Budget in ₪</Typography>
+        <Box className={styles.budget__inputs}>
+          <Box className={styles.container_section}>
+            <Typography variant="h2">From</Typography>
+            <TextField id="apartment-address"
+              type='number'
+              size="medium"
+              fullWidth
+              variant="outlined"
+              {...register('priceFrom')}
+              error={!(errors.priceFrom == null)}
+              helperText={errors.priceFrom?.message ?? ''}
+            />
+          </Box>
+          <Box className={styles.container_section}>
+            <Typography variant="h2">To</Typography>
+            <TextField id="apartment-address"
+              type='number'
+              size="medium"
+              fullWidth
+              variant="outlined"
+              {...register('priceTo')}
+              error={!(errors.priceTo == null)}
+              helperText={errors.priceTo?.message ?? ''}
+            />
+          </Box>
         </Box>
       </Box>
     </Box>
