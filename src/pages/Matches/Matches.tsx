@@ -1,35 +1,40 @@
 import { useNavigate } from 'react-router-dom'
 import styles from './Matches.module.scss'
-import { type Chat } from 'models'
-import { useEffect, useState } from 'react'
+import { type Message, type Chat } from 'models'
+import { useCallback, useEffect, useState } from 'react'
 import { chatService } from 'api-services'
 import { mapChatToModel } from 'src/api/mapping-services/chat'
-import { Avatar, Box, Button, Card, CardContent, Skeleton, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
-
-const CardSkeleton = (): JSX.Element => {
-  return <Card sx={{ width: '100%', marginBottom: '24px' }} variant="outlined">
-  <CardContent className={styles.match_card}>
-    <Skeleton variant='circular' animation="wave" width={50} height={40} />
-    <Box className={styles.match_details}>
-      <Box className={styles.match_name}>
-        <Skeleton animation="wave" width={'50%'} />
-        <Skeleton animation="wave" width={'20%'}/>
-      </Box>
-      <Skeleton animation="wave" width={'100%'}/>
-    </Box>
-  </CardContent>
-</Card>
-}
+import { CardSkeleton, ChatCard } from 'src/components/ChatCart/ChatCard'
+import { ChatMessageListener, chatMessagesQueue } from 'src/services/chat-messages'
 
 const Matches = (): JSX.Element => {
   const navigate = useNavigate()
   const [chats, setChats] = useState<Chat[]>([])
   const [chatsLoading, setChatsLoading] = useState(true)
   const { setMessage } = useMainContext()
+
+  const callback = useCallback((message: Message): void => {
+    const updatedChats = updateUnreadMessages(chats, message)
+    setChats(updatedChats)
+  }, [chats])
+
+  const updateUnreadMessages = (chats: Chat[], message: Message): Chat[] => {
+    return chats.map(c => ({
+      ...c,
+      unreadMessages: c.roomId === message.chatRoomId
+        ? c.unreadMessages + 1
+        : c.unreadMessages
+    }))
+  }
+
   const getAllChats = async (): Promise<void> => {
     try {
-      const cts = (await chatService.getAllChats()).map(c => mapChatToModel(c))
+      const cts = (await chatService.getAllChats()).map(c => ({
+        ...mapChatToModel(c),
+        unreadMessages: chatMessagesQueue.queue.filter(m => m.chatRoomId === c.id).length
+      }))
       setChats(cts)
       setTimeout(() => {
         setChatsLoading(false)
@@ -49,16 +54,26 @@ const Matches = (): JSX.Element => {
     }
   }
 
+  const searchSomeone = (): void => {
+    navigate('/search')
+  }
+
+  useEffect(() => {
+    void getAllChats()
+  }, [])
+
+  useEffect(() => {
+    chatMessagesQueue.subscribe(new ChatMessageListener(callback, 'ChatsPage'))
+    return () => {
+      chatMessagesQueue.unsubscribe('ChatsPage')
+    }
+  }, [chats])
+
   const goToChat = (roomId: number, email: string): void => {
     const emailEncoded = encodeURIComponent(email)
     navigate(`/chat?id=${roomId}&email=${emailEncoded}`)
   }
 
-  const searchSomeone = (): void => {
-    navigate('/search')
-  }
-
-  useEffect(() => { void getAllChats() }, [])
   return <>
     <Typography variant='h1'>Your matches</Typography>
     <Box className={styles.matches_container}>
@@ -69,20 +84,7 @@ const Matches = (): JSX.Element => {
         <CardSkeleton></CardSkeleton>
       </>}
       {!chatsLoading && chats.map((c, index) =>
-        <Card key={c.roomId} sx={{ width: '100%', marginBottom: '24px' }} variant="outlined"
-          onClick={() => { goToChat(c.roomId, c.recipient.email) }}
-        >
-          <CardContent className={styles.match_card}>
-            <Avatar alt="Remy Sharp" src={c.recipient.avatar ?? ''} />
-            <Box className={styles.match_details}>
-              <Box className={styles.match_name}>
-                <Typography>{c.recipient.firstName}, {c.recipient.lastName}</Typography>
-                <Typography>10:13 AM</Typography>
-              </Box>
-              <Typography noWrap={true}>Тут твое последнее сообщени aw daw  aw aе</Typography>
-            </Box>
-          </CardContent>
-        </Card>
+        <ChatCard chat={c} onClick={() => { goToChat(c.roomId, c.recipient.email) }} key={c.roomId}/>
       )}
       {!chatsLoading && chats.length === 0 &&
         <Box className={styles.no_match}>

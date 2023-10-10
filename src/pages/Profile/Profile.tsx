@@ -81,7 +81,7 @@ const Profile: React.FunctionComponent = observer(() => {
     }
 
     if (sessionService.authToken) {
-      getUserData(sessionService.authToken)
+      void getUserData(sessionService.authToken)
     }
 
     if (!questionnaireStore.questionnaire?.id) {
