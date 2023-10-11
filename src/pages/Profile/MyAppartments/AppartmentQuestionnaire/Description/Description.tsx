@@ -9,18 +9,22 @@ import Phone from 'src/components/BasicInfoSteps/Phone'
 export const Description = (): JSX.Element => {
   const { apartment, setApartment, setPercent, setActive, setNextDisabled } = apartmentQuestionnaireContext()
 
-  useEffect(() => {
-    setNextDisabled(false)
-    setActive(ApartmentsQuestionnaireRoutes.ABOUT)
-  }, [])
-
   const [description, setDescription] = useState(apartment.description ?? '')
-  const { control, watch, formState: { isValid } } = useForm<{ phone: string }>({
+  const { control, watch, formState: { isValid }, trigger } = useForm<{ phone: string }>({
     defaultValues: {
-      phone: apartment.phone ?? ''
+      phone: apartment.phone ?? undefined
     },
     mode: 'all'
   })
+
+  useEffect(() => {
+    trigger('phone')
+    setActive(ApartmentsQuestionnaireRoutes.ABOUT)
+  }, [])
+
+  useEffect(() => {
+    setNextDisabled(!isValid)
+  }, [isValid])
 
   useEffect(() => {
     const subscription = watch(({ phone }) => {
@@ -42,7 +46,7 @@ export const Description = (): JSX.Element => {
   return <Box className={styles.description_container}>
     <Box className={styles.description_item}>
       <Typography variant='h2'>Your phone number</Typography>
-      <Phone control={control} />
+      <Phone control={control} required={true} />
     </Box>
     <Box className={styles.description_item}>
       <Typography variant='h2'>Few words about apartment</Typography>
