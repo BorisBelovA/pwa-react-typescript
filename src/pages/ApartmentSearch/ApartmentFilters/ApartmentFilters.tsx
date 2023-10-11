@@ -68,7 +68,7 @@ const ApartmentFilters = (): JSX.Element => {
   // Load list of cities and districts if we came back to this page
   useEffect(() => {
     void getCountries()
-    if (apartmentFiltersStore.country) void getDistricts(apartmentFiltersStore.country.id)
+    if (apartmentFiltersStore.country?.id) void getDistricts(apartmentFiltersStore.country.id)
     if (apartmentFiltersStore.state?.id) {
       void getCities(apartmentFiltersStore.state.id)
     }
@@ -117,9 +117,7 @@ const ApartmentFilters = (): JSX.Element => {
           <Typography variant="h2">Country</Typography>
           <Controller control={control}
             name="country"
-            rules={{
-              required: true
-            }}
+            
             render={
               ({ field: { onChange, value, onBlur, ref } }) =>
                 <Autocomplete
@@ -128,7 +126,7 @@ const ApartmentFilters = (): JSX.Element => {
                   fullWidth
                   onChange={(_, value) => {
                     onChange(value ?? null)
-                    apartmentFiltersStore.setCountry(value?.id ?? 106)
+                    apartmentFiltersStore.setCountry(value?.id ?? undefined)
                     resetField('district')
                     resetField('city')
                   }}

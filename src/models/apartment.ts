@@ -46,7 +46,7 @@ export interface NewApartmentForm {
 }
 
 export interface ApartmentFilters {
-  country: {
+  country?: {
     id: number
   }
   city?: {
