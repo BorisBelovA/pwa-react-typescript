@@ -78,7 +78,9 @@ export const Location = (): JSX.Element => {
 
   useEffect(() => {
     refreshProgress()
-    setNextDisabled(Object.keys(errors).length !== 0 || !apartment.location.country)
+    setNextDisabled(Object.keys(errors).length !== 0 || !apartment.location.country 
+    || !apartment.location.district
+    || !apartment.location.city)
   }, [
     errors.country, errors.city, errors.district,
     apartment.location.country, apartment.location.city, apartment.location.district
@@ -182,6 +184,9 @@ export const Location = (): JSX.Element => {
         <Typography variant="h2">District</Typography>
         <Controller control={control}
           name="district"
+          rules={{
+            required: true
+          }}
           render={
             ({ field: { onChange, value, onBlur, ref } }) =>
               <Autocomplete
@@ -205,6 +210,8 @@ export const Location = (): JSX.Element => {
                   <TextField
                     {...params}
                     label="Choose a district"
+                    error={errors.district !== undefined}
+                    helperText={errors.district !== undefined ? 'District is required' : ''}
                     inputProps={{
                       ...params.inputProps,
                       autoComplete: 'new-password' // disable autocomplete and autofill
@@ -245,6 +252,8 @@ export const Location = (): JSX.Element => {
                   <TextField
                     {...params}
                     label="Choose a city"
+                    error={errors.city !== undefined}
+                    helperText={errors.city !== undefined ? 'City is required' : ''}
                     inputProps={{
                       ...params.inputProps,
                       autoComplete: 'new-password' // disable autocomplete and autofill
