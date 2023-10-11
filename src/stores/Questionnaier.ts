@@ -7,14 +7,15 @@ import { mapQuestionnaireToModel } from 'mapping-services'
 export class QuestionnaireStore {
   public questionnaire: QuestionnaireBasicType | null = null
 
-  private readonly rootStore!: RootStore
+  rootStore: RootStore
 
   constructor (rootStore: RootStore) {
     makeAutoObservable(this, {
       questionnaire: observable,
       setQuestionnaire: action,
       getQuestionnaire: action,
-      haveQuestionnaire: computed
+      haveQuestionnaire: computed,
+      rootStore: false
     })
     this.rootStore = rootStore
   }

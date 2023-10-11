@@ -6,14 +6,15 @@ import { mapApartmentToModel } from 'mapping-services'
 export class ApartmentsStore {
   public apartments: Apartment[] = []
 
-  private readonly rootStore!: RootStore
+  rootStore: RootStore
 
   constructor (rootStore: RootStore) {
     makeAutoObservable(this, {
       apartments: observable,
       setApartments: action,
       getApartment: action,
-      haveApartment: computed
+      haveApartment: computed,
+      rootStore: false
     })
     this.rootStore = rootStore
   }

@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom'
 import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined'
 import RoomPreferencesOutlinedIcon from '@mui/icons-material/RoomPreferencesOutlined'
 import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined'
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import { MyListItemButton } from 'src/components/ListItemButton/ListItemButton'
 
 const Profile: React.FunctionComponent = observer(() => {
