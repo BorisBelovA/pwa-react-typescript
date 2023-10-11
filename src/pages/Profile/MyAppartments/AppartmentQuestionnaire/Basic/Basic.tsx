@@ -8,12 +8,13 @@ import { Controller, useForm } from 'react-hook-form'
 export const Basic = (): JSX.Element => {
   const [currency, setCurrency] = useState<Currency>('ILS')
   const { apartment, setApartment, setNextDisabled, setActive, setPercent } = apartmentQuestionnaireContext()
+  const [forRefugees, setForRefugees] = useState<boolean>(false)
 
   useEffect(() => {
     setActive(ApartmentsQuestionnaireRoutes.BASIC)
   }, [null])
 
-  const { register, watch, control, formState: { errors, isValid }, reset, setValue } = useForm<{
+  const { register, watch, control, formState: { errors, isValid }, reset, trigger } = useForm<{
     name: string | undefined
     price: number | undefined
     countRooms: number | undefined
@@ -62,10 +63,11 @@ export const Basic = (): JSX.Element => {
         totalPrice: price ?? apartment.totalPrice,
         countRooms: countRooms ?? apartment.countRooms,
         countAvailableRooms: countAvailableRooms ?? apartment.countAvailableRooms,
+        forRefugees: forRefugees ?? apartment.forRefugees
       })
     })
     return () => { subss.unsubscribe() }
-  }, [watch, errors])
+  }, [watch, errors, forRefugees])
 
   const changeCurrency = (newCurrency: Currency): void => {
     setCurrency(newCurrency)
@@ -83,8 +85,9 @@ export const Basic = (): JSX.Element => {
   return <Box className={styles.container}>
     <Box className={styles.container_section}>
       <FormControlLabel sx={{ marginLeft: '0px' }} control={
-        <Switch checked={apartment.forRefugees}
+        <Switch checked={forRefugees}
           onChange={(event, value) => {
+            setForRefugees(value)
             setApartment({
               ...apartment,
               forRefugees: value,
@@ -92,6 +95,8 @@ export const Basic = (): JSX.Element => {
                 ? 0
                 : null
             })
+            trigger('price')
+            trigger('countAvailableRooms')
           }} />
       } label="For refugees" />
 
