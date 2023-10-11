@@ -58,7 +58,7 @@ const ApartmentFilters = (): JSX.Element => {
       country: { id: 106 },
       city: null,
       district: null,
-      priceFrom: 1,
+      priceFrom: 0,
       priceTo: 20000
     })
     setForRefugee(false)
