@@ -21,6 +21,13 @@ export const Basic = (): JSX.Element => {
         totalPrice: 0
       })
     }
+    if (apartment.totalPrice === 0){
+      setForRefugees(true)
+      setApartment({
+        ...apartment,
+        forRefugees: true,
+      })
+    }
   }, [searchParams])
   useEffect(() => {
     setActive(ApartmentsQuestionnaireRoutes.BASIC)
