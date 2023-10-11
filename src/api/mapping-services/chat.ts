@@ -18,6 +18,7 @@ export const mapRecipientToModel = (recipient: dto.Recipient): models.Recipient 
 export const mapChatToModel = (chat: dto.Chat): models.Chat => {
   return {
     roomId: chat.id,
-    recipient: mapRecipientToModel(chat.recipient)
+    recipient: mapRecipientToModel(chat.recipient),
+    unreadMessages: 0
   }
 }

@@ -9,4 +9,5 @@ export interface Recipient {
 export interface Chat {
   roomId: number
   recipient: Recipient
+  unreadMessages: number
 }

@@ -1,28 +1,17 @@
 import { Box, Typography } from '@mui/material'
 import styles from './Chat.module.scss'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { type AuthUserWithEmail, type Message } from 'models'
 import { ChatMessage, ChatMessageSkeleton } from './components/ChatMessage'
 import { ChatHeader } from './components/ChatHeader'
 import { ChatFooter } from './components/ChatFooter'
 import { useSearchParams } from 'react-router-dom'
-import { chatService, sessionService, userApiService } from 'api-services'
-import { Client, type IFrame, type IMessage } from '@stomp/stompjs'
+import { chatService, sessionService, stompChat, userApiService } from 'api-services'
 import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { mapFullUser, mapMessageToModel } from 'mapping-services'
-import { type NewMessage, type Message as dtoMessage } from 'dto'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
-
-const stompClient: Client = new Client({
-  brokerURL: 'wss://app.roommate.host/wss',
-  // connectHeaders: {
-  //   Authorization: sessionService.authToken
-  // },
-  debug: (str: any) => {
-    console.log(str)
-  }
-})
+import { type NewMessage } from 'dto'
+import { ChatMessageListener, chatMessagesQueue } from 'src/services/chat-messages'
 
 let storedMessages: Message[] = []
 
@@ -33,11 +22,26 @@ export const Chat = observer((): JSX.Element => {
   const [messages, setMessages] = useState<Message[]>([])
   const [user, setUser] = useState<AuthUserWithEmail | null>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const { setMessage } = useMainContext()
+
+  const chatRoomId = useMemo(() => {
+    const inChat = location.pathname.split('/')[1] === 'chat'
+    return inChat
+      ? +(location.search.split('&')[0].split('?id=')[1]) ?? null
+      : null
+  }, [location.pathname])
+
+  const displayMessageInChat = useCallback((message: Message): void => {
+    if (message.chatRoomId === chatRoomId) {
+      storedMessages.push(message)
+      setMessages([...storedMessages])
+    }
+  }, [chatRoomId])
+
+  const [listener, setListener] = useState<ChatMessageListener | null>(null)
 
   const sendMessage = (text: string): void => {
     const chatId = searchParams.get('id')
-    const m: NewMessage = {
+    const message: NewMessage = {
       chatRoomId: +chatId!,
       senderId: userStore.id,
       recipientId: user!.id,
@@ -46,11 +50,8 @@ export const Chat = observer((): JSX.Element => {
       status: 'SENT'
     }
 
-    stompClient?.publish({
-      destination: '/app/chat',
-      body: JSON.stringify(m)
-    })
-    storedMessages.push(mapMessageToModel(m))
+    stompChat.publishMessage(message)
+    storedMessages.push(mapMessageToModel(message))
     setMessages([...storedMessages])
   }
 
@@ -58,6 +59,7 @@ export const Chat = observer((): JSX.Element => {
     const messages = await chatService.getMessagesInChat(chatId)
     storedMessages = messages.reverse().map(m => mapMessageToModel(m))
     setMessages([...storedMessages])
+    chatMessagesQueue.removeMessagesByChatRoom(chatId)
     setTimeout(() => {
       scrollToBottom('auto')
       setIsLoading(false)
@@ -72,17 +74,10 @@ export const Chat = observer((): JSX.Element => {
     }
   }
 
-  const onMessageReceive = (message: IMessage): void => {
-    const body: dtoMessage = JSON.parse(message.body)
-    storedMessages.push(mapMessageToModel(body))
-    setMessages([...storedMessages])
-  }
-
   useEffect(() => {
-    const chatId = searchParams.get('id')
     const email = searchParams.get('email')
-    if (chatId) {
-      void getMessages(+chatId)
+    if (chatRoomId) {
+      void getMessages(chatRoomId)
     }
     if (email) {
       const emailEncoded = encodeURIComponent(email)
@@ -91,39 +86,15 @@ export const Chat = observer((): JSX.Element => {
   }, [])
 
   useEffect(() => {
-    if (sessionService.authToken && userStore.id && stompClient) {
-      stompClient.activate()
-      stompClient.onConnect = function () {
-        stompClient.subscribe(
-          `/user/${userStore.id}/queue/messages`,
-          onMessageReceive
-        )
-      }
-
-      stompClient.onStompError = (frame: IFrame): void => {
-        console.log('Broker reported error: ' + frame.headers.message)
-        console.log('Additional details: ' + frame.body)
-        setMessage({
-          text: 'Error happened during communication.',
-          severity: 'error',
-          life: 5000,
-          visible: true
-        })
-      }
-
-      stompClient.onWebSocketError = (): void => {
-        setMessage({
-          text: 'Couldn\'t establish connection with server. Try again.',
-          severity: 'error',
-          life: 5000,
-          visible: true
-        })
-      }
-    }
+    const newListener = new ChatMessageListener(displayMessageInChat, 'ChatRoom')
+    setListener(newListener)
+    chatMessagesQueue.subscribe(newListener)
     return () => {
-      void stompClient.deactivate()
+      if (listener) {
+        chatMessagesQueue.unsubscribe(listener.type)
+      }
     }
-  }, [sessionService.authToken, userStore.id])
+  }, [chatRoomId])
 
   const scrollToBottom = (behavior: ScrollBehavior): void => {
     lastMessageRef?.current?.scrollIntoView({ behavior })

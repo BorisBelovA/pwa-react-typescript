@@ -1,39 +1,46 @@
 import { useEffect, useState } from 'react'
-import styles from './NavBar.module.scss'
-import NavButton from '../NavButton/NavButton'
-import { ReactComponent as ProfileSvg } from '../../../assets/nav-bar/Profile.svg'
-import { ReactComponent as HouseholdSvg } from '../../../assets/nav-bar/Household.svg'
-import { ReactComponent as SearchSvg } from '../../../assets/nav-bar/search.svg'
-import { ReactComponent as MatchSvg } from '../../../assets/nav-bar/Match.svg'
-import { ReactComponent as SupportSvg } from '../../../assets/nav-bar/Support.svg'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { SettingsRoutes } from 'models'
+import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material'
+
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
 
 const NavBar: React.FunctionComponent = () => {
   const [locBase, setLocBase] = useState('')
   const location = useLocation()
   const menu = [
-    { to: '/profile', icon: ProfileSvg, abbr: 'profi' },
-    { to: '/apartment-search', icon: HouseholdSvg, abbr: 'apart' },
-    { to: '/search', icon: SearchSvg, abbr: 'searc' },
-    { to: '/match', icon: MatchSvg, abbr: 'match' },
-    { to: SettingsRoutes.FEEDBACK, icon: SupportSvg, abbr: 'feedb' }
+    { to: '/profile', label: 'Profile', icon: <AccountCircleOutlinedIcon />, value: 'profile' },
+    { to: '/search', label: 'Search', icon: <SearchOutlinedIcon />, value: 'search' },
+    { to: '/match', label: 'Matches', icon: <FavoriteBorderOutlinedIcon />, value: 'match' },
+    { to: SettingsRoutes.FEEDBACK, label: 'Feedback', icon: <ContactSupportOutlinedIcon />, value: SettingsRoutes.FEEDBACK }
   ]
 
   useEffect(() => {
-    setLocBase(location.pathname.slice(1, 6))
+    setLocBase(location.pathname.split('/')[1])
   }, [location])
 
-  return (
-    <div className={styles.navbar}>
-      <nav className={styles.navbar__navbox}>
-        {menu.map((menu, i) => (
-          <NavButton key={i} to={menu.to} icon={menu.icon} active={locBase === menu.abbr} />
-        ))
-        }
+  const navigate = useNavigate()
 
-      </nav>
-    </div>
+  return (
+    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+      <BottomNavigation
+        showLabels
+        value={locBase}
+        onChange={(event, newValue) => {
+          setLocBase(newValue)
+          navigate(`/${newValue}`)
+        }}
+      >
+        {menu.map((m, idx) => <BottomNavigationAction key={idx}
+          label={m.label}
+          icon={m.icon}
+          value={m.value} />)
+        }
+      </BottomNavigation>
+    </Paper>
   )
 }
 
