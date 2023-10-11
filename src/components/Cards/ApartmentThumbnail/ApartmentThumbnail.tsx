@@ -21,9 +21,12 @@ const ApartmentThumbnail = ({ apartment }: Props): JSX.Element => {
       <Box className={styles.apartmentThumbnail__content}>
         {apartment.totalPrice > 0
           ? <Typography variant='h2'>{apartment.totalPrice} ₪</Typography>
-          : <Box className={styles.apartmentThumbnail__free}>Free</Box>
+          : <Box className={styles.apartmentThumbnail__free}>for refugee</Box>
         }
-        <Typography variant='subtitle1'>{apartment.countRooms} rooms</Typography>
+        {apartment.totalPrice > 0
+          ? <Typography variant='subtitle1'>{apartment.countRooms} rooms</Typography>
+          : <Typography variant='subtitle1'>Can accept {apartment.countRooms} people</Typography>
+        }
         <Typography variant='subtitle1' className={styles.apartmentThumbnail__content_location}>
           {apartment.location.country.name} {apartment.location.city?.name}
         </Typography>

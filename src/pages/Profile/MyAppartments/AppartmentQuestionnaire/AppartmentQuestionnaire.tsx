@@ -25,9 +25,9 @@ import { useStore } from 'src/utils/StoreProvider'
 import { type ProgressSliderProps } from 'src/components'
 
 export type ApartmentQuestionnaireContext = MainLayoutContext & {
-  apartment: Apartment
+  apartment: NewApartmentForm
   lockLocation: boolean
-  setApartment: React.Dispatch<React.SetStateAction<Apartment>>
+  setApartment: React.Dispatch<React.SetStateAction<NewApartmentForm>>
   setNextDisabled: React.Dispatch<React.SetStateAction<boolean>>
   setActive: ProgressSliderSetActiveFunc
   setPercent: ProgressSliderSetPercentFunc
@@ -161,7 +161,9 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
     purpose: existingApartment?.purpose
       ? existingApartment.purpose
       : queryPurpose,
-    formId: existingApartment?.formId ?? null
+    formId: existingApartment?.formId ?? null,
+    phone: null,
+    forRefugees: false
   })
 
   const location = useLocation()

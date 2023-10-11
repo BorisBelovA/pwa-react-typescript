@@ -1,7 +1,8 @@
-.description_container {
+.description_container, .description_item {
   display: flex;
   flex-direction: column;
   height: 100%;
+  row-gap: 1rem;
 }
 
 .description_input_container {

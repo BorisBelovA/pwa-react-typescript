@@ -21,13 +21,14 @@ export interface Apartment {
   description: string
   purpose: ApartmentPurpose
   formId: number | null
+  phone: string | null
 }
 
 export interface NewApartmentForm {
   id: number | null
   name: string | null
   totalPrice: number | null
-  currency: Currency | null
+  currency: Currency
   countRooms: number | null
   countAvailableRooms: number | null
   location: {
@@ -40,10 +41,12 @@ export interface NewApartmentForm {
   description: string | null
   purpose: ApartmentPurpose | null
   formId: number | null
+  phone: string | null
+  forRefugees: boolean
 }
 
 export interface ApartmentFilters {
-  country: {
+  country?: {
     id: number
   }
   city?: {

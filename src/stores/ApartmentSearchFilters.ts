@@ -3,7 +3,7 @@ import { type RootStore } from './RootStore'
 import { makeAutoObservable } from 'mobx'
 
 export class ApartmentFiltersStore implements ApartmentFilters {
-  country = {
+  country: { id: number } | undefined = {
     id: 106
   }
 
@@ -58,8 +58,12 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     this.priceTo = 20000
   }
 
-  public setCountry = (id: number): void => {
-    this.country = { id }
+  public setCountry = (id: number | undefined): void => {
+    if (id) {
+      this.country = { id }
+    } else {
+      this.country = undefined
+    }
   }
 
   public setState = (id: number | undefined): void => {

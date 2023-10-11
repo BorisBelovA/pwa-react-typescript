@@ -23,7 +23,7 @@ export const Summary = (): JSX.Element => {
 
   const address = (): string => {
     const { country, city, district } = apartment.location
-    return country.name +
+    return country?.name +
       (district ? ', ' + district.name : '') +
       (city ? ', ' + city.name : '')
   }
@@ -79,7 +79,7 @@ export const Summary = (): JSX.Element => {
     </Box>
 
     {
-      apartment.description.length > 0 &&
+      apartment.description && apartment.description.length > 0 &&
       <Box>
         <Box className={styles.header_row}>
           <Typography variant="h6">Description</Typography>
