@@ -147,7 +147,7 @@ export const SignUp = (): JSX.Element => {
         Sign up
       </Button>
     </div>
-    <div className={styles.divider}>
+    {/* <div className={styles.divider}>
       <Divider>OR</Divider>
       <Typography variant='h2'>Sign Up with</Typography>
     </div>
@@ -164,6 +164,6 @@ export const SignUp = (): JSX.Element => {
         <AppleIcon width={20} height={20} />}>
         Apple
       </Button>
-    </div>
+    </div> */}
   </>
 }
