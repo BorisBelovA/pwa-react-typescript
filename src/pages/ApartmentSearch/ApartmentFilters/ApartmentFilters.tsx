@@ -1,4 +1,4 @@
-import { Autocomplete, Box, Button, TextField, Typography } from '@mui/material'
+import { Autocomplete, Box, Button, FormControlLabel, Switch, TextField, Typography } from '@mui/material'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
 import styles from './ApartmentFilters.module.scss'
 import { type City, type Country, type District } from 'models'
@@ -6,12 +6,25 @@ import { Controller, useForm } from 'react-hook-form'
 import { useStore } from 'src/utils/StoreProvider'
 import { useEffect, useState } from 'react'
 import { locationService } from 'src/api/api-services/location'
+import { useSearchParams } from 'react-router-dom'
 
 const ApartmentFilters = (): JSX.Element => {
   const { apartmentFiltersStore } = useStore()
   const [countries, setCountries] = useState<Country[]>([])
   const [districts, setDistricts] = useState<District[]>([])
   const [cities, setCities] = useState<City[]>([])
+  const [forRefugee, setForRefugee] = useState<boolean>(false)
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    if (searchParams.get('status') === 'refugee'
+      || (apartmentFiltersStore.priceFrom === 0
+        && apartmentFiltersStore.priceTo === 0)) {
+      setForRefugee(true)
+      setValue('priceFrom', 0)
+      setValue('priceTo', 0)
+    }
+  }, [searchParams])
 
   const getCountries = async (): Promise<void> => {
     try {
@@ -42,12 +55,13 @@ const ApartmentFilters = (): JSX.Element => {
 
   const resetFilters = (): void => {
     reset({
-      country: { id: 106},
+      country: { id: 106 },
       city: null,
       district: null,
-      priceFrom: 0,
+      priceFrom: 1,
       priceTo: 20000
     })
+    setForRefugee(false)
     apartmentFiltersStore.reset()
   }
 
@@ -60,7 +74,7 @@ const ApartmentFilters = (): JSX.Element => {
     }
   }, [])
 
-  const { control, register, watch, resetField, formState: { errors }, reset } = useForm<{
+  const { control, register, watch, resetField, formState: { errors }, reset, setValue } = useForm<{
     country: Country | null
     city: City | null
     district: District | null
@@ -95,7 +109,7 @@ const ApartmentFilters = (): JSX.Element => {
   return (
     <Box className={styles.container}>
       <Box className={styles.head}>
-        <BackButton />
+        <BackButton to='/apartment-search' />
         <Typography variant='h1'>Apartment Filters</Typography>
       </Box>
       <Box className={styles.location__container}>
@@ -112,7 +126,6 @@ const ApartmentFilters = (): JSX.Element => {
                   id="country-autocomplete"
                   options={countries}
                   fullWidth
-                  disabled
                   onChange={(_, value) => {
                     onChange(value ?? null)
                     apartmentFiltersStore.setCountry(value?.id ?? 106)
@@ -229,33 +242,43 @@ const ApartmentFilters = (): JSX.Element => {
         </Box>
       </Box>
       <Box className={styles.budget__container}>
-        <Typography variant='h1'>Budget in ₪</Typography>
-        <Box className={styles.budget__inputs}>
-          <Box className={styles.container_section}>
-            <Typography variant="h2">From</Typography>
-            <TextField id="apartment-address"
-              type='number'
-              size="medium"
-              fullWidth
-              variant="outlined"
-              {...register('priceFrom')}
-              error={!(errors.priceFrom == null)}
-              helperText={errors.priceFrom?.message ?? ''}
-            />
+        <FormControlLabel sx={{ marginLeft: '0px' }} control={
+          <Switch checked={forRefugee}
+            onChange={(event, value) => {
+              setForRefugee(value)
+              setValue('priceFrom', value ? 0 : 1)
+              setValue('priceTo', value ? 0 : 20000)
+            }} />
+        } label="For refugees" />
+        {!forRefugee && <Box className={styles.budget__container}>
+          <Typography variant='h1'>Budget in ₪</Typography>
+          <Box className={styles.budget__inputs}>
+            <Box className={styles.container_section}>
+              <Typography variant="h2">From</Typography>
+              <TextField id="apartment-address"
+                type='number'
+                size="medium"
+                fullWidth
+                variant="outlined"
+                {...register('priceFrom')}
+                error={!(errors.priceFrom == null)}
+                helperText={errors.priceFrom?.message ?? ''}
+              />
+            </Box>
+            <Box className={styles.container_section}>
+              <Typography variant="h2">To</Typography>
+              <TextField id="apartment-address"
+                type='number'
+                size="medium"
+                fullWidth
+                variant="outlined"
+                {...register('priceTo')}
+                error={!(errors.priceTo == null)}
+                helperText={errors.priceTo?.message ?? ''}
+              />
+            </Box>
           </Box>
-          <Box className={styles.container_section}>
-            <Typography variant="h2">To</Typography>
-            <TextField id="apartment-address"
-              type='number'
-              size="medium"
-              fullWidth
-              variant="outlined"
-              {...register('priceTo')}
-              error={!(errors.priceTo == null)}
-              helperText={errors.priceTo?.message ?? ''}
-            />
-          </Box>
-        </Box>
+        </Box>}
         <Box className={styles.container_section}>
           <Button variant='outlined' fullWidth onClick={() => { resetFilters() }}>Reset filters</Button>
         </Box>

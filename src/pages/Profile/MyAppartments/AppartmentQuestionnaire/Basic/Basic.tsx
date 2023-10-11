@@ -13,12 +13,14 @@ export const Basic = (): JSX.Element => {
   const [searchParams] = useSearchParams()
 
   useEffect(() => {
-    setForRefugees(true)
-    setApartment({
-      ...apartment,
-      forRefugees: true,
-      totalPrice: 0
-    })
+    if (searchParams.get('status') === 'refugee') {
+      setForRefugees(true)
+      setApartment({
+        ...apartment,
+        forRefugees: true,
+        totalPrice: 0
+      })
+    }
   }, [searchParams])
   useEffect(() => {
     setActive(ApartmentsQuestionnaireRoutes.BASIC)

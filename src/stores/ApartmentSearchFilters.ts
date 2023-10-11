@@ -16,7 +16,7 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     direction: 'DESC'
   }
 
-  priceFrom: number | undefined = 0
+  priceFrom: number | undefined = 1
 
   priceTo: number | undefined = 20000
 

@@ -21,7 +21,7 @@ export const PathSelection = (): JSX.Element => {
       color='accent'
       fullWidth
       onClick={() => {
-        navigate(`/apartment-search?status=refugee`)
+        navigate(`/apartment-search/filters?status=refugee`)
       }}>
         I am a refugee
     </Button>
@@ -36,7 +36,7 @@ export const PathSelection = (): JSX.Element => {
     <Button variant='outlined'
       fullWidth
       onClick={() => {
-        navigate(`/apartment-search`)
+        navigate(`/apartment-search/filters`)
       }}>
         Find apartments
     </Button>
