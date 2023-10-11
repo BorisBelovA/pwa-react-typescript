@@ -4,12 +4,22 @@ import { useEffect, useState } from 'react'
 import { ApartmentsQuestionnaireRoutes, type Currency } from 'models'
 import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { Controller, useForm } from 'react-hook-form'
+import { useSearchParams } from 'react-router-dom'
 
 export const Basic = (): JSX.Element => {
   const [currency, setCurrency] = useState<Currency>('ILS')
   const { apartment, setApartment, setNextDisabled, setActive, setPercent } = apartmentQuestionnaireContext()
   const [forRefugees, setForRefugees] = useState<boolean>(false)
+  const [searchParams] = useSearchParams()
 
+  useEffect(() => {
+    setForRefugees(true)
+    setApartment({
+      ...apartment,
+      forRefugees: true,
+      totalPrice: 0
+    })
+  }, [searchParams])
   useEffect(() => {
     setActive(ApartmentsQuestionnaireRoutes.BASIC)
   }, [null])
