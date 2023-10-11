@@ -13,7 +13,7 @@ export const Basic = (): JSX.Element => {
     setActive(ApartmentsQuestionnaireRoutes.BASIC)
   }, [null])
 
-  const { register, watch, control, formState: { errors, isValid }, reset } = useForm<{
+  const { register, watch, control, formState: { errors, isValid }, reset, setValue } = useForm<{
     name: string | undefined
     price: number | undefined
     countRooms: number | undefined
@@ -61,7 +61,7 @@ export const Basic = (): JSX.Element => {
         name: name ?? apartment.name,
         totalPrice: price ?? apartment.totalPrice,
         countRooms: countRooms ?? apartment.countRooms,
-        countAvailableRooms: countAvailableRooms ?? apartment.countAvailableRooms
+        countAvailableRooms: countAvailableRooms ?? apartment.countAvailableRooms,
       })
     })
     return () => { subss.unsubscribe() }
@@ -79,15 +79,6 @@ export const Basic = (): JSX.Element => {
     setNextDisabled(!isValid)
   }, [isValid])
 
-  useEffect(() => {
-    setApartment({
-      ...apartment,
-      totalPrice: apartment.forRefugees
-        ? 0
-        : null
-    })
-  }, [apartment.forRefugees])
-
   const howManyRoomsMarks = Array(10).fill(0).map((i, idx) => ({ value: idx + 1, label: `${idx + 1}` }))
   return <Box className={styles.container}>
     <Box className={styles.container_section}>
@@ -96,7 +87,10 @@ export const Basic = (): JSX.Element => {
           onChange={(event, value) => {
             setApartment({
               ...apartment,
-              forRefugees: value
+              forRefugees: value,
+              totalPrice: value
+                ? 0
+                : null
             })
           }} />
       } label="For refugees" />
@@ -148,7 +142,7 @@ export const Basic = (): JSX.Element => {
     }
 
     <Box className={styles.container_section}>
-      <Typography variant="h2">How many rooms?</Typography>
+      <Typography variant="h2">How many {!apartment.forRefugees ? 'rooms' : 'people you can accept'}?</Typography>
       <Controller
         render={({ field: { onChange, onBlur, value, ref } }) =>
           <Slider sx={{ width: '94%', margin: '0 auto' }}
@@ -167,26 +161,27 @@ export const Basic = (): JSX.Element => {
         control={control}
       />
     </Box>
-
-    <Box className={styles.container_section}>
-      <Typography variant="h2">How many available rooms?</Typography>
-      <Controller
-        render={({ field: { onChange, onBlur, value, ref } }) =>
-          <Slider sx={{ width: '94%', margin: '0 auto' }}
-            aria-label="How many available rooms?"
-            defaultValue={5}
-            valueLabelDisplay="off"
-            step={1}
-            marks={howManyRoomsMarks}
-            min={1}
-            max={10}
-            value={value}
-            onChange={onChange}
-          />
-        }
-        name='countAvailableRooms'
-        control={control}
-      />
-    </Box>
+    {!apartment.forRefugees &&
+      <Box className={styles.container_section}>
+        <Typography variant="h2">How many available rooms?</Typography>
+        <Controller
+          render={({ field: { onChange, onBlur, value, ref } }) =>
+            <Slider sx={{ width: '94%', margin: '0 auto' }}
+              aria-label="How many available rooms?"
+              defaultValue={5}
+              valueLabelDisplay="off"
+              step={1}
+              marks={howManyRoomsMarks}
+              min={1}
+              max={10}
+              value={value}
+              onChange={onChange}
+            />
+          }
+          name='countAvailableRooms'
+          control={control}
+        />
+      </Box>
+    }
   </Box>
 }

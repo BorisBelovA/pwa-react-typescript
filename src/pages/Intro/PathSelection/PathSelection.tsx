@@ -6,9 +6,25 @@ import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 export const PathSelection = (): JSX.Element => {
   const navigate = useNavigate()
-  const { setMessage } = useMainContext()
 
   return <Box className={styles.container}>
+    <Typography variant='h2'>For refugees</Typography>
+    <Button variant='outlined'
+      color='accent'
+      fullWidth
+      onClick={() => {
+        navigate(`/profile/${ProfileRoutes.MY_APARTMENT}/new/basic?purpose=rent&status=refugee`)
+      }}>
+        I have a place for refugees
+    </Button>
+    <Button variant='contained'
+      color='accent'
+      fullWidth
+      onClick={() => {
+        navigate(`/apartment-search?status=refugee`)
+      }}>
+        I am a refugee
+    </Button>
     <Typography variant='h2'>Choose what you want to do</Typography>
     <Button variant='contained'
       fullWidth
@@ -20,12 +36,7 @@ export const PathSelection = (): JSX.Element => {
     <Button variant='outlined'
       fullWidth
       onClick={() => {
-        setMessage({
-          text: 'IDK where to navigate you yet',
-          severity: 'info',
-          life: 5000,
-          visible: true
-        })
+        navigate(`/apartment-search`)
       }}>
         Find apartments
     </Button>
