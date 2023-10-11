@@ -35,7 +35,16 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
         </IconButton>
       }
     </Box>
-    <Typography color='constantLight.main'>{apartment.countAvailableRooms} out of {apartment.countRooms} rooms available</Typography>
+    {
+      apartment.totalPrice === 0 &&
+      <Typography color='constantLight.main'>
+        {apartment.countAvailableRooms} room{apartment.countAvailableRooms > 1 ? 's ' : ' '}
+        for {apartment.countRooms} {apartment.countRooms === 1 ? 'person' : 'people'}</Typography>
+    }
+    {
+      apartment.totalPrice > 0 &&
+      <Typography color='constantLight.main'>{apartment.countAvailableRooms} out of {apartment.countRooms} rooms available</Typography>
+    }
   </>)
 
   const content = (<>
@@ -48,7 +57,8 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
         </Box>
         <FlipCameraAndroidIcon color='primary' fontSize='large' />
       </Box>}
-    <Typography>{apartment.description}</Typography>
+    {apartment.phone && <Typography>Phone: {apartment.phone}</Typography>}
+    <Typography sx={{ marginTop: '1rem' }}>{apartment.description}</Typography>
   </>)
 
   return (

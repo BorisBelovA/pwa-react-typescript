@@ -6,7 +6,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { useStore } from 'src/utils/StoreProvider'
 import { useEffect, useState } from 'react'
 import { locationService } from 'src/api/api-services/location'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 
 const ApartmentFilters = (): JSX.Element => {
   const { apartmentFiltersStore } = useStore()
@@ -15,14 +15,14 @@ const ApartmentFilters = (): JSX.Element => {
   const [cities, setCities] = useState<City[]>([])
   const [forRefugee, setForRefugee] = useState<boolean>(false)
   const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (searchParams.get('status') === 'refugee'
       || (apartmentFiltersStore.priceFrom === 0
         && apartmentFiltersStore.priceTo === 0)) {
       setForRefugee(true)
-      setValue('priceFrom', 0)
-      setValue('priceTo', 0)
+      apartmentFiltersStore.setPrice(0, 0)
     }
   }, [searchParams])
 
@@ -74,7 +74,7 @@ const ApartmentFilters = (): JSX.Element => {
     }
   }, [])
 
-  const { control, register, watch, resetField, formState: { errors }, reset, setValue } = useForm<{
+  const { control, register, watch, resetField, formState: { errors }, reset, setValue, trigger } = useForm<{
     country: Country | null
     city: City | null
     district: District | null
@@ -279,6 +279,9 @@ const ApartmentFilters = (): JSX.Element => {
         </Box>}
         <Box className={styles.container_section}>
           <Button variant='outlined' fullWidth onClick={() => { resetFilters() }}>Reset filters</Button>
+          <Button variant='contained' fullWidth onClick={() => {
+            navigate(`/apartment-search`)
+          }}>Find apartments</Button>
         </Box>
       </Box>
     </Box>
