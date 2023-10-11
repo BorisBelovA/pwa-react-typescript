@@ -1,4 +1,4 @@
-import { Autocomplete, Box, TextField, Typography } from '@mui/material'
+import { Autocomplete, Box, Button, TextField, Typography } from '@mui/material'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
 import styles from './ApartmentFilters.module.scss'
 import { type City, type Country, type District } from 'models'
@@ -40,6 +40,17 @@ const ApartmentFilters = (): JSX.Element => {
     }
   }
 
+  const resetFilters = (): void => {
+    reset({
+      country: { id: 106},
+      city: null,
+      district: null,
+      priceFrom: 0,
+      priceTo: 20000
+    })
+    apartmentFiltersStore.reset()
+  }
+
   // Load list of cities and districts if we came back to this page
   useEffect(() => {
     void getCountries()
@@ -49,7 +60,7 @@ const ApartmentFilters = (): JSX.Element => {
     }
   }, [])
 
-  const { control, register, watch, resetField, formState: { errors } } = useForm<{
+  const { control, register, watch, resetField, formState: { errors }, reset } = useForm<{
     country: Country | null
     city: City | null
     district: District | null
@@ -244,6 +255,9 @@ const ApartmentFilters = (): JSX.Element => {
               helperText={errors.priceTo?.message ?? ''}
             />
           </Box>
+        </Box>
+        <Box className={styles.container_section}>
+          <Button variant='outlined' fullWidth onClick={() => { resetFilters() }}>Reset filters</Button>
         </Box>
       </Box>
     </Box>

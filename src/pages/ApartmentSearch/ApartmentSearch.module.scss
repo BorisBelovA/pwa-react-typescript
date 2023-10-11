@@ -9,3 +9,8 @@
   justify-content: space-between;
   align-items: center;
 }
+.household__noMore {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}

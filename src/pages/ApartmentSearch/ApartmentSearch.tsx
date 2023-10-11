@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Typography } from '@mui/material'
+import { Box, Button, IconButton, Typography, useTheme } from '@mui/material'
 import { mapApartmentToModel } from 'mapping-services'
 import { type Apartment } from 'models'
 import { useEffect, useState } from 'react'
@@ -15,6 +15,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
   const { setMessage } = useMainContext()
   const { apartmentFiltersStore } = useStore()
   const navigate = useNavigate()
+  const [haveMore, setHaveMore] = useState<boolean>(true)
 
   const getApartments = async (): Promise<void> => {
     try {
@@ -43,7 +44,10 @@ const ApartmentSearch: React.FunctionComponent = () => {
       })
       if (response.length > 0) {
         setApartments([...apartments, ...response.map((apt) => mapApartmentToModel(apt))])
+        setHaveMore(true)
         apartmentFiltersStore.setPage(apartmentFiltersStore.pagination.page + 1)
+      } else {
+        setHaveMore(false)
       }
     } catch (error) {
       setMessage({
@@ -74,7 +78,14 @@ const ApartmentSearch: React.FunctionComponent = () => {
         </IconButton>
       </Box>
       {apartments.map((apartment) => <ApartmentThumbnail apartment={apartment} key={apartment.id} />)}
-      <Button variant='contained' onClick={() => { void getMoreApartments() }}>Load more</Button>
+      {haveMore
+        ? <Button variant='contained' onClick={() => { void getMoreApartments() }}>Load more</Button>
+        : <Box className={styles.household__noMore}>
+          <Typography variant='h2'>Sorry, can&apos;t find more apartments</Typography>
+          <Button variant='contained' onClick={() => { navigate('filters') }}>Change filters</Button>
+          <Button variant='outlined' onClick={() => { void getMoreApartments() }}>Try again</Button>
+        </Box>
+      }
     </Box>
   )
 }

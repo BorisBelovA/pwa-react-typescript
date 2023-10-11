@@ -51,6 +51,13 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     this.pagination.page = page
   }
 
+  public reset = (): void => {
+    this.city = undefined
+    this.state = undefined
+    this.priceFrom = 0
+    this.priceTo = 20000
+  }
+
   public setCountry = (id: number): void => {
     this.country = { id }
   }
