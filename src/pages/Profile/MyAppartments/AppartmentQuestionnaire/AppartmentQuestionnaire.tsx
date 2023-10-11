@@ -162,7 +162,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
       ? existingApartment.purpose
       : queryPurpose,
     formId: existingApartment?.formId ?? null,
-    phone: null,
+    phone: existingApartment?.phone ?? null,
     forRefugees: false
   })
 

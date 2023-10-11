@@ -21,14 +21,15 @@ export const Basic = (): JSX.Element => {
         totalPrice: 0
       })
     }
-    if (apartment.totalPrice === 0){
+    if (apartment.totalPrice === 0) {
       setForRefugees(true)
       setApartment({
         ...apartment,
-        forRefugees: true,
+        forRefugees: true
       })
     }
   }, [searchParams])
+
   useEffect(() => {
     setActive(ApartmentsQuestionnaireRoutes.BASIC)
   }, [null])
@@ -100,6 +101,11 @@ export const Basic = (): JSX.Element => {
     setNextDisabled(!isValid)
   }, [isValid])
 
+  useEffect(() => {
+    trigger('price')
+    trigger('countAvailableRooms')
+  }, [apartment.forRefugees])
+
   const howManyRoomsMarks = Array(10).fill(0).map((i, idx) => ({ value: idx + 1, label: `${idx + 1}` }))
   return <Box className={styles.container}>
     <Box className={styles.container_section}>
@@ -114,8 +120,6 @@ export const Basic = (): JSX.Element => {
                 ? 0
                 : null
             })
-            trigger('price')
-            trigger('countAvailableRooms')
           }} />
       } label="For refugees" />
 
@@ -186,27 +190,25 @@ export const Basic = (): JSX.Element => {
         control={control}
       />
     </Box>
-    {!apartment.forRefugees &&
-      <Box className={styles.container_section}>
-        <Typography variant="h2">How many available rooms?</Typography>
-        <Controller
-          render={({ field: { onChange, onBlur, value, ref } }) =>
-            <Slider sx={{ width: '94%', margin: '0 auto' }}
-              aria-label="How many available rooms?"
-              defaultValue={5}
-              valueLabelDisplay="off"
-              step={1}
-              marks={howManyRoomsMarks}
-              min={1}
-              max={10}
-              value={value}
-              onChange={onChange}
-            />
-          }
-          name='countAvailableRooms'
-          control={control}
-        />
-      </Box>
-    }
+    <Box className={styles.container_section}>
+      <Typography variant="h2">How many available rooms?</Typography>
+      <Controller
+        render={({ field: { onChange, onBlur, value, ref } }) =>
+          <Slider sx={{ width: '94%', margin: '0 auto' }}
+            aria-label="How many available rooms?"
+            defaultValue={5}
+            valueLabelDisplay="off"
+            step={1}
+            marks={howManyRoomsMarks}
+            min={1}
+            max={10}
+            value={value}
+            onChange={onChange}
+          />
+        }
+        name='countAvailableRooms'
+        control={control}
+      />
+    </Box>
   </Box>
 }
