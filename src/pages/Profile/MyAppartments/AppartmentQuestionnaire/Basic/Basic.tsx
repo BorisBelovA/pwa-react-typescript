@@ -83,7 +83,7 @@ export const Basic = (): JSX.Element => {
   return <Box className={styles.container}>
     <Box className={styles.container_section}>
       <FormControlLabel sx={{ marginLeft: '0px' }} control={
-        <Switch value={apartment.forRefugees}
+        <Switch checked={apartment.forRefugees}
           onChange={(event, value) => {
             setApartment({
               ...apartment,
