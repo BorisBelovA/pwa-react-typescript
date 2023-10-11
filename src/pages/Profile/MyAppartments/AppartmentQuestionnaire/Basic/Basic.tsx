@@ -138,7 +138,8 @@ export const Basic = (): JSX.Element => {
             label="Price"
             variant="outlined"
             {...register('price', {
-              required: 'Apartment price is required'
+              required: 'Apartment price is required',
+              min: { value: 1, message: 'Apartment price shouldn\'t be less then 1' }
             })}
             error={!(errors.price == null)}
             helperText={errors.price?.message ?? ''}
