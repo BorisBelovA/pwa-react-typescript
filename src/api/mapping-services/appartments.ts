@@ -63,7 +63,8 @@ export const mapApartmentToDto = (apartment: models.Apartment): Apartment => {
     photos: apartment.photos.map(p => extractFileName(p)),
     aboutApartment: apartment.description,
     status: mapPurposeToDto(apartment.purpose),
-    formId: apartment.formId
+    formId: apartment.formId,
+    phone: apartment.phone
   }
 }
 
@@ -84,6 +85,7 @@ export const mapApartmentToModel = (apartment: Apartment): models.Apartment => {
     photos: apartment.photos.map(p => mapPhotoNameToURI(p)),
     description: apartment.aboutApartment ?? '',
     purpose: mapPurposeToModel(apartment.status),
-    formId: apartment.formId
+    formId: apartment.formId,
+    phone: apartment.phone
   }
 }

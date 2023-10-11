@@ -26,4 +26,5 @@ export interface Apartment {
   aboutApartment: string | null
   status: ApartmentPurpose
   formId: number | null
+  phone: string | null
 }

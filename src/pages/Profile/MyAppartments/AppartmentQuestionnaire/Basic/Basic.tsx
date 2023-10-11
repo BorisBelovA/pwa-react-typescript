@@ -1,4 +1,4 @@
-import { Box, MenuItem, Select, Slider, TextField, Typography } from '@mui/material'
+import { Box, FormControlLabel, MenuItem, Select, Slider, Switch, TextField, Typography } from '@mui/material'
 import styles from './Basic.module.scss'
 import { useEffect, useState } from 'react'
 import { ApartmentsQuestionnaireRoutes, type Currency } from 'models'
@@ -20,8 +20,8 @@ export const Basic = (): JSX.Element => {
     countAvailableRooms: number | undefined
   }>({
     defaultValues: {
-      name: apartment.name ?? null,
-      price: apartment.totalPrice ?? null,
+      name: apartment.name ?? undefined,
+      price: apartment.totalPrice ?? undefined,
       countRooms: apartment.countRooms ?? 5,
       countAvailableRooms: apartment.countAvailableRooms ?? 2
     },
@@ -30,9 +30,9 @@ export const Basic = (): JSX.Element => {
 
   const refreshProgress = (): void => {
     const percent = (apartment.name && control.getFieldState('name').error === undefined ? 25 : 0) +
-    (apartment.totalPrice && control.getFieldState('price').error === undefined ? 25 : 0) +
-    (apartment.countRooms && control.getFieldState('countRooms').error === undefined ? 25 : 0) +
-    (apartment.countAvailableRooms && control.getFieldState('countAvailableRooms').error === undefined ? 25 : 0)
+      (apartment.totalPrice && control.getFieldState('price').error === undefined ? 25 : 0) +
+      (apartment.countRooms && control.getFieldState('countRooms').error === undefined ? 25 : 0) +
+      (apartment.countAvailableRooms && control.getFieldState('countAvailableRooms').error === undefined ? 25 : 0)
     setPercent(percent, 100, ApartmentsQuestionnaireRoutes.BASIC)
   }
 
@@ -44,12 +44,12 @@ export const Basic = (): JSX.Element => {
   ])
 
   useEffect(() => {
-    if (apartment.id > 0) {
+    if (apartment.id) {
       reset({
-        name: apartment.name,
-        price: apartment.totalPrice,
-        countRooms: apartment.countRooms,
-        countAvailableRooms: apartment.countAvailableRooms
+        name: apartment.name ?? undefined,
+        price: apartment.totalPrice ?? undefined,
+        countRooms: apartment.countRooms ?? undefined,
+        countAvailableRooms: apartment.countAvailableRooms ?? undefined
       })
     }
   }, [apartment.id])
@@ -79,9 +79,28 @@ export const Basic = (): JSX.Element => {
     setNextDisabled(!isValid)
   }, [isValid])
 
+  useEffect(() => {
+    setApartment({
+      ...apartment,
+      totalPrice: apartment.forRefugees
+        ? 0
+        : null
+    })
+  }, [apartment.forRefugees])
+
   const howManyRoomsMarks = Array(10).fill(0).map((i, idx) => ({ value: idx + 1, label: `${idx + 1}` }))
   return <Box className={styles.container}>
     <Box className={styles.container_section}>
+      <FormControlLabel sx={{ marginLeft: '0px' }} control={
+        <Switch value={apartment.forRefugees}
+          onChange={(event, value) => {
+            setApartment({
+              ...apartment,
+              forRefugees: value
+            })
+          }} />
+      } label="For refugees" />
+
       <Typography variant="h2">Basic data</Typography>
       <TextField id="apartment-name"
         size="small"
@@ -97,35 +116,36 @@ export const Basic = (): JSX.Element => {
       />
     </Box>
 
-    <Box className={styles.container_section}>
-      <Typography variant="h2">Price per room</Typography>
-      <Box className={styles.price_per_room}>
-        <TextField id="price-per-room"
-          size="small"
-          fullWidth
-          type='number'
-          label="Price"
-          variant="outlined"
-          {...register('price', {
-            required: 'Apartment price is required',
-            min: { value: 1, message: 'Apartment price shouldn\'t be less then 1' }
-          })}
-          error={!(errors.price == null)}
-          helperText={errors.price?.message ?? ''}
-        />
-        <Select
-          labelId="demo-customized-select-label"
-          id="demo-customized-select"
-          size="small"
-          value={currency}
-          onChange={(event) => { changeCurrency(event.target.value as Currency) }}
-        >
-          <MenuItem value={'USD'}>$</MenuItem>
-          <MenuItem value={'EUR'}>€</MenuItem>
-          <MenuItem value={'ILS'}>₪</MenuItem>
-        </Select>
+    {!apartment.forRefugees &&
+      <Box className={styles.container_section}>
+        <Typography variant="h2">Price per room</Typography>
+        <Box className={styles.price_per_room}>
+          <TextField id="price-per-room"
+            size="small"
+            fullWidth
+            type='number'
+            label="Price"
+            variant="outlined"
+            {...register('price', {
+              required: 'Apartment price is required'
+            })}
+            error={!(errors.price == null)}
+            helperText={errors.price?.message ?? ''}
+          />
+          <Select
+            labelId="demo-customized-select-label"
+            id="demo-customized-select"
+            size="small"
+            value={currency}
+            onChange={(event) => { changeCurrency(event.target.value as Currency) }}
+          >
+            <MenuItem value={'USD'}>$</MenuItem>
+            <MenuItem value={'EUR'}>€</MenuItem>
+            <MenuItem value={'ILS'}>₪</MenuItem>
+          </Select>
+        </Box>
       </Box>
-    </Box>
+    }
 
     <Box className={styles.container_section}>
       <Typography variant="h2">How many rooms?</Typography>

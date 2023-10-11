@@ -85,7 +85,7 @@ export const Location = (): JSX.Element => {
   ])
 
   useEffect(() => {
-    if (apartment.id > 0) {
+    if (apartment.id) {
       reset({
         country: apartment.location.country,
         city: apartment.location.city,
@@ -151,8 +151,8 @@ export const Location = (): JSX.Element => {
                 onBlur={onBlur}
                 ref={ref}
                 value={
-                  apartment.location.country
-                    ? countries.find(c => c.id === apartment.location.country.id) ?? null
+                  apartment.location.country?.id
+                    ? countries.find(c => c.id === apartment.location.country!.id) ?? null
                     : null
                 }
                 getOptionLabel={(option) => option.name}
