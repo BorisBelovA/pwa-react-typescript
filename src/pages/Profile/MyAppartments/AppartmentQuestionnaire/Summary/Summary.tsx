@@ -38,9 +38,11 @@ export const Summary = (): JSX.Element => {
           <EditIcon fontSize='small' />
         </IconButton>
       </Box>
-      <Typography variant="body1" color={theme.palette.text.secondary}>
-        {apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room
-      </Typography>
+      {!apartment.forRefugees &&
+        <Typography variant="body1" color={theme.palette.text.secondary}>
+          {apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room
+        </Typography>
+      }
     </Box>
 
     <Box className={styles.header_row}>

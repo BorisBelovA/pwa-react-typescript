@@ -45,7 +45,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
       if (response.length > 0) {
         setApartments([...apartments, ...response.map((apt) => mapApartmentToModel(apt))])
         setHaveMore(true)
-        apartmentFiltersStore.setPage(apartmentFiltersStore.pagination.page + 1)
+        // apartmentFiltersStore.setPage(apartmentFiltersStore.pagination.page + 1)
       } else {
         setHaveMore(false)
       }
@@ -63,7 +63,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
 
   useEffect(() => {
     void getApartments()
-    apartmentFiltersStore.setPage(0)
+    // apartmentFiltersStore.setPage(0)
   }, [])
 
   return (

@@ -74,7 +74,7 @@ const ApartmentFilters = (): JSX.Element => {
     }
   }, [])
 
-  const { control, register, watch, resetField, formState: { errors }, reset, setValue, trigger } = useForm<{
+  const { control, register, watch, resetField, formState: { errors }, reset, setValue } = useForm<{
     country: Country | null
     city: City | null
     district: District | null
@@ -117,7 +117,6 @@ const ApartmentFilters = (): JSX.Element => {
           <Typography variant="h2">Country</Typography>
           <Controller control={control}
             name="country"
-            
             render={
               ({ field: { onChange, value, onBlur, ref } }) =>
                 <Autocomplete
