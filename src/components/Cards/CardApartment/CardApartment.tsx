@@ -48,6 +48,7 @@ const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Pr
         </Box>
         <FlipCameraAndroidIcon color='primary' fontSize='large' />
       </Box>}
+    {apartment.phone && <Typography>Phone: {apartment.phone}</Typography>}
     <Typography>{apartment.description}</Typography>
   </>)
 
