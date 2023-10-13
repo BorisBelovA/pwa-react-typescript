@@ -55,7 +55,7 @@ const ApartmentFilters = (): JSX.Element => {
 
   const resetFilters = (): void => {
     reset({
-      country: { id: 106 },
+      country: null,
       city: null,
       district: null,
       priceFrom: 0,

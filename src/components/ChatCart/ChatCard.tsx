@@ -15,10 +15,10 @@ export const ChatCard = ({ chat, onClick }: ChatCardProps): JSX.Element => {
       <Box className={styles.match_details}>
         <Box className={styles.match_name}>
           <Typography>{chat.recipient.firstName}, {chat.recipient.lastName}</Typography>
-          <Typography>10:13 AM</Typography>
+          {/* <Typography>10:13 AM</Typography> */}
         </Box>
         <Box className={styles.match_name}>
-          <Typography noWrap={true}>Тут твое последнее сообщени aw daw  aw aе</Typography>
+          {/* <Typography noWrap={true}></Typography> */}
           {chat.unreadMessages > 0 && <Chip label={chat.unreadMessages} variant="filled" color='info' />}
         </Box>
       </Box>

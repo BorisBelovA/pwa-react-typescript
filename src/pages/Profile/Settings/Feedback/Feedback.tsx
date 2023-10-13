@@ -7,11 +7,16 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from 'src/utils/StoreProvider'
 import { useState } from 'react'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { MyListItemButton } from 'src/components/ListItemButton/ListItemButton'
+import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
+import { DonateDialog } from 'src/components/DonateDialog/DonateDialog'
 
 export const Feedback = observer((): JSX.Element => {
   const { registrationStore } = useStore()
   const [feedbackMessage, setFeedbackMessage] = useState('')
   const { setBackdropMessage, setBackdropVisible, setMessage } = useMainContext()
+  const [donateVisible, setDonateVisible] = useState(false)
+
   const sendFeedback = async (): Promise<void> => {
     setBackdropVisible(true)
     setBackdropMessage('Sending your request!')
@@ -59,12 +64,21 @@ export const Feedback = observer((): JSX.Element => {
         }}
       />
 
-      <Button variant="contained"
+      <Button variant="outlined"
         fullWidth
         disabled={feedbackMessage.length === 0}
         onClick={() => { void sendFeedback() }}>
         Send feedback
       </Button>
+
+      <Button variant='contained'
+        fullWidth
+        startIcon={<MonetizationOnOutlinedIcon/>}
+        onClick={() => { setDonateVisible(true) }}>
+        Donate
+      </Button>
     </Box>
+
+    <DonateDialog visible={donateVisible} setVisible={setDonateVisible} />
   </Box>
 })

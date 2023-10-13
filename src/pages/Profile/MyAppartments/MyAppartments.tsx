@@ -111,20 +111,20 @@ export const MyApartments = observer((): JSX.Element => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                flexBasis: '200px'
+                flexBasis: '150px'
               }}>
                 <Link to={`/profile/my-apartments/preview/${ap.id}`}>
                   <Typography color={theme.palette.primary.main} sx={{ display: 'flex', gap: '.5rem', alignItems: 'center' }}>
                     <RemoveRedEyeIcon /> Preview
                   </Typography>
                 </Link>
-                {ap.purpose === 'Other' && <Chip label='No longer available' color='default' />}
+                {ap.purpose === 'Other' && <Chip label='Not available' color='default' />}
 
                 {ap.purpose === 'Rent' &&
                   <Box onClick={() => { void removeAd(ap) }}>
                     <Typography color={theme.palette.primary.main}
                       sx={{ display: 'flex', gap: '.5rem', alignItems: 'center' }}>
-                      <RemoveCircleOutlineOutlinedIcon /> Remove AD
+                      <RemoveCircleOutlineOutlinedIcon /> Remove
                     </Typography>
                   </Box>
                 }

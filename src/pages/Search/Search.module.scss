@@ -21,7 +21,7 @@
   margin-top: -1.125rem;
   padding-top: 1.125rem;
   margin-bottom: -3rem;
-  padding-bottom: calc(4rem + var(--safe-area-inset));
+  padding-bottom: calc(4.5rem + var(--safe-area-inset));
   height: 100%;
   overflow-y: hidden;
   position: relative;
@@ -29,7 +29,7 @@
 
 .search__matchButtons {
   position: absolute;
-  bottom: calc(4.5rem + var(--safe-area-inset));
+  bottom: calc(5rem + var(--safe-area-inset));
   display: flex;
   gap: 2rem;
   left: 50%;
