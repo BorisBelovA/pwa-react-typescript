@@ -3,7 +3,7 @@ import styles from './Search.module.scss'
 import { ReactComponent as SwitchIcon } from '../../assets/icons/switch.svg'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
-import { type MatchNew } from 'models'
+import { ProfileRoutes, type MatchNew } from 'models'
 import { useEffect, useState } from 'react'
 import { matchingService } from 'src/api/api-services/matching'
 import { mapMatchToModel } from 'mapping-services'
@@ -11,10 +11,26 @@ import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { observer } from 'mobx-react-lite'
 import { useStore } from 'src/utils/StoreProvider'
 import SearchCardController from 'src/components/Cards/SearchCardController/SearchCardController'
+import { useNavigate } from 'react-router-dom'
 
 interface SearchOffset {
   index: number
   page: number
+}
+
+const NoQuestionnaire = ({ visible }: { visible: boolean }): JSX.Element => {
+  const navigate = useNavigate()
+
+  const goToQuestionnaire = (): void => {
+    navigate(`/profile/${ProfileRoutes.BASIC_QUEST}`)
+  }
+
+  return <>
+    {visible && <Box className={styles.no_questionnaire}>
+      <Typography>You need to fill out your profile before searching for Roommates!</Typography>
+      <Button variant="contained" onClick={goToQuestionnaire}>Go to profile</Button>
+    </Box>}
+  </>
 }
 
 const Search: React.FunctionComponent = observer(() => {
@@ -33,9 +49,6 @@ const Search: React.FunctionComponent = observer(() => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [needSwitch, setNeedSwitch] = useState<boolean>(false)
-
-  // const [currentImages, setCurrentImages] = useState<HTMLImageElement[]>([])
-  // const [nextImages, setNextImages] = useState<HTMLImageElement[]>([])
 
   const [currentPage, setCurrentPage] = useState<number>(0)
   const [nextPage, setNextPage] = useState<number>(1)
@@ -73,7 +86,6 @@ const Search: React.FunctionComponent = observer(() => {
     if (m.length > 0 && startIndex < m.length) {
       setCurrentMatches(m)
       preloadImages(m)
-      // setCurrentImages(preloadImages(m))
       setNextPage(page + 1)
     }
     setIsLoading(false)
@@ -87,7 +99,6 @@ const Search: React.FunctionComponent = observer(() => {
       preloadImages(m)
       setHaveNewMatches(true)
       setHadMatches(true)
-      // setNextImages(preloadImages(m))
     }
     setIsLoading(false)
   }
@@ -122,9 +133,6 @@ const Search: React.FunctionComponent = observer(() => {
   }, [needSwitch, nextMatches])
 
   const checkMatches = async (page: number, startIndex: number): Promise<void> => {
-    if (!questionnaireStore.haveQuestionnaire) {
-      await questionnaireStore.getQuestionnaire()
-    }
     await startMatching(page, startIndex)
   }
 
@@ -210,38 +218,47 @@ const Search: React.FunctionComponent = observer(() => {
     <Box className={styles.search}>
       <Box className={styles.search__header}>
         <Box className={styles.search__headerContent}>
-          <Typography variant='h1'>{questionnaireStore.questionnaire?.location.country?.name},&nbsp;
-            {questionnaireStore.questionnaire?.location.city?.name}</Typography>
-          <IconButton><SwitchIcon /></IconButton>
+          {
+            questionnaireStore.haveQuestionnaire && <>
+              <Typography variant='h1'>{questionnaireStore.questionnaire?.location.country?.name},&nbsp;
+                {questionnaireStore.questionnaire?.location.city?.name}</Typography>
+              <IconButton><SwitchIcon /></IconButton>
+            </>
+          }
         </Box>
-        {/* <IconButton color='primary'><FilterAltOutlinedIcon /></IconButton> */}
       </Box>
       <Box className={styles.search__content}>
-        {currentMatches.length > 0 && currentMatches[index] &&
-          <SearchCardController matchNew={currentMatches[index]} action={action} />
-        }
-        {currentMatches.length === 0 && isLoading &&
-          <div className={styles.noMatches}>
-            <Typography>Loading...</Typography>
-          </div>
-        }
-        {currentMatches.length === 0 && !isLoading &&
-          <div className={styles.noMatches}>
-            <Typography variant='h6'>No matches yet</Typography>
-            <Button
-              variant='contained'
-              fullWidth
-              onClick={() => { void refresh() }}>
-              Refresh
-            </Button>
-            {(hadMatches || currentPage > 0 || index > 0) &&
-              <Button
-                variant='contained'
-                fullWidth
-                onClick={() => { startAgain() }}
-              >Start again</Button>
+        <NoQuestionnaire visible={!questionnaireStore.haveQuestionnaire} />
+        {
+          questionnaireStore.haveQuestionnaire &&
+          <>
+            {currentMatches.length > 0 && currentMatches[index] &&
+              <SearchCardController matchNew={currentMatches[index]} action={action} />
             }
-          </div>
+            {currentMatches.length === 0 && isLoading &&
+              <div className={styles.noMatches}>
+                <Typography>Loading...</Typography>
+              </div>
+            }
+            {currentMatches.length === 0 && !isLoading &&
+              <div className={styles.noMatches}>
+                <Typography variant='h6'>No matches yet</Typography>
+                <Button
+                  variant='contained'
+                  fullWidth
+                  onClick={() => { void refresh() }}>
+                  Refresh
+                </Button>
+                {(hadMatches || currentPage > 0 || index > 0) &&
+                  <Button
+                    variant='contained'
+                    fullWidth
+                    onClick={() => { startAgain() }}
+                  >Start again</Button>
+                }
+              </div>
+            }
+          </>
         }
       </Box>
       {
