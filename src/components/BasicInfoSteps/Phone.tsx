@@ -3,11 +3,12 @@ import { type Control, Controller } from 'react-hook-form'
 
 interface Props {
   control: Control<{ phone: string }, any>
+  required?: boolean
 }
-const Phone = ({ control }: Props): JSX.Element => {
+const Phone = ({ control, required }: Props): JSX.Element => {
   return (
     <Controller name='phone' control={control}
-      rules={{ validate: matchIsValidTel }}
+      rules={{ validate: matchIsValidTel, required }}
       render={({ field, fieldState }) => (
         <MuiTelInput {...field} fullWidth
           helperText={(fieldState.error != null) ? 'Incorrect phone number' : ''}

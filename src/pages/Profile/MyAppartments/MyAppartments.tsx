@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Skeleton, Typography, useTheme } from '@mui/material'
+import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Chip, Skeleton, Typography, useTheme } from '@mui/material'
 import { observer } from 'mobx-react-lite'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -8,9 +8,15 @@ import commonStyles from '../Profile.module.scss'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
 import { mapCurrencyToSign } from 'src/utils/currency'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
+import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
+import { apartmentService } from 'src/api/api-services/appartment'
+import { mapApartmentToDto } from 'mapping-services'
+import { type Apartment } from 'models'
+import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 export const MyApartments = observer((): JSX.Element => {
   const { apartmentStore } = useStore()
+  const { setMessage, setBackdropMessage, setBackdropVisible } = useMainContext()
   const theme = useTheme()
 
   const [isLoading, setIsLoading] = useState(true)
@@ -35,6 +41,31 @@ export const MyApartments = observer((): JSX.Element => {
     setIsLoading(false)
   }
 
+  const removeAd = async (apartment: Apartment): Promise<void> => {
+    setBackdropVisible(true)
+    setBackdropMessage('Removing your add from publication')
+    try {
+      await apartmentService.removeAd(mapApartmentToDto(apartment))
+      setMessage({
+        text: 'Your ad was removed from publication',
+        life: 5000,
+        visible: true,
+        severity: 'success'
+      })
+      setBackdropVisible(false)
+      await getApartment()
+    } catch (e) {
+      setMessage({
+        text: e instanceof Error
+          ? e.message
+          : 'Something went wrong',
+        life: 5000,
+        visible: true,
+        severity: 'error'
+      })
+      setBackdropVisible(false)
+    }
+  }
   useEffect(() => {
     void getApartment()
   }, [])
@@ -76,11 +107,28 @@ export const MyApartments = observer((): JSX.Element => {
                   {ap.totalPrice} {mapCurrencyToSign(ap.currency)}
                 </Typography>
               </Box>
-              <Link to={`/profile/my-apartments/preview/${ap.id}`}>
-                <Typography color={theme.palette.primary.main} sx={{ display: 'flex', gap: '.5rem', alignItems: 'center' }}>
-                  <RemoveRedEyeIcon /> Preview
-                </Typography>
-              </Link>
+              <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                flexBasis: '150px'
+              }}>
+                <Link to={`/profile/my-apartments/preview/${ap.id}`}>
+                  <Typography color={theme.palette.primary.main} sx={{ display: 'flex', gap: '.5rem', alignItems: 'center' }}>
+                    <RemoveRedEyeIcon /> Preview
+                  </Typography>
+                </Link>
+                {ap.purpose === 'Other' && <Chip label='Not available' color='default' />}
+
+                {ap.purpose === 'Rent' &&
+                  <Box onClick={() => { void removeAd(ap) }}>
+                    <Typography color={theme.palette.primary.main}
+                      sx={{ display: 'flex', gap: '.5rem', alignItems: 'center' }}>
+                      <RemoveCircleOutlineOutlinedIcon /> Remove
+                    </Typography>
+                  </Box>
+                }
+              </Box>
             </CardContent>
           </Card>
         )

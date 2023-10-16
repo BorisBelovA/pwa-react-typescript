@@ -1,21 +1,12 @@
 export type Gender = 'M' | 'F' | 'Other'
 
-// bikiv33831@meogl.com
+// wajojij625@czilou.com
 // qwerty123
 
-// dakos71134@niback.com
+// rival28433@ibtrades.com
 // qwerty123
 
-// kiroca7086@nasskar.com
-// qwerty123
-
-// bekobi7445@rc3s.com
-// qwerty123
-
-// meyawo6943@quipas.com
-// qwerty123
-
-// dowiya6773@weizixu.com
+// cacokip927@ksyhtc.com
 // qwerty
 
 export interface PersonalInfo {

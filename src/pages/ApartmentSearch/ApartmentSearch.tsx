@@ -62,8 +62,8 @@ const ApartmentSearch: React.FunctionComponent = () => {
   }
 
   useEffect(() => {
-    void getApartments()
     apartmentFiltersStore.setPage(0)
+    void getApartments()
   }, [])
 
   return (

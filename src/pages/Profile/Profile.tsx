@@ -17,6 +17,8 @@ import RoomPreferencesOutlinedIcon from '@mui/icons-material/RoomPreferencesOutl
 import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import { MyListItemButton } from 'src/components/ListItemButton/ListItemButton'
+import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
+import { DonateDialog } from 'src/components/DonateDialog/DonateDialog'
 
 const Profile: React.FunctionComponent = observer(() => {
   const { userStore, questionnaireStore } = useStore()
@@ -24,6 +26,7 @@ const Profile: React.FunctionComponent = observer(() => {
   const [cropVisible, setCropVisible] = useState(false)
   const [image, setImage] = useState('')
   const navigate = useNavigate()
+  const [donateVisible, setDonateVisible] = useState(false)
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if ((e.target.files != null)) {
@@ -140,6 +143,11 @@ const Profile: React.FunctionComponent = observer(() => {
           icon={SettingsOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.SETTINGS}`) }}
         />
+
+        <MyListItemButton label='Donate'
+          icon={MonetizationOnOutlinedIcon}
+          action={() => { setDonateVisible(true) }}
+        />
       </Box>
     </Box>
 
@@ -161,6 +169,8 @@ const Profile: React.FunctionComponent = observer(() => {
       name=""
       onChange={handleFileChange}
     />
+
+    <DonateDialog visible={donateVisible} setVisible={setDonateVisible} />
   </>
 })
 

@@ -55,7 +55,7 @@ const ApartmentFilters = (): JSX.Element => {
 
   const resetFilters = (): void => {
     reset({
-      country: { id: 106 },
+      country: null,
       city: null,
       district: null,
       priceFrom: 0,
@@ -74,7 +74,7 @@ const ApartmentFilters = (): JSX.Element => {
     }
   }, [])
 
-  const { control, register, watch, resetField, formState: { errors }, reset, setValue, trigger } = useForm<{
+  const { control, register, watch, resetField, formState: { errors }, reset, setValue } = useForm<{
     country: Country | null
     city: City | null
     district: District | null
@@ -96,10 +96,18 @@ const ApartmentFilters = (): JSX.Element => {
       // Each time we change country we load new list of districts
       if (name === 'country' && country?.id) {
         void getDistricts(country.id)
+      } else if (name === 'country' && !country?.id) {
+        setDistricts([])
+        setCities([])
+        apartmentFiltersStore.setState(undefined)
+        apartmentFiltersStore.setCity(undefined)
       }
       // Each time we change district we load list of cicites
       if (name === 'district' && district?.id) {
         void getCities(district.id)
+      } else if (name === 'district' && !district?.id) {
+        setCities([])
+        apartmentFiltersStore.setCity(undefined)
       }
       apartmentFiltersStore.setPrice(priceFrom, priceTo)
     })
@@ -117,7 +125,6 @@ const ApartmentFilters = (): JSX.Element => {
           <Typography variant="h2">Country</Typography>
           <Controller control={control}
             name="country"
-            
             render={
               ({ field: { onChange, value, onBlur, ref } }) =>
                 <Autocomplete

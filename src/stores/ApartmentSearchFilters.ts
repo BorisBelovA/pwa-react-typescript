@@ -3,9 +3,7 @@ import { type RootStore } from './RootStore'
 import { makeAutoObservable } from 'mobx'
 
 export class ApartmentFiltersStore implements ApartmentFilters {
-  country: { id: number } | undefined = {
-    id: 106
-  }
+  country: { id: number } | undefined = undefined
 
   city?: { id: number } | undefined
 

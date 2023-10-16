@@ -302,6 +302,9 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
     const photos = await saveAllApartmentsPhotos(apartment.photos)
     const dto = mapApartmentToDto({
       ...apartment,
+      purpose: apartment.purpose === 'Other'
+        ? 'Rent'
+        : apartment.purpose,
       photos: photos.map(p => mapPhotoNameToURI(p))
     })
     try {
@@ -380,7 +383,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
           fullWidth
           variant='contained'
           onClick={onFinish}>
-          Finish
+          Done
         </Button>
         }
       </Box>
