@@ -1,4 +1,4 @@
-import { Avatar, Box, IconButton, Typography, useTheme } from '@mui/material'
+import { Avatar, Box, IconButton, Link, Typography, useTheme } from '@mui/material'
 import CardBase from '../CardBase/CardBase'
 import { type AuthUser, type Apartment, ProfileRoutes, ApartmentsRoutes } from 'models'
 import { mapCurrencyToSign } from 'src/utils/currency'
@@ -21,9 +21,12 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
   const theme = useTheme()
   const header = (<>
     <Box className={styles.head}>
-      <Typography variant='h1' color='constantLight.main'>
-        {apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room
-      </Typography>
+      {apartment.totalPrice > 0
+        ? <Typography variant='h1' color='constantLight.main'>
+          {apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room
+        </Typography>
+        : <Typography variant='h1' color='constantLight.main'>For refugees</Typography>
+      }
       {editable &&
         <IconButton sx={{ color: theme.palette.primary.main }}
           className={styles.icon__edit}
@@ -57,8 +60,8 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
         </Box>
         <FlipCameraAndroidIcon color='primary' fontSize='large' />
       </Box>}
-    {apartment.phone && <Typography>Phone: {apartment.phone}</Typography>}
-    <Typography sx={{ marginTop: '1rem' }}>{apartment.description}</Typography>
+    {apartment.phone && <Typography>Phone: <Link href={`tel:${apartment.phone}`}>{apartment.phone}</Link></Typography>}
+    <Typography sx={{ marginTop: '1rem', whiteSpace: 'pre-line' }}>{apartment.description}</Typography>
   </>)
 
   return (

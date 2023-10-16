@@ -91,7 +91,7 @@ export const Summary = (): JSX.Element => {
             <EditIcon fontSize='small' />
           </IconButton>
         </Box>
-        <Typography>{apartment.description}</Typography>
+        <Typography sx={{whiteSpace: 'pre-wrap'}}>{apartment.description}</Typography>
       </Box>
     }
   </Box>

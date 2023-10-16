@@ -86,7 +86,7 @@ const CardProfile = (props: Props): JSX.Element => {
           <FlipCameraAndroidIcon color='primary' fontSize='large'/>
         </Box>
       }
-      <Typography variant='body2'>{info?.about}</Typography>
+      <Typography variant='body2' sx={{ whiteSpace: 'pre-line' }}>{info?.about}</Typography>
     </>
   )
 
