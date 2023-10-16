@@ -96,10 +96,18 @@ const ApartmentFilters = (): JSX.Element => {
       // Each time we change country we load new list of districts
       if (name === 'country' && country?.id) {
         void getDistricts(country.id)
+      } else if (name === 'country' && !country?.id) {
+        setDistricts([])
+        setCities([])
+        apartmentFiltersStore.setState(undefined)
+        apartmentFiltersStore.setCity(undefined)
       }
       // Each time we change district we load list of cicites
       if (name === 'district' && district?.id) {
         void getCities(district.id)
+      } else if (name === 'district' && !district?.id) {
+        setCities([])
+        apartmentFiltersStore.setCity(undefined)
       }
       apartmentFiltersStore.setPrice(priceFrom, priceTo)
     })
