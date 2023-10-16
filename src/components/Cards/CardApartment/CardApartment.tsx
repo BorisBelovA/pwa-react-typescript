@@ -49,7 +49,7 @@ const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Pr
         <FlipCameraAndroidIcon color='primary' fontSize='large' />
       </Box>}
     {apartment.phone && <Typography>Phone: <Link href={`tel:${apartment.phone}`}>{apartment.phone}</Link></Typography>}
-    <Typography>{apartment.description}</Typography>
+    <Typography sx={{ whiteSpace: 'pre-line' }}>{apartment.description}</Typography>
   </>)
 
   return (
