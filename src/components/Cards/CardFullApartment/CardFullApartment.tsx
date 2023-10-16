@@ -1,4 +1,4 @@
-import { Avatar, Box, IconButton, Typography, useTheme } from '@mui/material'
+import { Avatar, Box, IconButton, Link, Typography, useTheme } from '@mui/material'
 import CardBase from '../CardBase/CardBase'
 import { type AuthUser, type Apartment, ProfileRoutes, ApartmentsRoutes } from 'models'
 import { mapCurrencyToSign } from 'src/utils/currency'
@@ -57,8 +57,8 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
         </Box>
         <FlipCameraAndroidIcon color='primary' fontSize='large' />
       </Box>}
-    {apartment.phone && <Typography>Phone: {apartment.phone}</Typography>}
-    <Typography sx={{ marginTop: '1rem' }}>{apartment.description}</Typography>
+    {apartment.phone && <Typography>Phone: <Link href={`tel:${apartment.phone}`}>{apartment.phone}</Link></Typography>}
+    <Typography sx={{ marginTop: '1rem', whiteSpace: 'pre-line' }}>{apartment.description}</Typography>
   </>)
 
   return (
