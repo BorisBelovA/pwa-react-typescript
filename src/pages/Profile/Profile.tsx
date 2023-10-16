@@ -129,10 +129,10 @@ const Profile: React.FunctionComponent = observer(() => {
           action={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}`) }}
         />
 
-        <MyListItemButton label='Roommate preferences'
+        {/* <MyListItemButton label='Roommate preferences'
           icon={RoomPreferencesOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.ROOMMATE_PREFERENCES}`) }}
-        />
+        /> */}
 
         <MyListItemButton label='My apartments'
           icon={ChairOutlinedIcon}

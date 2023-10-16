@@ -1,6 +1,7 @@
 import type * as dto from 'dto'
 import type * as models from 'models'
 import { mapPhotoNameToURI } from './file-mapping'
+import { mapMessageToModel } from './message'
 
 export const mapRecipientToModel = (recipient: dto.Recipient): models.Recipient => {
   // if (!recipient.firstName || !recipient.lastName || !recipient.gender || !recipient.birthday) {
@@ -19,6 +20,8 @@ export const mapChatToModel = (chat: dto.Chat): models.Chat => {
   return {
     roomId: chat.id,
     recipient: mapRecipientToModel(chat.recipient),
+    isYoursMessage: chat.isYoursMessage,
+    lastMessage: mapMessageToModel(chat.lastMessage),
     unreadMessages: 0
   }
 }
