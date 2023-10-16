@@ -13,7 +13,6 @@ import { imageTypes } from 'src/utils/constants'
 import { useNavigate } from 'react-router-dom'
 
 import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined'
-import RoomPreferencesOutlinedIcon from '@mui/icons-material/RoomPreferencesOutlined'
 import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import { MyListItemButton } from 'src/components/ListItemButton/ListItemButton'
@@ -128,11 +127,6 @@ const Profile: React.FunctionComponent = observer(() => {
           icon={TextSnippetOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}`) }}
         />
-
-        {/* <MyListItemButton label='Roommate preferences'
-          icon={RoomPreferencesOutlinedIcon}
-          action={() => { navigate(`/profile/${ProfileRoutes.ROOMMATE_PREFERENCES}`) }}
-        /> */}
 
         <MyListItemButton label='My apartments'
           icon={ChairOutlinedIcon}
