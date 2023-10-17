@@ -1,4 +1,4 @@
-import { action, makeAutoObservable } from 'mobx'
+import { action, makeAutoObservable, observable } from 'mobx'
 import { type RootStore } from './RootStore'
 import { type Apartment } from 'models'
 import { apartmentService } from 'src/api/api-services/appartment'
@@ -16,7 +16,9 @@ export class ApartmnetSearchStore {
       getApartments: action,
       getMoreApartments: action,
       setApartments: action,
-      setHaveMore: action
+      setHaveMore: action,
+      apartments: observable,
+      haveMore: observable
     })
     this.rootStore = rootStore
   }

@@ -12,7 +12,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (apartmentSearchStore.apartments.length === 0) {
+    if (apartmentSearchStore.apartments.length < 1) {
       apartmentFiltersStore.setPage(0)
       void apartmentSearchStore.getApartments()
     }
