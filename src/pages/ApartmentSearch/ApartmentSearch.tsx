@@ -16,6 +16,17 @@ const ApartmentSearch: React.FunctionComponent = () => {
       apartmentFiltersStore.setPage(0)
       void apartmentSearchStore.getApartments()
     }
+    const root = document.getElementById('root')
+    const handleScroll = () => {
+      apartmentSearchStore.setScroll(root?.scrollTop || 0)
+    };
+    root?.addEventListener('scroll', handleScroll)
+    if (apartmentSearchStore.scroll > 0) {
+      root?.scroll({top: apartmentSearchStore.scroll})
+    }
+    return () => {
+      root?.removeEventListener('scroll', handleScroll);
+    };
   }, [])
 
   return (

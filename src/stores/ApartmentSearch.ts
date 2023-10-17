@@ -8,6 +8,7 @@ export class ApartmnetSearchStore {
   apartments: Apartment[] = []
   haveMore: boolean = true
   rootStore: RootStore
+  scroll: number = 0
 
   constructor (rootStore: RootStore) {
     makeAutoObservable(this, {
@@ -15,12 +16,17 @@ export class ApartmnetSearchStore {
       resetApartments: action,
       getApartments: action,
       getMoreApartments: action,
+      setScroll: action,
       setApartments: action,
       setHaveMore: action,
       apartments: observable,
       haveMore: observable
     })
     this.rootStore = rootStore
+  }
+
+  public setScroll = (scroll: number): void => {
+    this.scroll = scroll
   }
 
   public setApartments = (apartments: Apartment[]): void => {
@@ -33,6 +39,8 @@ export class ApartmnetSearchStore {
 
   public resetApartments = (): void => {
     this.setApartments([])
+    this.setHaveMore(true)
+    this.setScroll(0)
   }
 
   public getApartments = async (): Promise<void> => {
