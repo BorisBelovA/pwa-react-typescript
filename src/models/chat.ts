@@ -1,3 +1,5 @@
+import { Message } from "./message"
+
 export interface Recipient {
   id: number
   email: string
@@ -9,5 +11,7 @@ export interface Recipient {
 export interface Chat {
   roomId: number
   recipient: Recipient
+  isYoursMessage: boolean
+  lastMessage: Message
   unreadMessages: number
 }

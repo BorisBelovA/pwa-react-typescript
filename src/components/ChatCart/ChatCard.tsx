@@ -1,6 +1,7 @@
 import { Card, CardContent, Avatar, Box, Typography, Chip, Skeleton } from '@mui/material'
 import { type Chat } from 'models'
 import styles from './ChatCard.module.scss'
+import moment from 'moment'
 
 interface ChatCardProps {
   chat: Chat
@@ -15,10 +16,10 @@ export const ChatCard = ({ chat, onClick }: ChatCardProps): JSX.Element => {
       <Box className={styles.match_details}>
         <Box className={styles.match_name}>
           <Typography>{chat.recipient.firstName}, {chat.recipient.lastName}</Typography>
-          {/* <Typography>10:13 AM</Typography> */}
+          <Typography>{moment(chat.lastMessage.timestamp).format('h:mm A')}</Typography>
         </Box>
         <Box className={styles.match_name}>
-          {/* <Typography noWrap={true}></Typography> */}
+          <Typography noWrap={true}>{chat.lastMessage.content}</Typography>
           {chat.unreadMessages > 0 && <Chip label={chat.unreadMessages} variant="filled" color='info' />}
         </Box>
       </Box>
