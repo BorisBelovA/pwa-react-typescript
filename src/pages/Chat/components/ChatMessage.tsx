@@ -26,13 +26,13 @@ export const ChatMessage = ({ message, mine }: ChatMessageProp): JSX.Element => 
           : theme.palette.background.paper
     }}
   >
-    <DoneAllIcon fontSize='small' className={styles.chat_message_status}
+    {/* <DoneAllIcon fontSize='small' className={styles.chat_message_status}
       sx={{
         color: message.status === 'DELIVERED'
           ? theme.palette.primary.main
           : theme.palette.text.primary
       }}
-    ></DoneAllIcon>
+    ></DoneAllIcon> */}
     {message.content}
     <Box className={styles.chat_message_time}>{getMessageTime(message.timestamp)}</Box>
   </Box>
@@ -54,7 +54,7 @@ export const ChatMessageSkeleton = ({ mine }: Partial<ChatMessageProp>): JSX.Ele
           : theme.palette.background.paper
     }}
   >
-    <DoneAllIcon fontSize='small' className={styles.chat_message_status}></DoneAllIcon>
+    {/* <DoneAllIcon fontSize='small' className={styles.chat_message_status}></DoneAllIcon> */}
     <Skeleton width={100}></Skeleton>
     <Box className={styles.chat_message_time}>
       <Skeleton width={30}></Skeleton>

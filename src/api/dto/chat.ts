@@ -1,3 +1,4 @@
+import { Message } from './message'
 import { type UserDto } from './user'
 
 export type Recipient = UserDto & {
@@ -9,4 +10,7 @@ export type Recipient = UserDto & {
 export interface Chat {
   id: number
   recipient: Recipient
+  // Determines whether you send the last message or not
+  isYoursMessage: boolean
+  lastMessage: Message
 }

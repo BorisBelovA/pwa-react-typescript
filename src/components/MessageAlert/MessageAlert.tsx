@@ -38,7 +38,7 @@ export const MessageAlert = ({ message, setMessage }: MessageAlertProps): JSX.El
         <Alert sx={{
           position: 'absolute',
           zIndex: 9999,
-          bottom: 0,
+          bottom: '64px',
           width: '100%'
         }} severity={message?.severity}>
           <Typography variant='body1'>{message?.text}</Typography>
