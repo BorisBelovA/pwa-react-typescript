@@ -1,3 +1,4 @@
+import { ApartmnetSearchStore } from './ApartmentSearch'
 import { ApartmentFiltersStore } from './ApartmentSearchFilters'
 import { ApartmentsStore } from './Appartments'
 import { QuestionnaireStore } from './Questionnaier'
@@ -12,6 +13,7 @@ export class RootStore {
   registrationStore: RegistrationStore
   questionnaireStore: QuestionnaireStore
   apartmentFiltersStore: ApartmentFiltersStore
+  apartmentSearchStore: ApartmnetSearchStore
   constructor () {
     this.userStore = new UserStore(this)
     this.themeStore = new ThemeStore(this)
@@ -19,5 +21,6 @@ export class RootStore {
     this.registrationStore = new RegistrationStore(this)
     this.questionnaireStore = new QuestionnaireStore(this)
     this.apartmentFiltersStore = new ApartmentFiltersStore(this)
+    this.apartmentSearchStore = new ApartmnetSearchStore(this)
   }
 }
