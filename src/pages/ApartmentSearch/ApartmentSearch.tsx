@@ -13,6 +13,7 @@ const ApartmentSearch: React.FunctionComponent = () => {
 
   useEffect(() => {
     if (apartmentSearchStore.apartments.length < 1) {
+      apartmentFiltersStore.getFromLocalStorage()
       apartmentFiltersStore.setPage(0)
       void apartmentSearchStore.getApartments()
     }

@@ -45,6 +45,34 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     }
   }
 
+  public updateStorage = (): void => {
+    this.writeToLocalStorage({
+      country: this.country,
+      city: this.city,
+      state: this.state,
+      sort: this.sort,
+      priceFrom: this.priceFrom,
+      priceTo: this.priceTo,
+      currency: this.currency,
+      pagination: {...this.pagination, page: 0}
+    })
+  }
+
+  public getFromLocalStorage = (): void => {
+    const data = localStorage.getItem('apartment_filters')
+    if (data !== null){
+      const filters = JSON.parse(data) as ApartmentFilters
+      this.setCountry(filters.country?.id)
+      this.setState(filters.state?.id)
+      this.setCity(filters.city?.id)
+      this.setPrice(filters.priceFrom, filters.priceTo)
+    }      
+  }
+
+  public writeToLocalStorage = (filters: ApartmentFilters): void => {
+    localStorage.setItem('apartment_filters', JSON.stringify(filters))
+  }
+
   public setPage = (page: number): void => {
     this.pagination.page = page
   }
@@ -54,6 +82,7 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     this.state = undefined
     this.priceFrom = 0
     this.priceTo = 20000
+    this.updateStorage()
   }
 
   public setCountry = (id: number | undefined): void => {
@@ -62,6 +91,7 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     } else {
       this.country = undefined
     }
+    this.updateStorage()
   }
 
   public setState = (id: number | undefined): void => {
@@ -70,6 +100,7 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     } else {
       this.state = undefined
     }
+    this.updateStorage()
   }
 
   public setCity = (id: number | undefined): void => {
@@ -78,10 +109,12 @@ export class ApartmentFiltersStore implements ApartmentFilters {
     } else {
       this.city = undefined
     }
+    this.updateStorage()
   }
 
   public setPrice = (from: number | undefined, to: number | undefined): void => {
     this.priceFrom = from
     this.priceTo = to
+    this.updateStorage()
   }
 }
