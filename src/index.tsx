@@ -11,8 +11,13 @@ import { RootStore } from './stores/RootStore'
 import { configure } from 'mobx'
 import CustomThemeProvider from './styles/CustomThemeProvider'
 import { type IBeforeInstallPromptEvent, PromptToInstall } from './context/promptToInstall'
+import ReactGA from 'react-ga4'
 
 configure({ enforceActions: 'always' })
+
+if (process.env.NODE_ENV === 'production'){
+  ReactGA.initialize('G-9HTPPGN44N')
+}
 
 const App = (): JSX.Element => {
   const store = new RootStore()

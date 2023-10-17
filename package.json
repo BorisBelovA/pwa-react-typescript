@@ -26,6 +26,7 @@
     "react-card-flip": "^1.2.0",
     "react-dom": "^18.2.0",
     "react-easy-crop": "^4.6.3",
+    "react-ga4": "^2.1.0",
     "react-hook-form": "^7.41.1",
     "react-otp-input": "^2.4.0",
     "react-scripts": "5.0.1",
