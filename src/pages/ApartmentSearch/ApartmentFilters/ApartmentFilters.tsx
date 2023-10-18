@@ -1,11 +1,11 @@
 import { Autocomplete, Box, Button, FormControlLabel, Switch, TextField, Typography } from '@mui/material'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
+import BackButton from 'components/Buttons/BackButton/BackButton'
 import styles from './ApartmentFilters.module.scss'
 import { type City, type Country, type District } from 'models'
 import { Controller, useForm } from 'react-hook-form'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 import { useEffect, useState } from 'react'
-import { locationService } from 'src/api/api-services/location'
+import { locationService } from 'api/api-services/location'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
 const ApartmentFilters = (): JSX.Element => {

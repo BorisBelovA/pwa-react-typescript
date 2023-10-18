@@ -1,11 +1,11 @@
 import { Box, Button, Typography } from '@mui/material'
 import styles from './SleepingHabbits.module.scss'
 import { useEffect, useMemo } from 'react'
-import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 import { QuestionnaireRoutes, type SleepingHabits } from 'models'
 import { useNavigate } from 'react-router-dom'
 import commonStyles from '../BasicQuestions.module.scss'
-import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'
+import { type Option, OptionCards } from 'components/OptionCards/OptionCards'
 
 export const SleepingHabbits = (): JSX.Element => {
   const { questions, setQuestions, setActive, setPercent } = useBasicQuestions()

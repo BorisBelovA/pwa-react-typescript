@@ -7,10 +7,10 @@ import { ReactComponent as AppleIcon } from '../../assets/sm-icons/AppleIcon.svg
 import { ReactComponent as FacebookIcon } from '../../assets/sm-icons/FacebookIcon.svg'
 import { ReactComponent as GoogleIcon } from '../../assets/sm-icons/GoogleIcon.svg'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
-import { minLength } from 'src/utils/validations'
-import { useStore } from 'src/utils/StoreProvider'
+import { minLength } from 'utils/validations'
+import { useStore } from 'utils/StoreProvider'
 import { userApiService } from 'api-services'
-import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
+import { useAuthContext } from 'layouts/Auth/AuthLayout'
 import { mapUserToModel } from 'mapping-services'
 
 // xiwabi4275@byorby.com

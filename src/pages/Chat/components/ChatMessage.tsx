@@ -1,9 +1,9 @@
 import { Box, Skeleton, useTheme } from '@mui/material'
-import { getMessageTime } from 'src/utils/date-time'
+import { getMessageTime } from 'utils/date-time'
 import styles from './ChatMessage.module.scss'
 import DoneAllIcon from '@mui/icons-material/DoneAll'
 import { type Message } from 'models'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 
 export interface ChatMessageProp {
   mine: boolean

@@ -9,7 +9,7 @@
 // import ClearIcon from '@mui/icons-material/Clear'
 // import VisibilityIcon from '@mui/icons-material/Visibility'
 // import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-// import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+// import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 
 // interface Props {
 //   contact: Contact

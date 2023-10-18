@@ -1,23 +1,23 @@
 import { observer } from 'mobx-react-lite'
 import { Avatar, Box, IconButton, Typography, useTheme } from '@mui/material'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 import styles from './Profile.module.scss'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
 import { type ChangeEvent, useState, useEffect } from 'react'
-import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
+import { ImageCropper } from 'components/ImageCropper/ImageCropper'
 import { ProfileRoutes } from 'models'
-import { filesApiService } from 'src/api/api-services/files'
+import { filesApiService } from 'api/api-services/files'
 import { mapAuthenticatedUserData, mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
 import { sessionService, userApiService } from 'api-services'
-import { imageTypes } from 'src/utils/constants'
+import { imageTypes } from 'utils/constants'
 import { useNavigate } from 'react-router-dom'
 
 import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined'
 import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
-import { MyListItemButton } from 'src/components/ListItemButton/ListItemButton'
+import { MyListItemButton } from 'components/ListItemButton/ListItemButton'
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-import { DonateDialog } from 'src/components/DonateDialog/DonateDialog'
+import { DonateDialog } from 'components/DonateDialog/DonateDialog'
 
 const Profile: React.FunctionComponent = observer(() => {
   const { userStore, questionnaireStore } = useStore()

@@ -1,12 +1,12 @@
 import { Navigate, Route } from 'react-router-dom'
-import { EmailCode } from 'src/pages/Email-code/EmailCode'
-import { Login } from 'src/pages/Login/Login'
-import { SignUp } from 'src/pages/Sign up/Signup'
-import { TermsAndConditions } from 'src/pages/TermsAndConditions/TermsAndConditions'
+import { EmailCode } from 'pages/Email-code/EmailCode'
+import { Login } from 'pages/Login/Login'
+import { SignUp } from 'pages/Sign up/Signup'
+import { TermsAndConditions } from 'pages/TermsAndConditions/TermsAndConditions'
 import * as Registration from '../../pages/Registration/Layout'
-import GetCode from 'src/pages/ResetPassword/GetCode/GetCode'
-import Reset from 'src/pages/ResetPassword/Reset/Reset'
-import Success from 'src/pages/ResetPassword/Success/Success'
+import GetCode from 'pages/ResetPassword/GetCode/GetCode'
+import Reset from 'pages/ResetPassword/Reset/Reset'
+import Success from 'pages/ResetPassword/Success/Success'
 
 export default [
   <Route key={0} path='login' element={<Login />}></Route>,

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { ApartmentsQuestionnaireRoutes } from 'models'
 import styles from './Description.module.scss'
 import { useForm } from 'react-hook-form'
-import Phone from 'src/components/BasicInfoSteps/Phone'
+import Phone from 'components/BasicInfoSteps/Phone'
 
 export const Description = (): JSX.Element => {
   const { apartment, setApartment, setPercent, setActive, setNextDisabled } = apartmentQuestionnaireContext()

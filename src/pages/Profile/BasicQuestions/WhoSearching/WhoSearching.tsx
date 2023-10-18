@@ -1,10 +1,10 @@
 import { Box, Button, Typography } from '@mui/material'
 import styles from './WhoSearching.module.scss'
 import commonStyles from '../BasicQuestions.module.scss'
-import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useMemo } from 'react'
-import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'
+import { type Option, OptionCards } from 'components/OptionCards/OptionCards'
 import { QuestionnaireRoutes, type RelationsType } from 'models'
 
 export const WhoSearching = (): JSX.Element => {

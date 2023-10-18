@@ -1,5 +1,5 @@
 import heic2any from 'heic2any'
-import { type Message } from 'src/components/MessageAlert/MessageAlert'
+import { type Message } from 'components/MessageAlert/MessageAlert'
 
 interface Props {
   photo: File

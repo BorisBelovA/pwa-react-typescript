@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import styles from '../../Profile.module.scss'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
+import BackButton from 'components/Buttons/BackButton/BackButton'
 
 const BasicQuestionsRoommate = (): JSX.Element => {
   return (

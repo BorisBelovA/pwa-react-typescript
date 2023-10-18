@@ -1,13 +1,13 @@
 import { Box, Button, IconButton, ImageList, ImageListItem, ImageListItemBar, useTheme } from '@mui/material'
 import styles from './Photos.module.scss'
 import { type ChangeEvent, useEffect, useState } from 'react'
-import { ImageCropper } from 'src/components/ImageCropper/ImageCropper'
+import { ImageCropper } from 'components/ImageCropper/ImageCropper'
 import { apartmentQuestionnaireContext } from '../..'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
 import { ApartmentsQuestionnaireRoutes } from 'models'
-import { imageTypes } from 'src/utils/constants'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
-import { photoReader } from 'src/utils/photoReader'
+import { imageTypes } from 'utils/constants'
+import { useMainContext } from 'layouts/Main/MainLayout'
+import { photoReader } from 'utils/photoReader'
 
 export const Photos = (): JSX.Element => {
   const { apartment, setApartment, setPercent, setNextDisabled, setActive } = apartmentQuestionnaireContext()

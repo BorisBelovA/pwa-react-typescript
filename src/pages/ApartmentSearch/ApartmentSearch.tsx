@@ -1,12 +1,12 @@
 import { Box, Button, IconButton, Typography } from '@mui/material'
 import { useEffect } from 'react'
-import ApartmentThumbnail from 'src/components/Cards/ApartmentThumbnail/ApartmentThumbnail'
+import ApartmentThumbnail from 'components/Cards/ApartmentThumbnail/ApartmentThumbnail'
 import styles from './ApartmentSearch.module.scss'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 import { FilterAltOutlined } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { useMainContext } from 'layouts/Main/MainLayout'
 
 const ApartmentSearch: React.FunctionComponent = () => {
   const { apartmentFiltersStore, apartmentSearchStore } = useStore()

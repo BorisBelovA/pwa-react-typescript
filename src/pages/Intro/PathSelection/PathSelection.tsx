@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material'
 import styles from './PathSelection.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { ProfileRoutes } from 'models'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { useMainContext } from 'layouts/Main/MainLayout'
 
 export const PathSelection = (): JSX.Element => {
   const navigate = useNavigate()

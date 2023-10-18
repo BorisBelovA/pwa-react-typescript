@@ -1,8 +1,8 @@
 import { Box, Button, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import PetButton from 'src/components/Buttons/PetButton/PetButton'
-import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
-import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+import PetButton from 'components/Buttons/PetButton/PetButton'
+import { useActive } from 'components/ProgressSlider/ProgressSlider'
+import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
 import stylesPets from './Pets.module.scss'
 import { ReactComponent as CatSvg } from '../../../../assets/icons/pets/Cat.svg'
@@ -11,7 +11,7 @@ import { ReactComponent as FishSvg } from '../../../../assets/icons/pets/Fish.sv
 import { ReactComponent as BirdSvg } from '../../../../assets/icons/pets/Bird.svg'
 import { ReactComponent as OtherSvg } from '../../../../assets/icons/pets/Other.svg'
 import { type PetType, type Pet, QuestionnaireRoutes } from 'models'
-import PetList from 'src/components/PetList/PetList'
+import PetList from 'components/PetList/PetList'
 import { useEffect, useMemo } from 'react'
 
 const Pets: React.FunctionComponent = () => {

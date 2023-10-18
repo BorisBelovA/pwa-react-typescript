@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import { type ShortUser } from 'models'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { emailPatternValidator } from 'src/utils/validations'
+import { emailPatternValidator } from 'utils/validations'
 
 interface Props {
   open: boolean
