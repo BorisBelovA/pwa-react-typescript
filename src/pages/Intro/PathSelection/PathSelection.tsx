@@ -2,7 +2,6 @@ import { Box, Button, Typography } from '@mui/material'
 import styles from './PathSelection.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { ProfileRoutes } from 'models'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
 
 export const PathSelection = (): JSX.Element => {
   const navigate = useNavigate()
@@ -21,7 +20,7 @@ export const PathSelection = (): JSX.Element => {
       color='accent'
       fullWidth
       onClick={() => {
-        navigate(`/apartment-search/filters?status=refugee`)
+        navigate('/apartment-search/filters?status=refugee')
       }}>
         I am a refugee
     </Button>
@@ -36,7 +35,7 @@ export const PathSelection = (): JSX.Element => {
     <Button variant='outlined'
       fullWidth
       onClick={() => {
-        navigate(`/apartment-search/filters`)
+        navigate('/apartment-search/filters')
       }}>
         Find apartments
     </Button>

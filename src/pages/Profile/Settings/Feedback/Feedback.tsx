@@ -7,8 +7,7 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from 'src/utils/StoreProvider'
 import { useState } from 'react'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
-import { MyListItemButton } from 'src/components/ListItemButton/ListItemButton'
-import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
+import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
 import { DonateDialog } from 'src/components/DonateDialog/DonateDialog'
 
 export const Feedback = observer((): JSX.Element => {

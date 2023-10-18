@@ -1,4 +1,9 @@
-import { Backdrop, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography, useTheme } from '@mui/material'
+import {
+  Backdrop,
+  Box,
+  Button,
+  Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography, useTheme
+} from '@mui/material'
 import styles from '../Profile.module.scss'
 import settignsStyles from './Settings.module.scss'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
@@ -85,7 +90,7 @@ const Settings = (): JSX.Element => {
           zIndex: 9999
         }}
         open={instructionVisible}
-        onClick={() => setInstructionVisible(false)}>
+        onClick={() => { setInstructionVisible(false) }}>
         <InstallationInstruction />
       </Backdrop>
     }

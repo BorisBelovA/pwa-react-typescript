@@ -18,9 +18,9 @@ const ApartmentFilters = (): JSX.Element => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (searchParams.get('status') === 'refugee'
-      || (apartmentFiltersStore.priceFrom === 0
-        && apartmentFiltersStore.priceTo === 0)) {
+    if (searchParams.get('status') === 'refugee' ||
+      (apartmentFiltersStore.priceFrom === 0 &&
+        apartmentFiltersStore.priceTo === 0)) {
       setForRefugee(true)
       apartmentFiltersStore.setPrice(0, 0)
     }
@@ -288,7 +288,7 @@ const ApartmentFilters = (): JSX.Element => {
         <Box className={styles.container_section}>
           <Button variant='outlined' fullWidth onClick={() => { resetFilters() }}>Reset filters</Button>
           <Button variant='contained' fullWidth onClick={() => {
-            navigate(`/apartment-search`)
+            navigate('/apartment-search')
           }}>Find apartments</Button>
         </Box>
       </Box>

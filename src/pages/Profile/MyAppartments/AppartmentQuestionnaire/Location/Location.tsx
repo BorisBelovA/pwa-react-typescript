@@ -78,9 +78,8 @@ export const Location = (): JSX.Element => {
 
   useEffect(() => {
     refreshProgress()
-    setNextDisabled(Object.keys(errors).length !== 0 || !apartment.location.country 
-    || !apartment.location.district
-    || !apartment.location.city)
+    setNextDisabled(Object.keys(errors).length !== 0 || !apartment.location.country ||
+      !apartment.location.district || !apartment.location.city)
   }, [
     errors.country, errors.city, errors.district,
     apartment.location.country, apartment.location.city, apartment.location.district
@@ -266,19 +265,19 @@ export const Location = (): JSX.Element => {
       </Box>
 
       <Box className={styles.container_section}>
-      <Typography variant="h2">Address</Typography>
-      <TextField id="apartment-address"
-        size="medium"
-        fullWidth
-        label="Apartment address"
-        variant="outlined"
-        {...register('address', {
-          minLength: { value: 4, message: 'Apartment address shouldn\'t be less then 4 symbols' }
-        })}
-        error={!(errors.address == null)}
-        helperText={errors.address?.message ?? ''}
-      />
-    </Box>
+        <Typography variant="h2">Address</Typography>
+        <TextField id="apartment-address"
+          size="medium"
+          fullWidth
+          label="Apartment address"
+          variant="outlined"
+          {...register('address', {
+            minLength: { value: 4, message: 'Apartment address shouldn\'t be less then 4 symbols' }
+          })}
+          error={!(errors.address == null)}
+          helperText={errors.address?.message ?? ''}
+        />
+      </Box>
     </Box>
   </>
 }
