@@ -17,18 +17,17 @@ const ApartmentSearch: React.FunctionComponent = () => {
     if (apartmentSearchStore.apartments.length < 1) {
       apartmentFiltersStore.getFromLocalStorage()
       apartmentFiltersStore.setPage(0)
-      try {
-        apartmentSearchStore.getApartments()
-      } catch (error) {
-        setMessage({
-          text: error instanceof Error
-            ? error.message
-            : 'Something went wrong',
-          severity: 'error',
-          life: 5000,
-          visible: true
+      apartmentSearchStore.getApartments()
+        .catch((error) => {
+          setMessage({
+            text: error instanceof Error
+              ? error.message
+              : 'Something went wrong',
+            severity: 'error',
+            life: 5000,
+            visible: true
+          })
         })
-      }
     }
     const root = document.getElementById('root')
     const handleScroll = () => {
@@ -36,17 +35,16 @@ const ApartmentSearch: React.FunctionComponent = () => {
     }
     root?.addEventListener('scroll', handleScroll)
     if (apartmentSearchStore.scroll > 0) {
-      root?.scroll({top: apartmentSearchStore.scroll})
+      root?.scroll({ top: apartmentSearchStore.scroll })
     }
     return () => {
       root?.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
-    const getMore = async (): Promise<void> => {
-      try {
-        apartmentSearchStore.getMoreApartments()
-      } catch (error) {
+  const getMore = async (): Promise<void> => {
+    apartmentSearchStore.getMoreApartments()
+      .catch((error) => {
         setMessage({
           text: error instanceof Error
             ? error.message
@@ -55,8 +53,8 @@ const ApartmentSearch: React.FunctionComponent = () => {
           life: 5000,
           visible: true
         })
-      }
-    }
+      })
+  }
 
   return (
     <Box className={styles.householdContainer}>

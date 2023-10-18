@@ -48,7 +48,11 @@ export class ApartmnetSearchStore {
       const response = await apartmentService.searchApartments(this.rootStore.apartmentFiltersStore.getFilters())
       this.setApartments(response.map((apt) => mapApartmentToModel(apt)))
     } catch (error) {
-      console.log(error)
+      throw new Error(
+        error instanceof Error
+            ? error.message
+            : 'Something went wrong'
+      )
     }
   }
 
@@ -69,7 +73,11 @@ export class ApartmnetSearchStore {
         this.setHaveMore(false)
       }
     } catch (error) {
-      console.log(error)
+      throw new Error(
+        error instanceof Error
+            ? error.message
+            : 'Something went wrong'
+      )
     }
   }
 }
