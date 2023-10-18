@@ -9,7 +9,7 @@ import { locationService } from 'src/api/api-services/location'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
 const ApartmentFilters = (): JSX.Element => {
-  const { apartmentFiltersStore } = useStore()
+  const { apartmentFiltersStore, apartmentSearchStore } = useStore()
   const [countries, setCountries] = useState<Country[]>([])
   const [districts, setDistricts] = useState<District[]>([])
   const [cities, setCities] = useState<City[]>([])
@@ -94,6 +94,7 @@ const ApartmentFilters = (): JSX.Element => {
   useEffect(() => {
     const subss = watch(({ country, city, district, priceFrom, priceTo }, { name, type }) => {
       // Each time we change country we load new list of districts
+      apartmentSearchStore.resetApartments()
       if (name === 'country' && country?.id) {
         void getDistricts(country.id)
       } else if (name === 'country' && !country?.id) {

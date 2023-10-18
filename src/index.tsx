@@ -11,8 +11,14 @@ import { RootStore } from './stores/RootStore'
 import { configure } from 'mobx'
 import CustomThemeProvider from './styles/CustomThemeProvider'
 import { type IBeforeInstallPromptEvent, PromptToInstall } from './context/promptToInstall'
+import ReactGA from 'react-ga4'
+import { YMInitializer } from '@appigram/react-yandex-metrika'
 
 configure({ enforceActions: 'always' })
+
+if (process.env.NODE_ENV === 'production') {
+  ReactGA.initialize('G-9HTPPGN44N')
+}
 
 const App = (): JSX.Element => {
   const store = new RootStore()
@@ -38,12 +44,22 @@ const App = (): JSX.Element => {
   }, [])
 
   return <React.StrictMode>
+    {process.env.NODE_ENV === 'production' &&
+      <YMInitializer
+        accounts={[95287962]}
+        options={{
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true
+        }}
+      />
+    }
     <BrowserRouter basename="/">
       <StoreProvider store={store}>
-        <PromptToInstall.Provider value={{deferredEvt, hidePrompt}}> 
+        <PromptToInstall.Provider value={{ deferredEvt, hidePrompt }}>
           <CustomThemeProvider>
             <CssBaseline />
-              <Router />
+            <Router />
           </CustomThemeProvider>
         </PromptToInstall.Provider>
       </StoreProvider>
