@@ -1,0 +1,24 @@
+name: Docker build and push
+
+on:
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        docker build . --file Dockerfile --tag roommate-front:${{ github.run_number }}
+        docker push roommate-front:${{ github.run_number }}
+
+
+          # - envsubst < kubedeploy.yaml | kubectl apply -f -
+
