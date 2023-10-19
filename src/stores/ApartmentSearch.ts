@@ -50,8 +50,8 @@ export class ApartmnetSearchStore {
     } catch (error) {
       throw new Error(
         error instanceof Error
-            ? error.message
-            : 'Something went wrong'
+          ? error.message
+          : 'Something went wrong'
       )
     }
   }
@@ -75,8 +75,8 @@ export class ApartmnetSearchStore {
     } catch (error) {
       throw new Error(
         error instanceof Error
-            ? error.message
-            : 'Something went wrong'
+          ? error.message
+          : 'Something went wrong'
       )
     }
   }

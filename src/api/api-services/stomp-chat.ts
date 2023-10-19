@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-unused-expressions: ["off"] */
 import { Client, type IFrame, type IMessage } from '@stomp/stompjs'
 import { type NewMessage } from '../dto/message'
 

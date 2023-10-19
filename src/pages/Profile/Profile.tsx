@@ -16,7 +16,7 @@ import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined'
 import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import { MyListItemButton } from 'src/components/ListItemButton/ListItemButton'
-import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
+import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
 import { DonateDialog } from 'src/components/DonateDialog/DonateDialog'
 
 const Profile: React.FunctionComponent = observer(() => {
@@ -60,7 +60,7 @@ const Profile: React.FunctionComponent = observer(() => {
       ...userStore.user,
       avatar: avatarName
     }),
-      sessionService.authToken
+    sessionService.authToken
     )
     userStore.setAvatar(mapPhotoNameToURI(avatarName))
   }

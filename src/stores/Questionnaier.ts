@@ -6,7 +6,7 @@ import { mapQuestionnaireToModel } from 'mapping-services'
 
 export class QuestionnaireStore {
   public questionnaire: QuestionnaireBasicType | null = null
-  state = "pending" // "pending", "done" or "error"
+  state = 'pending' // 'pending', 'done' or 'error'
 
   rootStore: RootStore
 
@@ -18,7 +18,7 @@ export class QuestionnaireStore {
       rootStore: false
     })
     this.rootStore = rootStore
-    this.getQuestionnaire()
+    void this.getQuestionnaire()
   }
 
   public setQuestionnaire (questionnaire: QuestionnaireBasicType): void {
@@ -30,14 +30,14 @@ export class QuestionnaireStore {
   }
 
   public async getQuestionnaire (): Promise<void> {
-    this.state = "pending"
+    this.state = 'pending'
 
     try {
       const questionnaire = await questionnaireService.getAuthorizedUserQuestionnaire()
       if (questionnaire !== null) {
         runInAction(() => {
           this.questionnaire = mapQuestionnaireToModel(questionnaire)
-          this.state = "done"
+          this.state = 'done'
         })
       }
     } catch (error) {

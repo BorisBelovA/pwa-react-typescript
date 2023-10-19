@@ -18,7 +18,7 @@ export const Description = (): JSX.Element => {
   })
 
   useEffect(() => {
-    trigger('phone')
+    void trigger('phone')
     setActive(ApartmentsQuestionnaireRoutes.ABOUT)
   }, [])
 
@@ -53,7 +53,9 @@ export const Description = (): JSX.Element => {
       <TextField className={styles.description_input_container}
         sx={{ height: '90%' }}
         fullWidth
-        placeholder={'Here you can specify: \n - Another ways to contact you \n - How many people can stay \n - Any other useful information'}
+        placeholder={
+          'Here you can specify: \n - Another ways to contact you \n - How many people can stay \n - Any other useful information'
+        }
         multiline
         rows={20}
         value={description}

@@ -1,3 +1,5 @@
+/* eslint eqeqeq: ["off"] */
+/* eslint @typescript-eslint/prefer-includes: ["off"] */
 type Browser = 'IE' | 'Edge' | 'Chrome' | 'Safari' | 'Firefox' | 'Opera' | 'Other'
 
 export const useDetectBrowser = (): Browser => {
@@ -16,7 +18,7 @@ export const useDetectBrowser = (): Browser => {
   if (navigator.userAgent.indexOf('Firefox') != -1) {
     return 'Firefox'
   }
-  if ((navigator.userAgent.indexOf('MSIE') != -1) || ('documentMode' in document && !!document.documentMode == true)) {
+  if ((navigator.userAgent.indexOf('MSIE') != -1) || ('documentMode' in document && !!document.documentMode)) {
     return 'IE'
   }
   return 'Other'

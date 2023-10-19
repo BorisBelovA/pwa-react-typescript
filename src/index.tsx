@@ -27,7 +27,7 @@ const App = (): JSX.Element => {
   )
 
   const hidePrompt = useCallback(() => {
-    setDeferredEvt(null);
+    setDeferredEvt(null)
   }, [])
 
   useEffect(() => {
