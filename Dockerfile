@@ -7,7 +7,7 @@ WORKDIR ./
 COPY ./ ./
 RUN apt update && apt -y install vim
 RUN npm install --legacy-peer-deps
-RUN npm audit fix --force || true
+# RUN npm audit fix --force || true
 RUN npm run build
 
 ENTRYPOINT ["npm", "start"]
