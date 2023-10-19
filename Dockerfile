@@ -5,7 +5,9 @@ EXPOSE 3000
 WORKDIR ./
 
 COPY ./ ./
-RUN npm install
-RUN npm build
+RUN apt update && apt -y install vim
+RUN npm install --legacy-peer-deps
+RUN npm audit fix --force || true
+RUN npm run build
 
-ENTRYPOINT ["npm", "run"]
+ENTRYPOINT ["npm", "start"]
