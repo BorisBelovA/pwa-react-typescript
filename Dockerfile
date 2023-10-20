@@ -12,14 +12,14 @@ RUN npm run build
 
 FROM nginx
 
-COPY --from=bundle /bundle /usr/share/nginx/roommate
+COPY --from=bundle /bundle/build /usr/share/nginx/roommate
 
 RUN echo '\
 server { \n\
     listen       80; \n\
     server_name  localhost; \n\
     location / { \n\
-        root   /usr/share/nginx/roommate/build; \n\
+        root   /usr/share/nginx/roommate; \n\
         index  index.html index.htm; \n\
     } \n\
 } \n\
