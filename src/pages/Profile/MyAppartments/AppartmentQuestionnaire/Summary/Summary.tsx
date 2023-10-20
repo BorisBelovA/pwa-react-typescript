@@ -23,9 +23,7 @@ export const Summary = (): JSX.Element => {
 
   const address = (): string => {
     const { country, city, district } = apartment.location
-    return country?.name +
-      (district ? ', ' + district.name : '') +
-      (city ? ', ' + city.name : '')
+    return `${country?.name} ${district ? ', ' + district.name : ''} ${city ? ', ' + city.name : ''}`
   }
 
   return <Box className={styles.summary_container}>
@@ -91,7 +89,7 @@ export const Summary = (): JSX.Element => {
             <EditIcon fontSize='small' />
           </IconButton>
         </Box>
-        <Typography sx={{whiteSpace: 'pre-wrap'}}>{apartment.description}</Typography>
+        <Typography sx={{ whiteSpace: 'pre-wrap' }}>{apartment.description}</Typography>
       </Box>
     }
   </Box>

@@ -7,9 +7,8 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from 'utils/StoreProvider'
 import { useState } from 'react'
 import { useMainContext } from 'layouts/Main/MainLayout'
-import { MyListItemButton } from 'components/ListItemButton/ListItemButton'
-import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import { DonateDialog } from 'components/DonateDialog/DonateDialog'
+import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
 
 export const Feedback = observer((): JSX.Element => {
   const { registrationStore } = useStore()

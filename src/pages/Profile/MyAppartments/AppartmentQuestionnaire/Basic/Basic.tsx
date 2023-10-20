@@ -102,8 +102,8 @@ export const Basic = (): JSX.Element => {
   }, [isValid])
 
   useEffect(() => {
-    trigger('price')
-    trigger('countAvailableRooms')
+    void trigger('price')
+    void trigger('countAvailableRooms')
   }, [apartment.forRefugees])
 
   const howManyRoomsMarks = Array(10).fill(0).map((i, idx) => ({ value: idx + 1, label: `${idx + 1}` }))

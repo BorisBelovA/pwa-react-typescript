@@ -1,5 +1,5 @@
-import { Autocomplete, Box, Button, FormControlLabel, Switch, TextField, Typography } from '@mui/material'
 import BackButton from 'components/Buttons/BackButton/BackButton'
+import { Autocomplete, Box, Button, FormControlLabel, Popover, Switch, TextField, Typography } from '@mui/material'
 import styles from './ApartmentFilters.module.scss'
 import { type City, type Country, type District } from 'models'
 import { Controller, useForm } from 'react-hook-form'
@@ -7,6 +7,7 @@ import { useStore } from 'utils/StoreProvider'
 import { useEffect, useState } from 'react'
 import { locationService } from 'api/api-services/location'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
 const ApartmentFilters = (): JSX.Element => {
   const { apartmentFiltersStore, apartmentSearchStore } = useStore()
@@ -16,11 +17,12 @@ const ApartmentFilters = (): JSX.Element => {
   const [forRefugee, setForRefugee] = useState<boolean>(false)
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
+  const [anchorEl, setAnchorEl] = useState<Element | null>(null)
 
   useEffect(() => {
-    if (searchParams.get('status') === 'refugee'
-      || (apartmentFiltersStore.priceFrom === 0
-        && apartmentFiltersStore.priceTo === 0)) {
+    if (searchParams.get('status') === 'refugee' ||
+      (apartmentFiltersStore.priceFrom === 0 &&
+        apartmentFiltersStore.priceTo === 0)) {
       setForRefugee(true)
       apartmentFiltersStore.setPrice(0, 0)
     }
@@ -115,6 +117,15 @@ const ApartmentFilters = (): JSX.Element => {
     return () => { subss.unsubscribe() }
   }, [watch])
 
+  const handleClick = (event: React.MouseEvent<Element>) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = (): void => {
+    setAnchorEl(null)
+  }
+  const open = Boolean(anchorEl)
+
   return (
     <Box className={styles.container}>
       <Box className={styles.head}>
@@ -123,7 +134,10 @@ const ApartmentFilters = (): JSX.Element => {
       </Box>
       <Box className={styles.location__container}>
         <Box className={styles.container_section}>
-          <Typography variant="h2">Country</Typography>
+          <Box className={styles.container_section_title}>
+            <Typography variant="h2">Country</Typography>
+            <Box onClick={handleClick}><HelpOutlineOutlinedIcon/></Box>
+          </Box>
           <Controller control={control}
             name="country"
             render={
@@ -169,7 +183,10 @@ const ApartmentFilters = (): JSX.Element => {
         </Box>
 
         <Box className={styles.container_section}>
-          <Typography variant="h2">District</Typography>
+          <Box className={styles.container_section_title}>
+            <Typography variant="h2">District</Typography>
+            <Box onClick={handleClick}><HelpOutlineOutlinedIcon/></Box>
+          </Box>
           <Controller control={control}
             name="district"
             render={
@@ -207,7 +224,10 @@ const ApartmentFilters = (): JSX.Element => {
           />
         </Box>
         <Box className={styles.container_section}>
-          <Typography variant="h2">City</Typography>
+          <Box className={styles.container_section_title}>
+            <Typography variant="h2">City</Typography>
+            <Box onClick={handleClick}><HelpOutlineOutlinedIcon/></Box>
+          </Box>
           <Controller control={control}
             name="city"
             rules={{
@@ -288,10 +308,21 @@ const ApartmentFilters = (): JSX.Element => {
         <Box className={styles.container_section}>
           <Button variant='outlined' fullWidth onClick={() => { resetFilters() }}>Reset filters</Button>
           <Button variant='contained' fullWidth onClick={() => {
-            navigate(`/apartment-search`)
+            navigate('/apartment-search')
           }}>Find apartments</Button>
         </Box>
       </Box>
+
+      <Popover
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left'
+        }}>
+        <Typography sx={{ p: 2 }}>This field is optional</Typography>
+      </Popover>
     </Box>
   )
 }
