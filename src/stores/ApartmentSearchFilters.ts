@@ -54,19 +54,19 @@ export class ApartmentFiltersStore implements ApartmentFilters {
       priceFrom: this.priceFrom,
       priceTo: this.priceTo,
       currency: this.currency,
-      pagination: {...this.pagination, page: 0}
+      pagination: { ...this.pagination, page: 0 }
     })
   }
 
   public getFromLocalStorage = (): void => {
     const data = localStorage.getItem('apartment_filters')
-    if (data !== null){
+    if (data !== null) {
       const filters = JSON.parse(data) as ApartmentFilters
       this.setCountry(filters.country?.id)
       this.setState(filters.state?.id)
       this.setCity(filters.city?.id)
       this.setPrice(filters.priceFrom, filters.priceTo)
-    }      
+    }
   }
 
   public writeToLocalStorage = (filters: ApartmentFilters): void => {

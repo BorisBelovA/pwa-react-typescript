@@ -60,7 +60,7 @@ const Profile: React.FunctionComponent = observer(() => {
       ...userStore.user,
       avatar: avatarName
     }),
-      sessionService.authToken
+    sessionService.authToken
     )
     userStore.setAvatar(mapPhotoNameToURI(avatarName))
   }

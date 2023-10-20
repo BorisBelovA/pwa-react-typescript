@@ -8,7 +8,7 @@ export interface DonateDialogProps {
 export const DonateDialog = ({ visible, setVisible }: DonateDialogProps): JSX.Element => {
   return <Dialog
     open={visible}
-    onClose={() => { setVisible(false); }}
+    onClose={() => { setVisible(false) }}
   >
     <DialogTitle>
       Support us
@@ -20,7 +20,7 @@ export const DonateDialog = ({ visible, setVisible }: DonateDialogProps): JSX.El
       </DialogContentText>
     </DialogContent>
     <DialogActions>
-      <Button onClick={() => { setVisible(false); }}>Close</Button>
+      <Button onClick={() => { setVisible(false) }}>Close</Button>
     </DialogActions>
   </Dialog>
 }

@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { SettingsRoutes } from 'models'
-import { BottomNavigation, BottomNavigationAction, Paper, useTheme } from '@mui/material'
+import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material'
 
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
-import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
+import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined'
+import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined'
 
 const NavBar: React.FunctionComponent = () => {
   const [locBase, setLocBase] = useState('')
-  const theme = useTheme()
   const location = useLocation()
   const menu = [
     { to: '/profile', label: 'Profile', icon: <AccountCircleOutlinedIcon />, value: 'profile' },
