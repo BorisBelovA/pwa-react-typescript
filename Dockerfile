@@ -19,7 +19,7 @@ server { \n\
     listen       80; \n\
     server_name  localhost; \n\
     location / { \n\
-        root   /usr/share/nginx/roommate/public; \n\
+        root   /usr/share/nginx/roommate/build; \n\
         index  index.html index.htm; \n\
     } \n\
 } \n\
