@@ -12,9 +12,18 @@ RUN npm run build
 
 FROM nginx
 
-COPY --from=bundle /bundle /usr/share/nginx/html
-WORKDIR /usr/share/nginx/html
-RUN mv ./public/* ./
+COPY --from=bundle /bundle /usr/share/nginx/roommate
+
+RUN echo '\
+server { \n\
+    listen       80; \n\
+    server_name  localhost; \n\
+    location / { \n\
+        root   /usr/share/nginx/roommate/public; \n\
+        index  index.html index.htm; \n\
+    } \n\
+} \n\
+' > /etc/nginx/conf.d/default.conf
 
 #ENTRYPOINT ["npm", "start"]
 CMD ["nginx", "-g", "daemon off;"]
