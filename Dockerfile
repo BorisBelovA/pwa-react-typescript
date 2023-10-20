@@ -1,13 +1,21 @@
-FROM node:18.12.1
+FROM node:18.12.1 as bundle
 
-EXPOSE 3000
-
-WORKDIR ./
+RUN mkdir /bundle
+WORKDIR /bundle
 
 COPY ./ ./
-RUN apt update && apt -y install vim
+
 RUN npm install --legacy-peer-deps
 # RUN npm audit fix --force || true
 RUN npm run build
 
-ENTRYPOINT ["npm", "start"]
+
+FROM nginx
+
+COPY --from=bundle /bundle /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+RUN mv ./public/* ./
+
+#ENTRYPOINT ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
+
