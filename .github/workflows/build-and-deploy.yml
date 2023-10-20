@@ -2,8 +2,8 @@ name: Docker build and push
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [ "main" ]
+  push:
+    branches: [ "test-docker-build" ]
   # pull_request:
   #   branches: [ "main" ]
 
