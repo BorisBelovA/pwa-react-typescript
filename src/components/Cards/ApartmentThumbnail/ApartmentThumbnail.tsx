@@ -32,7 +32,7 @@ const ApartmentThumbnail = ({ apartment }: Props): JSX.Element => {
           : <Typography variant='subtitle1'>Can accept {apartment.countRooms} people</Typography>
         }
         <Typography variant='subtitle1' className={styles.apartmentThumbnail__content_location}>
-          {apartment.location.country.name} {apartment.location.city?.name}
+          {apartment.location.country.name} {apartment.location.city?.name} {apartment.location.address}
         </Typography>
         <Typography variant='body1'>
           {apartment.description !== '' ? apartment.description.slice(0, 20) + '..' : 'No description'}
