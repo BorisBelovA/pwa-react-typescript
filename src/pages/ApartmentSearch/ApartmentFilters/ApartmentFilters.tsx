@@ -7,7 +7,7 @@ import { useStore } from 'src/utils/StoreProvider'
 import { useEffect, useState } from 'react'
 import { locationService } from 'src/api/api-services/location'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined'
 
 const ApartmentFilters = (): JSX.Element => {
   const { apartmentFiltersStore, apartmentSearchStore } = useStore()
@@ -117,7 +117,7 @@ const ApartmentFilters = (): JSX.Element => {
     return () => { subss.unsubscribe() }
   }, [watch])
 
-  const handleClick = (event: React.MouseEvent<Element>) => {
+  const handleClick = (event: React.MouseEvent<Element>): void => {
     setAnchorEl(event.currentTarget)
   }
 
