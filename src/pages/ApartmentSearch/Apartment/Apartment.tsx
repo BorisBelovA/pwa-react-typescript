@@ -21,6 +21,11 @@ const Apartment = (): JSX.Element => {
       if (id) {
         const result = await apartmentService.getApartmentById(id)
         setApartment(mapApartmentToModel(result))
+        result.photos.map((photo) => {
+          const img = new Image()
+          img.src = `/api/v1/file/download?path=${photo}` ?? ''
+          return img
+        })
       }
     } catch (error) {
       console.log(error)
