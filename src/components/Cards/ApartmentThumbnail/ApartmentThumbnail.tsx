@@ -1,6 +1,6 @@
 import { type Apartment } from 'models'
 import styles from './ApartmentThumbnail.module.scss'
-import { Box, Typography } from '@mui/material'
+import { Box, Paper, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 const ApartmentThumbnail = ({ apartment }: Props): JSX.Element => {
   const navigate = useNavigate()
   return (
-    <Box
+    <Paper
       key={apartment.id}
       className={styles.apartmentThumbnail}
       onClick={() => { navigate(`apartment/${apartment.id}`) }}
@@ -32,13 +32,13 @@ const ApartmentThumbnail = ({ apartment }: Props): JSX.Element => {
           : <Typography variant='subtitle1'>Can accept {apartment.countRooms} people</Typography>
         }
         <Typography variant='subtitle1' className={styles.apartmentThumbnail__content_location}>
-          {apartment.location.country.name} {apartment.location.city?.name}
+          {apartment.location.country.name} {apartment.location.city?.name} {apartment.location.address}
         </Typography>
-        <Typography variant='body1'>
-          {apartment.description !== '' ? apartment.description.slice(0, 20) + '..' : 'No description'}
+        <Typography variant='body1' className={styles.apartmentThumbnail__content_description}>
+          {apartment.description !== '' ? apartment.description : 'No description'}
         </Typography>
       </Box>
-    </Box>
+    </Paper>
   )
 }
 export default ApartmentThumbnail
