@@ -42,6 +42,12 @@
 
     &_location {
       flex-grow: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-wrap: nowrap;
+    }
+    &_description {
+      text-overflow: ellipsis;
       overflow: hidden;
       text-wrap: nowrap;
     }
