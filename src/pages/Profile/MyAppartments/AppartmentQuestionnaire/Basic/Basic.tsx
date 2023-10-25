@@ -140,7 +140,7 @@ export const Basic = (): JSX.Element => {
 
     {!apartment.forRefugees &&
       <Box className={styles.container_section}>
-        <Typography variant="h2">Price per room</Typography>
+        <Typography variant="h2">Price per room in ₪</Typography>
         <Box className={styles.price_per_room}>
           <TextField id="price-per-room"
             size="small"
@@ -155,17 +155,6 @@ export const Basic = (): JSX.Element => {
             error={!(errors.price == null)}
             helperText={errors.price?.message ?? ''}
           />
-          <Select
-            labelId="demo-customized-select-label"
-            id="demo-customized-select"
-            size="small"
-            value={currency}
-            onChange={(event) => { changeCurrency(event.target.value as Currency) }}
-          >
-            <MenuItem value={'USD'}>$</MenuItem>
-            <MenuItem value={'EUR'}>€</MenuItem>
-            <MenuItem value={'ILS'}>₪</MenuItem>
-          </Select>
         </Box>
       </Box>
     }
