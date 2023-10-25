@@ -1,13 +1,12 @@
-import { Box, FormControlLabel, MenuItem, Select, Slider, Switch, TextField, Typography } from '@mui/material'
+import { Box, FormControlLabel, Slider, Switch, TextField, Typography } from '@mui/material'
 import styles from './Basic.module.scss'
 import { useEffect, useState } from 'react'
-import { ApartmentsQuestionnaireRoutes, type Currency } from 'models'
+import { ApartmentsQuestionnaireRoutes } from 'models'
 import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { Controller, useForm } from 'react-hook-form'
 import { useSearchParams } from 'react-router-dom'
 
 export const Basic = (): JSX.Element => {
-  const [currency, setCurrency] = useState<Currency>('ILS')
   const { apartment, setApartment, setNextDisabled, setActive, setPercent } = apartmentQuestionnaireContext()
   const [forRefugees, setForRefugees] = useState<boolean>(false)
   const [searchParams] = useSearchParams()
@@ -88,14 +87,6 @@ export const Basic = (): JSX.Element => {
     })
     return () => { subss.unsubscribe() }
   }, [watch, errors, forRefugees])
-
-  const changeCurrency = (newCurrency: Currency): void => {
-    setCurrency(newCurrency)
-    setApartment({
-      ...apartment,
-      currency: newCurrency
-    })
-  }
 
   useEffect(() => {
     setNextDisabled(!isValid)
