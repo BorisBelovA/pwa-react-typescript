@@ -18,10 +18,10 @@ RUN echo '\
 server { \n\
     listen       80; \n\
     server_name  localhost; \n\
-    rewrite ^\/[^/]+$ /index.html last; \n\
     location / { \n\
         root   /usr/share/nginx/roommate; \n\
         index  index.html index.htm; \n\
+        return 301 https://app.roommate.host$request_uri; \n\
     } \n\
 } \n\
 ' > /etc/nginx/conf.d/default.conf
