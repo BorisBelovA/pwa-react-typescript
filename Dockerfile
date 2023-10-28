@@ -21,7 +21,7 @@ server { \n\
     location / { \n\
         root   /usr/share/nginx/roommate; \n\
         index  index.html index.htm; \n\
-        return 301 http://dev.roommate.host$request_uri; \n\
+        try_files $uri $uri/ /index.html; \n\
     } \n\
 } \n\
 ' > /etc/nginx/conf.d/default.conf
