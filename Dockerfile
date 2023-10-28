@@ -21,6 +21,7 @@ server { \n\
     location / { \n\
         root   /usr/share/nginx/roommate; \n\
         index  index.html index.htm; \n\
+        rewrite ^/(.*)$ http://localhost/$1 permanent; \n\
     } \n\
 } \n\
 ' > /etc/nginx/conf.d/default.conf
