@@ -5,7 +5,7 @@ export default axios.create({
   baseURL: process.env.REACT_APP_HOST_TYPE === 'LOCAL'
     ? '/api/v1'
     : process.env.REACT_APP_HOST_TYPE === 'DEV'
-      ? 'http://api.prod.roommate.host/api/v1'
+      ? 'https://api.prod.roommate.host/api/v1'
       // For PROD
       : '',
   headers: {
