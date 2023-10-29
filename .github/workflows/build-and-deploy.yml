@@ -30,5 +30,16 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Deploy using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: 22
+
+        script: |
+          kubectl set image deployment/frontend-app frontend-app=qwerty467/roommate-front:${{ github.run_number }}
+          kubectl get all
 
           # - envsubst < kubedeploy.yaml | kubectl apply -f -
