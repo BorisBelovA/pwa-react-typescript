@@ -21,7 +21,9 @@ export const mapChatToModel = (chat: dto.Chat): models.Chat => {
     roomId: chat.id,
     recipient: mapRecipientToModel(chat.recipient),
     isYoursMessage: chat.isYoursMessage,
-    lastMessage: mapMessageToModel(chat.lastMessage),
+    lastMessage: chat.lastMessage
+      ? mapMessageToModel(chat.lastMessage)
+      : null,
     unreadMessages: 0
   }
 }

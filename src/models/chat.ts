@@ -12,6 +12,6 @@ export interface Chat {
   roomId: number
   recipient: Recipient
   isYoursMessage: boolean
-  lastMessage: Message
+  lastMessage: Message | null
   unreadMessages: number
 }
