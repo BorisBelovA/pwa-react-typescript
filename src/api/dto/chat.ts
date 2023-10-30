@@ -12,5 +12,5 @@ export interface Chat {
   recipient: Recipient
   // Determines whether you send the last message or not
   isYoursMessage: boolean
-  lastMessage: Message
+  lastMessage: Message | null
 }
