@@ -15,6 +15,7 @@
   }
   &__photo {
     min-width: 5rem;
+    max-width: 5rem;
     height: 8rem;
     overflow: hidden;
 
@@ -45,11 +46,13 @@
       text-overflow: ellipsis;
       overflow: hidden;
       text-wrap: nowrap;
+      white-space: nowrap;
     }
     &_description {
       text-overflow: ellipsis;
       overflow: hidden;
       text-wrap: nowrap;
+      white-space: nowrap;
     }
   }
 }
