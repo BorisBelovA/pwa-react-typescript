@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { sessionService, userApiService } from 'api-services'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
-
+import { Trans, t } from '@lingui/macro'
 const AccountSettings = (): JSX.Element => {
   const navigate = useNavigate()
   const { userStore, questionnaireStore, apartmentStore } = useStore()
@@ -20,7 +20,7 @@ const AccountSettings = (): JSX.Element => {
     }
     setDeleteDialogVisible(false)
     setBackdropVisible(true)
-    setBackdropMessage('Removing all information about you')
+    setBackdropMessage(t({ message: 'Removing all information about you' }))
     try {
       void await userApiService.deleteAccount(token)
       setTimeout(() => {
@@ -46,7 +46,7 @@ const AccountSettings = (): JSX.Element => {
     <Box className={styles.profile__container}>
       <Box className={`${styles.profile__header} ${styles.mb1}`}>
         <BackButton />
-        <Typography variant='h1'>Account</Typography>
+        <Typography variant='h1'><Trans>Account</Trans></Typography>
       </Box>
       <Box>
         <Button variant="outlined"
@@ -67,17 +67,17 @@ const AccountSettings = (): JSX.Element => {
           onClick={() => {
             setDeleteDialogVisible(true)
           }}
-        >Delete your account</Button>
+        ><Trans>Delete your account</Trans></Button>
       </Box>
 
       <Dialog open={deleteDialogVisible}
         onClose={() => { setDeleteDialogVisible(false) }}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description">
-        <DialogTitle>Delete your account</DialogTitle>
+        <DialogTitle><Trans>Delete your account</Trans></DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            You are trying to permanently delete your account. Are you sure about that?
+            <Trans>You are trying to permanently delete your account. Are you sure about that?</Trans>
           </DialogContentText>
         </DialogContent>
         <DialogActions sx={{

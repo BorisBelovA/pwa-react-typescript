@@ -6,6 +6,7 @@
     "@appigram/react-yandex-metrika": "^2.8.6",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@lingui/react": "^4.5.0",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.1",
     "@mui/x-date-pickers": "^5.0.12",
@@ -56,7 +57,9 @@
     "test": "craco test",
     "eject": "craco eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "extract": "lingui extract",
+    "compile": "lingui compile"
   },
   "browserslist": {
     "production": [
@@ -71,6 +74,8 @@
     ]
   },
   "devDependencies": {
+    "@lingui/cli": "^4.5.0",
+    "@lingui/macro": "^4.5.0",
     "@types/sockjs": "^0.3.33",
     "@types/sockjs-client": "^1.5.1",
     "@typescript-eslint/eslint-plugin": "^5.51.0",

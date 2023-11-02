@@ -18,6 +18,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import { MyListItemButton } from 'src/components/ListItemButton/ListItemButton'
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
 import { DonateDialog } from 'src/components/DonateDialog/DonateDialog'
+import { t } from '@lingui/macro'
 
 const Profile: React.FunctionComponent = observer(() => {
   const { userStore, questionnaireStore } = useStore()
@@ -60,7 +61,7 @@ const Profile: React.FunctionComponent = observer(() => {
       ...userStore.user,
       avatar: avatarName
     }),
-    sessionService.authToken
+      sessionService.authToken
     )
     userStore.setAvatar(mapPhotoNameToURI(avatarName))
   }
@@ -123,22 +124,21 @@ const Profile: React.FunctionComponent = observer(() => {
         <Typography variant='h2'>{userStore.firstName && ` ${userStore.firstName} ${userStore.lastName}`}</Typography>
       </Box>
       <Box className={styles.profile_items_container}>
-        <MyListItemButton label='About me'
+        <MyListItemButton label={t({ message: 'About me' })}
           icon={TextSnippetOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}`) }}
         />
-
-        <MyListItemButton label='My apartments'
+        <MyListItemButton label={t({ message: 'My apartments' })}
           icon={ChairOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.MY_APARTMENT}`) }}
         />
 
-        <MyListItemButton label='Settings'
+        <MyListItemButton label={t({ message: 'Settings' })}
           icon={SettingsOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.SETTINGS}`) }}
         />
 
-        <MyListItemButton label='Donate'
+        <MyListItemButton label={t({ message: 'Donate' })}
           icon={MonetizationOnOutlinedIcon}
           action={() => { setDonateVisible(true) }}
         />

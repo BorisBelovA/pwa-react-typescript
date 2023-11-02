@@ -48,14 +48,7 @@ const NavBar: React.FunctionComponent = () => {
         }}
       >
         {menu.map((m, idx) => <BottomNavigationAction key={idx}
-          sx={{
-            paddingLeft: idx === 0
-              ? '16px'
-              : 'inherit',
-            paddingRight: idx === menu.length - 1
-              ? '16px'
-              : 'inherit'
-          }}
+          className={idx === 0 ? 'first-button' : idx === menu.length - 1 ? 'last-button' : ''}
           label={m.label}
           icon={m.icon}
           value={m.value} />)

@@ -59,7 +59,8 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
   return (
     <Box className={styles.householdContainer}>
       <Box className={styles.household__header}>
-        <Typography variant='h1'>Search for apartments</Typography>
+        <Typography variant='h1'>Search for apartments
+        </Typography>
         <IconButton
           color='primary'
           sx={{ paddingBlock: '0' }}

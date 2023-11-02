@@ -1,0 +1,20 @@
+.first-button {
+    &:dir(rtl) {
+        padding-left: 16px;
+    }
+
+    &:dir(ltr) {
+        padding-right: 16px;
+    }
+}
+
+.last-button {
+    &:dir(rtl) {
+        padding-right: 16px;
+    }
+
+    &:dir(ltr) {
+        padding-left: 16px;
+    }
+}
+

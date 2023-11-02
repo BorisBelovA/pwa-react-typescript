@@ -17,6 +17,12 @@ import { usePromptToInstall } from 'src/context/promptToInstall'
 import { useDetectDevice } from 'src/effects/detectDevice'
 import { useDetectBrowser } from 'src/effects/detectBrowser'
 import { InstallationInstruction } from './InstallationInstruction/InstallationInstruction'
+import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined'
+import { i18n } from '@lingui/core'
+import { Trans, msg, t } from '@lingui/macro'
+import { useLingui } from '@lingui/react'
+import { useDocumentDirection } from 'src/context/documentDirection'
+import { useDocumentLanguage } from 'src/context/documentLanguage'
 
 const Settings = (): JSX.Element => {
   const navigate = useNavigate()
@@ -26,6 +32,10 @@ const Settings = (): JSX.Element => {
   const browser = useDetectBrowser()
   const [instructionVisible, setInstructionVisible] = useState<boolean>(false)
   const theme = useTheme()
+  const { _ } = useLingui()
+  const { setDocumentDirection } = useDocumentDirection()
+  const { setDocumentLanguage } = useDocumentLanguage()
+
   const onInstallClick = async (): Promise<void> => {
     setInstallPromptVisible(false)
     if (deferredEvt) {
@@ -33,6 +43,22 @@ const Settings = (): JSX.Element => {
       hidePrompt()
     }
   }
+
+  const switchLanguage = (): void => {
+    if (i18n.locale === 'en') {
+      setDocumentLanguage('he')
+      setDocumentDirection('rtl')
+    } else {
+      setDocumentLanguage('en')
+      setDocumentDirection('ltr')
+    }
+  }
+
+  const switchToLanguageButtonText = useMemo(() => {
+    return i18n.locale === 'en'
+      ? t({ message: 'Switch to Hebrew' })
+      : t({ message: 'Switch to English' })
+  }, [i18n.locale])
 
   const installBtnVisible = useMemo(() => {
     return deviceType === 'browser' &&
@@ -43,19 +69,23 @@ const Settings = (): JSX.Element => {
     <Box className={styles.profile__container}>
       <Box className={styles.profile__header}>
         <BackButton />
-        <Typography variant='h1'>Settings</Typography>
+        <Typography variant='h1'><Trans>Settings</Trans></Typography>
       </Box>
       <Box className={settignsStyles.settings_container}>
-        <ListItemButton label='Account'
+        <ListItemButton label={_(msg`Account`)}
           icon={ManageAccountsOutlinedIcon}
           action={() => { navigate('/profile/settings/account/') }}
         />
-        <ListItemButton label='Color theme'
+        <ListItemButton label={_(msg`Color theme`)}
           icon={PaletteOutlinedIcon}
           action={() => { navigate('/profile/settings/theme/') }}
         />
+        <ListItemButton label={switchToLanguageButtonText}
+          icon={TranslateOutlinedIcon}
+          action={switchLanguage}
+        />
         {installBtnVisible &&
-          <ListItemButton label='Add to Home Screen'
+          <ListItemButton label={_(msg`Add to Home Screen`)}
             icon={AddToHomeScreenOutlinedIcon}
             action={() => {
               if (browser === 'Chrome' || browser === 'Edge') {

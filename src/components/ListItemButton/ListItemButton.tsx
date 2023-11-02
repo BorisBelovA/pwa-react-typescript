@@ -10,17 +10,17 @@ export interface ListItemButtonProps {
 
 export const MyListItemButton = ({ icon, label, action }: ListItemButtonProps): JSX.Element => {
   const theme = useTheme()
-  return <ListItem disablePadding onClick={action}>
+  return <ListItem className={styles.list_item} disablePadding onClick={action}>
     <ListItemButton sx={{ padding: '12px 0' }}>
       {icon &&
-        <ListItemIcon>
-          <Icon component={icon} className={styles.list_button_icon} sx={{
+        <ListItemIcon className={styles.list_item_icon}>
+          <Icon component={icon} sx={{
             fontSize: 35,
             color: theme.palette.primary.main
           }}></Icon>
         </ListItemIcon>
       }
-      <ListItemText primary={label} />
+      <ListItemText className={styles.list_item_text} primary={label} />
     </ListItemButton>
   </ListItem>
 }

@@ -7,9 +7,6 @@
 .profile__header {
   display: flex;
   align-items: center;
-  & button {
-    padding: 0 .5rem 0 0;
-  }
 }
 
 .mb1 {
@@ -46,3 +43,15 @@
 .hiddenInput {
   display: none;
 }
+
+[dir=ltr] {
+  .profile__header > button {
+    padding: 0 .5rem 0 0;
+  }
+}
+
+[dir=rtl] {
+  .profile__header > button {
+    padding: 0 0 0 0.5rem;
+  }
+}  

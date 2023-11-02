@@ -14,6 +14,17 @@ import { type IBeforeInstallPromptEvent, PromptToInstall } from './context/promp
 import ReactGA from 'react-ga4'
 import { YMInitializer } from '@appigram/react-yandex-metrika'
 
+import { i18n } from "@lingui/core"
+import { I18nProvider } from "@lingui/react"
+import { messages as messagesEng } from "./locales/en/messages"
+import { messages as messagesHe } from "./locales/he/messages"
+import { DOCUMENT_DIRECTION_KEY, Direction, useDocumentDirection } from './context/documentDirection'
+import { DOCUMENT_LANGUAGE_KEY, useDocumentLanguage } from './context/documentLanguage'
+
+i18n.load("en", messagesEng)
+i18n.load("he", messagesHe)
+i18n.activate('en')
+
 configure({ enforceActions: 'always' })
 
 if (process.env.NODE_ENV === 'production') {
@@ -25,6 +36,8 @@ const App = (): JSX.Element => {
   const [deferredEvt, setDeferredEvt] = useState<IBeforeInstallPromptEvent | null>(
     null
   )
+  const { setDocumentDirection } = useDocumentDirection()
+  const { setDocumentLanguage } = useDocumentLanguage()
 
   const hidePrompt = useCallback(() => {
     setDeferredEvt(null)
@@ -43,6 +56,18 @@ const App = (): JSX.Element => {
     }
   }, [])
 
+  useEffect(() => {
+    const savedDocumentDirection = localStorage.getItem(DOCUMENT_DIRECTION_KEY)
+    if (savedDocumentDirection) {
+      setDocumentDirection(savedDocumentDirection as Direction)
+    }
+
+    const savedDocumentLanguage = localStorage.getItem(DOCUMENT_LANGUAGE_KEY)
+    if (savedDocumentLanguage) {
+      setDocumentLanguage(savedDocumentLanguage ?? 'en')
+    }
+  }, [])
+
   return <React.StrictMode>
     {process.env.NODE_ENV === 'production' &&
       <YMInitializer
@@ -54,16 +79,18 @@ const App = (): JSX.Element => {
         }}
       />
     }
-    <BrowserRouter basename="/">
-      <StoreProvider store={store}>
-        <PromptToInstall.Provider value={{ deferredEvt, hidePrompt }}>
-          <CustomThemeProvider>
-            <CssBaseline />
-            <Router />
-          </CustomThemeProvider>
-        </PromptToInstall.Provider>
-      </StoreProvider>
-    </BrowserRouter>
+    <I18nProvider i18n={i18n}>
+      <BrowserRouter basename="/">
+        <StoreProvider store={store}>
+          <PromptToInstall.Provider value={{ deferredEvt, hidePrompt }}>
+            <CustomThemeProvider>
+              <CssBaseline />
+              <Router />
+            </CustomThemeProvider>
+          </PromptToInstall.Provider>
+        </StoreProvider>
+      </BrowserRouter>
+    </I18nProvider>
   </React.StrictMode>
 }
 
