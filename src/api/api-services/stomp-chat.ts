@@ -11,7 +11,7 @@ export class StompChatService {
     brokerURL: process.env.REACT_APP_HOST_TYPE === 'LOCAL'
       ? 'wss://app.roommate.host/wss'
       : process.env.REACT_APP_HOST_TYPE === 'DEV'
-        ? 'wss://dev.roommate.host/wss'
+        ? 'wss://api.prod.roommate.host/wss'
         // For PROD
         : '',
     // connectHeaders: {
