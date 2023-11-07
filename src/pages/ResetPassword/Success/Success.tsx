@@ -6,6 +6,7 @@ import { useStore } from 'src/utils/StoreProvider'
 import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { mapAuthenticatedUserData } from 'mapping-services'
+import { t } from '@lingui/macro'
 
 const Success = (): JSX.Element => {
   const navigate = useNavigate()
@@ -18,7 +19,7 @@ const Success = (): JSX.Element => {
 
   const handleSubmit = async (): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Logging in')
+    setBackdropMessage(t`Logging in`)
     try {
       const token = await userApiService.login(registrationStore.email, registrationStore.password)
       sessionService.authToken = token
@@ -32,7 +33,7 @@ const Success = (): JSX.Element => {
         severity: 'error',
         text: error instanceof Error
           ? error.message
-          : 'Something went wrong'
+          : t`Something went wrong`
       })
       setBackdropVisible(false)
       navigate('/auth/login')
@@ -43,15 +44,15 @@ const Success = (): JSX.Element => {
     <Box className={`${styles.form} ${styles.center}`}>
       <SuccessSVG />
       <Box className={`${styles.form__head} ${styles.center}`}>
-        <Typography variant='h1'>Success!</Typography>
-        <Typography>Now you can log in with your new password</Typography>
+        <Typography variant='h1'>{t`Success!`}</Typography>
+        <Typography>{t`Now you can log in with your new password`}</Typography>
       </Box>
       <Box className={`${styles.form__input}`}>
         <Button
           onClick={() => { void handleSubmit() }}
           variant="contained"
         >
-          Log in
+          {t`Log in`}
         </Button>
       </Box>
     </Box>
