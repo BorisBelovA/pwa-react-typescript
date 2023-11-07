@@ -12,7 +12,7 @@ const Phone = ({ control, required }: Props): JSX.Element => {
       rules={{ validate: matchIsValidTel, required }}
       render={({ field, fieldState }) => (
         <MuiTelInput {...field} fullWidth
-          helperText={(fieldState.error != null) ? t({ message: 'Incorrect phone number' }) : ''}
+          helperText={(fieldState.error != null) ? t`Incorrect phone number` : ''}
           error={!(fieldState.error == null)} />
       )} />
   )

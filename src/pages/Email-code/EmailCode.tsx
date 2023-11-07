@@ -7,6 +7,7 @@ import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { useStore } from 'src/utils/StoreProvider'
 import styles from './EmailCode.module.scss'
 import { observer } from 'mobx-react-lite'
+import { t } from '@lingui/macro'
 
 const sendAgainDebounce = 30
 
@@ -21,7 +22,7 @@ export const EmailCode = observer((): JSX.Element => {
 
   const verify = (code: string): void => {
     if (code.length === 0) {
-      throw new Error('Code length is 0!!')
+      throw new Error(t`Code length is 0!!`)
     }
     setLoading(true)
     userApiService.activateUser(code, registrationStore.email)
@@ -33,7 +34,7 @@ export const EmailCode = observer((): JSX.Element => {
       .catch(error => {
         console.log(error)
         setMessage({
-          text: 'Something went wrong 😨',
+          text: t`Something went wrong`,
           visible: true,
           severity: 'error'
         })
@@ -64,7 +65,7 @@ export const EmailCode = observer((): JSX.Element => {
       setMessage({
         text: e instanceof Error
           ? e.message
-          : 'Unable to send email again',
+          : t`Unable to send email again`,
         severity: 'error',
         life: 5000,
         visible: true
@@ -73,7 +74,7 @@ export const EmailCode = observer((): JSX.Element => {
   }
 
   return <>
-    <Typography variant='h2'>Verify you email</Typography>
+    <Typography variant='h2'>{t`Verify your email`}</Typography>
 
     <OtpInput
       value={otp}
@@ -85,17 +86,17 @@ export const EmailCode = observer((): JSX.Element => {
       containerStyle={styles.otp_container}
     />
 
-    <Typography variant='subtitle2'>A verification code has been sent to you</Typography>
+    <Typography variant='subtitle2'>{t`A verification code has been sent to you`}</Typography>
 
-    {timeLeft > 0 && <Typography variant='body1'>You can send new one in {timeLeft} seconds</Typography>}
-    {timeLeft === 0 && <Button onClick={ () => { void sendAgain() }}>Send again</Button>}
+    {timeLeft > 0 && <Typography variant='body1'>{t`You can send new one in ${timeLeft} seconds`}</Typography>}
+    {timeLeft === 0 && <Button onClick={ () => { void sendAgain() }}>{t`Send again`}</Button>}
 
     <Button fullWidth
       disabled={otp.length !== 4}
       variant='contained'
       sx={{ marginTop: '1rem' }}
       onClick={() => { verify(otp) }}>
-      Verify
+      {t`Verify`}
     </Button>
 
     <Backdrop

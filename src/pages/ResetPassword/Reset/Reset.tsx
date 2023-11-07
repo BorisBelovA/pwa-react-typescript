@@ -10,6 +10,7 @@ import { useStore } from 'src/utils/StoreProvider'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { userApiService } from 'api-services'
 import { observer } from 'mobx-react-lite'
+import { t } from '@lingui/macro'
 
 interface ResetForm {
   email: string
@@ -52,7 +53,7 @@ const Reset = (): JSX.Element => {
 
   const onSubmit = async (data: ResetForm): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Updating password')
+    setBackdropMessage(t`Updating password`)
 
     try {
       await userApiService.resetPassword(registrationStore.email, data.password, otp)
@@ -65,7 +66,7 @@ const Reset = (): JSX.Element => {
         severity: 'error',
         text: e instanceof Error
           ? e.message
-          : 'Something went wtong'
+          : t`Something went wrong`
       })
       setBackdropVisible(false)
     }
@@ -74,12 +75,12 @@ const Reset = (): JSX.Element => {
   return (
     <Box className={styles.form}>
       <Box className={styles.form__head}>
-        <Typography variant='h1'>Reset password</Typography>
-        <Typography>for {registrationStore.email}</Typography>
+        <Typography variant='h1'>{t`Reset password`}</Typography>
+        <Typography>{t`for ${registrationStore.email}`}</Typography>
       </Box>
 
       <Box className={`${styles.form__input} ${styles.center}`}>
-        <Typography>Enter code from your email</Typography>
+        <Typography>{t`Enter code from your email`}</Typography>
         <OtpInput
           value={otp}
           onChange={setOtp}
@@ -92,14 +93,14 @@ const Reset = (): JSX.Element => {
       </Box>
 
       <Box className={styles.form__input}>
-        <TextField fullWidth label="Password"
+        <TextField fullWidth label={t`Password`}
           type={showPassword ? 'text' : 'password'}
           error={!(errors.password == null)}
           variant="outlined"
           size="small"
           autoComplete='off'
           {...register('password', {
-            required: 'Code is required',
+            required: t`Code is required`,
             minLength: minLength(8)
           })}
           InputProps={{
@@ -116,7 +117,7 @@ const Reset = (): JSX.Element => {
           }}
           helperText={errors.password?.message ?? ''} />
 
-        <TextField fullWidth label="Confirm password"
+        <TextField fullWidth label={t`Confirm password`}
           type={showConfPassword ? 'text' : 'password'}
           error={!(errors.confirmPassword == null)}
           autoComplete='off'
@@ -126,7 +127,7 @@ const Reset = (): JSX.Element => {
             required: 'Required',
             minLength: minLength(8),
             validate: {
-              samePassword: value => (value === getValues().password) || 'Passwords won\'t match'
+              samePassword: value => (value === getValues().password) || t`Passwords won't match`
             }
           })}
           InputProps={{
@@ -146,9 +147,9 @@ const Reset = (): JSX.Element => {
         <Button disabled={!isValid || otp.length !== 4}
           onClick={(e) => { void handleSubmit(onSubmit)(e) }}
           variant='contained'>
-          Reset password
+          {t`Reset password`}
         </Button>
-        <Link component={RouterLink} to='/auth/login' className={styles.form__link}>Back to login</Link>
+        <Link component={RouterLink} to='/auth/login' className={styles.form__link}>{t`Back to login`}</Link>
       </Box>
     </Box>
   )
