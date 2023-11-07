@@ -63,6 +63,10 @@ msgstr "לבדוק את הנתונים שלך"
 msgid "Checking email"
 msgstr "בודק אימייל"
 
+#: src/pages/Intro/PathSelection/PathSelection.tsx:28
+msgid "Choose what you want to do"
+msgstr "לבחור מה את/ה רוצה לעשות"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:103 src/pages/Sign up/Signup.tsx:103
 msgid "Code is required"
 msgstr "קוד נדרש"
@@ -130,6 +134,14 @@ msgstr "נקבה"
 msgid "Female"
 msgstr "נקבה"
 
+#: src/pages/Intro/PathSelection/PathSelection.tsx:41
+msgid "Find apartments"
+msgstr "למצוא דירה"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:34
+msgid "Find roommates"
+msgstr "למצוא שותפים לדירה"
+
 #: src/pages/Registration/Layout.tsx:109
 msgid "Finishing up!"
 msgstr "מסיים!"
@@ -145,6 +157,10 @@ msgstr "נדרש שם פרטי"
 #: src/pages/ResetPassword/Reset/Reset.tsx:79
 msgid "for {0}"
 msgstr "עבור {0}"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:11
+msgid "For refugees"
+msgstr "עבור פליטים"
 
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:58
 msgid "Forgot password"
@@ -165,6 +181,14 @@ msgstr "קבל קוד"
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:43
 msgid "I accept terms and conditions"
 msgstr " אני מסכים לתנאים וההגבלות"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:26
+msgid "I am a refugee"
+msgstr "אני פליט"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:18
+msgid "I have a place for refugees"
+msgstr "יש לי מקום לפליטים"
 
 #: src/pages/Sign up/Signup.tsx:23
 msgid "Incorrect email pattern"
@@ -273,6 +297,10 @@ msgstr "תמונת פרופיל"
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
 msgstr "הסרת כל המידע עליך"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:48
+msgid "Rent out apartment/room"
+msgstr "להשכיר דירה/חדר"
 
 #: src/pages/Sign up/Signup.tsx:124
 msgid "Required"

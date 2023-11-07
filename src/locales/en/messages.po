@@ -77,6 +77,10 @@ msgstr "Check your data"
 msgid "Checking email"
 msgstr "Checking email"
 
+#: src/pages/Intro/PathSelection/PathSelection.tsx:28
+msgid "Choose what you want to do"
+msgstr "Choose what you want to do"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:103
 #: src/pages/Sign up/Signup.tsx:103
 msgid "Code is required"
@@ -148,6 +152,14 @@ msgstr "F"
 msgid "Female"
 msgstr "Female"
 
+#: src/pages/Intro/PathSelection/PathSelection.tsx:41
+msgid "Find apartments"
+msgstr "Find apartments"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:34
+msgid "Find roommates"
+msgstr "Find roommates"
+
 #: src/pages/Registration/Layout.tsx:109
 msgid "Finishing up!"
 msgstr "Finishing up!"
@@ -163,6 +175,10 @@ msgstr "First name is required"
 #: src/pages/ResetPassword/Reset/Reset.tsx:79
 msgid "for {0}"
 msgstr "for {0}"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:11
+msgid "For refugees"
+msgstr "For refugees"
 
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:58
 msgid "Forgot password"
@@ -183,6 +199,14 @@ msgstr "Get code"
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:43
 msgid "I accept terms and conditions"
 msgstr "I accept terms and conditions"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:26
+msgid "I am a refugee"
+msgstr "I am a refugee"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:18
+msgid "I have a place for refugees"
+msgstr "I have a place for refugees"
 
 #: src/pages/Sign up/Signup.tsx:23
 msgid "Incorrect email pattern"
@@ -294,6 +318,10 @@ msgstr "Profile photo"
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
 msgstr "Removing all information about you"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:48
+msgid "Rent out apartment/room"
+msgstr "Rent out apartment/room"
 
 #: src/pages/Sign up/Signup.tsx:124
 msgid "Required"
