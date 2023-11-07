@@ -19,7 +19,7 @@ msgstr "קוד אימות נשלח אליך"
 
 #: src/pages/Registration/Third step/ThirdStep.tsx:39
 msgid "A verification code has been sent to your mobile device"
-msgstr ""
+msgstr "קוד אימות נשלח למכשיר הנייד שלך"
 
 #: src/pages/Profile/Profile.tsx:127
 msgid "About me"
