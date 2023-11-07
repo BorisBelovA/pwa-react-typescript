@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.1\n"
 
+#: src/pages/Email-code/EmailCode.tsx:89
+msgid "A verification code has been sent to you"
+msgstr "קוד אימות נשלח אליך"
+
 #: src/pages/Profile/Profile.tsx:127
 msgid "About me"
 msgstr "עליי"
@@ -37,6 +41,10 @@ msgstr "בודק אימייל"
 #: src/pages/Sign up/Signup.tsx:103
 msgid "Code is required"
 msgstr "קוד נדרש"
+
+#: src/pages/Email-code/EmailCode.tsx:25
+msgid "Code length is 0!!"
+msgstr "אורך הקוד הוא 0!!"
 
 #: src/pages/Profile/Settings/Settings.tsx:79
 msgid "Color theme"
@@ -67,6 +75,10 @@ msgstr "נדרש אימייל"
 msgid "Forgot password?"
 msgstr "שכחתי סיסמה?"
 
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:43
+msgid "I accept terms and conditions"
+msgstr " אני מסכים לתנאים וההגבלות"
+
 #: src/pages/Sign up/Signup.tsx:23
 msgid "Incorrect email pattern"
 msgstr "דפוס אימייל שגוי"
@@ -87,6 +99,10 @@ msgstr "הדירות שלי"
 #: src/pages/Login/Login.tsx:83
 msgid "New to roommate.host?"
 msgstr "משתמש חדש/ה roommate.host"
+
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:44
+msgid "Next"
+msgstr " הבא"
 
 #: src/pages/Sign up/Signup.tsx:55
 msgid "No email or password provided!"
@@ -112,6 +128,10 @@ msgstr "הסרת כל המידע עליך"
 msgid "Required"
 msgstr "נדרש"
 
+#: src/pages/Email-code/EmailCode.tsx:92
+msgid "Send again"
+msgstr "שלח שוב"
+
 #: src/pages/Profile/Profile.tsx:136 src/pages/Profile/Settings/Settings.tsx:72
 msgid "Settings"
 msgstr "הגדרות"
@@ -124,7 +144,7 @@ msgstr "הרשמה"
 msgid "Sign Up"
 msgstr "הרשמה"
 
-#: src/pages/Sign up/Signup.tsx:73
+#: src/pages/Email-code/EmailCode.tsx:37 src/pages/Sign up/Signup.tsx:73
 msgid "Something went wrong"
 msgstr "משהו השתבש"
 
@@ -140,6 +160,26 @@ msgstr "החלף לאנגלית (English)"
 msgid "Switch to Hebrew"
 msgstr "עוברים לעברית"
 
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:13
+msgid "Terms of service"
+msgstr "תנאים והגבלות"
+
+#: src/pages/Email-code/EmailCode.tsx:68
+msgid "Unable to send email again"
+msgstr "לא ניתן לשלוח דוא\"ל שוב"
+
+#: src/pages/Email-code/EmailCode.tsx:99
+msgid "Verify"
+msgstr "לאמת"
+
+#: src/pages/Email-code/EmailCode.tsx:77
+msgid "Verify your email"
+msgstr "לאמת את הדוא\"ל שלך"
+
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
 msgid "You are trying to permanently delete your account. Are you sure about that?"
 msgstr "אתה מנסה למחוק לצמיתות את חשבונך. האם אתה בטוח לגבי זה?"
+
+#: src/pages/Email-code/EmailCode.tsx:91
+msgid "You can send new one in {timeLeft} seconds"
+msgstr "את/ה יכול לשלוח חדש בתוך {timeLeft} שניות"
