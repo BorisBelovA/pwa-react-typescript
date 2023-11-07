@@ -4,6 +4,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { type EmptyPersonalInfo, type NewUser } from 'models'
 import moment from 'moment'
 import { type Control, Controller, type FieldErrorsImpl, type UseFormRegister } from 'react-hook-form'
+import { t } from '@lingui/macro'
 
 interface Props {
   register: UseFormRegister<EmptyPersonalInfo>
@@ -14,24 +15,24 @@ interface Props {
 const About = ({ errors, register, control, user }: Props): JSX.Element => {
   return (
     <>
-    <TextField fullWidth label='First name'
+    <TextField fullWidth label={t`First name`}
           error={!(errors.firstName == null)}
           variant='outlined'
           size='small'
           {...register('firstName', {
-            required: 'First name is required'
+            required: t`First name is required`
           })}
           helperText={errors.firstName?.message ?? ''} />
 
-        <TextField fullWidth label='Last name'
+        <TextField fullWidth label={t`Last name`}
           error={!(errors.lastName == null)}
           variant='outlined'
           size='small'
-          {...register('lastName', { required: 'Last name is required' })}
+          {...register('lastName', { required: t`Last name is required` })}
           helperText={errors.lastName?.message ?? ''} />
 
         <FormControl fullWidth size='small'>
-          <InputLabel id='gender-select-label'>Gender</InputLabel>
+          <InputLabel id='gender-select-label'>{t`Gender`}</InputLabel>
           <Controller
             render={({ field: { onChange, onBlur, value, ref } }) =>
               <Select labelId='gender-select-label'
@@ -42,8 +43,8 @@ const About = ({ errors, register, control, user }: Props): JSX.Element => {
                 onBlur={onBlur} // notify when input is touched
                 value={value} // return updated value
                 ref={ref}>
-                <MenuItem value={'M'}>M</MenuItem>
-                <MenuItem value={'F'}>F</MenuItem>
+                <MenuItem value={'M'}>{t`M`}</MenuItem>
+                <MenuItem value={'F'}>{t`F`}</MenuItem>
               </Select>
             }
             name='gender'
@@ -57,7 +58,7 @@ const About = ({ errors, register, control, user }: Props): JSX.Element => {
           render={({ field: { onChange, onBlur, value, ref } }) => (
             <LocalizationProvider dateAdapter={AdapterMoment}>
               <MobileDatePicker
-                label='Birthdate'
+                label={t`Birthdate`}
                 inputFormat='MM/DD/YYYY'
                 {...register('birthday')}
                 value={value}

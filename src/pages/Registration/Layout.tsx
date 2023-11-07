@@ -17,14 +17,15 @@ import { type ProgressSliderProps } from 'src/components'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { filesApiService } from 'src/api/api-services/files'
 import { IntroRoutes } from 'models'
+import { t } from '@lingui/macro'
 
 export type RegistrationSteps = 'personal' | 'phone' | 'verification' | 'photo' | 'summary'
 
 const steps: ProgressSliderProps[] = [
-  { text: 'personal', progress: 0, to: 'personal', state: 'Active' },
-  { text: 'phone', progress: 0, to: 'phone', state: 'Disabled' },
-  { text: 'photo', progress: 0, to: 'photo', state: 'Disabled' },
-  { text: 'summary', progress: 0, to: 'summary', state: 'Disabled' }
+  { text: t`personal`, progress: 0, to: 'personal', state: 'Active' },
+  { text: t`phone`, progress: 0, to: 'phone', state: 'Disabled' },
+  { text: t`photo`, progress: 0, to: 'photo', state: 'Disabled' },
+  { text: t`summary`, progress: 0, to: 'summary', state: 'Disabled' }
 ]
 
 export const Layout = (): JSX.Element => {
@@ -51,7 +52,7 @@ export const Layout = (): JSX.Element => {
   const activeStep: RegistrationSteps = useMemo(() => {
     const step = items.find(i => i.state === 'Active')
     if (step === undefined) {
-      throw new Error('something wrong with steps!')
+      throw new Error(t`something wrong with steps!`)
     }
     return step.text as RegistrationSteps
   }, [items])
@@ -65,7 +66,7 @@ export const Layout = (): JSX.Element => {
 
   const onFinish = async (): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Creating your account')
+    setBackdropMessage(t`Creating your account`)
     const {
       firstName,
       lastName,
@@ -77,10 +78,10 @@ export const Layout = (): JSX.Element => {
     } = userInfo
 
     if ((firstName == null) || (lastName == null) || (gender === undefined) || (birthday == null)) {
-      throw new Error('User form is not filled!')
+      throw new Error(t`User form is not filled!`)
     }
     if (!sessionService.authToken) {
-      throw new Error('No session token provided')
+      throw new Error(t`No session token provided`)
     }
     try {
       let avatarName: string | null = null
@@ -105,7 +106,7 @@ export const Layout = (): JSX.Element => {
       }),
       sessionService.authToken
       )
-      setBackdropMessage('Finishing up!')
+      setBackdropMessage(t`Finishing up!`)
       setTimeout(() => {
         userStore.setUser({
           id: userStore.id,
@@ -163,7 +164,7 @@ export const Layout = (): JSX.Element => {
       <div className={styles.buttonsСontainerСolumn}>
         {
           (activeStep === 'phone' || activeStep === 'verification') &&
-          <Button fullWidth variant='outlined' onClick={() => { completeStep(activeStep) }}>Skip</Button>
+          <Button fullWidth variant='outlined' onClick={() => { completeStep(activeStep) }}>{t`Skip`}</Button>
         }
       </div>
       <div className={styles.buttonsСontainerСolumn}>
@@ -173,7 +174,7 @@ export const Layout = (): JSX.Element => {
             variant='contained'
             disabled={nextBtnDisabled}
             onClick={() => { completeStep(activeStep) }}>
-            Next
+            {t`Next`}
           </Button>
         }
         {
@@ -181,7 +182,7 @@ export const Layout = (): JSX.Element => {
           <Button fullWidth
             variant='contained'
             onClick={() => { void onFinish() }}>
-            Create Account
+            {t`Create Account`}
           </Button>
         }
       </div>

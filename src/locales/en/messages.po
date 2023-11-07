@@ -31,6 +31,10 @@ msgstr ""
 msgid "A verification code has been sent to you"
 msgstr "A verification code has been sent to you"
 
+#: src/pages/Registration/Third step/ThirdStep.tsx:39
+msgid "A verification code has been sent to your mobile device"
+msgstr "A verification code has been sent to your mobile device"
+
 #: src/pages/Profile/Profile.tsx:127
 msgid "About me"
 msgstr "About me"
@@ -48,10 +52,26 @@ msgstr "Add to Home Screen"
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
+#: src/components/BasicInfoSteps/Photo.tsx:83
+msgid "Avatar photo"
+msgstr "Avatar photo"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:76
 #: src/pages/ResetPassword/Reset/Reset.tsx:152
 msgid "Back to login"
 msgstr "Back to login"
+
+#: src/components/BasicInfoSteps/About.tsx:61
+msgid "Birthdate"
+msgstr "Birthdate"
+
+#: src/components/BasicInfoSteps/Photo.tsx:67
+msgid "Change"
+msgstr "Change"
+
+#: src/pages/Registration/Fifth step/FifthStep.tsx:21
+msgid "Check your data"
+msgstr "Check your data"
 
 #: src/pages/Sign up/Signup.tsx:58
 msgid "Checking email"
@@ -70,10 +90,26 @@ msgstr "Code length is 0!!"
 msgid "Color theme"
 msgstr "Color theme"
 
+#: src/components/BasicInfoSteps/Photo.tsx:75
+msgid "Confirm and pick avatar"
+msgstr "Confirm and pick avatar"
+
+#: src/components/BasicInfoSteps/Photo.tsx:85
+msgid "Confirm and proceed"
+msgstr "Confirm and proceed"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:120
 #: src/pages/Sign up/Signup.tsx:117
 msgid "Confirm password"
 msgstr "Confirm password"
+
+#: src/pages/Registration/Layout.tsx:185
+msgid "Create Account"
+msgstr "Create Account"
+
+#: src/pages/Registration/Layout.tsx:69
+msgid "Creating your account"
+msgstr "Creating your account"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:70
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:77
@@ -90,6 +126,10 @@ msgstr "Donate"
 msgid "E-mail"
 msgstr "E-mail"
 
+#: src/pages/Registration/Fifth step/FifthStep.tsx:63
+msgid "Edit"
+msgstr "Edit"
+
 #: src/pages/Login/Login.tsx:93
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:68
 #: src/pages/Sign up/Signup.tsx:93
@@ -99,6 +139,26 @@ msgstr "Email is required"
 #: src/pages/ResetPassword/Reset/Reset.tsx:83
 msgid "Enter code from your email"
 msgstr "Enter code from your email"
+
+#: src/components/BasicInfoSteps/About.tsx:47
+msgid "F"
+msgstr "F"
+
+#: src/pages/Registration/Fifth step/FifthStep.tsx:30
+msgid "Female"
+msgstr "Female"
+
+#: src/pages/Registration/Layout.tsx:109
+msgid "Finishing up!"
+msgstr "Finishing up!"
+
+#: src/components/BasicInfoSteps/About.tsx:18
+msgid "First name"
+msgstr "First name"
+
+#: src/components/BasicInfoSteps/About.tsx:23
+msgid "First name is required"
+msgstr "First name is required"
 
 #: src/pages/ResetPassword/Reset/Reset.tsx:79
 msgid "for {0}"
@@ -112,6 +172,10 @@ msgstr "Forgot password"
 msgid "Forgot password?"
 msgstr "Forgot password?"
 
+#: src/components/BasicInfoSteps/About.tsx:35
+msgid "Gender"
+msgstr "Gender"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:74
 msgid "Get code"
 msgstr "Get code"
@@ -123,6 +187,18 @@ msgstr "I accept terms and conditions"
 #: src/pages/Sign up/Signup.tsx:23
 msgid "Incorrect email pattern"
 msgstr "Incorrect email pattern"
+
+#: src/components/BasicInfoSteps/Phone.tsx:15
+msgid "Incorrect phone number"
+msgstr "Incorrect phone number"
+
+#: src/components/BasicInfoSteps/About.tsx:27
+msgid "Last name"
+msgstr "Last name"
+
+#: src/components/BasicInfoSteps/About.tsx:31
+msgid "Last name is required"
+msgstr "Last name is required"
 
 #: src/pages/Login/Login.tsx:82
 #: src/pages/Login/Login.tsx:120
@@ -139,6 +215,14 @@ msgstr "Logging in"
 msgid "Login to your account"
 msgstr "Login to your account"
 
+#: src/components/BasicInfoSteps/About.tsx:46
+msgid "M"
+msgstr "M"
+
+#: src/pages/Registration/Fifth step/FifthStep.tsx:30
+msgid "Male"
+msgstr "Male"
+
 #: src/pages/Profile/Profile.tsx:131
 msgid "My apartments"
 msgstr "My apartments"
@@ -147,6 +231,7 @@ msgstr "My apartments"
 msgid "New to roommate.host?"
 msgstr "New to roommate.host?"
 
+#: src/pages/Registration/Layout.tsx:177
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:44
 msgid "Next"
 msgstr "Next"
@@ -158,6 +243,10 @@ msgstr "No email or password provided!"
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:32
 msgid "No email provided!"
 msgstr "No email provided!"
+
+#: src/pages/Registration/Layout.tsx:84
+msgid "No session token provided"
+msgstr "No session token provided"
 
 #: src/pages/ResetPassword/Success/Success.tsx:48
 msgid "Now you can log in with your new password"
@@ -178,9 +267,29 @@ msgstr "Password is required"
 msgid "Passwords won't match"
 msgstr "Passwords won't match"
 
+#: src/pages/Registration/Layout.tsx:25
+msgid "personal"
+msgstr "personal"
+
+#: src/pages/Registration/Layout.tsx:26
+msgid "phone"
+msgstr "phone"
+
+#: src/pages/Registration/Second step/SecondStep.tsx:33
+msgid "Phone number"
+msgstr "Phone number"
+
+#: src/pages/Registration/Layout.tsx:27
+msgid "photo"
+msgstr "photo"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:59
 msgid "Please enter your email and we will send you a code to reset your password"
 msgstr "Please enter your email and we will send you a code to reset your password"
+
+#: src/components/BasicInfoSteps/Photo.tsx:73
+msgid "Profile photo"
+msgstr "Profile photo"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
@@ -198,6 +307,10 @@ msgstr "Reset password"
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:70
 #~ msgid "Search for apartments"
 #~ msgstr "Search for apartments"
+
+#: src/pages/Registration/Third step/ThirdStep.tsx:44
+msgid "Send"
+msgstr "Send"
 
 #: src/pages/Email-code/EmailCode.tsx:92
 msgid "Send again"
@@ -221,6 +334,10 @@ msgstr "Sign up"
 msgid "Sign Up"
 msgstr "Sign Up"
 
+#: src/pages/Registration/Layout.tsx:167
+msgid "Skip"
+msgstr "Skip"
+
 #: src/pages/Email-code/EmailCode.tsx:37
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
@@ -237,9 +354,17 @@ msgstr "Something went wrong😮"
 #~ msgid "Something went wtong"
 #~ msgstr "Something went wtong"
 
+#: src/pages/Registration/Layout.tsx:55
+msgid "something wrong with steps!"
+msgstr "something wrong with steps!"
+
 #: src/pages/ResetPassword/Success/Success.tsx:47
 msgid "Success!"
 msgstr "Success!"
+
+#: src/pages/Registration/Layout.tsx:28
+msgid "summary"
+msgstr "summary"
 
 #: src/pages/Profile/Settings/Settings.tsx:60
 msgid "Switch to English"
@@ -249,6 +374,10 @@ msgstr "Switch to English"
 msgid "Switch to Hebrew"
 msgstr "Switch to Hebrew"
 
+#: src/pages/Registration/First step/FirstStep.tsx:36
+msgid "Tell us about yourself"
+msgstr "Tell us about yourself"
+
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:13
 msgid "Terms of service"
 msgstr "Terms of service"
@@ -257,9 +386,29 @@ msgstr "Terms of service"
 msgid "Unable to send email again"
 msgstr "Unable to send email again"
 
+#: src/components/BasicInfoSteps/Photo.tsx:62
+msgid "Up to 20 mb"
+msgstr "Up to 20 mb"
+
+#: src/components/BasicInfoSteps/Photo.tsx:71
+msgid "Up to 20MB files are allowed"
+msgstr "Up to 20MB files are allowed"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:56
 msgid "Updating password"
 msgstr "Updating password"
+
+#: src/pages/Registration/Forth-Step/ForthStep.tsx:14
+msgid "Upload a photo"
+msgstr "Upload a photo"
+
+#: src/pages/Registration/Layout.tsx:81
+msgid "User form is not filled!"
+msgstr "User form is not filled!"
+
+#: src/pages/Registration/Third step/ThirdStep.tsx:32
+msgid "Verification code"
+msgstr "Verification code"
 
 #: src/pages/Email-code/EmailCode.tsx:99
 msgid "Verify"
@@ -272,6 +421,10 @@ msgstr "Verify your email"
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
 msgid "You are trying to permanently delete your account. Are you sure about that?"
 msgstr "You are trying to permanently delete your account. Are you sure about that?"
+
+#: src/pages/Registration/Third step/ThirdStep.tsx:46
+msgid "You can send new one after {timer} seconds"
+msgstr "You can send new one after {timer} seconds"
 
 #: src/pages/Email-code/EmailCode.tsx:91
 msgid "You can send new one in {timeLeft} seconds"

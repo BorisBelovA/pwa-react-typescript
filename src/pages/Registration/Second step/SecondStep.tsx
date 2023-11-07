@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import Phone from 'src/components/BasicInfoSteps/Phone'
 import { type NewUser } from '../../../models/user'
 import styles from './SecondStep.module.scss'
+import { t } from '@lingui/macro'
 
 export interface SecondStepProps {
   user: NewUser
@@ -29,7 +30,7 @@ export const SecondStep = (props: SecondStepProps): JSX.Element => {
   }, [watch, isValid, props])
 
   return <div className={styles.container}>
-    <Typography variant='h1' >Phone number</Typography>
+    <Typography variant='h1' >{t`Phone number`}</Typography>
     <Phone control={control} />
   </div>
 }
