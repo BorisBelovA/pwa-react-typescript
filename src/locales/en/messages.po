@@ -40,9 +40,25 @@ msgstr "Account"
 msgid "Add to Home Screen"
 msgstr "Add to Home Screen"
 
+#: src/pages/Sign up/Signup.tsx:82
+msgid "Already have an account?"
+msgstr "Already have an account?"
+
+#: src/pages/Sign up/Signup.tsx:58
+msgid "Checking email"
+msgstr "Checking email"
+
+#: src/pages/Sign up/Signup.tsx:103
+msgid "Code is required"
+msgstr "Code is required"
+
 #: src/pages/Profile/Settings/Settings.tsx:79
 msgid "Color theme"
 msgstr "Color theme"
+
+#: src/pages/Sign up/Signup.tsx:117
+msgid "Confirm password"
+msgstr "Confirm password"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:70
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:77
@@ -54,10 +70,12 @@ msgid "Donate"
 msgstr "Donate"
 
 #: src/pages/Login/Login.tsx:87
+#: src/pages/Sign up/Signup.tsx:87
 msgid "E-mail"
 msgstr "E-mail"
 
 #: src/pages/Login/Login.tsx:93
+#: src/pages/Sign up/Signup.tsx:93
 msgid "Email is required"
 msgstr "Email is required"
 
@@ -65,8 +83,13 @@ msgstr "Email is required"
 msgid "Forgot password?"
 msgstr "Forgot password?"
 
+#: src/pages/Sign up/Signup.tsx:23
+msgid "Incorrect email pattern"
+msgstr "Incorrect email pattern"
+
 #: src/pages/Login/Login.tsx:82
 #: src/pages/Login/Login.tsx:120
+#: src/pages/Sign up/Signup.tsx:83
 msgid "Log in"
 msgstr "Log in"
 
@@ -82,7 +105,12 @@ msgstr "My apartments"
 msgid "New to roommate.host?"
 msgstr "New to roommate.host?"
 
+#: src/pages/Sign up/Signup.tsx:55
+msgid "No email or password provided!"
+msgstr "No email or password provided!"
+
 #: src/pages/Login/Login.tsx:96
+#: src/pages/Sign up/Signup.tsx:96
 msgid "Password"
 msgstr "Password"
 
@@ -90,9 +118,17 @@ msgstr "Password"
 msgid "Password is required"
 msgstr "Password is required"
 
+#: src/pages/Sign up/Signup.tsx:127
+msgid "Passwords won't match"
+msgstr "Passwords won't match"
+
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
 msgstr "Removing all information about you"
+
+#: src/pages/Sign up/Signup.tsx:124
+msgid "Required"
+msgstr "Required"
 
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:70
 #~ msgid "Search for apartments"
@@ -104,8 +140,17 @@ msgid "Settings"
 msgstr "Settings"
 
 #: src/pages/Login/Login.tsx:84
+#: src/pages/Sign up/Signup.tsx:145
 msgid "Sign up"
 msgstr "Sign up"
+
+#: src/pages/Sign up/Signup.tsx:81
+msgid "Sign Up"
+msgstr "Sign Up"
+
+#: src/pages/Sign up/Signup.tsx:73
+msgid "Something went wrong"
+msgstr "Something went wrong"
 
 #: src/pages/Login/Login.tsx:63
 msgid "Something went wrong😮"

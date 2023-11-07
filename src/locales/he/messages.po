@@ -26,9 +26,25 @@ msgstr "חֶשְׁבּוֹן"
 msgid "Add to Home Screen"
 msgstr "הוסף למסך הבית"
 
+#: src/pages/Sign up/Signup.tsx:82
+msgid "Already have an account?"
+msgstr "כבר יש לך חשבון?"
+
+#: src/pages/Sign up/Signup.tsx:58
+msgid "Checking email"
+msgstr "בודק אימייל"
+
+#: src/pages/Sign up/Signup.tsx:103
+msgid "Code is required"
+msgstr "קוד נדרש"
+
 #: src/pages/Profile/Settings/Settings.tsx:79
 msgid "Color theme"
 msgstr "נושא צבע"
+
+#: src/pages/Sign up/Signup.tsx:117
+msgid "Confirm password"
+msgstr "אשר סיסמה"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:70
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:77
@@ -39,11 +55,11 @@ msgstr "תמחק את החשבון שלך"
 msgid "Donate"
 msgstr "לִתְרוֹם"
 
-#: src/pages/Login/Login.tsx:87
+#: src/pages/Login/Login.tsx:87 src/pages/Sign up/Signup.tsx:87
 msgid "E-mail"
 msgstr "דואר אלקטרוני"
 
-#: src/pages/Login/Login.tsx:93
+#: src/pages/Login/Login.tsx:93 src/pages/Sign up/Signup.tsx:93
 msgid "Email is required"
 msgstr "נדרש אימייל"
 
@@ -51,7 +67,12 @@ msgstr "נדרש אימייל"
 msgid "Forgot password?"
 msgstr "שכחתי סיסמה?"
 
-#: src/pages/Login/Login.tsx:82 src/pages/Login/Login.tsx:120
+#: src/pages/Sign up/Signup.tsx:23
+msgid "Incorrect email pattern"
+msgstr "דפוס אימייל שגוי"
+
+#: src/pages/Login/Login.tsx:82 src/pages/Login/Login.tsx:120 src/pages/Sign
+#: up/Signup.tsx:83
 msgid "Log in"
 msgstr "כניסה"
 
@@ -67,7 +88,11 @@ msgstr "הדירות שלי"
 msgid "New to roommate.host?"
 msgstr "משתמש חדש/ה roommate.host"
 
-#: src/pages/Login/Login.tsx:96
+#: src/pages/Sign up/Signup.tsx:55
+msgid "No email or password provided!"
+msgstr "לא סופקו אימייל או סיסמה!"
+
+#: src/pages/Login/Login.tsx:96 src/pages/Sign up/Signup.tsx:96
 msgid "Password"
 msgstr "סיסמה"
 
@@ -75,17 +100,33 @@ msgstr "סיסמה"
 msgid "Password is required"
 msgstr "דרושה סיסמא"
 
+#: src/pages/Sign up/Signup.tsx:127
+msgid "Passwords won't match"
+msgstr "הסיסמאות לא יתאימו"
+
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
 msgstr "הסרת כל המידע עליך"
+
+#: src/pages/Sign up/Signup.tsx:124
+msgid "Required"
+msgstr "נדרש"
 
 #: src/pages/Profile/Profile.tsx:136 src/pages/Profile/Settings/Settings.tsx:72
 msgid "Settings"
 msgstr "הגדרות"
 
-#: src/pages/Login/Login.tsx:84
+#: src/pages/Login/Login.tsx:84 src/pages/Sign up/Signup.tsx:145
 msgid "Sign up"
 msgstr "הרשמה"
+
+#: src/pages/Sign up/Signup.tsx:81
+msgid "Sign Up"
+msgstr "הרשמה"
+
+#: src/pages/Sign up/Signup.tsx:73
+msgid "Something went wrong"
+msgstr "משהו השתבש"
 
 #: src/pages/Login/Login.tsx:63
 msgid "Something went wrong😮"
