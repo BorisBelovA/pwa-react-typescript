@@ -10,6 +10,7 @@ import { calculateAge } from 'src/utils/date-time'
 import { imageTypes } from 'src/utils/constants'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { photoReader } from 'src/utils/photoReader'
+import { Trans, t } from '@lingui/macro'
 
 interface Props {
   user: NewUser
@@ -58,20 +59,24 @@ const Photo = ({ user, photoChange }: Props): JSX.Element => {
         age={user.birthday !== undefined ? calculateAge(user.birthday) : undefined}
         noImageComponent={<>
           <UploadFileIcon sx={{ fontSize: 80 }} onClick={addPhoto} />
-          <small>Up to 20 mb</small>
+          <small><Trans>Up to 20 mb</Trans></small>
         </>}
         action={
           <IconButton sx={{ color: theme.palette.primary.main }} size='small' aria-label="edit" onClick={addPhoto}>
             <DriveFolderUploadIcon fontSize='small' />
-            <Typography fontSize={14} marginLeft='0.5rem'>Change</Typography>
+            <Typography fontSize={14} marginLeft='0.5rem'>
+              <Trans>Change</Trans>
+            </Typography>
           </IconButton>
         }></UserCard>
 
-      {imageSizeError && <FormHelperText error={true}>Up to 20MB files are allowed</FormHelperText>}
+      {imageSizeError && <FormHelperText error={true}>
+        <Trans>Up to 20MB files are allowed</Trans>
+      </FormHelperText>}
 
-      {profileCropVisible && <ImageCropper title='Profile photo'
+      {profileCropVisible && <ImageCropper title={t({ message: 'Profile photo' })}
         image={test}
-        acceptButtonText='Confirm and pick avatar'
+        acceptButtonText={t({ message: 'Confirm and pick avatar' })}
         shape='high-rect'
         acceptImage={photo => {
           setProfilePhoto(photo)
@@ -79,9 +84,9 @@ const Photo = ({ user, photoChange }: Props): JSX.Element => {
           setAvatarCropVisible(true)
         }} />}
 
-      {avatarCropVisible && <ImageCropper title='Avatar photo'
+      {avatarCropVisible && <ImageCropper title={t({ message: 'Avatar photo' })}
         image={test}
-        acceptButtonText='Confirm and proceed'
+        acceptButtonText={t({ message: 'Confirm and proceed' })}
         shape='round'
         acceptImage={photo => {
           setAvatarCropVisible(false)

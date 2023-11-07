@@ -103,13 +103,21 @@ const Settings = (): JSX.Element => {
     <Dialog
       open={installPromptVisible}
       onClose={() => { setInstallPromptVisible(false) }}>
-      <DialogTitle>Add Roommate to your home screen</DialogTitle>
+      <DialogTitle>
+        <Trans>Add &quot;Roommate&quot; to your home screen</Trans>
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText>Do you want to install Roommate on your home screen?</DialogContentText>
+        <DialogContentText>
+          <Trans>Do you want to install &quot;Roommate&quot; on your home screen?</Trans>
+        </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => { setInstallPromptVisible(false) }}>No</Button>
-        <Button onClick={() => { void onInstallClick() }} autoFocus>Yes</Button>
+        <Button onClick={() => { setInstallPromptVisible(false) }}>
+          <Trans>No</Trans>
+        </Button>
+        <Button onClick={() => { void onInstallClick() }} autoFocus>
+          <Trans>Yes</Trans>
+        </Button>
       </DialogActions>
     </Dialog>
 

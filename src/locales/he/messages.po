@@ -13,44 +13,234 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/pages/Profile/AboutMe/AboutMe.tsx:76
 #: src/pages/Profile/Profile.tsx:127
 msgid "About me"
 msgstr "עליי"
+
+#: src/pages/Profile/Profile.tsx:150
+msgid "Accept"
+msgstr "לְקַבֵּל"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:49
 #: src/pages/Profile/Settings/Settings.tsx:75
 msgid "Account"
 msgstr "חֶשְׁבּוֹן"
 
+#: src/pages/Profile/Settings/Settings.tsx:107
+msgid "Add \"Roommate\" to your home screen"
+msgstr "הוסף \"שותף לחדר\" למסך הבית שלך"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:88
+msgid "Add apartment"
+msgstr "הוסף דירה"
+
 #: src/pages/Profile/Settings/Settings.tsx:88
 msgid "Add to Home Screen"
 msgstr "הוסף למסך הבית"
 
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:46
+msgid "Apartment preview"
+msgstr "תצוגה מקדימה של דירה"
+
+#: src/components/BasicInfoSteps/Photo.tsx:87
+msgid "Avatar photo"
+msgstr "תמונת אווטאר"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:140
+msgid "Basic information"
+msgstr "מידע בסיסי"
+
+#: src/pages/Profile/AboutMe/AboutMe.tsx:85
+msgid "Basic Information"
+msgstr "מידע בסיסי"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:149
+msgid "Bio"
+msgstr "ביו"
+
+#: src/components/BasicInfoSteps/About.tsx:67
+msgid "Birthday"
+msgstr "יום הולדת"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:17
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:55
+msgid "By self"
+msgstr "בעצמי"
+
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:30
+msgid "Can't get apartment"
+msgstr "לא יכול להשיג דירה"
+
+#: src/pages/Profile/Profile.tsx:56
+msgid "Can't save without session token"
+msgstr "לא ניתן לשמור ללא אסימון הפעלה"
+
+#: src/components/BasicInfoSteps/Photo.tsx:68
+msgid "Change"
+msgstr "שינוי"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:34
+msgid "Choose preferred color theme"
+msgstr "בחר נושא צבע מועדף"
+
+#: src/components/DonateDialog/DonateDialog.tsx:26
+msgid "Close"
+msgstr "סגור"
+
 #: src/pages/Profile/Settings/Settings.tsx:79
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
 msgid "Color theme"
 msgstr "נושא צבע"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:70
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:77
+#: src/components/BasicInfoSteps/Photo.tsx:79
+msgid "Confirm and pick avatar"
+msgstr "אשר ובחר אווטאר"
+
+#: src/components/BasicInfoSteps/Photo.tsx:89
+msgid "Confirm and proceed"
+msgstr "אשר והמשיך"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:13
+msgid "Dark"
+msgstr "אפל"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:72
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
 msgid "Delete your account"
 msgstr "תמחק את החשבון שלך"
+
+#: src/pages/Profile/Settings/Settings.tsx:111
+msgid "Do you want to install \"Roommate\" on your home screen?"
+msgstr "האם אתה רוצה להתקין \"שותף לחדר\" על מסך הבית שלך?"
 
 #: src/pages/Profile/Profile.tsx:141
 msgid "Donate"
 msgstr "לִתְרוֹם"
 
+#: src/components/DonateDialog/DonateDialog.tsx:22
+msgid "donation"
+msgstr "תרומה"
+
+#: src/components/BasicInfoSteps/About.tsx:52
+msgid "F"
+msgstr "ו"
+
+#: src/components/BasicInfoSteps/About.tsx:18
+msgid "First name"
+msgstr "שם פרטי"
+
+#: src/components/BasicInfoSteps/About.tsx:23
+msgid "First name is required"
+msgstr "נדרש שם פרטי"
+
+#: src/components/BasicInfoSteps/About.tsx:36
+#: src/components/BasicInfoSteps/About.tsx:43
+msgid "Gender"
+msgstr "מִין"
+
+#: src/components/DonateDialog/DonateDialog.tsx:19
+msgid "If you like what we do you can support us with"
+msgstr "אם אתה אוהב את מה שאנחנו עושים אתה יכול לתמוך בנו"
+
+#: src/components/BasicInfoSteps/Phone.tsx:15
+msgid "Incorrect phone number"
+msgstr "מספר טלפון שגוי"
+
+#: src/components/BasicInfoSteps/About.tsx:27
+msgid "Last name"
+msgstr "שם משפחה"
+
+#: src/components/BasicInfoSteps/About.tsx:31
+msgid "Last name is required"
+msgstr "נדרש שם משפחה"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:12
+msgid "Light"
+msgstr "אוֹר"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:61
+msgid "Logout"
+msgstr "להתנתק"
+
+#: src/components/BasicInfoSteps/About.tsx:49
+msgid "M"
+msgstr "M"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:78
 #: src/pages/Profile/Profile.tsx:131
 msgid "My apartments"
 msgstr "הדירות שלי"
+
+#: src/pages/Profile/Settings/Settings.tsx:116
+msgid "No"
+msgstr "לא"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:92
+msgid "No, I've changed my mind"
+msgstr "לא, שיניתי את דעתי"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:124
+msgid "Not available"
+msgstr "לא זמין"
+
+#: src/pages/Profile/AboutMe/AboutMe.tsx:95
+msgid "Personal Info"
+msgstr "מידע אישי"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
+msgid "Phone"
+msgstr "טלפון"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:161
+msgid "Photo"
+msgstr "תמונה"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:121
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+#: src/components/BasicInfoSteps/Photo.tsx:77
+msgid "Profile photo"
+msgstr "תמונת פרופיל"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:130
+msgid "Remove"
+msgstr "לְהַסִיר"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
 msgstr "הסרת כל המידע עליך"
 
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:47
+msgid "Removing your ad from publication"
+msgstr "הסרת המודעה שלך מפרסום"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
+msgid "Save"
+msgstr "להציל"
+
+#: src/pages/Profile/Profile.tsx:148
+msgid "Select photo"
+msgstr "בחר תמונה"
+
 #: src/pages/Profile/Profile.tsx:136
 #: src/pages/Profile/Settings/Settings.tsx:72
 msgid "Settings"
 msgstr "הגדרות"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:38
+msgid "Something went wrong"
+msgstr "משהו השתבש"
+
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:53
+msgid "Sorry there is no apartment"
+msgstr "מצטער שאין דירה"
+
+#: src/components/DonateDialog/DonateDialog.tsx:15
+msgid "Support us"
+msgstr "תמכו בנו"
 
 #: src/pages/Profile/Settings/Settings.tsx:60
 msgid "Switch to English"
@@ -60,6 +250,46 @@ msgstr "החלף לאנגלית"
 msgid "Switch to Hebrew"
 msgstr "עוברים לעברית"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:14
+msgid "System"
+msgstr "מערכת"
+
+#: src/components/BasicInfoSteps/Photo.tsx:62
+msgid "Up to 20 mb"
+msgstr "עד 20 מ\"ב"
+
+#: src/components/BasicInfoSteps/Photo.tsx:74
+msgid "Up to 20MB files are allowed"
+msgstr "קבצים בנפח של עד 20MB מותרים"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:20
+msgid "With family"
+msgstr "עם משפחה"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:18
+msgid "With friends"
+msgstr "עם חברים"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:19
+msgid "With partner"
+msgstr "עם שותף"
+
+#: src/pages/Profile/Settings/Settings.tsx:119
+msgid "Yes"
+msgstr "כן"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:95
+msgid "Yes, delete my account"
+msgstr "כן, מחק את החשבון שלי"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:83
 msgid "You are trying to permanently delete your account. Are you sure about that?"
 msgstr "אתה מנסה למחוק לצמיתות את חשבונך. האם אתה בטוח לגבי זה?"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:51
+msgid "Your ad was removed from publication"
+msgstr "המודעה שלך הוסרה מהפרסום"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:36
+msgid "Your profile"
+msgstr "הפרופיל שלך"

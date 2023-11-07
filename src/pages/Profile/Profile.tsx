@@ -53,7 +53,7 @@ const Profile: React.FunctionComponent = observer(() => {
 
   const saveAvatar = async (avatar: string): Promise<void> => {
     if (!sessionService.authToken) {
-      throw new Error('Can\'t save without session token')
+      throw new Error(t({ message: 'Can\'t save without session token' }))
     }
     const file = await mapBase64ToFile(avatar, 'avatar')
     const avatarName = await filesApiService.uploadFile(file, 'avatar')
@@ -145,9 +145,9 @@ const Profile: React.FunctionComponent = observer(() => {
       </Box>
     </Box>
 
-    {cropVisible && <ImageCropper title='Select photo'
+    {cropVisible && <ImageCropper title={t({ message: 'Select photo' })}
       image={image}
-      acceptButtonText='Accept'
+      acceptButtonText={t({ message: 'Accept' })}
       shape='round'
       acceptImage={photo => {
         setCropVisible(false)
