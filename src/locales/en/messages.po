@@ -53,9 +53,42 @@ msgstr "Delete your account"
 msgid "Donate"
 msgstr "Donate"
 
+#: src/pages/Login/Login.tsx:87
+msgid "E-mail"
+msgstr "E-mail"
+
+#: src/pages/Login/Login.tsx:93
+msgid "Email is required"
+msgstr "Email is required"
+
+#: src/pages/Login/Login.tsx:125
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+#: src/pages/Login/Login.tsx:82
+#: src/pages/Login/Login.tsx:120
+msgid "Log in"
+msgstr "Log in"
+
+#: src/pages/Login/Login.tsx:45
+msgid "Login to your account"
+msgstr "Login to your account"
+
 #: src/pages/Profile/Profile.tsx:131
 msgid "My apartments"
 msgstr "My apartments"
+
+#: src/pages/Login/Login.tsx:83
+msgid "New to roommate.host?"
+msgstr "New to roommate.host?"
+
+#: src/pages/Login/Login.tsx:96
+msgid "Password"
+msgstr "Password"
+
+#: src/pages/Login/Login.tsx:102
+msgid "Password is required"
+msgstr "Password is required"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
@@ -69,6 +102,14 @@ msgstr "Removing all information about you"
 #: src/pages/Profile/Settings/Settings.tsx:72
 msgid "Settings"
 msgstr "Settings"
+
+#: src/pages/Login/Login.tsx:84
+msgid "Sign up"
+msgstr "Sign up"
+
+#: src/pages/Login/Login.tsx:63
+msgid "Something went wrong😮"
+msgstr "Something went wrong😮"
 
 #: src/pages/Profile/Settings/Settings.tsx:60
 msgid "Switch to English"

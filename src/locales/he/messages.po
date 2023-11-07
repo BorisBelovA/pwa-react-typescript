@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-10-25 23:07+0300\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: @lingui/cli\n"
-"Language: he\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-25 23:07+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: src/pages/Profile/Profile.tsx:127
 msgid "About me"
@@ -39,22 +39,61 @@ msgstr "תמחק את החשבון שלך"
 msgid "Donate"
 msgstr "לִתְרוֹם"
 
+#: src/pages/Login/Login.tsx:87
+msgid "E-mail"
+msgstr "דואר אלקטרוני"
+
+#: src/pages/Login/Login.tsx:93
+msgid "Email is required"
+msgstr "נדרש אימייל"
+
+#: src/pages/Login/Login.tsx:125
+msgid "Forgot password?"
+msgstr "שכחתי סיסמה?"
+
+#: src/pages/Login/Login.tsx:82 src/pages/Login/Login.tsx:120
+msgid "Log in"
+msgstr "כניסה"
+
+#: src/pages/Login/Login.tsx:45
+msgid "Login to your account"
+msgstr "התחבר לחשבונך"
+
 #: src/pages/Profile/Profile.tsx:131
 msgid "My apartments"
 msgstr "הדירות שלי"
+
+#: src/pages/Login/Login.tsx:83
+msgid "New to roommate.host?"
+msgstr "משתמש חדש/ה roommate.host"
+
+#: src/pages/Login/Login.tsx:96
+msgid "Password"
+msgstr "סיסמה"
+
+#: src/pages/Login/Login.tsx:102
+msgid "Password is required"
+msgstr "דרושה סיסמא"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
 msgstr "הסרת כל המידע עליך"
 
-#: src/pages/Profile/Profile.tsx:136
-#: src/pages/Profile/Settings/Settings.tsx:72
+#: src/pages/Profile/Profile.tsx:136 src/pages/Profile/Settings/Settings.tsx:72
 msgid "Settings"
 msgstr "הגדרות"
 
+#: src/pages/Login/Login.tsx:84
+msgid "Sign up"
+msgstr "הרשמה"
+
+#: src/pages/Login/Login.tsx:63
+msgid "Something went wrong😮"
+msgstr "משהו השתבש😮"
+
 #: src/pages/Profile/Settings/Settings.tsx:60
 msgid "Switch to English"
-msgstr "החלף לאנגלית"
+msgstr "החלף לאנגלית (English)"
 
 #: src/pages/Profile/Settings/Settings.tsx:59
 msgid "Switch to Hebrew"

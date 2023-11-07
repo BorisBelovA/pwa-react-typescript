@@ -9,6 +9,8 @@ import { emailPatternValidator } from 'src/utils/validations'
 import { mapAuthenticatedUserData } from 'mapping-services'
 import { useStore } from 'src/utils/StoreProvider'
 import { ErrorCodes } from 'src/models/errors'
+import { t } from '@lingui/macro'
+
 interface SignUpForm {
   email: string
   password: string
@@ -40,7 +42,7 @@ export const Login = (): JSX.Element => {
 
   const onSubmit = async (data: SignUpForm): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Login to your account')
+    setBackdropMessage(t`Login to your account`)
     try {
       const token = await userApiService.login(data.email, data.password)
       sessionService.authToken = token
@@ -58,7 +60,7 @@ export const Login = (): JSX.Element => {
       }, 1500)
     } catch (e) {
       console.error(e)
-      let text = 'Something went wrong😮'
+      let text = t`Something went wrong😮`
       if (e instanceof Error) {
         text = e.message
         if (e.cause === ErrorCodes.EMAIL_NOT_ACTIVATED) {
@@ -77,27 +79,27 @@ export const Login = (): JSX.Element => {
 
   return <>
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '.5rem', alignItems: 'center' }}>
-      <Typography variant='h1'>Log in</Typography>
-      <Typography>New to roommate.host? <Link to='/auth/signup'>
-        <Typography component='span' sx={{ color: theme.palette.primary.main }}>Sign up</Typography></Link></Typography>
+      <Typography variant='h1'>{t`Log in`}</Typography>
+      <Typography>{t`New to roommate.host?`} <Link to='/auth/signup'>
+        <Typography component='span' sx={{ color: theme.palette.primary.main }}>{t`Sign up`}</Typography></Link></Typography>
     </Box>
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem', width: '100%', alignItems: 'center' }}>
-      <TextField fullWidth label="E-mail"
+      <TextField fullWidth label={t`E-mail`}
         type='email'
         error={!(errors.email == null)}
         variant="outlined"
         size="small"
         autoComplete='off'
-        {...register('email', { pattern: emailPatternValidator, required: 'Email is required' })}
+        {...register('email', { pattern: emailPatternValidator, required: t`Email is required` })}
         helperText={errors.email?.message ?? ''} />
 
-      <TextField fullWidth label="Password"
+      <TextField fullWidth label={t`Password`}
         type={showPassword ? 'text' : 'password'}
         error={!(errors.password == null)}
         variant="outlined"
         autoComplete='off'
         size="small"
-        {...register('password', { required: 'Password is required', minLength: minLength(8) })}
+        {...register('password', { required: t`Password is required`, minLength: minLength(8) })}
         helperText={errors.password?.message ?? ''}
         InputProps={{
           endAdornment: (
@@ -115,12 +117,12 @@ export const Login = (): JSX.Element => {
         variant="contained"
         sx={{ width: '100%' }}
       >
-        Log in
+        {t`Log in`}
       </Button>
     </Box>
     <Box sx={{ width: '100%', textAlign: 'right' }}>
       <Link to='/auth/reset-password/get-code'>
-        <Typography component='span' sx={{ color: theme.palette.primary.main }}>Forgot password?</Typography>
+        <Typography component='span' sx={{ color: theme.palette.primary.main }}>{t`Forgot password?`}</Typography>
       </Link>
     </Box>
   </>
