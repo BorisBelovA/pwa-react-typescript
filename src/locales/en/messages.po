@@ -48,10 +48,16 @@ msgstr "Add to Home Screen"
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:76
+#: src/pages/ResetPassword/Reset/Reset.tsx:152
+msgid "Back to login"
+msgstr "Back to login"
+
 #: src/pages/Sign up/Signup.tsx:58
 msgid "Checking email"
 msgstr "Checking email"
 
+#: src/pages/ResetPassword/Reset/Reset.tsx:103
 #: src/pages/Sign up/Signup.tsx:103
 msgid "Code is required"
 msgstr "Code is required"
@@ -64,6 +70,7 @@ msgstr "Code length is 0!!"
 msgid "Color theme"
 msgstr "Color theme"
 
+#: src/pages/ResetPassword/Reset/Reset.tsx:120
 #: src/pages/Sign up/Signup.tsx:117
 msgid "Confirm password"
 msgstr "Confirm password"
@@ -78,18 +85,36 @@ msgid "Donate"
 msgstr "Donate"
 
 #: src/pages/Login/Login.tsx:87
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:62
 #: src/pages/Sign up/Signup.tsx:87
 msgid "E-mail"
 msgstr "E-mail"
 
 #: src/pages/Login/Login.tsx:93
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:68
 #: src/pages/Sign up/Signup.tsx:93
 msgid "Email is required"
 msgstr "Email is required"
 
+#: src/pages/ResetPassword/Reset/Reset.tsx:83
+msgid "Enter code from your email"
+msgstr "Enter code from your email"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:79
+msgid "for {0}"
+msgstr "for {0}"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:58
+msgid "Forgot password"
+msgstr "Forgot password"
+
 #: src/pages/Login/Login.tsx:125
 msgid "Forgot password?"
 msgstr "Forgot password?"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:74
+msgid "Get code"
+msgstr "Get code"
 
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:43
 msgid "I accept terms and conditions"
@@ -101,9 +126,14 @@ msgstr "Incorrect email pattern"
 
 #: src/pages/Login/Login.tsx:82
 #: src/pages/Login/Login.tsx:120
+#: src/pages/ResetPassword/Success/Success.tsx:55
 #: src/pages/Sign up/Signup.tsx:83
 msgid "Log in"
 msgstr "Log in"
+
+#: src/pages/ResetPassword/Success/Success.tsx:22
+msgid "Logging in"
+msgstr "Logging in"
 
 #: src/pages/Login/Login.tsx:45
 msgid "Login to your account"
@@ -125,7 +155,16 @@ msgstr "Next"
 msgid "No email or password provided!"
 msgstr "No email or password provided!"
 
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:32
+msgid "No email provided!"
+msgstr "No email provided!"
+
+#: src/pages/ResetPassword/Success/Success.tsx:48
+msgid "Now you can log in with your new password"
+msgstr "Now you can log in with your new password"
+
 #: src/pages/Login/Login.tsx:96
+#: src/pages/ResetPassword/Reset/Reset.tsx:96
 #: src/pages/Sign up/Signup.tsx:96
 msgid "Password"
 msgstr "Password"
@@ -134,9 +173,14 @@ msgstr "Password"
 msgid "Password is required"
 msgstr "Password is required"
 
+#: src/pages/ResetPassword/Reset/Reset.tsx:130
 #: src/pages/Sign up/Signup.tsx:127
 msgid "Passwords won't match"
 msgstr "Passwords won't match"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:59
+msgid "Please enter your email and we will send you a code to reset your password"
+msgstr "Please enter your email and we will send you a code to reset your password"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
@@ -146,6 +190,11 @@ msgstr "Removing all information about you"
 msgid "Required"
 msgstr "Required"
 
+#: src/pages/ResetPassword/Reset/Reset.tsx:78
+#: src/pages/ResetPassword/Reset/Reset.tsx:150
+msgid "Reset password"
+msgstr "Reset password"
+
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:70
 #~ msgid "Search for apartments"
 #~ msgstr "Search for apartments"
@@ -153,6 +202,10 @@ msgstr "Required"
 #: src/pages/Email-code/EmailCode.tsx:92
 msgid "Send again"
 msgstr "Send again"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:35
+msgid "Sending code"
+msgstr "Sending code"
 
 #: src/pages/Profile/Profile.tsx:136
 #: src/pages/Profile/Settings/Settings.tsx:72
@@ -169,6 +222,9 @@ msgid "Sign Up"
 msgstr "Sign Up"
 
 #: src/pages/Email-code/EmailCode.tsx:37
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:49
+#: src/pages/ResetPassword/Reset/Reset.tsx:69
+#: src/pages/ResetPassword/Success/Success.tsx:36
 #: src/pages/Sign up/Signup.tsx:73
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -176,6 +232,14 @@ msgstr "Something went wrong"
 #: src/pages/Login/Login.tsx:63
 msgid "Something went wrong😮"
 msgstr "Something went wrong😮"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:49
+#~ msgid "Something went wtong"
+#~ msgstr "Something went wtong"
+
+#: src/pages/ResetPassword/Success/Success.tsx:47
+msgid "Success!"
+msgstr "Success!"
 
 #: src/pages/Profile/Settings/Settings.tsx:60
 msgid "Switch to English"
@@ -192,6 +256,10 @@ msgstr "Terms of service"
 #: src/pages/Email-code/EmailCode.tsx:68
 msgid "Unable to send email again"
 msgstr "Unable to send email again"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:56
+msgid "Updating password"
+msgstr "Updating password"
 
 #: src/pages/Email-code/EmailCode.tsx:99
 msgid "Verify"
