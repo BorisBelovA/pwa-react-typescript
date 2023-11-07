@@ -35,14 +35,27 @@ msgstr "A verification code has been sent to you"
 msgid "A verification code has been sent to your mobile device"
 msgstr "A verification code has been sent to your mobile device"
 
+#: src/pages/Profile/AboutMe/AboutMe.tsx:76
 #: src/pages/Profile/Profile.tsx:127
 msgid "About me"
 msgstr "About me"
+
+#: src/pages/Profile/Profile.tsx:150
+msgid "Accept"
+msgstr "Accept"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:49
 #: src/pages/Profile/Settings/Settings.tsx:75
 msgid "Account"
 msgstr "Account"
+
+#: src/pages/Profile/Settings/Settings.tsx:107
+msgid "Add \"Roommate\" to your home screen"
+msgstr "Add \"Roommate\" to your home screen"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:88
+msgid "Add apartment"
+msgstr "Add apartment"
 
 #: src/pages/Profile/Settings/Settings.tsx:88
 msgid "Add to Home Screen"
@@ -51,6 +64,14 @@ msgstr "Add to Home Screen"
 #: src/pages/Sign up/Signup.tsx:82
 msgid "Already have an account?"
 msgstr "Already have an account?"
+
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:46
+msgid "Apartment preview"
+msgstr "Apartment preview"
+
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:46
+#~ msgid "Appartment preview"
+#~ msgstr "Appartment preview"
 
 #: src/components/BasicInfoSteps/Photo.tsx:83
 msgid "Avatar photo"
@@ -61,9 +82,38 @@ msgstr "Avatar photo"
 msgid "Back to login"
 msgstr "Back to login"
 
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:140
+msgid "Basic information"
+msgstr "Basic information"
+
+#: src/pages/Profile/AboutMe/AboutMe.tsx:85
+msgid "Basic Information"
+msgstr "Basic Information"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:149
+msgid "Bio"
+msgstr "Bio"
+
 #: src/components/BasicInfoSteps/About.tsx:61
-msgid "Birthdate"
-msgstr "Birthdate"
+#~ msgid "Birthdate"
+#~ msgstr "Birthdate"
+
+#: src/components/BasicInfoSteps/About.tsx:67
+msgid "Birthday"
+msgstr "Birthday"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:17
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:55
+msgid "By self"
+msgstr "By self"
+
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:30
+msgid "Can't get apartment"
+msgstr "Can't get apartment"
+
+#: src/pages/Profile/Profile.tsx:56
+msgid "Can't save without session token"
+msgstr "Can't save without session token"
 
 #: src/components/BasicInfoSteps/Photo.tsx:67
 msgid "Change"
@@ -77,9 +127,21 @@ msgstr "Check your data"
 msgid "Checking email"
 msgstr "Checking email"
 
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:34
+msgid "Choose preferred color theme"
+msgstr "Choose preferred color theme"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:34
+#~ msgid "Choose preferred theme"
+#~ msgstr "Choose preferred theme"
+
 #: src/pages/Intro/PathSelection/PathSelection.tsx:28
 msgid "Choose what you want to do"
 msgstr "Choose what you want to do"
+
+#: src/components/DonateDialog/DonateDialog.tsx:26
+msgid "Close"
+msgstr "Close"
 
 #: src/pages/ResetPassword/Reset/Reset.tsx:103
 #: src/pages/Sign up/Signup.tsx:103
@@ -91,6 +153,7 @@ msgid "Code length is 0!!"
 msgstr "Code length is 0!!"
 
 #: src/pages/Profile/Settings/Settings.tsx:79
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
 msgid "Color theme"
 msgstr "Color theme"
 
@@ -115,14 +178,26 @@ msgstr "Create Account"
 msgid "Creating your account"
 msgstr "Creating your account"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:70
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:77
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:13
+msgid "Dark"
+msgstr "Dark"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:72
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
 msgid "Delete your account"
 msgstr "Delete your account"
+
+#: src/pages/Profile/Settings/Settings.tsx:111
+msgid "Do you want to install \"Roommate\" on your home screen?"
+msgstr "Do you want to install \"Roommate\" on your home screen?"
 
 #: src/pages/Profile/Profile.tsx:141
 msgid "Donate"
 msgstr "Donate"
+
+#: src/components/DonateDialog/DonateDialog.tsx:22
+msgid "donation"
+msgstr "donation"
 
 #: src/pages/Login/Login.tsx:87
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:62
@@ -144,7 +219,7 @@ msgstr "Email is required"
 msgid "Enter code from your email"
 msgstr "Enter code from your email"
 
-#: src/components/BasicInfoSteps/About.tsx:47
+#: src/components/BasicInfoSteps/About.tsx:52
 msgid "F"
 msgstr "F"
 
@@ -188,7 +263,8 @@ msgstr "Forgot password"
 msgid "Forgot password?"
 msgstr "Forgot password?"
 
-#: src/components/BasicInfoSteps/About.tsx:35
+#: src/components/BasicInfoSteps/About.tsx:36
+#: src/components/BasicInfoSteps/About.tsx:43
 msgid "Gender"
 msgstr "Gender"
 
@@ -208,6 +284,14 @@ msgstr "I am a refugee"
 msgid "I have a place for refugees"
 msgstr "I have a place for refugees"
 
+#: src/components/DonateDialog/DonateDialog.tsx:19
+msgid "If you like what we do you can support us with"
+msgstr "If you like what we do you can support us with"
+
+#: src/components/DonateDialog/DonateDialog.tsx:19
+#~ msgid "If you like what we do you can support us with<0> donation</0> ♥️"
+#~ msgstr "If you like what we do you can support us with<0> donation</0> ♥️"
+
 #: src/pages/Sign up/Signup.tsx:23
 msgid "Incorrect email pattern"
 msgstr "Incorrect email pattern"
@@ -224,6 +308,10 @@ msgstr "Last name"
 msgid "Last name is required"
 msgstr "Last name is required"
 
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:12
+msgid "Light"
+msgstr "Light"
+
 #: src/pages/Login/Login.tsx:82
 #: src/pages/Login/Login.tsx:120
 #: src/pages/ResetPassword/Success/Success.tsx:55
@@ -239,7 +327,11 @@ msgstr "Logging in"
 msgid "Login to your account"
 msgstr "Login to your account"
 
-#: src/components/BasicInfoSteps/About.tsx:46
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:61
+msgid "Logout"
+msgstr "Logout"
+
+#: src/components/BasicInfoSteps/About.tsx:49
 msgid "M"
 msgstr "M"
 
@@ -247,6 +339,7 @@ msgstr "M"
 msgid "Male"
 msgstr "Male"
 
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:78
 #: src/pages/Profile/Profile.tsx:131
 msgid "My apartments"
 msgstr "My apartments"
@@ -260,6 +353,10 @@ msgstr "New to roommate.host?"
 msgid "Next"
 msgstr "Next"
 
+#: src/pages/Profile/Settings/Settings.tsx:116
+msgid "No"
+msgstr "No"
+
 #: src/pages/Sign up/Signup.tsx:55
 msgid "No email or password provided!"
 msgstr "No email or password provided!"
@@ -271,6 +368,14 @@ msgstr "No email provided!"
 #: src/pages/Registration/Layout.tsx:84
 msgid "No session token provided"
 msgstr "No session token provided"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:92
+msgid "No, I've changed my mind"
+msgstr "No, I've changed my mind"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:124
+msgid "Not available"
+msgstr "Not available"
 
 #: src/pages/ResetPassword/Success/Success.tsx:48
 msgid "Now you can log in with your new password"
@@ -295,9 +400,17 @@ msgstr "Passwords won't match"
 msgid "personal"
 msgstr "personal"
 
+#: src/pages/Profile/AboutMe/AboutMe.tsx:95
+msgid "Personal Info"
+msgstr "Personal Info"
+
 #: src/pages/Registration/Layout.tsx:26
 msgid "phone"
 msgstr "phone"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
+msgid "Phone"
+msgstr "Phone"
 
 #: src/pages/Registration/Second step/SecondStep.tsx:33
 msgid "Phone number"
@@ -307,17 +420,37 @@ msgstr "Phone number"
 msgid "photo"
 msgstr "photo"
 
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:161
+msgid "Photo"
+msgstr "Photo"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:59
 msgid "Please enter your email and we will send you a code to reset your password"
 msgstr "Please enter your email and we will send you a code to reset your password"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:121
+msgid "Preview"
+msgstr "Preview"
 
 #: src/components/BasicInfoSteps/Photo.tsx:73
 msgid "Profile photo"
 msgstr "Profile photo"
 
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:130
+msgid "Remove"
+msgstr "Remove"
+
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
 msgstr "Removing all information about you"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:47
+msgid "Removing your ad from publication"
+msgstr "Removing your ad from publication"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:47
+#~ msgid "Removing your add from publication"
+#~ msgstr "Removing your add from publication"
 
 #: src/pages/Intro/PathSelection/PathSelection.tsx:48
 msgid "Rent out apartment/room"
@@ -332,9 +465,17 @@ msgstr "Required"
 msgid "Reset password"
 msgstr "Reset password"
 
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
+msgid "Save"
+msgstr "Save"
+
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:70
 #~ msgid "Search for apartments"
 #~ msgstr "Search for apartments"
+
+#: src/pages/Profile/Profile.tsx:148
+msgid "Select photo"
+msgstr "Select photo"
 
 #: src/pages/Registration/Third step/ThirdStep.tsx:44
 msgid "Send"
@@ -367,6 +508,8 @@ msgid "Skip"
 msgstr "Skip"
 
 #: src/pages/Email-code/EmailCode.tsx:37
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:38
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
 #: src/pages/ResetPassword/Success/Success.tsx:36
@@ -386,6 +529,10 @@ msgstr "Something went wrong😮"
 msgid "something wrong with steps!"
 msgstr "something wrong with steps!"
 
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:53
+msgid "Sorry there is no apartment"
+msgstr "Sorry there is no apartment"
+
 #: src/pages/ResetPassword/Success/Success.tsx:47
 msgid "Success!"
 msgstr "Success!"
@@ -394,6 +541,10 @@ msgstr "Success!"
 msgid "summary"
 msgstr "summary"
 
+#: src/components/DonateDialog/DonateDialog.tsx:15
+msgid "Support us"
+msgstr "Support us"
+
 #: src/pages/Profile/Settings/Settings.tsx:60
 msgid "Switch to English"
 msgstr "Switch to English"
@@ -401,6 +552,10 @@ msgstr "Switch to English"
 #: src/pages/Profile/Settings/Settings.tsx:59
 msgid "Switch to Hebrew"
 msgstr "Switch to Hebrew"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:14
+msgid "System"
+msgstr "System"
 
 #: src/pages/Registration/First step/FirstStep.tsx:36
 msgid "Tell us about yourself"
@@ -446,7 +601,27 @@ msgstr "Verify"
 msgid "Verify your email"
 msgstr "Verify your email"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:20
+msgid "With family"
+msgstr "With family"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:18
+msgid "With friends"
+msgstr "With friends"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:19
+msgid "With partner"
+msgstr "With partner"
+
+#: src/pages/Profile/Settings/Settings.tsx:119
+msgid "Yes"
+msgstr "Yes"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:95
+msgid "Yes, delete my account"
+msgstr "Yes, delete my account"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:83
 msgid "You are trying to permanently delete your account. Are you sure about that?"
 msgstr "You are trying to permanently delete your account. Are you sure about that?"
 
@@ -457,3 +632,11 @@ msgstr "You can send new one after {timer} seconds"
 #: src/pages/Email-code/EmailCode.tsx:91
 msgid "You can send new one in {timeLeft} seconds"
 msgstr "You can send new one in {timeLeft} seconds"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:51
+msgid "Your ad was removed from publication"
+msgstr "Your ad was removed from publication"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:36
+msgid "Your profile"
+msgstr "Your profile"

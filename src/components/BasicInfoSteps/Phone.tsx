@@ -1,6 +1,6 @@
+import { t } from '@lingui/macro'
 import { matchIsValidTel, MuiTelInput } from 'mui-tel-input'
 import { type Control, Controller } from 'react-hook-form'
-import { t } from '@lingui/macro'
 
 interface Props {
   control: Control<{ phone: string }, any>

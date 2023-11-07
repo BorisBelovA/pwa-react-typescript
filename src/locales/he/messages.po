@@ -21,14 +21,27 @@ msgstr "קוד אימות נשלח אליך"
 msgid "A verification code has been sent to your mobile device"
 msgstr "קוד אימות נשלח למכשיר הנייד שלך"
 
+#: src/pages/Profile/AboutMe/AboutMe.tsx:76
 #: src/pages/Profile/Profile.tsx:127
 msgid "About me"
 msgstr "עליי"
+
+#: src/pages/Profile/Profile.tsx:150
+msgid "Accept"
+msgstr "לְקַבֵּל"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:49
 #: src/pages/Profile/Settings/Settings.tsx:75
 msgid "Account"
 msgstr "חֶשְׁבּוֹן"
+
+#: src/pages/Profile/Settings/Settings.tsx:107
+msgid "Add \"Roommate\" to your home screen"
+msgstr "הוסף \"שותף לחדר\" למסך הבית שלך"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:88
+msgid "Add apartment"
+msgstr "הוסף דירה"
 
 #: src/pages/Profile/Settings/Settings.tsx:88
 msgid "Add to Home Screen"
@@ -37,6 +50,10 @@ msgstr "הוסף למסך הבית"
 #: src/pages/Sign up/Signup.tsx:82
 msgid "Already have an account?"
 msgstr "כבר יש לך חשבון?"
+
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:46
+msgid "Apartment preview"
+msgstr "תצוגה מקדימה של דירה"
 
 #: src/components/BasicInfoSteps/Photo.tsx:83
 msgid "Avatar photo"
@@ -47,9 +64,38 @@ msgstr "תמונת אווטאר"
 msgid "Back to login"
 msgstr "חזרה לכניסה"
 
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:140
+msgid "Basic information"
+msgstr "מידע בסיסי"
+
+#: src/pages/Profile/AboutMe/AboutMe.tsx:85
+msgid "Basic Information"
+msgstr "מידע בסיסי"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:149
+msgid "Bio"
+msgstr "ביו"
+
 #: src/components/BasicInfoSteps/About.tsx:61
-msgid "Birthdate"
+#~ msgid "Birthdate"
+#~ msgstr "יום הולדת"
+
+#: src/components/BasicInfoSteps/About.tsx:67
+msgid "Birthday"
 msgstr "יום הולדת"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:17
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:55
+msgid "By self"
+msgstr "בעצמי"
+
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:30
+msgid "Can't get apartment"
+msgstr "לא יכול להשיג דירה"
+
+#: src/pages/Profile/Profile.tsx:56
+msgid "Can't save without session token"
+msgstr "לא ניתן לשמור ללא אסימון הפעלה"
 
 #: src/components/BasicInfoSteps/Photo.tsx:67
 msgid "Change"
@@ -63,11 +109,20 @@ msgstr "לבדוק את הנתונים שלך"
 msgid "Checking email"
 msgstr "בודק אימייל"
 
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:34
+msgid "Choose preferred color theme"
+msgstr "בחר נושא צבע מועדף"
+
 #: src/pages/Intro/PathSelection/PathSelection.tsx:28
 msgid "Choose what you want to do"
 msgstr "לבחור מה את/ה רוצה לעשות"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:103 src/pages/Sign up/Signup.tsx:103
+#: src/components/DonateDialog/DonateDialog.tsx:26
+msgid "Close"
+msgstr "סגור"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:103
+#: src/pages/Sign up/Signup.tsx:103
 msgid "Code is required"
 msgstr "קוד נדרש"
 
@@ -76,6 +131,7 @@ msgid "Code length is 0!!"
 msgstr "אורך הקוד הוא 0!!"
 
 #: src/pages/Profile/Settings/Settings.tsx:79
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
 msgid "Color theme"
 msgstr "נושא צבע"
 
@@ -87,7 +143,8 @@ msgstr "אשר ובחר אווטאר"
 msgid "Confirm and proceed"
 msgstr "לאשר ולהמשיך"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:120 src/pages/Sign up/Signup.tsx:117
+#: src/pages/ResetPassword/Reset/Reset.tsx:120
+#: src/pages/Sign up/Signup.tsx:117
 msgid "Confirm password"
 msgstr "אשר סיסמה"
 
@@ -99,16 +156,29 @@ msgstr "צור חשבון"
 msgid "Creating your account"
 msgstr "יצירת החשבון שלך"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:70
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:77
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:13
+msgid "Dark"
+msgstr "אפל"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:72
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
 msgid "Delete your account"
 msgstr "תמחק את החשבון שלך"
+
+#: src/pages/Profile/Settings/Settings.tsx:111
+msgid "Do you want to install \"Roommate\" on your home screen?"
+msgstr "האם אתה רוצה להתקין \"שותף לחדר\" על מסך הבית שלך?"
 
 #: src/pages/Profile/Profile.tsx:141
 msgid "Donate"
 msgstr "לִתְרוֹם"
 
-#: src/pages/Login/Login.tsx:87 src/pages/ResetPassword/GetCode/GetCode.tsx:62
+#: src/components/DonateDialog/DonateDialog.tsx:22
+msgid "donation"
+msgstr "תרומה"
+
+#: src/pages/Login/Login.tsx:87
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:62
 #: src/pages/Sign up/Signup.tsx:87
 msgid "E-mail"
 msgstr "דואר אלקטרוני"
@@ -117,7 +187,8 @@ msgstr "דואר אלקטרוני"
 msgid "Edit"
 msgstr "לַעֲרוֹך"
 
-#: src/pages/Login/Login.tsx:93 src/pages/ResetPassword/GetCode/GetCode.tsx:68
+#: src/pages/Login/Login.tsx:93
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:68
 #: src/pages/Sign up/Signup.tsx:93
 msgid "Email is required"
 msgstr "נדרש אימייל"
@@ -126,7 +197,7 @@ msgstr "נדרש אימייל"
 msgid "Enter code from your email"
 msgstr "הזן קוד מהמייל שלך"
 
-#: src/components/BasicInfoSteps/About.tsx:47
+#: src/components/BasicInfoSteps/About.tsx:52
 msgid "F"
 msgstr "נקבה"
 
@@ -170,7 +241,8 @@ msgstr "שכחת את הסיסמא"
 msgid "Forgot password?"
 msgstr "שכחתי סיסמה?"
 
-#: src/components/BasicInfoSteps/About.tsx:35
+#: src/components/BasicInfoSteps/About.tsx:36
+#: src/components/BasicInfoSteps/About.tsx:43
 msgid "Gender"
 msgstr "מִין"
 
@@ -190,6 +262,10 @@ msgstr "אני פליט"
 msgid "I have a place for refugees"
 msgstr "יש לי מקום לפליטים"
 
+#: src/components/DonateDialog/DonateDialog.tsx:19
+msgid "If you like what we do you can support us with"
+msgstr "אם אתה אוהב את מה שאנחנו עושים אתה יכול לתמוך בנו"
+
 #: src/pages/Sign up/Signup.tsx:23
 msgid "Incorrect email pattern"
 msgstr "דפוס אימייל שגוי"
@@ -206,9 +282,14 @@ msgstr "שם משפחה"
 msgid "Last name is required"
 msgstr "נדרש שם משפחה"
 
-#: src/pages/Login/Login.tsx:82 src/pages/Login/Login.tsx:120
-#: src/pages/ResetPassword/Success/Success.tsx:55 src/pages/Sign
-#: up/Signup.tsx:83
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:12
+msgid "Light"
+msgstr "אוֹר"
+
+#: src/pages/Login/Login.tsx:82
+#: src/pages/Login/Login.tsx:120
+#: src/pages/ResetPassword/Success/Success.tsx:55
+#: src/pages/Sign up/Signup.tsx:83
 msgid "Log in"
 msgstr "כניסה"
 
@@ -220,7 +301,11 @@ msgstr "מתחבר"
 msgid "Login to your account"
 msgstr "התחבר לחשבונך"
 
-#: src/components/BasicInfoSteps/About.tsx:46
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:61
+msgid "Logout"
+msgstr "להתנתק"
+
+#: src/components/BasicInfoSteps/About.tsx:49
 msgid "M"
 msgstr "זכר"
 
@@ -228,6 +313,7 @@ msgstr "זכר"
 msgid "Male"
 msgstr "זכר"
 
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:78
 #: src/pages/Profile/Profile.tsx:131
 msgid "My apartments"
 msgstr "הדירות שלי"
@@ -241,6 +327,10 @@ msgstr "משתמש חדש/ה roommate.host"
 msgid "Next"
 msgstr " הבא"
 
+#: src/pages/Profile/Settings/Settings.tsx:116
+msgid "No"
+msgstr "לא"
+
 #: src/pages/Sign up/Signup.tsx:55
 msgid "No email or password provided!"
 msgstr "לא סופקו אימייל או סיסמה!"
@@ -253,11 +343,20 @@ msgstr "לא סופק אימייל!"
 msgid "No session token provided"
 msgstr "לא סופק אסימון הפעלה"
 
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:92
+msgid "No, I've changed my mind"
+msgstr "לא, שיניתי את דעתי"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:124
+msgid "Not available"
+msgstr "לא זמין"
+
 #: src/pages/ResetPassword/Success/Success.tsx:48
 msgid "Now you can log in with your new password"
 msgstr "עכשיו אתה יכול להיכנס עם הסיסמה החדשה שלך"
 
-#: src/pages/Login/Login.tsx:96 src/pages/ResetPassword/Reset/Reset.tsx:96
+#: src/pages/Login/Login.tsx:96
+#: src/pages/ResetPassword/Reset/Reset.tsx:96
 #: src/pages/Sign up/Signup.tsx:96
 msgid "Password"
 msgstr "סיסמה"
@@ -266,7 +365,8 @@ msgstr "סיסמה"
 msgid "Password is required"
 msgstr "דרושה סיסמא"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:130 src/pages/Sign up/Signup.tsx:127
+#: src/pages/ResetPassword/Reset/Reset.tsx:130
+#: src/pages/Sign up/Signup.tsx:127
 msgid "Passwords won't match"
 msgstr "הסיסמאות לא יתאימו"
 
@@ -274,8 +374,16 @@ msgstr "הסיסמאות לא יתאימו"
 msgid "personal"
 msgstr "אישי"
 
+#: src/pages/Profile/AboutMe/AboutMe.tsx:95
+msgid "Personal Info"
+msgstr "מידע אישי"
+
 #: src/pages/Registration/Layout.tsx:26
 msgid "phone"
+msgstr "טלפון"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
+msgid "Phone"
 msgstr "טלפון"
 
 #: src/pages/Registration/Second step/SecondStep.tsx:33
@@ -286,17 +394,33 @@ msgstr "מספר טלפון"
 msgid "photo"
 msgstr "תמונה"
 
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:161
+msgid "Photo"
+msgstr "תמונה"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:59
 msgid "Please enter your email and we will send you a code to reset your password"
 msgstr "אנא הכנס את האימייל שלך ואנו נשלח לך קוד לאיפוס הסיסמה שלך"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:121
+msgid "Preview"
+msgstr "תצוגה מקדימה"
 
 #: src/components/BasicInfoSteps/Photo.tsx:73
 msgid "Profile photo"
 msgstr "תמונת פרופיל"
 
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:130
+msgid "Remove"
+msgstr "לְהַסִיר"
+
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
 msgid "Removing all information about you"
 msgstr "הסרת כל המידע עליך"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:47
+msgid "Removing your ad from publication"
+msgstr "הסרת המודעה שלך מפרסום"
 
 #: src/pages/Intro/PathSelection/PathSelection.tsx:48
 msgid "Rent out apartment/room"
@@ -311,6 +435,14 @@ msgstr "נדרש"
 msgid "Reset password"
 msgstr "לאפס את הסיסמה"
 
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
+msgid "Save"
+msgstr "להציל"
+
+#: src/pages/Profile/Profile.tsx:148
+msgid "Select photo"
+msgstr "בחר תמונה"
+
 #: src/pages/Registration/Third step/ThirdStep.tsx:44
 msgid "Send"
 msgstr "לִשְׁלוֹחַ"
@@ -323,11 +455,13 @@ msgstr "שלח שוב"
 msgid "Sending code"
 msgstr "שולח קוד"
 
-#: src/pages/Profile/Profile.tsx:136 src/pages/Profile/Settings/Settings.tsx:72
+#: src/pages/Profile/Profile.tsx:136
+#: src/pages/Profile/Settings/Settings.tsx:72
 msgid "Settings"
 msgstr "הגדרות"
 
-#: src/pages/Login/Login.tsx:84 src/pages/Sign up/Signup.tsx:145
+#: src/pages/Login/Login.tsx:84
+#: src/pages/Sign up/Signup.tsx:145
 msgid "Sign up"
 msgstr "הרשמה"
 
@@ -340,10 +474,12 @@ msgid "Skip"
 msgstr "דלג"
 
 #: src/pages/Email-code/EmailCode.tsx:37
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:38
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
-#: src/pages/ResetPassword/Success/Success.tsx:36 src/pages/Sign
-#: up/Signup.tsx:73
+#: src/pages/ResetPassword/Success/Success.tsx:36
+#: src/pages/Sign up/Signup.tsx:73
 msgid "Something went wrong"
 msgstr "משהו השתבש"
 
@@ -355,6 +491,10 @@ msgstr "משהו השתבש😮"
 msgid "something wrong with steps!"
 msgstr "משהו לא בסדר בצעדים!"
 
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:53
+msgid "Sorry there is no apartment"
+msgstr "מצטער שאין דירה"
+
 #: src/pages/ResetPassword/Success/Success.tsx:47
 msgid "Success!"
 msgstr "הַצלָחָה!"
@@ -363,6 +503,10 @@ msgstr "הַצלָחָה!"
 msgid "summary"
 msgstr "סיכום"
 
+#: src/components/DonateDialog/DonateDialog.tsx:15
+msgid "Support us"
+msgstr "תמכו בנו"
+
 #: src/pages/Profile/Settings/Settings.tsx:60
 msgid "Switch to English"
 msgstr "החלף לאנגלית (English)"
@@ -370,6 +514,10 @@ msgstr "החלף לאנגלית (English)"
 #: src/pages/Profile/Settings/Settings.tsx:59
 msgid "Switch to Hebrew"
 msgstr "עוברים לעברית"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:14
+msgid "System"
+msgstr "מערכת"
 
 #: src/pages/Registration/First step/FirstStep.tsx:36
 msgid "Tell us about yourself"
@@ -415,7 +563,27 @@ msgstr "לאמת"
 msgid "Verify your email"
 msgstr "לאמת את הדוא\"ל שלך"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:20
+msgid "With family"
+msgstr "עם משפחה"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:18
+msgid "With friends"
+msgstr "עם חברים"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:19
+msgid "With partner"
+msgstr "עם שותף"
+
+#: src/pages/Profile/Settings/Settings.tsx:119
+msgid "Yes"
+msgstr "כן"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:95
+msgid "Yes, delete my account"
+msgstr "כן, מחק את החשבון שלי"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:83
 msgid "You are trying to permanently delete your account. Are you sure about that?"
 msgstr "אתה מנסה למחוק לצמיתות את חשבונך. האם אתה בטוח לגבי זה?"
 
@@ -426,3 +594,11 @@ msgstr "אתה יכול לשלוח אחד חדש לאחר {timer} שניות"
 #: src/pages/Email-code/EmailCode.tsx:91
 msgid "You can send new one in {timeLeft} seconds"
 msgstr "את/ה יכול לשלוח חדש בתוך {timeLeft} שניות"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:51
+msgid "Your ad was removed from publication"
+msgstr "המודעה שלך הוסרה מהפרסום"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:36
+msgid "Your profile"
+msgstr "הפרופיל שלך"

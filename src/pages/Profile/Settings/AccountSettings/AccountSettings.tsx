@@ -35,7 +35,7 @@ const AccountSettings = (): JSX.Element => {
       setMessage({
         text: e instanceof Error
           ? e.message
-          : 'Something went wrong',
+          : t({ message: 'Something went wrong' }),
         severity: 'error',
         life: 5000,
         visible: true
@@ -57,8 +57,9 @@ const AccountSettings = (): JSX.Element => {
             questionnaireStore.deleteQuestionnaire()
             apartmentStore.deleteApartments()
             navigate('/profile')
-          }}
-        >Logout</Button>
+          }}>
+          <Trans>Logout</Trans>
+        </Button>
 
         <Button variant="outlined"
           color="error"
@@ -67,7 +68,9 @@ const AccountSettings = (): JSX.Element => {
           onClick={() => {
             setDeleteDialogVisible(true)
           }}
-        ><Trans>Delete your account</Trans></Button>
+        >
+          <Trans>Delete your account</Trans>
+        </Button>
       </Box>
 
       <Dialog open={deleteDialogVisible}
@@ -86,9 +89,11 @@ const AccountSettings = (): JSX.Element => {
           rowGap: '1rem'
         }}>
           <Button fullWidth variant='contained' onClick={() => { setDeleteDialogVisible(false) }} autoFocus>
-            No, I&apos;ve changed my mind
+            <Trans>No, I&apos;ve changed my mind</Trans>
           </Button>
-          <Button fullWidth variant="outlined" color='error' onClick={() => { void deleteAccount() }}>Yes, delete my account</Button>
+          <Button fullWidth variant="outlined" color='error' onClick={() => { void deleteAccount() }}>
+            <Trans>Yes, delete my account</Trans>
+          </Button>
         </DialogActions>
       </Dialog>
     </Box>
