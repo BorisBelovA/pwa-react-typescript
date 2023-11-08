@@ -65,6 +65,10 @@ msgstr "Add to Home Screen"
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:134
+msgid "Apartment Filters"
+msgstr "Apartment Filters"
+
 #: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:46
 msgid "Apartment preview"
 msgstr "Apartment preview"
@@ -102,6 +106,10 @@ msgstr "Bio"
 msgid "Birthday"
 msgstr "Birthday"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:281
+msgid "Budget in ₪"
+msgstr "Budget in ₪"
+
 #: src/pages/Profile/AboutMe/Preview/Preview.tsx:17
 #: src/pages/Profile/AboutMe/Preview/Preview.tsx:55
 msgid "By self"
@@ -119,6 +127,10 @@ msgstr "Can't save without session token"
 msgid "Change"
 msgstr "Change"
 
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:77
+msgid "Change filters"
+msgstr "Change filters"
+
 #: src/pages/Registration/Fifth step/FifthStep.tsx:21
 msgid "Check your data"
 msgstr "Check your data"
@@ -126,6 +138,18 @@ msgstr "Check your data"
 #: src/pages/Sign up/Signup.tsx:58
 msgid "Checking email"
 msgstr "Checking email"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:259
+msgid "Choose a city"
+msgstr "Choose a city"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:175
+msgid "Choose a country"
+msgstr "Choose a country"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:216
+msgid "Choose a district"
+msgstr "Choose a district"
 
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:34
 msgid "Choose preferred color theme"
@@ -138,6 +162,10 @@ msgstr "Choose preferred color theme"
 #: src/pages/Intro/PathSelection/PathSelection.tsx:28
 msgid "Choose what you want to do"
 msgstr "Choose what you want to do"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:229
+msgid "City"
+msgstr "City"
 
 #: src/components/DonateDialog/DonateDialog.tsx:26
 msgid "Close"
@@ -170,6 +198,14 @@ msgstr "Confirm and proceed"
 msgid "Confirm password"
 msgstr "Confirm password"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:139
+msgid "Country"
+msgstr "Country"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:174
+msgid "Country is required"
+msgstr "Country is required"
+
 #: src/pages/Registration/Layout.tsx:185
 msgid "Create Account"
 msgstr "Create Account"
@@ -186,6 +222,10 @@ msgstr "Dark"
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
 msgid "Delete your account"
 msgstr "Delete your account"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:188
+msgid "District"
+msgstr "District"
 
 #: src/pages/Profile/Settings/Settings.tsx:111
 msgid "Do you want to install \"Roommate\" on your home screen?"
@@ -227,6 +267,7 @@ msgstr "F"
 msgid "Female"
 msgstr "Female"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:313
 #: src/pages/Intro/PathSelection/PathSelection.tsx:41
 msgid "Find apartments"
 msgstr "Find apartments"
@@ -251,6 +292,7 @@ msgstr "First name is required"
 msgid "for {0}"
 msgstr "for {0}"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
 msgid "For refugees"
 msgstr "For refugees"
@@ -262,6 +304,10 @@ msgstr "Forgot password"
 #: src/pages/Login/Login.tsx:125
 msgid "Forgot password?"
 msgstr "Forgot password?"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:284
+msgid "From"
+msgstr "From"
 
 #: src/components/BasicInfoSteps/About.tsx:36
 #: src/components/BasicInfoSteps/About.tsx:43
@@ -311,6 +357,10 @@ msgstr "Last name is required"
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:12
 msgid "Light"
 msgstr "Light"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:74
+msgid "Load more"
+msgstr "Load more"
 
 #: src/pages/Login/Login.tsx:82
 #: src/pages/Login/Login.tsx:120
@@ -460,6 +510,10 @@ msgstr "Rent out apartment/room"
 msgid "Required"
 msgstr "Required"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:310
+msgid "Reset filters"
+msgstr "Reset filters"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:78
 #: src/pages/ResetPassword/Reset/Reset.tsx:150
 msgid "Reset password"
@@ -469,9 +523,9 @@ msgstr "Reset password"
 msgid "Save"
 msgstr "Save"
 
-#: src/pages/ApartmentSearch/ApartmentSearch.tsx:70
-#~ msgid "Search for apartments"
-#~ msgstr "Search for apartments"
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:63
+msgid "Search for apartments"
+msgstr "Search for apartments"
 
 #: src/pages/Profile/Profile.tsx:148
 msgid "Select photo"
@@ -507,6 +561,8 @@ msgstr "Sign Up"
 msgid "Skip"
 msgstr "Skip"
 
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:26
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:52
 #: src/pages/Email-code/EmailCode.tsx:37
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:38
@@ -532,6 +588,10 @@ msgstr "something wrong with steps!"
 #: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:53
 msgid "Sorry there is no apartment"
 msgstr "Sorry there is no apartment"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:76
+msgid "Sorry, can't find more apartments"
+msgstr "Sorry, can't find more apartments"
 
 #: src/pages/ResetPassword/Success/Success.tsx:47
 msgid "Success!"
@@ -564,6 +624,18 @@ msgstr "Tell us about yourself"
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:13
 msgid "Terms of service"
 msgstr "Terms of service"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:325
+msgid "This field is optional"
+msgstr "This field is optional"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:296
+msgid "To"
+msgstr "To"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:78
+msgid "Try again"
+msgstr "Try again"
 
 #: src/pages/Email-code/EmailCode.tsx:68
 msgid "Unable to send email again"

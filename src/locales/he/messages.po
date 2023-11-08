@@ -21,8 +21,7 @@ msgstr "קוד אימות נשלח אליך"
 msgid "A verification code has been sent to your mobile device"
 msgstr "קוד אימות נשלח למכשיר הנייד שלך"
 
-#: src/pages/Profile/AboutMe/AboutMe.tsx:76
-#: src/pages/Profile/Profile.tsx:127
+#: src/pages/Profile/AboutMe/AboutMe.tsx:76 src/pages/Profile/Profile.tsx:127
 msgid "About me"
 msgstr "עליי"
 
@@ -51,6 +50,10 @@ msgstr "הוסף למסך הבית"
 msgid "Already have an account?"
 msgstr "כבר יש לך חשבון?"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:134
+msgid "Apartment Filters"
+msgstr "מסננים לדירה"
+
 #: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:46
 msgid "Apartment preview"
 msgstr "תצוגה מקדימה של דירה"
@@ -76,13 +79,13 @@ msgstr "מידע בסיסי"
 msgid "Bio"
 msgstr "ביו"
 
-#: src/components/BasicInfoSteps/About.tsx:61
-#~ msgid "Birthdate"
-#~ msgstr "יום הולדת"
-
 #: src/components/BasicInfoSteps/About.tsx:67
 msgid "Birthday"
 msgstr "יום הולדת"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:281
+msgid "Budget in ₪"
+msgstr "תקציב ב₪"
 
 #: src/pages/Profile/AboutMe/Preview/Preview.tsx:17
 #: src/pages/Profile/AboutMe/Preview/Preview.tsx:55
@@ -101,6 +104,10 @@ msgstr "לא ניתן לשמור ללא אסימון הפעלה"
 msgid "Change"
 msgstr "שינוי"
 
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:77
+msgid "Change filters"
+msgstr "לשנות מסננים"
+
 #: src/pages/Registration/Fifth step/FifthStep.tsx:21
 msgid "Check your data"
 msgstr "לבדוק את הנתונים שלך"
@@ -108,6 +115,18 @@ msgstr "לבדוק את הנתונים שלך"
 #: src/pages/Sign up/Signup.tsx:58
 msgid "Checking email"
 msgstr "בודק אימייל"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:259
+msgid "Choose a city"
+msgstr "בחר עיר"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:175
+msgid "Choose a country"
+msgstr "בחר מדינה"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:216
+msgid "Choose a district"
+msgstr "בחר מחוז"
 
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:34
 msgid "Choose preferred color theme"
@@ -117,12 +136,15 @@ msgstr "בחר נושא צבע מועדף"
 msgid "Choose what you want to do"
 msgstr "לבחור מה את/ה רוצה לעשות"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:229
+msgid "City"
+msgstr "עיר"
+
 #: src/components/DonateDialog/DonateDialog.tsx:26
 msgid "Close"
 msgstr "סגור"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:103
-#: src/pages/Sign up/Signup.tsx:103
+#: src/pages/ResetPassword/Reset/Reset.tsx:103 src/pages/Sign up/Signup.tsx:103
 msgid "Code is required"
 msgstr "קוד נדרש"
 
@@ -143,10 +165,17 @@ msgstr "אשר ובחר אווטאר"
 msgid "Confirm and proceed"
 msgstr "לאשר ולהמשיך"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:120
-#: src/pages/Sign up/Signup.tsx:117
+#: src/pages/ResetPassword/Reset/Reset.tsx:120 src/pages/Sign up/Signup.tsx:117
 msgid "Confirm password"
 msgstr "אשר סיסמה"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:139
+msgid "Country"
+msgstr "מדינה"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:174
+msgid "Country is required"
+msgstr "נדרשת מדינה"
 
 #: src/pages/Registration/Layout.tsx:185
 msgid "Create Account"
@@ -165,6 +194,10 @@ msgstr "אפל"
 msgid "Delete your account"
 msgstr "תמחק את החשבון שלך"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:188
+msgid "District"
+msgstr "מחוז"
+
 #: src/pages/Profile/Settings/Settings.tsx:111
 msgid "Do you want to install \"Roommate\" on your home screen?"
 msgstr "האם אתה רוצה להתקין \"שותף לחדר\" על מסך הבית שלך?"
@@ -177,8 +210,7 @@ msgstr "לִתְרוֹם"
 msgid "donation"
 msgstr "תרומה"
 
-#: src/pages/Login/Login.tsx:87
-#: src/pages/ResetPassword/GetCode/GetCode.tsx:62
+#: src/pages/Login/Login.tsx:87 src/pages/ResetPassword/GetCode/GetCode.tsx:62
 #: src/pages/Sign up/Signup.tsx:87
 msgid "E-mail"
 msgstr "דואר אלקטרוני"
@@ -187,8 +219,7 @@ msgstr "דואר אלקטרוני"
 msgid "Edit"
 msgstr "לַעֲרוֹך"
 
-#: src/pages/Login/Login.tsx:93
-#: src/pages/ResetPassword/GetCode/GetCode.tsx:68
+#: src/pages/Login/Login.tsx:93 src/pages/ResetPassword/GetCode/GetCode.tsx:68
 #: src/pages/Sign up/Signup.tsx:93
 msgid "Email is required"
 msgstr "נדרש אימייל"
@@ -205,6 +236,7 @@ msgstr "נקבה"
 msgid "Female"
 msgstr "נקבה"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:313
 #: src/pages/Intro/PathSelection/PathSelection.tsx:41
 msgid "Find apartments"
 msgstr "למצוא דירה"
@@ -229,6 +261,7 @@ msgstr "נדרש שם פרטי"
 msgid "for {0}"
 msgstr "עבור {0}"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
 msgid "For refugees"
 msgstr "עבור פליטים"
@@ -240,6 +273,10 @@ msgstr "שכחת את הסיסמא"
 #: src/pages/Login/Login.tsx:125
 msgid "Forgot password?"
 msgstr "שכחתי סיסמה?"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:284
+msgid "From"
+msgstr "מ"
 
 #: src/components/BasicInfoSteps/About.tsx:36
 #: src/components/BasicInfoSteps/About.tsx:43
@@ -286,10 +323,13 @@ msgstr "נדרש שם משפחה"
 msgid "Light"
 msgstr "אוֹר"
 
-#: src/pages/Login/Login.tsx:82
-#: src/pages/Login/Login.tsx:120
-#: src/pages/ResetPassword/Success/Success.tsx:55
-#: src/pages/Sign up/Signup.tsx:83
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:74
+msgid "Load more"
+msgstr "להעמיס עוד"
+
+#: src/pages/Login/Login.tsx:82 src/pages/Login/Login.tsx:120
+#: src/pages/ResetPassword/Success/Success.tsx:55 src/pages/Sign
+#: up/Signup.tsx:83
 msgid "Log in"
 msgstr "כניסה"
 
@@ -355,8 +395,7 @@ msgstr "לא זמין"
 msgid "Now you can log in with your new password"
 msgstr "עכשיו אתה יכול להיכנס עם הסיסמה החדשה שלך"
 
-#: src/pages/Login/Login.tsx:96
-#: src/pages/ResetPassword/Reset/Reset.tsx:96
+#: src/pages/Login/Login.tsx:96 src/pages/ResetPassword/Reset/Reset.tsx:96
 #: src/pages/Sign up/Signup.tsx:96
 msgid "Password"
 msgstr "סיסמה"
@@ -365,8 +404,7 @@ msgstr "סיסמה"
 msgid "Password is required"
 msgstr "דרושה סיסמא"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:130
-#: src/pages/Sign up/Signup.tsx:127
+#: src/pages/ResetPassword/Reset/Reset.tsx:130 src/pages/Sign up/Signup.tsx:127
 msgid "Passwords won't match"
 msgstr "הסיסמאות לא יתאימו"
 
@@ -430,6 +468,10 @@ msgstr "להשכיר דירה/חדר"
 msgid "Required"
 msgstr "נדרש"
 
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:310
+msgid "Reset filters"
+msgstr "אפס מסננים"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:78
 #: src/pages/ResetPassword/Reset/Reset.tsx:150
 msgid "Reset password"
@@ -438,6 +480,10 @@ msgstr "לאפס את הסיסמה"
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
 msgid "Save"
 msgstr "להציל"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:63
+msgid "Search for apartments"
+msgstr "לחפש דירות"
 
 #: src/pages/Profile/Profile.tsx:148
 msgid "Select photo"
@@ -455,13 +501,11 @@ msgstr "שלח שוב"
 msgid "Sending code"
 msgstr "שולח קוד"
 
-#: src/pages/Profile/Profile.tsx:136
-#: src/pages/Profile/Settings/Settings.tsx:72
+#: src/pages/Profile/Profile.tsx:136 src/pages/Profile/Settings/Settings.tsx:72
 msgid "Settings"
 msgstr "הגדרות"
 
-#: src/pages/Login/Login.tsx:84
-#: src/pages/Sign up/Signup.tsx:145
+#: src/pages/Login/Login.tsx:84 src/pages/Sign up/Signup.tsx:145
 msgid "Sign up"
 msgstr "הרשמה"
 
@@ -473,13 +517,15 @@ msgstr "הרשמה"
 msgid "Skip"
 msgstr "דלג"
 
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:26
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:52
 #: src/pages/Email-code/EmailCode.tsx:37
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:38
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
-#: src/pages/ResetPassword/Success/Success.tsx:36
-#: src/pages/Sign up/Signup.tsx:73
+#: src/pages/ResetPassword/Success/Success.tsx:36 src/pages/Sign
+#: up/Signup.tsx:73
 msgid "Something went wrong"
 msgstr "משהו השתבש"
 
@@ -494,6 +540,10 @@ msgstr "משהו לא בסדר בצעדים!"
 #: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:53
 msgid "Sorry there is no apartment"
 msgstr "מצטער שאין דירה"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:76
+msgid "Sorry, can't find more apartments"
+msgstr "מצטער, לא מוצא עוד דירות"
 
 #: src/pages/ResetPassword/Success/Success.tsx:47
 msgid "Success!"
@@ -526,6 +576,18 @@ msgstr "ספר לנו על עצמך"
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:13
 msgid "Terms of service"
 msgstr "תנאים והגבלות"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:325
+msgid "This field is optional"
+msgstr "שדה זה הוא אופציונלי"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:296
+msgid "To"
+msgstr "ל"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:78
+msgid "Try again"
+msgstr "נסה שוב"
 
 #: src/pages/Email-code/EmailCode.tsx:68
 msgid "Unable to send email again"
@@ -602,3 +664,6 @@ msgstr "המודעה שלך הוסרה מהפרסום"
 #: src/pages/Profile/AboutMe/Preview/Preview.tsx:36
 msgid "Your profile"
 msgstr "הפרופיל שלך"
+
+#~ msgid "Birthdate"
+#~ msgstr "יום הולדת"
