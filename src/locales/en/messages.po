@@ -23,6 +23,18 @@ msgstr ""
 #~ msgid "Switch to English"
 #~ msgstr "Switch to English"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:50
+msgid "{0} out of {1} rooms available"
+msgstr "{0} out of {1} rooms available"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
+msgid "{0} per room"
+msgstr "{0} per room"
+
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:32
+msgid "{0} rooms"
+msgstr "{0} rooms"
+
 #: src/pages/Profile/Settings/Settings.tsx:78
 #~ msgid "{switchToLanguageButtonText}"
 #~ msgstr "{switchToLanguageButtonText}"
@@ -73,9 +85,9 @@ msgstr "Apartment Filters"
 msgid "Apartment preview"
 msgstr "Apartment preview"
 
-#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:46
-#~ msgid "Appartment preview"
-#~ msgstr "Appartment preview"
+#: src/pages/ApartmentSearch/Apartment/Apartment.tsx:51
+msgid "Appartment preview"
+msgstr "Appartment preview"
 
 #: src/components/BasicInfoSteps/Photo.tsx:83
 msgid "Avatar photo"
@@ -115,9 +127,17 @@ msgstr "Budget in ₪"
 msgid "By self"
 msgstr "By self"
 
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:33
+msgid "Can accept {0} people"
+msgstr "Can accept {0} people"
+
 #: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:30
 msgid "Can't get apartment"
 msgstr "Can't get apartment"
+
+#: src/pages/ApartmentSearch/Apartment/Apartment.tsx:35
+msgid "Can't get apartment {id}"
+msgstr "Can't get apartment {id}"
 
 #: src/pages/Profile/Profile.tsx:56
 msgid "Can't save without session token"
@@ -245,6 +265,7 @@ msgstr "donation"
 msgid "E-mail"
 msgstr "E-mail"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:38
 #: src/pages/Registration/Fifth step/FifthStep.tsx:63
 msgid "Edit"
 msgstr "Edit"
@@ -288,10 +309,19 @@ msgstr "First name"
 msgid "First name is required"
 msgstr "First name is required"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+msgid "for"
+msgstr "for"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:79
 msgid "for {0}"
 msgstr "for {0}"
 
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
+msgid "for refugee"
+msgstr "for refugee"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
 msgid "For refugees"
@@ -415,6 +445,11 @@ msgstr "No email or password provided!"
 msgid "No email provided!"
 msgstr "No email provided!"
 
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:22
+#: src/components/Cards/CardBase/CardBase.tsx:65
+msgid "No photo"
+msgstr "No photo"
+
 #: src/pages/Registration/Layout.tsx:84
 msgid "No session token provided"
 msgstr "No session token provided"
@@ -446,6 +481,14 @@ msgstr "Password is required"
 msgid "Passwords won't match"
 msgstr "Passwords won't match"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+msgid "people"
+msgstr "people"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+msgid "person"
+msgstr "person"
+
 #: src/pages/Registration/Layout.tsx:25
 msgid "personal"
 msgstr "personal"
@@ -458,6 +501,7 @@ msgstr "Personal Info"
 msgid "phone"
 msgstr "phone"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:64
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
 msgid "Phone"
 msgstr "Phone"
@@ -518,6 +562,14 @@ msgstr "Reset filters"
 #: src/pages/ResetPassword/Reset/Reset.tsx:150
 msgid "Reset password"
 msgstr "Reset password"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+msgid "room"
+msgstr "room"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+msgid "rooms"
+msgstr "rooms"
 
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
 msgid "Save"
@@ -585,6 +637,7 @@ msgstr "Something went wrong😮"
 msgid "something wrong with steps!"
 msgstr "something wrong with steps!"
 
+#: src/pages/ApartmentSearch/Apartment/Apartment.tsx:57
 #: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:53
 msgid "Sorry there is no apartment"
 msgstr "Sorry there is no apartment"

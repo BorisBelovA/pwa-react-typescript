@@ -13,6 +13,18 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.1\n"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:50
+msgid "{0} out of {1} rooms available"
+msgstr "{0} חדר אחד ל-{1} אנשים"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
+msgid "{0} per room"
+msgstr "{0} ₪ לחדר"
+
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:32
+msgid "{0} rooms"
+msgstr "{0} חדרים"
+
 #: src/pages/Email-code/EmailCode.tsx:89
 msgid "A verification code has been sent to you"
 msgstr "קוד אימות נשלח אליך"
@@ -58,6 +70,10 @@ msgstr "מסננים לדירה"
 msgid "Apartment preview"
 msgstr "תצוגה מקדימה של דירה"
 
+#: src/pages/ApartmentSearch/Apartment/Apartment.tsx:51
+msgid "Appartment preview"
+msgstr "תצוגה מקדימה של דירה"
+
 #: src/components/BasicInfoSteps/Photo.tsx:83
 msgid "Avatar photo"
 msgstr "תמונת אווטאר"
@@ -92,9 +108,17 @@ msgstr "תקציב ב₪"
 msgid "By self"
 msgstr "בעצמי"
 
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:33
+msgid "Can accept {0} people"
+msgstr "יכול לקבל {0} אנשים"
+
 #: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:30
 msgid "Can't get apartment"
 msgstr "לא יכול להשיג דירה"
+
+#: src/pages/ApartmentSearch/Apartment/Apartment.tsx:35
+msgid "Can't get apartment {id}"
+msgstr "לא ניתן להשיג דירה {id}"
 
 #: src/pages/Profile/Profile.tsx:56
 msgid "Can't save without session token"
@@ -215,6 +239,7 @@ msgstr "תרומה"
 msgid "E-mail"
 msgstr "דואר אלקטרוני"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:38
 #: src/pages/Registration/Fifth step/FifthStep.tsx:63
 msgid "Edit"
 msgstr "לַעֲרוֹך"
@@ -257,10 +282,19 @@ msgstr "שם פרטי"
 msgid "First name is required"
 msgstr "נדרש שם פרטי"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+msgid "for"
+msgstr "ל"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:79
 msgid "for {0}"
 msgstr "עבור {0}"
 
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
+msgid "for refugee"
+msgstr "עבור פליטים"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
 msgid "For refugees"
@@ -379,6 +413,11 @@ msgstr "לא סופקו אימייל או סיסמה!"
 msgid "No email provided!"
 msgstr "לא סופק אימייל!"
 
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:22
+#: src/components/Cards/CardBase/CardBase.tsx:65
+msgid "No photo"
+msgstr "אין תמונה"
+
 #: src/pages/Registration/Layout.tsx:84
 msgid "No session token provided"
 msgstr "לא סופק אסימון הפעלה"
@@ -408,6 +447,14 @@ msgstr "דרושה סיסמא"
 msgid "Passwords won't match"
 msgstr "הסיסמאות לא יתאימו"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+msgid "people"
+msgstr "אֲנָשִׁים"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+msgid "person"
+msgstr "אדם"
+
 #: src/pages/Registration/Layout.tsx:25
 msgid "personal"
 msgstr "אישי"
@@ -420,6 +467,7 @@ msgstr "מידע אישי"
 msgid "phone"
 msgstr "טלפון"
 
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:64
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
 msgid "Phone"
 msgstr "טלפון"
@@ -476,6 +524,14 @@ msgstr "אפס מסננים"
 #: src/pages/ResetPassword/Reset/Reset.tsx:150
 msgid "Reset password"
 msgstr "לאפס את הסיסמה"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+msgid "room"
+msgstr "חֶדֶר"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+msgid "rooms"
+msgstr "חדרים"
 
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
 msgid "Save"
@@ -537,6 +593,7 @@ msgstr "משהו השתבש😮"
 msgid "something wrong with steps!"
 msgstr "משהו לא בסדר בצעדים!"
 
+#: src/pages/ApartmentSearch/Apartment/Apartment.tsx:57
 #: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:53
 msgid "Sorry there is no apartment"
 msgstr "מצטער שאין דירה"

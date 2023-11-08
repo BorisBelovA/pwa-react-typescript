@@ -8,6 +8,7 @@ import CardFullApartment from 'src/components/Cards/CardFullApartment/CardFullAp
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { type Apartment as ApartmentModel } from 'src/models/apartment'
 import commonStyles from 'src/pages/Profile/Profile.module.scss'
+import { t } from '@lingui/macro'
 
 const Apartment = (): JSX.Element => {
   const [apartment, setApartment] = useState<ApartmentModel>()
@@ -31,7 +32,7 @@ const Apartment = (): JSX.Element => {
       console.log(error)
       setMessage({
         visible: true,
-        text: `Can't get apartment ${id}`,
+        text: t`Can't get apartment ${id}`,
         severity: 'error'
       })
     }
@@ -47,13 +48,13 @@ const Apartment = (): JSX.Element => {
     <>
       <Box className={commonStyles.profile__header}>
         <BackButton />
-        <Typography variant='h1'>{apartment?.name ?? 'Appartment preview'}</Typography>
+        <Typography variant='h1'>{apartment?.name ?? t`Appartment preview`}</Typography>
       </Box>
       {id
         ? apartment
           ? <CardFullApartment apartment={apartment} />
           : <Skeleton variant="rounded" width={'100%'} height={'100%'} sx={{ marginTop: '1rem', borderRadius: '1rem' }} />
-        : <Typography>Sorry there is no apartment</Typography>
+        : <Typography>{t`Sorry there is no apartment`}</Typography>
       }
     </>
   )
