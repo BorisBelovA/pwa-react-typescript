@@ -81,15 +81,17 @@ const Reset = (): JSX.Element => {
 
       <Box className={`${styles.form__input} ${styles.center}`}>
         <Typography>{t`Enter code from your email`}</Typography>
-        <OtpInput
-          value={otp}
-          onChange={setOtp}
-          placeholder='____'
-          isInputNum={true}
-          numInputs={4}
-          inputStyle={styles.otp}
-          containerStyle={styles.otp__container}
-        />
+        <div dir='ltr'>
+          <OtpInput
+            value={otp}
+            onChange={setOtp}
+            placeholder='____'
+            isInputNum={true}
+            numInputs={4}
+            inputStyle={styles.otp}
+            containerStyle={styles.otp__container}
+          />
+        </div>
       </Box>
 
       <Box className={styles.form__input}>
