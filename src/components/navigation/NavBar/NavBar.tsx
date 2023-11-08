@@ -9,15 +9,17 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined'
 import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined'
 
+import { t } from '@lingui/macro'
+
 const NavBar: React.FunctionComponent = () => {
   const [locBase, setLocBase] = useState('')
   const location = useLocation()
   const menu = [
-    { to: '/profile', label: 'Profile', icon: <AccountCircleOutlinedIcon />, value: 'profile' },
-    { to: '/apartment-search', label: 'Apartments', icon: <MapsHomeWorkOutlinedIcon />, value: 'apartment-search' },
-    { to: '/search', label: 'Search', icon: <SearchOutlinedIcon />, value: 'search' },
-    { to: '/match', label: 'Matches', icon: <FavoriteBorderOutlinedIcon />, value: 'match' },
-    { to: SettingsRoutes.FEEDBACK, label: 'Feedback', icon: <ContactSupportOutlinedIcon />, value: SettingsRoutes.FEEDBACK }
+    { to: '/profile', label: t`Profile`, icon: <AccountCircleOutlinedIcon />, value: 'profile' },
+    { to: '/apartment-search', label: t`Apartments`, icon: <MapsHomeWorkOutlinedIcon />, value: 'apartment-search' },
+    { to: '/search', label: t`Search`, icon: <SearchOutlinedIcon />, value: 'search' },
+    { to: '/match', label: t`Matches`, icon: <FavoriteBorderOutlinedIcon />, value: 'match' },
+    { to: SettingsRoutes.FEEDBACK, label: t`Feedback`, icon: <ContactSupportOutlinedIcon />, value: SettingsRoutes.FEEDBACK }
   ]
 
   useEffect(() => {

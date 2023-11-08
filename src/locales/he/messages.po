@@ -70,6 +70,10 @@ msgstr "מסננים לדירה"
 msgid "Apartment preview"
 msgstr "תצוגה מקדימה של דירה"
 
+#: src/components/navigation/NavBar/NavBar.tsx:19
+msgid "Apartments"
+msgstr "דירות"
+
 #: src/pages/ApartmentSearch/Apartment/Apartment.tsx:51
 msgid "Appartment preview"
 msgstr "תצוגה מקדימה של דירה"
@@ -257,6 +261,10 @@ msgstr "הזן קוד מהמייל שלך"
 msgid "F"
 msgstr "נקבה"
 
+#: src/components/navigation/NavBar/NavBar.tsx:22
+msgid "Feedback"
+msgstr "משוב"
+
 #: src/pages/Registration/Fifth step/FifthStep.tsx:30
 msgid "Female"
 msgstr "נקבה"
@@ -387,6 +395,10 @@ msgstr "זכר"
 msgid "Male"
 msgstr "זכר"
 
+#: src/components/navigation/NavBar/NavBar.tsx:21
+msgid "Matches"
+msgstr "התאמות"
+
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:78
 #: src/pages/Profile/Profile.tsx:131
 msgid "My apartments"
@@ -492,6 +504,10 @@ msgstr "אנא הכנס את האימייל שלך ואנו נשלח לך קוד
 msgid "Preview"
 msgstr "תצוגה מקדימה"
 
+#: src/components/navigation/NavBar/NavBar.tsx:18
+msgid "Profile"
+msgstr "פרופיל"
+
 #: src/components/BasicInfoSteps/Photo.tsx:73
 msgid "Profile photo"
 msgstr "תמונת פרופיל"
@@ -536,6 +552,10 @@ msgstr "חדרים"
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
 msgid "Save"
 msgstr "להציל"
+
+#: src/components/navigation/NavBar/NavBar.tsx:20
+msgid "Search"
+msgstr "למצוא"
 
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:63
 msgid "Search for apartments"

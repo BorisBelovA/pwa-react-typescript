@@ -85,6 +85,10 @@ msgstr "Apartment Filters"
 msgid "Apartment preview"
 msgstr "Apartment preview"
 
+#: src/components/navigation/NavBar/NavBar.tsx:19
+msgid "Apartments"
+msgstr "Apartments"
+
 #: src/pages/ApartmentSearch/Apartment/Apartment.tsx:51
 msgid "Appartment preview"
 msgstr "Appartment preview"
@@ -284,6 +288,10 @@ msgstr "Enter code from your email"
 msgid "F"
 msgstr "F"
 
+#: src/components/navigation/NavBar/NavBar.tsx:22
+msgid "Feedback"
+msgstr "Feedback"
+
 #: src/pages/Registration/Fifth step/FifthStep.tsx:30
 msgid "Female"
 msgstr "Female"
@@ -419,6 +427,10 @@ msgstr "M"
 msgid "Male"
 msgstr "Male"
 
+#: src/components/navigation/NavBar/NavBar.tsx:21
+msgid "Matches"
+msgstr "Matches"
+
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:78
 #: src/pages/Profile/Profile.tsx:131
 msgid "My apartments"
@@ -526,6 +538,10 @@ msgstr "Please enter your email and we will send you a code to reset your passwo
 msgid "Preview"
 msgstr "Preview"
 
+#: src/components/navigation/NavBar/NavBar.tsx:18
+msgid "Profile"
+msgstr "Profile"
+
 #: src/components/BasicInfoSteps/Photo.tsx:73
 msgid "Profile photo"
 msgstr "Profile photo"
@@ -574,6 +590,10 @@ msgstr "rooms"
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
 msgid "Save"
 msgstr "Save"
+
+#: src/components/navigation/NavBar/NavBar.tsx:20
+msgid "Search"
+msgstr "Search"
 
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:63
 msgid "Search for apartments"
