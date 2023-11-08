@@ -75,21 +75,22 @@ export const EmailCode = observer((): JSX.Element => {
 
   return <>
     <Typography variant='h2'>{t`Verify your email`}</Typography>
-
-    <OtpInput
-      value={otp}
-      onChange={setOtp}
-      isInputNum={true}
-      numInputs={4}
-      separator={<span className={styles.separator}>-</span>}
-      inputStyle={styles.otp}
-      containerStyle={styles.otp_container}
-    />
+    <div dir='ltr'>
+      <OtpInput
+        value={otp}
+        onChange={setOtp}
+        isInputNum={true}
+        numInputs={4}
+        separator={<span className={styles.separator}>-</span>}
+        inputStyle={styles.otp}
+        containerStyle={styles.otp_container}
+      />
+    </div>
 
     <Typography variant='subtitle2'>{t`A verification code has been sent to you`}</Typography>
 
     {timeLeft > 0 && <Typography variant='body1'>{t`You can send new one in ${timeLeft} seconds`}</Typography>}
-    {timeLeft === 0 && <Button onClick={ () => { void sendAgain() }}>{t`Send again`}</Button>}
+    {timeLeft === 0 && <Button onClick={() => { void sendAgain() }}>{t`Send again`}</Button>}
 
     <Button fullWidth
       disabled={otp.length !== 4}
