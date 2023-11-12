@@ -14,15 +14,13 @@ import { type IBeforeInstallPromptEvent, PromptToInstall } from './context/promp
 import ReactGA from 'react-ga4'
 import { YMInitializer } from '@appigram/react-yandex-metrika'
 
-import { i18n } from "@lingui/core"
-import { I18nProvider } from "@lingui/react"
-import { messages as messagesEng } from "./locales/en/messages"
-import { messages as messagesHe } from "./locales/he/messages"
-import { DOCUMENT_DIRECTION_KEY, Direction, useDocumentDirection } from './context/documentDirection'
+import { i18n } from '@lingui/core'
+import { I18nProvider } from '@lingui/react'
+import { messages as messagesEng } from './locales/en/messages'
+import { DOCUMENT_DIRECTION_KEY, type Direction, useDocumentDirection } from './context/documentDirection'
 import { DOCUMENT_LANGUAGE_KEY, useDocumentLanguage } from './context/documentLanguage'
 
-i18n.load("en", messagesEng)
-i18n.load("he", messagesHe)
+i18n.load('en', messagesEng)
 i18n.activate('en')
 
 configure({ enforceActions: 'always' })
@@ -64,7 +62,7 @@ const App = (): JSX.Element => {
 
     const savedDocumentLanguage = localStorage.getItem(DOCUMENT_LANGUAGE_KEY)
     if (savedDocumentLanguage) {
-      setDocumentLanguage(savedDocumentLanguage ?? 'en')
+      void setDocumentLanguage(savedDocumentLanguage ?? 'en')
     }
   }, [])
 
@@ -80,7 +78,7 @@ const App = (): JSX.Element => {
       />
     }
     <I18nProvider i18n={i18n}>
-      <BrowserRouter basename="/">
+      <BrowserRouter basename='/'>
         <StoreProvider store={store}>
           <PromptToInstall.Provider value={{ deferredEvt, hidePrompt }}>
             <CustomThemeProvider>
