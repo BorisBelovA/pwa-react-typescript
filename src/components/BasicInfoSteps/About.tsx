@@ -24,11 +24,11 @@ const About = ({ errors, register, control, user }: Props): JSX.Element => {
         })}
         helperText={errors.firstName?.message ?? ''} />
 
-      <TextField fullWidth label={t({ message: 'Last name'})}
+      <TextField fullWidth label={t({ message: 'Last name' })}
         error={!(errors.lastName == null)}
         variant='outlined'
         size='small'
-        {...register('lastName', { required: t({message:'Last name is required'}) })}
+        {...register('lastName', { required: t({ message: 'Last name is required' }) })}
         helperText={errors.lastName?.message ?? ''} />
 
       <FormControl fullWidth size='small'>
@@ -40,7 +40,7 @@ const About = ({ errors, register, control, user }: Props): JSX.Element => {
             <Select labelId='gender-select-label'
               id='gender-select'
               defaultValue={user.gender}
-              label={t({message: 'Gender'})}
+              label={t({ message: 'Gender' })}
               onChange={onChange} // send value to hook form
               onBlur={onBlur} // notify when input is touched
               value={value} // return updated value
@@ -64,7 +64,7 @@ const About = ({ errors, register, control, user }: Props): JSX.Element => {
         render={({ field: { onChange, onBlur, value, ref } }) => (
           <LocalizationProvider dateAdapter={AdapterMoment}>
             <MobileDatePicker
-              label={t({message:'Birthday'})}
+              label={t({ message: 'Birthday' })}
               inputFormat='MM/DD/YYYY'
               {...register('birthday')}
               value={value}

@@ -47,7 +47,9 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
     }
     {
       apartment.totalPrice > 0 &&
-      <Typography color='constantLight.main'>{t`${apartment.countAvailableRooms} out of ${apartment.countRooms} rooms available`}</Typography>
+      <Typography color='constantLight.main'>
+        {t`${apartment.countAvailableRooms} out of ${apartment.countRooms} rooms available`}
+      </Typography>
     }
   </>)
 
