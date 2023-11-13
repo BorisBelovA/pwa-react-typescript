@@ -13,6 +13,7 @@ import { ReactComponent as OtherSvg } from '../../../../assets/icons/pets/Other.
 import { type PetType, type Pet, QuestionnaireRoutes } from 'models'
 import PetList from 'src/components/PetList/PetList'
 import { useEffect, useMemo } from 'react'
+import { t } from '@lingui/macro'
 
 const Pets: React.FunctionComponent = () => {
   const navigate = useNavigate()
@@ -82,7 +83,7 @@ const Pets: React.FunctionComponent = () => {
   return (
     <Box className={styles.question}>
       <Box className={styles.question__head}>
-        <Typography className={styles.question__head_text} variant='h1'>Do you have pets?</Typography>
+        <Typography className={styles.question__head_text} variant='h1'>{t`Do you have pets?`}</Typography>
         <ToggleButtonGroup
           size='small'
           color='primary'
@@ -91,14 +92,14 @@ const Pets: React.FunctionComponent = () => {
           onChange={(e, value) => {
             setQuestions({ ...questions, havePets: value })
           }}>
-          <ToggleButton value={false}>no</ToggleButton>
-          <ToggleButton value={true}>yes</ToggleButton>
+          <ToggleButton value={false}>{t`no`}</ToggleButton>
+          <ToggleButton value={true}>{t`yes`}</ToggleButton>
         </ToggleButtonGroup>
       </Box>
       <Box className={styles.question__content}>
         {questions.havePets === true && (
           <><Box className={styles.question__input}>
-            <Typography variant='h2'>What pets?</Typography>
+            <Typography variant='h2'>{t`What pets?`}</Typography>
             <Box className={stylesPets.petsButtons}>{petTypes.map((pet, i) => (
               <PetButton key={i} onClick={() => { addPet(pet.type) }} icon={pet.icon} />
             ))}
@@ -119,14 +120,14 @@ const Pets: React.FunctionComponent = () => {
           onClick={() => {
             navigate(-1)
           }}>
-          Back
+          {t`Back`}
         </Button>
         <Button variant='contained'
           fullWidth
           onClick={() => {
             navigate(`../${QuestionnaireRoutes.SMOKING}`)
           }}>
-          Next
+          {t`Next`}
         </Button>
       </Box>
     </Box>

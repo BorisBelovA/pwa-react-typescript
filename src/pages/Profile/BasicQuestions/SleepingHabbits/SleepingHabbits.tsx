@@ -6,6 +6,7 @@ import { QuestionnaireRoutes, type SleepingHabits } from 'models'
 import { useNavigate } from 'react-router-dom'
 import commonStyles from '../BasicQuestions.module.scss'
 import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'
+import { t } from '@lingui/macro'
 
 export const SleepingHabbits = (): JSX.Element => {
   const { questions, setQuestions, setActive, setPercent } = useBasicQuestions()
@@ -31,14 +32,14 @@ export const SleepingHabbits = (): JSX.Element => {
   }, [questions.sleepingHabits])
 
   const options: Array<Option<SleepingHabits>> = [
-    { text: 'Lark', value: 'Lark', icon: 'wb_sunny' },
-    { text: 'Owl', value: 'Owl', icon: 'nights_stay' },
-    { text: 'Other', value: 'Other', icon: 'ac_unit' }
+    { text: t`Lark`, value: 'Lark', icon: 'wb_sunny' },
+    { text: t`Owl`, value: 'Owl', icon: 'nights_stay' },
+    { text: t`Other`, value: 'Other', icon: 'ac_unit' }
   ]
 
   return <Box className={commonStyles.question}>
     <Box className={commonStyles.question__head}>
-      <Typography variant='h1'>Sleeping habbits</Typography>
+      <Typography variant='h1'>{t`Sleeping habbits`}</Typography>
     </Box>
 
     <Box className={`${commonStyles.question__content} ${styles.justify_center}`}>
@@ -57,7 +58,7 @@ export const SleepingHabbits = (): JSX.Element => {
         onClick={() => {
           navigate(`../${QuestionnaireRoutes.LANGUAGES}`)
         }}>
-        Back
+        {t`Back`}
       </Button>
 
       <Button fullWidth
@@ -65,7 +66,7 @@ export const SleepingHabbits = (): JSX.Element => {
         onClick={() => {
           navigate(`../${QuestionnaireRoutes.ALCOHOL}`)
         }}>
-        Next
+        {t`Next`}
       </Button>
     </Box>
   </Box>

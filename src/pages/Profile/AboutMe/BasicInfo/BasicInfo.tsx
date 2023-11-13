@@ -14,7 +14,7 @@ import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-servic
 import { filesApiService } from 'src/api/api-services/files'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import BackButton from 'src/components/Buttons/BackButton/BackButton'
-import { Trans } from '@lingui/macro'
+import { Trans, t } from '@lingui/macro'
 
 const BasicInfo = (): JSX.Element => {
   const { userStore } = useStore()
@@ -67,7 +67,7 @@ const BasicInfo = (): JSX.Element => {
 
   const onFinish = async (): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Updating your information')
+    setBackdropMessage(t`Updating your information`)
     const {
       firstName,
       lastName,
@@ -79,10 +79,10 @@ const BasicInfo = (): JSX.Element => {
     } = user
 
     if ((firstName == null) || (lastName == null) || (gender === undefined) || (birthday == null)) {
-      throw new Error('User form is not filled!')
+      throw new Error(t`User form is not filled!`)
     }
     if (!sessionService.authToken) {
-      throw new Error('No session token provided')
+      throw new Error(t`No session token provided`)
     }
     try {
       let avatarName: string | null = null
@@ -107,7 +107,7 @@ const BasicInfo = (): JSX.Element => {
       }),
       sessionService.authToken
       )
-      setBackdropMessage('Finishing up!')
+      setBackdropMessage(t`Finishing up!`)
       setTimeout(() => {
         userStore.setUser({
           id: userStore.id,

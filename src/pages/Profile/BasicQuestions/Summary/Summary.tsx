@@ -11,6 +11,7 @@ import { observer } from 'mobx-react-lite'
 import { QuestionnaireRoutes } from 'models'
 import CardProfile from 'src/components/Cards/CardProfile/CardProfile'
 import CardDualPA from 'src/components/Cards/CardDualPA/CardDualPA'
+import { t } from '@lingui/macro'
 
 const Summary = observer((): JSX.Element => {
   const navigate = useNavigate()
@@ -34,7 +35,7 @@ const Summary = observer((): JSX.Element => {
           ...questions,
           id: dto.id
         })
-        setBackdropMessage('Almost done')
+        setBackdropMessage(t`Almost done`)
         setTimeout(() => {
           setBackdropVisible(false)
           navigate('/profile/')
@@ -60,7 +61,7 @@ const Summary = observer((): JSX.Element => {
           id: dto.id
         })
         setTimeout(() => {
-          setBackdropMessage('Almost done')
+          setBackdropMessage(t`Almost done`)
         }, 1000)
         setTimeout(() => {
           setBackdropVisible(false)
@@ -81,7 +82,7 @@ const Summary = observer((): JSX.Element => {
 
   const finishQuest = (): void => {
     setBackdropVisible(true)
-    setBackdropMessage('Sending questionnaire data')
+    setBackdropMessage(t`Sending questionnaire data`)
     if (questions.id === 0) {
       createQuestionnaire()
     } else {
@@ -93,7 +94,7 @@ const Summary = observer((): JSX.Element => {
   return (
     <Box className={styles.question__preview}>
       <Box className={styles.question__head}>
-        <Typography className={styles.question__head_text} variant='h1'>Everything is correct?</Typography>
+        <Typography className={styles.question__head_text} variant='h1'>{t`Everything is correct?`}</Typography>
       </Box>
       <Box className={styles.question__content_preview}>
         {questions.apartment
@@ -107,12 +108,12 @@ const Summary = observer((): JSX.Element => {
           onClick={(e) => {
             navigate(`../${QuestionnaireRoutes.ABOUT}`)
           }}>
-          Back
+          {t`Back`}
         </Button>
         <Button variant='contained'
           className={styles.question__button_half}
           onClick={(e) => { finishQuest() }}>
-          Finish
+          {t`Finish`}
         </Button>
       </Box>
     </Box>
