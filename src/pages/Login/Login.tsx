@@ -18,7 +18,7 @@ interface SignUpForm {
 
 const minLength = (length: number): ValidationRule<number> => ({
   value: length,
-  message: `Min length ${length} symbols`
+  message: t`Min length ${length} symbols`
 })
 
 export const Login = (): JSX.Element => {
@@ -60,7 +60,7 @@ export const Login = (): JSX.Element => {
       }, 1500)
     } catch (e) {
       console.error(e)
-      let text = t`Something went wrong😮`
+      let text = t`Something went wrong`
       if (e instanceof Error) {
         text = e.message
         if (e.cause === ErrorCodes.EMAIL_NOT_ACTIVATED) {

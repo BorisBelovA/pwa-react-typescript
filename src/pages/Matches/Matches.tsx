@@ -8,6 +8,7 @@ import { Box, Button, Typography } from '@mui/material'
 import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { CardSkeleton, ChatCard } from 'src/components/ChatCart/ChatCard'
 import { ChatMessageListener, chatMessagesQueue } from 'src/services/chat-messages'
+import { t } from '@lingui/macro'
 
 const Matches = (): JSX.Element => {
   const navigate = useNavigate()
@@ -43,7 +44,7 @@ const Matches = (): JSX.Element => {
       setMessage({
         text: error instanceof Error
           ? error.message
-          : 'Something went wrong',
+          : t`Something went wrong`,
         severity: 'error',
         life: 5000,
         visible: true
@@ -75,7 +76,7 @@ const Matches = (): JSX.Element => {
   }
 
   return <>
-    <Typography variant='h1'>Your matches</Typography>
+    <Typography variant='h1'>{t`Your matches`}</Typography>
     <Box className={styles.matches_container}>
       {chatsLoading && <>
         <CardSkeleton></CardSkeleton>
@@ -88,8 +89,8 @@ const Matches = (): JSX.Element => {
       )}
       {!chatsLoading && chats.length === 0 &&
         <Box className={styles.no_match}>
-          <Typography>You have no matches yet! Try to search someone</Typography>
-          <Button variant="outlined" onClick={searchSomeone}>Go to search</Button>
+          <Typography>{t`You have no matches yet! Try to search someone`}</Typography>
+          <Button variant="outlined" onClick={searchSomeone}>{t`Go to search`}</Button>
         </Box>
       }
     </Box>
