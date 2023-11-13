@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
-export function usePwaAppInstalled(): [
+export function usePwaAppInstalled (): [
   boolean,
 ] {
   const [appInstalled, setAppInstalled] = useState<boolean>(false)
 
   useEffect(() => {
-    const installed = () => {
+    const installed = (): void => {
       alert('app installed')
       setAppInstalled(true)
     }

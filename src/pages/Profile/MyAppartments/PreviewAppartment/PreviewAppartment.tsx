@@ -27,7 +27,7 @@ const PreviewAppartment = (): JSX.Element => {
       console.log(error)
       setMessage({
         visible: true,
-        text: t({ message: "Can't get apartment" }) + id,
+        text: t`Can't get apartment ${id}`,
         severity: 'error'
       })
     }
