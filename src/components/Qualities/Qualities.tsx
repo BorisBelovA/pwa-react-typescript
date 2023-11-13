@@ -5,6 +5,7 @@ import SmokingRoomsOutlinedIcon from '@mui/icons-material/SmokingRoomsOutlined'
 import HouseOutlinedIcon from '@mui/icons-material/HouseOutlined'
 import { Box, Chip, Typography } from '@mui/material'
 import styles from './Qualities.module.scss'
+import { t } from '@lingui/macro'
 
 interface Props {
   info: QuestionnaireBasicType | null
@@ -31,8 +32,8 @@ const Qualities = (props: Props): JSX.Element => {
           <PetsOutlinedIcon />
           <Typography variant='subtitle1'>{
             info.havePets
-              ? 'Have pets'
-              : 'Don\'t have pets'
+              ? t`Have pets`
+              : t`Don't have pets`
             }</Typography>
         </Box>
       }
@@ -42,7 +43,7 @@ const Qualities = (props: Props): JSX.Element => {
           <Typography variant='subtitle1'>{
             info.smoker
               ? info.smokingWhat.join(', ')
-              : 'Don\'t smoke'
+              : t`Don't smoke`
           }</Typography>
         </Box>
       }
@@ -52,7 +53,7 @@ const Qualities = (props: Props): JSX.Element => {
           <Typography variant='subtitle1'>{
             info.alcohol
               ? info.alcohol
-              : 'Don\'t drink alcohol'
+              : t`Don't drink alcohol`
           }</Typography>
         </Box>
       }
@@ -61,8 +62,8 @@ const Qualities = (props: Props): JSX.Element => {
           <HouseOutlinedIcon />
           <Typography variant='subtitle1'>{
             info.apartment
-              ? 'Have an apartment'
-              : 'Don\'t have an apartment'
+              ? t`Have an apartment`
+              : t`Don't have an apartment`
             }</Typography>
         </Box>
       }

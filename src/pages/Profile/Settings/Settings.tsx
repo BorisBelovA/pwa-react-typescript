@@ -46,10 +46,10 @@ const Settings = (): JSX.Element => {
 
   const switchLanguage = (): void => {
     if (i18n.locale === 'en') {
-      setDocumentLanguage('he')
+      void setDocumentLanguage('he')
       setDocumentDirection('rtl')
     } else {
-      setDocumentLanguage('en')
+      void setDocumentLanguage('en')
       setDocumentDirection('ltr')
     }
   }
