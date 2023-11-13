@@ -5,6 +5,7 @@ import { Autocomplete, Box, TextField, Typography } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { ApartmentsQuestionnaireRoutes, type City, type District, type Country } from 'models'
 import { locationService } from 'src/api/api-services/location'
+import { t } from '@lingui/macro'
 
 export const Location = (): JSX.Element => {
   const { apartment, setApartment, setNextDisabled, setActive, setPercent, lockLocation } = apartmentQuestionnaireContext()
@@ -127,11 +128,11 @@ export const Location = (): JSX.Element => {
     <Box className={styles.container}>
       {lockLocation &&
         <Typography variant='caption'>
-          This apartment is used in your questionnaire. You can change its location after you update your questionnaire.
+          {t`This apartment is used in your questionnaire. You can change its location after you update your questionnaire.`}
         </Typography>
       }
       <Box className={styles.container_section}>
-        <Typography variant="h2">Country</Typography>
+        <Typography variant="h2">{t`Country`}</Typography>
         <Controller control={control}
           name="country"
           rules={{
@@ -167,8 +168,8 @@ export const Location = (): JSX.Element => {
                   <TextField
                     {...params}
                     error={errors.country !== undefined}
-                    helperText={errors.country !== undefined ? 'Country is required' : ''}
-                    label="Choose a country"
+                    helperText={errors.country !== undefined ? t`Country is required` : ''}
+                    label={t`Choose a country`}
                     inputProps={{
                       ...params.inputProps,
                       autoComplete: 'new-password' // disable autocomplete and autofill
@@ -180,7 +181,7 @@ export const Location = (): JSX.Element => {
       </Box>
 
       <Box className={styles.container_section}>
-        <Typography variant="h2">District</Typography>
+        <Typography variant="h2">{t`District`}</Typography>
         <Controller control={control}
           name="district"
           rules={{
@@ -208,9 +209,9 @@ export const Location = (): JSX.Element => {
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="Choose a district"
+                    label={t`Choose a district`}
                     error={errors.district !== undefined}
-                    helperText={errors.district !== undefined ? 'District is required' : ''}
+                    helperText={errors.district !== undefined ? t`District is required` : ''}
                     inputProps={{
                       ...params.inputProps,
                       autoComplete: 'new-password' // disable autocomplete and autofill
@@ -223,7 +224,7 @@ export const Location = (): JSX.Element => {
       </Box>
 
       <Box className={styles.container_section}>
-        <Typography variant="h2">City</Typography>
+        <Typography variant="h2">{t`City`}</Typography>
         <Controller control={control}
           name="city"
           rules={{
@@ -250,9 +251,9 @@ export const Location = (): JSX.Element => {
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="Choose a city"
+                    label={t`Choose a city`}
                     error={errors.city !== undefined}
-                    helperText={errors.city !== undefined ? 'City is required' : ''}
+                    helperText={errors.city !== undefined ? t`City is required` : ''}
                     inputProps={{
                       ...params.inputProps,
                       autoComplete: 'new-password' // disable autocomplete and autofill
@@ -265,14 +266,14 @@ export const Location = (): JSX.Element => {
       </Box>
 
       <Box className={styles.container_section}>
-        <Typography variant="h2">Address</Typography>
+        <Typography variant="h2">{t`Address`}</Typography>
         <TextField id="apartment-address"
           size="medium"
           fullWidth
-          label="Apartment address"
+          label={t`Apartment address`}
           variant="outlined"
           {...register('address', {
-            minLength: { value: 4, message: 'Apartment address shouldn\'t be less then 4 symbols' }
+            minLength: { value: 4, message: t`Apartment address shouldn't be less then 4 symbols` }
           })}
           error={!(errors.address == null)}
           helperText={errors.address?.message ?? ''}
