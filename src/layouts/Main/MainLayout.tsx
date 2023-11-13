@@ -12,6 +12,7 @@ import { ChatMessageListener, chatMessagesQueue } from 'src/services/chat-messag
 import { mapMessageToModel } from 'mapping-services'
 import { type Message } from 'models'
 import { Snackbar } from '@mui/material'
+import { t } from '@lingui/macro'
 
 export type MainLayoutContext = LoadingBackdropOutletContext & MessageAlertOutletContext
 
@@ -97,7 +98,7 @@ const MainLayout = observer((): JSX.Element => {
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={messageVisible}
         onClose={() => { setMessageVisible(false) }}
-        message="You've received a new message"
+        message={t`You've received a new message`}
         autoHideDuration={5000}
         key={'top-center'}
       />
