@@ -443,6 +443,7 @@ msgid "Don't smoke"
 msgstr "אל תעשן"
 
 #: src/pages/Profile/Profile.tsx:141
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:78
 msgid "Donate"
 msgstr "לִתְרוֹם"
 
@@ -487,6 +488,10 @@ msgstr "נקבה"
 #: src/components/navigation/NavBar/NavBar.tsx:22
 msgid "Feedback"
 msgstr "משוב"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:52
+msgid "Feedback form"
+msgstr "טופס משוב"
 
 #: src/pages/Registration/Fifth step/FifthStep.tsx:30
 msgid "Female"
@@ -917,6 +922,10 @@ msgstr "תמונות"
 msgid "Photos"
 msgstr "תמונות"
 
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:55
+msgid "Please describe your issue or suggestion."
+msgstr "אנא תאר את הבעיה או ההצעה שלך."
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:59
 msgid "Please enter your email and we will send you a code to reset your password"
 msgstr "אנא הכנס את האימייל שלך ואנו נשלח לך קוד לאיפוס הסיסמה שלך"
@@ -1032,6 +1041,10 @@ msgstr "לִשְׁלוֹחַ"
 msgid "Send again"
 msgstr "שלח שוב"
 
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:71
+msgid "Send feedback"
+msgstr "שלח משוב"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:35
 msgid "Sending code"
 msgstr "שולח קוד"
@@ -1043,6 +1056,10 @@ msgstr "שליחת נתוני השאלון"
 #: src/pages/Chat/components/ChatHeader.tsx:60
 msgid "Sending your feedback!"
 msgstr "שולחת את המשוב שלך!"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:22
+msgid "Sending your request!"
+msgstr "שולחת את בקשתך!"
 
 #: src/pages/Profile/Profile.tsx:136 src/pages/Profile/Settings/Settings.tsx:72
 msgid "Settings"
@@ -1090,6 +1107,7 @@ msgstr "משהו אחר לדעתך יעזור?"
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:325
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:38
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:41
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
 #: src/pages/ResetPassword/Success/Success.tsx:36
@@ -1164,6 +1182,10 @@ msgstr "ספר לנו מה לא בסדר?"
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:13
 msgid "Terms of service"
 msgstr "תנאים והגבלות"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:30
+msgid "Thank you for your feedback!"
+msgstr "תודה על המשוב שלך!"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:131
 msgid "This apartment is used in your questionnaire. You can change its location after you update your questionnaire."
@@ -1356,6 +1378,7 @@ msgid "Your ad was removed from publication"
 msgstr "המודעה שלך הוסרה מהפרסום"
 
 #: src/pages/Chat/components/ComplainDialog.tsx:19
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:58
 msgid "Your feedback"
 msgstr "המשוב שלך"
 

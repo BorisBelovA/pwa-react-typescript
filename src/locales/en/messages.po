@@ -472,6 +472,7 @@ msgid "Don't smoke"
 msgstr "Don't smoke"
 
 #: src/pages/Profile/Profile.tsx:141
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:78
 msgid "Donate"
 msgstr "Donate"
 
@@ -518,6 +519,10 @@ msgstr "F"
 #: src/components/navigation/NavBar/NavBar.tsx:22
 msgid "Feedback"
 msgstr "Feedback"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:52
+msgid "Feedback form"
+msgstr "Feedback form"
 
 #: src/pages/Registration/Fifth step/FifthStep.tsx:30
 msgid "Female"
@@ -959,6 +964,10 @@ msgstr "photos"
 msgid "Photos"
 msgstr "Photos"
 
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:55
+msgid "Please describe your issue or suggestion."
+msgstr "Please describe your issue or suggestion."
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:59
 msgid "Please enter your email and we will send you a code to reset your password"
 msgstr "Please enter your email and we will send you a code to reset your password"
@@ -1078,6 +1087,10 @@ msgstr "Send"
 msgid "Send again"
 msgstr "Send again"
 
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:71
+msgid "Send feedback"
+msgstr "Send feedback"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:35
 msgid "Sending code"
 msgstr "Sending code"
@@ -1089,6 +1102,10 @@ msgstr "Sending questionnaire data"
 #: src/pages/Chat/components/ChatHeader.tsx:60
 msgid "Sending your feedback!"
 msgstr "Sending your feedback!"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:22
+msgid "Sending your request!"
+msgstr "Sending your request!"
 
 #: src/pages/Profile/Profile.tsx:136
 #: src/pages/Profile/Settings/Settings.tsx:72
@@ -1139,6 +1156,7 @@ msgstr "Something else you think will be helpful?"
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:325
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:38
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:41
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
 #: src/pages/ResetPassword/Success/Success.tsx:36
@@ -1222,6 +1240,10 @@ msgstr "Tell us what is wrong?"
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:13
 msgid "Terms of service"
 msgstr "Terms of service"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:30
+msgid "Thank you for your feedback!"
+msgstr "Thank you for your feedback!"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:131
 msgid "This apartment is used in your questionnaire. You can change its location after you update your questionnaire."
@@ -1414,6 +1436,7 @@ msgid "Your ad was removed from publication"
 msgstr "Your ad was removed from publication"
 
 #: src/pages/Chat/components/ComplainDialog.tsx:19
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:58
 msgid "Your feedback"
 msgstr "Your feedback"
 
