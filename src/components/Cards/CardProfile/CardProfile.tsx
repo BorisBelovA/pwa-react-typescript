@@ -9,6 +9,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import { useNavigate } from 'react-router-dom'
 import { mapCurrencyToSign } from 'src/utils/currency'
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'
+import { t } from '@lingui/macro'
 
 interface Props {
   info: QuestionnaireBasicType
@@ -22,10 +23,10 @@ const CardProfile = (props: Props): JSX.Element => {
   const theme = useTheme()
   const { info, person, padding, editable, flipCard } = props
   const whoOptions = {
-    Alone: 'By self',
-    Friends: 'With friends',
-    Couple: 'With partner',
-    Family: 'With family',
+    Alone: t`By self`,
+    Friends: t`With friends`,
+    Couple: t`With partner`,
+    Family: t`With family`,
     undefined: ''
   }
 
@@ -50,12 +51,12 @@ const CardProfile = (props: Props): JSX.Element => {
             aria-label="edit"
             onClick={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.BASIC_INFO}`) }}>
             <EditIcon fontSize='small' />
-            <Typography fontSize={14} marginLeft='0.5rem'>Edit</Typography>
+            <Typography fontSize={14} marginLeft='0.5rem'>{t`Edit`}</Typography>
           </IconButton>
         }
       </Box>
       <Typography variant='body1' className={styles.head} color='constantLight.main'>
-        {!!info.who ? whoOptions[info.who] : 'By self'}
+        {!!info.who ? whoOptions[info.who] : t`By self`}
       </Typography>
     </>
   )
@@ -71,7 +72,7 @@ const CardProfile = (props: Props): JSX.Element => {
               aria-label="edit"
               onClick={() => { navigate(`/profile/${ProfileRoutes.BASIC_QUEST}/${QuestionnaireRoutes.WHO}`) }}>
               <EditIcon fontSize='small' />
-              <Typography fontSize={14} marginLeft='0.5rem'>Edit</Typography>
+              <Typography fontSize={14} marginLeft='0.5rem'>{t`Edit`}</Typography>
             </IconButton>
           </Box>
         }
@@ -80,8 +81,8 @@ const CardProfile = (props: Props): JSX.Element => {
         <Box className={styles.apartment__thumb} onClick={flipCard}>
           <Avatar variant='rounded' src={info.apartment.photos[0]} alt={info.apartment.name}/>
           <Box>
-            <Typography variant='h2'>{info.apartment.totalPrice} {mapCurrencyToSign(info.apartment.currency)} per room</Typography>
-            <Typography>{info.apartment.countAvailableRooms} out of {info.apartment.countRooms} rooms available</Typography>
+            <Typography variant='h2'>{t`${info.apartment.totalPrice} ${mapCurrencyToSign(info.apartment.currency)} per room`}</Typography>
+            <Typography>{t`${info.apartment.countAvailableRooms} out of ${info.apartment.countRooms} rooms available`}</Typography>
           </Box>
           <FlipCameraAndroidIcon color='primary' fontSize='large'/>
         </Box>

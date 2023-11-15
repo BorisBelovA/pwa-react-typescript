@@ -14,19 +14,20 @@ import { type MainLayoutContext, useMainContext } from '../Main/MainLayout'
 import { useStore } from 'src/utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { type ProgressSliderProps } from 'src/components'
+import { t } from '@lingui/macro'
 
 const defaultItems: ProgressSliderProps[] = [
-  { text: 'who', progress: 0, to: 'who' },
-  { text: 'pets', progress: 0, to: 'pets' },
-  { text: 'smoking', progress: 0, to: 'smoking' },
-  { text: 'languages', progress: 0, to: 'languages' },
-  { text: 'sleep', progress: 0, to: 'sleep' },
-  { text: 'alcohol', progress: 0, to: 'alcohol' },
-  { text: 'guests', progress: 0, to: 'guests' },
-  { text: 'location', progress: 0, to: 'location' },
-  { text: 'apartment', progress: 0, to: 'apartment' },
-  { text: 'about', progress: 0, to: 'about' },
-  { text: 'summary', progress: 0, to: 'summary' }
+  { text: t`who`, progress: 0, to: 'who' },
+  { text: t`pets`, progress: 0, to: 'pets' },
+  { text: t`smoking`, progress: 0, to: 'smoking' },
+  { text: t`languages`, progress: 0, to: 'languages' },
+  { text: t`sleep`, progress: 0, to: 'sleep' },
+  { text: t`alcohol`, progress: 0, to: 'alcohol' },
+  { text: t`guests`, progress: 0, to: 'guests' },
+  { text: t`location`, progress: 0, to: 'location' },
+  { text: t`apartment`, progress: 0, to: 'apartment' },
+  { text: t`about`, progress: 0, to: 'about' },
+  { text: t`summary`, progress: 0, to: 'summary' }
 ]
 
 const QuestionnaireBasic: React.FunctionComponent = observer(() => {
@@ -36,7 +37,7 @@ const QuestionnaireBasic: React.FunctionComponent = observer(() => {
     }
 
     if (!!questions.countKids || !!questions.countAdults) {
-      insertItem('Not Alone', 'not-alone', 1, 100)
+      insertItem(t`Not Alone`, 'not-alone', 1, 100)
     }
 
     const count = questions.havePets !== undefined

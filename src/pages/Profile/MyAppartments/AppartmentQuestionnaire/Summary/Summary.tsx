@@ -6,6 +6,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import { ApartmentsQuestionnaireRoutes } from 'models'
 import { useNavigate } from 'react-router-dom'
 import { mapCurrencyToSign } from 'src/utils/currency'
+import { t } from '@lingui/macro'
 
 export const Summary = (): JSX.Element => {
   const { apartment, setActive, setPercent } = apartmentQuestionnaireContext()
@@ -57,7 +58,7 @@ export const Summary = (): JSX.Element => {
 
     <Box>
       <Box className={styles.header_row}>
-        <Typography variant="h6">Photos</Typography>
+        <Typography variant="h6">{t`Photos`}</Typography>
         <IconButton sx={{ color: theme.palette.primary.main }}
           aria-label="edit"
           onClick={() => { goToStep(ApartmentsQuestionnaireRoutes.PHOTOS) }}>
@@ -82,7 +83,7 @@ export const Summary = (): JSX.Element => {
       apartment.description && apartment.description.length > 0 &&
       <Box>
         <Box className={styles.header_row}>
-          <Typography variant="h6">Description</Typography>
+          <Typography variant="h6">{t`Description`}</Typography>
           <IconButton sx={{ color: theme.palette.primary.main }}
             aria-label="edit"
             onClick={() => { goToStep(ApartmentsQuestionnaireRoutes.ABOUT) }}>

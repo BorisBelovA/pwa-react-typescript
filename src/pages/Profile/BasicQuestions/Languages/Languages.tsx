@@ -8,6 +8,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import LanguageButton from 'src/components/Buttons/LanguageButton/LanguageButton'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
 import { QuestionnaireRoutes } from 'models'
+import { t } from '@lingui/macro'
 
 const Languages: React.FunctionComponent = () => {
   const [search, setSearch] = useState<string>('')
@@ -38,7 +39,7 @@ const Languages: React.FunctionComponent = () => {
   return (
     <Box className={styles.question}>
       <Box className={styles.question__head}>
-        <Typography className={styles.question__head_text} variant='h1'>What languages do you know?</Typography>
+        <Typography className={styles.question__head_text} variant='h1'>{t`What languages do you know?`}</Typography>
       </Box>
       <Box className={styles.question__input}>
         <TextField
@@ -81,14 +82,14 @@ const Languages: React.FunctionComponent = () => {
           onClick={() => {
             navigate(`../${QuestionnaireRoutes.SMOKING}`)
           }}>
-          Back
+          {t`Back`}
         </Button>
         <Button variant='contained'
           fullWidth
           onClick={() => {
             navigate(`../${QuestionnaireRoutes.SLEEP}`)
           }}>
-          Next
+          {t`Next`}
         </Button>
       </Box>
     </Box>
