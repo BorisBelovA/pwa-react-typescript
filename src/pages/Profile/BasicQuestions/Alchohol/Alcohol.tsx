@@ -21,8 +21,7 @@ export const Alcohol = (): JSX.Element => {
     { type: 'Not against drink', text: t`Not against drink` },
     { type: 'Partly drink', text: t`Partly drink` },
     { type: 'Sometimes drink', text: t`Sometimes drink` },
-    { type: 'Other', text: t`Other` },
-    { type: 'ARBUSER', text: t`ARBUSER` }
+    { type: 'Other', text: t`Other` }
   ]
 
   const setAlcoholicType = (type: Alcoholic | null): void => {
