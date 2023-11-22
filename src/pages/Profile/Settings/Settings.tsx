@@ -44,14 +44,15 @@ const Settings = (): JSX.Element => {
     }
   }
 
-  const switchLanguage = (): void => {
+  const switchLanguage = async (): Promise<void> => {
     if (i18n.locale === 'en') {
-      void setDocumentLanguage('he')
+      await setDocumentLanguage('he')
       setDocumentDirection('rtl')
     } else {
-      void setDocumentLanguage('en')
-      setDocumentDirection('ltr')
+      await setDocumentLanguage('en')
+      setDocumentDirection('ltr') 
     }
+    navigate('/profile/settings')
   }
 
   const switchToLanguageButtonText = useMemo(() => {
