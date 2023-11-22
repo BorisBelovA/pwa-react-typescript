@@ -3,7 +3,7 @@ export const mapPhotoNameToURI = (fileString: string): string => {
   const baseURI = process.env.REACT_APP_HOST_TYPE === 'LOCAL'
     ? '/api/v1'
     : process.env.REACT_APP_HOST_TYPE === 'DEV'
-      ? 'https://api.prod.roommate.host/api/v1'
+      ? 'https://api.dev.roommate.host/api/v1'
       // For PROD
       : ''
   return `${baseURI}/file/download?path=${encodedFileString}`
