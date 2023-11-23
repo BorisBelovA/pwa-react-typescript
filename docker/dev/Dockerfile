@@ -10,6 +10,7 @@ RUN npm install --legacy-peer-deps
 RUN npm run build:dev
 
 
+
 FROM nginx
 
 COPY --from=bundle /bundle/build /usr/share/nginx/roommate
