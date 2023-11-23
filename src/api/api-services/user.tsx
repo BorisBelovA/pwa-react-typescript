@@ -1,4 +1,4 @@
-import { type ErrorCodes } from 'src/models/errors'
+import { type ErrorCodes } from 'models/errors'
 import http from '../common-configuration'
 import { type FullUser, type AuthenticatedUserData } from '../dto/api-responses'
 import { type HttpResponse } from '../dto/common-interfaces'

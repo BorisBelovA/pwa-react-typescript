@@ -4,10 +4,10 @@ import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Signup.module.scss'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
-import { minLength } from 'src/utils/validations'
-import { useStore } from 'src/utils/StoreProvider'
+import { minLength } from 'utils/validations'
+import { useStore } from 'utils/StoreProvider'
 import { userApiService } from 'api-services'
-import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
+import { useAuthContext } from 'layouts/Auth/AuthLayout'
 import { mapUserToModel } from 'mapping-services'
 
 // xiwabi4275@byorby.com

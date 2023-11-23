@@ -4,11 +4,11 @@ import { useForm, type ValidationRule } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { userApiService, sessionService } from 'api-services'
-import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
-import { emailPatternValidator } from 'src/utils/validations'
+import { useAuthContext } from 'layouts/Auth/AuthLayout'
+import { emailPatternValidator } from 'utils/validations'
 import { mapAuthenticatedUserData } from 'mapping-services'
-import { useStore } from 'src/utils/StoreProvider'
-import { ErrorCodes } from 'src/models/errors'
+import { useStore } from 'utils/StoreProvider'
+import { ErrorCodes } from 'models/errors'
 interface SignUpForm {
   email: string
   password: string

@@ -1,7 +1,7 @@
 import { Box, useTheme } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 import styles from './IntroPage.module.scss'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { useMainContext } from 'layouts/Main/MainLayout'
 
 export const IntroPage = (): JSX.Element => {
   const mainLayoutContext = useMainContext()

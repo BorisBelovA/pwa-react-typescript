@@ -1,8 +1,8 @@
 import { Box, Button, Checkbox, FormControlLabel, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
-import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+import { useActive } from 'components/ProgressSlider/ProgressSlider'
+import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
 import { QuestionnaireRoutes, type WhatSmoke } from 'models'
 

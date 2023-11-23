@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { observer } from 'mobx-react-lite'
 import { type ReactElement, useMemo } from 'react'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 import { getTheme } from './defaultTheme'
 
 interface Props {

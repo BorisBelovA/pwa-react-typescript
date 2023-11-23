@@ -1,10 +1,10 @@
 import { Box, Button, Link, TextField, Typography } from '@mui/material'
 import { useForm } from 'react-hook-form'
-import { emailPatternValidator } from 'src/utils/validations'
+import { emailPatternValidator } from 'utils/validations'
 import styles from '../ResetPassword.module.scss'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
-import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
-import { useStore } from 'src/utils/StoreProvider'
+import { useAuthContext } from 'layouts/Auth/AuthLayout'
+import { useStore } from 'utils/StoreProvider'
 import { userApiService } from 'api-services'
 
 interface GetCodeForm {
