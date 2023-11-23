@@ -163,16 +163,16 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
       open={chatMenuVisible}
       onClose={handleClose}
     >
-      <MenuItem onClick={handleClose}><RemoveCircleOutlineIcon sx={{ marginRight: '0.5rem' }} />{t`Ignore`}</MenuItem>
+      <MenuItem onClick={handleClose}><RemoveCircleOutlineIcon className={styles.menuItemIcon}/>{t`Ignore`}</MenuItem>
       <MenuItem onClick={() => {
         setComplainDialogVisible(true)
         handleClose()
-      }}><ThumbDownOffAltIcon sx={{ marginRight: '0.5rem' }} />{t`Complain`}</MenuItem>
+      }}><ThumbDownOffAltIcon className={styles.menuItemIcon}/>{t`Complain`}</MenuItem>
       <MenuItem onClick={() => {
         setChatMenuVisible(false)
         setMuteMenuVisible(true)
-      }}><VolumeOffIcon sx={{ marginRight: '0.5rem' }} />{t`Mute`}</MenuItem>
-      <MenuItem onClick={handleClose}><SearchIcon sx={{ marginRight: '0.5rem' }} />{t`Search`}</MenuItem>
+      }}><VolumeOffIcon className={styles.menuItemIcon}/>{t`Mute`}</MenuItem>
+      <MenuItem onClick={handleClose}><SearchIcon className={styles.menuItemIcon}/>{t`Search`}</MenuItem>
     </Menu>
 
     <Menu
@@ -180,14 +180,14 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
       open={muteMenuVisible}
       onClose={closeMuteMenu}
     >
-      <MenuItem onClick={backToMenu}><ArrowBackIcon sx={{ marginRight: '0.5rem' }}></ArrowBackIcon>{t`Back`}</MenuItem>
-      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon sx={{ marginRight: '0.5rem' }}></QueryBuilderIcon>{t`30 minutes`}</MenuItem>
-      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon sx={{ marginRight: '0.5rem' }}></QueryBuilderIcon>{t`1 hour`}</MenuItem>
-      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon sx={{ marginRight: '0.5rem' }}></QueryBuilderIcon>{t`2 hours`}</MenuItem>
-      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon sx={{ marginRight: '0.5rem' }}></QueryBuilderIcon>{t`8 hours`}</MenuItem>
+      <MenuItem onClick={backToMenu}><ArrowBackIcon className={styles.menuItemIcon}></ArrowBackIcon>{t`Back`}</MenuItem>
+      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon className={styles.menuItemIcon}></QueryBuilderIcon>{t`30 minutes`}</MenuItem>
+      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon className={styles.menuItemIcon}></QueryBuilderIcon>{t`1 hour`}</MenuItem>
+      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon className={styles.menuItemIcon}></QueryBuilderIcon>{t`2 hours`}</MenuItem>
+      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon className={styles.menuItemIcon}></QueryBuilderIcon>{t`8 hours`}</MenuItem>
       <MenuItem sx={{ color: theme.palette.accent.main }}
         onClick={closeMuteMenu}>
-        <NotificationsOffIcon sx={{ marginRight: '0.5rem' }}></NotificationsOffIcon>{t`Mute forever`}
+        <NotificationsOffIcon className={styles.menuItemIcon}></NotificationsOffIcon>{t`Mute forever`}
       </MenuItem>
     </Menu>
 

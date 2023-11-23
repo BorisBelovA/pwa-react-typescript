@@ -114,6 +114,7 @@ msgstr "Add to Home Screen"
 msgid "Address"
 msgstr "Address"
 
+#: src/api/mapping-services/questionnaire.ts:269
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:20
 msgid "Against drink"
 msgstr "Against drink"
@@ -190,8 +191,8 @@ msgid "Appartment preview"
 msgstr "Appartment preview"
 
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:25
-msgid "ARBUSER"
-msgstr "ARBUSER"
+#~ msgid "ARBUSER"
+#~ msgstr "ARBUSER"
 
 #: src/components/BasicInfoSteps/Photo.tsx:83
 msgid "Avatar photo"
@@ -199,7 +200,7 @@ msgstr "Avatar photo"
 
 #: src/pages/Chat/components/ChatHeader.tsx:183
 #: src/pages/Profile/BasicQuestions/About/About.tsx:47
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:99
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:98
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:232
 #: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:97
 #: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:85
@@ -331,10 +332,12 @@ msgstr "Choose preferred color theme"
 msgid "Choose what you want to do"
 msgstr "Choose what you want to do"
 
+#: src/api/mapping-services/questionnaire.ts:53
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:20
 msgid "Cigarettes"
 msgstr "Cigarettes"
 
+#: src/api/mapping-services/questionnaire.ts:62
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:23
 msgid "Cigars"
 msgstr "Cigars"
@@ -431,7 +434,7 @@ msgstr "District is required"
 msgid "Do you already have an apartment?"
 msgstr "Do you already have an apartment?"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:48
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:47
 msgid "Do you drink alcohol?"
 msgstr "Do you drink alcohol?"
 
@@ -455,19 +458,19 @@ msgstr "Do you smoke?"
 msgid "Do you want to install \"Roommate\" on your home screen?"
 msgstr "Do you want to install \"Roommate\" on your home screen?"
 
-#: src/components/Qualities/Qualities.tsx:56
+#: src/components/Qualities/Qualities.tsx:57
 msgid "Don't drink alcohol"
 msgstr "Don't drink alcohol"
 
-#: src/components/Qualities/Qualities.tsx:66
+#: src/components/Qualities/Qualities.tsx:67
 msgid "Don't have an apartment"
 msgstr "Don't have an apartment"
 
-#: src/components/Qualities/Qualities.tsx:36
+#: src/components/Qualities/Qualities.tsx:37
 msgid "Don't have pets"
 msgstr "Don't have pets"
 
-#: src/components/Qualities/Qualities.tsx:46
+#: src/components/Qualities/Qualities.tsx:47
 msgid "Don't smoke"
 msgstr "Don't smoke"
 
@@ -615,12 +618,12 @@ msgid "guests"
 msgstr "guests"
 
 #: src/components/Badge/Badge.tsx:16
-#: src/components/Qualities/Qualities.tsx:65
+#: src/components/Qualities/Qualities.tsx:66
 msgid "Have an apartment"
 msgstr "Have an apartment"
 
 #: src/components/Badge/Badge.tsx:15
-#: src/components/Qualities/Qualities.tsx:35
+#: src/components/Qualities/Qualities.tsx:36
 msgid "Have pets"
 msgstr "Have pets"
 
@@ -780,7 +783,7 @@ msgid "New to roommate.host?"
 msgstr "New to roommate.host?"
 
 #: src/pages/Profile/BasicQuestions/About/About.tsx:55
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:107
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:106
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:238
 #: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:105
 #: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:92
@@ -796,7 +799,7 @@ msgstr "New to roommate.host?"
 msgid "Next"
 msgstr "Next"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:66
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:65
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:187
 #: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:64
 #: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:95
@@ -859,6 +862,7 @@ msgstr "No, I've changed my mind"
 msgid "Not a smoker"
 msgstr "Not a smoker"
 
+#: src/api/mapping-services/questionnaire.ts:272
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:21
 msgid "Not against drink"
 msgstr "Not against drink"
@@ -880,6 +884,8 @@ msgstr "Not available"
 msgid "Now you can log in with your new password"
 msgstr "Now you can log in with your new password"
 
+#: src/api/mapping-services/questionnaire.ts:65
+#: src/api/mapping-services/questionnaire.ts:281
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:24
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:37
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:24
@@ -891,6 +897,7 @@ msgstr "Other"
 msgid "Owl"
 msgstr "Owl"
 
+#: src/api/mapping-services/questionnaire.ts:275
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:22
 msgid "Partly drink"
 msgstr "Partly drink"
@@ -1112,6 +1119,7 @@ msgstr "Sending your request!"
 msgid "Settings"
 msgstr "Settings"
 
+#: src/api/mapping-services/questionnaire.ts:59
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:22
 msgid "Shisha"
 msgstr "Shisha"
@@ -1182,6 +1190,7 @@ msgstr "something wrong with steps!"
 msgid "Sometimes"
 msgstr "Sometimes"
 
+#: src/api/mapping-services/questionnaire.ts:278
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:23
 msgid "Sometimes drink"
 msgstr "Sometimes drink"
@@ -1327,6 +1336,7 @@ msgstr "Upload a photo"
 msgid "User form is not filled!"
 msgstr "User form is not filled!"
 
+#: src/api/mapping-services/questionnaire.ts:56
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:21
 msgid "Vape"
 msgstr "Vape"
@@ -1351,7 +1361,7 @@ msgstr "We have received your feedback. Thank you!"
 msgid "What do you like to smoke?"
 msgstr "What do you like to smoke?"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:74
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:73
 msgid "What is your attitude to alcohol?"
 msgstr "What is your attitude to alcohol?"
 
@@ -1390,7 +1400,7 @@ msgstr "With friends"
 msgid "With partner"
 msgstr "With partner"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:67
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:66
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:188
 #: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:65
 #: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:96

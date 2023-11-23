@@ -6,6 +6,7 @@ import HouseOutlinedIcon from '@mui/icons-material/HouseOutlined'
 import { Box, Chip, Typography } from '@mui/material'
 import styles from './Qualities.module.scss'
 import { t } from '@lingui/macro'
+import { mapAlcoEnumToModelTranslation, mapSmokeTypeToModelTranslation } from 'mapping-services'
 
 interface Props {
   info: QuestionnaireBasicType | null
@@ -42,7 +43,7 @@ const Qualities = (props: Props): JSX.Element => {
           <SmokingRoomsOutlinedIcon />
           <Typography variant='subtitle1'>{
             info.smoker
-              ? info.smokingWhat.join(', ')
+              ? info.smokingWhat.map(s => mapSmokeTypeToModelTranslation(s)).join(', ')
               : t`Don't smoke`
           }</Typography>
         </Box>
@@ -52,7 +53,7 @@ const Qualities = (props: Props): JSX.Element => {
           <WineBarIcon />
           <Typography variant='subtitle1'>{
             info.alcohol
-              ? info.alcohol
+              ? mapAlcoEnumToModelTranslation(info.alcohol)
               : t`Don't drink alcohol`
           }</Typography>
         </Box>

@@ -61,7 +61,8 @@ msgstr "קוד אימות נשלח למכשיר הנייד שלך"
 msgid "about"
 msgstr "על אודות"
 
-#: src/pages/Profile/AboutMe/AboutMe.tsx:76 src/pages/Profile/Profile.tsx:127
+#: src/pages/Profile/AboutMe/AboutMe.tsx:76
+#: src/pages/Profile/Profile.tsx:127
 msgid "About me"
 msgstr "עליי"
 
@@ -99,6 +100,7 @@ msgstr "הוסף למסך הבית"
 msgid "Address"
 msgstr "כתובת"
 
+#: src/api/mapping-services/questionnaire.ts:269
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:20
 msgid "Against drink"
 msgstr "נגד שתייה"
@@ -175,8 +177,8 @@ msgid "Appartment preview"
 msgstr "תצוגה מקדימה של דירה"
 
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:25
-msgid "ARBUSER"
-msgstr "מתעלל"
+#~ msgid "ARBUSER"
+#~ msgstr "מתעלל"
 
 #: src/components/BasicInfoSteps/Photo.tsx:83
 msgid "Avatar photo"
@@ -184,7 +186,7 @@ msgstr "תמונת אווטאר"
 
 #: src/pages/Chat/components/ChatHeader.tsx:183
 #: src/pages/Profile/BasicQuestions/About/About.tsx:47
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:99
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:98
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:232
 #: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:97
 #: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:85
@@ -226,6 +228,9 @@ msgstr "מידע בסיסי"
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:149
 msgid "Bio"
 msgstr "ביו"
+
+#~ msgid "Birthdate"
+#~ msgstr "יום הולדת"
 
 #: src/components/BasicInfoSteps/About.tsx:67
 msgid "Birthday"
@@ -304,10 +309,12 @@ msgstr "בחר נושא צבע מועדף"
 msgid "Choose what you want to do"
 msgstr "לבחור מה את/ה רוצה לעשות"
 
+#: src/api/mapping-services/questionnaire.ts:53
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:20
 msgid "Cigarettes"
 msgstr "סיגריות"
 
+#: src/api/mapping-services/questionnaire.ts:62
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:23
 msgid "Cigars"
 msgstr "סיגרים"
@@ -327,7 +334,8 @@ msgstr "עיר נדרשת"
 msgid "Close"
 msgstr "סגור"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:105 src/pages/Sign up/Signup.tsx:103
+#: src/pages/ResetPassword/Reset/Reset.tsx:105
+#: src/pages/Sign up/Signup.tsx:103
 msgid "Code is required"
 msgstr "קוד נדרש"
 
@@ -352,7 +360,8 @@ msgstr "אשר ובחר אווטאר"
 msgid "Confirm and proceed"
 msgstr "לאשר ולהמשיך"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:122 src/pages/Sign up/Signup.tsx:117
+#: src/pages/ResetPassword/Reset/Reset.tsx:122
+#: src/pages/Sign up/Signup.tsx:117
 msgid "Confirm password"
 msgstr "אשר סיסמה"
 
@@ -402,7 +411,7 @@ msgstr "נדרש מחוז"
 msgid "Do you already have an apartment?"
 msgstr "יש לכם כבר דירה?"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:48
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:47
 msgid "Do you drink alcohol?"
 msgstr "אתה שותה אלכוהול?"
 
@@ -426,19 +435,19 @@ msgstr "האם אתה מעשן?"
 msgid "Do you want to install \"Roommate\" on your home screen?"
 msgstr "האם אתה רוצה להתקין \"שותף לחדר\" על מסך הבית שלך?"
 
-#: src/components/Qualities/Qualities.tsx:56
+#: src/components/Qualities/Qualities.tsx:57
 msgid "Don't drink alcohol"
 msgstr "אל תשתה אלכוהול"
 
-#: src/components/Qualities/Qualities.tsx:66
+#: src/components/Qualities/Qualities.tsx:67
 msgid "Don't have an apartment"
 msgstr "אין לך דירה"
 
-#: src/components/Qualities/Qualities.tsx:36
+#: src/components/Qualities/Qualities.tsx:37
 msgid "Don't have pets"
 msgstr "אין לך חיות מחמד"
 
-#: src/components/Qualities/Qualities.tsx:46
+#: src/components/Qualities/Qualities.tsx:47
 msgid "Don't smoke"
 msgstr "אל תעשן"
 
@@ -455,7 +464,8 @@ msgstr "תרומה"
 msgid "Done"
 msgstr "בוצע"
 
-#: src/pages/Login/Login.tsx:87 src/pages/ResetPassword/GetCode/GetCode.tsx:62
+#: src/pages/Login/Login.tsx:87
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:62
 #: src/pages/Sign up/Signup.tsx:87
 msgid "E-mail"
 msgstr "דואר אלקטרוני"
@@ -468,7 +478,8 @@ msgstr "דואר אלקטרוני"
 msgid "Edit"
 msgstr "לַעֲרוֹך"
 
-#: src/pages/Login/Login.tsx:93 src/pages/ResetPassword/GetCode/GetCode.tsx:68
+#: src/pages/Login/Login.tsx:93
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:68
 #: src/pages/Sign up/Signup.tsx:93
 msgid "Email is required"
 msgstr "נדרש אימייל"
@@ -583,11 +594,13 @@ msgstr "עבור לחיפוש"
 msgid "guests"
 msgstr "אורחים"
 
-#: src/components/Badge/Badge.tsx:16 src/components/Qualities/Qualities.tsx:65
+#: src/components/Badge/Badge.tsx:16
+#: src/components/Qualities/Qualities.tsx:66
 msgid "Have an apartment"
 msgstr "יש דירה"
 
-#: src/components/Badge/Badge.tsx:15 src/components/Qualities/Qualities.tsx:35
+#: src/components/Badge/Badge.tsx:15
+#: src/components/Qualities/Qualities.tsx:36
 msgid "Have pets"
 msgstr "יש חיות מחמד"
 
@@ -643,7 +656,8 @@ msgstr "בשלב הקודם"
 msgid "Incorrect apartments questionnaire step!"
 msgstr "שלב שאלון דירות שגוי!"
 
-#: src/pages/Sign up/Signup.tsx:23 src/utils/validations.ts:13
+#: src/pages/Sign up/Signup.tsx:23
+#: src/utils/validations.ts:13
 msgid "Incorrect email pattern"
 msgstr "דפוס אימייל שגוי"
 
@@ -688,9 +702,10 @@ msgstr "טוען..."
 msgid "location"
 msgstr "מקום"
 
-#: src/pages/Login/Login.tsx:82 src/pages/Login/Login.tsx:120
-#: src/pages/ResetPassword/Success/Success.tsx:55 src/pages/Sign
-#: up/Signup.tsx:83
+#: src/pages/Login/Login.tsx:82
+#: src/pages/Login/Login.tsx:120
+#: src/pages/ResetPassword/Success/Success.tsx:55
+#: src/pages/Sign up/Signup.tsx:83
 msgid "Log in"
 msgstr "כניסה"
 
@@ -718,7 +733,8 @@ msgstr "זכר"
 msgid "Matches"
 msgstr "התאמות"
 
-#: src/pages/Login/Login.tsx:21 src/utils/validations.ts:6
+#: src/pages/Login/Login.tsx:21
+#: src/utils/validations.ts:6
 msgid "Min length {length} symbols"
 msgstr "אורך מינימלי {length} סמלים"
 
@@ -740,7 +756,7 @@ msgid "New to roommate.host?"
 msgstr "משתמש חדש/ה roommate.host"
 
 #: src/pages/Profile/BasicQuestions/About/About.tsx:55
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:107
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:106
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:238
 #: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:105
 #: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:92
@@ -756,7 +772,7 @@ msgstr "משתמש חדש/ה roommate.host"
 msgid "Next"
 msgstr " הבא"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:66
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:65
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:187
 #: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:64
 #: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:95
@@ -819,6 +835,7 @@ msgstr "לא, שיניתי את דעתי"
 msgid "Not a smoker"
 msgstr "לא מעשן"
 
+#: src/api/mapping-services/questionnaire.ts:272
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:21
 msgid "Not against drink"
 msgstr "לא נגד שתייה"
@@ -840,6 +857,8 @@ msgstr "לא זמין"
 msgid "Now you can log in with your new password"
 msgstr "עכשיו אתה יכול להיכנס עם הסיסמה החדשה שלך"
 
+#: src/api/mapping-services/questionnaire.ts:65
+#: src/api/mapping-services/questionnaire.ts:281
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:24
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:37
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:24
@@ -851,11 +870,13 @@ msgstr "אַחֵר"
 msgid "Owl"
 msgstr "יַנשׁוּף"
 
+#: src/api/mapping-services/questionnaire.ts:275
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:22
 msgid "Partly drink"
 msgstr "לשתות חלקית"
 
-#: src/pages/Login/Login.tsx:96 src/pages/ResetPassword/Reset/Reset.tsx:98
+#: src/pages/Login/Login.tsx:96
+#: src/pages/ResetPassword/Reset/Reset.tsx:98
 #: src/pages/Sign up/Signup.tsx:96
 msgid "Password"
 msgstr "סיסמה"
@@ -864,7 +885,8 @@ msgstr "סיסמה"
 msgid "Password is required"
 msgstr "דרושה סיסמא"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:132 src/pages/Sign up/Signup.tsx:127
+#: src/pages/ResetPassword/Reset/Reset.tsx:132
+#: src/pages/Sign up/Signup.tsx:127
 msgid "Passwords won't match"
 msgstr "הסיסמאות לא יתאימו"
 
@@ -1032,8 +1054,8 @@ msgstr "בחר דירה מהרשימה או צור דירה חדשה"
 msgid "Select photo"
 msgstr "בחר תמונה"
 
-#: src/pages/Chat/components/ComplainDialog.tsx:45 src/pages/Registration/Third
-#: step/ThirdStep.tsx:44
+#: src/pages/Chat/components/ComplainDialog.tsx:45
+#: src/pages/Registration/Third step/ThirdStep.tsx:44
 msgid "Send"
 msgstr "לִשְׁלוֹחַ"
 
@@ -1061,15 +1083,18 @@ msgstr "שולחת את המשוב שלך!"
 msgid "Sending your request!"
 msgstr "שולחת את בקשתך!"
 
-#: src/pages/Profile/Profile.tsx:136 src/pages/Profile/Settings/Settings.tsx:72
+#: src/pages/Profile/Profile.tsx:136
+#: src/pages/Profile/Settings/Settings.tsx:72
 msgid "Settings"
 msgstr "הגדרות"
 
+#: src/api/mapping-services/questionnaire.ts:59
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:22
 msgid "Shisha"
 msgstr "שישה"
 
-#: src/pages/Login/Login.tsx:84 src/pages/Sign up/Signup.tsx:145
+#: src/pages/Login/Login.tsx:84
+#: src/pages/Sign up/Signup.tsx:145
 msgid "Sign up"
 msgstr "הרשמה"
 
@@ -1100,7 +1125,8 @@ msgstr "משהו אחר לדעתך יעזור?"
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:26
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:52
 #: src/pages/Chat/components/ChatHeader.tsx:83
-#: src/pages/Email-code/EmailCode.tsx:37 src/pages/Login/Login.tsx:63
+#: src/pages/Email-code/EmailCode.tsx:37
+#: src/pages/Login/Login.tsx:63
 #: src/pages/Matches/Matches.tsx:47
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:266
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:294
@@ -1111,10 +1137,14 @@ msgstr "משהו אחר לדעתך יעזור?"
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
 #: src/pages/ResetPassword/Success/Success.tsx:36
-#: src/pages/Search/Search.tsx:66 src/pages/Search/Search.tsx:209
+#: src/pages/Search/Search.tsx:66
+#: src/pages/Search/Search.tsx:209
 #: src/pages/Sign up/Signup.tsx:73
 msgid "Something went wrong"
 msgstr "משהו השתבש"
+
+#~ msgid "Something went wrong😮"
+#~ msgstr "משהו השתבש😮"
 
 #: src/pages/Registration/Layout.tsx:55
 msgid "something wrong with steps!"
@@ -1124,6 +1154,7 @@ msgstr "משהו לא בסדר בצעדים!"
 msgid "Sometimes"
 msgstr "לִפְעָמִים"
 
+#: src/api/mapping-services/questionnaire.ts:278
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:23
 msgid "Sometimes drink"
 msgstr "לפעמים לשתות"
@@ -1269,6 +1300,7 @@ msgstr "העלה תמונה"
 msgid "User form is not filled!"
 msgstr "טופס המשתמש לא ממולא!"
 
+#: src/api/mapping-services/questionnaire.ts:56
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:21
 msgid "Vape"
 msgstr "Vape"
@@ -1293,7 +1325,7 @@ msgstr "קיבלנו את המשוב שלך. תודה!"
 msgid "What do you like to smoke?"
 msgstr "מה אתה אוהב לעשן?"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:74
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:73
 msgid "What is your attitude to alcohol?"
 msgstr "מה היחס שלך לאלכוהול?"
 
@@ -1332,7 +1364,7 @@ msgstr "עם חברים"
 msgid "With partner"
 msgstr "עם שותף"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:67
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:66
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:188
 #: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:65
 #: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:96
@@ -1393,9 +1425,3 @@ msgstr "מספר הטלפון שלך"
 #: src/pages/Profile/AboutMe/Preview/Preview.tsx:36
 msgid "Your profile"
 msgstr "הפרופיל שלך"
-
-#~ msgid "Birthdate"
-#~ msgstr "יום הולדת"
-
-#~ msgid "Something went wrong😮"
-#~ msgstr "משהו השתבש😮"
