@@ -7,7 +7,7 @@ COPY ../.. ./
 
 RUN npm install --legacy-peer-deps
 # RUN npm audit fix --force || true
-RUN npm run build:dev
+RUN npm run build:prod
 
 FROM nginx
 
