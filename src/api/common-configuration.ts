@@ -2,12 +2,9 @@ import axios from 'axios'
 
 // Common configuration for axios instance
 export default axios.create({
-  baseURL: process.env.REACT_APP_HOST_TYPE === 'LOCAL'
-    ? '/api/v1'
-    : process.env.REACT_APP_HOST_TYPE === 'DEV'
-      ? 'https://api.dev.roommate.host/api/v1'
-      // For PROD
-      : '',
+  baseURL: process.env.REACT_APP_HOST_TYPE === 'LOCAL' || process.env.REACT_APP_HOST_TYPE === 'DEV'
+    ? 'https://api.dev.roommate.host/api/v1'
+    : 'https://prod.dev.roommate.host/api/v1',
   headers: {
     'Content-type': 'application/json'
     // 'Connection': 'keep-alive',
