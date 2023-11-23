@@ -3,11 +3,11 @@ FROM node:18.12.1 as bundle
 RUN mkdir /bundle
 WORKDIR /bundle
 
-COPY ./ ./
+COPY ../.. ./
 
 RUN npm install --legacy-peer-deps
 # RUN npm audit fix --force || true
-RUN npm run build
+RUN npm run build:dev
 
 
 FROM nginx
