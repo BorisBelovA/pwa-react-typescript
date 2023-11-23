@@ -10,7 +10,7 @@ export class StompChatService {
   public client: Client = new Client({
     brokerURL: process.env.REACT_APP_HOST_TYPE === 'LOCAL' || process.env.REACT_APP_HOST_TYPE === 'DEV'
       ? 'wss://api.dev.roommate.host/wss'
-      : 'wss://prod.dev.roommate.host/wss',
+      : 'wss://api.prod.roommate.host/wss',
     // connectHeaders: {
     //   Authorization: sessionService.authToken
     // },
