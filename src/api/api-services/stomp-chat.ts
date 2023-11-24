@@ -8,9 +8,9 @@ export class StompChatService {
   public stompClientErrorCallback?: (args: any) => void = undefined
 
   public client: Client = new Client({
-    brokerURL: process.env.REACT_APP_HOST_TYPE === 'LOCAL' || process.env.REACT_APP_HOST_TYPE === 'DEV'
-      ? 'wss://api.dev.roommate.host/wss'
-      : 'wss://api.prod.roommate.host/wss',
+    brokerURL: process.env.REACT_APP_HOST_TYPE === 'PROD'
+      ? 'wss://api.prod.roommate.host/wss'
+      : 'wss://api.dev.roommate.host/wss',
     // connectHeaders: {
     //   Authorization: sessionService.authToken
     // },
