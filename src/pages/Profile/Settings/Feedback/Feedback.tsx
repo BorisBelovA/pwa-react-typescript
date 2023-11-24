@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { useMainContext } from 'layouts/Main/MainLayout'
 import { DonateDialog } from 'components/DonateDialog/DonateDialog'
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
+import { t } from '@lingui/macro'
 
 export const Feedback = observer((): JSX.Element => {
   const { registrationStore } = useStore()
@@ -18,7 +19,7 @@ export const Feedback = observer((): JSX.Element => {
 
   const sendFeedback = async (): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Sending your request!')
+    setBackdropMessage(t`Sending your request!`)
     try {
       await feedbackService.sendFeedback(
         registrationStore.email,
@@ -26,7 +27,7 @@ export const Feedback = observer((): JSX.Element => {
       )
       setBackdropVisible(false)
       setMessage({
-        text: 'Thank you for your feedback!',
+        text: t`Thank you for your feedback!`,
         life: 5000,
         severity: 'success',
         visible: true
@@ -37,7 +38,7 @@ export const Feedback = observer((): JSX.Element => {
       setMessage({
         text: e instanceof Error
           ? e.message
-          : 'Something went wrong',
+          : t`Something went wrong`,
         life: 5000,
         severity: 'error',
         visible: true
@@ -48,13 +49,13 @@ export const Feedback = observer((): JSX.Element => {
   return <Box className={profileStyles.profile__container}>
     <Box className={`${profileStyles.profile__header} ${profileStyles.mb1}`}>
       <BackButton />
-      <Typography variant='h1'>Feedback form</Typography>
+      <Typography variant='h1'>{t`Feedback form`}</Typography>
     </Box>
     <Box className={styles.feedback_container}>
-      <Typography variant='body1'>Please describe your issue or suggestion.</Typography>
+      <Typography variant='body1'>{t`Please describe your issue or suggestion.`}</Typography>
 
       <TextField
-        label="Your feedback"
+        label={t`Your feedback`}
         multiline
         fullWidth
         minRows={4}
@@ -67,14 +68,14 @@ export const Feedback = observer((): JSX.Element => {
         fullWidth
         disabled={feedbackMessage.length === 0}
         onClick={() => { void sendFeedback() }}>
-        Send feedback
+        {t`Send feedback`}
       </Button>
 
       <Button variant='contained'
         fullWidth
         startIcon={<MonetizationOnOutlinedIcon/>}
         onClick={() => { setDonateVisible(true) }}>
-        Donate
+        {t`Donate`}
       </Button>
     </Box>
 

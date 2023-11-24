@@ -46,7 +46,6 @@ export type Alcoholic = 'Against drink'
 | 'Partly drink'
 | 'Sometimes drink'
 | 'Other'
-| 'ARBUSER'
 
 export type GuestAttitude = 'Like guests'
 | 'Sometimes'

@@ -5,6 +5,7 @@ import { ApartmentsQuestionnaireRoutes } from 'models'
 import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 import { Controller, useForm } from 'react-hook-form'
 import { useSearchParams } from 'react-router-dom'
+import { t } from '@lingui/macro'
 
 export const Basic = (): JSX.Element => {
   const { apartment, setApartment, setNextDisabled, setActive, setPercent } = apartmentQuestionnaireContext()
@@ -112,17 +113,17 @@ export const Basic = (): JSX.Element => {
                 : null
             })
           }} />
-      } label="For refugees" />
+      } label={t`For refugees`} />
 
-      <Typography variant="h2">Basic data</Typography>
+      <Typography variant="h2">{t`Basic data`}</Typography>
       <TextField id="apartment-name"
         size="small"
         fullWidth
-        label="Apartment name"
+        label={t`Apartment name`}
         variant="outlined"
         {...register('name', {
-          required: 'Apartment name is required',
-          minLength: { value: 4, message: 'Apartment name shouldn\'t be less then 4 symbols' }
+          required: t`Apartment name is required`,
+          minLength: { value: 4, message: t`Apartment name shouldn't be less then 4 symbols` }
         })}
         error={!(errors.name == null)}
         helperText={errors.name?.message ?? ''}
@@ -131,17 +132,17 @@ export const Basic = (): JSX.Element => {
 
     {!apartment.forRefugees &&
       <Box className={styles.container_section}>
-        <Typography variant="h2">Price per room in ₪</Typography>
+        <Typography variant="h2">{t`Price per room in ₪`}</Typography>
         <Box className={styles.price_per_room}>
           <TextField id="price-per-room"
             size="small"
             fullWidth
             type='number'
-            label="Price"
+            label={t`Price`}
             variant="outlined"
             {...register('price', {
-              required: 'Apartment price is required',
-              min: { value: 1, message: 'Apartment price shouldn\'t be less then 1' }
+              required: t`Apartment price is required`,
+              min: { value: 1, message: t`Apartment price shouldn't be less then 1` }
             })}
             error={!(errors.price == null)}
             helperText={errors.price?.message ?? ''}
@@ -151,7 +152,7 @@ export const Basic = (): JSX.Element => {
     }
 
     <Box className={styles.container_section}>
-      <Typography variant="h2">How many {!apartment.forRefugees ? 'rooms' : 'people you can accept'}?</Typography>
+      <Typography variant="h2">{t`How many`} {!apartment.forRefugees ? t`rooms` : t`people you can accept`}?</Typography>
       <Controller
         render={({ field: { onChange, onBlur, value, ref } }) =>
           <Slider sx={{ width: '94%', margin: '0 auto' }}
@@ -171,7 +172,7 @@ export const Basic = (): JSX.Element => {
       />
     </Box>
     <Box className={styles.container_section}>
-      <Typography variant="h2">How many available rooms?</Typography>
+      <Typography variant="h2">{t`How many available rooms?`}</Typography>
       <Controller
         render={({ field: { onChange, onBlur, value, ref } }) =>
           <Slider sx={{ width: '94%', margin: '0 auto' }}

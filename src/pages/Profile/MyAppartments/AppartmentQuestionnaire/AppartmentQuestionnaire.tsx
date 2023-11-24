@@ -23,6 +23,7 @@ import { filesApiService } from 'api/api-services/files'
 import { apartmentService } from 'api/api-services/appartment'
 import { useStore } from 'utils/StoreProvider'
 import { type ProgressSliderProps } from 'components'
+import { t } from '@lingui/macro'
 
 export type ApartmentQuestionnaireContext = MainLayoutContext & {
   apartment: NewApartmentForm
@@ -62,7 +63,7 @@ const getActiveStepFromURI = (location: Location): ApartmentsQuestionnaireRoutes
   const paths = location.pathname.split('/')
   const activeStep = paths[paths.length - 1]
   if (activeStep === undefined || activeStep === null || activeStep === '') {
-    throw new Error('Unable to get active step from URI!')
+    throw new Error(t`Unable to get active step from URI!`)
   }
   if (![
     ApartmentsQuestionnaireRoutes.PURPOSE,
@@ -72,17 +73,17 @@ const getActiveStepFromURI = (location: Location): ApartmentsQuestionnaireRoutes
     ApartmentsQuestionnaireRoutes.ABOUT,
     ApartmentsQuestionnaireRoutes.SUMMARY
   ].includes(activeStep as ApartmentsQuestionnaireRoutes)) {
-    throw new Error('Incorrect apartments questionnaire step!')
+    throw new Error(t`Incorrect apartments questionnaire step!`)
   }
   return activeStep as ApartmentsQuestionnaireRoutes
 }
 
 const questionnaireSteps: ProgressSliderProps[] = [
-  { text: ApartmentsQuestionnaireRoutes.BASIC, progress: 0, to: ApartmentsQuestionnaireRoutes.BASIC },
-  { text: ApartmentsQuestionnaireRoutes.LOCATION, progress: 0, to: ApartmentsQuestionnaireRoutes.LOCATION },
-  { text: ApartmentsQuestionnaireRoutes.PHOTOS, progress: 0, to: ApartmentsQuestionnaireRoutes.PHOTOS },
-  { text: ApartmentsQuestionnaireRoutes.ABOUT, progress: 0, to: ApartmentsQuestionnaireRoutes.ABOUT },
-  { text: ApartmentsQuestionnaireRoutes.SUMMARY, progress: 0, to: ApartmentsQuestionnaireRoutes.SUMMARY }
+  { text: t`basic`, progress: 0, to: ApartmentsQuestionnaireRoutes.BASIC },
+  { text: t`location`, progress: 0, to: ApartmentsQuestionnaireRoutes.LOCATION },
+  { text: t`photos`, progress: 0, to: ApartmentsQuestionnaireRoutes.PHOTOS },
+  { text: t`about`, progress: 0, to: ApartmentsQuestionnaireRoutes.ABOUT },
+  { text: t`summary`, progress: 0, to: ApartmentsQuestionnaireRoutes.SUMMARY }
 ]
 
 export const ApartmentQuestionnaire = (): JSX.Element => {
@@ -211,7 +212,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
         break
       }
       default: {
-        throw new Error('Unknown step to complete!')
+        throw new Error(t`Unknown step to complete!`)
       }
     }
   }
@@ -240,14 +241,14 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
         break
       }
       default: {
-        throw new Error('Unknown step to complete!')
+        throw new Error(t`Unknown step to complete!`)
       }
     }
   }
 
   const linkApartmentToQuestionnaire = async (): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Saving your apartment!')
+    setBackdropMessage(t`Saving your apartment!`)
     try {
       const photos = await saveAllApartmentsPhotos(apartment.photos)
       const dto = {
@@ -262,7 +263,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
       setBackdropVisible(false)
       setMessage({
         visible: true,
-        text: (e as Error).message ?? 'Something went wrong',
+        text: (e as Error).message ?? t`Something went wrong`,
         severity: 'error'
       })
     }
@@ -270,14 +271,14 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
 
   const saveApartment = async (apartment: Apartment): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Saving your apartment!')
+    setBackdropMessage(t`Saving your apartment!`)
     const photos = await saveAllApartmentsPhotos(apartment.photos)
     const dto = mapApartmentToDto({
       ...apartment,
       photos: photos.map(p => mapPhotoNameToURI(p))
     })
     try {
-      setBackdropMessage('Almost done!')
+      setBackdropMessage(t`Almost done!`)
       const savedApartment = await apartmentService.addNewApartment(dto)
       setBackdropVisible(false)
       apartmentStore.setApartments([{
@@ -290,7 +291,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
       setBackdropVisible(false)
       setMessage({
         visible: true,
-        text: (e as Error).message ?? 'Something went wrong',
+        text: (e as Error).message ?? t`Something went wrong`,
         severity: 'error'
       })
     }
@@ -298,7 +299,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
 
   const updateApartment = async (apartment: Apartment): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Updating your apartment!')
+    setBackdropMessage(t`Updating your apartment!`)
     const photos = await saveAllApartmentsPhotos(apartment.photos)
     const dto = mapApartmentToDto({
       ...apartment,
@@ -308,7 +309,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
       photos: photos.map(p => mapPhotoNameToURI(p))
     })
     try {
-      setBackdropMessage('Almost done!')
+      setBackdropMessage(t`Almost done!`)
       const savedApartment = await apartmentService.updateApartment(dto)
       setBackdropVisible(false)
       apartmentStore.setApartments([{
@@ -321,7 +322,7 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
       setBackdropVisible(false)
       setMessage({
         visible: true,
-        text: (e as Error).message ?? 'Something went wrong',
+        text: (e as Error).message ?? t`Something went wrong`,
         severity: 'error'
       })
     }
@@ -360,14 +361,14 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
             fullWidth
             variant='outlined'
             onClick={onPrevStep}>
-            Back
+            {t`Back`}
           </Button>
           }
           {apartment.purpose === 'Questionnaire' && backToQuestVisible && <Button
             fullWidth
             variant='outlined'
             onClick={() => { navigate(`/profile/${ProfileRoutes.BASIC_QUEST}/${QuestionnaireRoutes.APARTMENT}`) }}>
-            To personal info
+            {t`To personal info`}
           </Button>
           }
         </Box>
@@ -376,14 +377,14 @@ export const ApartmentQuestionnaire = (): JSX.Element => {
           variant='contained'
           disabled={nextDisabled}
           onClick={onNextStep}>
-          Next
+          {t`Next`}
         </Button>
         }
         {finishBtnVisible && <Button className={styles.buttons_container_column}
           fullWidth
           variant='contained'
           onClick={onFinish}>
-          Done
+          {t`Done`}
         </Button>
         }
       </Box>

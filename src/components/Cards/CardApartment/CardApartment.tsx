@@ -7,6 +7,7 @@ import styles from './CardApartment.module.scss'
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'
 import { useNavigate } from 'react-router-dom'
 import EditIcon from '@mui/icons-material/Edit'
+import { t } from '@lingui/macro'
 
 interface Props {
   apartment: Apartment
@@ -22,7 +23,7 @@ const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Pr
   const header = (<>
     <Box className={styles.head}>
       <Typography variant='h1' color='constantLight.main'>
-        {apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room
+        {t`${apartment.totalPrice} ${mapCurrencyToSign(apartment.currency)} per room`}
       </Typography>
       {editable &&
         <IconButton sx={{ color: theme.palette.primary.main }}
@@ -31,11 +32,11 @@ const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Pr
           aria-label="edit"
           onClick={() => { navigate(`/profile/${ProfileRoutes.MY_APARTMENT}/${ApartmentsRoutes.EDIT}/basic?id=${apartment.id}`) }}>
           <EditIcon fontSize='small' />
-          <Typography fontSize={14} marginLeft='0.5rem'>Edit</Typography>
+          <Typography fontSize={14} marginLeft='0.5rem'>{t`Edit`}</Typography>
         </IconButton>
       }
     </Box>
-    <Typography color='constantLight.main'>{apartment.countAvailableRooms} out of {apartment.countRooms} rooms available</Typography>
+    <Typography color='constantLight.main'>{t`${apartment.countAvailableRooms} out of ${apartment.countRooms} rooms available`}</Typography>
   </>)
 
   const content = (<>
@@ -48,7 +49,7 @@ const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Pr
         </Box>
         <FlipCameraAndroidIcon color='primary' fontSize='large' />
       </Box>}
-    {apartment.phone && <Typography>Phone: <Link href={`tel:${apartment.phone}`}>{apartment.phone}</Link></Typography>}
+    {apartment.phone && <Typography>{t`Phone`}: <Link href={`tel:${apartment.phone}`}>{apartment.phone}</Link></Typography>}
     <Typography sx={{ whiteSpace: 'pre-line' }}>{apartment.description}</Typography>
   </>)
 

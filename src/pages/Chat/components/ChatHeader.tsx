@@ -19,6 +19,7 @@ import { feedbackService, questionnaireService } from 'api-services'
 import CardProfile from 'components/Cards/CardProfile/CardProfile'
 import { mapQuestionnaireToModel } from 'mapping-services'
 import CardDualPA from 'components/Cards/CardDualPA/CardDualPA'
+import { t } from '@lingui/macro'
 
 interface ChatHeaderProps {
   user: AuthUserWithEmail | null
@@ -56,10 +57,10 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
   const complain = async (message: string): Promise<void> => {
     setComplainDialogVisible(false)
     setBackdropVisible(true)
-    setBackdropMessage('Sending your feedback!')
+    setBackdropMessage(t`Sending your feedback!`)
     try {
       if (!user?.email || !registrationStore.email) {
-        throw new Error('No pretension or sender email')
+        throw new Error(t`No pretension or sender email`)
       }
       await feedbackService.sendComplain(
         user?.email,
@@ -68,7 +69,7 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
       )
       setTimeout(() => {
         setMessage({
-          text: 'We have received your feedback. Thank you!',
+          text: t`We have received your feedback. Thank you!`,
           life: 5000,
           severity: 'success',
           visible: true
@@ -79,7 +80,7 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
       setMessage({
         text: e instanceof Error
           ? e.message
-          : 'Something went wrong',
+          : t`Something went wrong`,
         severity: 'error',
         visible: true,
         life: 5000
@@ -104,11 +105,11 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
     setBackdropMessage('')
     setBackdropVisible(true)
     if (!user) {
-      throw new Error('No user')
+      throw new Error(t`No user`)
     }
     const result = await questionnaireService.getQuestionnaireByUserId(user.id)
     if (!result) {
-      throw new Error('No result for user')
+      throw new Error(t`No result for user`)
     }
     setQuestionnaire(mapQuestionnaireToModel(result))
     setBackdropVisible(false)
@@ -162,16 +163,16 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
       open={chatMenuVisible}
       onClose={handleClose}
     >
-      <MenuItem onClick={handleClose}><RemoveCircleOutlineIcon sx={{ marginRight: '0.5rem' }} />Ignore</MenuItem>
+      <MenuItem onClick={handleClose}><RemoveCircleOutlineIcon className={styles.menuItemIcon}/>{t`Ignore`}</MenuItem>
       <MenuItem onClick={() => {
         setComplainDialogVisible(true)
         handleClose()
-      }}><ThumbDownOffAltIcon sx={{ marginRight: '0.5rem' }} />Complain</MenuItem>
+      }}><ThumbDownOffAltIcon className={styles.menuItemIcon}/>{t`Complain`}</MenuItem>
       <MenuItem onClick={() => {
         setChatMenuVisible(false)
         setMuteMenuVisible(true)
-      }}><VolumeOffIcon sx={{ marginRight: '0.5rem' }} /> Mute</MenuItem>
-      <MenuItem onClick={handleClose}><SearchIcon sx={{ marginRight: '0.5rem' }} /> Search</MenuItem>
+      }}><VolumeOffIcon className={styles.menuItemIcon}/>{t`Mute`}</MenuItem>
+      <MenuItem onClick={handleClose}><SearchIcon className={styles.menuItemIcon}/>{t`Search`}</MenuItem>
     </Menu>
 
     <Menu
@@ -179,14 +180,14 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
       open={muteMenuVisible}
       onClose={closeMuteMenu}
     >
-      <MenuItem onClick={backToMenu}><ArrowBackIcon sx={{ marginRight: '0.5rem' }}></ArrowBackIcon>Back</MenuItem>
-      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon sx={{ marginRight: '0.5rem' }}></QueryBuilderIcon>30 minutes</MenuItem>
-      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon sx={{ marginRight: '0.5rem' }}></QueryBuilderIcon>1 hour</MenuItem>
-      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon sx={{ marginRight: '0.5rem' }}></QueryBuilderIcon>2 hours</MenuItem>
-      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon sx={{ marginRight: '0.5rem' }}></QueryBuilderIcon>8 hours</MenuItem>
+      <MenuItem onClick={backToMenu}><ArrowBackIcon className={styles.menuItemIcon}></ArrowBackIcon>{t`Back`}</MenuItem>
+      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon className={styles.menuItemIcon}></QueryBuilderIcon>{t`30 minutes`}</MenuItem>
+      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon className={styles.menuItemIcon}></QueryBuilderIcon>{t`1 hour`}</MenuItem>
+      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon className={styles.menuItemIcon}></QueryBuilderIcon>{t`2 hours`}</MenuItem>
+      <MenuItem onClick={closeMuteMenu}><QueryBuilderIcon className={styles.menuItemIcon}></QueryBuilderIcon>{t`8 hours`}</MenuItem>
       <MenuItem sx={{ color: theme.palette.accent.main }}
         onClick={closeMuteMenu}>
-        <NotificationsOffIcon sx={{ marginRight: '0.5rem' }}></NotificationsOffIcon>Mute forever
+        <NotificationsOffIcon className={styles.menuItemIcon}></NotificationsOffIcon>{t`Mute forever`}
       </MenuItem>
     </Menu>
 
@@ -203,7 +204,7 @@ export const ChatHeader = observer(({ user }: ChatHeaderProps): JSX.Element => {
             : <CardProfile person={user} info={questionnaire} />
         }
         <Button variant="outlined" fullWidth onClick={() => { setShowProfileCard(false) }}>
-          Back to chat
+          {t`Back to chat`}
         </Button>
       </Box>
     </>}

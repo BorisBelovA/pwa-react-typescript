@@ -5,12 +5,24 @@ import { useActive } from 'components/ProgressSlider/ProgressSlider'
 import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from '../BasicQuestions.module.scss'
 import { QuestionnaireRoutes, type WhatSmoke } from 'models'
+import { t } from '@lingui/macro'
 
 const Smoking: React.FunctionComponent = () => {
   const { setActive } = useActive()
   const { questions, setQuestions, setPercent } = useBasicQuestions()
   const navigate = useNavigate()
-  const options: WhatSmoke[] = ['Cigarettes', 'Vape', 'Shisha', 'Cigars', 'Other']
+
+  interface Option {
+    type: WhatSmoke
+    text: string
+  }
+  const options: Option[] = [
+    { type: 'Cigarettes', text: t`Cigarettes` },
+    { type: 'Vape', text: t`Vape` },
+    { type: 'Shisha', text: t`Shisha` },
+    { type: 'Cigars', text: t`Cigars` },
+    { type: 'Other', text: t`Other` }
+  ]
 
   useEffect(() => { setActive('smoking') }, [])
 
@@ -41,32 +53,32 @@ const Smoking: React.FunctionComponent = () => {
   return (
     <Box className={styles.question}>
       <Box className={styles.question__head}>
-        <Typography className={styles.question__head_text} variant='h1'>Do you smoke?</Typography>
+        <Typography className={styles.question__head_text} variant='h1'>{t`Do you smoke?`}</Typography>
         <ToggleButtonGroup
           size='small'
           color='primary'
           value={questions.smoker}
           exclusive
           onChange={setIsSmoker}>
-          <ToggleButton value={false}>no</ToggleButton>
-          <ToggleButton value={true}>yes</ToggleButton>
+          <ToggleButton value={false}>{t`no`}</ToggleButton>
+          <ToggleButton value={true}>{t`yes`}</ToggleButton>
         </ToggleButtonGroup>
       </Box>
       <Box className={styles.question__content}>
         {questions.smoker === true && (
           <>
             <Box className={styles.question__input}>
-              <Typography variant='h2'>What do you like to smoke?</Typography>
+              <Typography variant='h2'>{t`What do you like to smoke?`}</Typography>
               <Box className={styles.question__input_zeroGap}>
                 {options.map((option, index) => (
                   <FormControlLabel
                     key={index}
                     control={<Checkbox
                       value=''
-                      checked={questions.smokingWhat.some(what => what === option)}
-                      onChange={(e) => { handleCheck(e, option) }}
+                      checked={questions.smokingWhat.some(what => what === option.type)}
+                      onChange={(e) => { handleCheck(e, option.type) }}
                     />}
-                    label={option} />
+                    label={option.text} />
                 ))}
               </Box>
             </Box>
@@ -79,14 +91,14 @@ const Smoking: React.FunctionComponent = () => {
           onClick={() => {
             navigate(`../${QuestionnaireRoutes.PETS}`)
           }}>
-          Back
+          {t`Back`}
         </Button>
         <Button variant='contained'
           fullWidth
           onClick={() => {
             navigate(`../${QuestionnaireRoutes.LANGUAGES}`)
           }}>
-          Next
+          {t`Next`}
         </Button>
       </Box>
     </Box>

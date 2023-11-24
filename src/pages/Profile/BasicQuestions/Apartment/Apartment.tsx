@@ -23,6 +23,7 @@ import * as models from 'models'
 import HomeIcon from '@mui/icons-material/Home'
 import { ApartmentsRoutes, ProfileRoutes } from 'models'
 import { observer } from 'mobx-react-lite'
+import { t } from '@lingui/macro'
 
 interface ApartmentProps {
   apartment: models.Apartment
@@ -163,7 +164,9 @@ const Apartment: React.FunctionComponent = observer(() => {
   return (
     <Box className={styles.question}>
       <Box className={styles.question__head}>
-        <Typography className={styles.question__head_text} variant='h1'>Do you already have an apartment?</Typography>
+        <Typography className={styles.question__head_text} variant='h1'>
+          {t`Do you already have an apartment?`}
+        </Typography>
       </Box>
       <Box className={styles.question__content}>
         <ToggleButtonGroup
@@ -181,21 +184,21 @@ const Apartment: React.FunctionComponent = observer(() => {
               })
             }
           }}>
-          <ToggleButton value={false}>no</ToggleButton>
-          <ToggleButton value={true}>yes</ToggleButton>
+          <ToggleButton value={false}>{t`no`}</ToggleButton>
+          <ToggleButton value={true}>{t`yes`}</ToggleButton>
         </ToggleButtonGroup>
 
         {displayApartment && !questions.location.city &&
-          <Typography>To select or create new apartment you need to select your city&nbsp;
+          <Typography>{t`To select or create new apartment you need to select your city`}&nbsp;
             <Link to={`/profile/${ProfileRoutes.BASIC_QUEST}/${models.QuestionnaireRoutes.LOCATION}`}>
-              <Typography component='span' color={theme.palette.primary.main}>in previous step</Typography>
+              <Typography component='span' color={theme.palette.primary.main}>{t`in previous step`}</Typography>
             </Link>
           </Typography>
         }
 
         {displayApartment && questions.location.city &&
           <>
-            <Typography>Select apartment from the list or create new</Typography>
+            <Typography>{t`Select apartment from the list or create new`}</Typography>
             <Box className={apartmentStyles.list}>
               <ApartmentsList apartments={apartments}
                 onSelect={setSelectedApartment}
@@ -206,7 +209,7 @@ const Apartment: React.FunctionComponent = observer(() => {
               <Button variant='outlined'
                 fullWidth
                 onClick={goToApartmentQuest}>
-                Add new apartment
+                {t`Add new apartment`}
               </Button>
             }
 
@@ -214,7 +217,7 @@ const Apartment: React.FunctionComponent = observer(() => {
               <Button variant='outlined'
                 fullWidth
                 onClick={() => { setDeleteDialogVisible(true) }}>
-                Remove
+                {t`Remove`}
               </Button>
             }
           </>
@@ -226,13 +229,13 @@ const Apartment: React.FunctionComponent = observer(() => {
           onClick={() => {
             navigate(`../${models.QuestionnaireRoutes.LOCATION}`)
           }}>
-          Back
+          {t`Back`}
         </Button>
         <Button variant='contained'
           fullWidth
           disabled={displayApartment && questions.apartment === null}
           onClick={handleNext}>
-          Next
+          {t`Next`}
         </Button>
       </Box>
 
@@ -242,13 +245,13 @@ const Apartment: React.FunctionComponent = observer(() => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">Remove apartment</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{t`Remove apartment`}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">Do you really want to delete this apartment?</DialogContentText>
+          <DialogContentText id="alert-dialog-description">{t`Do you really want to delete this apartment?`}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant='outlined' onClick={removeNewApartment}>Yes</Button>
-          <Button variant='contained' onClick={() => { setDeleteDialogVisible(false) }} autoFocus>No</Button>
+          <Button variant='outlined' onClick={removeNewApartment}>{t`Yes`}</Button>
+          <Button variant='contained' onClick={() => { setDeleteDialogVisible(false) }} autoFocus>{t`No`}</Button>
         </DialogActions>
       </Dialog>
     </Box>

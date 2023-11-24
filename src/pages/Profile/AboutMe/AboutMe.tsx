@@ -9,6 +9,7 @@ import { useStore } from 'utils/StoreProvider'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import { useMemo } from 'react'
 import BackButton from 'components/Buttons/BackButton/BackButton'
+import { Trans } from '@lingui/macro'
 
 const getPersonalInfoProgress = (questionnaire: QuestionnaireBasicType): number => {
   const whoProgress = questionnaire.who === null
@@ -71,14 +72,18 @@ const AboutMe = observer((): JSX.Element => {
     <Box className={commonStyles.profile__container}>
       <Box className={commonStyles.profile__header}>
         <BackButton />
-        <Typography variant='h1'>About me</Typography>
+        <Typography variant='h1'>
+          <Trans>About me</Trans>
+        </Typography>
       </Box>
       <Box className={styles.profile__content}>
         <Card
           variant="outlined"
           sx={{ padding: '1rem' }}
           onClick={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}/${ProfileRoutes.BASIC_INFO}`) }}>
-          <Typography variant='h6'>Basic Information</Typography>
+          <Typography variant='h6'>
+            <Trans>Basic Information</Trans>
+          </Typography>
           <Box sx={{ width: '100%', marginTop: '0.5rem' }}>
             <LinearProgressWithLabel value={basicInfoProgress} />
           </Box>
@@ -86,7 +91,9 @@ const AboutMe = observer((): JSX.Element => {
 
         <Card variant="outlined" sx={{ padding: '1rem' }} onClick={goToQuestionnaire}>
           <Box className={styles.card_header}>
-            <Typography variant='h6'>Personal Info</Typography>
+            <Typography variant='h6'>
+              <Trans>Personal Info</Trans>
+            </Typography>
             {questionnaireProgress === 100 && <CheckCircleOutlineIcon sx={{ color: theme.palette.primary.main }}></CheckCircleOutlineIcon>}
           </Box>
           <Box sx={{ width: '100%', marginTop: '0.5rem' }}>
