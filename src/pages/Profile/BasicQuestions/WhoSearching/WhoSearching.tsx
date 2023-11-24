@@ -49,7 +49,7 @@ export const WhoSearching = (): JSX.Element => {
       navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.PETS}`)
     } else {
       setPercent(100, 100, 'who')
-      insertItem('Not Alone', 'not-alone', 1)
+      insertItem('Not Alone', t`Not Alone`, 'not-alone', 1)
       navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.NOT_ALONE}`)
     }
   }

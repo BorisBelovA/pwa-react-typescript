@@ -21,14 +21,13 @@ import { t } from '@lingui/macro'
 
 export type RegistrationSteps = 'personal' | 'phone' | 'verification' | 'photo' | 'summary'
 
-const steps: ProgressSliderProps[] = [
-  { text: t`personal`, progress: 0, to: 'personal', state: 'Active' },
-  { text: t`phone`, progress: 0, to: 'phone', state: 'Disabled' },
-  { text: t`photo`, progress: 0, to: 'photo', state: 'Disabled' },
-  { text: t`summary`, progress: 0, to: 'summary', state: 'Disabled' }
-]
-
 export const Layout = (): JSX.Element => {
+  const steps: ProgressSliderProps[] = [
+    { text: 'personal', label: t`personal`, progress: 0, to: 'personal', state: 'Active' },
+    { text: 'phone', label: t`phone`, progress: 0, to: 'phone', state: 'Disabled' },
+    { text: 'photo', label: t`photo`, progress: 0, to: 'photo', state: 'Disabled' },
+    { text: 'summary', label: t`summary`, progress: 0, to: 'summary', state: 'Disabled' }
+  ]
   const [firstStepValid, setFirstStepValid] = useState(false)
   const [secondStepValid, setSecondStepValid] = useState(false)
   const {

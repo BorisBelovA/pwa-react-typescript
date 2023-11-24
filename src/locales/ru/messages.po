@@ -56,8 +56,8 @@ msgstr "‫Код верификации отправлен вам"
 msgid "A verification code has been sent to your mobile device"
 msgstr "‫‫‫Код верификации отправлен на ваш мобильный телефон"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:29
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:85
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:30
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:86
 msgid "about"
 msgstr "о"
 
@@ -71,7 +71,7 @@ msgstr "Обо мне"
 msgid "Accept"
 msgstr "Принять"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:49
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:50
 #: src/pages/Profile/Settings/Settings.tsx:54
 msgid "Account"
 msgstr "Аккаунт"
@@ -105,7 +105,7 @@ msgstr "Адрес"
 msgid "Against drink"
 msgstr "Против алкоголя"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:25
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:26
 msgid "alcohol"
 msgstr "алкоголь"
 
@@ -115,8 +115,8 @@ msgstr "алкоголь"
 msgid "Almost done"
 msgstr "Почти готово"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:281
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:312
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:280
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:311
 msgid "Almost done!"
 msgstr "Почти готово!"
 
@@ -128,7 +128,7 @@ msgstr "Одиночка"
 msgid "Already have an account?"
 msgstr "Уже есть аккаунт?"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:28
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:29
 msgid "apartment"
 msgstr "квартира"
 
@@ -195,7 +195,7 @@ msgstr "Фото на аватар"
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:61
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:94
 #: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:111
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:364
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:363
 msgid "Back"
 msgstr "Назад"
 
@@ -208,7 +208,7 @@ msgstr "Вернуться в чат"
 msgid "Back to login"
 msgstr "Вернуться на страницу входа"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:82
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:83
 msgid "basic"
 msgstr "основное"
 
@@ -381,11 +381,11 @@ msgstr "Страна"
 msgid "Country is required"
 msgstr "Укажите страну"
 
-#: src/pages/Registration/Layout.tsx:185
+#: src/pages/Registration/Layout.tsx:184
 msgid "Create Account"
 msgstr "Создать аккаунт"
 
-#: src/pages/Registration/Layout.tsx:69
+#: src/pages/Registration/Layout.tsx:68
 msgid "Creating your account"
 msgstr "Создание аккаунта"
 
@@ -393,8 +393,8 @@ msgstr "Создание аккаунта"
 msgid "Dark"
 msgstr "Темная"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:72
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:73
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:81
 msgid "Delete your account"
 msgstr "Удалить аккаунт"
 
@@ -464,7 +464,7 @@ msgstr "Пожертвовать"
 msgid "donation"
 msgstr "пожертвование"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:387
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:386
 msgid "Done"
 msgstr "Готово"
 
@@ -534,7 +534,7 @@ msgid "Finish"
 msgstr "Готово"
 
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:110
-#: src/pages/Registration/Layout.tsx:109
+#: src/pages/Registration/Layout.tsx:108
 msgid "Finishing up!"
 msgstr "Завершаем!"
 
@@ -594,7 +594,7 @@ msgstr "Перейти в профиль"
 msgid "Go to search"
 msgstr "Перейти к поиску"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:26
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:27
 msgid "guests"
 msgstr "гости"
 
@@ -676,7 +676,7 @@ msgstr "Неверный код из письма"
 msgid "Incorrect phone number"
 msgstr "Неверный формат номера телефона"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:23
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:24
 msgid "languages"
 msgstr "Языки"
 
@@ -708,8 +708,8 @@ msgstr "Загрузить еще"
 msgid "Loading..."
 msgstr "Загрузка..."
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:27
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:83
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:28
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:84
 msgid "location"
 msgstr "местоположение"
 
@@ -728,7 +728,7 @@ msgstr "Выполняется вход"
 msgid "Login to your account"
 msgstr "Войти в аккаунт"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:61
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:62
 msgid "Logout"
 msgstr "Выйти"
 
@@ -777,8 +777,8 @@ msgstr "Впервые на roommate.host?"
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:69
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:101
 #: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:86
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:380
-#: src/pages/Registration/Layout.tsx:177
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:379
+#: src/pages/Registration/Layout.tsx:176
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:44
 msgid "Next"
 msgstr "Далее"
@@ -830,7 +830,7 @@ msgid "No result for user"
 msgstr "אין תוצאה למשתמש"
 
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:85
-#: src/pages/Registration/Layout.tsx:84
+#: src/pages/Registration/Layout.tsx:83
 msgid "No session token provided"
 msgstr "Токен сеанса не предоставлен"
 
@@ -838,7 +838,7 @@ msgstr "Токен сеанса не предоставлен"
 msgid "No user"
 msgstr "Нет пользователя"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:92
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:93
 msgid "No, I've changed my mind"
 msgstr "Нет, я передумал"
 
@@ -855,8 +855,10 @@ msgstr "Не против алкоголя"
 msgid "Not alone"
 msgstr "Не одиночка"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:40
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
 #: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:56
+#: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:52
 msgid "Not Alone"
 msgstr "Не одиночка"
 
@@ -913,7 +915,7 @@ msgstr "люди, которых вы можете принять"
 msgid "person"
 msgstr "человек"
 
-#: src/pages/Registration/Layout.tsx:25
+#: src/pages/Registration/Layout.tsx:26
 msgid "personal"
 msgstr "персональный"
 
@@ -921,11 +923,11 @@ msgstr "персональный"
 msgid "Personal Info"
 msgstr "Личные данные"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:21
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:22
 msgid "pets"
 msgstr "питомцы"
 
-#: src/pages/Registration/Layout.tsx:26
+#: src/pages/Registration/Layout.tsx:27
 msgid "phone"
 msgstr "телефон"
 
@@ -939,7 +941,7 @@ msgstr "Телефон"
 msgid "Phone number"
 msgstr "Номер телефона"
 
-#: src/pages/Registration/Layout.tsx:27
+#: src/pages/Registration/Layout.tsx:28
 msgid "photo"
 msgstr "фото"
 
@@ -947,7 +949,7 @@ msgstr "фото"
 msgid "Photo"
 msgstr "Фото"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:84
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:85
 msgid "photos"
 msgstr "фотографии"
 
@@ -1000,7 +1002,7 @@ msgstr "Удалить"
 msgid "Remove apartment"
 msgstr "Удалить квартиру"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:24
 msgid "Removing all information about you"
 msgstr "Удаление всей информации о вас"
 
@@ -1042,8 +1044,8 @@ msgstr "комнаты"
 msgid "Save"
 msgstr "Сохранить"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:251
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:274
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:250
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:273
 msgid "Saving your apartment!"
 msgstr "Сохранение вашей квартиры!"
 
@@ -1113,11 +1115,11 @@ msgstr "Регистрация"
 msgid "Sign Up"
 msgstr "Регистрация"
 
-#: src/pages/Registration/Layout.tsx:167
+#: src/pages/Registration/Layout.tsx:166
 msgid "Skip"
 msgstr "Пропустить"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:24
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:25
 msgid "sleep"
 msgstr "спать"
 
@@ -1125,7 +1127,7 @@ msgstr "спать"
 msgid "Sleeping habbits"
 msgstr "Привычки сна"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:22
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:23
 msgid "smoking"
 msgstr "курение"
 
@@ -1139,11 +1141,11 @@ msgstr "Что-то еще, по вашему мнению, будет поле�
 #: src/pages/Email-code/EmailCode.tsx:37
 #: src/pages/Login/Login.tsx:64
 #: src/pages/Matches/Matches.tsx:47
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:266
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:294
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:325
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:265
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:293
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:324
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:38
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:39
 #: src/pages/Profile/Settings/Feedback/Feedback.tsx:41
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
@@ -1157,7 +1159,7 @@ msgstr "Что-то пошло не так"
 #~ msgid "Something went wrong😮"
 #~ msgstr "משהו השתבש😮"
 
-#: src/pages/Registration/Layout.tsx:55
+#: src/pages/Registration/Layout.tsx:54
 msgid "something wrong with steps!"
 msgstr "Что-то не так с шагами!"
 
@@ -1191,9 +1193,9 @@ msgstr "Штат"
 msgid "Success!"
 msgstr "Успешно!"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:30
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:86
-#: src/pages/Registration/Layout.tsx:28
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:31
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:87
+#: src/pages/Registration/Layout.tsx:29
 msgid "summary"
 msgstr "резюме"
 
@@ -1245,7 +1247,7 @@ msgstr "В"
 msgid "To change location you need to unlink your apartment first"
 msgstr "Чтобы изменить местоположение, вам нужно сначала отвязать свою квартиру"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:371
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:370
 msgid "To personal info"
 msgstr "К личной информации"
 
@@ -1269,8 +1271,8 @@ msgstr "Не удается получить активный шаг из URI!"
 msgid "Unable to send email again"
 msgstr "Не удается отправить электронное письмо повторно"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:215
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:244
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:214
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:243
 msgid "Unknown step to complete!"
 msgstr "Неизвестный шаг для завершения!"
 
@@ -1294,7 +1296,7 @@ msgstr "Допускаются файлы размером до 20 МБ"
 msgid "Updating password"
 msgstr "Обновление пароля"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:302
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:301
 msgid "Updating your apartment!"
 msgstr "Обновление Вашей квартиры!"
 
@@ -1307,7 +1309,7 @@ msgid "Upload a photo"
 msgstr "Загрузить фотографию"
 
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:82
-#: src/pages/Registration/Layout.tsx:81
+#: src/pages/Registration/Layout.tsx:80
 msgid "User form is not filled!"
 msgstr "Анкета пользователя не заполнена!"
 
@@ -1352,7 +1354,7 @@ msgstr "Какими языками вы владеете?"
 msgid "What pets?"
 msgstr "Какие домашние животные?"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:20
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:21
 msgid "who"
 msgstr "кто"
 
@@ -1388,11 +1390,11 @@ msgstr "да"
 msgid "Yes"
 msgstr "Да"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:95
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:96
 msgid "Yes, delete my account"
 msgstr "Да, удалить мою учетную запись"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:83
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:84
 msgid "You are trying to permanently delete your account. Are you sure about that?"
 msgstr "Вы пытаетесь навсегда удалить свою учетную запись. Вы уверены в этом?"
 

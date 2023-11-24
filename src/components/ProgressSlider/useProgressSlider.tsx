@@ -6,7 +6,7 @@ interface Props {
   finished?: boolean
 }
 
-export type ProgressSliderInsertItemFunc = (text: string, to: string, index: number, progress?: number) => void
+export type ProgressSliderInsertItemFunc = (text: string, label: string, to: string, index: number, progress?: number) => void
 
 export type ProgressSliderRemoveItemFunc = (text: string) => void
 
@@ -112,13 +112,13 @@ const useProgressSlider = (props: Props): ReturnType => {
     if (element !== null) { element.scrollIntoView({ inline: 'center', behavior: 'smooth' }) }
   }
 
-  const insertItem: ProgressSliderInsertItemFunc = (text: string, to: string, index: number, progress?: number): void => {
+  const insertItem: ProgressSliderInsertItemFunc = (text: string, label: string, to: string, index: number, progress?: number): void => {
     if (items.find(i => i.text === text)) {
       return
     }
     setItems([
       ...items.slice(0, index),
-      { text, to, progress: progress ?? 0, state: 'Inactive' },
+      { text, label, to, progress: progress ?? 0, state: 'Inactive' },
       ...items.slice(index)
     ])
   }

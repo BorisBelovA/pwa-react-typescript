@@ -70,8 +70,8 @@ msgstr "A verification code has been sent to you"
 msgid "A verification code has been sent to your mobile device"
 msgstr "A verification code has been sent to your mobile device"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:29
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:85
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:30
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:86
 msgid "about"
 msgstr "about"
 
@@ -85,7 +85,7 @@ msgstr "About me"
 msgid "Accept"
 msgstr "Accept"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:49
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:50
 #: src/pages/Profile/Settings/Settings.tsx:54
 msgid "Account"
 msgstr "Account"
@@ -119,7 +119,7 @@ msgstr "Address"
 msgid "Against drink"
 msgstr "Against drink"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:25
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:26
 msgid "alcohol"
 msgstr "alcohol"
 
@@ -129,8 +129,8 @@ msgstr "alcohol"
 msgid "Almost done"
 msgstr "Almost done"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:281
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:312
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:280
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:311
 msgid "Almost done!"
 msgstr "Almost done!"
 
@@ -142,7 +142,7 @@ msgstr "Alone"
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:28
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:29
 msgid "apartment"
 msgstr "apartment"
 
@@ -210,7 +210,7 @@ msgstr "Avatar photo"
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:61
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:94
 #: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:111
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:364
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:363
 msgid "Back"
 msgstr "Back"
 
@@ -223,7 +223,7 @@ msgstr "Back to chat"
 msgid "Back to login"
 msgstr "Back to login"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:82
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:83
 msgid "basic"
 msgstr "basic"
 
@@ -405,11 +405,11 @@ msgstr "Country"
 msgid "Country is required"
 msgstr "Country is required"
 
-#: src/pages/Registration/Layout.tsx:185
+#: src/pages/Registration/Layout.tsx:184
 msgid "Create Account"
 msgstr "Create Account"
 
-#: src/pages/Registration/Layout.tsx:69
+#: src/pages/Registration/Layout.tsx:68
 msgid "Creating your account"
 msgstr "Creating your account"
 
@@ -417,8 +417,8 @@ msgstr "Creating your account"
 msgid "Dark"
 msgstr "Dark"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:72
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:80
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:73
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:81
 msgid "Delete your account"
 msgstr "Delete your account"
 
@@ -488,7 +488,7 @@ msgstr "Donate"
 msgid "donation"
 msgstr "donation"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:387
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:386
 msgid "Done"
 msgstr "Done"
 
@@ -558,7 +558,7 @@ msgid "Finish"
 msgstr "Finish"
 
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:110
-#: src/pages/Registration/Layout.tsx:109
+#: src/pages/Registration/Layout.tsx:108
 msgid "Finishing up!"
 msgstr "Finishing up!"
 
@@ -618,7 +618,7 @@ msgstr "Go to profile"
 msgid "Go to search"
 msgstr "Go to search"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:26
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:27
 msgid "guests"
 msgstr "guests"
 
@@ -697,7 +697,7 @@ msgstr "Incorrect email pattern"
 msgid "Incorrect phone number"
 msgstr "Incorrect phone number"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:23
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:24
 msgid "languages"
 msgstr "languages"
 
@@ -729,8 +729,8 @@ msgstr "Load more"
 msgid "Loading..."
 msgstr "Loading..."
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:27
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:83
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:28
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:84
 msgid "location"
 msgstr "location"
 
@@ -749,7 +749,7 @@ msgstr "Logging in"
 msgid "Login to your account"
 msgstr "Login to your account"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:61
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:62
 msgid "Logout"
 msgstr "Logout"
 
@@ -798,8 +798,8 @@ msgstr "New to roommate.host?"
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:69
 #: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:101
 #: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:86
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:380
-#: src/pages/Registration/Layout.tsx:177
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:379
+#: src/pages/Registration/Layout.tsx:176
 #: src/pages/TermsAndConditions/TermsAndConditions.tsx:44
 msgid "Next"
 msgstr "Next"
@@ -851,7 +851,7 @@ msgid "No result for user"
 msgstr "No result for user"
 
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:85
-#: src/pages/Registration/Layout.tsx:84
+#: src/pages/Registration/Layout.tsx:83
 msgid "No session token provided"
 msgstr "No session token provided"
 
@@ -859,7 +859,7 @@ msgstr "No session token provided"
 msgid "No user"
 msgstr "No user"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:92
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:93
 msgid "No, I've changed my mind"
 msgstr "No, I've changed my mind"
 
@@ -876,8 +876,10 @@ msgstr "Not against drink"
 msgid "Not alone"
 msgstr "Not alone"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:40
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
 #: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:56
+#: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:52
 msgid "Not Alone"
 msgstr "Not Alone"
 
@@ -934,7 +936,7 @@ msgstr "people you can accept"
 msgid "person"
 msgstr "person"
 
-#: src/pages/Registration/Layout.tsx:25
+#: src/pages/Registration/Layout.tsx:26
 msgid "personal"
 msgstr "personal"
 
@@ -942,11 +944,11 @@ msgstr "personal"
 msgid "Personal Info"
 msgstr "Personal Info"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:21
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:22
 msgid "pets"
 msgstr "pets"
 
-#: src/pages/Registration/Layout.tsx:26
+#: src/pages/Registration/Layout.tsx:27
 msgid "phone"
 msgstr "phone"
 
@@ -960,7 +962,7 @@ msgstr "Phone"
 msgid "Phone number"
 msgstr "Phone number"
 
-#: src/pages/Registration/Layout.tsx:27
+#: src/pages/Registration/Layout.tsx:28
 msgid "photo"
 msgstr "photo"
 
@@ -968,7 +970,7 @@ msgstr "photo"
 msgid "Photo"
 msgstr "Photo"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:84
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:85
 msgid "photos"
 msgstr "photos"
 
@@ -1021,7 +1023,7 @@ msgstr "Remove"
 msgid "Remove apartment"
 msgstr "Remove apartment"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:23
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:24
 msgid "Removing all information about you"
 msgstr "Removing all information about you"
 
@@ -1067,8 +1069,8 @@ msgstr "rooms"
 msgid "Save"
 msgstr "Save"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:251
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:274
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:250
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:273
 msgid "Saving your apartment!"
 msgstr "Saving your apartment!"
 
@@ -1138,11 +1140,11 @@ msgstr "Sign up"
 msgid "Sign Up"
 msgstr "Sign Up"
 
-#: src/pages/Registration/Layout.tsx:167
+#: src/pages/Registration/Layout.tsx:166
 msgid "Skip"
 msgstr "Skip"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:24
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:25
 msgid "sleep"
 msgstr "sleep"
 
@@ -1150,7 +1152,7 @@ msgstr "sleep"
 msgid "Sleeping habbits"
 msgstr "Sleeping habbits"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:22
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:23
 msgid "smoking"
 msgstr "smoking"
 
@@ -1164,11 +1166,11 @@ msgstr "Something else you think will be helpful?"
 #: src/pages/Email-code/EmailCode.tsx:37
 #: src/pages/Login/Login.tsx:64
 #: src/pages/Matches/Matches.tsx:47
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:266
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:294
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:325
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:265
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:293
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:324
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:38
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:39
 #: src/pages/Profile/Settings/Feedback/Feedback.tsx:41
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
@@ -1187,7 +1189,7 @@ msgstr "Something went wrong"
 #~ msgid "Something went wtong"
 #~ msgstr "Something went wtong"
 
-#: src/pages/Registration/Layout.tsx:55
+#: src/pages/Registration/Layout.tsx:54
 msgid "something wrong with steps!"
 msgstr "something wrong with steps!"
 
@@ -1221,9 +1223,9 @@ msgstr "State"
 msgid "Success!"
 msgstr "Success!"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:30
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:86
-#: src/pages/Registration/Layout.tsx:28
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:31
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:87
+#: src/pages/Registration/Layout.tsx:29
 msgid "summary"
 msgstr "summary"
 
@@ -1275,7 +1277,7 @@ msgstr "To"
 msgid "To change location you need to unlink your apartment first"
 msgstr "To change location you need to unlink your apartment first"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:371
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:370
 msgid "To personal info"
 msgstr "To personal info"
 
@@ -1299,8 +1301,8 @@ msgstr "Unable to get active step from URI!"
 msgid "Unable to send email again"
 msgstr "Unable to send email again"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:215
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:244
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:214
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:243
 msgid "Unknown step to complete!"
 msgstr "Unknown step to complete!"
 
@@ -1324,7 +1326,7 @@ msgstr "Up to 20MB files are allowed"
 msgid "Updating password"
 msgstr "Updating password"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:302
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:301
 msgid "Updating your apartment!"
 msgstr "Updating your apartment!"
 
@@ -1337,7 +1339,7 @@ msgid "Upload a photo"
 msgstr "Upload a photo"
 
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:82
-#: src/pages/Registration/Layout.tsx:81
+#: src/pages/Registration/Layout.tsx:80
 msgid "User form is not filled!"
 msgstr "User form is not filled!"
 
@@ -1382,7 +1384,7 @@ msgstr "What languages do you know?"
 msgid "What pets?"
 msgstr "What pets?"
 
-#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:20
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:21
 msgid "who"
 msgstr "who"
 
@@ -1418,11 +1420,11 @@ msgstr "yes"
 msgid "Yes"
 msgstr "Yes"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:95
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:96
 msgid "Yes, delete my account"
 msgstr "Yes, delete my account"
 
-#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:83
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:84
 msgid "You are trying to permanently delete your account. Are you sure about that?"
 msgstr "You are trying to permanently delete your account. Are you sure about that?"
 
