@@ -10,6 +10,7 @@ import { mapAuthenticatedUserData } from 'mapping-services'
 import { useStore } from 'src/utils/StoreProvider'
 import { ErrorCodes } from 'src/models/errors'
 import { t } from '@lingui/macro'
+import LanguagePicker from 'src/components/LanguagePicker/LanguagePicker'
 
 interface SignUpForm {
   email: string
@@ -79,7 +80,7 @@ export const Login = (): JSX.Element => {
 
   return <>
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '.5rem', alignItems: 'center' }}>
-      <Typography variant='h1'>{t`Log in`}</Typography>
+      <Typography variant='h1'>{t`Log in`} <LanguagePicker /></Typography>
       <Typography>{t`New to roommate.host?`} <Link to='/auth/signup'>
         <Typography component='span' sx={{ color: theme.palette.primary.main }}>{t`Sign up`}</Typography></Link></Typography>
     </Box>

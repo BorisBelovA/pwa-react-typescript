@@ -17,12 +17,9 @@ import { usePromptToInstall } from 'src/context/promptToInstall'
 import { useDetectDevice } from 'src/effects/detectDevice'
 import { useDetectBrowser } from 'src/effects/detectBrowser'
 import { InstallationInstruction } from './InstallationInstruction/InstallationInstruction'
-import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined'
-import { i18n } from '@lingui/core'
-import { Trans, msg, t } from '@lingui/macro'
+import { Trans, msg } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
-import { useDocumentDirection } from 'src/context/documentDirection'
-import { useDocumentLanguage } from 'src/context/documentLanguage'
+import LanguagePicker from 'src/components/LanguagePicker/LanguagePicker'
 
 const Settings = (): JSX.Element => {
   const navigate = useNavigate()
@@ -33,8 +30,6 @@ const Settings = (): JSX.Element => {
   const [instructionVisible, setInstructionVisible] = useState<boolean>(false)
   const theme = useTheme()
   const { _ } = useLingui()
-  const { setDocumentDirection } = useDocumentDirection()
-  const { setDocumentLanguage } = useDocumentLanguage()
 
   const onInstallClick = async (): Promise<void> => {
     setInstallPromptVisible(false)
@@ -43,23 +38,6 @@ const Settings = (): JSX.Element => {
       hidePrompt()
     }
   }
-
-  const switchLanguage = async (): Promise<void> => {
-    if (i18n.locale === 'en') {
-      await setDocumentLanguage('he')
-      setDocumentDirection('rtl')
-    } else {
-      await setDocumentLanguage('en')
-      setDocumentDirection('ltr') 
-    }
-    navigate('/profile/settings')
-  }
-
-  const switchToLanguageButtonText = useMemo(() => {
-    return i18n.locale === 'en'
-      ? t({ message: 'Switch to Hebrew' })
-      : t({ message: 'Switch to English' })
-  }, [i18n.locale])
 
   const installBtnVisible = useMemo(() => {
     return deviceType === 'browser' &&
@@ -81,10 +59,7 @@ const Settings = (): JSX.Element => {
           icon={PaletteOutlinedIcon}
           action={() => { navigate('/profile/settings/theme/') }}
         />
-        <ListItemButton label={switchToLanguageButtonText}
-          icon={TranslateOutlinedIcon}
-          action={switchLanguage}
-        />
+        <LanguagePicker inSettings />
         {installBtnVisible &&
           <ListItemButton label={_(msg`Add to Home Screen`)}
             icon={AddToHomeScreenOutlinedIcon}

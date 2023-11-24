@@ -10,6 +10,7 @@ import { userApiService } from 'api-services'
 import { useAuthContext } from 'src/layouts/Auth/AuthLayout'
 import { mapUserToModel } from 'mapping-services'
 import { t } from '@lingui/macro'
+import LanguagePicker from 'src/components/LanguagePicker/LanguagePicker'
 
 // xiwabi4275@byorby.com
 interface SignUpForm {
@@ -78,12 +79,12 @@ export const SignUp = (): JSX.Element => {
 
   return <>
     <div className={styles.headerSection}>
-      <Typography variant='h1'>{t`Sign Up`}</Typography>
+      <Typography variant='h1'>{t`Sign Up`} <LanguagePicker /></Typography>
       <Typography variant='body1'>{t`Already have an account?`} <Link to='/auth/login'>
         <Typography component='span' sx={{ color: theme.palette.primary.main }}>{t`Log in`}</Typography>
       </Link></Typography>
     </div>
-    <div className={styles.group} dir='rtl'>
+    <div className={styles.group}>
       <TextField fullWidth label={t`E-mail`}
         type='email'
         error={!(errors.email == null)}
