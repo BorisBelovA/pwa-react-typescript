@@ -61,7 +61,8 @@ msgstr "‫‫‫Код верификации отправлен на ваш м
 msgid "about"
 msgstr "о"
 
-#: src/pages/Profile/AboutMe/AboutMe.tsx:76 src/pages/Profile/Profile.tsx:127
+#: src/pages/Profile/AboutMe/AboutMe.tsx:76
+#: src/pages/Profile/Profile.tsx:127
 msgid "About me"
 msgstr "Обо мне"
 
@@ -71,11 +72,11 @@ msgid "Accept"
 msgstr "Принять"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:49
-#: src/pages/Profile/Settings/Settings.tsx:75
+#: src/pages/Profile/Settings/Settings.tsx:54
 msgid "Account"
 msgstr "Аккаунт"
 
-#: src/pages/Profile/Settings/Settings.tsx:107
+#: src/pages/Profile/Settings/Settings.tsx:83
 msgid "Add \"Roommate\" to your home screen"
 msgstr "Добавить Roommate на рабочий стол"
 
@@ -91,7 +92,7 @@ msgstr "Добавить новую квартиру"
 msgid "Add photos"
 msgstr "Добавить фото"
 
-#: src/pages/Profile/Settings/Settings.tsx:88
+#: src/pages/Profile/Settings/Settings.tsx:64
 msgid "Add to Home Screen"
 msgstr "Добавить на экран “Домой”"
 
@@ -123,7 +124,7 @@ msgstr "Почти готово!"
 msgid "Alone"
 msgstr "Одиночка"
 
-#: src/pages/Sign up/Signup.tsx:82
+#: src/pages/Sign up/Signup.tsx:83
 msgid "Already have an account?"
 msgstr "Уже есть аккаунт?"
 
@@ -175,6 +176,9 @@ msgstr "Квартиры"
 msgid "Appartment preview"
 msgstr "Предпросмотр квартиры"
 
+#~ msgid "ARBUSER"
+#~ msgstr "מתעלל"
+
 #: src/components/BasicInfoSteps/Photo.tsx:83
 msgid "Avatar photo"
 msgstr "Фото на аватар"
@@ -224,6 +228,9 @@ msgstr "Общая информация"
 msgid "Bio"
 msgstr "Биография"
 
+#~ msgid "Birthdate"
+#~ msgstr "יום הולדת"
+
 #: src/components/BasicInfoSteps/About.tsx:67
 msgid "Birthday"
 msgstr "Дата рождения"
@@ -264,11 +271,16 @@ msgstr "Изменить"
 msgid "Change filters"
 msgstr "Изменить фильтры"
 
+#: src/components/LanguagePicker/LanguagePicker.tsx:38
+#: src/components/LanguagePicker/LanguagePicker.tsx:46
+msgid "Change language"
+msgstr "Изменить язык (language)"
+
 #: src/pages/Registration/Fifth step/FifthStep.tsx:21
 msgid "Check your data"
 msgstr "Проверьте свои данные"
 
-#: src/pages/Sign up/Signup.tsx:58
+#: src/pages/Sign up/Signup.tsx:59
 msgid "Checking email"
 msgstr "Проверка электронной почты"
 
@@ -326,7 +338,8 @@ msgstr "Укажите Город"
 msgid "Close"
 msgstr "Закрыть"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:105 src/pages/Sign up/Signup.tsx:103
+#: src/pages/ResetPassword/Reset/Reset.tsx:105
+#: src/pages/Sign up/Signup.tsx:104
 msgid "Code is required"
 msgstr "Укажите код"
 
@@ -334,7 +347,7 @@ msgstr "Укажите код"
 msgid "Code length is 0!!"
 msgstr "Длина кода равна 0!!"
 
-#: src/pages/Profile/Settings/Settings.tsx:79
+#: src/pages/Profile/Settings/Settings.tsx:58
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
 msgid "Color theme"
 msgstr "Цветовая тема"
@@ -351,7 +364,8 @@ msgstr "Подтвердите и установите аватар"
 msgid "Confirm and proceed"
 msgstr "Подтвердите и продолжите"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:122 src/pages/Sign up/Signup.tsx:117
+#: src/pages/ResetPassword/Reset/Reset.tsx:122
+#: src/pages/Sign up/Signup.tsx:118
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
@@ -421,7 +435,7 @@ msgstr "Вы действительно хотите удалить эту кв�
 msgid "Do you smoke?"
 msgstr "Вы курите?"
 
-#: src/pages/Profile/Settings/Settings.tsx:111
+#: src/pages/Profile/Settings/Settings.tsx:87
 msgid "Do you want to install \"Roommate\" on your home screen?"
 msgstr "Хотите установить \"Roommate\" на главный экран?"
 
@@ -454,8 +468,9 @@ msgstr "пожертвование"
 msgid "Done"
 msgstr "Готово"
 
-#: src/pages/Login/Login.tsx:87 src/pages/ResetPassword/GetCode/GetCode.tsx:62
-#: src/pages/Sign up/Signup.tsx:87
+#: src/pages/Login/Login.tsx:88
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:62
+#: src/pages/Sign up/Signup.tsx:88
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -467,8 +482,9 @@ msgstr "E-mail"
 msgid "Edit"
 msgstr "Редактировать"
 
-#: src/pages/Login/Login.tsx:93 src/pages/ResetPassword/GetCode/GetCode.tsx:68
-#: src/pages/Sign up/Signup.tsx:93
+#: src/pages/Login/Login.tsx:94
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:68
+#: src/pages/Sign up/Signup.tsx:94
 msgid "Email is required"
 msgstr "Укажите адрес эл.почты"
 
@@ -553,7 +569,7 @@ msgstr "Для беженцев"
 msgid "Forgot password"
 msgstr "Восстановить пароль"
 
-#: src/pages/Login/Login.tsx:125
+#: src/pages/Login/Login.tsx:126
 msgid "Forgot password?"
 msgstr "Забыли пароль?"
 
@@ -582,11 +598,13 @@ msgstr "Перейти к поиску"
 msgid "guests"
 msgstr "гости"
 
-#: src/components/Badge/Badge.tsx:16 src/components/Qualities/Qualities.tsx:66
+#: src/components/Badge/Badge.tsx:16
+#: src/components/Qualities/Qualities.tsx:66
 msgid "Have an apartment"
 msgstr "Есть квартира"
 
-#: src/components/Badge/Badge.tsx:15 src/components/Qualities/Qualities.tsx:36
+#: src/components/Badge/Badge.tsx:15
+#: src/components/Qualities/Qualities.tsx:36
 msgid "Have pets"
 msgstr "Есть домашние животные"
 
@@ -649,7 +667,8 @@ msgstr "на предыдущий шаг"
 msgid "Incorrect apartments questionnaire step!"
 msgstr "Неверный шаг анкеты квартиры!"
 
-#: src/pages/Sign up/Signup.tsx:23 src/utils/validations.ts:13
+#: src/pages/Sign up/Signup.tsx:24
+#: src/utils/validations.ts:13
 msgid "Incorrect email pattern"
 msgstr "Неверный код из письма"
 
@@ -694,9 +713,10 @@ msgstr "Загрузка..."
 msgid "location"
 msgstr "местоположение"
 
-#: src/pages/Login/Login.tsx:82 src/pages/Login/Login.tsx:120
-#: src/pages/ResetPassword/Success/Success.tsx:55 src/pages/Sign
-#: up/Signup.tsx:83
+#: src/pages/Login/Login.tsx:83
+#: src/pages/Login/Login.tsx:121
+#: src/pages/ResetPassword/Success/Success.tsx:55
+#: src/pages/Sign up/Signup.tsx:84
 msgid "Log in"
 msgstr "Войти"
 
@@ -704,7 +724,7 @@ msgstr "Войти"
 msgid "Logging in"
 msgstr "Выполняется вход"
 
-#: src/pages/Login/Login.tsx:45
+#: src/pages/Login/Login.tsx:46
 msgid "Login to your account"
 msgstr "Войти в аккаунт"
 
@@ -724,7 +744,8 @@ msgstr "Муж."
 msgid "Matches"
 msgstr "Матчи"
 
-#: src/pages/Login/Login.tsx:21 src/utils/validations.ts:6
+#: src/pages/Login/Login.tsx:22
+#: src/utils/validations.ts:6
 msgid "Min length {length} symbols"
 msgstr "Минимальная длина {length} символов"
 
@@ -741,7 +762,7 @@ msgstr "Без звука навсегда"
 msgid "My apartments"
 msgstr "Мои квартиры"
 
-#: src/pages/Login/Login.tsx:83
+#: src/pages/Login/Login.tsx:84
 msgid "New to roommate.host?"
 msgstr "Впервые на roommate.host?"
 
@@ -771,11 +792,11 @@ msgid "no"
 msgstr "нет"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
-#: src/pages/Profile/Settings/Settings.tsx:116
+#: src/pages/Profile/Settings/Settings.tsx:92
 msgid "No"
 msgstr "Нет"
 
-#: src/pages/Sign up/Signup.tsx:55
+#: src/pages/Sign up/Signup.tsx:56
 msgid "No email or password provided!"
 msgstr "Требуется адрес электронной почты и пароль!"
 
@@ -865,16 +886,18 @@ msgstr "Сова"
 msgid "Partly drink"
 msgstr "Пью в компании"
 
-#: src/pages/Login/Login.tsx:96 src/pages/ResetPassword/Reset/Reset.tsx:98
-#: src/pages/Sign up/Signup.tsx:96
+#: src/pages/Login/Login.tsx:97
+#: src/pages/ResetPassword/Reset/Reset.tsx:98
+#: src/pages/Sign up/Signup.tsx:97
 msgid "Password"
 msgstr "Пароль"
 
-#: src/pages/Login/Login.tsx:102
+#: src/pages/Login/Login.tsx:103
 msgid "Password is required"
 msgstr "Введите Пароль"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:132 src/pages/Sign up/Signup.tsx:127
+#: src/pages/ResetPassword/Reset/Reset.tsx:132
+#: src/pages/Sign up/Signup.tsx:128
 msgid "Passwords won't match"
 msgstr "Пароли не совпадают"
 
@@ -993,7 +1016,7 @@ msgstr "Снять"
 msgid "Rent out apartment/room"
 msgstr "Сдать квартиру/комнату"
 
-#: src/pages/Sign up/Signup.tsx:124
+#: src/pages/Sign up/Signup.tsx:125
 msgid "Required"
 msgstr "Обязательный"
 
@@ -1042,8 +1065,8 @@ msgstr "Выберите квартиру из списка или создай�
 msgid "Select photo"
 msgstr "Выбрать фотографию"
 
-#: src/pages/Chat/components/ComplainDialog.tsx:45 src/pages/Registration/Third
-#: step/ThirdStep.tsx:44
+#: src/pages/Chat/components/ComplainDialog.tsx:45
+#: src/pages/Registration/Third step/ThirdStep.tsx:44
 msgid "Send"
 msgstr "Отправить"
 
@@ -1071,7 +1094,8 @@ msgstr "Отправляем ваш отзыв!"
 msgid "Sending your request!"
 msgstr "Отправляем заявку!"
 
-#: src/pages/Profile/Profile.tsx:136 src/pages/Profile/Settings/Settings.tsx:72
+#: src/pages/Profile/Profile.tsx:136
+#: src/pages/Profile/Settings/Settings.tsx:51
 msgid "Settings"
 msgstr "Настройки"
 
@@ -1080,11 +1104,12 @@ msgstr "Настройки"
 msgid "Shisha"
 msgstr "Кальян"
 
-#: src/pages/Login/Login.tsx:84 src/pages/Sign up/Signup.tsx:145
+#: src/pages/Login/Login.tsx:85
+#: src/pages/Sign up/Signup.tsx:146
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: src/pages/Sign up/Signup.tsx:81
+#: src/pages/Sign up/Signup.tsx:82
 msgid "Sign Up"
 msgstr "Регистрация"
 
@@ -1111,7 +1136,8 @@ msgstr "Что-то еще, по вашему мнению, будет поле�
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:26
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:52
 #: src/pages/Chat/components/ChatHeader.tsx:83
-#: src/pages/Email-code/EmailCode.tsx:37 src/pages/Login/Login.tsx:63
+#: src/pages/Email-code/EmailCode.tsx:37
+#: src/pages/Login/Login.tsx:64
 #: src/pages/Matches/Matches.tsx:47
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:266
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:294
@@ -1122,10 +1148,14 @@ msgstr "Что-то еще, по вашему мнению, будет поле�
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
 #: src/pages/ResetPassword/Success/Success.tsx:36
-#: src/pages/Search/Search.tsx:66 src/pages/Search/Search.tsx:209
-#: src/pages/Sign up/Signup.tsx:73
+#: src/pages/Search/Search.tsx:66
+#: src/pages/Search/Search.tsx:209
+#: src/pages/Sign up/Signup.tsx:74
 msgid "Something went wrong"
 msgstr "Что-то пошло не так"
+
+#~ msgid "Something went wrong😮"
+#~ msgstr "משהו השתבש😮"
 
 #: src/pages/Registration/Layout.tsx:55
 msgid "something wrong with steps!"
@@ -1172,12 +1202,12 @@ msgid "Support us"
 msgstr "Поддержите нас"
 
 #: src/pages/Profile/Settings/Settings.tsx:60
-msgid "Switch to English"
-msgstr "Переключить на английский"
+#~ msgid "Switch to English"
+#~ msgstr "Переключить на английский"
 
 #: src/pages/Profile/Settings/Settings.tsx:59
-msgid "Switch to Hebrew"
-msgstr "Переключить на иврит"
+#~ msgid "Switch to Hebrew"
+#~ msgstr "Переключить на иврит"
 
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:14
 msgid "System"
@@ -1354,7 +1384,7 @@ msgid "yes"
 msgstr "да"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:253
-#: src/pages/Profile/Settings/Settings.tsx:119
+#: src/pages/Profile/Settings/Settings.tsx:95
 msgid "Yes"
 msgstr "Да"
 
@@ -1406,12 +1436,3 @@ msgstr "Ваш номер телефона"
 #: src/pages/Profile/AboutMe/Preview/Preview.tsx:36
 msgid "Your profile"
 msgstr "Ваш профиль"
-
-#~ msgid "ARBUSER"
-#~ msgstr "מתעלל"
-
-#~ msgid "Birthdate"
-#~ msgstr "יום הולדת"
-
-#~ msgid "Something went wrong😮"
-#~ msgstr "משהו השתבש😮"

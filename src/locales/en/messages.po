@@ -86,11 +86,11 @@ msgid "Accept"
 msgstr "Accept"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:49
-#: src/pages/Profile/Settings/Settings.tsx:76
+#: src/pages/Profile/Settings/Settings.tsx:54
 msgid "Account"
 msgstr "Account"
 
-#: src/pages/Profile/Settings/Settings.tsx:108
+#: src/pages/Profile/Settings/Settings.tsx:83
 msgid "Add \"Roommate\" to your home screen"
 msgstr "Add \"Roommate\" to your home screen"
 
@@ -106,7 +106,7 @@ msgstr "Add new apartment"
 msgid "Add photos"
 msgstr "Add photos"
 
-#: src/pages/Profile/Settings/Settings.tsx:89
+#: src/pages/Profile/Settings/Settings.tsx:64
 msgid "Add to Home Screen"
 msgstr "Add to Home Screen"
 
@@ -138,7 +138,7 @@ msgstr "Almost done!"
 msgid "Alone"
 msgstr "Alone"
 
-#: src/pages/Sign up/Signup.tsx:82
+#: src/pages/Sign up/Signup.tsx:83
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
@@ -291,11 +291,16 @@ msgstr "Change"
 msgid "Change filters"
 msgstr "Change filters"
 
+#: src/components/LanguagePicker/LanguagePicker.tsx:38
+#: src/components/LanguagePicker/LanguagePicker.tsx:46
+msgid "Change language"
+msgstr "Change language"
+
 #: src/pages/Registration/Fifth step/FifthStep.tsx:21
 msgid "Check your data"
 msgstr "Check your data"
 
-#: src/pages/Sign up/Signup.tsx:58
+#: src/pages/Sign up/Signup.tsx:59
 msgid "Checking email"
 msgstr "Checking email"
 
@@ -358,7 +363,7 @@ msgid "Close"
 msgstr "Close"
 
 #: src/pages/ResetPassword/Reset/Reset.tsx:105
-#: src/pages/Sign up/Signup.tsx:103
+#: src/pages/Sign up/Signup.tsx:104
 msgid "Code is required"
 msgstr "Code is required"
 
@@ -366,7 +371,7 @@ msgstr "Code is required"
 msgid "Code length is 0!!"
 msgstr "Code length is 0!!"
 
-#: src/pages/Profile/Settings/Settings.tsx:80
+#: src/pages/Profile/Settings/Settings.tsx:58
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
 msgid "Color theme"
 msgstr "Color theme"
@@ -384,7 +389,7 @@ msgid "Confirm and proceed"
 msgstr "Confirm and proceed"
 
 #: src/pages/ResetPassword/Reset/Reset.tsx:122
-#: src/pages/Sign up/Signup.tsx:117
+#: src/pages/Sign up/Signup.tsx:118
 msgid "Confirm password"
 msgstr "Confirm password"
 
@@ -454,7 +459,7 @@ msgstr "Do you really want to delete this apartment?"
 msgid "Do you smoke?"
 msgstr "Do you smoke?"
 
-#: src/pages/Profile/Settings/Settings.tsx:112
+#: src/pages/Profile/Settings/Settings.tsx:87
 msgid "Do you want to install \"Roommate\" on your home screen?"
 msgstr "Do you want to install \"Roommate\" on your home screen?"
 
@@ -487,9 +492,9 @@ msgstr "donation"
 msgid "Done"
 msgstr "Done"
 
-#: src/pages/Login/Login.tsx:87
+#: src/pages/Login/Login.tsx:88
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:62
-#: src/pages/Sign up/Signup.tsx:87
+#: src/pages/Sign up/Signup.tsx:88
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -501,9 +506,9 @@ msgstr "E-mail"
 msgid "Edit"
 msgstr "Edit"
 
-#: src/pages/Login/Login.tsx:93
+#: src/pages/Login/Login.tsx:94
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:68
-#: src/pages/Sign up/Signup.tsx:93
+#: src/pages/Sign up/Signup.tsx:94
 msgid "Email is required"
 msgstr "Email is required"
 
@@ -588,7 +593,7 @@ msgstr "For refugees"
 msgid "Forgot password"
 msgstr "Forgot password"
 
-#: src/pages/Login/Login.tsx:125
+#: src/pages/Login/Login.tsx:126
 msgid "Forgot password?"
 msgstr "Forgot password?"
 
@@ -683,7 +688,7 @@ msgstr "in previous step"
 msgid "Incorrect apartments questionnaire step!"
 msgstr "Incorrect apartments questionnaire step!"
 
-#: src/pages/Sign up/Signup.tsx:23
+#: src/pages/Sign up/Signup.tsx:24
 #: src/utils/validations.ts:13
 msgid "Incorrect email pattern"
 msgstr "Incorrect email pattern"
@@ -729,10 +734,10 @@ msgstr "Loading..."
 msgid "location"
 msgstr "location"
 
-#: src/pages/Login/Login.tsx:82
-#: src/pages/Login/Login.tsx:120
+#: src/pages/Login/Login.tsx:83
+#: src/pages/Login/Login.tsx:121
 #: src/pages/ResetPassword/Success/Success.tsx:55
-#: src/pages/Sign up/Signup.tsx:83
+#: src/pages/Sign up/Signup.tsx:84
 msgid "Log in"
 msgstr "Log in"
 
@@ -740,7 +745,7 @@ msgstr "Log in"
 msgid "Logging in"
 msgstr "Logging in"
 
-#: src/pages/Login/Login.tsx:45
+#: src/pages/Login/Login.tsx:46
 msgid "Login to your account"
 msgstr "Login to your account"
 
@@ -760,7 +765,7 @@ msgstr "Male"
 msgid "Matches"
 msgstr "Matches"
 
-#: src/pages/Login/Login.tsx:21
+#: src/pages/Login/Login.tsx:22
 #: src/utils/validations.ts:6
 msgid "Min length {length} symbols"
 msgstr "Min length {length} symbols"
@@ -778,7 +783,7 @@ msgstr "Mute forever"
 msgid "My apartments"
 msgstr "My apartments"
 
-#: src/pages/Login/Login.tsx:83
+#: src/pages/Login/Login.tsx:84
 msgid "New to roommate.host?"
 msgstr "New to roommate.host?"
 
@@ -808,11 +813,11 @@ msgid "no"
 msgstr "no"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
-#: src/pages/Profile/Settings/Settings.tsx:117
+#: src/pages/Profile/Settings/Settings.tsx:92
 msgid "No"
 msgstr "No"
 
-#: src/pages/Sign up/Signup.tsx:55
+#: src/pages/Sign up/Signup.tsx:56
 msgid "No email or password provided!"
 msgstr "No email or password provided!"
 
@@ -902,18 +907,18 @@ msgstr "Owl"
 msgid "Partly drink"
 msgstr "Partly drink"
 
-#: src/pages/Login/Login.tsx:96
+#: src/pages/Login/Login.tsx:97
 #: src/pages/ResetPassword/Reset/Reset.tsx:98
-#: src/pages/Sign up/Signup.tsx:96
+#: src/pages/Sign up/Signup.tsx:97
 msgid "Password"
 msgstr "Password"
 
-#: src/pages/Login/Login.tsx:102
+#: src/pages/Login/Login.tsx:103
 msgid "Password is required"
 msgstr "Password is required"
 
 #: src/pages/ResetPassword/Reset/Reset.tsx:132
-#: src/pages/Sign up/Signup.tsx:127
+#: src/pages/Sign up/Signup.tsx:128
 msgid "Passwords won't match"
 msgstr "Passwords won't match"
 
@@ -1036,7 +1041,7 @@ msgstr "Rent"
 msgid "Rent out apartment/room"
 msgstr "Rent out apartment/room"
 
-#: src/pages/Sign up/Signup.tsx:124
+#: src/pages/Sign up/Signup.tsx:125
 msgid "Required"
 msgstr "Required"
 
@@ -1115,7 +1120,7 @@ msgid "Sending your request!"
 msgstr "Sending your request!"
 
 #: src/pages/Profile/Profile.tsx:136
-#: src/pages/Profile/Settings/Settings.tsx:73
+#: src/pages/Profile/Settings/Settings.tsx:51
 msgid "Settings"
 msgstr "Settings"
 
@@ -1124,12 +1129,12 @@ msgstr "Settings"
 msgid "Shisha"
 msgstr "Shisha"
 
-#: src/pages/Login/Login.tsx:84
-#: src/pages/Sign up/Signup.tsx:145
+#: src/pages/Login/Login.tsx:85
+#: src/pages/Sign up/Signup.tsx:146
 msgid "Sign up"
 msgstr "Sign up"
 
-#: src/pages/Sign up/Signup.tsx:81
+#: src/pages/Sign up/Signup.tsx:82
 msgid "Sign Up"
 msgstr "Sign Up"
 
@@ -1157,7 +1162,7 @@ msgstr "Something else you think will be helpful?"
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:52
 #: src/pages/Chat/components/ChatHeader.tsx:83
 #: src/pages/Email-code/EmailCode.tsx:37
-#: src/pages/Login/Login.tsx:63
+#: src/pages/Login/Login.tsx:64
 #: src/pages/Matches/Matches.tsx:47
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:266
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:294
@@ -1170,7 +1175,7 @@ msgstr "Something else you think will be helpful?"
 #: src/pages/ResetPassword/Success/Success.tsx:36
 #: src/pages/Search/Search.tsx:66
 #: src/pages/Search/Search.tsx:209
-#: src/pages/Sign up/Signup.tsx:73
+#: src/pages/Sign up/Signup.tsx:74
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
@@ -1227,12 +1232,12 @@ msgid "Support us"
 msgstr "Support us"
 
 #: src/pages/Profile/Settings/Settings.tsx:61
-msgid "Switch to English"
-msgstr "Switch to English"
+#~ msgid "Switch to English"
+#~ msgstr "Switch to English"
 
 #: src/pages/Profile/Settings/Settings.tsx:60
-msgid "Switch to Hebrew"
-msgstr "Switch to Hebrew"
+#~ msgid "Switch to Hebrew"
+#~ msgstr "Switch to Hebrew"
 
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:14
 msgid "System"
@@ -1409,7 +1414,7 @@ msgid "yes"
 msgstr "yes"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:253
-#: src/pages/Profile/Settings/Settings.tsx:120
+#: src/pages/Profile/Settings/Settings.tsx:95
 msgid "Yes"
 msgstr "Yes"
 
