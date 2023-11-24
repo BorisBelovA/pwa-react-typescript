@@ -19,7 +19,7 @@ export class StompChatService {
     }
   })
 
-  public connect(
+  public connect (
     userId: number,
     messageReceiveCallback: (message: IMessage) => void,
     stompClientErrorCallback?: (args: any) => void,
@@ -44,11 +44,11 @@ export class StompChatService {
     }
   }
 
-  public disconnect(): void {
+  public disconnect (): void {
     void this.client.deactivate()
   }
 
-  public publishMessage(message: NewMessage): void {
+  public publishMessage (message: NewMessage): void {
     this.client.publish({
       destination: '/app/chat',
       body: JSON.stringify(message)
