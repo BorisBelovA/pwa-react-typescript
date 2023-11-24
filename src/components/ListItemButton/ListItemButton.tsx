@@ -6,12 +6,13 @@ export interface ListItemButtonProps {
   icon?: OverridableComponent<any>
   label: string
   action: (args: any) => any
+  className?: string
 }
 
-export const MyListItemButton = ({ icon, label, action }: ListItemButtonProps): JSX.Element => {
+export const MyListItemButton = ({ icon, label, action, className }: ListItemButtonProps): JSX.Element => {
   const theme = useTheme()
   return <ListItem className={styles.list_item} disablePadding onClick={action}>
-    <ListItemButton sx={{ padding: '12px 0' }}>
+    <ListItemButton className={className} sx={{ padding: '12px 0' }}>
       {icon &&
         <ListItemIcon className={styles.list_item_icon}>
           <Icon component={icon} sx={{
