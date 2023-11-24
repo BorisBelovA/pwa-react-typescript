@@ -1,8 +1,8 @@
 import { SettingsRoutes } from 'models'
-import Settings from 'src/pages/Profile/Settings/Settings'
-import AccountSettings from 'src/pages/Profile/Settings/AccountSettings/AccountSettings'
+import Settings from 'pages/Profile/Settings/Settings'
+import AccountSettings from 'pages/Profile/Settings/AccountSettings/AccountSettings'
 import { Route } from 'react-router-dom'
-import ThemeSettings from 'src/pages/Profile/Settings/ThemeSettings/ThemeSettings'
+import ThemeSettings from 'pages/Profile/Settings/ThemeSettings/ThemeSettings'
 
 export const settingsRoutes = [
   <Route key='0' path={SettingsRoutes.INDEX} element={< Settings />} />,

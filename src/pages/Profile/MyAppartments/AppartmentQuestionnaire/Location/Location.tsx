@@ -4,7 +4,7 @@ import styles from './Location.module.scss'
 import { Autocomplete, Box, TextField, Typography } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { ApartmentsQuestionnaireRoutes, type City, type District, type Country } from 'models'
-import { locationService } from 'src/api/api-services/location'
+import { locationService } from 'api/api-services/location'
 
 export const Location = (): JSX.Element => {
   const { apartment, setApartment, setNextDisabled, setActive, setPercent, lockLocation } = apartmentQuestionnaireContext()

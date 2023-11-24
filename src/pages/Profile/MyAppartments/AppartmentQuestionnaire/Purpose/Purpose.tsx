@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import { type ApartmentPurpose, ApartmentsQuestionnaireRoutes } from 'models'
 import { useEffect, useMemo } from 'react'
-import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'
+import { type Option, OptionCards } from 'components/OptionCards/OptionCards'
 import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
 
 export const Purpose = (): JSX.Element => {

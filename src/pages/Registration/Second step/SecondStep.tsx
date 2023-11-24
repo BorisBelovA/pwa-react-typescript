@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import { matchIsValidTel } from 'mui-tel-input'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import Phone from 'src/components/BasicInfoSteps/Phone'
+import Phone from 'components/BasicInfoSteps/Phone'
 import { type NewUser } from '../../../models/user'
 import styles from './SecondStep.module.scss'
 

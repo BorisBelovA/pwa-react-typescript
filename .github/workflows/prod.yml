@@ -1,0 +1,42 @@
+name: Docker build and push
+
+on:
+  pull_request:
+    branches: [ "release/*" ]
+    types:
+      - closed
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        docker build . --file DockerfileProd --tag qwerty467/roommate-front:${{ github.run_number }}
+
+    - name: Push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: qwerty467/roommate-front
+        tags: ${{ github.run_number }}
+        registry: docker.io
+        dockerfile: DockerfileProd
+        buildArgs: EMAIL,PASSWORD
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Deploy using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST_PROD }}
+        username: ${{ secrets.USERNAME_PROD }}
+        key: ${{ secrets.KEY_PROD }}
+        port: 22
+
+        script: |
+          kubectl set image deployment/frontend-app frontend-app=qwerty467/roommate-front:${{ github.run_number }}
+          kubectl get all

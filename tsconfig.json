@@ -20,16 +20,16 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "rootDir": ".",
     "paths": {
-      "models": ["./src/models"],
-      "dto": ["./src/api/dto"],
-      "api-services": ["./src/api/api-services"],
-      "mapping-services": ["./src/api/mapping-services"]
+      "models": ["./models"],
+      "dto": ["./api/dto"],
+      "api-services": ["./api/api-services"],
+      "mapping-services": ["./api/mapping-services"]
     }
   },
   "include": [
     "src"
-  ],
+  ]
 }

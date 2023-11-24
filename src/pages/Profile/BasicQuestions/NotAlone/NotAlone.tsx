@@ -1,6 +1,6 @@
 import { Box, Button, Slider, Typography } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
-import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 import styles from './NotAlone.module.scss'
 import { useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'

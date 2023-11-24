@@ -1,7 +1,7 @@
 import { Box, Card, Typography, useTheme, Icon } from '@mui/material'
 import styles from './OptionCards.module.scss'
 import { useMemo, useState } from 'react'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 
 export interface Option<T> {
   text: string

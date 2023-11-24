@@ -3,11 +3,11 @@ import styles from './Matches.module.scss'
 import { type Message, type Chat } from 'models'
 import { useCallback, useEffect, useState } from 'react'
 import { chatService } from 'api-services'
-import { mapChatToModel } from 'src/api/mapping-services/chat'
+import { mapChatToModel } from 'api/mapping-services/chat'
 import { Box, Button, Typography } from '@mui/material'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
-import { CardSkeleton, ChatCard } from 'src/components/ChatCart/ChatCard'
-import { ChatMessageListener, chatMessagesQueue } from 'src/services/chat-messages'
+import { useMainContext } from 'layouts/Main/MainLayout'
+import { CardSkeleton, ChatCard } from 'components/ChatCart/ChatCard'
+import { ChatMessageListener, chatMessagesQueue } from 'services/chat-messages'
 
 const Matches = (): JSX.Element => {
   const navigate = useNavigate()

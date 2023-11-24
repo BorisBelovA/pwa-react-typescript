@@ -2,10 +2,10 @@
 // import { type Contact } from 'models'
 // import { useEffect, useMemo, useState } from 'react'
 // import { useNavigate } from 'react-router-dom'
-// import ContactCard from 'src/components/ContactCard/ContactCard'
-// import AddContact from 'src/components/Modals/AddContact/AddContact'
-// import { useActive } from 'src/components/ProgressSlider/ProgressSlider'
-// import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+// import ContactCard from 'components/ContactCard/ContactCard'
+// import AddContact from 'components/Modals/AddContact/AddContact'
+// import { useActive } from 'components/ProgressSlider/ProgressSlider'
+// import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 // import styles from '../BasicQuestions.module.scss'
 
 // const Contacts: React.FunctionComponent = () => {

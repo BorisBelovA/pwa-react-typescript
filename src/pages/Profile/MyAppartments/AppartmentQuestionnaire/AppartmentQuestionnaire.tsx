@@ -1,10 +1,10 @@
 import { Box, Button } from '@mui/material'
 import { type Location, Outlet, useLocation, useNavigate, useOutletContext, useSearchParams } from 'react-router-dom'
-import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
+import ProgressSlider from 'components/ProgressSlider/ProgressSlider'
 import useProgressSlider, {
   type ProgressSliderSetActiveFunc, type ProgressSliderSetPercentFunc
-} from 'src/components/ProgressSlider/useProgressSlider'
-import { type MainLayoutContext, useMainContext } from 'src/layouts/Main/MainLayout'
+} from 'components/ProgressSlider/useProgressSlider'
+import { type MainLayoutContext, useMainContext } from 'layouts/Main/MainLayout'
 import styles from './AppartmentQuestionnaire.module.scss'
 import { useEffect, useState } from 'react'
 import {
@@ -19,10 +19,10 @@ import {
   type City
 } from 'models'
 import { mapBase64ToFile, mapApartmentToDto, mapPhotoNameToURI } from 'mapping-services'
-import { filesApiService } from 'src/api/api-services/files'
-import { apartmentService } from 'src/api/api-services/appartment'
-import { useStore } from 'src/utils/StoreProvider'
-import { type ProgressSliderProps } from 'src/components'
+import { filesApiService } from 'api/api-services/files'
+import { apartmentService } from 'api/api-services/appartment'
+import { useStore } from 'utils/StoreProvider'
+import { type ProgressSliderProps } from 'components'
 
 export type ApartmentQuestionnaireContext = MainLayoutContext & {
   apartment: NewApartmentForm

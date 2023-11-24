@@ -1,6 +1,6 @@
 import { type Apartment } from 'models'
 import { type RootStore } from './RootStore'
-import { apartmentService } from 'src/api/api-services/appartment'
+import { apartmentService } from 'api/api-services/appartment'
 import { action, computed, makeAutoObservable, observable } from 'mobx'
 import { mapApartmentToModel } from 'mapping-services'
 export class ApartmentsStore {

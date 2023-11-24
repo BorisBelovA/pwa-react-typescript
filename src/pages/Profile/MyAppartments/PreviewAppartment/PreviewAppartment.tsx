@@ -4,10 +4,10 @@ import { type Apartment } from 'models'
 import { useEffect, useState } from 'react'
 import commonStyles from '../../Profile.module.scss'
 import { useParams } from 'react-router-dom'
-import { apartmentService } from 'src/api/api-services/appartment'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
-import CardApartment from 'src/components/Cards/CardApartment/CardApartment'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { apartmentService } from 'api/api-services/appartment'
+import BackButton from 'components/Buttons/BackButton/BackButton'
+import CardApartment from 'components/Cards/CardApartment/CardApartment'
+import { useMainContext } from 'layouts/Main/MainLayout'
 
 const PreviewAppartment = (): JSX.Element => {
   const [apartment, setApartment] = useState<Apartment>()

@@ -7,11 +7,11 @@ import { ChatHeader } from './components/ChatHeader'
 import { ChatFooter } from './components/ChatFooter'
 import { useSearchParams } from 'react-router-dom'
 import { chatService, sessionService, stompChat, userApiService } from 'api-services'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { mapFullUser, mapMessageToModel } from 'mapping-services'
 import { type NewMessage } from 'dto'
-import { ChatMessageListener, chatMessagesQueue } from 'src/services/chat-messages'
+import { ChatMessageListener, chatMessagesQueue } from 'services/chat-messages'
 
 let storedMessages: Message[] = []
 
