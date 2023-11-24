@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import EditIcon from '@mui/icons-material/Edit'
 import { ApartmentsQuestionnaireRoutes } from 'models'
 import { useNavigate } from 'react-router-dom'
-import { mapCurrencyToSign } from 'src/utils/currency'
+import { mapCurrencyToSign } from 'utils/currency'
 import { t } from '@lingui/macro'
 
 export const Summary = (): JSX.Element => {

@@ -6,8 +6,8 @@ import { useStore } from 'utils/StoreProvider'
 import { FilterAltOutlined } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { t } from '@lingui/macro'
+import { useMainContext } from 'layouts/Main/MainLayout'
 
 const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
   const { apartmentFiltersStore, apartmentSearchStore } = useStore()

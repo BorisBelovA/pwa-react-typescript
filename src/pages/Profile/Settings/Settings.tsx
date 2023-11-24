@@ -19,7 +19,7 @@ import { useDetectBrowser } from 'effects/detectBrowser'
 import { InstallationInstruction } from './InstallationInstruction/InstallationInstruction'
 import { Trans, msg } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
-import LanguagePicker from 'src/components/LanguagePicker/LanguagePicker'
+import LanguagePicker from 'components/LanguagePicker/LanguagePicker'
 
 const Settings = (): JSX.Element => {
   const navigate = useNavigate()

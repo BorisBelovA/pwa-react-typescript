@@ -6,11 +6,11 @@ import { ImageCropper } from '../ImageCropper/ImageCropper'
 import UploadFileIcon from '@mui/icons-material/UploadFile'
 import { UserCard } from 'components/UserCard/UserCard'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
-import { calculateAge } from 'src/utils/date-time'
-import { imageTypes } from 'src/utils/constants'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
-import { photoReader } from 'src/utils/photoReader'
 import { t } from '@lingui/macro'
+import { useMainContext } from 'layouts/Main/MainLayout'
+import { imageTypes } from 'utils/constants'
+import { calculateAge } from 'utils/date-time'
+import { photoReader } from 'utils/photoReader'
 
 interface Props {
   user: NewUser

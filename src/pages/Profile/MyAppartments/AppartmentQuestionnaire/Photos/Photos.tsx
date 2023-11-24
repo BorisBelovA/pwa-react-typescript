@@ -5,9 +5,9 @@ import { ImageCropper } from 'components/ImageCropper/ImageCropper'
 import { apartmentQuestionnaireContext } from '../..'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined'
 import { ApartmentsQuestionnaireRoutes } from 'models'
-import { imageTypes } from 'src/utils/constants'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
-import { photoReader } from 'src/utils/photoReader'
+import { imageTypes } from 'utils/constants'
+import { useMainContext } from 'layouts/Main/MainLayout'
+import { photoReader } from 'utils/photoReader'
 import { t } from '@lingui/macro'
 
 export const Photos = (): JSX.Element => {

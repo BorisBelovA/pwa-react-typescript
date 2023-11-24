@@ -5,7 +5,7 @@ import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic
 import { QuestionnaireRoutes, type SleepingHabits } from 'models'
 import { useNavigate } from 'react-router-dom'
 import commonStyles from '../BasicQuestions.module.scss'
-import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'
+import { type Option, OptionCards } from 'components/OptionCards/OptionCards'
 import { t } from '@lingui/macro'
 
 export const SleepingHabbits = (): JSX.Element => {

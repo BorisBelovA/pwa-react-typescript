@@ -1,5 +1,5 @@
+import { dynamicActivate } from 'i18n'
 import { useState } from 'react'
-import { dynamicActivate } from 'src/i18n'
 
 export const DOCUMENT_LANGUAGE_KEY = 'documentLanguage'
 

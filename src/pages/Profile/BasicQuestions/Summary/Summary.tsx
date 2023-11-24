@@ -9,8 +9,8 @@ import { useMainContext } from 'layouts/Main/MainLayout'
 import { useStore } from 'utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { QuestionnaireRoutes } from 'models'
-import CardProfile from 'src/components/Cards/CardProfile/CardProfile'
-import CardDualPA from 'src/components/Cards/CardDualPA/CardDualPA'
+import CardProfile from 'components/Cards/CardProfile/CardProfile'
+import CardDualPA from 'components/Cards/CardDualPA/CardDualPA'
 import { t } from '@lingui/macro'
 
 const Summary = observer((): JSX.Element => {

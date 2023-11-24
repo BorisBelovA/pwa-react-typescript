@@ -13,7 +13,7 @@ import { type QuestionnaireBasicType } from 'models/questionnaireBasic'
 import { type MainLayoutContext, useMainContext } from '../Main/MainLayout'
 import { useStore } from 'utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
-import { type ProgressSliderProps } from 'src/components'
+import { type ProgressSliderProps } from 'components'
 import { t } from '@lingui/macro'
 
 const defaultItems: ProgressSliderProps[] = [

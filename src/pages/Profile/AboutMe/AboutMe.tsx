@@ -8,7 +8,7 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from 'utils/StoreProvider'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import { useMemo } from 'react'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
+import BackButton from 'components/Buttons/BackButton/BackButton'
 import { Trans } from '@lingui/macro'
 
 const getPersonalInfoProgress = (questionnaire: QuestionnaireBasicType): number => {

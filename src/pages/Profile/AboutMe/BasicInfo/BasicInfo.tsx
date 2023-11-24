@@ -11,9 +11,9 @@ import commonStyles from '../../Profile.module.scss'
 import SaveIcon from '@mui/icons-material/Save'
 import { sessionService, userApiService } from 'api-services'
 import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-services'
-import { filesApiService } from 'src/api/api-services/files'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
+import { filesApiService } from 'api/api-services/files'
+import { useMainContext } from 'layouts/Main/MainLayout'
+import BackButton from 'components/Buttons/BackButton/BackButton'
 import { Trans, t } from '@lingui/macro'
 
 const BasicInfo = (): JSX.Element => {

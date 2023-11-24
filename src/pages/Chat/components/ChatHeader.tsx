@@ -18,7 +18,7 @@ import { useMainContext } from 'layouts/Main/MainLayout'
 import { feedbackService, questionnaireService } from 'api-services'
 import CardProfile from 'components/Cards/CardProfile/CardProfile'
 import { mapQuestionnaireToModel } from 'mapping-services'
-import CardDualPA from 'src/components/Cards/CardDualPA/CardDualPA'
+import CardDualPA from 'components/Cards/CardDualPA/CardDualPA'
 import { t } from '@lingui/macro'
 
 interface ChatHeaderProps {

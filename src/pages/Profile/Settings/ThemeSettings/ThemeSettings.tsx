@@ -1,10 +1,10 @@
 import { Box, type PaletteMode, Typography } from '@mui/material'
 import commonStyles from '../../Profile.module.scss'
 import styles from './ThemeSettings.module.scss'
-import { type Option, OptionCards } from 'src/components/OptionCards/OptionCards'
-import { useStore } from 'src/utils/StoreProvider'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
 import { Trans, t } from '@lingui/macro'
+import BackButton from 'components/Buttons/BackButton/BackButton'
+import { type Option, OptionCards } from 'components/OptionCards/OptionCards'
+import { useStore } from 'utils/StoreProvider'
 
 const ThemeSettings = (): JSX.Element => {
   const { themeStore } = useStore()

@@ -7,10 +7,10 @@ import { userApiService, sessionService } from 'api-services'
 import { useAuthContext } from 'layouts/Auth/AuthLayout'
 import { emailPatternValidator } from 'utils/validations'
 import { mapAuthenticatedUserData } from 'mapping-services'
-import { useStore } from 'src/utils/StoreProvider'
-import { ErrorCodes } from 'src/models/errors'
+import { useStore } from 'utils/StoreProvider'
+import { ErrorCodes } from 'models/errors'
 import { t } from '@lingui/macro'
-import LanguagePicker from 'src/components/LanguagePicker/LanguagePicker'
+import LanguagePicker from 'components/LanguagePicker/LanguagePicker'
 
 interface SignUpForm {
   email: string

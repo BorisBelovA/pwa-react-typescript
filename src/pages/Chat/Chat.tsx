@@ -11,7 +11,7 @@ import { useStore } from 'utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { mapFullUser, mapMessageToModel } from 'mapping-services'
 import { type NewMessage } from 'dto'
-import { ChatMessageListener, chatMessagesQueue } from 'src/services/chat-messages'
+import { ChatMessageListener, chatMessagesQueue } from 'services/chat-messages'
 import { t } from '@lingui/macro'
 
 let storedMessages: Message[] = []

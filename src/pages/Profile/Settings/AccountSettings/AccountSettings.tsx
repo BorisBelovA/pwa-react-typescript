@@ -4,8 +4,8 @@ import styles from '../../Profile.module.scss'
 import { useStore } from 'utils/StoreProvider'
 import { useState } from 'react'
 import { sessionService, userApiService } from 'api-services'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
+import { useMainContext } from 'layouts/Main/MainLayout'
+import BackButton from 'components/Buttons/BackButton/BackButton'
 import { Trans, t } from '@lingui/macro'
 
 const AccountSettings = (): JSX.Element => {

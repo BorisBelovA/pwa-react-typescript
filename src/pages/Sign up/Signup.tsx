@@ -10,7 +10,7 @@ import { userApiService } from 'api-services'
 import { useAuthContext } from 'layouts/Auth/AuthLayout'
 import { mapUserToModel } from 'mapping-services'
 import { t } from '@lingui/macro'
-import LanguagePicker from 'src/components/LanguagePicker/LanguagePicker'
+import LanguagePicker from 'components/LanguagePicker/LanguagePicker'
 
 // xiwabi4275@byorby.com
 interface SignUpForm {
