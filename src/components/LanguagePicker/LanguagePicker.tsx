@@ -29,9 +29,7 @@ const LanguagePicker = ({ inSettings }: Props): JSX.Element => {
     await setDocumentLanguage(lang)
     setDocumentDirection(direction)
     handleClose()
-    if (inSettings) {
-      navigate('/profile/settings')
-    }
+    navigate(0)
   }
 
   return (
@@ -41,7 +39,7 @@ const LanguagePicker = ({ inSettings }: Props): JSX.Element => {
           icon={TranslateOutlinedIcon}
           action={handleOpen}
         />
-        : <IconButton onClick={handleOpen}><TranslateOutlinedIcon /></IconButton>
+        : <IconButton onClick={handleOpen} color='primary'><TranslateOutlinedIcon /></IconButton>
       }
       <Dialog onClose={handleClose} open={open} fullWidth>
         <DialogTitle className={styles.dialogHead}>
