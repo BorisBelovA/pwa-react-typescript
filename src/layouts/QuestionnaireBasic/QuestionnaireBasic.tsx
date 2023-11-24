@@ -16,28 +16,27 @@ import { observer } from 'mobx-react-lite'
 import { type ProgressSliderProps } from 'components'
 import { t } from '@lingui/macro'
 
-const defaultItems: ProgressSliderProps[] = [
-  { text: t`who`, progress: 0, to: 'who' },
-  { text: t`pets`, progress: 0, to: 'pets' },
-  { text: t`smoking`, progress: 0, to: 'smoking' },
-  { text: t`languages`, progress: 0, to: 'languages' },
-  { text: t`sleep`, progress: 0, to: 'sleep' },
-  { text: t`alcohol`, progress: 0, to: 'alcohol' },
-  { text: t`guests`, progress: 0, to: 'guests' },
-  { text: t`location`, progress: 0, to: 'location' },
-  { text: t`apartment`, progress: 0, to: 'apartment' },
-  { text: t`about`, progress: 0, to: 'about' },
-  { text: t`summary`, progress: 0, to: 'summary' }
-]
-
 const QuestionnaireBasic: React.FunctionComponent = observer(() => {
+  const defaultItems: ProgressSliderProps[] = [
+    { text: 'who', label: t`who`, progress: 0, to: 'who' },
+    { text: 'pets', label: t`pets`, progress: 0, to: 'pets' },
+    { text: 'smoking', label: t`smoking`, progress: 0, to: 'smoking' },
+    { text: 'languages', label: t`languages`, progress: 0, to: 'languages' },
+    { text: 'sleep', label: t`sleep`, progress: 0, to: 'sleep' },
+    { text: 'alcohol', label: t`alcohol`, progress: 0, to: 'alcohol' },
+    { text: 'guests', label: t`guests`, progress: 0, to: 'guests' },
+    { text: 'location', label: t`location`, progress: 0, to: 'location' },
+    { text: 'apartment', label: t`apartment`, progress: 0, to: 'apartment' },
+    { text: 'about', label: t`about`, progress: 0, to: 'about' },
+    { text: 'summary', label: t`summary`, progress: 0, to: 'summary' }
+  ]
   useEffect(() => {
     if (questions.who) {
       defaultItems.find(i => i.to === 'who')!.progress = 100
     }
 
     if (!!questions.countKids || !!questions.countAdults) {
-      insertItem(t`Not Alone`, 'not-alone', 1, 100)
+      insertItem(t`Not Alone`, t`Not Alone`, 'not-alone', 1, 100)
     }
 
     const count = questions.havePets !== undefined

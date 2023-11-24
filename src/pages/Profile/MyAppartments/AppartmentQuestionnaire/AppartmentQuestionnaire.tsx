@@ -78,15 +78,14 @@ const getActiveStepFromURI = (location: Location): ApartmentsQuestionnaireRoutes
   return activeStep as ApartmentsQuestionnaireRoutes
 }
 
-const questionnaireSteps: ProgressSliderProps[] = [
-  { text: t`basic`, progress: 0, to: ApartmentsQuestionnaireRoutes.BASIC },
-  { text: t`location`, progress: 0, to: ApartmentsQuestionnaireRoutes.LOCATION },
-  { text: t`photos`, progress: 0, to: ApartmentsQuestionnaireRoutes.PHOTOS },
-  { text: t`about`, progress: 0, to: ApartmentsQuestionnaireRoutes.ABOUT },
-  { text: t`summary`, progress: 0, to: ApartmentsQuestionnaireRoutes.SUMMARY }
-]
-
 export const ApartmentQuestionnaire = (): JSX.Element => {
+  const questionnaireSteps: ProgressSliderProps[] = [
+    { text: 'basic', label: t`basic`, progress: 0, to: ApartmentsQuestionnaireRoutes.BASIC },
+    { text: 'location', label: t`location`, progress: 0, to: ApartmentsQuestionnaireRoutes.LOCATION },
+    { text: 'photos', label: t`photos`, progress: 0, to: ApartmentsQuestionnaireRoutes.PHOTOS },
+    { text: 'about', label: t`about`, progress: 0, to: ApartmentsQuestionnaireRoutes.ABOUT },
+    { text: 'summary', label: t`summary`, progress: 0, to: ApartmentsQuestionnaireRoutes.SUMMARY }
+  ]
   const [searchParams] = useSearchParams()
 
   const queryPurpose = mapPurposeFromQueryParams(searchParams.get('purpose'))

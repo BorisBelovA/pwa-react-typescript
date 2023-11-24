@@ -8,7 +8,7 @@ import commonStyles from '../Profile.module.scss'
 import BackButton from 'components/Buttons/BackButton/BackButton'
 import { mapCurrencyToSign } from 'utils/currency'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
-import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
+import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined'
 import { apartmentService } from 'api/api-services/appartment'
 import { mapApartmentToDto } from 'mapping-services'
 import { type Apartment } from 'models'

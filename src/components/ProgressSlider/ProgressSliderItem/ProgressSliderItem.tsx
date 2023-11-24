@@ -6,6 +6,7 @@ export type SliderState = 'Active' | 'Disabled' | 'Inactive'
 
 export interface ProgressSliderProps {
   text: string
+  label: string
   progress: number
   of?: number
   state?: SliderState
@@ -33,7 +34,7 @@ const ProgressSliderItem = ({ item, useLinks, setActive }: ProgressSliderItemPro
         fontWeight: item.state !== 'Active' ? '300' : '600',
         color: item.state === undefined || item.state === 'Disabled' ? theme.palette.text.disabled : theme.palette.primary.main
       }}>
-      {item.text}
+      {item.label}
     </Typography>
     <LinearProgress
       variant='determinate'

@@ -10,7 +10,7 @@ export type Gender = 'M' | 'F' | 'Other'
 // qwerty
 
 // DEV-cluster
-//yovigok526@marksia.com
+// yovigok526@marksia.com
 // qwerty123
 export interface PersonalInfo {
   firstName: string
