@@ -2,7 +2,8 @@ import { i18n } from '@lingui/core'
 
 export const locales = {
   en: 'English',
-  he: 'Hebrew'
+  he: 'Hebrew',
+  ru: 'Russian'
 }
 
 export const defaultLocale = 'en'

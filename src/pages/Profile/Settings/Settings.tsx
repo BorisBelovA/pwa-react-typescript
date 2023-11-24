@@ -46,8 +46,8 @@ const Settings = (): JSX.Element => {
 
   const switchLanguage = async (): Promise<void> => {
     if (i18n.locale === 'en') {
-      await setDocumentLanguage('he')
-      setDocumentDirection('rtl')
+      await setDocumentLanguage('ru')
+      setDocumentDirection('ltr')
     } else {
       await setDocumentLanguage('en')
       setDocumentDirection('ltr') 
