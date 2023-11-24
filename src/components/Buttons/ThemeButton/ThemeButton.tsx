@@ -1,6 +1,6 @@
 import { Box, Card, type PaletteMode, Typography } from '@mui/material'
-import { useStore } from 'src/utils/StoreProvider'
 import styles from './ThemeButton.module.scss'
+import { useStore } from 'utils/StoreProvider'
 
 interface Props {
   theme: PaletteMode

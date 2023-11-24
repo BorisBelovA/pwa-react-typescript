@@ -1,15 +1,15 @@
 import { Navigate, Route } from 'react-router-dom'
-import AboutMe from 'src/pages/Profile/AboutMe/AboutMe'
-import BasicQuestionsRoommate from 'src/pages/Profile/RoommatePreferences/BasicQuestionsRoommate/BasicQuestionsRoommate'
-import RoommatePreferences from 'src/pages/Profile/RoommatePreferences/RoommatePreferences'
+import AboutMe from 'pages/Profile/AboutMe/AboutMe'
+import BasicQuestionsRoommate from 'pages/Profile/RoommatePreferences/BasicQuestionsRoommate/BasicQuestionsRoommate'
+import RoommatePreferences from 'pages/Profile/RoommatePreferences/RoommatePreferences'
 import { apartmentsRoutes } from './appartments/routes'
 import { ProfileRoutes } from 'models'
 import { settingsRoutes } from './settings/routes'
 import { questionnaireRoutes } from './questionnaire/BasicInfo'
-import QuestionnaireBasic from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
-import { NotFound } from 'src/pages/NotFound'
-import BasicInfo from 'src/pages/Profile/AboutMe/BasicInfo/BasicInfo'
-import Preview from 'src/pages/Profile/AboutMe/Preview/Preview'
+import QuestionnaireBasic from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
+import { NotFound } from 'pages/NotFound'
+import BasicInfo from 'pages/Profile/AboutMe/BasicInfo/BasicInfo'
+import Preview from 'pages/Profile/AboutMe/Preview/Preview'
 
 export default [
   <Route key='1' path={ProfileRoutes.ABOUT_ME}>

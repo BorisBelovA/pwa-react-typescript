@@ -1,10 +1,10 @@
 import { Box, Button } from '@mui/material'
 import { type Location, Outlet, useLocation, useNavigate, useOutletContext, useSearchParams } from 'react-router-dom'
-import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
+import ProgressSlider from 'components/ProgressSlider/ProgressSlider'
 import useProgressSlider, {
   type ProgressSliderSetActiveFunc, type ProgressSliderSetPercentFunc
-} from 'src/components/ProgressSlider/useProgressSlider'
-import { type MainLayoutContext, useMainContext } from 'src/layouts/Main/MainLayout'
+} from 'components/ProgressSlider/useProgressSlider'
+import { type MainLayoutContext, useMainContext } from 'layouts/Main/MainLayout'
 import styles from './AppartmentQuestionnaire.module.scss'
 import { useEffect, useState } from 'react'
 import {

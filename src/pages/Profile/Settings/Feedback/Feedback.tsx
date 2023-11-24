@@ -1,14 +1,14 @@
 import { Box, Button, TextField, Typography } from '@mui/material'
 import profileStyles from '../../Profile.module.scss'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
+import BackButton from 'components/Buttons/BackButton/BackButton'
 import styles from './Feedback.module.scss'
 import { feedbackService } from 'api-services'
 import { observer } from 'mobx-react-lite'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 import { useState } from 'react'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
+import { useMainContext } from 'layouts/Main/MainLayout'
+import { DonateDialog } from 'components/DonateDialog/DonateDialog'
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
-import { DonateDialog } from 'src/components/DonateDialog/DonateDialog'
 import { t } from '@lingui/macro'
 
 export const Feedback = observer((): JSX.Element => {

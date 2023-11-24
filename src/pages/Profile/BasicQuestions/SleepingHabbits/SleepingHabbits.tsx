@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from '@mui/material'
 import styles from './SleepingHabbits.module.scss'
 import { useEffect, useMemo } from 'react'
-import { useBasicQuestions } from 'src/layouts/QuestionnaireBasic/QuestionnaireBasic'
+import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 import { QuestionnaireRoutes, type SleepingHabits } from 'models'
 import { useNavigate } from 'react-router-dom'
 import commonStyles from '../BasicQuestions.module.scss'

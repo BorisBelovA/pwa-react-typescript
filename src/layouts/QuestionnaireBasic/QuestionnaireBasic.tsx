@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Outlet, useOutletContext } from 'react-router-dom'
-import ProgressSlider from 'src/components/ProgressSlider/ProgressSlider'
+import ProgressSlider from 'components/ProgressSlider/ProgressSlider'
 import
 useProgressSlider,
 {
@@ -8,10 +8,10 @@ useProgressSlider,
   type ProgressSliderRemoveItemFunc,
   type ProgressSliderSetActiveFunc,
   type ProgressSliderSetPercentFunc
-} from 'src/components/ProgressSlider/useProgressSlider'
-import { type QuestionnaireBasicType } from 'src/models/questionnaireBasic'
+} from 'components/ProgressSlider/useProgressSlider'
+import { type QuestionnaireBasicType } from 'models/questionnaireBasic'
 import { type MainLayoutContext, useMainContext } from '../Main/MainLayout'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 import { observer } from 'mobx-react-lite'
 import { type ProgressSliderProps } from 'src/components'
 import { t } from '@lingui/macro'

@@ -3,8 +3,8 @@ import {
   LoadingBackdrop,
   type LoadingBackdropOutletContext,
   useLoadingBackdrop
-} from 'src/components/LoadingBackdrop/LoadingBackdrop'
-import { MessageAlert, useMessageAlert, type MessageAlertOutletContext } from 'src/components/MessageAlert/MessageAlert'
+} from 'components/LoadingBackdrop/LoadingBackdrop'
+import { MessageAlert, useMessageAlert, type MessageAlertOutletContext } from 'components/MessageAlert/MessageAlert'
 import styles from './AuthLayout.module.scss'
 
 export type AuthContext = LoadingBackdropOutletContext & MessageAlertOutletContext

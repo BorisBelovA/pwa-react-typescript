@@ -2,18 +2,18 @@ import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Chip, Skelet
 import { observer } from 'mobx-react-lite'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 import NoImage from '../../../assets/no-image.jpeg'
 import commonStyles from '../Profile.module.scss'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
-import { mapCurrencyToSign } from 'src/utils/currency'
+import BackButton from 'components/Buttons/BackButton/BackButton'
+import { mapCurrencyToSign } from 'utils/currency'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
-import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined'
-import { apartmentService } from 'src/api/api-services/appartment'
+import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
+import { apartmentService } from 'api/api-services/appartment'
 import { mapApartmentToDto } from 'mapping-services'
 import { type Apartment } from 'models'
-import { useMainContext } from 'src/layouts/Main/MainLayout'
 import { Trans, t } from '@lingui/macro'
+import { useMainContext } from 'layouts/Main/MainLayout'
 
 export const MyApartments = observer((): JSX.Element => {
   const { apartmentStore } = useStore()
