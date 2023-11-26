@@ -579,9 +579,10 @@ msgid "for {0}"
 msgstr "for {0}"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
-msgid "for refugee"
-msgstr "for refugee"
+#~ msgid "for refugee"
+#~ msgstr "for refugee"
 
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
@@ -816,6 +817,10 @@ msgstr "no"
 #: src/pages/Profile/Settings/Settings.tsx:92
 msgid "No"
 msgstr "No"
+
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:39
+msgid "No description"
+msgstr "No description"
 
 #: src/pages/Sign up/Signup.tsx:56
 msgid "No email or password provided!"
