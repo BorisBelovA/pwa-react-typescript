@@ -1,16 +1,17 @@
 import { Box, type PaletteMode, Typography } from '@mui/material'
 import commonStyles from '../../Profile.module.scss'
 import styles from './ThemeSettings.module.scss'
+import { Trans, t } from '@lingui/macro'
+import BackButton from 'components/Buttons/BackButton/BackButton'
 import { type Option, OptionCards } from 'components/OptionCards/OptionCards'
 import { useStore } from 'utils/StoreProvider'
-import BackButton from 'components/Buttons/BackButton/BackButton'
 
 const ThemeSettings = (): JSX.Element => {
   const { themeStore } = useStore()
   const options: Array<Option<PaletteMode | null>> = [
-    { text: 'Light', value: 'light', icon: 'light_mode' },
-    { text: 'Dark', value: 'dark', icon: 'dark_mode' },
-    { text: 'System', value: null, icon: 'compare' }
+    { text: t({ message: 'Light' }), value: 'light', icon: 'light_mode' },
+    { text: t({ message: 'Dark' }), value: 'dark', icon: 'dark_mode' },
+    { text: t({ message: 'System' }), value: null, icon: 'compare' }
   ]
   const choose = (theme: PaletteMode | null): void => {
     if (theme) {
@@ -24,10 +25,14 @@ const ThemeSettings = (): JSX.Element => {
     <Box className={commonStyles.profile__container}>
       <Box className={commonStyles.profile__header}>
         <BackButton />
-        <Typography variant='h1'>Color theme</Typography>
+        <Typography variant='h1'>
+          <Trans>Color theme</Trans>
+        </Typography>
       </Box>
       <Box className={styles.content}>
-        <Typography variant='h1'>Choose preferred theme</Typography>
+        <Typography variant='h1'>
+          <Trans>Choose preferred color theme</Trans>
+        </Typography>
         <OptionCards options={options}
           selected={themeStore.theme}
           selectCallback={choose}></OptionCards>

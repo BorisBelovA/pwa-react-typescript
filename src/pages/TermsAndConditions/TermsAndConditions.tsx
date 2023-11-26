@@ -1,6 +1,7 @@
 import { Button, Card, CardContent, Checkbox, FormControlLabel, Typography } from '@mui/material'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { t } from '@lingui/macro'
 
 export const TermsAndConditions = (): JSX.Element => {
   const [termsAccepted, setTermsAccepted] = useState(false)
@@ -9,7 +10,7 @@ export const TermsAndConditions = (): JSX.Element => {
     navigate('/auth/registration')
   }
   return <>
-    <h3>Terms of service</h3>
+    <h3>{t`Terms of service`}</h3>
     <Card sx={{ height: '70%', overflowY: 'auto', minWidth: 275 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
@@ -39,7 +40,7 @@ export const TermsAndConditions = (): JSX.Element => {
     <FormControlLabel
       control={<Checkbox checked={termsAccepted}
         onChange={(event, checked) => { setTermsAccepted(checked) }}
-      />} label='I accept terms and conditions' />
-    <Button variant='contained' disabled={!termsAccepted} onClick={onNextClick}>Next</Button>
+      />} label={t`I accept terms and conditions`} />
+    <Button variant='contained' disabled={!termsAccepted} onClick={onNextClick}>{t`Next`}</Button>
   </>
 }

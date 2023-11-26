@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { sessionService, userApiService } from 'api-services'
 import { useMainContext } from 'layouts/Main/MainLayout'
 import BackButton from 'components/Buttons/BackButton/BackButton'
+import { Trans, t } from '@lingui/macro'
 
 const AccountSettings = (): JSX.Element => {
   const navigate = useNavigate()
@@ -20,7 +21,7 @@ const AccountSettings = (): JSX.Element => {
     }
     setDeleteDialogVisible(false)
     setBackdropVisible(true)
-    setBackdropMessage('Removing all information about you')
+    setBackdropMessage(t({ message: 'Removing all information about you' }))
     try {
       void await userApiService.deleteAccount(token)
       setTimeout(() => {
@@ -35,7 +36,7 @@ const AccountSettings = (): JSX.Element => {
       setMessage({
         text: e instanceof Error
           ? e.message
-          : 'Something went wrong',
+          : t({ message: 'Something went wrong' }),
         severity: 'error',
         life: 5000,
         visible: true
@@ -46,7 +47,7 @@ const AccountSettings = (): JSX.Element => {
     <Box className={styles.profile__container}>
       <Box className={`${styles.profile__header} ${styles.mb1}`}>
         <BackButton />
-        <Typography variant='h1'>Account</Typography>
+        <Typography variant='h1'><Trans>Account</Trans></Typography>
       </Box>
       <Box>
         <Button variant="outlined"
@@ -57,8 +58,9 @@ const AccountSettings = (): JSX.Element => {
             questionnaireStore.deleteQuestionnaire()
             apartmentStore.deleteApartments()
             navigate('/profile')
-          }}
-        >Logout</Button>
+          }}>
+          <Trans>Logout</Trans>
+        </Button>
 
         <Button variant="outlined"
           color="error"
@@ -67,17 +69,19 @@ const AccountSettings = (): JSX.Element => {
           onClick={() => {
             setDeleteDialogVisible(true)
           }}
-        >Delete your account</Button>
+        >
+          <Trans>Delete your account</Trans>
+        </Button>
       </Box>
 
       <Dialog open={deleteDialogVisible}
         onClose={() => { setDeleteDialogVisible(false) }}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description">
-        <DialogTitle>Delete your account</DialogTitle>
+        <DialogTitle><Trans>Delete your account</Trans></DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            You are trying to permanently delete your account. Are you sure about that?
+            <Trans>You are trying to permanently delete your account. Are you sure about that?</Trans>
           </DialogContentText>
         </DialogContent>
         <DialogActions sx={{
@@ -86,9 +90,11 @@ const AccountSettings = (): JSX.Element => {
           rowGap: '1rem'
         }}>
           <Button fullWidth variant='contained' onClick={() => { setDeleteDialogVisible(false) }} autoFocus>
-            No, I&apos;ve changed my mind
+            <Trans>No, I&apos;ve changed my mind</Trans>
           </Button>
-          <Button fullWidth variant="outlined" color='error' onClick={() => { void deleteAccount() }}>Yes, delete my account</Button>
+          <Button fullWidth variant="outlined" color='error' onClick={() => { void deleteAccount() }}>
+            <Trans>Yes, delete my account</Trans>
+          </Button>
         </DialogActions>
       </Dialog>
     </Box>

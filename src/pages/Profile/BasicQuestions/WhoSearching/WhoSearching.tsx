@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect, useMemo } from 'react'
 import { type Option, OptionCards } from 'components/OptionCards/OptionCards'
 import { QuestionnaireRoutes, type RelationsType } from 'models'
+import { t } from '@lingui/macro'
 
 export const WhoSearching = (): JSX.Element => {
   const navigate = useNavigate()
@@ -48,19 +49,19 @@ export const WhoSearching = (): JSX.Element => {
       navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.PETS}`)
     } else {
       setPercent(100, 100, 'who')
-      insertItem('Not Alone', 'not-alone', 1)
+      insertItem('Not Alone', t`Not Alone`, 'not-alone', 1)
       navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.NOT_ALONE}`)
     }
   }
 
   const options: Array<Option<RelationsType>> = [
-    { text: 'Alone', value: 'Alone', icon: 'person' },
-    { text: 'Not alone', value: 'Couple', icon: 'groups' }
+    { text: t`Alone`, value: 'Alone', icon: 'person' },
+    { text: t`Not alone`, value: 'Couple', icon: 'groups' }
   ]
 
   return <Box className={commonStyles.question}>
     <Box className={commonStyles.question__head}>
-      <Typography variant='h1'>Who&apos;s looking</Typography>
+      <Typography variant='h1'>{t`Who's looking`}</Typography>
     </Box>
 
     <Box className={`${commonStyles.question__content} ${styles.justify_center}`}>
@@ -82,7 +83,7 @@ export const WhoSearching = (): JSX.Element => {
           fullWidth
           disabled={!questions.who}
           onClick={handleNext}>
-          Next
+          {t`Next`}
         </Button>
       </div>
     </Box>

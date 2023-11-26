@@ -1,6 +1,7 @@
 import type * as models from 'models'
 import * as dto from '../dto/questionnaire'
 import { mapApartmentToDto, mapApartmentToModel } from './appartments'
+import { t } from '@lingui/macro'
 
 // Smoke mapper
 export const mapSmokeTypeToDto = (smoke: models.WhatSmoke): dto.SmokeEnum => {
@@ -45,6 +46,30 @@ export const mapSmokeTypeToModel = (smoke: dto.SmokeEnum): models.WhatSmoke => {
     }
   }
 }
+
+export const mapSmokeTypeToModelTranslation = (smoke: models.WhatSmoke): string => {
+  switch (smoke) {
+    case 'Cigarettes': {
+      return t`Cigarettes`
+    }
+    case 'Vape': {
+      return t`Vape`
+    }
+    case 'Shisha': {
+      return t`Shisha`
+    }
+    case 'Cigars': {
+      return t`Cigars`
+    }
+    case 'Other': {
+      return t`Other`
+    }
+    default: {
+      throw new Error('Unknown smoke DTO value!')
+    }
+  }
+}
+
 // End smoke mapper
 
 // Pet mapper
@@ -232,8 +257,28 @@ export const mapAlcoEnumToModel = (alco: dto.AlchoholicEnum): models.Alcoholic =
     case dto.AlchoholicEnum.OTHER: {
       return 'Other'
     }
-    case dto.AlchoholicEnum.ABUSER: {
-      return 'ARBUSER'
+    default: {
+      throw new Error('Unknown alcoholic type')
+    }
+  }
+}
+
+export const mapAlcoEnumToModelTranslation = (alco: models.Alcoholic): string => {
+  switch (alco) {
+    case 'Against drink': {
+      return t`Against drink`
+    }
+    case 'Not against drink': {
+      return t`Not against drink`
+    }
+    case 'Partly drink': {
+      return t`Partly drink`
+    }
+    case 'Sometimes drink': {
+      return t`Sometimes drink`
+    }
+    case 'Other': {
+      return t`Other`
     }
     default: {
       throw new Error('Unknown alcoholic type')
@@ -243,9 +288,6 @@ export const mapAlcoEnumToModel = (alco: dto.AlchoholicEnum): models.Alcoholic =
 
 export const mapAlcoToDto = (alco: models.Alcoholic): dto.AlchoholicEnum => {
   switch (alco) {
-    case 'ARBUSER': {
-      return dto.AlchoholicEnum.ABUSER
-    }
     case 'Against drink': {
       return dto.AlchoholicEnum.AGAINST_DRINK
     }

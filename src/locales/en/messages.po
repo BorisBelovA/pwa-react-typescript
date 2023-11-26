@@ -1,0 +1,1470 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2023-10-25 08:02+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/pages/Profile/Settings/Settings.tsx:25
+#~ msgid "Switch to Hebrew"
+#~ msgstr "Switch to Hebrew"
+
+#. js-lingui-explicit-id
+#: src/pages/Profile/Settings/Settings.tsx:26
+#~ msgid "Switch to English"
+#~ msgstr "Switch to English"
+
+#: src/components/Cards/CardApartment/CardApartment.tsx:26
+#: src/components/Cards/CardProfile/CardProfile.tsx:84
+msgid "{0} {1} per room"
+msgstr "{0} {1} per room"
+
+#: src/components/Cards/CardApartment/CardApartment.tsx:39
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:51
+#: src/components/Cards/CardProfile/CardProfile.tsx:85
+msgid "{0} out of {1} rooms available"
+msgstr "{0} out of {1} rooms available"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
+msgid "{0} per room"
+msgstr "{0} per room"
+
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:32
+msgid "{0} rooms"
+msgstr "{0} rooms"
+
+#: src/pages/Profile/Settings/Settings.tsx:78
+#~ msgid "{switchToLanguageButtonText}"
+#~ msgstr "{switchToLanguageButtonText}"
+
+#: src/pages/Chat/components/ChatHeader.tsx:185
+msgid "1 hour"
+msgstr "1 hour"
+
+#: src/pages/Chat/components/ChatHeader.tsx:186
+msgid "2 hours"
+msgstr "2 hours"
+
+#: src/pages/Chat/components/ChatHeader.tsx:184
+msgid "30 minutes"
+msgstr "30 minutes"
+
+#: src/pages/Chat/components/ChatHeader.tsx:187
+msgid "8 hours"
+msgstr "8 hours"
+
+#: src/pages/Email-code/EmailCode.tsx:90
+msgid "A verification code has been sent to you"
+msgstr "A verification code has been sent to you"
+
+#: src/pages/Registration/Third step/ThirdStep.tsx:39
+msgid "A verification code has been sent to your mobile device"
+msgstr "A verification code has been sent to your mobile device"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:30
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:86
+msgid "about"
+msgstr "about"
+
+#: src/pages/Profile/AboutMe/AboutMe.tsx:76
+#: src/pages/Profile/Profile.tsx:127
+msgid "About me"
+msgstr "About me"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Photos/Photos.tsx:112
+#: src/pages/Profile/Profile.tsx:150
+msgid "Accept"
+msgstr "Accept"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:50
+#: src/pages/Profile/Settings/Settings.tsx:54
+msgid "Account"
+msgstr "Account"
+
+#: src/pages/Profile/Settings/Settings.tsx:83
+msgid "Add \"Roommate\" to your home screen"
+msgstr "Add \"Roommate\" to your home screen"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:88
+msgid "Add apartment"
+msgstr "Add apartment"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:212
+msgid "Add new apartment"
+msgstr "Add new apartment"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Photos/Photos.tsx:75
+msgid "Add photos"
+msgstr "Add photos"
+
+#: src/pages/Profile/Settings/Settings.tsx:64
+msgid "Add to Home Screen"
+msgstr "Add to Home Screen"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:269
+msgid "Address"
+msgstr "Address"
+
+#: src/api/mapping-services/questionnaire.ts:269
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:20
+msgid "Against drink"
+msgstr "Against drink"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:26
+msgid "alcohol"
+msgstr "alcohol"
+
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:163
+#: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:38
+#: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:64
+msgid "Almost done"
+msgstr "Almost done"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:280
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:311
+msgid "Almost done!"
+msgstr "Almost done!"
+
+#: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:58
+msgid "Alone"
+msgstr "Alone"
+
+#: src/pages/Sign up/Signup.tsx:83
+msgid "Already have an account?"
+msgstr "Already have an account?"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:29
+msgid "apartment"
+msgstr "apartment"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:273
+msgid "Apartment address"
+msgstr "Apartment address"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:276
+msgid "Apartment address shouldn't be less then 4 symbols"
+msgstr "Apartment address shouldn't be less then 4 symbols"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:134
+msgid "Apartment Filters"
+msgstr "Apartment Filters"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:122
+msgid "Apartment name"
+msgstr "Apartment name"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:125
+msgid "Apartment name is required"
+msgstr "Apartment name is required"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:126
+msgid "Apartment name shouldn't be less then 4 symbols"
+msgstr "Apartment name shouldn't be less then 4 symbols"
+
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:46
+msgid "Apartment preview"
+msgstr "Apartment preview"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:144
+msgid "Apartment price is required"
+msgstr "Apartment price is required"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:145
+msgid "Apartment price shouldn't be less then 1"
+msgstr "Apartment price shouldn't be less then 1"
+
+#: src/components/navigation/NavBar/NavBar.tsx:19
+msgid "Apartments"
+msgstr "Apartments"
+
+#: src/pages/ApartmentSearch/Apartment/Apartment.tsx:51
+msgid "Appartment preview"
+msgstr "Appartment preview"
+
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:25
+#~ msgid "ARBUSER"
+#~ msgstr "ARBUSER"
+
+#: src/components/BasicInfoSteps/Photo.tsx:83
+msgid "Avatar photo"
+msgstr "Avatar photo"
+
+#: src/pages/Chat/components/ChatHeader.tsx:183
+#: src/pages/Profile/BasicQuestions/About/About.tsx:47
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:98
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:232
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:97
+#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:85
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:329
+#: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:116
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:123
+#: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:61
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:94
+#: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:111
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:363
+msgid "Back"
+msgstr "Back"
+
+#: src/pages/Chat/components/ChatHeader.tsx:207
+msgid "Back to chat"
+msgstr "Back to chat"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:76
+#: src/pages/ResetPassword/Reset/Reset.tsx:154
+msgid "Back to login"
+msgstr "Back to login"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:83
+msgid "basic"
+msgstr "basic"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:118
+msgid "Basic data"
+msgstr "Basic data"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:140
+msgid "Basic information"
+msgstr "Basic information"
+
+#: src/pages/Profile/AboutMe/AboutMe.tsx:85
+msgid "Basic Information"
+msgstr "Basic Information"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:149
+msgid "Bio"
+msgstr "Bio"
+
+#: src/components/BasicInfoSteps/About.tsx:61
+#~ msgid "Birthdate"
+#~ msgstr "Birthdate"
+
+#: src/components/BasicInfoSteps/About.tsx:67
+msgid "Birthday"
+msgstr "Birthday"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:281
+msgid "Budget in ₪"
+msgstr "Budget in ₪"
+
+#: src/components/Cards/CardProfile/CardProfile.tsx:26
+#: src/components/Cards/CardProfile/CardProfile.tsx:59
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:17
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:55
+msgid "By self"
+msgstr "By self"
+
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:33
+msgid "Can accept {0} people"
+msgstr "Can accept {0} people"
+
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:30
+#~ msgid "Can't get apartment"
+#~ msgstr "Can't get apartment"
+
+#: src/pages/ApartmentSearch/Apartment/Apartment.tsx:35
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:30
+msgid "Can't get apartment {id}"
+msgstr "Can't get apartment {id}"
+
+#: src/pages/Profile/Profile.tsx:56
+msgid "Can't save without session token"
+msgstr "Can't save without session token"
+
+#: src/pages/Chat/components/ComplainDialog.tsx:36
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/components/BasicInfoSteps/Photo.tsx:67
+msgid "Change"
+msgstr "Change"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:77
+msgid "Change filters"
+msgstr "Change filters"
+
+#: src/components/LanguagePicker/LanguagePicker.tsx:38
+#: src/components/LanguagePicker/LanguagePicker.tsx:46
+msgid "Change language"
+msgstr "Change language"
+
+#: src/pages/Registration/Fifth step/FifthStep.tsx:21
+msgid "Check your data"
+msgstr "Check your data"
+
+#: src/pages/Sign up/Signup.tsx:59
+msgid "Checking email"
+msgstr "Checking email"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:259
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:308
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:254
+msgid "Choose a city"
+msgstr "Choose a city"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:175
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:232
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:172
+msgid "Choose a country"
+msgstr "Choose a country"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:216
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:212
+msgid "Choose a district"
+msgstr "Choose a district"
+
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:268
+msgid "Choose a state"
+msgstr "Choose a state"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:34
+msgid "Choose preferred color theme"
+msgstr "Choose preferred color theme"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:34
+#~ msgid "Choose preferred theme"
+#~ msgstr "Choose preferred theme"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:28
+msgid "Choose what you want to do"
+msgstr "Choose what you want to do"
+
+#: src/api/mapping-services/questionnaire.ts:53
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:20
+msgid "Cigarettes"
+msgstr "Cigarettes"
+
+#: src/api/mapping-services/questionnaire.ts:62
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:23
+msgid "Cigars"
+msgstr "Cigars"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:229
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:281
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:227
+msgid "City"
+msgstr "City"
+
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:310
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:256
+msgid "City is required"
+msgstr "City is required"
+
+#: src/components/DonateDialog/DonateDialog.tsx:26
+msgid "Close"
+msgstr "Close"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:105
+#: src/pages/Sign up/Signup.tsx:104
+msgid "Code is required"
+msgstr "Code is required"
+
+#: src/pages/Email-code/EmailCode.tsx:25
+msgid "Code length is 0!!"
+msgstr "Code length is 0!!"
+
+#: src/pages/Profile/Settings/Settings.tsx:58
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
+msgid "Color theme"
+msgstr "Color theme"
+
+#: src/pages/Chat/components/ChatHeader.tsx:170
+msgid "Complain"
+msgstr "Complain"
+
+#: src/components/BasicInfoSteps/Photo.tsx:75
+msgid "Confirm and pick avatar"
+msgstr "Confirm and pick avatar"
+
+#: src/components/BasicInfoSteps/Photo.tsx:85
+msgid "Confirm and proceed"
+msgstr "Confirm and proceed"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:122
+#: src/pages/Sign up/Signup.tsx:118
+msgid "Confirm password"
+msgstr "Confirm password"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:139
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:197
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:135
+msgid "Country"
+msgstr "Country"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:174
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:231
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:171
+msgid "Country is required"
+msgstr "Country is required"
+
+#: src/pages/Registration/Layout.tsx:184
+msgid "Create Account"
+msgstr "Create Account"
+
+#: src/pages/Registration/Layout.tsx:68
+msgid "Creating your account"
+msgstr "Creating your account"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:13
+msgid "Dark"
+msgstr "Dark"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:73
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:81
+msgid "Delete your account"
+msgstr "Delete your account"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Summary/Summary.tsx:86
+msgid "Description"
+msgstr "Description"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:188
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:184
+msgid "District"
+msgstr "District"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:214
+msgid "District is required"
+msgstr "District is required"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:168
+msgid "Do you already have an apartment?"
+msgstr "Do you already have an apartment?"
+
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:47
+msgid "Do you drink alcohol?"
+msgstr "Do you drink alcohol?"
+
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:86
+msgid "Do you have pets?"
+msgstr "Do you have pets?"
+
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:46
+msgid "Do you like guests?"
+msgstr "Do you like guests?"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:250
+msgid "Do you really want to delete this apartment?"
+msgstr "Do you really want to delete this apartment?"
+
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:56
+msgid "Do you smoke?"
+msgstr "Do you smoke?"
+
+#: src/pages/Profile/Settings/Settings.tsx:87
+msgid "Do you want to install \"Roommate\" on your home screen?"
+msgstr "Do you want to install \"Roommate\" on your home screen?"
+
+#: src/components/Qualities/Qualities.tsx:57
+msgid "Don't drink alcohol"
+msgstr "Don't drink alcohol"
+
+#: src/components/Qualities/Qualities.tsx:67
+msgid "Don't have an apartment"
+msgstr "Don't have an apartment"
+
+#: src/components/Qualities/Qualities.tsx:37
+msgid "Don't have pets"
+msgstr "Don't have pets"
+
+#: src/components/Qualities/Qualities.tsx:47
+msgid "Don't smoke"
+msgstr "Don't smoke"
+
+#: src/pages/Profile/Profile.tsx:141
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:78
+msgid "Donate"
+msgstr "Donate"
+
+#: src/components/DonateDialog/DonateDialog.tsx:22
+msgid "donation"
+msgstr "donation"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:386
+msgid "Done"
+msgstr "Done"
+
+#: src/pages/Login/Login.tsx:88
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:62
+#: src/pages/Sign up/Signup.tsx:88
+msgid "E-mail"
+msgstr "E-mail"
+
+#: src/components/Cards/CardApartment/CardApartment.tsx:35
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:38
+#: src/components/Cards/CardProfile/CardProfile.tsx:54
+#: src/components/Cards/CardProfile/CardProfile.tsx:75
+#: src/pages/Registration/Fifth step/FifthStep.tsx:63
+msgid "Edit"
+msgstr "Edit"
+
+#: src/pages/Login/Login.tsx:94
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:68
+#: src/pages/Sign up/Signup.tsx:94
+msgid "Email is required"
+msgstr "Email is required"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:83
+msgid "Enter code from your email"
+msgstr "Enter code from your email"
+
+#: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:97
+msgid "Everything is correct?"
+msgstr "Everything is correct?"
+
+#: src/components/BasicInfoSteps/About.tsx:52
+msgid "F"
+msgstr "F"
+
+#: src/components/navigation/NavBar/NavBar.tsx:22
+msgid "Feedback"
+msgstr "Feedback"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:52
+msgid "Feedback form"
+msgstr "Feedback form"
+
+#: src/pages/Registration/Fifth step/FifthStep.tsx:30
+msgid "Female"
+msgstr "Female"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:53
+msgid "Few words about apartment"
+msgstr "Few words about apartment"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:313
+#: src/pages/Intro/PathSelection/PathSelection.tsx:41
+msgid "Find apartments"
+msgstr "Find apartments"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose.tsx:37
+msgid "Find Roommate"
+msgstr "Find Roommate"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:34
+msgid "Find roommates"
+msgstr "Find roommates"
+
+#: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:116
+msgid "Finish"
+msgstr "Finish"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:110
+#: src/pages/Registration/Layout.tsx:108
+msgid "Finishing up!"
+msgstr "Finishing up!"
+
+#: src/components/BasicInfoSteps/About.tsx:18
+msgid "First name"
+msgstr "First name"
+
+#: src/components/BasicInfoSteps/About.tsx:23
+msgid "First name is required"
+msgstr "First name is required"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+msgid "for"
+msgstr "for"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:79
+msgid "for {0}"
+msgstr "for {0}"
+
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
+msgid "for refugee"
+msgstr "for refugee"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
+#: src/pages/Intro/PathSelection/PathSelection.tsx:11
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:116
+msgid "For refugees"
+msgstr "For refugees"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:58
+msgid "Forgot password"
+msgstr "Forgot password"
+
+#: src/pages/Login/Login.tsx:126
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:284
+msgid "From"
+msgstr "From"
+
+#: src/components/BasicInfoSteps/About.tsx:36
+#: src/components/BasicInfoSteps/About.tsx:43
+msgid "Gender"
+msgstr "Gender"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:74
+msgid "Get code"
+msgstr "Get code"
+
+#: src/pages/Search/Search.tsx:32
+msgid "Go to profile"
+msgstr "Go to profile"
+
+#: src/pages/Matches/Matches.tsx:93
+msgid "Go to search"
+msgstr "Go to search"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:27
+msgid "guests"
+msgstr "guests"
+
+#: src/components/Badge/Badge.tsx:16
+#: src/components/Qualities/Qualities.tsx:66
+msgid "Have an apartment"
+msgstr "Have an apartment"
+
+#: src/components/Badge/Badge.tsx:15
+#: src/components/Qualities/Qualities.tsx:36
+msgid "Have pets"
+msgstr "Have pets"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
+msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
+msgstr "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
+msgid "How many"
+msgstr "How many"
+
+#: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:59
+msgid "How many adults?"
+msgstr "How many adults?"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:175
+msgid "How many available rooms?"
+msgstr "How many available rooms?"
+
+#: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:80
+msgid "How many kids?"
+msgstr "How many kids?"
+
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:43
+msgid "I accept terms and conditions"
+msgstr "I accept terms and conditions"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:26
+msgid "I am a refugee"
+msgstr "I am a refugee"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:18
+msgid "I have a place for refugees"
+msgstr "I have a place for refugees"
+
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:192
+msgid "If you change your mind you will need to link your apartment again"
+msgstr "If you change your mind you will need to link your apartment again"
+
+#: src/components/DonateDialog/DonateDialog.tsx:19
+msgid "If you like what we do you can support us with"
+msgstr "If you like what we do you can support us with"
+
+#: src/components/DonateDialog/DonateDialog.tsx:19
+#~ msgid "If you like what we do you can support us with<0> donation</0> ♥️"
+#~ msgstr "If you like what we do you can support us with<0> donation</0> ♥️"
+
+#: src/pages/Chat/components/ChatHeader.tsx:166
+msgid "Ignore"
+msgstr "Ignore"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:194
+msgid "in previous step"
+msgstr "in previous step"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:76
+msgid "Incorrect apartments questionnaire step!"
+msgstr "Incorrect apartments questionnaire step!"
+
+#: src/pages/Sign up/Signup.tsx:24
+#: src/utils/validations.ts:13
+msgid "Incorrect email pattern"
+msgstr "Incorrect email pattern"
+
+#: src/components/BasicInfoSteps/Phone.tsx:15
+msgid "Incorrect phone number"
+msgstr "Incorrect phone number"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:24
+msgid "languages"
+msgstr "languages"
+
+#: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:35
+msgid "Lark"
+msgstr "Lark"
+
+#: src/components/BasicInfoSteps/About.tsx:27
+msgid "Last name"
+msgstr "Last name"
+
+#: src/components/BasicInfoSteps/About.tsx:31
+msgid "Last name is required"
+msgstr "Last name is required"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:12
+msgid "Light"
+msgstr "Light"
+
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:20
+msgid "Like guests"
+msgstr "Like guests"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:74
+msgid "Load more"
+msgstr "Load more"
+
+#: src/pages/Search/Search.tsx:241
+msgid "Loading..."
+msgstr "Loading..."
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:28
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:84
+msgid "location"
+msgstr "location"
+
+#: src/pages/Login/Login.tsx:83
+#: src/pages/Login/Login.tsx:121
+#: src/pages/ResetPassword/Success/Success.tsx:55
+#: src/pages/Sign up/Signup.tsx:84
+msgid "Log in"
+msgstr "Log in"
+
+#: src/pages/ResetPassword/Success/Success.tsx:22
+msgid "Logging in"
+msgstr "Logging in"
+
+#: src/pages/Login/Login.tsx:46
+msgid "Login to your account"
+msgstr "Login to your account"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:62
+msgid "Logout"
+msgstr "Logout"
+
+#: src/components/BasicInfoSteps/About.tsx:49
+msgid "M"
+msgstr "M"
+
+#: src/pages/Registration/Fifth step/FifthStep.tsx:30
+msgid "Male"
+msgstr "Male"
+
+#: src/components/navigation/NavBar/NavBar.tsx:21
+msgid "Matches"
+msgstr "Matches"
+
+#: src/pages/Login/Login.tsx:22
+#: src/utils/validations.ts:6
+msgid "Min length {length} symbols"
+msgstr "Min length {length} symbols"
+
+#: src/pages/Chat/components/ChatHeader.tsx:174
+msgid "Mute"
+msgstr "Mute"
+
+#: src/pages/Chat/components/ChatHeader.tsx:190
+msgid "Mute forever"
+msgstr "Mute forever"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:78
+#: src/pages/Profile/Profile.tsx:131
+msgid "My apartments"
+msgstr "My apartments"
+
+#: src/pages/Login/Login.tsx:84
+msgid "New to roommate.host?"
+msgstr "New to roommate.host?"
+
+#: src/pages/Profile/BasicQuestions/About/About.tsx:55
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:106
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:238
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:105
+#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:92
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:337
+#: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:123
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:130
+#: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:69
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:101
+#: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:86
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:379
+#: src/pages/Registration/Layout.tsx:176
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:44
+msgid "Next"
+msgstr "Next"
+
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:65
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:187
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:64
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:95
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:63
+msgid "no"
+msgstr "no"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
+#: src/pages/Profile/Settings/Settings.tsx:92
+msgid "No"
+msgstr "No"
+
+#: src/pages/Sign up/Signup.tsx:56
+msgid "No email or password provided!"
+msgstr "No email or password provided!"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:32
+msgid "No email provided!"
+msgstr "No email provided!"
+
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:23
+msgid "No guests at all"
+msgstr "No guests at all"
+
+#: src/pages/Search/Search.tsx:246
+msgid "No matches yet"
+msgstr "No matches yet"
+
+#: src/pages/Chat/Chat.tsx:120
+msgid "No messages yet."
+msgstr "No messages yet."
+
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:22
+#: src/components/Cards/CardBase/CardBase.tsx:65
+msgid "No photo"
+msgstr "No photo"
+
+#: src/pages/Chat/components/ChatHeader.tsx:63
+msgid "No pretension or sender email"
+msgstr "No pretension or sender email"
+
+#: src/pages/Chat/components/ChatHeader.tsx:112
+msgid "No result for user"
+msgstr "No result for user"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:85
+#: src/pages/Registration/Layout.tsx:83
+msgid "No session token provided"
+msgstr "No session token provided"
+
+#: src/pages/Chat/components/ChatHeader.tsx:108
+msgid "No user"
+msgstr "No user"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:93
+msgid "No, I've changed my mind"
+msgstr "No, I've changed my mind"
+
+#: src/components/Badge/Badge.tsx:17
+msgid "Not a smoker"
+msgstr "Not a smoker"
+
+#: src/api/mapping-services/questionnaire.ts:272
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:21
+msgid "Not against drink"
+msgstr "Not against drink"
+
+#: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:59
+msgid "Not alone"
+msgstr "Not alone"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
+#: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:56
+#: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:52
+msgid "Not Alone"
+msgstr "Not Alone"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:124
+msgid "Not available"
+msgstr "Not available"
+
+#: src/pages/ResetPassword/Success/Success.tsx:48
+msgid "Now you can log in with your new password"
+msgstr "Now you can log in with your new password"
+
+#: src/api/mapping-services/questionnaire.ts:65
+#: src/api/mapping-services/questionnaire.ts:281
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:24
+#: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:37
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:24
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose.tsx:38
+msgid "Other"
+msgstr "Other"
+
+#: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:36
+msgid "Owl"
+msgstr "Owl"
+
+#: src/api/mapping-services/questionnaire.ts:275
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:22
+msgid "Partly drink"
+msgstr "Partly drink"
+
+#: src/pages/Login/Login.tsx:97
+#: src/pages/ResetPassword/Reset/Reset.tsx:98
+#: src/pages/Sign up/Signup.tsx:97
+msgid "Password"
+msgstr "Password"
+
+#: src/pages/Login/Login.tsx:103
+msgid "Password is required"
+msgstr "Password is required"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:132
+#: src/pages/Sign up/Signup.tsx:128
+msgid "Passwords won't match"
+msgstr "Passwords won't match"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+msgid "people"
+msgstr "people"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
+msgid "people you can accept"
+msgstr "people you can accept"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+msgid "person"
+msgstr "person"
+
+#: src/pages/Registration/Layout.tsx:26
+msgid "personal"
+msgstr "personal"
+
+#: src/pages/Profile/AboutMe/AboutMe.tsx:95
+msgid "Personal Info"
+msgstr "Personal Info"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:22
+msgid "pets"
+msgstr "pets"
+
+#: src/pages/Registration/Layout.tsx:27
+msgid "phone"
+msgstr "phone"
+
+#: src/components/Cards/CardApartment/CardApartment.tsx:52
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:66
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
+msgid "Phone"
+msgstr "Phone"
+
+#: src/pages/Registration/Second step/SecondStep.tsx:33
+msgid "Phone number"
+msgstr "Phone number"
+
+#: src/pages/Registration/Layout.tsx:28
+msgid "photo"
+msgstr "photo"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:161
+msgid "Photo"
+msgstr "Photo"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:85
+msgid "photos"
+msgstr "photos"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Summary/Summary.tsx:61
+msgid "Photos"
+msgstr "Photos"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:55
+msgid "Please describe your issue or suggestion."
+msgstr "Please describe your issue or suggestion."
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:59
+msgid "Please enter your email and we will send you a code to reset your password"
+msgstr "Please enter your email and we will send you a code to reset your password"
+
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:22
+msgid "Prefer without guests"
+msgstr "Prefer without guests"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:121
+msgid "Preview"
+msgstr "Preview"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:141
+msgid "Price"
+msgstr "Price"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:135
+msgid "Price per room in ₪"
+msgstr "Price per room in ₪"
+
+#: src/components/navigation/NavBar/NavBar.tsx:18
+msgid "Profile"
+msgstr "Profile"
+
+#: src/components/BasicInfoSteps/Photo.tsx:73
+msgid "Profile photo"
+msgstr "Profile photo"
+
+#: src/pages/Search/Search.tsx:251
+msgid "Refresh"
+msgstr "Refresh"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:220
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:130
+msgid "Remove"
+msgstr "Remove"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:248
+msgid "Remove apartment"
+msgstr "Remove apartment"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:24
+msgid "Removing all information about you"
+msgstr "Removing all information about you"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:47
+msgid "Removing your ad from publication"
+msgstr "Removing your ad from publication"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:47
+#~ msgid "Removing your add from publication"
+#~ msgstr "Removing your add from publication"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose.tsx:36
+msgid "Rent"
+msgstr "Rent"
+
+#: src/pages/Intro/PathSelection/PathSelection.tsx:48
+msgid "Rent out apartment/room"
+msgstr "Rent out apartment/room"
+
+#: src/pages/Sign up/Signup.tsx:125
+msgid "Required"
+msgstr "Required"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:310
+msgid "Reset filters"
+msgstr "Reset filters"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:78
+#: src/pages/ResetPassword/Reset/Reset.tsx:152
+msgid "Reset password"
+msgstr "Reset password"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+msgid "room"
+msgstr "room"
+
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
+msgid "rooms"
+msgstr "rooms"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
+msgid "Save"
+msgstr "Save"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:250
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:273
+msgid "Saving your apartment!"
+msgstr "Saving your apartment!"
+
+#: src/components/navigation/NavBar/NavBar.tsx:20
+#: src/pages/Chat/components/ChatHeader.tsx:175
+msgid "Search"
+msgstr "Search"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:63
+msgid "Search for apartments"
+msgstr "Search for apartments"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:201
+msgid "Select apartment from the list or create new"
+msgstr "Select apartment from the list or create new"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Photos/Photos.tsx:110
+#: src/pages/Profile/Profile.tsx:148
+msgid "Select photo"
+msgstr "Select photo"
+
+#: src/pages/Chat/components/ComplainDialog.tsx:45
+#: src/pages/Registration/Third step/ThirdStep.tsx:44
+msgid "Send"
+msgstr "Send"
+
+#: src/pages/Email-code/EmailCode.tsx:93
+msgid "Send again"
+msgstr "Send again"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:71
+msgid "Send feedback"
+msgstr "Send feedback"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:35
+msgid "Sending code"
+msgstr "Sending code"
+
+#: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:85
+msgid "Sending questionnaire data"
+msgstr "Sending questionnaire data"
+
+#: src/pages/Chat/components/ChatHeader.tsx:60
+msgid "Sending your feedback!"
+msgstr "Sending your feedback!"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:22
+msgid "Sending your request!"
+msgstr "Sending your request!"
+
+#: src/pages/Profile/Profile.tsx:136
+#: src/pages/Profile/Settings/Settings.tsx:51
+msgid "Settings"
+msgstr "Settings"
+
+#: src/api/mapping-services/questionnaire.ts:59
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:22
+msgid "Shisha"
+msgstr "Shisha"
+
+#: src/pages/Login/Login.tsx:85
+#: src/pages/Sign up/Signup.tsx:146
+msgid "Sign up"
+msgstr "Sign up"
+
+#: src/pages/Sign up/Signup.tsx:82
+msgid "Sign Up"
+msgstr "Sign Up"
+
+#: src/pages/Registration/Layout.tsx:166
+msgid "Skip"
+msgstr "Skip"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:25
+msgid "sleep"
+msgstr "sleep"
+
+#: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:42
+msgid "Sleeping habbits"
+msgstr "Sleeping habbits"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:23
+msgid "smoking"
+msgstr "smoking"
+
+#: src/pages/Profile/BasicQuestions/About/About.tsx:27
+msgid "Something else you think will be helpful?"
+msgstr "Something else you think will be helpful?"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:26
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:52
+#: src/pages/Chat/components/ChatHeader.tsx:83
+#: src/pages/Email-code/EmailCode.tsx:37
+#: src/pages/Login/Login.tsx:64
+#: src/pages/Matches/Matches.tsx:47
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:265
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:293
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:324
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:62
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:39
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:41
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:49
+#: src/pages/ResetPassword/Reset/Reset.tsx:69
+#: src/pages/ResetPassword/Success/Success.tsx:36
+#: src/pages/Search/Search.tsx:66
+#: src/pages/Search/Search.tsx:209
+#: src/pages/Sign up/Signup.tsx:74
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+#: src/pages/Login/Login.tsx:63
+#~ msgid "Something went wrong😮"
+#~ msgstr "Something went wrong😮"
+
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:49
+#~ msgid "Something went wtong"
+#~ msgstr "Something went wtong"
+
+#: src/pages/Registration/Layout.tsx:54
+msgid "something wrong with steps!"
+msgstr "something wrong with steps!"
+
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:21
+msgid "Sometimes"
+msgstr "Sometimes"
+
+#: src/api/mapping-services/questionnaire.ts:278
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:23
+msgid "Sometimes drink"
+msgstr "Sometimes drink"
+
+#: src/pages/ApartmentSearch/Apartment/Apartment.tsx:57
+#: src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment.tsx:53
+msgid "Sorry there is no apartment"
+msgstr "Sorry there is no apartment"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:76
+msgid "Sorry, can't find more apartments"
+msgstr "Sorry, can't find more apartments"
+
+#: src/pages/Search/Search.tsx:258
+msgid "Start again"
+msgstr "Start again"
+
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:244
+msgid "State"
+msgstr "State"
+
+#: src/pages/ResetPassword/Success/Success.tsx:47
+msgid "Success!"
+msgstr "Success!"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:31
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:87
+#: src/pages/Registration/Layout.tsx:29
+msgid "summary"
+msgstr "summary"
+
+#: src/components/DonateDialog/DonateDialog.tsx:15
+msgid "Support us"
+msgstr "Support us"
+
+#: src/pages/Profile/Settings/Settings.tsx:61
+#~ msgid "Switch to English"
+#~ msgstr "Switch to English"
+
+#: src/pages/Profile/Settings/Settings.tsx:60
+#~ msgid "Switch to Hebrew"
+#~ msgstr "Switch to Hebrew"
+
+#: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:14
+msgid "System"
+msgstr "System"
+
+#: src/pages/Registration/First step/FirstStep.tsx:36
+msgid "Tell us about yourself"
+msgstr "Tell us about yourself"
+
+#: src/pages/Chat/components/ComplainDialog.tsx:16
+msgid "Tell us what is wrong?"
+msgstr "Tell us what is wrong?"
+
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:13
+msgid "Terms of service"
+msgstr "Terms of service"
+
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:30
+msgid "Thank you for your feedback!"
+msgstr "Thank you for your feedback!"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:131
+msgid "This apartment is used in your questionnaire. You can change its location after you update your questionnaire."
+msgstr "This apartment is used in your questionnaire. You can change its location after you update your questionnaire."
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:325
+msgid "This field is optional"
+msgstr "This field is optional"
+
+#: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:296
+msgid "To"
+msgstr "To"
+
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:190
+msgid "To change location you need to unlink your apartment first"
+msgstr "To change location you need to unlink your apartment first"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:370
+msgid "To personal info"
+msgstr "To personal info"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:192
+msgid "To select or create new apartment you need to select your city"
+msgstr "To select or create new apartment you need to select your city"
+
+#: src/pages/ApartmentSearch/ApartmentSearch.tsx:78
+msgid "Try again"
+msgstr "Try again"
+
+#: src/pages/Chat/Chat.tsx:121
+msgid "Type something to start conversation with {0}"
+msgstr "Type something to start conversation with {0}"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:66
+msgid "Unable to get active step from URI!"
+msgstr "Unable to get active step from URI!"
+
+#: src/pages/Email-code/EmailCode.tsx:68
+msgid "Unable to send email again"
+msgstr "Unable to send email again"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:214
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:243
+msgid "Unknown step to complete!"
+msgstr "Unknown step to complete!"
+
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:193
+msgid "Unlink"
+msgstr "Unlink"
+
+#: src/pages/Profile/BasicQuestions/Location/Location.tsx:152
+msgid "Unlinking apartment"
+msgstr "Unlinking apartment"
+
+#: src/components/BasicInfoSteps/Photo.tsx:62
+msgid "Up to 20 mb"
+msgstr "Up to 20 mb"
+
+#: src/components/BasicInfoSteps/Photo.tsx:71
+msgid "Up to 20MB files are allowed"
+msgstr "Up to 20MB files are allowed"
+
+#: src/pages/ResetPassword/Reset/Reset.tsx:56
+msgid "Updating password"
+msgstr "Updating password"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:301
+msgid "Updating your apartment!"
+msgstr "Updating your apartment!"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:70
+msgid "Updating your information"
+msgstr "Updating your information"
+
+#: src/pages/Registration/Forth-Step/ForthStep.tsx:14
+msgid "Upload a photo"
+msgstr "Upload a photo"
+
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:82
+#: src/pages/Registration/Layout.tsx:80
+msgid "User form is not filled!"
+msgstr "User form is not filled!"
+
+#: src/api/mapping-services/questionnaire.ts:56
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:21
+msgid "Vape"
+msgstr "Vape"
+
+#: src/pages/Registration/Third step/ThirdStep.tsx:32
+msgid "Verification code"
+msgstr "Verification code"
+
+#: src/pages/Email-code/EmailCode.tsx:100
+msgid "Verify"
+msgstr "Verify"
+
+#: src/pages/Email-code/EmailCode.tsx:77
+msgid "Verify your email"
+msgstr "Verify your email"
+
+#: src/pages/Chat/components/ChatHeader.tsx:72
+msgid "We have received your feedback. Thank you!"
+msgstr "We have received your feedback. Thank you!"
+
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:71
+msgid "What do you like to smoke?"
+msgstr "What do you like to smoke?"
+
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:73
+msgid "What is your attitude to alcohol?"
+msgstr "What is your attitude to alcohol?"
+
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:72
+msgid "What is your attitude to guests?"
+msgstr "What is your attitude to guests?"
+
+#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:42
+msgid "What languages do you know?"
+msgstr "What languages do you know?"
+
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:102
+msgid "What pets?"
+msgstr "What pets?"
+
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:21
+msgid "who"
+msgstr "who"
+
+#: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:64
+msgid "Who's looking"
+msgstr "Who's looking"
+
+#: src/components/Cards/CardProfile/CardProfile.tsx:29
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:20
+msgid "With family"
+msgstr "With family"
+
+#: src/components/Cards/CardProfile/CardProfile.tsx:27
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:18
+msgid "With friends"
+msgstr "With friends"
+
+#: src/components/Cards/CardProfile/CardProfile.tsx:28
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:19
+msgid "With partner"
+msgstr "With partner"
+
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:66
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:188
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:65
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:96
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:64
+msgid "yes"
+msgstr "yes"
+
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:253
+#: src/pages/Profile/Settings/Settings.tsx:95
+msgid "Yes"
+msgstr "Yes"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:96
+msgid "Yes, delete my account"
+msgstr "Yes, delete my account"
+
+#: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:84
+msgid "You are trying to permanently delete your account. Are you sure about that?"
+msgstr "You are trying to permanently delete your account. Are you sure about that?"
+
+#: src/pages/Registration/Third step/ThirdStep.tsx:46
+msgid "You can send new one after {timer} seconds"
+msgstr "You can send new one after {timer} seconds"
+
+#: src/pages/Email-code/EmailCode.tsx:92
+msgid "You can send new one in {timeLeft} seconds"
+msgstr "You can send new one in {timeLeft} seconds"
+
+#: src/pages/Matches/Matches.tsx:92
+msgid "You have no matches yet! Try to search someone"
+msgstr "You have no matches yet! Try to search someone"
+
+#: src/pages/Search/Search.tsx:31
+msgid "You need to fill out your profile before searching for Roommates!"
+msgstr "You need to fill out your profile before searching for Roommates!"
+
+#: src/layouts/Main/MainLayout.tsx:101
+msgid "You've received a new message"
+msgstr "You've received a new message"
+
+#: src/pages/Profile/MyAppartments/MyAppartments.tsx:51
+msgid "Your ad was removed from publication"
+msgstr "Your ad was removed from publication"
+
+#: src/pages/Chat/components/ComplainDialog.tsx:19
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:58
+msgid "Your feedback"
+msgstr "Your feedback"
+
+#: src/pages/Matches/Matches.tsx:79
+msgid "Your matches"
+msgstr "Your matches"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:49
+msgid "Your phone number"
+msgstr "Your phone number"
+
+#: src/pages/Profile/AboutMe/Preview/Preview.tsx:36
+msgid "Your profile"
+msgstr "Your profile"

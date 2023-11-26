@@ -8,9 +8,9 @@ export class StompChatService {
   public stompClientErrorCallback?: (args: any) => void = undefined
 
   public client: Client = new Client({
-    brokerURL: process.env.REACT_APP_HOST_TYPE === 'LOCAL' || process.env.REACT_APP_HOST_TYPE === 'DEV'
-      ? 'wss://api.dev.roommate.host/wss'
-      : 'wss://api.prod.roommate.host/wss',
+    brokerURL: process.env.REACT_APP_HOST_TYPE === 'PROD'
+      ? 'wss://api.prod.roommate.host/wss'
+      : 'wss://api.dev.roommate.host/wss',
     // connectHeaders: {
     //   Authorization: sessionService.authToken
     // },
@@ -19,7 +19,7 @@ export class StompChatService {
     }
   })
 
-  public connect(
+  public connect (
     userId: number,
     messageReceiveCallback: (message: IMessage) => void,
     stompClientErrorCallback?: (args: any) => void,
@@ -44,11 +44,11 @@ export class StompChatService {
     }
   }
 
-  public disconnect(): void {
+  public disconnect (): void {
     void this.client.deactivate()
   }
 
-  public publishMessage(message: NewMessage): void {
+  public publishMessage (message: NewMessage): void {
     this.client.publish({
       destination: '/app/chat',
       body: JSON.stringify(message)

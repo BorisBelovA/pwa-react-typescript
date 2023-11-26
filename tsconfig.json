@@ -22,6 +22,9 @@
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "rootDir": ".",
+    "types": [
+      "./node_modules/@lingui/macro/global"
+    ],
     "paths": {
       "models": ["./models"],
       "dto": ["./api/dto"],

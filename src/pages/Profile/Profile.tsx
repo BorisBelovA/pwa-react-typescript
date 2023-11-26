@@ -15,8 +15,9 @@ import { useNavigate } from 'react-router-dom'
 import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined'
 import ChairOutlinedIcon from '@mui/icons-material/ChairOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
+import { t } from '@lingui/macro'
 import { MyListItemButton } from 'components/ListItemButton/ListItemButton'
-import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
+import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
 import { DonateDialog } from 'components/DonateDialog/DonateDialog'
 
 const Profile: React.FunctionComponent = observer(() => {
@@ -52,7 +53,7 @@ const Profile: React.FunctionComponent = observer(() => {
 
   const saveAvatar = async (avatar: string): Promise<void> => {
     if (!sessionService.authToken) {
-      throw new Error('Can\'t save without session token')
+      throw new Error(t({ message: 'Can\'t save without session token' }))
     }
     const file = await mapBase64ToFile(avatar, 'avatar')
     const avatarName = await filesApiService.uploadFile(file, 'avatar')
@@ -123,31 +124,30 @@ const Profile: React.FunctionComponent = observer(() => {
         <Typography variant='h2'>{userStore.firstName && ` ${userStore.firstName} ${userStore.lastName}`}</Typography>
       </Box>
       <Box className={styles.profile_items_container}>
-        <MyListItemButton label='About me'
+        <MyListItemButton label={t({ message: 'About me' })}
           icon={TextSnippetOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}`) }}
         />
-
-        <MyListItemButton label='My apartments'
+        <MyListItemButton label={t({ message: 'My apartments' })}
           icon={ChairOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.MY_APARTMENT}`) }}
         />
 
-        <MyListItemButton label='Settings'
+        <MyListItemButton label={t({ message: 'Settings' })}
           icon={SettingsOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.SETTINGS}`) }}
         />
 
-        <MyListItemButton label='Donate'
+        <MyListItemButton label={t({ message: 'Donate' })}
           icon={MonetizationOnOutlinedIcon}
           action={() => { setDonateVisible(true) }}
         />
       </Box>
     </Box>
 
-    {cropVisible && <ImageCropper title='Select photo'
+    {cropVisible && <ImageCropper title={t({ message: 'Select photo' })}
       image={image}
-      acceptButtonText='Accept'
+      acceptButtonText={t({ message: 'Accept' })}
       shape='round'
       acceptImage={photo => {
         setCropVisible(false)

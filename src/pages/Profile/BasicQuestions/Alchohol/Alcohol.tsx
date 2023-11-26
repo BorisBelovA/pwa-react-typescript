@@ -4,19 +4,24 @@ import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic
 import { useEffect, useState } from 'react'
 import { QuestionnaireRoutes, type Alcoholic } from 'models'
 import { useNavigate } from 'react-router-dom'
+import { t } from '@lingui/macro'
 
 export const Alcohol = (): JSX.Element => {
   const { questions, setQuestions, setActive, setPercent } = useBasicQuestions()
   const [drinkAlcohol, setDrinkAlcohol] = useState<boolean | null>(null)
   const navigate = useNavigate()
 
-  const options: Alcoholic[] = [
-    'Against drink',
-    'Not against drink',
-    'Partly drink',
-    'Sometimes drink',
-    'Other',
-    'ARBUSER'
+  interface Option {
+    type: Alcoholic
+    text: string
+  }
+
+  const options: Option[] = [
+    { type: 'Against drink', text: t`Against drink` },
+    { type: 'Not against drink', text: t`Not against drink` },
+    { type: 'Partly drink', text: t`Partly drink` },
+    { type: 'Sometimes drink', text: t`Sometimes drink` },
+    { type: 'Other', text: t`Other` }
   ]
 
   const setAlcoholicType = (type: Alcoholic | null): void => {
@@ -39,7 +44,7 @@ export const Alcohol = (): JSX.Element => {
 
   return <Box className={styles.question}>
     <Box className={styles.question__head}>
-      <Typography className={styles.question__head_text}>Do you drink alcohol?</Typography>
+      <Typography className={styles.question__head_text}>{t`Do you drink alcohol?`}</Typography>
       <ToggleButtonGroup size='small'
         color='primary'
         value={drinkAlcohol}
@@ -57,15 +62,15 @@ export const Alcohol = (): JSX.Element => {
             setAlcoholicType(null)
           }
         }}>
-        <ToggleButton value={false}>no</ToggleButton>
-        <ToggleButton value={true}>yes</ToggleButton>
+        <ToggleButton value={false}>{t`no`}</ToggleButton>
+        <ToggleButton value={true}>{t`yes`}</ToggleButton>
       </ToggleButtonGroup>
     </Box>
 
     <Box className={styles.question__content}>
       {drinkAlcohol &&
         <Box className={styles.question__input}>
-          <Typography variant='h2'>What is your attitude to alcohol?</Typography>
+          <Typography variant='h2'>{t`What is your attitude to alcohol?`}</Typography>
           <Box className={styles.question__input_zeroGap}>
             {options.map((type, index) => (
               <FormControlLabel
@@ -73,11 +78,11 @@ export const Alcohol = (): JSX.Element => {
                 control={
                   <Radio
                     value=''
-                    checked={questions.alcohol === type}
-                    onChange={(e) => { setAlcoholicType(type) }}
+                    checked={questions.alcohol === type.type}
+                    onChange={(e) => { setAlcoholicType(type.type) }}
                   />
                 }
-                label={type} />
+                label={type.text} />
             ))}
           </Box>
         </Box>
@@ -90,7 +95,7 @@ export const Alcohol = (): JSX.Element => {
         onClick={() => {
           navigate(`../${QuestionnaireRoutes.SLEEP}`)
         }}>
-        Back
+        {t`Back`}
       </Button>
       <Button variant='contained'
         fullWidth
@@ -98,7 +103,7 @@ export const Alcohol = (): JSX.Element => {
         onClick={() => {
           navigate(`../${QuestionnaireRoutes.GUESTS}`)
         }}>
-        Next
+        {t`Next`}
       </Button>
     </Box>
   </Box>

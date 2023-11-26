@@ -5,6 +5,7 @@ import styles from './NotAlone.module.scss'
 import { useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { QuestionnaireRoutes } from 'models'
+import { t } from '@lingui/macro'
 
 export const NotAlone = (): JSX.Element => {
   const { questions, setQuestions, setPercent, setActive } = useBasicQuestions()
@@ -52,10 +53,10 @@ export const NotAlone = (): JSX.Element => {
   }
 
   return <Box className={styles.container}>
-    <Typography variant='h2'>Not Alone</Typography>
+    <Typography variant='h2'>{t`Not Alone`}</Typography>
 
     <Box className={styles.container_section}>
-      <Typography variant='h2'>How many adults?</Typography>
+      <Typography variant='h2'>{t`How many adults?`}</Typography>
       <Controller
         render={({ field: { onChange, onBlur, value, ref } }) =>
           <Slider sx={{ width: '94%', margin: '0 auto' }}
@@ -76,7 +77,7 @@ export const NotAlone = (): JSX.Element => {
     </Box>
 
     <Box className={styles.container_section}>
-      <Typography variant='h2'>How many kids?</Typography>
+      <Typography variant='h2'>{t`How many kids?`}</Typography>
       <Controller
         render={({ field: { onChange, onBlur, value, ref } }) =>
           <Slider sx={{ width: '94%', margin: '0 auto' }}
@@ -112,14 +113,14 @@ export const NotAlone = (): JSX.Element => {
       <Button fullWidth
         variant='outlined'
         onClick={handleBack}>
-        Back
+        {t`Back`}
       </Button>
 
       <Button fullWidth
         variant='contained'
         disabled={countPerson === 0}
         onClick={handleNext}>
-        Next
+        {t`Next`}
       </Button>
     </Box>
   </Box>

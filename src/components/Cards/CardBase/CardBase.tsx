@@ -5,6 +5,7 @@ import Badge from '../../Badge/Badge'
 import NoPhotographyIcon from '@mui/icons-material/NoPhotography'
 import SwipeUpIcon from '@mui/icons-material/SwipeUp'
 import { type Badges } from 'models/badges'
+import { t } from '@lingui/macro'
 
 interface Props {
   header: JSX.Element
@@ -61,7 +62,7 @@ const CardBase = ({ header, content, photo, badges, padding }: Props): JSX.Eleme
         {!photo?.[0]
           ? <Box className={styles.no_image}>
             <NoPhotographyIcon fontSize='large'></NoPhotographyIcon>
-            <Typography variant='h6'>No photo</Typography>
+            <Typography variant='h6'>{t`No photo`}</Typography>
           </Box>
           : photo.length > 1
             ? <>

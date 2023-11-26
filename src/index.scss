@@ -58,3 +58,23 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px var(--bg-color) inset !important;
 }
+
+/* global inputs directions */
+
+[dir="rtl"] label {
+  left: auto;
+  right: 1.75rem;
+  transform-origin: top right;
+  text-align: right;
+}
+
+[dir="rtl"] legend {
+  left: auto;
+  right: 1.75rem;
+  transform-origin: top right;
+  text-align: right;
+}
+
+[dir="rtl"] .Mui-error {
+  text-align: right;
+}

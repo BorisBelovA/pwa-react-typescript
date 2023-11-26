@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import { useMainContext } from 'layouts/Main/MainLayout'
 import { useStore } from 'utils/StoreProvider'
 import { questionnaireService } from 'api-services'
+import { t } from '@lingui/macro'
 
 export const Location = (): JSX.Element => {
   const { questions, setQuestions, setActive, setPercent } = useBasicQuestions()
@@ -148,7 +149,7 @@ export const Location = (): JSX.Element => {
     if (questionnaireStore.questionnaire?.apartment?.id) {
       try {
         setBackdropVisible(true)
-        setBackdropMessage('Unlinking apartment')
+        setBackdropMessage(t`Unlinking apartment`)
 
         const dto = await questionnaireService.updateQuestForm({ ...questions, apartment: null })
         setQuestions({ ...questions, apartment: null })
@@ -159,7 +160,7 @@ export const Location = (): JSX.Element => {
         })
 
         setTimeout(() => {
-          setBackdropMessage('Almost done')
+          setBackdropMessage(t`Almost done`)
         }, 1000)
 
         setBackdropVisible(false)
@@ -186,14 +187,14 @@ export const Location = (): JSX.Element => {
     <Box className={commonStyles.question__content}>
       { (questions.apartment ?? questionnaireStore.questionnaire?.apartment) &&
         <Box className={styles.alert}>
-          <Typography>To change location you need to unlink your apartment first</Typography>
+          <Typography>{t`To change location you need to unlink your apartment first`}</Typography>
           <Typography variant='subtitle1' sx={{ opacity: '.5' }}>
-            If you change your mind you will need to link your apartment again</Typography>
-          <Button variant='contained' onClick={() => { void unlinkApartment() }}>Unlink</Button>
+            {t`If you change your mind you will need to link your apartment again`}</Typography>
+          <Button variant='contained' onClick={() => { void unlinkApartment() }}>{t`Unlink`}</Button>
         </Box>
       }
       <Box className={styles.container_section}>
-        <Typography variant="h2">Country</Typography>
+        <Typography variant="h2">{t`Country`}</Typography>
         <Controller control={control}
           name="country"
           rules={{
@@ -227,8 +228,8 @@ export const Location = (): JSX.Element => {
                   <TextField
                     {...params}
                     error={errors.country !== undefined}
-                    helperText={errors.country !== undefined ? 'Country is required' : ''}
-                    label="Choose a country"
+                    helperText={errors.country !== undefined ? t`Country is required` : ''}
+                    label={t`Choose a country`}
                     inputProps={{
                       ...params.inputProps,
                       autoComplete: 'new-password' // disable autocomplete and autofill
@@ -240,7 +241,7 @@ export const Location = (): JSX.Element => {
       </Box>
 
       <Box className={styles.container_section}>
-        <Typography variant="h2">State</Typography>
+        <Typography variant="h2">{t`State`}</Typography>
         <Controller control={control}
           name="state"
           render={
@@ -264,7 +265,7 @@ export const Location = (): JSX.Element => {
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="Choose a state"
+                    label={t`Choose a state`}
                     inputProps={{
                       ...params.inputProps,
                       autoComplete: 'new-password' // disable autocomplete and autofill
@@ -277,7 +278,7 @@ export const Location = (): JSX.Element => {
       </Box>
 
       <Box className={styles.container_section}>
-        <Typography variant="h2">City</Typography>
+        <Typography variant="h2">{t`City`}</Typography>
         <Controller control={control}
           name="city"
           rules={{
@@ -304,9 +305,9 @@ export const Location = (): JSX.Element => {
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="Choose a city"
+                    label={t`Choose a city`}
                     error={errors.city !== undefined}
-                    helperText={errors.city !== undefined ? 'City is required' : ''}
+                    helperText={errors.city !== undefined ? t`City is required` : ''}
                     inputProps={{
                       ...params.inputProps,
                       autoComplete: 'new-password' // disable autocomplete and autofill
@@ -325,7 +326,7 @@ export const Location = (): JSX.Element => {
         onClick={() => {
           navigate(`../${QuestionnaireRoutes.GUESTS}`)
         }}>
-        Back
+        {t`Back`}
       </Button>
       <Button variant='contained'
         disabled={nextDisabled}
@@ -333,7 +334,7 @@ export const Location = (): JSX.Element => {
         onClick={() => {
           navigate(`../${QuestionnaireRoutes.APARTMENT}`)
         }}>
-        Next
+        {t`Next`}
       </Button>
     </Box>
   </Box>

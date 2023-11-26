@@ -17,6 +17,9 @@ import { usePromptToInstall } from 'context/promptToInstall'
 import { useDetectDevice } from 'effects/detectDevice'
 import { useDetectBrowser } from 'effects/detectBrowser'
 import { InstallationInstruction } from './InstallationInstruction/InstallationInstruction'
+import { Trans, msg } from '@lingui/macro'
+import { useLingui } from '@lingui/react'
+import LanguagePicker from 'components/LanguagePicker/LanguagePicker'
 
 const Settings = (): JSX.Element => {
   const navigate = useNavigate()
@@ -26,6 +29,8 @@ const Settings = (): JSX.Element => {
   const browser = useDetectBrowser()
   const [instructionVisible, setInstructionVisible] = useState<boolean>(false)
   const theme = useTheme()
+  const { _ } = useLingui()
+
   const onInstallClick = async (): Promise<void> => {
     setInstallPromptVisible(false)
     if (deferredEvt) {
@@ -43,19 +48,20 @@ const Settings = (): JSX.Element => {
     <Box className={styles.profile__container}>
       <Box className={styles.profile__header}>
         <BackButton />
-        <Typography variant='h1'>Settings</Typography>
+        <Typography variant='h1'><Trans>Settings</Trans></Typography>
       </Box>
       <Box className={settignsStyles.settings_container}>
-        <ListItemButton label='Account'
+        <ListItemButton label={_(msg`Account`)}
           icon={ManageAccountsOutlinedIcon}
           action={() => { navigate('/profile/settings/account/') }}
         />
-        <ListItemButton label='Color theme'
+        <ListItemButton label={_(msg`Color theme`)}
           icon={PaletteOutlinedIcon}
           action={() => { navigate('/profile/settings/theme/') }}
         />
+        <LanguagePicker inSettings />
         {installBtnVisible &&
-          <ListItemButton label='Add to Home Screen'
+          <ListItemButton label={_(msg`Add to Home Screen`)}
             icon={AddToHomeScreenOutlinedIcon}
             action={() => {
               if (browser === 'Chrome' || browser === 'Edge') {
@@ -73,13 +79,21 @@ const Settings = (): JSX.Element => {
     <Dialog
       open={installPromptVisible}
       onClose={() => { setInstallPromptVisible(false) }}>
-      <DialogTitle>Add Roommate to your home screen</DialogTitle>
+      <DialogTitle>
+        <Trans>Add &quot;Roommate&quot; to your home screen</Trans>
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText>Do you want to install Roommate on your home screen?</DialogContentText>
+        <DialogContentText>
+          <Trans>Do you want to install &quot;Roommate&quot; on your home screen?</Trans>
+        </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => { setInstallPromptVisible(false) }}>No</Button>
-        <Button onClick={() => { void onInstallClick() }} autoFocus>Yes</Button>
+        <Button onClick={() => { setInstallPromptVisible(false) }}>
+          <Trans>No</Trans>
+        </Button>
+        <Button onClick={() => { void onInstallClick() }} autoFocus>
+          <Trans>Yes</Trans>
+        </Button>
       </DialogActions>
     </Dialog>
 
