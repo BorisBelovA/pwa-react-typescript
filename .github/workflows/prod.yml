@@ -4,13 +4,15 @@ on:
   pull_request:
     branches: [ "release/*" ]
     types:
-      - synchronize
+      - closed
 
 jobs:
 
   build:
 
     runs-on: ubuntu-latest
+
+    if: github.event.pull_request.merged
 
     steps:
     - uses: actions/checkout@v3
