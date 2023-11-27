@@ -953,7 +953,7 @@ msgstr "תמונות"
 
 #: src/pages/Profile/Settings/Feedback/Feedback.tsx:55
 msgid "Please describe your issue or suggestion."
-msgstr "אנא תאר את הבעיה או ההצעה שלך."
+msgstr "אנא תאר את הבעיה או ההצעה שלך"
 
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:59
 msgid "Please enter your email and we will send you a code to reset your password"
