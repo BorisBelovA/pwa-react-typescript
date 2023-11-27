@@ -7,6 +7,7 @@ import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'
 import { useNavigate } from 'react-router-dom'
 import EditIcon from '@mui/icons-material/Edit'
 import { t } from '@lingui/macro'
+import { mapCurrencyToSign } from 'utils/currency'
 
 interface Props {
   apartment: Apartment
@@ -23,7 +24,7 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
     <Box className={styles.head}>
       {apartment.totalPrice > 0
         ? <Typography variant='h1' color='constantLight.main'>
-          {t`${apartment.totalPrice} ₪ per room`}
+          {t`${apartment.totalPrice} ${mapCurrencyToSign(apartment.currency)} per room`}
         </Typography>
         : <Typography variant='h1' color='constantLight.main'>{t`For refugees`}</Typography>
       }

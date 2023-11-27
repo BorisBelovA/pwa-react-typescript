@@ -1,6 +1,7 @@
 import { Avatar, Box, IconButton, Link, Typography, useTheme } from '@mui/material'
 import CardBase from '../CardBase/CardBase'
 import { type AuthUser, type Apartment, ProfileRoutes, ApartmentsRoutes } from 'models'
+import { mapCurrencyToSign } from 'utils/currency'
 import { calculateAge } from 'utils/date-time'
 import styles from './CardApartment.module.scss'
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'
@@ -22,7 +23,7 @@ const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Pr
   const header = (<>
     <Box className={styles.head}>
       <Typography variant='h1' color='constantLight.main'>
-        {t`${apartment.totalPrice} ₪ per room`}
+        {t`${apartment.totalPrice} ${mapCurrencyToSign(apartment.currency)} per room`}
       </Typography>
       {editable &&
         <IconButton sx={{ color: theme.palette.primary.main }}

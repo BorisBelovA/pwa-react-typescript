@@ -234,7 +234,7 @@ msgstr "Дата рождения"
 
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:281
 msgid "Budget in ₪"
-msgstr "Бюджет в руб"
+msgstr "Бюджет в ₪"
 
 #: src/components/Cards/CardProfile/CardProfile.tsx:26
 #: src/components/Cards/CardProfile/CardProfile.tsx:59
@@ -986,7 +986,7 @@ msgstr "Цена"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:135
 msgid "Price per room in ₪"
-msgstr "Цена за номер в руб"
+msgstr "Цена за комнату в ₪"
 
 #: src/components/navigation/NavBar/NavBar.tsx:18
 msgid "Profile"
