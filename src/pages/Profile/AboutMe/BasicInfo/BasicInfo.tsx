@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, Typography } from '@mui/material'
 import { type EmptyPersonalInfo, type NewUser } from 'models'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import About from 'components/BasicInfoSteps/About'
 import Phone from 'components/BasicInfoSteps/Phone'
@@ -19,7 +19,6 @@ import { Trans, t } from '@lingui/macro'
 const BasicInfo = (): JSX.Element => {
   const { userStore } = useStore()
   const [user, setUser] = useState({ ...userStore } as NewUser)
-  const [allValid, setAllValid] = useState<boolean>()
   const {
     setBackdropVisible,
     setBackdropMessage,
@@ -56,14 +55,6 @@ const BasicInfo = (): JSX.Element => {
     })
     return () => { subscription.unsubscribe() }
   }, [watchPhone])
-
-  useEffect(() => {
-    const subscription = watchPhone(({ phone }) => {
-      const isPhoneOk = isValidPhone || !phone
-      setAllValid(!(isValid && isPhoneOk))
-    })
-    return () => { subscription.unsubscribe() }
-  }, [isValid, isValidPhone, watchPhone])
 
   const onFinish = async (): Promise<void> => {
     setBackdropVisible(true)
@@ -132,6 +123,10 @@ const BasicInfo = (): JSX.Element => {
     }
   }
 
+  const formValid = useMemo(() => {
+    return isValid && isValidPhone
+  }, [isValid, isValidPhone])
+
   return (
     <Box className={styles.container}>
       <Box className={commonStyles.profile__header}>
@@ -139,7 +134,7 @@ const BasicInfo = (): JSX.Element => {
         <Typography variant='h1' className={styles.header__text}>
           <Trans>Basic information</Trans>
         </Typography>
-        <IconButton disabled={allValid} color='primary' onClick={() => { void onFinish() }}>
+        <IconButton disabled={!formValid} color='primary' onClick={() => { void onFinish() }}>
           <SaveIcon />
         </IconButton>
       </Box>
@@ -165,7 +160,7 @@ const BasicInfo = (): JSX.Element => {
           }} />
         </Box>
         <Box className={styles.content__part}>
-          <Button onClick={() => { void onFinish() }} disabled={allValid} variant='contained' disableElevation>
+          <Button onClick={() => { void onFinish() }} disabled={!formValid} variant='contained' disableElevation>
             <Trans>Save</Trans>
           </Button>
         </Box>
