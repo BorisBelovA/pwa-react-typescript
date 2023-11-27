@@ -13,20 +13,20 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.4.1\n"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:26
 #: src/components/Cards/CardProfile/CardProfile.tsx:84
 msgid "{0} {1} per room"
 msgstr "{0} {1} за комнату"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:39
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:51
+#: src/components/Cards/CardApartment/CardApartment.tsx:25
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:26
+msgid "{0} ₪ per room"
+msgstr "{0} ₪ за комнату"
+
+#: src/components/Cards/CardApartment/CardApartment.tsx:38
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:50
 #: src/components/Cards/CardProfile/CardProfile.tsx:85
 msgid "{0} out of {1} rooms available"
 msgstr "{0} из {1} свободных комнат"
-
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
-msgid "{0} ₪ per room"
-msgstr "{0} ₪ за комнату"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:32
 msgid "{0} rooms"
@@ -84,7 +84,7 @@ msgstr "Добавить Roommate на рабочий стол"
 msgid "Add apartment"
 msgstr "Добавить квартиру"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:212
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:213
 msgid "Add new apartment"
 msgstr "Добавить новую квартиру"
 
@@ -182,15 +182,15 @@ msgstr "Фото на аватар"
 
 #: src/pages/Chat/components/ChatHeader.tsx:183
 #: src/pages/Profile/BasicQuestions/About/About.tsx:47
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:98
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:232
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:97
-#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:85
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:99
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:233
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:98
+#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:86
 #: src/pages/Profile/BasicQuestions/Location/Location.tsx:329
 #: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:116
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:123
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:124
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:61
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:94
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:95
 #: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:111
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:363
 msgid "Back"
@@ -424,7 +424,7 @@ msgstr "У вас есть домашние животные?"
 msgid "Do you like guests?"
 msgstr "Вы любите гостей?"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:250
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:251
 msgid "Do you really want to delete this apartment?"
 msgstr "Вы действительно хотите удалить эту квартиру?"
 
@@ -453,7 +453,7 @@ msgid "Don't smoke"
 msgstr "Не курю"
 
 #: src/pages/Profile/Profile.tsx:141
-#: src/pages/Profile/Settings/Feedback/Feedback.tsx:78
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:77
 msgid "Donate"
 msgstr "Пожертвовать"
 
@@ -471,8 +471,8 @@ msgstr "Готово"
 msgid "E-mail"
 msgstr "E-mail"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:35
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:38
+#: src/components/Cards/CardApartment/CardApartment.tsx:34
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:37
 #: src/components/Cards/CardProfile/CardProfile.tsx:54
 #: src/components/Cards/CardProfile/CardProfile.tsx:75
 #: src/pages/Registration/Fifth step/FifthStep.tsx:63
@@ -543,7 +543,7 @@ msgstr "Имя"
 msgid "First name is required"
 msgstr "Укажите имя"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
 msgid "for"
 msgstr "для"
 
@@ -552,7 +552,7 @@ msgid "for {0}"
 msgstr "для {0}"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:28
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:116
@@ -603,15 +603,24 @@ msgid "Have pets"
 msgstr "Есть домашние животные"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
-msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
+msgid ""
+"Here you can specify: \n"
+"- Another ways to contact you \n"
+"- How many people can stay \n"
+"- Any other useful information"
 msgstr ""
-"Здесь вы можете указать: \n"
-"‬\n"
-"‪- Другие способы связи с вами \n"
-"‬\n"
-"‪- Сколько человек может проживать \n"
-"‬\n"
-"‪- Любая другая полезная информация"
+"Здесь вы можете указать:\n"
+"- Другие способы связи с вами\n"
+"- Сколько человек может проживать\n"
+"- Любая другая полезная информация"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
+#~ msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
+#~ msgstr ""
+#~ "Здесь вы можете указать: \n"
+#~ "- Другие способы связи с вами \n"
+#~ "- Сколько человек может проживать \n"
+#~ "- Любая другая полезная информация"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "How many"
@@ -653,7 +662,7 @@ msgstr "Если вам нравится то, что мы делаем, вы м
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:194
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:195
 msgid "in previous step"
 msgstr "на предыдущий шаг"
 
@@ -666,7 +675,7 @@ msgstr "Неверный шаг анкеты квартиры!"
 msgid "Incorrect email pattern"
 msgstr "Неверный код из письма"
 
-#: src/components/BasicInfoSteps/Phone.tsx:15
+#: src/components/BasicInfoSteps/Phone.tsx:16
 msgid "Incorrect phone number"
 msgstr "Неверный формат номера телефона"
 
@@ -761,15 +770,15 @@ msgid "New to roommate.host?"
 msgstr "Впервые на roommate.host?"
 
 #: src/pages/Profile/BasicQuestions/About/About.tsx:55
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:106
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:238
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:105
-#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:92
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:107
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:239
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:106
+#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:93
 #: src/pages/Profile/BasicQuestions/Location/Location.tsx:337
 #: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:123
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:130
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:131
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:69
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:101
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:102
 #: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:86
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:379
 #: src/pages/Registration/Layout.tsx:176
@@ -777,15 +786,15 @@ msgstr "Впервые на roommate.host?"
 msgid "Next"
 msgstr "Далее"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:65
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:187
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:64
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:95
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:63
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:66
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:188
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:65
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:96
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:64
 msgid "no"
 msgstr "нет"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:255
 #: src/pages/Profile/Settings/Settings.tsx:92
 msgid "No"
 msgstr "Нет"
@@ -901,7 +910,7 @@ msgstr "Введите Пароль"
 msgid "Passwords won't match"
 msgstr "Пароли не совпадают"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
 msgid "people"
 msgstr "человека"
 
@@ -909,7 +918,7 @@ msgstr "человека"
 msgid "people you can accept"
 msgstr "человек, которых вы можете принять"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
 msgid "person"
 msgstr "человек"
 
@@ -929,8 +938,8 @@ msgstr "питомцы"
 msgid "phone"
 msgstr "телефон"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:52
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:66
+#: src/components/Cards/CardApartment/CardApartment.tsx:51
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:65
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
 msgid "Phone"
 msgstr "Телефон"
@@ -991,12 +1000,12 @@ msgstr "Фото профиля"
 msgid "Refresh"
 msgstr "Обновить"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:220
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:221
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:130
 msgid "Remove"
 msgstr "Удалить"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:248
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:249
 msgid "Remove apartment"
 msgstr "Удалить квартиру"
 
@@ -1029,11 +1038,11 @@ msgstr "Сбросить фильтры"
 msgid "Reset password"
 msgstr "Сбросить пароль"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:44
 msgid "room"
 msgstr "комната"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:44
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "rooms"
 msgstr "комнаты"
@@ -1056,7 +1065,7 @@ msgstr "Поиск"
 msgid "Search for apartments"
 msgstr "Поиск квартир"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:201
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:202
 msgid "Select apartment from the list or create new"
 msgstr "Выберите квартиру из списка или создайте новую"
 
@@ -1249,7 +1258,7 @@ msgstr "Чтобы изменить местоположение, вам нуж�
 msgid "To personal info"
 msgstr "К личной информации"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:192
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:193
 msgid "To select or create new apartment you need to select your city"
 msgstr "Для выбора или создания новой квартиры вам необходимо выбрать Ваш город"
 
@@ -1332,15 +1341,15 @@ msgstr "Подтвердите свой адрес эл.почты"
 msgid "We have received your feedback. Thank you!"
 msgstr "Мы получили ваши отзывы. Спасибо!"
 
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:71
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:72
 msgid "What do you like to smoke?"
 msgstr "Что вы любите курить?"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:73
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:74
 msgid "What is your attitude to alcohol?"
 msgstr "Как вы относитесь к алкоголю?"
 
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:72
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:73
 msgid "What is your attitude to guests?"
 msgstr "Как вы относитесь к гостям?"
 
@@ -1348,7 +1357,7 @@ msgstr "Как вы относитесь к гостям?"
 msgid "What languages do you know?"
 msgstr "Какими языками вы владеете?"
 
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:102
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:103
 msgid "What pets?"
 msgstr "Какие домашние животные?"
 
@@ -1375,15 +1384,15 @@ msgstr "С друзьями"
 msgid "With partner"
 msgstr "С партнером"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:66
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:188
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:65
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:96
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:64
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:67
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:189
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:66
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:97
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:65
 msgid "yes"
 msgstr "да"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:253
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
 #: src/pages/Profile/Settings/Settings.tsx:95
 msgid "Yes"
 msgstr "Да"
