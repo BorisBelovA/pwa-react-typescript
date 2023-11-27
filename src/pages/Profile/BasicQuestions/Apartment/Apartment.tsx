@@ -170,6 +170,7 @@ const Apartment: React.FunctionComponent = observer(() => {
       </Box>
       <Box className={styles.question__content}>
         <ToggleButtonGroup
+          dir='ltr'
           size='small'
           color='primary'
           value={displayApartment}

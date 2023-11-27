@@ -45,6 +45,7 @@ export const Guests = (): JSX.Element => {
     <Box className={styles.question__head}>
       <Typography className={styles.question__head_text}>{t`Do you like guests?`}</Typography>
       <ToggleButtonGroup size='small'
+        dir='ltr'
         color='primary'
         value={displayGuests}
         exclusive

@@ -85,6 +85,7 @@ const Pets: React.FunctionComponent = () => {
       <Box className={styles.question__head}>
         <Typography className={styles.question__head_text} variant='h1'>{t`Do you have pets?`}</Typography>
         <ToggleButtonGroup
+          dir='ltr'
           size='small'
           color='primary'
           value={questions.havePets}

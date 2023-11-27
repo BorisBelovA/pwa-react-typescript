@@ -46,6 +46,7 @@ export const Alcohol = (): JSX.Element => {
     <Box className={styles.question__head}>
       <Typography className={styles.question__head_text}>{t`Do you drink alcohol?`}</Typography>
       <ToggleButtonGroup size='small'
+        dir='ltr'
         color='primary'
         value={drinkAlcohol}
         exclusive
