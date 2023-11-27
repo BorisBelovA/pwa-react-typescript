@@ -73,9 +73,8 @@ export const Feedback = observer((): JSX.Element => {
 
       <Button variant='contained'
         fullWidth
-        startIcon={<MonetizationOnOutlinedIcon/>}
         onClick={() => { setDonateVisible(true) }}>
-        {t`Donate`}
+        {t`Donate`} <MonetizationOnOutlinedIcon />
       </Button>
     </Box>
 
