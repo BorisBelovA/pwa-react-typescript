@@ -55,7 +55,10 @@ export const Description = (): JSX.Element => {
         sx={{ height: '90%' }}
         fullWidth
         placeholder={
-          t`Here you can specify: \n - Another ways to contact you \n - How many people can stay \n - Any other useful information`
+          t`Here you can specify: 
+          - Another ways to contact you 
+          - How many people can stay 
+          - Any other useful information`
         }
         multiline
         rows={20}

@@ -24,19 +24,21 @@ msgstr ""
 #~ msgstr "Switch to English"
 
 #: src/components/Cards/CardApartment/CardApartment.tsx:26
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
 #: src/components/Cards/CardProfile/CardProfile.tsx:84
 msgid "{0} {1} per room"
 msgstr "{0} {1} per room"
+
+#: src/components/Cards/CardApartment/CardApartment.tsx:25
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:26
+#~ msgid "{0} ₪ per room"
+#~ msgstr "{0} ₪ per room"
 
 #: src/components/Cards/CardApartment/CardApartment.tsx:39
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:51
 #: src/components/Cards/CardProfile/CardProfile.tsx:85
 msgid "{0} out of {1} rooms available"
 msgstr "{0} out of {1} rooms available"
-
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
-msgid "{0} per room"
-msgstr "{0} per room"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:32
 msgid "{0} rooms"
@@ -98,7 +100,7 @@ msgstr "Add \"Roommate\" to your home screen"
 msgid "Add apartment"
 msgstr "Add apartment"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:212
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:213
 msgid "Add new apartment"
 msgstr "Add new apartment"
 
@@ -200,15 +202,15 @@ msgstr "Avatar photo"
 
 #: src/pages/Chat/components/ChatHeader.tsx:183
 #: src/pages/Profile/BasicQuestions/About/About.tsx:47
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:98
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:232
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:97
-#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:85
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:99
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:233
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:98
+#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:86
 #: src/pages/Profile/BasicQuestions/Location/Location.tsx:329
 #: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:116
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:123
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:124
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:61
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:94
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:95
 #: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:111
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:363
 msgid "Back"
@@ -451,7 +453,7 @@ msgstr "Do you have pets?"
 msgid "Do you like guests?"
 msgstr "Do you like guests?"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:250
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:251
 msgid "Do you really want to delete this apartment?"
 msgstr "Do you really want to delete this apartment?"
 
@@ -480,7 +482,7 @@ msgid "Don't smoke"
 msgstr "Don't smoke"
 
 #: src/pages/Profile/Profile.tsx:141
-#: src/pages/Profile/Settings/Feedback/Feedback.tsx:78
+#: src/pages/Profile/Settings/Feedback/Feedback.tsx:77
 msgid "Donate"
 msgstr "Donate"
 
@@ -634,8 +636,20 @@ msgid "Have pets"
 msgstr "Have pets"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
-msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
-msgstr "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
+msgid ""
+"Here you can specify: \n"
+"- Another ways to contact you \n"
+"- How many people can stay \n"
+"- Any other useful information"
+msgstr ""
+"Here you can specify: \n"
+"- Another ways to contact you \n"
+"- How many people can stay \n"
+"- Any other useful information"
+
+#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
+#~ msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
+#~ msgstr "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "How many"
@@ -681,7 +695,7 @@ msgstr "If you like what we do you can support us with"
 msgid "Ignore"
 msgstr "Ignore"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:194
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:195
 msgid "in previous step"
 msgstr "in previous step"
 
@@ -694,7 +708,7 @@ msgstr "Incorrect apartments questionnaire step!"
 msgid "Incorrect email pattern"
 msgstr "Incorrect email pattern"
 
-#: src/components/BasicInfoSteps/Phone.tsx:15
+#: src/components/BasicInfoSteps/Phone.tsx:16
 msgid "Incorrect phone number"
 msgstr "Incorrect phone number"
 
@@ -789,15 +803,15 @@ msgid "New to roommate.host?"
 msgstr "New to roommate.host?"
 
 #: src/pages/Profile/BasicQuestions/About/About.tsx:55
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:106
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:238
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:105
-#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:92
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:107
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:239
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:106
+#: src/pages/Profile/BasicQuestions/Languages/Languages.tsx:93
 #: src/pages/Profile/BasicQuestions/Location/Location.tsx:337
 #: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:123
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:130
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:131
 #: src/pages/Profile/BasicQuestions/SleepingHabbits/SleepingHabbits.tsx:69
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:101
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:102
 #: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:86
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:379
 #: src/pages/Registration/Layout.tsx:176
@@ -805,15 +819,15 @@ msgstr "New to roommate.host?"
 msgid "Next"
 msgstr "Next"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:65
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:187
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:64
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:95
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:63
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:66
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:188
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:65
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:96
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:64
 msgid "no"
 msgstr "no"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:255
 #: src/pages/Profile/Settings/Settings.tsx:92
 msgid "No"
 msgstr "No"
@@ -1019,12 +1033,12 @@ msgstr "Profile photo"
 msgid "Refresh"
 msgstr "Refresh"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:220
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:221
 #: src/pages/Profile/MyAppartments/MyAppartments.tsx:130
 msgid "Remove"
 msgstr "Remove"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:248
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:249
 msgid "Remove apartment"
 msgstr "Remove apartment"
 
@@ -1088,7 +1102,7 @@ msgstr "Search"
 msgid "Search for apartments"
 msgstr "Search for apartments"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:201
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:202
 msgid "Select apartment from the list or create new"
 msgstr "Select apartment from the list or create new"
 
@@ -1286,7 +1300,7 @@ msgstr "To change location you need to unlink your apartment first"
 msgid "To personal info"
 msgstr "To personal info"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:192
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:193
 msgid "To select or create new apartment you need to select your city"
 msgstr "To select or create new apartment you need to select your city"
 
@@ -1369,15 +1383,15 @@ msgstr "Verify your email"
 msgid "We have received your feedback. Thank you!"
 msgstr "We have received your feedback. Thank you!"
 
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:71
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:72
 msgid "What do you like to smoke?"
 msgstr "What do you like to smoke?"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:73
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:74
 msgid "What is your attitude to alcohol?"
 msgstr "What is your attitude to alcohol?"
 
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:72
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:73
 msgid "What is your attitude to guests?"
 msgstr "What is your attitude to guests?"
 
@@ -1385,7 +1399,7 @@ msgstr "What is your attitude to guests?"
 msgid "What languages do you know?"
 msgstr "What languages do you know?"
 
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:102
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:103
 msgid "What pets?"
 msgstr "What pets?"
 
@@ -1412,15 +1426,15 @@ msgstr "With friends"
 msgid "With partner"
 msgstr "With partner"
 
-#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:66
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:188
-#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:65
-#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:96
-#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:64
+#: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:67
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:189
+#: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:66
+#: src/pages/Profile/BasicQuestions/Pets/Pets.tsx:97
+#: src/pages/Profile/BasicQuestions/Smoking/Smoking.tsx:65
 msgid "yes"
 msgstr "yes"
 
-#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:253
+#: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
 #: src/pages/Profile/Settings/Settings.tsx:95
 msgid "Yes"
 msgstr "Yes"

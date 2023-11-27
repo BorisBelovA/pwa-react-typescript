@@ -1,13 +1,13 @@
 import { Avatar, Box, IconButton, Link, Typography, useTheme } from '@mui/material'
 import CardBase from '../CardBase/CardBase'
 import { type AuthUser, type Apartment, ProfileRoutes, ApartmentsRoutes } from 'models'
-import { mapCurrencyToSign } from 'utils/currency'
 import { calculateAge } from 'utils/date-time'
 import styles from './CardApartment.module.scss'
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'
 import { useNavigate } from 'react-router-dom'
 import EditIcon from '@mui/icons-material/Edit'
 import { t } from '@lingui/macro'
+import { mapCurrencyToSign } from 'utils/currency'
 
 interface Props {
   apartment: Apartment
@@ -24,7 +24,7 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
     <Box className={styles.head}>
       {apartment.totalPrice > 0
         ? <Typography variant='h1' color='constantLight.main'>
-          {apartment.totalPrice} {t`${mapCurrencyToSign(apartment.currency)} per room`}
+          {t`${apartment.totalPrice} ${mapCurrencyToSign(apartment.currency)} per room`}
         </Typography>
         : <Typography variant='h1' color='constantLight.main'>{t`For refugees`}</Typography>
       }
@@ -63,7 +63,7 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
         </Box>
         <FlipCameraAndroidIcon color='primary' fontSize='large' />
       </Box>}
-    {apartment.phone && <Typography>{t`Phone`}: <Link href={`tel:${apartment.phone}`}>{apartment.phone}</Link></Typography>}
+    {apartment.phone && <Typography>{t`Phone`}: <Link href={`tel:${apartment.phone}`} dir='ltr'>{apartment.phone}</Link></Typography>}
     <Typography sx={{ marginTop: '1rem', whiteSpace: 'pre-line' }}>{apartment.description}</Typography>
   </>)
 
