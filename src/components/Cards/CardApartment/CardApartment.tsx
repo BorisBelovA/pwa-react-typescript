@@ -1,7 +1,6 @@
 import { Avatar, Box, IconButton, Link, Typography, useTheme } from '@mui/material'
 import CardBase from '../CardBase/CardBase'
 import { type AuthUser, type Apartment, ProfileRoutes, ApartmentsRoutes } from 'models'
-import { mapCurrencyToSign } from 'utils/currency'
 import { calculateAge } from 'utils/date-time'
 import styles from './CardApartment.module.scss'
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'

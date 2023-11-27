@@ -59,6 +59,7 @@ const Languages: React.FunctionComponent = () => {
         <Box className={styles.question__tagLine}>
           {questions.languages.map((language, index) => (
             <Chip
+              className={styles.languageChip}
               key={index}
               color='secondary'
               label={language}
