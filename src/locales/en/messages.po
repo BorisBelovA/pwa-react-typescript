@@ -23,17 +23,19 @@ msgstr ""
 #~ msgid "Switch to English"
 #~ msgstr "Switch to English"
 
+#: src/components/Cards/CardApartment/CardApartment.tsx:26
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
 #: src/components/Cards/CardProfile/CardProfile.tsx:84
 msgid "{0} {1} per room"
 msgstr "{0} {1} per room"
 
 #: src/components/Cards/CardApartment/CardApartment.tsx:25
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:26
-msgid "{0} ₪ per room"
-msgstr "{0} ₪ per room"
+#~ msgid "{0} ₪ per room"
+#~ msgstr "{0} ₪ per room"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:38
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:50
+#: src/components/Cards/CardApartment/CardApartment.tsx:39
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:51
 #: src/components/Cards/CardProfile/CardProfile.tsx:85
 msgid "{0} out of {1} rooms available"
 msgstr "{0} out of {1} rooms available"
@@ -498,8 +500,8 @@ msgstr "Done"
 msgid "E-mail"
 msgstr "E-mail"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:34
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:37
+#: src/components/Cards/CardApartment/CardApartment.tsx:35
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:38
 #: src/components/Cards/CardProfile/CardProfile.tsx:54
 #: src/components/Cards/CardProfile/CardProfile.tsx:75
 #: src/pages/Registration/Fifth step/FifthStep.tsx:63
@@ -570,7 +572,7 @@ msgstr "First name"
 msgid "First name is required"
 msgstr "First name is required"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "for"
 msgstr "for"
 
@@ -583,7 +585,7 @@ msgstr "for {0}"
 #~ msgstr "for refugee"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:28
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:116
@@ -941,7 +943,7 @@ msgstr "Password is required"
 msgid "Passwords won't match"
 msgstr "Passwords won't match"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "people"
 msgstr "people"
 
@@ -949,7 +951,7 @@ msgstr "people"
 msgid "people you can accept"
 msgstr "people you can accept"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "person"
 msgstr "person"
 
@@ -969,8 +971,8 @@ msgstr "pets"
 msgid "phone"
 msgstr "phone"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:51
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:65
+#: src/components/Cards/CardApartment/CardApartment.tsx:52
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:66
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
 msgid "Phone"
 msgstr "Phone"
@@ -1073,11 +1075,11 @@ msgstr "Reset filters"
 msgid "Reset password"
 msgstr "Reset password"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:44
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
 msgid "room"
 msgstr "room"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:44
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "rooms"
 msgstr "rooms"

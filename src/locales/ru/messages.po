@@ -13,17 +13,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.4.1\n"
 
+#: src/components/Cards/CardApartment/CardApartment.tsx:26
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
 #: src/components/Cards/CardProfile/CardProfile.tsx:84
 msgid "{0} {1} per room"
 msgstr "{0} {1} за комнату"
 
 #: src/components/Cards/CardApartment/CardApartment.tsx:25
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:26
-msgid "{0} ₪ per room"
-msgstr "{0} ₪ за комнату"
+#~ msgid "{0} ₪ per room"
+#~ msgstr "{0} ₪ за комнату"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:38
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:50
+#: src/components/Cards/CardApartment/CardApartment.tsx:39
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:51
 #: src/components/Cards/CardProfile/CardProfile.tsx:85
 msgid "{0} out of {1} rooms available"
 msgstr "{0} из {1} свободных комнат"
@@ -471,8 +473,8 @@ msgstr "Готово"
 msgid "E-mail"
 msgstr "E-mail"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:34
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:37
+#: src/components/Cards/CardApartment/CardApartment.tsx:35
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:38
 #: src/components/Cards/CardProfile/CardProfile.tsx:54
 #: src/components/Cards/CardProfile/CardProfile.tsx:75
 #: src/pages/Registration/Fifth step/FifthStep.tsx:63
@@ -543,7 +545,7 @@ msgstr "Имя"
 msgid "First name is required"
 msgstr "Укажите имя"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "for"
 msgstr "для"
 
@@ -552,7 +554,7 @@ msgid "for {0}"
 msgstr "для {0}"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:28
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:116
@@ -910,7 +912,7 @@ msgstr "Введите Пароль"
 msgid "Passwords won't match"
 msgstr "Пароли не совпадают"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "people"
 msgstr "человека"
 
@@ -918,7 +920,7 @@ msgstr "человека"
 msgid "people you can accept"
 msgstr "человек, которых вы можете принять"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "person"
 msgstr "человек"
 
@@ -938,8 +940,8 @@ msgstr "питомцы"
 msgid "phone"
 msgstr "телефон"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:51
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:65
+#: src/components/Cards/CardApartment/CardApartment.tsx:52
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:66
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
 msgid "Phone"
 msgstr "Телефон"
@@ -1038,11 +1040,11 @@ msgstr "Сбросить фильтры"
 msgid "Reset password"
 msgstr "Сбросить пароль"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:44
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
 msgid "room"
 msgstr "комната"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:44
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "rooms"
 msgstr "комнаты"

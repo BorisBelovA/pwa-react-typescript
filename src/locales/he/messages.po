@@ -13,17 +13,19 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.1\n"
 
+#: src/components/Cards/CardApartment/CardApartment.tsx:26
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
 #: src/components/Cards/CardProfile/CardProfile.tsx:84
 msgid "{0} {1} per room"
 msgstr "{0} {1} עבור חדר"
 
 #: src/components/Cards/CardApartment/CardApartment.tsx:25
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:26
-msgid "{0} ₪ per room"
-msgstr "{0} ₪ עבור חדר"
+#~ msgid "{0} ₪ per room"
+#~ msgstr "{0} ₪ עבור חדר"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:38
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:50
+#: src/components/Cards/CardApartment/CardApartment.tsx:39
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:51
 #: src/components/Cards/CardProfile/CardProfile.tsx:85
 msgid "{0} out of {1} rooms available"
 msgstr "{0} חדרים פנויים ל-{1} אנשים"
@@ -474,8 +476,8 @@ msgstr "בוצע"
 msgid "E-mail"
 msgstr "דואר אלקטרוני"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:34
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:37
+#: src/components/Cards/CardApartment/CardApartment.tsx:35
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:38
 #: src/components/Cards/CardProfile/CardProfile.tsx:54
 #: src/components/Cards/CardProfile/CardProfile.tsx:75
 #: src/pages/Registration/Fifth step/FifthStep.tsx:63
@@ -546,7 +548,7 @@ msgstr "שם פרטי"
 msgid "First name is required"
 msgstr "נדרש שם פרטי"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "for"
 msgstr "ל"
 
@@ -555,7 +557,7 @@ msgid "for {0}"
 msgstr "עבור {0}"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:28
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:116
@@ -612,11 +614,11 @@ msgid ""
 "- How many people can stay \n"
 "- Any other useful information"
 msgstr ""
-"כאן תוכל לציין:\n" 
-"\n- עוד דרכים ליצור איתך קשר"
-"\n- כמה אנשים יכולים להישאר"
-"\n- כל מידע שימושי אחר"
-
+"כאן תוכל לציין:\n"
+"\n"
+"- עוד דרכים ליצור איתך קשר\n"
+"- כמה אנשים יכולים להישאר\n"
+"- כל מידע שימושי אחר"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
 #~ msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
@@ -910,7 +912,7 @@ msgstr "דרושה סיסמא"
 msgid "Passwords won't match"
 msgstr "הסיסמאות לא יתאימו"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "people"
 msgstr "אנשים"
 
@@ -918,7 +920,7 @@ msgstr "אנשים"
 msgid "people you can accept"
 msgstr "אנשים שאתה יכול לקבל"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "person"
 msgstr "אדם"
 
@@ -938,8 +940,8 @@ msgstr "חיות מחמד"
 msgid "phone"
 msgstr "טלפון"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:51
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:65
+#: src/components/Cards/CardApartment/CardApartment.tsx:52
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:66
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
 msgid "Phone"
 msgstr "טלפון"
@@ -1038,11 +1040,11 @@ msgstr "איפוס סננים"
 msgid "Reset password"
 msgstr "לאפס את הסיסמה"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:44
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
 msgid "room"
 msgstr "חדר"
 
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:44
+#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:45
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "rooms"
 msgstr "חדרים"
