@@ -555,9 +555,6 @@ msgid "for {0}"
 msgstr "עבור {0}"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
-msgid "for refugee"
-msgstr "עבור פליטים"
-
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
@@ -788,6 +785,10 @@ msgstr "לא"
 #: src/pages/Profile/Settings/Settings.tsx:92
 msgid "No"
 msgstr "לא"
+
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:39
+msgid "No description"
+msgstr "אין תיאור"
 
 #: src/pages/Sign up/Signup.tsx:56
 msgid "No email or password provided!"

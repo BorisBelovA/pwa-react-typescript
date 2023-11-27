@@ -16,21 +16,21 @@ msgstr ""
 #: src/components/Cards/CardApartment/CardApartment.tsx:26
 #: src/components/Cards/CardProfile/CardProfile.tsx:84
 msgid "{0} {1} per room"
-msgstr "‫{0} {1} за комнату"
+msgstr "{0} {1} за комнату"
 
 #: src/components/Cards/CardApartment/CardApartment.tsx:39
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:51
 #: src/components/Cards/CardProfile/CardProfile.tsx:85
 msgid "{0} out of {1} rooms available"
-msgstr "‫‫{0} из {1} свободных комнат"
+msgstr "{0} из {1} свободных комнат"
 
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
 msgid "{0} per room"
-msgstr "‫{0} руб за комнату"
+msgstr "{0} руб за комнату"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:32
 msgid "{0} rooms"
-msgstr "‫‫ комн.{0}"
+msgstr "комн.{0}"
 
 #: src/pages/Chat/components/ChatHeader.tsx:185
 msgid "1 hour"
@@ -50,16 +50,16 @@ msgstr "8 часов"
 
 #: src/pages/Email-code/EmailCode.tsx:90
 msgid "A verification code has been sent to you"
-msgstr "‫Код верификации отправлен вам"
+msgstr "Код верификации отправлен вам"
 
 #: src/pages/Registration/Third step/ThirdStep.tsx:39
 msgid "A verification code has been sent to your mobile device"
-msgstr "‫‫‫Код верификации отправлен на ваш мобильный телефон"
+msgstr "Код верификации отправлен на ваш мобильный телефон"
 
 #: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:30
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:86
 msgid "about"
-msgstr "о"
+msgstr "детали"
 
 #: src/pages/Profile/AboutMe/AboutMe.tsx:76
 #: src/pages/Profile/Profile.tsx:127
@@ -122,7 +122,7 @@ msgstr "Почти готово!"
 
 #: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:58
 msgid "Alone"
-msgstr "Одиночка"
+msgstr "Один человек"
 
 #: src/pages/Sign up/Signup.tsx:83
 msgid "Already have an account?"
@@ -176,9 +176,6 @@ msgstr "Квартиры"
 msgid "Appartment preview"
 msgstr "Предпросмотр квартиры"
 
-#~ msgid "ARBUSER"
-#~ msgstr "מתעלל"
-
 #: src/components/BasicInfoSteps/Photo.tsx:83
 msgid "Avatar photo"
 msgstr "Фото на аватар"
@@ -229,7 +226,7 @@ msgid "Bio"
 msgstr "Биография"
 
 #~ msgid "Birthdate"
-#~ msgstr "יום הולדת"
+#~ msgstr "Дата рождения"
 
 #: src/components/BasicInfoSteps/About.tsx:67
 msgid "Birthday"
@@ -502,7 +499,7 @@ msgstr "Ж"
 
 #: src/components/navigation/NavBar/NavBar.tsx:22
 msgid "Feedback"
-msgstr "Обратная связь"
+msgstr "Отзывы"
 
 #: src/pages/Profile/Settings/Feedback/Feedback.tsx:52
 msgid "Feedback form"
@@ -555,9 +552,6 @@ msgid "for {0}"
 msgstr "для {0}"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:29
-msgid "for refugee"
-msgstr "для беженца"
-
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:29
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:279
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
@@ -690,7 +684,7 @@ msgstr "Фамилия"
 
 #: src/components/BasicInfoSteps/About.tsx:31
 msgid "Last name is required"
-msgstr "נדרש שם משפחה"
+msgstr "Фамилия обязательна для заполнения"
 
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:12
 msgid "Light"
@@ -726,7 +720,7 @@ msgstr "Выполняется вход"
 
 #: src/pages/Login/Login.tsx:46
 msgid "Login to your account"
-msgstr "Войти в аккаунт"
+msgstr "Входим в аккаунт"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:62
 msgid "Logout"
@@ -796,6 +790,10 @@ msgstr "нет"
 msgid "No"
 msgstr "Нет"
 
+#: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:39
+msgid "No description"
+msgstr "Описание осутствует"
+
 #: src/pages/Sign up/Signup.tsx:56
 msgid "No email or password provided!"
 msgstr "Требуется адрес электронной почты и пароль!"
@@ -827,7 +825,7 @@ msgstr "Нет жалоб или эл. почты отправителя"
 
 #: src/pages/Chat/components/ChatHeader.tsx:112
 msgid "No result for user"
-msgstr "אין תוצאה למשתמש"
+msgstr "Не найдены результаты"
 
 #: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:85
 #: src/pages/Registration/Layout.tsx:83
@@ -853,7 +851,7 @@ msgstr "Не против алкоголя"
 
 #: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:59
 msgid "Not alone"
-msgstr "Не одиночка"
+msgstr "Группа людей"
 
 #: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
 #: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
@@ -905,11 +903,11 @@ msgstr "Пароли не совпадают"
 
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "people"
-msgstr "люди"
+msgstr "человека"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "people you can accept"
-msgstr "люди, которых вы можете принять"
+msgstr "человек, которых вы можете принять"
 
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:46
 msgid "person"
@@ -1157,7 +1155,7 @@ msgid "Something went wrong"
 msgstr "Что-то пошло не так"
 
 #~ msgid "Something went wrong😮"
-#~ msgstr "משהו השתבש😮"
+#~ msgstr "что-то пошло не так😮"
 
 #: src/pages/Registration/Layout.tsx:54
 msgid "something wrong with steps!"
@@ -1320,11 +1318,11 @@ msgstr "Вейп"
 
 #: src/pages/Registration/Third step/ThirdStep.tsx:32
 msgid "Verification code"
-msgstr "‪‫‫‫Код верификации"
+msgstr "Код подтверждения"
 
 #: src/pages/Email-code/EmailCode.tsx:100
 msgid "Verify"
-msgstr "Верифицировать"
+msgstr "Подтвердить"
 
 #: src/pages/Email-code/EmailCode.tsx:77
 msgid "Verify your email"
