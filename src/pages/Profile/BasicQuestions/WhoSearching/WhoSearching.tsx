@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect, useMemo } from 'react'
 import { type Option, OptionCards } from 'components/OptionCards/OptionCards'
 import { QuestionnaireRoutes, type RelationsType } from 'models'
-import { t } from '@lingui/macro'
+import { t, msg } from '@lingui/macro'
 
 export const WhoSearching = (): JSX.Element => {
   const navigate = useNavigate()
@@ -49,7 +49,7 @@ export const WhoSearching = (): JSX.Element => {
       navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.PETS}`)
     } else {
       setPercent(100, 100, 'who')
-      insertItem('Not Alone', t`Not Alone`, 'not-alone', 1)
+      insertItem('Not Alone', msg`Not Alone`, 'not-alone', 1)
       navigate(`/profile/questionnaire-basic-info/${QuestionnaireRoutes.NOT_ALONE}`)
     }
   }
