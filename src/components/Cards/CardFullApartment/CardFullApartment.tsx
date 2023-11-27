@@ -24,7 +24,7 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
     <Box className={styles.head}>
       {apartment.totalPrice > 0
         ? <Typography variant='h1' color='constantLight.main'>
-          {apartment.totalPrice} {t`${mapCurrencyToSign(apartment.currency)} per room`}
+          {t`${apartment.totalPrice} ₪ per room`}
         </Typography>
         : <Typography variant='h1' color='constantLight.main'>{t`For refugees`}</Typography>
       }

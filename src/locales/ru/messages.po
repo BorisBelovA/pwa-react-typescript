@@ -25,8 +25,8 @@ msgid "{0} out of {1} rooms available"
 msgstr "{0} из {1} свободных комнат"
 
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
-msgid "{0} per room"
-msgstr "{0} руб за комнату"
+msgid "{0} ₪ per room"
+msgstr "{0} ₪ за комнату"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:32
 msgid "{0} rooms"

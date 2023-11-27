@@ -25,7 +25,7 @@ msgid "{0} out of {1} rooms available"
 msgstr "{0} חדרים פנויים ל-{1} אנשים"
 
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:27
-msgid "{0} per room"
+msgid "{0} ₪ per room"
 msgstr "{0} ₪ עבור חדר"
 
 #: src/components/Cards/ApartmentThumbnail/ApartmentThumbnail.tsx:32

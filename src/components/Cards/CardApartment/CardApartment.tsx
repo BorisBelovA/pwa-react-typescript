@@ -23,7 +23,7 @@ const CardApartment = ({ apartment, user, who, flipCard, editable, padding }: Pr
   const header = (<>
     <Box className={styles.head}>
       <Typography variant='h1' color='constantLight.main'>
-        {t`${apartment.totalPrice} ${mapCurrencyToSign(apartment.currency)} per room`}
+        {t`${apartment.totalPrice} ₪ per room`}
       </Typography>
       {editable &&
         <IconButton sx={{ color: theme.palette.primary.main }}
