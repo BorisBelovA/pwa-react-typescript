@@ -17,16 +17,16 @@ import { type ProgressSliderProps } from 'components'
 import { useAuthContext } from 'layouts/Auth/AuthLayout'
 import { filesApiService } from 'api/api-services/files'
 import { IntroRoutes } from 'models'
-import { t } from '@lingui/macro'
+import { t, msg } from '@lingui/macro'
 
 export type RegistrationSteps = 'personal' | 'phone' | 'verification' | 'photo' | 'summary'
 
 export const Layout = (): JSX.Element => {
   const steps: ProgressSliderProps[] = [
-    { text: 'personal', label: t`personal`, progress: 0, to: 'personal', state: 'Active' },
-    { text: 'phone', label: t`phone`, progress: 0, to: 'phone', state: 'Disabled' },
-    { text: 'photo', label: t`photo`, progress: 0, to: 'photo', state: 'Disabled' },
-    { text: 'summary', label: t`summary`, progress: 0, to: 'summary', state: 'Disabled' }
+    { text: 'personal', label: msg`personal`, progress: 0, to: 'personal', state: 'Active' },
+    { text: 'phone', label: msg`phone`, progress: 0, to: 'phone', state: 'Disabled' },
+    { text: 'photo', label: msg`photo`, progress: 0, to: 'photo', state: 'Disabled' },
+    { text: 'summary', label: msg`summary`, progress: 0, to: 'summary', state: 'Disabled' }
   ]
   const [firstStepValid, setFirstStepValid] = useState(false)
   const [secondStepValid, setSecondStepValid] = useState(false)

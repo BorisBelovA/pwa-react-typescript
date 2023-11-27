@@ -23,7 +23,7 @@ import { filesApiService } from 'api/api-services/files'
 import { apartmentService } from 'api/api-services/appartment'
 import { useStore } from 'utils/StoreProvider'
 import { type ProgressSliderProps } from 'components'
-import { t } from '@lingui/macro'
+import { t, msg } from '@lingui/macro'
 
 export type ApartmentQuestionnaireContext = MainLayoutContext & {
   apartment: NewApartmentForm
@@ -80,11 +80,11 @@ const getActiveStepFromURI = (location: Location): ApartmentsQuestionnaireRoutes
 
 export const ApartmentQuestionnaire = (): JSX.Element => {
   const questionnaireSteps: ProgressSliderProps[] = [
-    { text: 'basic', label: t`basic`, progress: 0, to: ApartmentsQuestionnaireRoutes.BASIC },
-    { text: 'location', label: t`location`, progress: 0, to: ApartmentsQuestionnaireRoutes.LOCATION },
-    { text: 'photos', label: t`photos`, progress: 0, to: ApartmentsQuestionnaireRoutes.PHOTOS },
-    { text: 'about', label: t`about`, progress: 0, to: ApartmentsQuestionnaireRoutes.ABOUT },
-    { text: 'summary', label: t`summary`, progress: 0, to: ApartmentsQuestionnaireRoutes.SUMMARY }
+    { text: 'basic', label: msg`basic`, progress: 0, to: ApartmentsQuestionnaireRoutes.BASIC },
+    { text: 'location', label: msg`location`, progress: 0, to: ApartmentsQuestionnaireRoutes.LOCATION },
+    { text: 'photos', label: msg`photos`, progress: 0, to: ApartmentsQuestionnaireRoutes.PHOTOS },
+    { text: 'about', label: msg`about`, progress: 0, to: ApartmentsQuestionnaireRoutes.ABOUT },
+    { text: 'summary', label: msg`summary`, progress: 0, to: ApartmentsQuestionnaireRoutes.SUMMARY }
   ]
   const [searchParams] = useSearchParams()
 

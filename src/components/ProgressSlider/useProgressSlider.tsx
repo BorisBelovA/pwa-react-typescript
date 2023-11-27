@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react'
 import { type SliderState, type ProgressSliderProps } from './ProgressSliderItem/ProgressSliderItem'
+import { type MessageDescriptor } from '@lingui/core'
 
 interface Props {
   items: ProgressSliderProps[]
   finished?: boolean
 }
 
-export type ProgressSliderInsertItemFunc = (text: string, label: string, to: string, index: number, progress?: number) => void
+export type ProgressSliderInsertItemFunc = (
+  text: string,
+  label: MessageDescriptor,
+  to: string,
+  index: number,
+  progress?: number) => void
 
 export type ProgressSliderRemoveItemFunc = (text: string) => void
 
@@ -112,7 +118,12 @@ const useProgressSlider = (props: Props): ReturnType => {
     if (element !== null) { element.scrollIntoView({ inline: 'center', behavior: 'smooth' }) }
   }
 
-  const insertItem: ProgressSliderInsertItemFunc = (text: string, label: string, to: string, index: number, progress?: number): void => {
+  const insertItem: ProgressSliderInsertItemFunc = (
+    text: string,
+    label: MessageDescriptor,
+    to: string,
+    index: number,
+    progress?: number): void => {
     if (items.find(i => i.text === text)) {
       return
     }
