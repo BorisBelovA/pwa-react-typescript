@@ -8,6 +8,7 @@ import { ApartmentsQuestionnaireRoutes } from 'models'
 import { imageTypes } from 'utils/constants'
 import { useMainContext } from 'layouts/Main/MainLayout'
 import { photoReader } from 'utils/photoReader'
+import { t } from '@lingui/macro'
 
 export const Photos = (): JSX.Element => {
   const { apartment, setApartment, setPercent, setNextDisabled, setActive } = apartmentQuestionnaireContext()
@@ -71,7 +72,7 @@ export const Photos = (): JSX.Element => {
 
   return <>
     <Box className={styles.container}>
-      <Button variant="outlined" onClick={addPhoto}>Add photos</Button>
+      <Button variant="outlined" onClick={addPhoto}>{t`Add photos`}</Button>
       <Box className={styles.images_container}>
         <ImageList cols={3} gap={8} rowHeight={240}>
           {apartment.photos.map((photo, index) => {
@@ -106,9 +107,9 @@ export const Photos = (): JSX.Element => {
         </ImageList>
       </Box>
 
-      {cropVisible && <ImageCropper title='Select photo'
+      {cropVisible && <ImageCropper title={t`Select photo`}
         image={image}
-        acceptButtonText='Accept'
+        acceptButtonText={t`Accept`}
         shape='high-rect'
         acceptImage={photo => {
           setCropVisible(false)

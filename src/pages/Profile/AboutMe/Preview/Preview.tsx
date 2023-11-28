@@ -8,15 +8,16 @@ import { observer } from 'mobx-react-lite'
 import ReactCardFlip from 'react-card-flip'
 import CardApartment from 'components/Cards/CardApartment/CardApartment'
 import styles from './Preview.module.scss'
+import { Trans, t } from '@lingui/macro'
 
 const Preview = (): JSX.Element => {
   const { questionnaireStore, userStore } = useStore()
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
   const whoOptions = {
-    Alone: 'By self',
-    Friends: 'With friends',
-    Couple: 'With partner',
-    Family: 'With family',
+    Alone: t({ message: 'By self' }),
+    Friends: t({ message: 'With friends' }),
+    Couple: t({ message: 'With partner' }),
+    Family: t({ message: 'With family' }),
     undefined: ''
   }
   useEffect(() => {
@@ -31,7 +32,9 @@ const Preview = (): JSX.Element => {
     <>
       <Box className={commonStyles.profile__header}>
         <BackButton />
-        <Typography variant='h1'>Your profile</Typography>
+        <Typography variant='h1'>
+          <Trans>Your profile</Trans>
+        </Typography>
       </Box>
       {questionnaireStore.questionnaire
         ? questionnaireStore.questionnaire.apartment?.id
@@ -47,7 +50,10 @@ const Preview = (): JSX.Element => {
               user={userStore}
               flipCard={handleFlip}
               editable
-              who={!!questionnaireStore.questionnaire.who ? whoOptions[questionnaireStore.questionnaire.who] : 'By self'}
+              who={!!questionnaireStore.questionnaire.who
+                ? whoOptions[questionnaireStore.questionnaire.who]
+                : t({ message: 'By self' })
+              }
             />
           </ReactCardFlip>
           : <CardProfile

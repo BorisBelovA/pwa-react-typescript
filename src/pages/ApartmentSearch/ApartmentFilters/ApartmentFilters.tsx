@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { locationService } from 'api/api-services/location'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined'
+import { t } from '@lingui/macro'
 
 const ApartmentFilters = (): JSX.Element => {
   const { apartmentFiltersStore, apartmentSearchStore } = useStore()
@@ -130,12 +131,12 @@ const ApartmentFilters = (): JSX.Element => {
     <Box className={styles.container}>
       <Box className={styles.head}>
         <BackButton to='/apartment-search' />
-        <Typography variant='h1'>Apartment Filters</Typography>
+        <Typography variant='h1'>{t`Apartment Filters`}</Typography>
       </Box>
       <Box className={styles.location__container}>
         <Box className={styles.container_section}>
           <Box className={styles.container_section_title}>
-            <Typography variant="h2">Country</Typography>
+            <Typography variant="h2">{t`Country`}</Typography>
             <Box onClick={handleClick}><HelpOutlineOutlinedIcon/></Box>
           </Box>
           <Controller control={control}
@@ -170,8 +171,8 @@ const ApartmentFilters = (): JSX.Element => {
                     <TextField
                       {...params}
                       error={errors.country !== undefined}
-                      helperText={errors.country !== undefined ? 'Country is required' : ''}
-                      label="Choose a country"
+                      helperText={errors.country !== undefined ? t`Country is required` : ''}
+                      label={t`Choose a country`}
                       inputProps={{
                         ...params.inputProps,
                         autoComplete: 'new-password' // disable autocomplete and autofill
@@ -184,7 +185,7 @@ const ApartmentFilters = (): JSX.Element => {
 
         <Box className={styles.container_section}>
           <Box className={styles.container_section_title}>
-            <Typography variant="h2">District</Typography>
+            <Typography variant="h2">{t`District`}</Typography>
             <Box onClick={handleClick}><HelpOutlineOutlinedIcon/></Box>
           </Box>
           <Controller control={control}
@@ -212,7 +213,7 @@ const ApartmentFilters = (): JSX.Element => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Choose a district"
+                      label={t`Choose a district`}
                       inputProps={{
                         ...params.inputProps,
                         autoComplete: 'new-password' // disable autocomplete and autofill
@@ -225,7 +226,7 @@ const ApartmentFilters = (): JSX.Element => {
         </Box>
         <Box className={styles.container_section}>
           <Box className={styles.container_section_title}>
-            <Typography variant="h2">City</Typography>
+            <Typography variant="h2">{t`City`}</Typography>
             <Box onClick={handleClick}><HelpOutlineOutlinedIcon/></Box>
           </Box>
           <Controller control={control}
@@ -255,7 +256,7 @@ const ApartmentFilters = (): JSX.Element => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Choose a city"
+                      label={t`Choose a city`}
                       inputProps={{
                         ...params.inputProps,
                         autoComplete: 'new-password' // disable autocomplete and autofill
@@ -275,12 +276,12 @@ const ApartmentFilters = (): JSX.Element => {
               setValue('priceFrom', value ? 0 : 1)
               setValue('priceTo', value ? 0 : 20000)
             }} />
-        } label="For refugees" />
+        } label={t`For refugees`} />
         {!forRefugee && <Box className={styles.budget__container}>
-          <Typography variant='h1'>Budget in ₪</Typography>
+          <Typography variant='h1'>{t`Budget in ₪`}</Typography>
           <Box className={styles.budget__inputs}>
             <Box className={styles.container_section}>
-              <Typography variant="h2">From</Typography>
+              <Typography variant="h2">{t`From`}</Typography>
               <TextField id="apartment-address"
                 type='number'
                 size="medium"
@@ -292,7 +293,7 @@ const ApartmentFilters = (): JSX.Element => {
               />
             </Box>
             <Box className={styles.container_section}>
-              <Typography variant="h2">To</Typography>
+              <Typography variant="h2">{t`To`}</Typography>
               <TextField id="apartment-address"
                 type='number'
                 size="medium"
@@ -306,10 +307,10 @@ const ApartmentFilters = (): JSX.Element => {
           </Box>
         </Box>}
         <Box className={styles.container_section}>
-          <Button variant='outlined' fullWidth onClick={() => { resetFilters() }}>Reset filters</Button>
+          <Button variant='outlined' fullWidth onClick={() => { resetFilters() }}>{t`Reset filters`}</Button>
           <Button variant='contained' fullWidth onClick={() => {
             navigate('/apartment-search')
-          }}>Find apartments</Button>
+          }}>{t`Find apartments`}</Button>
         </Box>
       </Box>
 
@@ -321,7 +322,7 @@ const ApartmentFilters = (): JSX.Element => {
           vertical: 'bottom',
           horizontal: 'left'
         }}>
-        <Typography sx={{ p: 2 }}>This field is optional</Typography>
+        <Typography sx={{ p: 2 }}>{t`This field is optional`}</Typography>
       </Popover>
     </Box>
   )

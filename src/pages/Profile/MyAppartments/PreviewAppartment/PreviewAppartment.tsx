@@ -8,6 +8,7 @@ import { apartmentService } from 'api/api-services/appartment'
 import BackButton from 'components/Buttons/BackButton/BackButton'
 import CardApartment from 'components/Cards/CardApartment/CardApartment'
 import { useMainContext } from 'layouts/Main/MainLayout'
+import { Trans, t } from '@lingui/macro'
 
 const PreviewAppartment = (): JSX.Element => {
   const [apartment, setApartment] = useState<Apartment>()
@@ -26,7 +27,7 @@ const PreviewAppartment = (): JSX.Element => {
       console.log(error)
       setMessage({
         visible: true,
-        text: `Can't get apartment ${id}`,
+        text: t`Can't get apartment ${id}`,
         severity: 'error'
       })
     }
@@ -42,13 +43,15 @@ const PreviewAppartment = (): JSX.Element => {
     <>
       <Box className={commonStyles.profile__header}>
         <BackButton />
-        <Typography variant='h1'>{apartment?.name ?? 'Appartment preview'}</Typography>
+        <Typography variant='h1'>{apartment?.name ?? t({ message: 'Apartment preview' })}</Typography>
       </Box>
       {id
         ? apartment
           ? <CardApartment apartment={apartment} />
           : <Skeleton variant="rounded" width={'100%'} height={'100%'} sx={{ marginTop: '1rem', borderRadius: '1rem' }} />
-        : <Typography>Sorry there is no apartment</Typography>
+        : <Typography>
+          <Trans>Sorry there is no apartment</Trans>
+        </Typography>
       }
     </>
   )

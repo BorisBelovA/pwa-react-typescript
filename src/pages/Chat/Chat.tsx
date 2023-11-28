@@ -12,6 +12,7 @@ import { observer } from 'mobx-react-lite'
 import { mapFullUser, mapMessageToModel } from 'mapping-services'
 import { type NewMessage } from 'dto'
 import { ChatMessageListener, chatMessagesQueue } from 'services/chat-messages'
+import { t } from '@lingui/macro'
 
 let storedMessages: Message[] = []
 
@@ -116,8 +117,8 @@ export const Chat = observer((): JSX.Element => {
       {!isLoading && messages.map((m, i) => <ChatMessage key={i} mine={m.senderId === userStore.id} message={m}></ChatMessage>)}
       {!isLoading && messages.length === 0 &&
         <Box className={styles.no_messages}>
-          <Typography>No messages yet.</Typography>
-          <Typography>Type something to start conversation with {user?.firstName ?? ''}</Typography>
+          <Typography>{t`No messages yet.`}</Typography>
+          <Typography>{t`Type something to start conversation with ${user?.firstName ?? ''}`}</Typography>
         </Box>
       }
       <div ref={lastMessageRef}></div>

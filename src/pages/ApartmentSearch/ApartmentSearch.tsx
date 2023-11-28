@@ -6,6 +6,7 @@ import { useStore } from 'utils/StoreProvider'
 import { FilterAltOutlined } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
+import { t } from '@lingui/macro'
 import { useMainContext } from 'layouts/Main/MainLayout'
 
 const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
@@ -22,7 +23,7 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
           setMessage({
             text: error instanceof Error
               ? error.message
-              : 'Something went wrong',
+              : t`Something went wrong`,
             severity: 'error',
             life: 5000,
             visible: true
@@ -48,7 +49,7 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
         setMessage({
           text: error instanceof Error
             ? error.message
-            : 'Something went wrong',
+            : t`Something went wrong`,
           severity: 'error',
           life: 5000,
           visible: true
@@ -59,7 +60,8 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
   return (
     <Box className={styles.householdContainer}>
       <Box className={styles.household__header}>
-        <Typography variant='h1'>Search for apartments</Typography>
+        <Typography variant='h1'>{t`Search for apartments`}
+        </Typography>
         <IconButton
           color='primary'
           sx={{ paddingBlock: '0' }}
@@ -69,11 +71,11 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
       </Box>
       {apartmentSearchStore.apartments.map((apartment) => <ApartmentThumbnail apartment={apartment} key={apartment.id} />)}
       {apartmentSearchStore.haveMore
-        ? <Button variant='contained' onClick={() => { void getMore() }}>Load more</Button>
+        ? <Button variant='contained' onClick={() => { void getMore() }}>{t`Load more`}</Button>
         : <Box className={styles.household__noMore}>
-          <Typography variant='h2'>Sorry, can&apos;t find more apartments</Typography>
-          <Button variant='contained' onClick={() => { navigate('filters') }}>Change filters</Button>
-          <Button variant='outlined' onClick={() => { void getMore() }}>Try again</Button>
+          <Typography variant='h2'>{t`Sorry, can't find more apartments`}</Typography>
+          <Button variant='contained' onClick={() => { navigate('filters') }}>{t`Change filters`}</Button>
+          <Button variant='outlined' onClick={() => { void getMore() }}>{t`Try again`}</Button>
         </Box>
       }
     </Box>

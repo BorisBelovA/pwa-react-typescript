@@ -1,13 +1,14 @@
 import { type ValidationRule } from 'react-hook-form'
+import { t } from '@lingui/macro'
 
 export const minLength = (length: number): ValidationRule<number> => ({
   value: length,
-  message: `Min length ${length} symbols`
+  message: t`Min length ${length} symbols`
 })
 
 export const emailPatternRegExp = /.+@.+\..+/
 
 export const emailPatternValidator = {
   value: emailPatternRegExp,
-  message: 'Incorrect email pattern'
+  message: t`Incorrect email pattern`
 }

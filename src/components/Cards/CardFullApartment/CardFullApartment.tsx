@@ -1,12 +1,13 @@
 import { Avatar, Box, IconButton, Link, Typography, useTheme } from '@mui/material'
 import CardBase from '../CardBase/CardBase'
 import { type AuthUser, type Apartment, ProfileRoutes, ApartmentsRoutes } from 'models'
-import { mapCurrencyToSign } from 'utils/currency'
 import { calculateAge } from 'utils/date-time'
 import styles from './CardApartment.module.scss'
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid'
 import { useNavigate } from 'react-router-dom'
 import EditIcon from '@mui/icons-material/Edit'
+import { t } from '@lingui/macro'
+import { mapCurrencyToSign } from 'utils/currency'
 
 interface Props {
   apartment: Apartment
@@ -23,9 +24,9 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
     <Box className={styles.head}>
       {apartment.totalPrice > 0
         ? <Typography variant='h1' color='constantLight.main'>
-          {apartment.totalPrice} {mapCurrencyToSign(apartment.currency)} per room
+          {t`${apartment.totalPrice} ${mapCurrencyToSign(apartment.currency)} per room`}
         </Typography>
-        : <Typography variant='h1' color='constantLight.main'>For refugees</Typography>
+        : <Typography variant='h1' color='constantLight.main'>{t`For refugees`}</Typography>
       }
       {editable &&
         <IconButton sx={{ color: theme.palette.primary.main }}
@@ -34,19 +35,21 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
           aria-label="edit"
           onClick={() => { navigate(`/profile/${ProfileRoutes.MY_APARTMENT}/${ApartmentsRoutes.EDIT}/basic?id=${apartment.id}`) }}>
           <EditIcon fontSize='small' />
-          <Typography fontSize={14} marginLeft='0.5rem'>Edit</Typography>
+          <Typography fontSize={14} marginLeft='0.5rem'>{t`Edit`}</Typography>
         </IconButton>
       }
     </Box>
     {
       apartment.totalPrice === 0 &&
       <Typography color='constantLight.main'>
-        {apartment.countAvailableRooms} room{apartment.countAvailableRooms > 1 ? 's ' : ' '}
-        for {apartment.countRooms} {apartment.countRooms === 1 ? 'person' : 'people'}</Typography>
+        {apartment.countAvailableRooms} {apartment.countAvailableRooms > 1 ? t`rooms ` : t`room `} {' '}
+        {t`for`} {apartment.countRooms} {' '}{apartment.countRooms === 1 ? t`person` : t`people`}</Typography>
     }
     {
       apartment.totalPrice > 0 &&
-      <Typography color='constantLight.main'>{apartment.countAvailableRooms} out of {apartment.countRooms} rooms available</Typography>
+      <Typography color='constantLight.main'>
+        {t`${apartment.countAvailableRooms} out of ${apartment.countRooms} rooms available`}
+      </Typography>
     }
   </>)
 
@@ -60,7 +63,7 @@ const CardFullApartment = ({ apartment, user, who, flipCard, editable, padding }
         </Box>
         <FlipCameraAndroidIcon color='primary' fontSize='large' />
       </Box>}
-    {apartment.phone && <Typography>Phone: <Link href={`tel:${apartment.phone}`}>{apartment.phone}</Link></Typography>}
+    {apartment.phone && <Typography>{t`Phone`}: <Link href={`tel:${apartment.phone}`} dir='ltr'>{apartment.phone}</Link></Typography>}
     <Typography sx={{ marginTop: '1rem', whiteSpace: 'pre-line' }}>{apartment.description}</Typography>
   </>)
 

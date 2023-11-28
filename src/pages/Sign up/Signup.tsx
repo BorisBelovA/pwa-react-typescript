@@ -9,6 +9,8 @@ import { useStore } from 'utils/StoreProvider'
 import { userApiService } from 'api-services'
 import { useAuthContext } from 'layouts/Auth/AuthLayout'
 import { mapUserToModel } from 'mapping-services'
+import { t } from '@lingui/macro'
+import LanguagePicker from 'components/LanguagePicker/LanguagePicker'
 
 // xiwabi4275@byorby.com
 interface SignUpForm {
@@ -19,7 +21,7 @@ interface SignUpForm {
 
 const emailPatternValidator = {
   value: /.+@.+\..+/,
-  message: 'Incorrect email pattern'
+  message: t`Incorrect email pattern`
 }
 
 export const SignUp = (): JSX.Element => {
@@ -51,10 +53,10 @@ export const SignUp = (): JSX.Element => {
 
   const onSubmit = async (data: SignUpForm): Promise<void> => {
     if (!data.email || !data.password) {
-      throw new Error('No email or password provided!')
+      throw new Error(t`No email or password provided!`)
     }
     setBackdropVisible(true)
-    setBackdropMessage('Checking email')
+    setBackdropMessage(t`Checking email`)
     try {
       const email = data.email.toLowerCase()
       const password = data.password
@@ -69,7 +71,7 @@ export const SignUp = (): JSX.Element => {
         severity: 'error',
         text: e instanceof Error
           ? e.message
-          : 'Something went wtong'
+          : t`Something went wrong`
       })
       setBackdropVisible(false)
     }
@@ -77,29 +79,29 @@ export const SignUp = (): JSX.Element => {
 
   return <>
     <div className={styles.headerSection}>
-      <Typography variant='h1'>Sign Up</Typography>
-      <Typography variant='body1'>Already have an account? <Link to='/auth/login'>
-        <Typography component='span' sx={{ color: theme.palette.primary.main }}>Log in</Typography>
+      <Typography variant='h1'>{t`Sign Up`} <LanguagePicker /></Typography>
+      <Typography variant='body1'>{t`Already have an account?`} <Link to='/auth/login'>
+        <Typography component='span' sx={{ color: theme.palette.primary.main }}>{t`Log in`}</Typography>
       </Link></Typography>
     </div>
     <div className={styles.group}>
-      <TextField fullWidth label="E-mail"
+      <TextField fullWidth label={t`E-mail`}
         type='email'
         error={!(errors.email == null)}
         autoComplete='off'
         variant="outlined"
         size="small"
-        {...register('email', { pattern: emailPatternValidator, required: 'Email is required' })}
+        {...register('email', { pattern: emailPatternValidator, required: t`Email is required` })}
         helperText={errors.email?.message ?? ''} />
 
-      <TextField fullWidth label="Password"
+      <TextField fullWidth label={t`Password`}
         type={showPassword ? 'text' : 'password'}
         error={!(errors.password == null)}
         variant="outlined"
         size="small"
         autoComplete='off'
         {...register('password', {
-          required: 'Code is required',
+          required: t`Code is required`,
           minLength: minLength(8)
         })}
         InputProps={{
@@ -113,17 +115,17 @@ export const SignUp = (): JSX.Element => {
         }}
         helperText={errors.password?.message ?? ''} />
 
-      <TextField fullWidth label="Confirm password"
+      <TextField fullWidth label={t`Confirm password`}
         type={showPassword ? 'text' : 'password'}
         error={!(errors.confirmPassword == null)}
         autoComplete='off'
         variant="outlined"
         size="small"
         {...register('confirmPassword', {
-          required: 'Required',
+          required: t`Required`,
           minLength: minLength(8),
           validate: {
-            samePassword: value => (value === getValues().password) || 'Passwords won\'t match'
+            samePassword: value => (value === getValues().password) || t`Passwords won't match`
           }
         })}
         InputProps={{
@@ -141,7 +143,7 @@ export const SignUp = (): JSX.Element => {
         onClick={(e) => { void handleSubmit(onSubmit)(e) }}
         variant="contained"
         sx={{ width: '60%' }}>
-        Sign up
+        {t`Sign up`}
       </Button>
     </div>
     {/* <div className={styles.divider}>

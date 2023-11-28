@@ -2,6 +2,7 @@ import { Box, Skeleton, Typography } from '@mui/material'
 import { mapApartmentToModel } from 'mapping-services'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { t } from '@lingui/macro'
 import { apartmentService } from 'api/api-services/appartment'
 import BackButton from 'components/Buttons/BackButton/BackButton'
 import CardFullApartment from 'components/Cards/CardFullApartment/CardFullApartment'
@@ -31,7 +32,7 @@ const Apartment = (): JSX.Element => {
       console.log(error)
       setMessage({
         visible: true,
-        text: `Can't get apartment ${id}`,
+        text: t`Can't get apartment ${id}`,
         severity: 'error'
       })
     }
@@ -47,13 +48,13 @@ const Apartment = (): JSX.Element => {
     <>
       <Box className={commonStyles.profile__header}>
         <BackButton />
-        <Typography variant='h1'>{apartment?.name ?? 'Appartment preview'}</Typography>
+        <Typography variant='h1'>{apartment?.name ?? t`Appartment preview`}</Typography>
       </Box>
       {id
         ? apartment
           ? <CardFullApartment apartment={apartment} />
           : <Skeleton variant="rounded" width={'100%'} height={'100%'} sx={{ marginTop: '1rem', borderRadius: '1rem' }} />
-        : <Typography>Sorry there is no apartment</Typography>
+        : <Typography>{t`Sorry there is no apartment`}</Typography>
       }
     </>
   )

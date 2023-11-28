@@ -87,3 +87,11 @@
     z-index: 2;
   }
 }
+
+[dir="rtl"] .menuItemIcon {
+ margin-left: 0.5rem;
+}
+
+[dir="ltr"] .menuItemIcon {
+  margin-right: 0.5rem;
+}

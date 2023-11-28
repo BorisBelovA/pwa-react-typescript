@@ -5,6 +5,7 @@ import { ApartmentsQuestionnaireRoutes } from 'models'
 import styles from './Description.module.scss'
 import { useForm } from 'react-hook-form'
 import Phone from 'components/BasicInfoSteps/Phone'
+import { t } from '@lingui/macro'
 
 export const Description = (): JSX.Element => {
   const { apartment, setApartment, setPercent, setActive, setNextDisabled } = apartmentQuestionnaireContext()
@@ -45,16 +46,19 @@ export const Description = (): JSX.Element => {
 
   return <Box className={styles.description_container}>
     <Box className={styles.description_item}>
-      <Typography variant='h2'>Your phone number</Typography>
+      <Typography variant='h2'>{t`Your phone number`}</Typography>
       <Phone control={control} required={true} />
     </Box>
     <Box className={styles.description_item}>
-      <Typography variant='h2'>Few words about apartment</Typography>
+      <Typography variant='h2'>{t`Few words about apartment`}</Typography>
       <TextField className={styles.description_input_container}
         sx={{ height: '90%' }}
         fullWidth
         placeholder={
-          'Here you can specify: \n - Another ways to contact you \n - How many people can stay \n - Any other useful information'
+          t`Here you can specify: 
+          - Another ways to contact you 
+          - How many people can stay 
+          - Any other useful information`
         }
         multiline
         rows={20}
