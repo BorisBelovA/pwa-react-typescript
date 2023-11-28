@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import styles from '../Profile.module.scss'
-import SettingsNavigationButton from 'src/components/navigation/SettingsNavigationButton/SettingsNavigationButton'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
+import SettingsNavigationButton from 'components/navigation/SettingsNavigationButton/SettingsNavigationButton'
+import BackButton from 'components/Buttons/BackButton/BackButton'
 
 const RoommatePreferences = (): JSX.Element => {
   return (

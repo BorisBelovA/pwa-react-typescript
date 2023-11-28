@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import styles from './FirstStep.module.scss'
 import { type EmptyPersonalInfo, type NewUser } from '../../../models/user'
-import About from 'src/components/BasicInfoSteps/About'
+import About from 'components/BasicInfoSteps/About'
 
 export interface FirstStepProps {
   user: NewUser

@@ -2,13 +2,13 @@ import { Box, Card, Typography, useTheme } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import commonStyles from '../Profile.module.scss'
 import styles from './AboutMe.module.scss'
-import { LinearProgressWithLabel } from 'src/components/LinearProgressWithLabel/LinearProgressWithLabel'
+import { LinearProgressWithLabel } from 'components/LinearProgressWithLabel/LinearProgressWithLabel'
 import { ProfileRoutes, type QuestionnaireBasicType, QuestionnaireRoutes } from 'models'
 import { observer } from 'mobx-react-lite'
-import { useStore } from 'src/utils/StoreProvider'
+import { useStore } from 'utils/StoreProvider'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import { useMemo } from 'react'
-import BackButton from 'src/components/Buttons/BackButton/BackButton'
+import BackButton from 'components/Buttons/BackButton/BackButton'
 
 const getPersonalInfoProgress = (questionnaire: QuestionnaireBasicType): number => {
   const whoProgress = questionnaire.who === null

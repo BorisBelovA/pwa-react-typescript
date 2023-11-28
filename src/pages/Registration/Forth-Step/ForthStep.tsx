@@ -1,7 +1,7 @@
 import styles from './ForthStep.module.scss'
 import { Typography } from '@mui/material'
 import { type NewUser } from '../../../models/user'
-import Photo from 'src/components/BasicInfoSteps/Photo'
+import Photo from 'components/BasicInfoSteps/Photo'
 
 export interface ForthStepProps {
   user: NewUser

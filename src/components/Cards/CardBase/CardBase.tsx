@@ -4,7 +4,7 @@ import styles from './CardBase.module.scss'
 import Badge from '../../Badge/Badge'
 import NoPhotographyIcon from '@mui/icons-material/NoPhotography'
 import SwipeUpIcon from '@mui/icons-material/SwipeUp'
-import { type Badges } from 'src/models/badges'
+import { type Badges } from 'models/badges'
 
 interface Props {
   header: JSX.Element

@@ -1,11 +1,11 @@
 import { ApartmentsQuestionnaireRoutes, ApartmentsRoutes, ProfileRoutes } from 'models'
 import { Navigate, Route } from 'react-router-dom'
-import { ApartmentQuestionnaire, Basic, Location, MyApartments } from 'src/pages/Profile/MyAppartments'
-import { Description } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description'
-import { Photos } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Photos/Photos'
-import { Purpose } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose'
-import { Summary } from 'src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Summary/Summary'
-import PreviewAppartment from 'src/pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment'
+import { ApartmentQuestionnaire, Basic, Location, MyApartments } from 'pages/Profile/MyAppartments'
+import { Description } from 'pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description'
+import { Photos } from 'pages/Profile/MyAppartments/AppartmentQuestionnaire/Photos/Photos'
+import { Purpose } from 'pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose'
+import { Summary } from 'pages/Profile/MyAppartments/AppartmentQuestionnaire/Summary/Summary'
+import PreviewAppartment from 'pages/Profile/MyAppartments/PreviewAppartment/PreviewAppartment'
 
 export const apartmentsQuestionnaireRoutes = [
   <Route key='0' path={ApartmentsQuestionnaireRoutes.BASIC} element={<Basic />} />,
