@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import styles from './FirstStep.module.scss'
 import { type EmptyPersonalInfo, type NewUser } from '../../../models/user'
 import About from 'components/BasicInfoSteps/About'
+import { t } from '@lingui/macro'
 
 export interface FirstStepProps {
   user: NewUser
@@ -32,7 +33,7 @@ export const FirstStep = ({ user, stepValid, userInfoChange }: FirstStepProps): 
   }, [watch, errors, stepValid])
 
   return <div className={styles.container}>
-    <Typography variant='h1' >Tell us about yourself</Typography>
+    <Typography variant='h1' >{t`Tell us about yourself`}</Typography>
     <div className={styles.formContainer}>
         <About control={control} errors={errors} register={register} user={user} />
     </div>

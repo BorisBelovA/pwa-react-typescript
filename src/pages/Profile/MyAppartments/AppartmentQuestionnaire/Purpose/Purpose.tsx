@@ -3,6 +3,7 @@ import { type ApartmentPurpose, ApartmentsQuestionnaireRoutes } from 'models'
 import { useEffect, useMemo } from 'react'
 import { type Option, OptionCards } from 'components/OptionCards/OptionCards'
 import { apartmentQuestionnaireContext } from '../AppartmentQuestionnaire'
+import { t } from '@lingui/macro'
 
 export const Purpose = (): JSX.Element => {
   const { apartment, setApartment, setNextDisabled, setActive, setPercent } = apartmentQuestionnaireContext()
@@ -32,9 +33,9 @@ export const Purpose = (): JSX.Element => {
   }
 
   const options: Array<Option<ApartmentPurpose>> = [
-    { text: 'Rent', value: 'Rent', icon: 'real_estate_agent' },
-    { text: 'Find Roommate', value: 'Questionnaire', icon: 'co_present' },
-    { text: 'Other', value: 'Other', icon: 'help' }
+    { text: t`Rent`, value: 'Rent', icon: 'real_estate_agent' },
+    { text: t`Find Roommate`, value: 'Questionnaire', icon: 'co_present' },
+    { text: t`Other`, value: 'Other', icon: 'help' }
   ]
   return <Box>
     <OptionCards options={options}

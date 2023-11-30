@@ -6,9 +6,10 @@ import { ImageCropper } from '../ImageCropper/ImageCropper'
 import UploadFileIcon from '@mui/icons-material/UploadFile'
 import { UserCard } from 'components/UserCard/UserCard'
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload'
-import { calculateAge } from 'utils/date-time'
-import { imageTypes } from 'utils/constants'
+import { t } from '@lingui/macro'
 import { useMainContext } from 'layouts/Main/MainLayout'
+import { imageTypes } from 'utils/constants'
+import { calculateAge } from 'utils/date-time'
 import { photoReader } from 'utils/photoReader'
 
 interface Props {
@@ -58,20 +59,20 @@ const Photo = ({ user, photoChange }: Props): JSX.Element => {
         age={user.birthday !== undefined ? calculateAge(user.birthday) : undefined}
         noImageComponent={<>
           <UploadFileIcon sx={{ fontSize: 80 }} onClick={addPhoto} />
-          <small>Up to 20 mb</small>
+          <small>{t`Up to 20 mb`}</small>
         </>}
         action={
           <IconButton sx={{ color: theme.palette.primary.main }} size='small' aria-label="edit" onClick={addPhoto}>
             <DriveFolderUploadIcon fontSize='small' />
-            <Typography fontSize={14} marginLeft='0.5rem'>Change</Typography>
+            <Typography fontSize={14} marginLeft='0.5rem'>{t`Change`}</Typography>
           </IconButton>
         }></UserCard>
 
-      {imageSizeError && <FormHelperText error={true}>Up to 20MB files are allowed</FormHelperText>}
+      {imageSizeError && <FormHelperText error={true}>{t`Up to 20MB files are allowed`}</FormHelperText>}
 
-      {profileCropVisible && <ImageCropper title='Profile photo'
+      {profileCropVisible && <ImageCropper title={t`Profile photo`}
         image={test}
-        acceptButtonText='Confirm and pick avatar'
+        acceptButtonText={t`Confirm and pick avatar`}
         shape='high-rect'
         acceptImage={photo => {
           setProfilePhoto(photo)
@@ -79,9 +80,9 @@ const Photo = ({ user, photoChange }: Props): JSX.Element => {
           setAvatarCropVisible(true)
         }} />}
 
-      {avatarCropVisible && <ImageCropper title='Avatar photo'
+      {avatarCropVisible && <ImageCropper title={t`Avatar photo`}
         image={test}
-        acceptButtonText='Confirm and proceed'
+        acceptButtonText={t`Confirm and proceed`}
         shape='round'
         acceptImage={photo => {
           setAvatarCropVisible(false)

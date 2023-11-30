@@ -7,6 +7,7 @@ import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg'
 import { UserCard } from 'components/UserCard/UserCard'
 import PersonIcon from '@mui/icons-material/Person'
 import { type RegistrationSteps } from '../Layout'
+import { t } from '@lingui/macro'
 
 export interface FifthStepProps {
   user: NewUser
@@ -17,7 +18,7 @@ export const FifthStep = ({ user, onEditStep }: FifthStepProps): JSX.Element => 
   const theme = useTheme()
 
   return <div className={styles.userSummaryInfo}>
-    <Typography variant='h1' >Check yor data</Typography>
+    <Typography variant='h1' >{t`Check your data`}</Typography>
     <Card>
       <CardHeader className={styles.cardHeader} avatar={
         user.avatar !== null && user.avatar !== undefined
@@ -26,7 +27,7 @@ export const FifthStep = ({ user, onEditStep }: FifthStepProps): JSX.Element => 
       }
         title={`${user.firstName ?? ''} ${user.lastName ?? ''}`}
         subheader={
-          `${user.gender === 'M' ? 'Male' : 'Female'}, ${user.birthday ? mapToRusFormat(user.birthday) : ''}`
+          `${user.gender === 'M' ? t`Male` : t`Female`}, ${user.birthday ? mapToRusFormat(user.birthday) : ''}`
         }
         action={
           <IconButton sx={{ color: theme.palette.primary.main }}
@@ -59,7 +60,7 @@ export const FifthStep = ({ user, onEditStep }: FifthStepProps): JSX.Element => 
           aria-label="edit"
           onClick={() => { onEditStep('photo') }}>
           <EditIcon fontSize='small' />
-          <Typography fontSize={14} marginLeft='0.5rem'>Edit</Typography>
+          <Typography fontSize={14} marginLeft='0.5rem'>{t`Edit`}</Typography>
         </IconButton>
       }></UserCard>
   </div>

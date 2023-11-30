@@ -1,21 +1,11 @@
-.list_button {
-  &_container {
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-    color: var(--text-color);
-    padding: 0.5rem 0;
+[dir=rtl] {
+  .list_item_text {
+      text-align: right !important;
   }
-  
-  &_icon {
-    margin-right: 1rem;
-  }
+}
 
-  &_label_container {
-    flex: 1;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
+[dir=ltr] {
+  .list_item_text {
+    text-align: left;
   }
-  
 }

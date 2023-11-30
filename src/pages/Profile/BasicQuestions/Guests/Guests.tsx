@@ -4,17 +4,23 @@ import { useBasicQuestions } from 'layouts/QuestionnaireBasic/QuestionnaireBasic
 import { useEffect, useState } from 'react'
 import { type GuestAttitude, QuestionnaireRoutes } from 'models'
 import { useNavigate } from 'react-router-dom'
+import { t } from '@lingui/macro'
 
 export const Guests = (): JSX.Element => {
   const { questions, setQuestions, setPercent, setActive } = useBasicQuestions()
   const [displayGuests, setDisplayGuests] = useState<boolean | null>(null)
   const navigate = useNavigate()
 
-  const options: GuestAttitude[] = [
-    'Like guests',
-    'Sometimes',
-    'Prefer without guests',
-    'No guests at all'
+  interface Option {
+    type: GuestAttitude
+    text: string
+  }
+
+  const options: Option[] = [
+    { type: 'Like guests', text: t`Like guests` },
+    { type: 'Sometimes', text: t`Sometimes` },
+    { type: 'Prefer without guests', text: t`Prefer without guests` },
+    { type: 'No guests at all', text: t`No guests at all` }
   ]
 
   const setGuestType = (guestType: GuestAttitude | null): void => {
@@ -37,8 +43,9 @@ export const Guests = (): JSX.Element => {
 
   return <Box className={styles.question}>
     <Box className={styles.question__head}>
-      <Typography className={styles.question__head_text}>Do you like guests?</Typography>
+      <Typography className={styles.question__head_text}>{t`Do you like guests?`}</Typography>
       <ToggleButtonGroup size='small'
+        dir='ltr'
         color='primary'
         value={displayGuests}
         exclusive
@@ -55,15 +62,15 @@ export const Guests = (): JSX.Element => {
             setGuestType(null)
           }
         }}>
-        <ToggleButton value={false}>no</ToggleButton>
-        <ToggleButton value={true}>yes</ToggleButton>
+        <ToggleButton value={false}>{t`no`}</ToggleButton>
+        <ToggleButton value={true}>{t`yes`}</ToggleButton>
       </ToggleButtonGroup>
     </Box>
 
     <Box className={styles.question__content}>
       {displayGuests &&
         <Box className={styles.question__input}>
-          <Typography variant='h2'>What is your attitude to guests?</Typography>
+          <Typography variant='h2'>{t`What is your attitude to guests?`}</Typography>
           <Box className={styles.question__input_zeroGap}>
             {options.map((guestType, index) => (
               <FormControlLabel
@@ -71,11 +78,11 @@ export const Guests = (): JSX.Element => {
                 control={
                   <Radio
                     value=''
-                    checked={questions.guests === guestType}
-                    onChange={(e) => { setGuestType(guestType) }}
+                    checked={questions.guests === guestType.type}
+                    onChange={(e) => { setGuestType(guestType.type) }}
                   />
                 }
-                label={guestType} />
+                label={guestType.text} />
             ))}
           </Box>
         </Box>
@@ -88,7 +95,7 @@ export const Guests = (): JSX.Element => {
         onClick={() => {
           navigate(`../${QuestionnaireRoutes.ALCOHOL}`)
         }}>
-        Back
+        {t`Back`}
       </Button>
       <Button variant='contained'
         fullWidth
@@ -96,7 +103,7 @@ export const Guests = (): JSX.Element => {
         onClick={() => {
           navigate(`../${QuestionnaireRoutes.LOCATION}`)
         }}>
-        Next
+        {t`Next`}
       </Button>
     </Box>
   </Box>

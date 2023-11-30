@@ -12,6 +12,7 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from 'utils/StoreProvider'
 import SearchCardController from 'components/Cards/SearchCardController/SearchCardController'
 import { useNavigate } from 'react-router-dom'
+import { t } from '@lingui/macro'
 
 interface SearchOffset {
   index: number
@@ -27,8 +28,8 @@ const NoQuestionnaire = ({ visible }: { visible: boolean }): JSX.Element => {
 
   return <>
     {visible && <Box className={styles.no_questionnaire}>
-      <Typography>You need to fill out your profile before searching for Roommates!</Typography>
-      <Button variant="contained" onClick={goToQuestionnaire}>Go to profile</Button>
+      <Typography>{t`You need to fill out your profile before searching for Roommates!`}</Typography>
+      <Button variant="contained" onClick={goToQuestionnaire}>{t`Go to profile`}</Button>
     </Box>}
   </>
 }
@@ -62,7 +63,7 @@ const Search: React.FunctionComponent = observer(() => {
       return m
     } catch (e) {
       setMessage({
-        text: (e instanceof Error && e.message) ? e.message : 'Something went wrong',
+        text: (e instanceof Error && e.message) ? e.message : t`Something went wrong`,
         severity: 'error',
         life: 5000,
         visible: true
@@ -205,7 +206,7 @@ const Search: React.FunctionComponent = observer(() => {
       await matchingService.likeUser(match.form.id)
     } catch (e) {
       setMessage({
-        text: e instanceof Error ? e.message : 'Something went wrong',
+        text: e instanceof Error ? e.message : t`Something went wrong`,
         visible: true,
         life: 5000,
         severity: 'error'
@@ -237,24 +238,24 @@ const Search: React.FunctionComponent = observer(() => {
             }
             {currentMatches.length === 0 && isLoading &&
               <div className={styles.noMatches}>
-                <Typography>Loading...</Typography>
+                <Typography>{t`Loading...`}</Typography>
               </div>
             }
             {currentMatches.length === 0 && !isLoading &&
               <div className={styles.noMatches}>
-                <Typography variant='h6'>No matches yet</Typography>
+                <Typography variant='h6'>{t`No matches yet`}</Typography>
                 <Button
                   variant='contained'
                   fullWidth
                   onClick={() => { void refresh() }}>
-                  Refresh
+                  {t`Refresh`}
                 </Button>
                 {(hadMatches || currentPage > 0 || index > 0) &&
                   <Button
                     variant='contained'
                     fullWidth
                     onClick={() => { startAgain() }}
-                  >Start again</Button>
+                  >{t`Start again`}</Button>
                 }
               </div>
             }

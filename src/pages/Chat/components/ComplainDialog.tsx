@@ -1,6 +1,7 @@
 import { Box, Button, Dialog, DialogTitle, TextField } from '@mui/material'
 import { useState } from 'react'
 import styles from './ComplainDialog.module.scss'
+import { t } from '@lingui/macro'
 
 export interface ComplainDialogProps {
   visible: boolean
@@ -12,10 +13,10 @@ export const ComplainDialog = ({ visible, sendComplainCallback, closeDialog }: C
   const [complain, setComplain] = useState<string>('')
 
   return <Dialog open={visible} fullWidth maxWidth='lg'>
-    <DialogTitle>Tell us what is wrong?</DialogTitle>
+    <DialogTitle>{t`Tell us what is wrong?`}</DialogTitle>
     <Box className={styles.container}>
       <TextField
-        label='Your feedback'
+        label={t`Your feedback`}
         multiline
         fullWidth
         minRows={4}
@@ -32,7 +33,7 @@ export const ComplainDialog = ({ visible, sendComplainCallback, closeDialog }: C
             setComplain('')
             closeDialog()
           }}>
-          Cancel
+          {t`Cancel`}
         </Button>
         <Button variant='contained'
           fullWidth
@@ -41,7 +42,7 @@ export const ComplainDialog = ({ visible, sendComplainCallback, closeDialog }: C
             void sendComplainCallback(complain)
             setComplain('')
           }}>
-          Send
+          {t`Send`}
         </Button>
       </Box>
     </Box>

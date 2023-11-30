@@ -1,11 +1,14 @@
 import { Box, LinearProgress, Typography, useTheme } from '@mui/material'
 import { Link } from 'react-router-dom'
 import styles from '../../../styles/utility.module.scss'
+import { type MessageDescriptor } from '@lingui/core'
+import { useLingui } from '@lingui/react'
 
 export type SliderState = 'Active' | 'Disabled' | 'Inactive'
 
 export interface ProgressSliderProps {
   text: string
+  label: MessageDescriptor
   progress: number
   of?: number
   state?: SliderState
@@ -20,6 +23,7 @@ interface ProgressSliderItemProps {
 
 const ProgressSliderItem = ({ item, useLinks, setActive }: ProgressSliderItemProps): JSX.Element => {
   const theme = useTheme()
+  const { i18n } = useLingui()
   const children = <Box sx={{
     opacity: `${item.state !== 'Active' ? '50%' : '100%'}`,
     textAlign: 'center',
@@ -33,7 +37,7 @@ const ProgressSliderItem = ({ item, useLinks, setActive }: ProgressSliderItemPro
         fontWeight: item.state !== 'Active' ? '300' : '600',
         color: item.state === undefined || item.state === 'Disabled' ? theme.palette.text.disabled : theme.palette.primary.main
       }}>
-      {item.text}
+      {i18n._(item.label)}
     </Typography>
     <LinearProgress
       variant='determinate'

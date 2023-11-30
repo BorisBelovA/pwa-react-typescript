@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, Typography } from '@mui/material'
 import { type EmptyPersonalInfo, type NewUser } from 'models'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import About from 'components/BasicInfoSteps/About'
 import Phone from 'components/BasicInfoSteps/Phone'
@@ -14,11 +14,11 @@ import { mapBase64ToFile, mapPhotoNameToURI, mapUserToDto } from 'mapping-servic
 import { filesApiService } from 'api/api-services/files'
 import { useMainContext } from 'layouts/Main/MainLayout'
 import BackButton from 'components/Buttons/BackButton/BackButton'
+import { Trans, t } from '@lingui/macro'
 
 const BasicInfo = (): JSX.Element => {
   const { userStore } = useStore()
   const [user, setUser] = useState({ ...userStore } as NewUser)
-  const [allValid, setAllValid] = useState<boolean>()
   const {
     setBackdropVisible,
     setBackdropMessage,
@@ -56,17 +56,9 @@ const BasicInfo = (): JSX.Element => {
     return () => { subscription.unsubscribe() }
   }, [watchPhone])
 
-  useEffect(() => {
-    const subscription = watchPhone(({ phone }) => {
-      const isPhoneOk = isValidPhone || !phone
-      setAllValid(!(isValid && isPhoneOk))
-    })
-    return () => { subscription.unsubscribe() }
-  }, [isValid, isValidPhone, watchPhone])
-
   const onFinish = async (): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Updating your information')
+    setBackdropMessage(t`Updating your information`)
     const {
       firstName,
       lastName,
@@ -78,10 +70,10 @@ const BasicInfo = (): JSX.Element => {
     } = user
 
     if ((firstName == null) || (lastName == null) || (gender === undefined) || (birthday == null)) {
-      throw new Error('User form is not filled!')
+      throw new Error(t`User form is not filled!`)
     }
     if (!sessionService.authToken) {
-      throw new Error('No session token provided')
+      throw new Error(t`No session token provided`)
     }
     try {
       let avatarName: string | null = null
@@ -106,7 +98,7 @@ const BasicInfo = (): JSX.Element => {
       }),
       sessionService.authToken
       )
-      setBackdropMessage('Finishing up!')
+      setBackdropMessage(t`Finishing up!`)
       setTimeout(() => {
         userStore.setUser({
           id: userStore.id,
@@ -131,32 +123,46 @@ const BasicInfo = (): JSX.Element => {
     }
   }
 
+  const formValid = useMemo(() => {
+    return isValid && isValidPhone
+  }, [isValid, isValidPhone])
+
   return (
     <Box className={styles.container}>
       <Box className={commonStyles.profile__header}>
         <BackButton />
-        <Typography variant='h1' className={styles.header__text}>Basic information</Typography>
-        <IconButton disabled={allValid} color='primary' onClick={() => { void onFinish() }}>
+        <Typography variant='h1' className={styles.header__text}>
+          <Trans>Basic information</Trans>
+        </Typography>
+        <IconButton disabled={!formValid} color='primary' onClick={() => { void onFinish() }}>
           <SaveIcon />
         </IconButton>
       </Box>
       <Box className={styles.content}>
         <Box className={styles.content__part}>
-          <Typography variant='h2'>Bio</Typography>
+          <Typography variant='h2'>
+            <Trans>Bio</Trans>
+          </Typography>
           <About errors={errors} control={control} register={register} user={user} />
         </Box>
         <Box className={styles.content__part}>
-          <Typography variant='h2'>Phone</Typography>
+          <Typography variant='h2'>
+            <Trans>Phone</Trans>
+          </Typography>
           <Phone control={controlPhone} />
         </Box>
         <Box className={styles.content__part}>
-          <Typography variant='h2'>Photo</Typography>
+          <Typography variant='h2'>
+            <Trans>Photo</Trans>
+          </Typography>
           <Photo user={user} photoChange={({ profilePhoto, avatarPhoto }) => {
             setUser({ ...user, photo: profilePhoto, avatar: avatarPhoto })
           }} />
         </Box>
         <Box className={styles.content__part}>
-          <Button onClick={() => { void onFinish() }} disabled={allValid} variant='contained' disableElevation>Save</Button>
+          <Button onClick={() => { void onFinish() }} disabled={!formValid} variant='contained' disableElevation>
+            <Trans>Save</Trans>
+          </Button>
         </Box>
       </Box>
     </Box>

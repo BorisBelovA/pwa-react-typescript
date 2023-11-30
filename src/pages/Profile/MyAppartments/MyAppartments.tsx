@@ -8,10 +8,11 @@ import commonStyles from '../Profile.module.scss'
 import BackButton from 'components/Buttons/BackButton/BackButton'
 import { mapCurrencyToSign } from 'utils/currency'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
-import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
+import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined'
 import { apartmentService } from 'api/api-services/appartment'
 import { mapApartmentToDto } from 'mapping-services'
 import { type Apartment } from 'models'
+import { Trans, t } from '@lingui/macro'
 import { useMainContext } from 'layouts/Main/MainLayout'
 
 export const MyApartments = observer((): JSX.Element => {
@@ -43,11 +44,11 @@ export const MyApartments = observer((): JSX.Element => {
 
   const removeAd = async (apartment: Apartment): Promise<void> => {
     setBackdropVisible(true)
-    setBackdropMessage('Removing your add from publication')
+    setBackdropMessage(t({ message: 'Removing your ad from publication' }))
     try {
       await apartmentService.removeAd(mapApartmentToDto(apartment))
       setMessage({
-        text: 'Your ad was removed from publication',
+        text: t({ message: 'Your ad was removed from publication' }),
         life: 5000,
         visible: true,
         severity: 'success'
@@ -58,7 +59,7 @@ export const MyApartments = observer((): JSX.Element => {
       setMessage({
         text: e instanceof Error
           ? e.message
-          : 'Something went wrong',
+          : t({ message: 'Something went wrong' }),
         life: 5000,
         visible: true,
         severity: 'error'
@@ -73,7 +74,9 @@ export const MyApartments = observer((): JSX.Element => {
   return <>
     <Box className={`${commonStyles.profile__header} ${commonStyles.mb1}`}>
       <BackButton />
-      <Typography variant='h1'>My appartments</Typography>
+      <Typography variant='h1'>
+        <Trans>My apartments</Trans>
+      </Typography>
     </Box>
     {isLoading &&
       <Skeleton variant="rounded" width='100%' height={240} animation="wave" />
@@ -81,8 +84,8 @@ export const MyApartments = observer((): JSX.Element => {
     {!isLoading &&
       <Button variant='contained'
         sx={{ marginBottom: '1rem' }}
-        onClick={() => { createApartment() }}
-      >Add apartment
+        onClick={() => { createApartment() }}>
+        <Trans>Add apartment</Trans>
       </Button>
     }
     <Box sx={{ overflowY: 'auto' }}>
@@ -115,16 +118,16 @@ export const MyApartments = observer((): JSX.Element => {
               }}>
                 <Link to={`/profile/my-apartments/preview/${ap.id}`}>
                   <Typography color={theme.palette.primary.main} sx={{ display: 'flex', gap: '.5rem', alignItems: 'center' }}>
-                    <RemoveRedEyeIcon /> Preview
+                    <RemoveRedEyeIcon /> <Trans>Preview</Trans>
                   </Typography>
                 </Link>
-                {ap.purpose === 'Other' && <Chip label='Not available' color='default' />}
+                {ap.purpose === 'Other' && <Chip label={t({ message: 'Not available' })} color='default' />}
 
                 {ap.purpose === 'Rent' &&
                   <Box onClick={() => { void removeAd(ap) }}>
                     <Typography color={theme.palette.primary.main}
                       sx={{ display: 'flex', gap: '.5rem', alignItems: 'center' }}>
-                      <RemoveCircleOutlineOutlinedIcon /> Remove
+                      <RemoveCircleOutlineOutlinedIcon /> <Trans>Remove</Trans>
                     </Typography>
                   </Box>
                 }
