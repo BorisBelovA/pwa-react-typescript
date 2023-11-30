@@ -14,7 +14,7 @@ export const SessionGuard = ({ component }: { component: JSX.Element }): JSX.Ele
 
   useEffect(() => {
     if (sessionService.authToken === null) {
-      navigate('/auth', { relative: 'path' })
+      navigate('/auth/onboarding', { relative: 'path' })
     }
   }, [location])
   return component
