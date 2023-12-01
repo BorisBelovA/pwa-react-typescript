@@ -144,6 +144,14 @@ msgstr "Alone"
 msgid "Already have an account?"
 msgstr "Already have an account?"
 
+#: src/pages/Onboarding/Onboarding.tsx:35
+msgid "And I need a tenant… Good luck to us!"
+msgstr "And I need a tenant… Good luck to us!"
+
+#: src/pages/Onboarding/Onboarding.tsx:26
+msgid "And who's paying???"
+msgstr "And who's paying???"
+
 #: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:29
 msgid "apartment"
 msgstr "apartment"
@@ -233,7 +241,7 @@ msgstr "basic"
 msgid "Basic data"
 msgstr "Basic data"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:140
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:135
 msgid "Basic information"
 msgstr "Basic information"
 
@@ -241,7 +249,7 @@ msgstr "Basic information"
 msgid "Basic Information"
 msgstr "Basic Information"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:149
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:144
 msgid "Bio"
 msgstr "Bio"
 
@@ -377,6 +385,10 @@ msgstr "Code length is 0!!"
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
 msgid "Color theme"
 msgstr "Color theme"
+
+#: src/pages/Onboarding/Onboarding.tsx:31
+msgid "Communicate"
+msgstr "Communicate"
 
 #: src/pages/Chat/components/ChatHeader.tsx:170
 msgid "Complain"
@@ -559,7 +571,7 @@ msgstr "Find roommates"
 msgid "Finish"
 msgstr "Finish"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:110
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:101
 #: src/pages/Registration/Layout.tsx:108
 msgid "Finishing up!"
 msgstr "Finishing up!"
@@ -635,6 +647,14 @@ msgstr "Have an apartment"
 msgid "Have pets"
 msgstr "Have pets"
 
+#: src/pages/Onboarding/Onboarding.tsx:40
+msgid "Help"
+msgstr "Help"
+
+#: src/pages/Onboarding/Onboarding.tsx:28
+msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
+msgstr "Here you can get both — an affordable place to live and the best roommates to share it with."
+
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
 msgid ""
 "Here you can specify: \n"
@@ -650,6 +670,10 @@ msgstr ""
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
 #~ msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
 #~ msgstr "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
+
+#: src/pages/Onboarding/Onboarding.tsx:46
+msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
+msgstr "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "How many"
@@ -678,6 +702,14 @@ msgstr "I am a refugee"
 #: src/pages/Intro/PathSelection/PathSelection.tsx:18
 msgid "I have a place for refugees"
 msgstr "I have a place for refugees"
+
+#: src/pages/Onboarding/Onboarding.tsx:33
+msgid "I really need a date :("
+msgstr "I really need a date :("
+
+#: src/pages/Onboarding/Onboarding.tsx:44
+msgid "I've got a spare room — it's free and safe!"
+msgstr "I've got a spare room — it's free and safe!"
 
 #: src/pages/Profile/BasicQuestions/Location/Location.tsx:192
 msgid "If you change your mind you will need to link your apartment again"
@@ -711,6 +743,10 @@ msgstr "Incorrect email pattern"
 #: src/components/BasicInfoSteps/Phone.tsx:16
 msgid "Incorrect phone number"
 msgstr "Incorrect phone number"
+
+#: src/pages/Onboarding/Onboarding.tsx:42
+msgid "Just need a safe place in this nightmare :("
+msgstr "Just need a safe place in this nightmare :("
 
 #: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:24
 msgid "languages"
@@ -772,6 +808,10 @@ msgstr "Logout"
 msgid "M"
 msgstr "M"
 
+#: src/pages/Onboarding/Onboarding.tsx:37
+msgid "Make a list of candidates and choose your perfect tenants right here."
+msgstr "Make a list of candidates and choose your perfect tenants right here."
+
 #: src/pages/Registration/Fifth step/FifthStep.tsx:30
 msgid "Male"
 msgstr "Male"
@@ -784,6 +824,10 @@ msgstr "Matches"
 #: src/utils/validations.ts:6
 msgid "Min length {length} symbols"
 msgstr "Min length {length} symbols"
+
+#: src/pages/Onboarding/Onboarding.tsx:24
+msgid "Mom, I'm moving out"
+msgstr "Mom, I'm moving out"
 
 #: src/pages/Chat/components/ChatHeader.tsx:174
 msgid "Mute"
@@ -869,7 +913,7 @@ msgstr "No pretension or sender email"
 msgid "No result for user"
 msgstr "No result for user"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:85
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:76
 #: src/pages/Registration/Layout.tsx:83
 msgid "No session token provided"
 msgstr "No session token provided"
@@ -973,7 +1017,7 @@ msgstr "phone"
 
 #: src/components/Cards/CardApartment/CardApartment.tsx:52
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:66
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:150
 msgid "Phone"
 msgstr "Phone"
 
@@ -985,7 +1029,7 @@ msgstr "Phone number"
 msgid "photo"
 msgstr "photo"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:161
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:156
 msgid "Photo"
 msgstr "Photo"
 
@@ -1029,6 +1073,10 @@ msgstr "Profile"
 msgid "Profile photo"
 msgstr "Profile photo"
 
+#: src/pages/Onboarding/Onboarding.tsx:45
+msgid "Ready to share your flat with refugees? Or you are one yourself?"
+msgstr "Ready to share your flat with refugees? Or you are one yourself?"
+
 #: src/pages/Search/Search.tsx:251
 msgid "Refresh"
 msgstr "Refresh"
@@ -1054,6 +1102,7 @@ msgstr "Removing your ad from publication"
 #~ msgid "Removing your add from publication"
 #~ msgstr "Removing your add from publication"
 
+#: src/pages/Onboarding/Onboarding.tsx:22
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose.tsx:36
 msgid "Rent"
 msgstr "Rent"
@@ -1084,7 +1133,7 @@ msgstr "room"
 msgid "rooms"
 msgstr "rooms"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:164
 msgid "Save"
 msgstr "Save"
 
@@ -1349,7 +1398,7 @@ msgstr "Updating password"
 msgid "Updating your apartment!"
 msgstr "Updating your apartment!"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:70
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:61
 msgid "Updating your information"
 msgstr "Updating your information"
 
@@ -1357,7 +1406,7 @@ msgstr "Updating your information"
 msgid "Upload a photo"
 msgstr "Upload a photo"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:82
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:73
 #: src/pages/Registration/Layout.tsx:80
 msgid "User form is not filled!"
 msgstr "User form is not filled!"
@@ -1378,6 +1427,10 @@ msgstr "Verify"
 #: src/pages/Email-code/EmailCode.tsx:77
 msgid "Verify your email"
 msgstr "Verify your email"
+
+#: src/pages/Onboarding/Onboarding.tsx:27
+msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
+msgstr "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
 
 #: src/pages/Chat/components/ChatHeader.tsx:72
 msgid "We have received your feedback. Thank you!"
@@ -1425,6 +1478,10 @@ msgstr "With friends"
 #: src/pages/Profile/AboutMe/Preview/Preview.tsx:19
 msgid "With partner"
 msgstr "With partner"
+
+#: src/pages/Onboarding/Onboarding.tsx:36
+msgid "With this app you can easily rent out your flat…Or find a match. You never know."
+msgstr "With this app you can easily rent out your flat…Or find a match. You never know."
 
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:67
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:189

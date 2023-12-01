@@ -1,29 +1,32 @@
 import { Box, Typography } from '@mui/material'
 import styles from './OnboardingContent.module.scss'
 import OnboardingChat from '../OnboardingChat/OnboardingChat'
+import { type MessageDescriptor } from '@lingui/core'
+import { useLingui } from '@lingui/react'
 
 interface Props {
   page: OnboardingPage
 }
 
 export interface OnboardingPage {
-  title: string
+  title: MessageDescriptor
   avatarOne: string
-  messageOne: string
+  messageOne: MessageDescriptor
   avatarTwo: string
-  messageTwo: string
-  descriptionOne: string
-  descriptionTwo: string
+  messageTwo: MessageDescriptor
+  descriptionOne: MessageDescriptor
+  descriptionTwo: MessageDescriptor
 }
 
 const OnboardingContent = ({ page }: Props): JSX.Element => {
+  const { i18n } = useLingui()
   return (
     <Box className={styles.onboarding__content}>
-      <Typography variant='h1'>{page.title}</Typography>
+      <Typography variant='h1'>{i18n._(page.title)}</Typography>
       <OnboardingChat page={page} />
       <Box className={styles.onboarding__info}>
-        <Typography>{page.descriptionOne}</Typography>
-        <Typography>{page.descriptionTwo}</Typography>
+        <Typography>{i18n._(page.descriptionOne)}</Typography>
+        <Typography>{i18n._(page.descriptionTwo)}</Typography>
       </Box>
     </Box>
   )

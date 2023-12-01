@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@mui/material'
+import { Box, Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@mui/material'
 import { MyListItemButton as ListItemButton } from 'components/ListItemButton/ListItemButton'
 import styles from './LanguagePicker.module.scss'
 import CloseIcon from '@mui/icons-material/Close'
@@ -39,7 +39,9 @@ const LanguagePicker = ({ inSettings }: Props): JSX.Element => {
           icon={LanguageIcon}
           action={handleOpen}
         />
-        : <IconButton className={styles.pickButton} onClick={handleOpen} color='primary'><LanguageIcon /></IconButton>
+        : <Box className={styles.pickButton}>
+          <IconButton onClick={handleOpen} color='primary'><LanguageIcon /></IconButton>
+        </Box>
       }
       <Dialog onClose={handleClose} open={open} fullWidth>
         <DialogTitle className={styles.dialogHead}>
