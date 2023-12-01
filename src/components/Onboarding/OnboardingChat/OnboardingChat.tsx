@@ -15,14 +15,14 @@ const OnboardingChat = ({ page }: Props): JSX.Element => {
         <Box className={styles.chat__ear} >
           <ChatRight />
         </Box>
-        <Box><img src={page.avatarOne} alt='' className={styles.chat__avatar} /></Box>
+        <Box className={styles.chat__avatar}><img src={page.avatarOne} alt='' className={styles.chat__avatar} /></Box>
       </Box>
       <Box className={`${styles.chat__message} ${styles.chat__message_left}`}>
         <Box className={`${styles.chat__message_text} ${styles.chat__message_text_left}`}>{page.messageTwo}</Box>
         <Box className={styles.chat__ear} >
           <ChatLeft />
         </Box>
-        <Box><img src={page.avatarOne} alt='' className={styles.chat__avatar} /></Box>
+        <Box className={styles.chat__avatar}><img src={page.avatarTwo} alt='' className={styles.chat__avatar} /></Box>
       </Box>
     </Box>
   )
