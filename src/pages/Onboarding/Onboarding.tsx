@@ -10,6 +10,7 @@ import AvatarThree from '../../assets/onboarding/avatar3.png'
 import AvatarFour from '../../assets/onboarding/avatar4.png'
 import AvatarFive from '../../assets/onboarding/avatar5.png'
 import AvatarSix from '../../assets/onboarding/avatar6.png'
+import LanguagePicker from 'components/LanguagePicker/LanguagePicker'
 
 const Onboarding = (): JSX.Element => {
   const [activePage, setActivePage] = useState<number>(0)
@@ -54,6 +55,7 @@ const Onboarding = (): JSX.Element => {
   }
   return (
     <Box className={styles.onboarding__container}>
+      <LanguagePicker />
       <OnboardingContent page={pages[activePage]} />
       <Box className={styles.onboarding__pages}>
         {[...Array(3)].map((x, i) => <Box
