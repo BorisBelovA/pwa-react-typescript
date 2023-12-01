@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material'
+import { Box, Button, useTheme } from '@mui/material'
 import styles from './Onboarding.module.scss'
 import { useState } from 'react'
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
@@ -14,6 +14,7 @@ import AvatarSix from '../../assets/onboarding/avatar6.png'
 const Onboarding = (): JSX.Element => {
   const [activePage, setActivePage] = useState<number>(0)
   const navigate = useNavigate()
+  const theme = useTheme()
   const pages: OnboardingPage[] = [
     {
       title: 'Rent',
@@ -63,6 +64,7 @@ const Onboarding = (): JSX.Element => {
       <Box className={styles.onboarding__actions}>
         <Button
           variant='contained'
+          sx={{ backgroundColor: theme.palette.background.paper, color: theme.palette.primary.main }}
           disabled={activePage === 0}
           className={styles.onboarding__actions_button}
           onClick={() => { setActivePage(activePage - 1) }}>
@@ -70,6 +72,7 @@ const Onboarding = (): JSX.Element => {
         </Button>
         <Button
           variant='contained'
+          sx={{ backgroundColor: theme.palette.background.paper, color: theme.palette.primary.main }}
           className={styles.onboarding__actions_button_next}
           onClick={() => { nextPage() }}>
           <ArrowBackIosNewRoundedIcon />
