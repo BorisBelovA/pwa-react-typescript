@@ -10,9 +10,9 @@ import { t } from '@lingui/macro'
 import LanguageIcon from '@mui/icons-material/Language'
 
 interface Props {
-  inSettings?: boolean
+  children?: JSX.Element
 }
-const LanguagePicker = ({ inSettings }: Props): JSX.Element => {
+const LanguagePicker = ({ children }: Props): JSX.Element => {
   const [open, setOpen] = useState<boolean>(false)
   const { setDocumentDirection } = useDocumentDirection()
   const { setDocumentLanguage } = useDocumentLanguage()
@@ -34,11 +34,8 @@ const LanguagePicker = ({ inSettings }: Props): JSX.Element => {
 
   return (
     <>
-      {inSettings
-        ? <ListItemButton label={t`Change language`}
-          icon={LanguageIcon}
-          action={handleOpen}
-        />
+      {children
+        ? <Box onClick={handleOpen}>{children}</Box>
         : <Box className={styles.pickButton}>
           <IconButton onClick={handleOpen} color='primary'><LanguageIcon /></IconButton>
         </Box>
