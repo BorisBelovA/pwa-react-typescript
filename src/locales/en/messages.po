@@ -88,11 +88,11 @@ msgid "Accept"
 msgstr "Accept"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:50
-#: src/pages/Profile/Settings/Settings.tsx:54
+#: src/pages/Profile/Settings/Settings.tsx:55
 msgid "Account"
 msgstr "Account"
 
-#: src/pages/Profile/Settings/Settings.tsx:83
+#: src/pages/Profile/Settings/Settings.tsx:88
 msgid "Add \"Roommate\" to your home screen"
 msgstr "Add \"Roommate\" to your home screen"
 
@@ -108,7 +108,7 @@ msgstr "Add new apartment"
 msgid "Add photos"
 msgstr "Add photos"
 
-#: src/pages/Profile/Settings/Settings.tsx:64
+#: src/pages/Profile/Settings/Settings.tsx:69
 msgid "Add to Home Screen"
 msgstr "Add to Home Screen"
 
@@ -301,8 +301,8 @@ msgstr "Change"
 msgid "Change filters"
 msgstr "Change filters"
 
-#: src/components/LanguagePicker/LanguagePicker.tsx:38
-#: src/components/LanguagePicker/LanguagePicker.tsx:48
+#: src/components/LanguagePicker/LanguagePicker.tsx:45
+#: src/pages/Profile/Settings/Settings.tsx:64
 msgid "Change language"
 msgstr "Change language"
 
@@ -372,6 +372,10 @@ msgstr "City is required"
 msgid "Close"
 msgstr "Close"
 
+#: src/pages/Onboarding/Onboarding.tsx:22
+msgid "Co-living made easy"
+msgstr "Co-living made easy"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:105
 #: src/pages/Sign up/Signup.tsx:104
 msgid "Code is required"
@@ -381,7 +385,7 @@ msgstr "Code is required"
 msgid "Code length is 0!!"
 msgstr "Code length is 0!!"
 
-#: src/pages/Profile/Settings/Settings.tsx:58
+#: src/pages/Profile/Settings/Settings.tsx:59
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
 msgid "Color theme"
 msgstr "Color theme"
@@ -473,7 +477,7 @@ msgstr "Do you really want to delete this apartment?"
 msgid "Do you smoke?"
 msgstr "Do you smoke?"
 
-#: src/pages/Profile/Settings/Settings.tsx:87
+#: src/pages/Profile/Settings/Settings.tsx:92
 msgid "Do you want to install \"Roommate\" on your home screen?"
 msgstr "Do you want to install \"Roommate\" on your home screen?"
 
@@ -572,8 +576,8 @@ msgstr "Find roommates"
 #~ msgstr "FIND YOUR FLATMATES"
 
 #: src/pages/Onboarding/Onboarding.tsx:31
-msgid "FIND YOUR ROOMMATES"
-msgstr "FIND YOUR ROOMMATES"
+#~ msgid "FIND YOUR ROOMMATES"
+#~ msgstr "FIND YOUR ROOMMATES"
 
 #: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:116
 msgid "Finish"
@@ -629,6 +633,10 @@ msgstr "From"
 msgid "Gender"
 msgstr "Gender"
 
+#: src/pages/Onboarding/Onboarding.tsx:31
+msgid "Get a roommate"
+msgstr "Get a roommate"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:74
 msgid "Get code"
 msgstr "Get code"
@@ -660,8 +668,12 @@ msgstr "Have pets"
 #~ msgstr "Help"
 
 #: src/pages/Onboarding/Onboarding.tsx:40
-msgid "HELP OUT & GET HELP"
-msgstr "HELP OUT & GET HELP"
+msgid "Help out & get help"
+msgstr "Help out & get help"
+
+#: src/pages/Onboarding/Onboarding.tsx:40
+#~ msgid "HELP OUT & GET HELP"
+#~ msgstr "HELP OUT & GET HELP"
 
 #: src/pages/Onboarding/Onboarding.tsx:28
 msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
@@ -896,7 +908,7 @@ msgid "no"
 msgstr "no"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:255
-#: src/pages/Profile/Settings/Settings.tsx:92
+#: src/pages/Profile/Settings/Settings.tsx:97
 msgid "No"
 msgstr "No"
 
@@ -1135,8 +1147,8 @@ msgid "Rent"
 msgstr "Rent"
 
 #: src/pages/Onboarding/Onboarding.tsx:22
-msgid "RENT EASILY & RENT OUT"
-msgstr "RENT EASILY & RENT OUT"
+#~ msgid "RENT EASILY & RENT OUT"
+#~ msgstr "RENT EASILY & RENT OUT"
 
 #: src/pages/Intro/PathSelection/PathSelection.tsx:48
 msgid "Rent out apartment/room"
@@ -1221,7 +1233,7 @@ msgid "Sending your request!"
 msgstr "Sending your request!"
 
 #: src/pages/Profile/Profile.tsx:136
-#: src/pages/Profile/Settings/Settings.tsx:51
+#: src/pages/Profile/Settings/Settings.tsx:52
 msgid "Settings"
 msgstr "Settings"
 
@@ -1239,7 +1251,7 @@ msgstr "Sign up"
 msgid "Sign Up"
 msgstr "Sign Up"
 
-#: src/pages/Onboarding/Onboarding.tsx:84
+#: src/pages/Onboarding/Onboarding.tsx:90
 #: src/pages/Registration/Layout.tsx:166
 msgid "Skip"
 msgstr "Skip"
@@ -1532,7 +1544,7 @@ msgid "yes"
 msgstr "yes"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
-#: src/pages/Profile/Settings/Settings.tsx:95
+#: src/pages/Profile/Settings/Settings.tsx:100
 msgid "Yes"
 msgstr "Yes"
 

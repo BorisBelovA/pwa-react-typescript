@@ -19,7 +19,7 @@ const Onboarding = (): JSX.Element => {
   const theme = useTheme()
   const pages: OnboardingPage[] = [
     {
-      title: msg`Rent`,
+      title: msg`Co-living made\xa0easy`,
       avatarOne: AvatarOne,
       messageOne: msg`Mom, I'm moving out`,
       avatarTwo: AvatarTwo,
@@ -28,7 +28,7 @@ const Onboarding = (): JSX.Element => {
       descriptionTwo: msg`Here you can get both — an affordable place to live and the best roommates to share it with.`
     },
     {
-      title: msg`Communicate`,
+      title: msg`Get a\xa0roommate`,
       avatarOne: AvatarThree,
       messageOne: msg`I really need a date :(`,
       avatarTwo: AvatarFour,
@@ -37,7 +37,7 @@ const Onboarding = (): JSX.Element => {
       descriptionTwo: msg`Make a list of candidates and choose your perfect tenants right here.`
     },
     {
-      title: msg`Help`,
+      title: msg`Help out & get\xa0help`,
       avatarOne: AvatarFive,
       messageOne: msg`Just need a safe place in this nightmare :(`,
       avatarTwo: AvatarSix,

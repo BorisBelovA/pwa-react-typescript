@@ -72,11 +72,11 @@ msgid "Accept"
 msgstr "Принять"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:50
-#: src/pages/Profile/Settings/Settings.tsx:54
+#: src/pages/Profile/Settings/Settings.tsx:55
 msgid "Account"
 msgstr "Аккаунт"
 
-#: src/pages/Profile/Settings/Settings.tsx:83
+#: src/pages/Profile/Settings/Settings.tsx:88
 msgid "Add \"Roommate\" to your home screen"
 msgstr "Добавить Roommate на рабочий стол"
 
@@ -92,7 +92,7 @@ msgstr "Добавить новую квартиру"
 msgid "Add photos"
 msgstr "Добавить фото"
 
-#: src/pages/Profile/Settings/Settings.tsx:64
+#: src/pages/Profile/Settings/Settings.tsx:69
 msgid "Add to Home Screen"
 msgstr "Добавить на экран “Домой”"
 
@@ -276,8 +276,8 @@ msgstr "Изменить"
 msgid "Change filters"
 msgstr "Изменить фильтры"
 
-#: src/components/LanguagePicker/LanguagePicker.tsx:38
-#: src/components/LanguagePicker/LanguagePicker.tsx:48
+#: src/components/LanguagePicker/LanguagePicker.tsx:45
+#: src/pages/Profile/Settings/Settings.tsx:64
 msgid "Change language"
 msgstr "Изменить язык (language)"
 
@@ -343,6 +343,10 @@ msgstr "Укажите Город"
 msgid "Close"
 msgstr "Закрыть"
 
+#: src/pages/Onboarding/Onboarding.tsx:22
+msgid "Co-living made easy"
+msgstr "Удобная совместная аренда"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:105
 #: src/pages/Sign up/Signup.tsx:104
 msgid "Code is required"
@@ -352,7 +356,7 @@ msgstr "Укажите код"
 msgid "Code length is 0!!"
 msgstr "Длина кода равна 0!!"
 
-#: src/pages/Profile/Settings/Settings.tsx:58
+#: src/pages/Profile/Settings/Settings.tsx:59
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
 msgid "Color theme"
 msgstr "Цветовая тема"
@@ -444,7 +448,7 @@ msgstr "Вы действительно хотите удалить эту кв�
 msgid "Do you smoke?"
 msgstr "Вы курите?"
 
-#: src/pages/Profile/Settings/Settings.tsx:87
+#: src/pages/Profile/Settings/Settings.tsx:92
 msgid "Do you want to install \"Roommate\" on your home screen?"
 msgstr "Хотите установить \"Roommate\" на главный экран?"
 
@@ -543,8 +547,8 @@ msgstr "Найти соседей по комнате"
 #~ msgstr ""
 
 #: src/pages/Onboarding/Onboarding.tsx:31
-msgid "FIND YOUR ROOMMATES"
-msgstr ""
+#~ msgid "FIND YOUR ROOMMATES"
+#~ msgstr ""
 
 #: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:116
 msgid "Finish"
@@ -596,6 +600,10 @@ msgstr "Из"
 msgid "Gender"
 msgstr "Пол"
 
+#: src/pages/Onboarding/Onboarding.tsx:31
+msgid "Get a roommate"
+msgstr "Поиск руммейтов"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:74
 msgid "Get code"
 msgstr "Получить код"
@@ -627,12 +635,16 @@ msgstr "Есть домашние животные"
 #~ msgstr "Помогать"
 
 #: src/pages/Onboarding/Onboarding.tsx:40
-msgid "HELP OUT & GET HELP"
-msgstr ""
+msgid "Help out & get help"
+msgstr "Помогай и получай помощь"
+
+#: src/pages/Onboarding/Onboarding.tsx:40
+#~ msgid "HELP OUT & GET HELP"
+#~ msgstr ""
 
 #: src/pages/Onboarding/Onboarding.tsx:28
 msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
-msgstr ""
+msgstr "У нас вы можете найти все вместе - и доступное жилье, и лучших соседей, с которыми можно арендовать вместе."
 
 #: src/pages/Onboarding/Onboarding.tsx:28
 #~ msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
@@ -659,7 +671,7 @@ msgstr ""
 
 #: src/pages/Onboarding/Onboarding.tsx:46
 msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
-msgstr ""
+msgstr "Хозяева и беженцы на расстоянии трех кликов - используйте наш бесплатный функционал помочь или найти безопасное жилье."
 
 #: src/pages/Onboarding/Onboarding.tsx:46
 #~ msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
@@ -796,7 +808,7 @@ msgstr "М"
 
 #: src/pages/Onboarding/Onboarding.tsx:37
 msgid "Make a list of candidates and choose your perfect tenants right here."
-msgstr ""
+msgstr "Составьте лист кандидатов и выбери своего идеального арендатора."
 
 #: src/pages/Onboarding/Onboarding.tsx:37
 #~ msgid "Make a list of candidates and choose your perfect tenants right here."
@@ -862,7 +874,7 @@ msgid "no"
 msgstr "нет"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:255
-#: src/pages/Profile/Settings/Settings.tsx:92
+#: src/pages/Profile/Settings/Settings.tsx:97
 msgid "No"
 msgstr "Нет"
 
@@ -1065,7 +1077,7 @@ msgstr "Фото профиля"
 
 #: src/pages/Onboarding/Onboarding.tsx:45
 msgid "Ready to share your flat with refugees? Or you are one yourself?"
-msgstr ""
+msgstr "Готовы поделится жильем для беженцев? Или вы сами - беженцы?"
 
 #: src/pages/Onboarding/Onboarding.tsx:45
 #~ msgid "Ready to share your flat with refugees? Or you are one yourself?"
@@ -1097,8 +1109,8 @@ msgid "Rent"
 msgstr "Снять"
 
 #: src/pages/Onboarding/Onboarding.tsx:22
-msgid "RENT EASILY & RENT OUT"
-msgstr ""
+#~ msgid "RENT EASILY & RENT OUT"
+#~ msgstr ""
 
 #: src/pages/Intro/PathSelection/PathSelection.tsx:48
 msgid "Rent out apartment/room"
@@ -1183,7 +1195,7 @@ msgid "Sending your request!"
 msgstr "Отправляем заявку!"
 
 #: src/pages/Profile/Profile.tsx:136
-#: src/pages/Profile/Settings/Settings.tsx:51
+#: src/pages/Profile/Settings/Settings.tsx:52
 msgid "Settings"
 msgstr "Настройки"
 
@@ -1201,7 +1213,7 @@ msgstr "Регистрация"
 msgid "Sign Up"
 msgstr "Регистрация"
 
-#: src/pages/Onboarding/Onboarding.tsx:84
+#: src/pages/Onboarding/Onboarding.tsx:90
 #: src/pages/Registration/Layout.tsx:166
 msgid "Skip"
 msgstr "Пропустить"
@@ -1417,7 +1429,7 @@ msgstr "Подтвердите свой адрес эл.почты"
 
 #: src/pages/Onboarding/Onboarding.tsx:27
 msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
-msgstr ""
+msgstr "Хотите снять квартиру? В шоке от цен? Дааа…"
 
 #: src/pages/Onboarding/Onboarding.tsx:27
 #~ msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
@@ -1472,7 +1484,7 @@ msgstr "С партнером"
 
 #: src/pages/Onboarding/Onboarding.tsx:36
 msgid "With this app you can easily rent out your flat…Or find a match. You never know."
-msgstr ""
+msgstr "В нашем приложении вы можете легко сдать свою квартиру… Или найти свою судьбу. Никогда не знаешь, что случится."
 
 #: src/pages/Onboarding/Onboarding.tsx:36
 #~ msgid "With this app you can easily rent out your flat…Or find a match. You never know."
@@ -1487,7 +1499,7 @@ msgid "yes"
 msgstr "да"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
-#: src/pages/Profile/Settings/Settings.tsx:95
+#: src/pages/Profile/Settings/Settings.tsx:100
 msgid "Yes"
 msgstr "Да"
 
