@@ -19,31 +19,31 @@ const Onboarding = (): JSX.Element => {
   const theme = useTheme()
   const pages: OnboardingPage[] = [
     {
-      title: msg`Rent`,
+      title: msg`RENT EASILY & RENT\xa0OUT`,
       avatarOne: AvatarOne,
       messageOne: msg`Mom, I'm moving out`,
       avatarTwo: AvatarTwo,
       messageTwo: msg`And who's paying???`,
-      descriptionOne: msg`Wanna rent a flat? Sweat hard when you see the prices? Yeah…`,
-      descriptionTwo: msg`Here you can get both — an affordable place to live and the best roommates to share it with.`
+      descriptionOne: msg`Wanna rent a flat? Sweat hard when you see the prices? Yeah…`,
+      descriptionTwo: msg`Here you can get both — an affordable place to live and the best roommates to share it with.`
     },
     {
-      title: msg`Communicate`,
+      title: msg`FIND YOUR ROOMMATES`,
       avatarOne: AvatarThree,
       messageOne: msg`I really need a date :(`,
       avatarTwo: AvatarFour,
       messageTwo: msg`And I need a tenant… Good luck to us!`,
-      descriptionOne: msg`With this app you can easily rent out your flat…Or find a match. You never know.`,
-      descriptionTwo: msg`Make a list of candidates and choose your perfect tenants right here.`
+      descriptionOne: msg`With this app you can easily rent out your flat…Or find a match. You never know.`,
+      descriptionTwo: msg`Make a list of candidates and choose your perfect tenants right here.`
     },
     {
-      title: msg`Help`,
+      title: msg`HELP OUT & GET\xa0HELP`,
       avatarOne: AvatarFive,
       messageOne: msg`Just need a safe place in this nightmare :(`,
       avatarTwo: AvatarSix,
       messageTwo: msg`I've got a spare room — it's free and safe!`,
-      descriptionOne: msg`Ready to share your flat with refugees? Or you are one yourself?`,
-      descriptionTwo: msg`Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place.`
+      descriptionOne: msg`Ready to share your flat with refugees? Or you are one yourself?`,
+      descriptionTwo: msg`Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place.`
     }
   ]
 
@@ -51,6 +51,7 @@ const Onboarding = (): JSX.Element => {
     if (activePage < pages.length - 1) {
       setActivePage(activePage + 1)
     } else {
+      localStorage.setItem('is_onboarded', 'true')
       navigate('/auth/login')
     }
   }
@@ -81,7 +82,13 @@ const Onboarding = (): JSX.Element => {
           <ArrowBackIosNewRoundedIcon />
         </Button>
       </Box>
-      <Button variant='outlined' fullWidth onClick={() => { navigate('/auth/login') }}>{t`Skip`}</Button>
+      <Button variant='outlined' fullWidth
+        onClick={() => {
+          localStorage.setItem('is_onboarded', 'true')
+          navigate('/auth/login')
+        }}>
+        {t`Skip`}
+      </Button>
     </Box>
   )
 }

@@ -22,7 +22,7 @@ const OnboardingContent = ({ page }: Props): JSX.Element => {
   const { i18n } = useLingui()
   return (
     <Box className={styles.onboarding__content}>
-      <Typography variant='h1'>{i18n._(page.title)}</Typography>
+      <Typography variant='h1' className={styles.onboarding__header}>{i18n._(page.title)}</Typography>
       <OnboardingChat page={page} />
       <Box className={styles.onboarding__info}>
         <Typography>{i18n._(page.descriptionOne)}</Typography>

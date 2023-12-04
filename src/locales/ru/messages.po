@@ -19,6 +19,9 @@ msgstr ""
 msgid "{0} {1} per room"
 msgstr "{0} {1} за комнату"
 
+#~ msgid "{0} ₪ per room"
+#~ msgstr "{0} ₪ за комнату"
+
 #: src/components/Cards/CardApartment/CardApartment.tsx:39
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:51
 #: src/components/Cards/CardProfile/CardProfile.tsx:85
@@ -58,7 +61,8 @@ msgstr "Код верификации отправлен на ваш мобил�
 msgid "about"
 msgstr "детали"
 
-#: src/pages/Profile/AboutMe/AboutMe.tsx:76 src/pages/Profile/Profile.tsx:127
+#: src/pages/Profile/AboutMe/AboutMe.tsx:76
+#: src/pages/Profile/Profile.tsx:127
 msgid "About me"
 msgstr "Обо мне"
 
@@ -229,6 +233,9 @@ msgstr "Общая информация"
 msgid "Bio"
 msgstr "Биография"
 
+#~ msgid "Birthdate"
+#~ msgstr "Дата рождения"
+
 #: src/components/BasicInfoSteps/About.tsx:67
 msgid "Birthday"
 msgstr "Дата рождения"
@@ -270,7 +277,7 @@ msgid "Change filters"
 msgstr "Изменить фильтры"
 
 #: src/components/LanguagePicker/LanguagePicker.tsx:38
-#: src/components/LanguagePicker/LanguagePicker.tsx:46
+#: src/components/LanguagePicker/LanguagePicker.tsx:48
 msgid "Change language"
 msgstr "Изменить язык (language)"
 
@@ -336,7 +343,8 @@ msgstr "Укажите Город"
 msgid "Close"
 msgstr "Закрыть"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:105 src/pages/Sign up/Signup.tsx:104
+#: src/pages/ResetPassword/Reset/Reset.tsx:105
+#: src/pages/Sign up/Signup.tsx:104
 msgid "Code is required"
 msgstr "Укажите код"
 
@@ -350,8 +358,8 @@ msgid "Color theme"
 msgstr "Цветовая тема"
 
 #: src/pages/Onboarding/Onboarding.tsx:31
-msgid "Communicate"
-msgstr "Общаться"
+#~ msgid "Communicate"
+#~ msgstr "Общаться"
 
 #: src/pages/Chat/components/ChatHeader.tsx:170
 msgid "Complain"
@@ -365,7 +373,8 @@ msgstr "Подтвердите и установите аватар"
 msgid "Confirm and proceed"
 msgstr "Подтвердите и продолжите"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:122 src/pages/Sign up/Signup.tsx:118
+#: src/pages/ResetPassword/Reset/Reset.tsx:122
+#: src/pages/Sign up/Signup.tsx:118
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
@@ -468,7 +477,8 @@ msgstr "пожертвование"
 msgid "Done"
 msgstr "Готово"
 
-#: src/pages/Login/Login.tsx:88 src/pages/ResetPassword/GetCode/GetCode.tsx:62
+#: src/pages/Login/Login.tsx:88
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:62
 #: src/pages/Sign up/Signup.tsx:88
 msgid "E-mail"
 msgstr "E-mail"
@@ -481,7 +491,8 @@ msgstr "E-mail"
 msgid "Edit"
 msgstr "Редактировать"
 
-#: src/pages/Login/Login.tsx:94 src/pages/ResetPassword/GetCode/GetCode.tsx:68
+#: src/pages/Login/Login.tsx:94
+#: src/pages/ResetPassword/GetCode/GetCode.tsx:68
 #: src/pages/Sign up/Signup.tsx:94
 msgid "Email is required"
 msgstr "Укажите адрес эл.почты"
@@ -526,6 +537,14 @@ msgstr "Найти соседа по комнате"
 #: src/pages/Intro/PathSelection/PathSelection.tsx:34
 msgid "Find roommates"
 msgstr "Найти соседей по комнате"
+
+#: src/pages/Onboarding/Onboarding.tsx:31
+#~ msgid "FIND YOUR FLATMATES"
+#~ msgstr ""
+
+#: src/pages/Onboarding/Onboarding.tsx:31
+msgid "FIND YOUR ROOMMATES"
+msgstr ""
 
 #: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:116
 msgid "Finish"
@@ -593,21 +612,31 @@ msgstr "Перейти к поиску"
 msgid "guests"
 msgstr "гости"
 
-#: src/components/Badge/Badge.tsx:16 src/components/Qualities/Qualities.tsx:66
+#: src/components/Badge/Badge.tsx:16
+#: src/components/Qualities/Qualities.tsx:66
 msgid "Have an apartment"
 msgstr "Есть квартира"
 
-#: src/components/Badge/Badge.tsx:15 src/components/Qualities/Qualities.tsx:36
+#: src/components/Badge/Badge.tsx:15
+#: src/components/Qualities/Qualities.tsx:36
 msgid "Have pets"
 msgstr "Есть домашние животные"
 
 #: src/pages/Onboarding/Onboarding.tsx:40
-msgid "Help"
-msgstr "Помогать"
+#~ msgid "Help"
+#~ msgstr "Помогать"
+
+#: src/pages/Onboarding/Onboarding.tsx:40
+msgid "HELP OUT & GET HELP"
+msgstr ""
 
 #: src/pages/Onboarding/Onboarding.tsx:28
-msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
-msgstr "У нас вы можете найти все вместе - и доступное жилье, и лучших соседей, с которыми можно арендовать вместе."
+msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
+msgstr ""
+
+#: src/pages/Onboarding/Onboarding.tsx:28
+#~ msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
+#~ msgstr "У нас вы можете найти все вместе - и доступное жилье, и лучших соседей, с которыми можно арендовать вместе."
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
 msgid ""
@@ -621,9 +650,20 @@ msgstr ""
 "- Сколько человек может проживать\n"
 "- Любая другая полезная информация"
 
+#~ msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
+#~ msgstr ""
+#~ "Здесь вы можете указать: \n"
+#~ "- Другие способы связи с вами \n"
+#~ "- Сколько человек может проживать \n"
+#~ "- Любая другая полезная информация"
+
 #: src/pages/Onboarding/Onboarding.tsx:46
-msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
-msgstr "Хозяева и беженцы на расстоянии трех кликов - используйте наш бесплатный функционал помочь или найти безопасное жилье."
+msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
+msgstr ""
+
+#: src/pages/Onboarding/Onboarding.tsx:46
+#~ msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
+#~ msgstr "Хозяева и беженцы на расстоянии трех кликов - используйте наш бесплатный функционал помочь или найти безопасное жилье."
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "How many"
@@ -681,7 +721,8 @@ msgstr "на предыдущий шаг"
 msgid "Incorrect apartments questionnaire step!"
 msgstr "Неверный шаг анкеты квартиры!"
 
-#: src/pages/Sign up/Signup.tsx:24 src/utils/validations.ts:13
+#: src/pages/Sign up/Signup.tsx:24
+#: src/utils/validations.ts:13
 msgid "Incorrect email pattern"
 msgstr "Неверный код из письма"
 
@@ -730,9 +771,10 @@ msgstr "Загрузка..."
 msgid "location"
 msgstr "местоположение"
 
-#: src/pages/Login/Login.tsx:83 src/pages/Login/Login.tsx:121
-#: src/pages/ResetPassword/Success/Success.tsx:55 src/pages/Sign
-#: up/Signup.tsx:84
+#: src/pages/Login/Login.tsx:83
+#: src/pages/Login/Login.tsx:121
+#: src/pages/ResetPassword/Success/Success.tsx:55
+#: src/pages/Sign up/Signup.tsx:84
 msgid "Log in"
 msgstr "Войти"
 
@@ -753,8 +795,12 @@ msgid "M"
 msgstr "М"
 
 #: src/pages/Onboarding/Onboarding.tsx:37
-msgid "Make a list of candidates and choose your perfect tenants right here."
-msgstr "Составьте лист кандидатов и выбери своего идеального арендатора."
+msgid "Make a list of candidates and choose your perfect tenants right here."
+msgstr ""
+
+#: src/pages/Onboarding/Onboarding.tsx:37
+#~ msgid "Make a list of candidates and choose your perfect tenants right here."
+#~ msgstr "Составьте лист кандидатов и выбери своего идеального арендатора."
 
 #: src/pages/Registration/Fifth step/FifthStep.tsx:30
 msgid "Male"
@@ -764,7 +810,8 @@ msgstr "Муж."
 msgid "Matches"
 msgstr "Матчи"
 
-#: src/pages/Login/Login.tsx:22 src/utils/validations.ts:6
+#: src/pages/Login/Login.tsx:22
+#: src/utils/validations.ts:6
 msgid "Min length {length} symbols"
 msgstr "Минимальная длина {length} символов"
 
@@ -883,6 +930,7 @@ msgid "Not alone"
 msgstr "Группа людей"
 
 #: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
+#: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:39
 #: src/pages/Profile/BasicQuestions/NotAlone/NotAlone.tsx:56
 #: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:52
 msgid "Not Alone"
@@ -914,7 +962,8 @@ msgstr "Сова"
 msgid "Partly drink"
 msgstr "Пью в компании"
 
-#: src/pages/Login/Login.tsx:97 src/pages/ResetPassword/Reset/Reset.tsx:98
+#: src/pages/Login/Login.tsx:97
+#: src/pages/ResetPassword/Reset/Reset.tsx:98
 #: src/pages/Sign up/Signup.tsx:97
 msgid "Password"
 msgstr "Пароль"
@@ -923,7 +972,8 @@ msgstr "Пароль"
 msgid "Password is required"
 msgstr "Введите Пароль"
 
-#: src/pages/ResetPassword/Reset/Reset.tsx:132 src/pages/Sign up/Signup.tsx:128
+#: src/pages/ResetPassword/Reset/Reset.tsx:132
+#: src/pages/Sign up/Signup.tsx:128
 msgid "Passwords won't match"
 msgstr "Пароли не совпадают"
 
@@ -1014,8 +1064,12 @@ msgid "Profile photo"
 msgstr "Фото профиля"
 
 #: src/pages/Onboarding/Onboarding.tsx:45
-msgid "Ready to share your flat with refugees? Or you are one yourself?"
-msgstr "Готовы поделится жильем для беженцев? Или вы сами - беженцы?"
+msgid "Ready to share your flat with refugees? Or you are one yourself?"
+msgstr ""
+
+#: src/pages/Onboarding/Onboarding.tsx:45
+#~ msgid "Ready to share your flat with refugees? Or you are one yourself?"
+#~ msgstr "Готовы поделится жильем для беженцев? Или вы сами - беженцы?"
 
 #: src/pages/Search/Search.tsx:251
 msgid "Refresh"
@@ -1038,10 +1092,13 @@ msgstr "Удаление всей информации о вас"
 msgid "Removing your ad from publication"
 msgstr "Удаление объявления из публикации"
 
-#: src/pages/Onboarding/Onboarding.tsx:22
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose.tsx:36
 msgid "Rent"
 msgstr "Снять"
+
+#: src/pages/Onboarding/Onboarding.tsx:22
+msgid "RENT EASILY & RENT OUT"
+msgstr ""
 
 #: src/pages/Intro/PathSelection/PathSelection.tsx:48
 msgid "Rent out apartment/room"
@@ -1096,8 +1153,8 @@ msgstr "Выберите квартиру из списка или создай�
 msgid "Select photo"
 msgstr "Выбрать фотографию"
 
-#: src/pages/Chat/components/ComplainDialog.tsx:45 src/pages/Registration/Third
-#: step/ThirdStep.tsx:44
+#: src/pages/Chat/components/ComplainDialog.tsx:45
+#: src/pages/Registration/Third step/ThirdStep.tsx:44
 msgid "Send"
 msgstr "Отправить"
 
@@ -1125,7 +1182,8 @@ msgstr "Отправляем ваш отзыв!"
 msgid "Sending your request!"
 msgstr "Отправляем заявку!"
 
-#: src/pages/Profile/Profile.tsx:136 src/pages/Profile/Settings/Settings.tsx:51
+#: src/pages/Profile/Profile.tsx:136
+#: src/pages/Profile/Settings/Settings.tsx:51
 msgid "Settings"
 msgstr "Настройки"
 
@@ -1134,7 +1192,8 @@ msgstr "Настройки"
 msgid "Shisha"
 msgstr "Кальян"
 
-#: src/pages/Login/Login.tsx:85 src/pages/Sign up/Signup.tsx:146
+#: src/pages/Login/Login.tsx:85
+#: src/pages/Sign up/Signup.tsx:146
 msgid "Sign up"
 msgstr "Регистрация"
 
@@ -1142,6 +1201,7 @@ msgstr "Регистрация"
 msgid "Sign Up"
 msgstr "Регистрация"
 
+#: src/pages/Onboarding/Onboarding.tsx:84
 #: src/pages/Registration/Layout.tsx:166
 msgid "Skip"
 msgstr "Пропустить"
@@ -1165,7 +1225,8 @@ msgstr "Что-то еще, по вашему мнению, будет поле�
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:26
 #: src/pages/ApartmentSearch/ApartmentSearch.tsx:52
 #: src/pages/Chat/components/ChatHeader.tsx:83
-#: src/pages/Email-code/EmailCode.tsx:37 src/pages/Login/Login.tsx:64
+#: src/pages/Email-code/EmailCode.tsx:37
+#: src/pages/Login/Login.tsx:64
 #: src/pages/Matches/Matches.tsx:47
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:265
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:293
@@ -1176,10 +1237,14 @@ msgstr "Что-то еще, по вашему мнению, будет поле�
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:49
 #: src/pages/ResetPassword/Reset/Reset.tsx:69
 #: src/pages/ResetPassword/Success/Success.tsx:36
-#: src/pages/Search/Search.tsx:66 src/pages/Search/Search.tsx:209
+#: src/pages/Search/Search.tsx:66
+#: src/pages/Search/Search.tsx:209
 #: src/pages/Sign up/Signup.tsx:74
 msgid "Something went wrong"
 msgstr "Что-то пошло не так"
+
+#~ msgid "Something went wrong😮"
+#~ msgstr "что-то пошло не так😮"
 
 #: src/pages/Registration/Layout.tsx:54
 msgid "something wrong with steps!"
@@ -1224,6 +1289,12 @@ msgstr "резюме"
 #: src/components/DonateDialog/DonateDialog.tsx:15
 msgid "Support us"
 msgstr "Поддержите нас"
+
+#~ msgid "Switch to English"
+#~ msgstr "Переключить на английский"
+
+#~ msgid "Switch to Hebrew"
+#~ msgstr "Переключить на иврит"
 
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:14
 msgid "System"
@@ -1345,8 +1416,12 @@ msgid "Verify your email"
 msgstr "Подтвердите свой адрес эл.почты"
 
 #: src/pages/Onboarding/Onboarding.tsx:27
-msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
-msgstr "Хотите снять квартиру? В шоке от цен? Дааа…"
+msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
+msgstr ""
+
+#: src/pages/Onboarding/Onboarding.tsx:27
+#~ msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
+#~ msgstr "Хотите снять квартиру? В шоке от цен? Дааа…"
 
 #: src/pages/Chat/components/ChatHeader.tsx:72
 msgid "We have received your feedback. Thank you!"
@@ -1396,8 +1471,12 @@ msgid "With partner"
 msgstr "С партнером"
 
 #: src/pages/Onboarding/Onboarding.tsx:36
-msgid "With this app you can easily rent out your flat…Or find a match. You never know."
-msgstr "В нашем приложении вы можете легко сдать свою квартиру… Или найти свою судьбу. Никогда не знаешь, что случится."
+msgid "With this app you can easily rent out your flat…Or find a match. You never know."
+msgstr ""
+
+#: src/pages/Onboarding/Onboarding.tsx:36
+#~ msgid "With this app you can easily rent out your flat…Or find a match. You never know."
+#~ msgstr "В нашем приложении вы можете легко сдать свою квартиру… Или найти свою судьбу. Никогда не знаешь, что случится."
 
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:67
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:189
@@ -1460,25 +1539,3 @@ msgstr "Ваш номер телефона"
 #: src/pages/Profile/AboutMe/Preview/Preview.tsx:36
 msgid "Your profile"
 msgstr "Ваш профиль"
-
-#~ msgid "{0} ₪ per room"
-#~ msgstr "{0} ₪ за комнату"
-
-#~ msgid "Birthdate"
-#~ msgstr "Дата рождения"
-
-#~ msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
-#~ msgstr ""
-#~ "Здесь вы можете указать: \n"
-#~ "- Другие способы связи с вами \n"
-#~ "- Сколько человек может проживать \n"
-#~ "- Любая другая полезная информация"
-
-#~ msgid "Something went wrong😮"
-#~ msgstr "что-то пошло не так😮"
-
-#~ msgid "Switch to English"
-#~ msgstr "Переключить на английский"
-
-#~ msgid "Switch to Hebrew"
-#~ msgstr "Переключить на иврит"

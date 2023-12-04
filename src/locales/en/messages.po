@@ -302,7 +302,7 @@ msgid "Change filters"
 msgstr "Change filters"
 
 #: src/components/LanguagePicker/LanguagePicker.tsx:38
-#: src/components/LanguagePicker/LanguagePicker.tsx:46
+#: src/components/LanguagePicker/LanguagePicker.tsx:48
 msgid "Change language"
 msgstr "Change language"
 
@@ -387,8 +387,8 @@ msgid "Color theme"
 msgstr "Color theme"
 
 #: src/pages/Onboarding/Onboarding.tsx:31
-msgid "Communicate"
-msgstr "Communicate"
+#~ msgid "Communicate"
+#~ msgstr "Communicate"
 
 #: src/pages/Chat/components/ChatHeader.tsx:170
 msgid "Complain"
@@ -567,6 +567,14 @@ msgstr "Find Roommate"
 msgid "Find roommates"
 msgstr "Find roommates"
 
+#: src/pages/Onboarding/Onboarding.tsx:31
+#~ msgid "FIND YOUR FLATMATES"
+#~ msgstr "FIND YOUR FLATMATES"
+
+#: src/pages/Onboarding/Onboarding.tsx:31
+msgid "FIND YOUR ROOMMATES"
+msgstr "FIND YOUR ROOMMATES"
+
 #: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:116
 msgid "Finish"
 msgstr "Finish"
@@ -648,12 +656,20 @@ msgid "Have pets"
 msgstr "Have pets"
 
 #: src/pages/Onboarding/Onboarding.tsx:40
-msgid "Help"
-msgstr "Help"
+#~ msgid "Help"
+#~ msgstr "Help"
+
+#: src/pages/Onboarding/Onboarding.tsx:40
+msgid "HELP OUT & GET HELP"
+msgstr "HELP OUT & GET HELP"
 
 #: src/pages/Onboarding/Onboarding.tsx:28
-msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
-msgstr "Here you can get both — an affordable place to live and the best roommates to share it with."
+msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
+msgstr "Here you can get both — an affordable place to live and the best roommates to share it with."
+
+#: src/pages/Onboarding/Onboarding.tsx:28
+#~ msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
+#~ msgstr "Here you can get both — an affordable place to live and the best roommates to share it with."
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
 msgid ""
@@ -672,8 +688,12 @@ msgstr ""
 #~ msgstr "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
 
 #: src/pages/Onboarding/Onboarding.tsx:46
-msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
-msgstr "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
+msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
+msgstr "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
+
+#: src/pages/Onboarding/Onboarding.tsx:46
+#~ msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
+#~ msgstr "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "How many"
@@ -809,8 +829,12 @@ msgid "M"
 msgstr "M"
 
 #: src/pages/Onboarding/Onboarding.tsx:37
-msgid "Make a list of candidates and choose your perfect tenants right here."
-msgstr "Make a list of candidates and choose your perfect tenants right here."
+msgid "Make a list of candidates and choose your perfect tenants right here."
+msgstr "Make a list of candidates and choose your perfect tenants right here."
+
+#: src/pages/Onboarding/Onboarding.tsx:37
+#~ msgid "Make a list of candidates and choose your perfect tenants right here."
+#~ msgstr "Make a list of candidates and choose your perfect tenants right here."
 
 #: src/pages/Registration/Fifth step/FifthStep.tsx:30
 msgid "Male"
@@ -1074,8 +1098,12 @@ msgid "Profile photo"
 msgstr "Profile photo"
 
 #: src/pages/Onboarding/Onboarding.tsx:45
-msgid "Ready to share your flat with refugees? Or you are one yourself?"
-msgstr "Ready to share your flat with refugees? Or you are one yourself?"
+msgid "Ready to share your flat with refugees? Or you are one yourself?"
+msgstr "Ready to share your flat with refugees? Or you are one yourself?"
+
+#: src/pages/Onboarding/Onboarding.tsx:45
+#~ msgid "Ready to share your flat with refugees? Or you are one yourself?"
+#~ msgstr "Ready to share your flat with refugees? Or you are one yourself?"
 
 #: src/pages/Search/Search.tsx:251
 msgid "Refresh"
@@ -1102,10 +1130,13 @@ msgstr "Removing your ad from publication"
 #~ msgid "Removing your add from publication"
 #~ msgstr "Removing your add from publication"
 
-#: src/pages/Onboarding/Onboarding.tsx:22
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose.tsx:36
 msgid "Rent"
 msgstr "Rent"
+
+#: src/pages/Onboarding/Onboarding.tsx:22
+msgid "RENT EASILY & RENT OUT"
+msgstr "RENT EASILY & RENT OUT"
 
 #: src/pages/Intro/PathSelection/PathSelection.tsx:48
 msgid "Rent out apartment/room"
@@ -1208,6 +1239,7 @@ msgstr "Sign up"
 msgid "Sign Up"
 msgstr "Sign Up"
 
+#: src/pages/Onboarding/Onboarding.tsx:84
 #: src/pages/Registration/Layout.tsx:166
 msgid "Skip"
 msgstr "Skip"
@@ -1429,8 +1461,12 @@ msgid "Verify your email"
 msgstr "Verify your email"
 
 #: src/pages/Onboarding/Onboarding.tsx:27
-msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
-msgstr "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
+msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
+msgstr "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
+
+#: src/pages/Onboarding/Onboarding.tsx:27
+#~ msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
+#~ msgstr "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
 
 #: src/pages/Chat/components/ChatHeader.tsx:72
 msgid "We have received your feedback. Thank you!"
@@ -1480,8 +1516,12 @@ msgid "With partner"
 msgstr "With partner"
 
 #: src/pages/Onboarding/Onboarding.tsx:36
-msgid "With this app you can easily rent out your flat…Or find a match. You never know."
-msgstr "With this app you can easily rent out your flat…Or find a match. You never know."
+msgid "With this app you can easily rent out your flat…Or find a match. You never know."
+msgstr "With this app you can easily rent out your flat…Or find a match. You never know."
+
+#: src/pages/Onboarding/Onboarding.tsx:36
+#~ msgid "With this app you can easily rent out your flat…Or find a match. You never know."
+#~ msgstr "With this app you can easily rent out your flat…Or find a match. You never know."
 
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:67
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:189
