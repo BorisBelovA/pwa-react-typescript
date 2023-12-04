@@ -40,5 +40,5 @@ jobs:
         port: 22
 
         script: |
-          kubectl set image deployment/frontend-app frontend-app=qwerty467/roommate-front:${{ github.run_number }}
+          kubectl set image deployment/frontend-app frontend-app=qwerty467/roommate-front:${{ github.run_number }} --image-pull-policy=Always
           kubectl get all
