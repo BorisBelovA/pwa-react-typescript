@@ -671,7 +671,7 @@ msgstr ""
 
 #: src/pages/Onboarding/Onboarding.tsx:46
 msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
-msgstr "מארחים ופליטים נמצאים במרחק 3 קליקים- השתמש במצב החינמי שלנו כדי לעזור או למצוא מקום בטוח."
+msgstr "מארחים ופליטים נמצאים במרחק 3 קליקים - השתמש במצב החינמי שלנו כדי לעזור או למצוא מקום בטוח."
 
 #: src/pages/Onboarding/Onboarding.tsx:46
 #~ msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
@@ -1077,7 +1077,7 @@ msgstr "תמונת פרופיל"
 
 #: src/pages/Onboarding/Onboarding.tsx:45
 msgid "Ready to share your flat with refugees? Or you are one yourself?"
-msgstr "מוכן לחלוק את דירתך עם פליטים?או שרק עבורך?"
+msgstr "מוכן לחלוק את דירתך עם מפונים? או שרק עבורך?"
 
 #: src/pages/Onboarding/Onboarding.tsx:45
 #~ msgid "Ready to share your flat with refugees? Or you are one yourself?"
