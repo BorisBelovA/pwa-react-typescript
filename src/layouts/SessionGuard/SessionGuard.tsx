@@ -14,8 +14,8 @@ export const SessionGuard = ({ component }: { component: JSX.Element }): JSX.Ele
 
   useEffect(() => {
     if (sessionService.authToken === null) {
-      const storage = localStorage.getItem('is_onboarded') 
-      if (storage !== null){
+      const storage = localStorage.getItem('is_onboarded')
+      if (storage !== null) {
         navigate('/auth/login', { relative: 'path' })
       } else {
         navigate('/auth/onboarding', { relative: 'path' })

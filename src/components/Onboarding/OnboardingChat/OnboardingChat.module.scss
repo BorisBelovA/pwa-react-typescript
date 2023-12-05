@@ -29,6 +29,9 @@
         margin-right: 3.75rem;
       }
     }
+    [lang=he] &_text {
+      direction: rtl;
+    }
   }
 
   &__ear {
