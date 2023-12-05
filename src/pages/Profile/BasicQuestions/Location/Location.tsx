@@ -219,8 +219,8 @@ export const Location = (): JSX.Element => {
                 }
                 getOptionLabel={(option) => option.name}
                 renderOption={(props, option) => (
-                  <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                    <Box sx={{ marginRight: '0.5rem' }}>{option.emoji}</Box>
+                  <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 }, gap: '.5rem' }} {...props}>
+                    <Box>{option.emoji}</Box>
                     {option.name}
                   </Box>
                 )}
