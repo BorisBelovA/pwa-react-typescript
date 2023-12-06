@@ -5,7 +5,7 @@ import { type OverridableComponent } from '@mui/material/OverridableComponent'
 export interface ListItemButtonProps {
   icon?: OverridableComponent<any>
   label: string
-  action: (args: any) => any
+  action?: (args: any) => any
   className?: string
   'data-intro-id'?: string
 }

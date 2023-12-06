@@ -1,0 +1,45 @@
+.chat {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  &__message {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: flex-end;
+
+    &_left {
+      flex-direction: row-reverse;
+    }
+
+    &_text {
+      padding: 1rem;
+      background-color: var(--accent-color);
+      border-radius: .5rem .5rem 0rem .5rem;
+      margin-left: 3.75rem;
+      &_left {
+        background-color: var(--primary-color);
+        border-radius: .5rem .5rem .5rem 0rem;
+        margin-left: 0rem;
+        margin-right: 3.75rem;
+      }
+    }
+    [lang=he] &_text {
+      direction: rtl;
+    }
+  }
+
+  &__ear {
+    line-height: 0;
+  }
+  &__avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 10rem;
+  }
+}

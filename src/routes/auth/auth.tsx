@@ -7,6 +7,7 @@ import * as Registration from '../../pages/Registration/Layout'
 import GetCode from 'pages/ResetPassword/GetCode/GetCode'
 import Reset from 'pages/ResetPassword/Reset/Reset'
 import Success from 'pages/ResetPassword/Success/Success'
+import Onboarding from 'pages/Onboarding/Onboarding'
 
 export default [
   <Route key={0} path='login' element={<Login />}></Route>,
@@ -20,5 +21,6 @@ export default [
     <Route path='reset' element={<Reset />} />
     <Route path='success' element={<Success />} />
     <Route path='*' element={<Navigate to="get-code" replace />} />
-  </Route>
+  </Route>,
+  <Route key={6} path='onboarding' element={<Onboarding />}></Route>
 ]
