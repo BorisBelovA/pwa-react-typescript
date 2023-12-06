@@ -5,6 +5,7 @@ import { QuestionnaireStore } from './Questionnaier'
 import { RegistrationStore } from './Registration'
 import { ThemeStore } from './ThemeStore'
 import { UserStore } from './UserStore'
+import { WalkthroughStore } from './WalkthroughStore'
 
 export class RootStore {
   userStore: UserStore
@@ -14,6 +15,8 @@ export class RootStore {
   questionnaireStore: QuestionnaireStore
   apartmentFiltersStore: ApartmentFiltersStore
   apartmentSearchStore: ApartmnetSearchStore
+  walkthroughStore: WalkthroughStore
+
   constructor () {
     this.userStore = new UserStore(this)
     this.themeStore = new ThemeStore(this)
@@ -22,5 +25,6 @@ export class RootStore {
     this.questionnaireStore = new QuestionnaireStore(this)
     this.apartmentFiltersStore = new ApartmentFiltersStore(this)
     this.apartmentSearchStore = new ApartmnetSearchStore(this)
+    this.walkthroughStore = new WalkthroughStore(this)
   }
 }

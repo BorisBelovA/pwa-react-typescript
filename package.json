@@ -20,6 +20,8 @@
     "@types/react-dom": "^18.0.9",
     "axios": "^1.3.4",
     "heic2any": "^0.0.4",
+    "intro.js": "^7.2.0",
+    "intro.js-react": "^1.0.0",
     "mobx": "^6.8.0",
     "mobx-react-lite": "^3.4.0",
     "moment": "^2.29.4",
@@ -48,7 +50,7 @@
     "workbox-streams": "^6.5.4"
   },
   "scripts": {
-    "start": "REACT_APP_HOST_TYPE=DEV craco start",
+    "start": "GENERATE_SOURCEMAP=false REACT_APP_HOST_TYPE=DEV craco start",
     "start:dev": "REACT_APP_HOST_TYPE=DEV craco start",
     "start:dev:win": "SET REACT_APP_HOST_TYPE=DEV & craco start",
     "start:prod": "REACT_APP_HOST_TYPE=PROD craco start",
@@ -78,6 +80,7 @@
   "devDependencies": {
     "@lingui/cli": "^4.5.0",
     "@lingui/macro": "^4.5.0",
+    "@types/intro.js": "^5.1.5",
     "@types/sockjs": "^0.3.33",
     "@types/sockjs-client": "^1.5.1",
     "@typescript-eslint/eslint-plugin": "^5.51.0",

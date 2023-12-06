@@ -5,17 +5,32 @@ import styles from './Feedback.module.scss'
 import { feedbackService } from 'api-services'
 import { observer } from 'mobx-react-lite'
 import { useStore } from 'utils/StoreProvider'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMainContext } from 'layouts/Main/MainLayout'
 import { DonateDialog } from 'components/DonateDialog/DonateDialog'
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
 import { t } from '@lingui/macro'
+import { Steps } from 'intro.js-react'
+import { defaultStepsOptions, stepsFactory } from 'assets/data/intro-steps/steps'
+import { tooltips } from 'assets/data/intro-steps/feedback'
 
 export const Feedback = observer((): JSX.Element => {
-  const { registrationStore } = useStore()
+  const { registrationStore, walkthroughStore, themeStore } = useStore()
   const [feedbackMessage, setFeedbackMessage] = useState('')
   const { setBackdropMessage, setBackdropVisible, setMessage } = useMainContext()
   const [donateVisible, setDonateVisible] = useState(false)
+  const introSteps = stepsFactory(
+    tooltips,
+    themeStore.theme
+  )
+
+  const [stepsVisible, setStepsVisible] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setStepsVisible(true)
+    }, 100)
+  }, [])
 
   const sendFeedback = async (): Promise<void> => {
     setBackdropVisible(true)
@@ -52,9 +67,11 @@ export const Feedback = observer((): JSX.Element => {
       <Typography variant='h1'>{t`Feedback form`}</Typography>
     </Box>
     <Box className={styles.feedback_container}>
-      <Typography variant='body1'>{t`Please describe your issue or suggestion.`}</Typography>
+      <Typography variant='body1'>
+          {t`Please describe your issue or suggestion.`}
+      </Typography>
 
-      <TextField
+      <TextField data-intro-id="feedback-input-field"
         label={t`Your feedback`}
         multiline
         fullWidth
@@ -71,7 +88,8 @@ export const Feedback = observer((): JSX.Element => {
         {t`Send feedback`}
       </Button>
 
-      <Button variant='contained'
+      <Button data-intro-id='feedback-donate-btn'
+        variant='contained'
         fullWidth
         onClick={() => { setDonateVisible(true) }}>
         {t`Donate`} <MonetizationOnOutlinedIcon />
@@ -79,5 +97,23 @@ export const Feedback = observer((): JSX.Element => {
     </Box>
 
     <DonateDialog visible={donateVisible} setVisible={setDonateVisible} />
+
+    <Steps
+      enabled={stepsVisible && walkthroughStore.walkthroughVisible}
+      steps={introSteps}
+      initialStep={0}
+      options={{
+        ...defaultStepsOptions,
+        doneLabel: 'Let\s go'
+      }}
+      onComplete={() => {
+        walkthroughStore.finishWalkthrough()
+      }}
+      onExit={(stepIndex) => {
+        if (stepIndex !== introSteps.length && stepIndex !== -1) {
+          walkthroughStore.finishWalkthrough()
+        }
+      }}
+    />
   </Box>
 })

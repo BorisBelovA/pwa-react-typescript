@@ -3,7 +3,7 @@ import styles from './Search.module.scss'
 import { ReactComponent as SwitchIcon } from '../../assets/icons/switch.svg'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
-import { ProfileRoutes, type MatchNew } from 'models'
+import { ProfileRoutes, type MatchNew, QuestionnaireBasicType } from 'models'
 import { useEffect, useState } from 'react'
 import { matchingService } from 'api/api-services/matching'
 import { mapMatchToModel } from 'mapping-services'
@@ -13,6 +13,32 @@ import { useStore } from 'utils/StoreProvider'
 import SearchCardController from 'components/Cards/SearchCardController/SearchCardController'
 import { useNavigate } from 'react-router-dom'
 import { t } from '@lingui/macro'
+import { type Step, Steps } from 'intro.js-react'
+import { dynamicTooltips, tooltips } from 'assets/data/intro-steps/search'
+import { defaultStepsOptions, stepsFactory } from 'assets/data/intro-steps/steps'
+import obiwan from '../../assets/obi-wan-kenobi.jpeg'
+
+const mockPerson = (): MatchNew => {
+  return {
+    user: {
+      id: 0,
+      firstName: 'Obi-Wan',
+      lastName: 'Kenobi',
+      birthday: new Date(1979, 2, 12),
+      gender: 'M',
+      phone: 'xx-xx-xx-xx-xx',
+      photo: obiwan,
+      avatar: null
+    },
+    form: {
+      havePets: false,
+      pets: [],
+      smoker: false,
+      smokingWhat: [],
+      languages: []
+    } as unknown as QuestionnaireBasicType
+  }
+}
 
 interface SearchOffset {
   index: number
@@ -54,7 +80,9 @@ const Search: React.FunctionComponent = observer(() => {
   const [currentPage, setCurrentPage] = useState<number>(0)
   const [nextPage, setNextPage] = useState<number>(1)
 
-  const { questionnaireStore } = useStore()
+  const { questionnaireStore, themeStore, walkthroughStore } = useStore()
+
+  const navigate = useNavigate()
 
   const getMatches = async (offset: number): Promise<MatchNew[]> => {
     try {
@@ -89,6 +117,14 @@ const Search: React.FunctionComponent = observer(() => {
       preloadImages(m)
       setNextPage(page + 1)
     }
+    if (!m.length) {
+      setCurrentMatches([mockPerson()])
+    }
+    const items = [...tooltips, ...dynamicTooltips]
+    setIntroSteps(stepsFactory(items, themeStore.theme))
+    stepsClass?.introJs.addSteps(stepsFactory(dynamicTooltips, themeStore.theme))
+    stepsClass?.introJs.refresh(true)
+    setStepsVisible(true)
     setIsLoading(false)
   }
 
@@ -110,7 +146,6 @@ const Search: React.FunctionComponent = observer(() => {
     if (!isLoading && nextMatches.length > 0) {
       setNeedSwitch(false)
       setCurrentMatches([...nextMatches])
-      // setCurrentImages([...nextImages])
       setIndex(0)
       setCurrentPage(nextPage)
       handleLocalStorage(0, nextPage)
@@ -214,7 +249,11 @@ const Search: React.FunctionComponent = observer(() => {
     }
   }
 
+  const [introSteps, setIntroSteps] = useState<Step[]>(stepsFactory(tooltips, themeStore.theme))
+  const [stepsClass, setStepsClass] = useState<Steps | null>(null)
+  const [stepsVisible, setStepsVisible] = useState(false)
   const theme = useTheme()
+
   return (
     <Box className={styles.search}>
       <Box className={styles.search__header}>
@@ -265,7 +304,7 @@ const Search: React.FunctionComponent = observer(() => {
       {
         currentMatches.length > 0 &&
         <Box className={styles.search__matchButtons}>
-          <Button
+          <Button data-intro-id='search-dismiss-match'
             variant='contained'
             onClick={() => {
               setAction('dislike')
@@ -277,7 +316,7 @@ const Search: React.FunctionComponent = observer(() => {
             }}>
             <CloseRoundedIcon color='primary' fontSize='large' />
           </Button>
-          <Button
+          <Button data-intro-id='search-like-match'
             variant='contained'
             color='primary'
             onClick={() => {
@@ -291,6 +330,27 @@ const Search: React.FunctionComponent = observer(() => {
           </Button>
         </Box>
       }
+
+      <Steps
+        enabled={stepsVisible && walkthroughStore.walkthroughVisible }
+        steps={introSteps}
+        initialStep={0}
+        options={{
+          ...defaultStepsOptions,
+          doneLabel: 'Go to Matches',
+          positionPrecedence: ['top']
+        }}
+        ref={(steps) => { setStepsClass(steps) }}
+        onComplete={() => {
+          navigate('/match')
+        }}
+        onExit={(stepIndex) => {
+          if (stepIndex !== introSteps.length && stepIndex !== -1) {
+            walkthroughStore.finishWalkthrough()
+          }
+        }}
+      />
+
     </Box>
   )
 })
