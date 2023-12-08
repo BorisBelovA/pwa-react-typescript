@@ -17,9 +17,10 @@ import { usePromptToInstall } from 'context/promptToInstall'
 import { useDetectDevice } from 'effects/detectDevice'
 import { useDetectBrowser } from 'effects/detectBrowser'
 import { InstallationInstruction } from './InstallationInstruction/InstallationInstruction'
-import { Trans, msg } from '@lingui/macro'
+import { Trans, msg, t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import LanguagePicker from 'components/LanguagePicker/LanguagePicker'
+import LanguageIcon from '@mui/icons-material/Language'
 
 const Settings = (): JSX.Element => {
   const navigate = useNavigate()
@@ -59,7 +60,11 @@ const Settings = (): JSX.Element => {
           icon={PaletteOutlinedIcon}
           action={() => { navigate('/profile/settings/theme/') }}
         />
-        <LanguagePicker inSettings />
+        <LanguagePicker>
+          <ListItemButton label={t`Change language`}
+            icon={LanguageIcon}
+          />
+        </LanguagePicker>
         {installBtnVisible &&
           <ListItemButton label={_(msg`Add to Home Screen`)}
             icon={AddToHomeScreenOutlinedIcon}

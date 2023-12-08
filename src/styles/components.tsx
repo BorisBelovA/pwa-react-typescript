@@ -36,5 +36,20 @@ export const components: Components<Omit<Theme, 'components'>> = {
         }
       }
     }
+  },
+  MuiAutocomplete: {
+    styleOverrides: {
+      root: {
+        '[dir=rtl] & .MuiFormControl-root': {
+          '& .MuiInputBase-root': {
+            '& .MuiAutocomplete-endAdornment': {
+              left: '9px',
+              right: 'unset'
+            },
+            paddingRight: '9px'
+          }
+        }
+      }
+    }
   }
 }

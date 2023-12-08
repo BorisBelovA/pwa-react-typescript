@@ -19,8 +19,6 @@ msgstr ""
 msgid "{0} {1} per room"
 msgstr "{0} {1} עבור חדר"
 
-#: src/components/Cards/CardApartment/CardApartment.tsx:25
-#: src/components/Cards/CardFullApartment/CardFullApartment.tsx:26
 #~ msgid "{0} ₪ per room"
 #~ msgstr "{0} ₪ עבור חדר"
 
@@ -74,11 +72,11 @@ msgid "Accept"
 msgstr "לקבל"
 
 #: src/pages/Profile/Settings/AccountSettings/AccountSettings.tsx:50
-#: src/pages/Profile/Settings/Settings.tsx:54
+#: src/pages/Profile/Settings/Settings.tsx:55
 msgid "Account"
 msgstr "חשבון"
 
-#: src/pages/Profile/Settings/Settings.tsx:83
+#: src/pages/Profile/Settings/Settings.tsx:88
 msgid "Add \"Roommate\" to your home screen"
 msgstr "הוסף Roommate למסך הבית שלך"
 
@@ -94,7 +92,7 @@ msgstr "להוסיף דירה חדשה"
 msgid "Add photos"
 msgstr "להוסיף תמונות"
 
-#: src/pages/Profile/Settings/Settings.tsx:64
+#: src/pages/Profile/Settings/Settings.tsx:69
 msgid "Add to Home Screen"
 msgstr "להוסיף למסך הבית"
 
@@ -129,6 +127,14 @@ msgstr "לבד"
 #: src/pages/Sign up/Signup.tsx:83
 msgid "Already have an account?"
 msgstr "כבר יש לך חשבון?"
+
+#: src/pages/Onboarding/Onboarding.tsx:35
+msgid "And I need a tenant… Good luck to us!"
+msgstr " ואני ממש צריך דייר…בהצלחה לנו!"
+
+#: src/pages/Onboarding/Onboarding.tsx:26
+msgid "And who's paying???"
+msgstr "ומי משלם ???"
 
 #: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:29
 msgid "apartment"
@@ -218,7 +224,7 @@ msgstr "בסיסי"
 msgid "Basic data"
 msgstr "נתונים בסיסיים"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:140
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:135
 msgid "Basic information"
 msgstr "מידע בסיסי"
 
@@ -226,7 +232,7 @@ msgstr "מידע בסיסי"
 msgid "Basic Information"
 msgstr "מידע בסיסי"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:149
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:144
 msgid "Bio"
 msgstr "ביוגרפיה"
 
@@ -273,8 +279,8 @@ msgstr "שינוי"
 msgid "Change filters"
 msgstr "לשנות מסננים"
 
-#: src/components/LanguagePicker/LanguagePicker.tsx:38
-#: src/components/LanguagePicker/LanguagePicker.tsx:46
+#: src/components/LanguagePicker/LanguagePicker.tsx:45
+#: src/pages/Profile/Settings/Settings.tsx:64
 msgid "Change language"
 msgstr "שנה שפה (language)"
 
@@ -340,6 +346,10 @@ msgstr "עיר נדרשת"
 msgid "Close"
 msgstr "סגור"
 
+#: src/pages/Onboarding/Onboarding.tsx:22
+msgid "Co-living made easy"
+msgstr "השכרה משותפת נוחה"
+
 #: src/pages/ResetPassword/Reset/Reset.tsx:105
 #: src/pages/Sign up/Signup.tsx:104
 msgid "Code is required"
@@ -349,10 +359,14 @@ msgstr "קוד נדרש"
 msgid "Code length is 0!!"
 msgstr "אורך הקוד הוא 0!!"
 
-#: src/pages/Profile/Settings/Settings.tsx:58
+#: src/pages/Profile/Settings/Settings.tsx:59
 #: src/pages/Profile/Settings/ThemeSettings/ThemeSettings.tsx:29
 msgid "Color theme"
 msgstr "צבע הנושא"
+
+#: src/pages/Onboarding/Onboarding.tsx:31
+#~ msgid "Communicate"
+#~ msgstr "לתקשר"
 
 #: src/pages/Chat/components/ChatHeader.tsx:170
 msgid "Complain"
@@ -437,7 +451,7 @@ msgstr "האם אתה באמת רוצה למחוק את הדירה הזו?"
 msgid "Do you smoke?"
 msgstr "האם אתה מעשן?"
 
-#: src/pages/Profile/Settings/Settings.tsx:87
+#: src/pages/Profile/Settings/Settings.tsx:92
 msgid "Do you want to install \"Roommate\" on your home screen?"
 msgstr "האם אתה רוצה להתקין \"שותף לחדר\" על מסך הבית שלך?"
 
@@ -531,11 +545,19 @@ msgstr "מצא שותף לחדר"
 msgid "Find roommates"
 msgstr "למצוא שותפים לדירה"
 
+#: src/pages/Onboarding/Onboarding.tsx:31
+#~ msgid "FIND YOUR FLATMATES"
+#~ msgstr ""
+
+#: src/pages/Onboarding/Onboarding.tsx:31
+#~ msgid "FIND YOUR ROOMMATES"
+#~ msgstr ""
+
 #: src/pages/Profile/BasicQuestions/Summary/Summary.tsx:116
 msgid "Finish"
 msgstr "סיים"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:110
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:101
 #: src/pages/Registration/Layout.tsx:108
 msgid "Finishing up!"
 msgstr "מסיים!"
@@ -581,6 +603,10 @@ msgstr "מ"
 msgid "Gender"
 msgstr "מין"
 
+#: src/pages/Onboarding/Onboarding.tsx:31
+msgid "Get a roommate"
+msgstr "מציאת שותפים לחדר"
+
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:74
 msgid "Get code"
 msgstr "קבל קוד"
@@ -607,6 +633,26 @@ msgstr "יש דירה"
 msgid "Have pets"
 msgstr "יש חיות מחמד"
 
+#: src/pages/Onboarding/Onboarding.tsx:40
+#~ msgid "Help"
+#~ msgstr "עֶזרָה"
+
+#: src/pages/Onboarding/Onboarding.tsx:40
+msgid "Help out & get help"
+msgstr "עזרה וקבל עזרה"
+
+#: src/pages/Onboarding/Onboarding.tsx:40
+#~ msgid "HELP OUT & GET HELP"
+#~ msgstr ""
+
+#: src/pages/Onboarding/Onboarding.tsx:28
+msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
+msgstr "כאן תוכלו לשכור דירה במחיר שפוי עם השותף הכי אופטימלי מבחינתכם."
+
+#: src/pages/Onboarding/Onboarding.tsx:28
+#~ msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
+#~ msgstr "כאן תוכלו לשכור דירה במחיר שפוי עם השותף הכי אופטימלי מבחינתכם."
+
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
 msgid ""
 "Here you can specify: \n"
@@ -620,9 +666,16 @@ msgstr ""
 "- כמה אנשים יכולים להישאר\n"
 "- כל מידע שימושי אחר"
 
-#: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
 #~ msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
 #~ msgstr "כאן תוכל לציין: \\n - עוד דרכים ליצור איתך קשר \\n - כמה אנשים יכולים להישאר \\n - כל מידע שימושי אחר"
+
+#: src/pages/Onboarding/Onboarding.tsx:46
+msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
+msgstr "מארחים ופליטים נמצאים במרחק 3 קליקים - השתמש במצב החינמי שלנו כדי לעזור או למצוא מקום בטוח."
+
+#: src/pages/Onboarding/Onboarding.tsx:46
+#~ msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
+#~ msgstr "מארחים ופליטים נמצאים במרחק 3 קליקים- השתמש במצב החינמי שלנו כדי לעזור או למצוא מקום בטוח."
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "How many"
@@ -652,6 +705,14 @@ msgstr "אני פליט"
 msgid "I have a place for refugees"
 msgstr "יש לי מקום לפליטים"
 
+#: src/pages/Onboarding/Onboarding.tsx:33
+msgid "I really need a date :("
+msgstr "אני ממש צריך דייט"
+
+#: src/pages/Onboarding/Onboarding.tsx:44
+msgid "I've got a spare room — it's free and safe!"
+msgstr "יש לי חדר פנוי-זה בחינם ובטוח"
+
 #: src/pages/Profile/BasicQuestions/Location/Location.tsx:192
 msgid "If you change your mind you will need to link your apartment again"
 msgstr "אם תשנה את דעתך תצטרך לקשר את הדירה שלך שוב"
@@ -680,6 +741,10 @@ msgstr "דפוס אימייל שגוי"
 #: src/components/BasicInfoSteps/Phone.tsx:16
 msgid "Incorrect phone number"
 msgstr "מספר טלפון שגוי"
+
+#: src/pages/Onboarding/Onboarding.tsx:42
+msgid "Just need a safe place in this nightmare :("
+msgstr "רק זקוק למקום בטוח בכל הסיוט הזה"
 
 #: src/layouts/QuestionnaireBasic/QuestionnaireBasic.tsx:24
 msgid "languages"
@@ -741,6 +806,14 @@ msgstr "להתנתק"
 msgid "M"
 msgstr "זכר"
 
+#: src/pages/Onboarding/Onboarding.tsx:37
+msgid "Make a list of candidates and choose your perfect tenants right here."
+msgstr "עשו רשימת מועמדים ובחרו את הדיירים המושלמים עבורכם ממש כאן"
+
+#: src/pages/Onboarding/Onboarding.tsx:37
+#~ msgid "Make a list of candidates and choose your perfect tenants right here."
+#~ msgstr "עשו רשימת מועמדים ובחרו את הדיירים המושלמים עבורכם ממש כאן"
+
 #: src/pages/Registration/Fifth step/FifthStep.tsx:30
 msgid "Male"
 msgstr "זכר"
@@ -753,6 +826,10 @@ msgstr "התאמות"
 #: src/utils/validations.ts:6
 msgid "Min length {length} symbols"
 msgstr "אורך מינימלי {length} סמלים"
+
+#: src/pages/Onboarding/Onboarding.tsx:24
+msgid "Mom, I'm moving out"
+msgstr "אמא אני עוברת דירה"
 
 #: src/pages/Chat/components/ChatHeader.tsx:174
 msgid "Mute"
@@ -797,7 +874,7 @@ msgid "no"
 msgstr "לא"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:255
-#: src/pages/Profile/Settings/Settings.tsx:92
+#: src/pages/Profile/Settings/Settings.tsx:97
 msgid "No"
 msgstr "לא"
 
@@ -838,7 +915,7 @@ msgstr "לא ניתן לשלוח תלונות ללא אימייל רשום"
 msgid "No result for user"
 msgstr "אין תוצאה למשתמש"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:85
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:76
 #: src/pages/Registration/Layout.tsx:83
 msgid "No session token provided"
 msgstr "לא סופק אסימון הפעלה"
@@ -942,7 +1019,7 @@ msgstr "טלפון"
 
 #: src/components/Cards/CardApartment/CardApartment.tsx:52
 #: src/components/Cards/CardFullApartment/CardFullApartment.tsx:66
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:155
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:150
 msgid "Phone"
 msgstr "טלפון"
 
@@ -954,7 +1031,7 @@ msgstr "מספר טלפון"
 msgid "photo"
 msgstr "תמונה"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:161
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:156
 msgid "Photo"
 msgstr "תמונה"
 
@@ -998,6 +1075,14 @@ msgstr "פרופיל"
 msgid "Profile photo"
 msgstr "תמונת פרופיל"
 
+#: src/pages/Onboarding/Onboarding.tsx:45
+msgid "Ready to share your flat with refugees? Or you are one yourself?"
+msgstr "מוכן לחלוק את דירתך עם מפונים? או שרק עבורך?"
+
+#: src/pages/Onboarding/Onboarding.tsx:45
+#~ msgid "Ready to share your flat with refugees? Or you are one yourself?"
+#~ msgstr "מוכן לחלוק את דירתך עם פליטים?או שרק עבורך?"
+
 #: src/pages/Search/Search.tsx:251
 msgid "Refresh"
 msgstr "לרענן"
@@ -1022,6 +1107,10 @@ msgstr "הסרת המודעה שלך מפרסום"
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Purpose/Purpose.tsx:36
 msgid "Rent"
 msgstr "השכרה"
+
+#: src/pages/Onboarding/Onboarding.tsx:22
+#~ msgid "RENT EASILY & RENT OUT"
+#~ msgstr ""
 
 #: src/pages/Intro/PathSelection/PathSelection.tsx:48
 msgid "Rent out apartment/room"
@@ -1049,7 +1138,7 @@ msgstr "חדר"
 msgid "rooms"
 msgstr "חדרים"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:169
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:164
 msgid "Save"
 msgstr "לשמור"
 
@@ -1106,7 +1195,7 @@ msgid "Sending your request!"
 msgstr "שלח/י את בקשתך!"
 
 #: src/pages/Profile/Profile.tsx:136
-#: src/pages/Profile/Settings/Settings.tsx:51
+#: src/pages/Profile/Settings/Settings.tsx:52
 msgid "Settings"
 msgstr "הגדרות"
 
@@ -1124,6 +1213,7 @@ msgstr "הרשמה"
 msgid "Sign Up"
 msgstr "הרשמה"
 
+#: src/pages/Onboarding/Onboarding.tsx:90
 #: src/pages/Registration/Layout.tsx:166
 msgid "Skip"
 msgstr "דלג"
@@ -1212,11 +1302,9 @@ msgstr "סיכום"
 msgid "Support us"
 msgstr "תמכו בנו"
 
-#: src/pages/Profile/Settings/Settings.tsx:60
 #~ msgid "Switch to English"
 #~ msgstr "החלף לאנגלית (English)"
 
-#: src/pages/Profile/Settings/Settings.tsx:59
 #~ msgid "Switch to Hebrew"
 #~ msgstr "החלף לעברית"
 
@@ -1309,7 +1397,7 @@ msgstr "מעדכן סיסמה"
 msgid "Updating your apartment!"
 msgstr "מעדכן את הדירה שלך!"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:70
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:61
 msgid "Updating your information"
 msgstr "מעדכן את המידע שלך"
 
@@ -1317,7 +1405,7 @@ msgstr "מעדכן את המידע שלך"
 msgid "Upload a photo"
 msgstr "העלה תמונה"
 
-#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:82
+#: src/pages/Profile/AboutMe/BasicInfo/BasicInfo.tsx:73
 #: src/pages/Registration/Layout.tsx:80
 msgid "User form is not filled!"
 msgstr "טופס המשתמש לא ממולא!"
@@ -1338,6 +1426,14 @@ msgstr "לאמת"
 #: src/pages/Email-code/EmailCode.tsx:77
 msgid "Verify your email"
 msgstr "לאמת את הדוא\"ל שלך"
+
+#: src/pages/Onboarding/Onboarding.tsx:27
+msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
+msgstr "...רוצה לשכור דירה? אתם בשוק מהמחיר? כןןןןן"
+
+#: src/pages/Onboarding/Onboarding.tsx:27
+#~ msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
+#~ msgstr "רוצה לשכור דירה? אתם בשוק מהמחיר? כן…."
 
 #: src/pages/Chat/components/ChatHeader.tsx:72
 msgid "We have received your feedback. Thank you!"
@@ -1386,6 +1482,14 @@ msgstr "עם חברים"
 msgid "With partner"
 msgstr "עם שותף"
 
+#: src/pages/Onboarding/Onboarding.tsx:36
+msgid "With this app you can easily rent out your flat…Or find a match. You never know."
+msgstr "עם האפליקציה הזו תוכלו להשכיר בקלות את הדירה שלכם …או למצוא התאמה"
+
+#: src/pages/Onboarding/Onboarding.tsx:36
+#~ msgid "With this app you can easily rent out your flat…Or find a match. You never know."
+#~ msgstr "עם האפליקציה הזו תוכלו להשכיר בקלות את הדירה שלכם …או למצוא התאמה"
+
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:67
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:189
 #: src/pages/Profile/BasicQuestions/Guests/Guests.tsx:66
@@ -1395,7 +1499,7 @@ msgid "yes"
 msgstr "כן"
 
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:254
-#: src/pages/Profile/Settings/Settings.tsx:95
+#: src/pages/Profile/Settings/Settings.tsx:100
 msgid "Yes"
 msgstr "כן"
 
