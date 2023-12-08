@@ -20,7 +20,7 @@ export const Feedback = observer((): JSX.Element => {
   const { setBackdropMessage, setBackdropVisible, setMessage } = useMainContext()
   const [donateVisible, setDonateVisible] = useState(false)
   const introSteps = stepsFactory(
-    tooltips,
+    tooltips(),
     themeStore.theme
   )
 
@@ -103,8 +103,8 @@ export const Feedback = observer((): JSX.Element => {
       steps={introSteps}
       initialStep={0}
       options={{
-        ...defaultStepsOptions,
-        doneLabel: 'Let\s go'
+        ...defaultStepsOptions(),
+        doneLabel: t`Let's go`
       }}
       onComplete={() => {
         walkthroughStore.finishWalkthrough()

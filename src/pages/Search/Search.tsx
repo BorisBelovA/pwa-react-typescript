@@ -120,9 +120,15 @@ const Search: React.FunctionComponent = observer(() => {
     if (!m.length) {
       setCurrentMatches([mockPerson()])
     }
-    const items = [...tooltips, ...dynamicTooltips]
+    const items = [
+      ...tooltips(),
+      ...(questionnaireStore.haveQuestionnaire
+        ? dynamicTooltips()
+        : []
+      )
+    ]
     setIntroSteps(stepsFactory(items, themeStore.theme))
-    stepsClass?.introJs.addSteps(stepsFactory(dynamicTooltips, themeStore.theme))
+    stepsClass?.introJs.addSteps(stepsFactory(dynamicTooltips(), themeStore.theme))
     stepsClass?.introJs.refresh(true)
     setStepsVisible(true)
     setIsLoading(false)
@@ -249,7 +255,7 @@ const Search: React.FunctionComponent = observer(() => {
     }
   }
 
-  const [introSteps, setIntroSteps] = useState<Step[]>(stepsFactory(tooltips, themeStore.theme))
+  const [introSteps, setIntroSteps] = useState<Step[]>(stepsFactory(tooltips(), themeStore.theme))
   const [stepsClass, setStepsClass] = useState<Steps | null>(null)
   const [stepsVisible, setStepsVisible] = useState(false)
   const theme = useTheme()
@@ -302,7 +308,7 @@ const Search: React.FunctionComponent = observer(() => {
         }
       </Box>
       {
-        currentMatches.length > 0 &&
+        questionnaireStore.haveQuestionnaire && currentMatches.length > 0 &&
         <Box className={styles.search__matchButtons}>
           <Button data-intro-id='search-dismiss-match'
             variant='contained'
@@ -332,12 +338,12 @@ const Search: React.FunctionComponent = observer(() => {
       }
 
       <Steps
-        enabled={stepsVisible && walkthroughStore.walkthroughVisible }
+        enabled={stepsVisible && walkthroughStore.walkthroughVisible}
         steps={introSteps}
         initialStep={0}
         options={{
-          ...defaultStepsOptions,
-          doneLabel: 'Go to Matches',
+          ...defaultStepsOptions(),
+          doneLabel: t`Go to matches`,
           positionPrecedence: ['top']
         }}
         ref={(steps) => { setStepsClass(steps) }}

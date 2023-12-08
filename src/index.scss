@@ -106,3 +106,8 @@ select:-webkit-autofill:focus {
   color: var(--primary-color);
   text-shadow: none;
 }
+
+[dir="rtl"] .introjs-skipbutton {
+  left: 0;
+  right: unset;
+}

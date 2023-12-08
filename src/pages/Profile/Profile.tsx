@@ -96,7 +96,7 @@ const Profile: React.FunctionComponent = observer(() => {
     }
   }, [])
 
-  const steps = stepsFactory(introSteps, themeStore.theme)
+  const steps = stepsFactory(introSteps(), themeStore.theme)
 
   return <>
     <Steps
@@ -104,8 +104,8 @@ const Profile: React.FunctionComponent = observer(() => {
       steps={steps}
       initialStep={0}
       options={{
-        ...defaultStepsOptions,
-        doneLabel: 'Go to Apartments'
+        ...defaultStepsOptions(),
+        doneLabel: t`Go to apartments`
       }}
       onComplete={() => {
         navigate('/apartment-search')

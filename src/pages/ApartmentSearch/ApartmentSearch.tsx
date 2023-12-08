@@ -89,7 +89,7 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
   useEffect(() => {
     if (!loading && apartmentSearchStore.apartments.length) {
       setIntroSteps(stepsFactory(
-        [...tooltips, ...dynamicTooltips],
+        [...tooltips(), ...dynamicTooltips()],
         themeStore.theme
       ))
       stepsClass?.introJs.refresh(true)
@@ -113,7 +113,7 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
       })
   }
 
-  const [introSteps, setIntroSteps] = useState<Step[]>(stepsFactory(tooltips, themeStore.theme))
+  const [introSteps, setIntroSteps] = useState<Step[]>(stepsFactory(tooltips(), themeStore.theme))
   const [stepsReady, setStepsReady] = useState(false)
   const [stepsClass, setStepsClass] = useState<Steps | null>(null)
 
@@ -153,8 +153,8 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
         initialStep={0}
         ref={(steps) => { setStepsClass(steps) }}
         options={{
-          ...defaultStepsOptions,
-          doneLabel: 'Go to Search'
+          ...defaultStepsOptions(),
+          doneLabel: t`Go to search`
         }}
         onComplete={() => {
           apartmentSearchStore.resetApartments()

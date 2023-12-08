@@ -83,7 +83,7 @@ const Matches = (): JSX.Element => {
   }
 
   const introSteps = stepsFactory(
-    tooltips,
+    tooltips(),
     themeStore.theme
   )
 
@@ -101,7 +101,7 @@ const Matches = (): JSX.Element => {
         isYoursMessage: true,
         lastMessage: {
           chatRoomId: 0,
-          content: 'Hello there',
+          content: t`Hello there`,
           recipientId: 0,
           senderId: 1,
           status: 'DELIVERED',
@@ -138,8 +138,8 @@ const Matches = (): JSX.Element => {
       steps={introSteps}
       initialStep={0}
       options={{
-        ...defaultStepsOptions,
-        doneLabel: 'Go to Feedback'
+        ...defaultStepsOptions(),
+        doneLabel: t`Go to feedback`
       }}
       onComplete={() => {
         setChats(chats.filter(c => c.roomId !== 0))
