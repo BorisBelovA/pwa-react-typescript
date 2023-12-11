@@ -1,5 +1,4 @@
-import { Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@mui/material'
-import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined'
+import { Box, Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@mui/material'
 import { MyListItemButton as ListItemButton } from 'components/ListItemButton/ListItemButton'
 import styles from './LanguagePicker.module.scss'
 import CloseIcon from '@mui/icons-material/Close'
@@ -8,11 +7,12 @@ import { type Direction, useDocumentDirection } from 'context/documentDirection'
 import { useDocumentLanguage } from 'context/documentLanguage'
 import { useNavigate } from 'react-router-dom'
 import { t } from '@lingui/macro'
+import LanguageIcon from '@mui/icons-material/Language'
 
 interface Props {
-  inSettings?: boolean
+  children?: JSX.Element
 }
-const LanguagePicker = ({ inSettings }: Props): JSX.Element => {
+const LanguagePicker = ({ children }: Props): JSX.Element => {
   const [open, setOpen] = useState<boolean>(false)
   const { setDocumentDirection } = useDocumentDirection()
   const { setDocumentLanguage } = useDocumentLanguage()
@@ -34,12 +34,11 @@ const LanguagePicker = ({ inSettings }: Props): JSX.Element => {
 
   return (
     <>
-      {inSettings
-        ? <ListItemButton label={t`Change language`}
-          icon={TranslateOutlinedIcon}
-          action={handleOpen}
-        />
-        : <IconButton onClick={handleOpen} color='primary'><TranslateOutlinedIcon /></IconButton>
+      {children
+        ? <Box onClick={handleOpen}>{children}</Box>
+        : <Box className={styles.pickButton}>
+          <IconButton onClick={handleOpen} color='primary'><LanguageIcon /></IconButton>
+        </Box>
       }
       <Dialog onClose={handleClose} open={open} fullWidth>
         <DialogTitle className={styles.dialogHead}>

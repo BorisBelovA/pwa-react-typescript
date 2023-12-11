@@ -13,6 +13,7 @@ export const useDocumentLanguage = (): DocumentLanguageContext => {
 
   const setDocumentLanguage = async (lang: string): Promise<void> => {
     await dynamicActivate(lang).then()
+    document.documentElement.lang = lang
     setLanguage(lang)
     localStorage.setItem(DOCUMENT_LANGUAGE_KEY, lang)
   }
