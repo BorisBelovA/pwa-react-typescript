@@ -20,8 +20,8 @@ import { MyListItemButton } from 'components/ListItemButton/ListItemButton'
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
 import { DonateDialog } from 'components/DonateDialog/DonateDialog'
 import { Steps } from 'intro.js-react'
-import introSteps from 'assets/data/intro-steps/profile'
-import { defaultStepsOptions, stepsFactory } from 'assets/data/intro-steps/steps'
+import introSteps from 'models/intro-steps/profile'
+import { defaultStepsOptions, stepsFactory } from 'models/intro-steps/steps'
 import FollowTheSignsOutlinedIcon from '@mui/icons-material/FollowTheSignsOutlined'
 
 const Profile: React.FunctionComponent = observer(() => {
@@ -111,7 +111,7 @@ const Profile: React.FunctionComponent = observer(() => {
         navigate('/apartment-search')
       }}
       onExit={(stepIndex) => {
-        if (stepIndex !== steps.length && stepIndex !== -1) {
+        if (stepIndex !== -1 && !steps[stepIndex]?.isLastStep) {
           walkthroughStore.finishWalkthrough()
         }
       }}

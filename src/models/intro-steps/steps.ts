@@ -1,6 +1,6 @@
 import { t } from '@lingui/macro'
 import { type PaletteMode } from '@mui/material'
-import { type Step } from 'intro.js-react'
+import { type WalkthroughStep } from '../steps'
 
 export const defaultStepsOptions = () => ({
   hidePrev: true,
@@ -12,8 +12,12 @@ export const defaultStepsOptions = () => ({
 })
 
 export const stepsFactory = (
-  steps: Step[],
+  steps: WalkthroughStep[],
   theme: PaletteMode
-): Step[] => {
-  return steps.map(i => ({ ...i, tooltipClass: theme }))
+): WalkthroughStep[] => {
+  return steps.map((el, idx) => ({
+    ...el,
+    isLastStep: idx === steps.length - 1,
+    tooltipClass: theme
+  }))
 }

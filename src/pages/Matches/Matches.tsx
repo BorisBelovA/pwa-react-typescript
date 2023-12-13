@@ -11,8 +11,8 @@ import { ChatMessageListener, chatMessagesQueue } from 'services/chat-messages'
 import { t } from '@lingui/macro'
 import { Steps } from 'intro.js-react'
 import { useStore } from 'utils/StoreProvider'
-import { tooltips } from 'assets/data/intro-steps/matches'
-import { defaultStepsOptions, stepsFactory } from 'assets/data/intro-steps/steps'
+import { tooltips } from 'models/intro-steps/matches'
+import { defaultStepsOptions, stepsFactory } from 'models/intro-steps/steps'
 import obiwan from '../../assets/obi-wan.jpeg'
 
 const Matches = (): JSX.Element => {
@@ -146,7 +146,7 @@ const Matches = (): JSX.Element => {
         navigate('/feedback')
       }}
       onExit={(stepIndex) => {
-        if (stepIndex !== introSteps.length && stepIndex !== -1) {
+        if (stepIndex !== -1 && !introSteps[stepIndex]?.isLastStep) {
           setChats(chats.filter(c => c.roomId !== 0))
           walkthroughStore.finishWalkthrough()
         }

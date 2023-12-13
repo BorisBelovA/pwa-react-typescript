@@ -8,10 +8,10 @@ import { useNavigate } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 import { t } from '@lingui/macro'
 import { useMainContext } from 'layouts/Main/MainLayout'
-import { type Step, Steps } from 'intro.js-react'
-import { dynamicTooltips, tooltips } from 'assets/data/intro-steps/apartment-search'
-import { defaultStepsOptions, stepsFactory } from 'assets/data/intro-steps/steps'
-import { type Apartment } from 'models'
+import { Steps } from 'intro.js-react'
+import { dynamicTooltips, tooltips } from 'models/intro-steps/apartment-search'
+import { defaultStepsOptions, stepsFactory } from 'models/intro-steps/steps'
+import { type WalkthroughStep, type Apartment } from 'models'
 
 const mockApartment = (): Apartment => {
   return {
@@ -113,7 +113,7 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
       })
   }
 
-  const [introSteps, setIntroSteps] = useState<Step[]>(stepsFactory(tooltips(), themeStore.theme))
+  const [introSteps, setIntroSteps] = useState<WalkthroughStep[]>(stepsFactory(tooltips(), themeStore.theme))
   const [stepsReady, setStepsReady] = useState(false)
   const [stepsClass, setStepsClass] = useState<Steps | null>(null)
 
@@ -161,7 +161,7 @@ const ApartmentSearch: React.FunctionComponent = (): JSX.Element => {
           navigate('/search')
         }}
         onExit={(stepIndex) => {
-          if (stepIndex !== introSteps.length && stepIndex !== -1) {
+          if (stepIndex !== -1 && !introSteps[stepIndex]?.isLastStep) {
             walkthroughStore.finishWalkthrough()
             apartmentSearchStore.resetApartments()
           }

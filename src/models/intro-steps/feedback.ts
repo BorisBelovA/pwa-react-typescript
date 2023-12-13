@@ -1,7 +1,7 @@
 import { t } from '@lingui/macro'
-import { type Step } from 'intro.js-react'
+import { type WalkthroughStep } from '../steps'
 
-export const tooltips = (): Step[] => [
+export const tooltips = (): WalkthroughStep[] => [
   {
     element: '[data-intro-id="nav-btn-feedback"]',
     title: t`Feedback`,
@@ -20,6 +20,7 @@ export const tooltips = (): Step[] => [
   {
     element: '[data-intro-id="non-existing"]',
     title: t`Congratulations`,
-    intro: t`That was a brief overview of our application! Now it\'s time for you to explore it further!`
+    intro: t`That was a brief overview of our application! Now it\'s time for you to explore it further!`,
+    isLastStep: true
   }
 ]

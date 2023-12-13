@@ -3,7 +3,7 @@ import styles from './Search.module.scss'
 import { ReactComponent as SwitchIcon } from '../../assets/icons/switch.svg'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
-import { ProfileRoutes, type MatchNew, type QuestionnaireBasicType } from 'models'
+import { ProfileRoutes, type MatchNew, type QuestionnaireBasicType, type WalkthroughStep } from 'models'
 import { useEffect, useState } from 'react'
 import { matchingService } from 'api/api-services/matching'
 import { mapMatchToModel } from 'mapping-services'
@@ -13,9 +13,9 @@ import { useStore } from 'utils/StoreProvider'
 import SearchCardController from 'components/Cards/SearchCardController/SearchCardController'
 import { useNavigate } from 'react-router-dom'
 import { t } from '@lingui/macro'
-import { type Step, Steps } from 'intro.js-react'
-import { dynamicTooltips, tooltips } from 'assets/data/intro-steps/search'
-import { defaultStepsOptions, stepsFactory } from 'assets/data/intro-steps/steps'
+import { Steps } from 'intro.js-react'
+import { dynamicTooltips, tooltips } from 'models/intro-steps/search'
+import { defaultStepsOptions, stepsFactory } from 'models/intro-steps/steps'
 import obiwan from '../../assets/obi-wan-kenobi.jpeg'
 
 const mockPerson = (): MatchNew => {
@@ -255,7 +255,7 @@ const Search: React.FunctionComponent = observer(() => {
     }
   }
 
-  const [introSteps, setIntroSteps] = useState<Step[]>(stepsFactory(tooltips(), themeStore.theme))
+  const [introSteps, setIntroSteps] = useState<WalkthroughStep[]>(stepsFactory(tooltips(), themeStore.theme))
   const [stepsClass, setStepsClass] = useState<Steps | null>(null)
   const [stepsVisible, setStepsVisible] = useState(false)
   const theme = useTheme()
@@ -351,7 +351,7 @@ const Search: React.FunctionComponent = observer(() => {
           navigate('/match')
         }}
         onExit={(stepIndex) => {
-          if (stepIndex !== introSteps.length && stepIndex !== -1) {
+          if (stepIndex !== -1 && !introSteps[stepIndex]?.isLastStep) {
             walkthroughStore.finishWalkthrough()
           }
         }}

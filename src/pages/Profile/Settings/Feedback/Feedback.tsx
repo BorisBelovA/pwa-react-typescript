@@ -11,8 +11,8 @@ import { DonateDialog } from 'components/DonateDialog/DonateDialog'
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
 import { t } from '@lingui/macro'
 import { Steps } from 'intro.js-react'
-import { defaultStepsOptions, stepsFactory } from 'assets/data/intro-steps/steps'
-import { tooltips } from 'assets/data/intro-steps/feedback'
+import { defaultStepsOptions, stepsFactory } from 'models/intro-steps/steps'
+import { tooltips } from 'models/intro-steps/feedback'
 
 export const Feedback = observer((): JSX.Element => {
   const { registrationStore, walkthroughStore, themeStore } = useStore()
@@ -110,7 +110,7 @@ export const Feedback = observer((): JSX.Element => {
         walkthroughStore.finishWalkthrough()
       }}
       onExit={(stepIndex) => {
-        if (stepIndex !== introSteps.length && stepIndex !== -1) {
+        if (stepIndex !== -1 && !introSteps[stepIndex]?.isLastStep) {
           walkthroughStore.finishWalkthrough()
         }
       }}

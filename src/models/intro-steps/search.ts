@@ -1,7 +1,7 @@
 import { t } from '@lingui/macro'
-import { type Step } from 'intro.js-react'
+import { type WalkthroughStep } from 'models/steps'
 
-export const tooltips = (): Step[] => [
+export const tooltips = (): WalkthroughStep[] => [
   {
     element: '[data-intro-id="nav-btn-search"]',
     title: t`Search`,
@@ -9,7 +9,7 @@ export const tooltips = (): Step[] => [
   }
 ]
 
-export const dynamicTooltips = (): Step[] => [
+export const dynamicTooltips = (): WalkthroughStep[] => [
   {
     element: '[data-intro-id="search-dismiss-match"]',
     title: t`Dismiss`,
