@@ -52,7 +52,7 @@
   "scripts": {
     "start": "GENERATE_SOURCEMAP=false REACT_APP_HOST_TYPE=DEV craco start",
     "start:dev": "REACT_APP_HOST_TYPE=DEV craco start",
-    "start:dev:win": "SET REACT_APP_HOST_TYPE=DEV & craco start",
+    "start:dev:win": "SET GENERATE_SOURCEMAP=false&& SET REACT_APP_HOST_TYPE=DEV&& craco start",
     "start:prod": "REACT_APP_HOST_TYPE=PROD craco start",
     "build": "REACT_APP_HOST_TYPE=DEV craco build",
     "build:dev": "REACT_APP_HOST_TYPE=DEV craco build",
