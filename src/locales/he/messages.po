@@ -1577,7 +1577,7 @@ msgstr "הדרכה"
 
 #: src/pages/Onboarding/Onboarding.tsx:27
 msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"
-msgstr "רוצה לשכור דירה? אתם בשוק מהמחיר? כן…."
+msgstr "...רוצה לשכור דירה? אתם בשוק מהמחיר? כןןןןן"
 
 #: src/pages/Onboarding/Onboarding.tsx:27
 #~ msgid "Wanna rent a flat? Sweat hard when you see the prices? Yeah…"

@@ -26,7 +26,7 @@ i18n.activate('en')
 
 configure({ enforceActions: 'always' })
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.REACT_APP_HOST_TYPE === 'PROD') {
   ReactGA.initialize('G-9HTPPGN44N')
 }
 
@@ -68,7 +68,7 @@ const App = (): JSX.Element => {
   }, [])
 
   return <React.StrictMode>
-    {process.env.NODE_ENV === 'production' &&
+    {process.env.REACT_APP_HOST_TYPE === 'PROD' &&
       <YMInitializer
         accounts={[95287962]}
         options={{
