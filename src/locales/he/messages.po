@@ -187,7 +187,7 @@ msgstr "דירות"
 
 #: src/assets/data/intro-steps/apartment-search.ts:30
 msgid "Apartments for refugees"
-msgstr "דירות לפליטים"
+msgstr "דירות למפונים"
 
 #: src/assets/data/intro-steps/apartment-search.ts:7
 msgid "Apartments Search"
@@ -625,7 +625,7 @@ msgstr "עבור {0}"
 #: src/pages/Intro/PathSelection/PathSelection.tsx:11
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:116
 msgid "For refugees"
-msgstr "עבור פליטים"
+msgstr "עבור מפונים"
 
 #: src/pages/ResetPassword/GetCode/GetCode.tsx:58
 msgid "Forgot password"
@@ -758,11 +758,11 @@ msgstr "כאן תוכלו לצפות בכל הדירות שלכם ולהוסיף
 
 #: src/pages/Onboarding/Onboarding.tsx:46
 msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
-msgstr "מארחים ופליטים נמצאים במרחק 3 קליקים - השתמש במצב החינמי שלנו כדי לעזור או למצוא מקום בטוח."
+msgstr "מארחים ומפונים נמצאים במרחק 3 קליקים - השתמש במצב החינמי שלנו כדי לעזור או למצוא מקום בטוח."
 
 #: src/pages/Onboarding/Onboarding.tsx:46
 #~ msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
-#~ msgstr "מארחים ופליטים נמצאים במרחק 3 קליקים- השתמש במצב החינמי שלנו כדי לעזור או למצוא מקום בטוח."
+#~ msgstr "מארחים ומפונים נמצאים במרחק 3 קליקים- השתמש במצב החינמי שלנו כדי לעזור או למצוא מקום בטוח."
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Basic/Basic.tsx:155
 msgid "How many"
@@ -790,7 +790,7 @@ msgstr "אני פליט"
 
 #: src/pages/Intro/PathSelection/PathSelection.tsx:18
 msgid "I have a place for refugees"
-msgstr "יש לי מקום לפליטים"
+msgstr "יש לי מקום למפונים"
 
 #: src/pages/Onboarding/Onboarding.tsx:33
 msgid "I really need a date :("
@@ -1203,7 +1203,7 @@ msgstr "מוכן לחלוק את דירתך עם מפונים? או שרק עב�
 
 #: src/pages/Onboarding/Onboarding.tsx:45
 #~ msgid "Ready to share your flat with refugees? Or you are one yourself?"
-#~ msgstr "מוכן לחלוק את דירתך עם פליטים?או שרק עבורך?"
+#~ msgstr "מוכן לחלוק את דירתך עם מפונים?או שרק עבורך?"
 
 #: src/pages/Search/Search.tsx:296
 msgid "Refresh"
@@ -1470,7 +1470,7 @@ msgstr "שדה זה הוא אופציונלי"
 
 #: src/assets/data/intro-steps/apartment-search.ts:31
 msgid "This means that the owner of the apartment is ready to accommodate refugees for free"
-msgstr "המשמעות היא שבעל הדירה מוכן לקלוט פליטים בחינם"
+msgstr "המשמעות היא שבעל הדירה מוכן לקלוט מפונים בחינם"
 
 #: src/assets/data/intro-steps/apartment-search.ts:26
 msgid "This tile represents an available apartment. You can see the price, amount of available rooms and it\\'s location"
