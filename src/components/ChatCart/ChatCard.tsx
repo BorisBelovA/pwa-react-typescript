@@ -6,10 +6,11 @@ import moment from 'moment'
 interface ChatCardProps {
   chat: Chat
   onClick: () => void
+  'data-intro-id'?: string
 }
 
-export const ChatCard = ({ chat, onClick }: ChatCardProps): JSX.Element => {
-  return <Card key={chat.roomId} sx={{ width: '100%', marginBottom: '24px' }} variant="outlined"
+export const ChatCard = ({ chat, onClick, ...dataAttributes }: ChatCardProps): JSX.Element => {
+  return <Card {...dataAttributes} key={chat.roomId} sx={{ width: '100%', marginBottom: '24px' }} variant="outlined"
     onClick={onClick}>
     <CardContent className={styles.match_card}>
       <Avatar alt="Remy Sharp" src={chat.recipient.avatar ?? ''} />

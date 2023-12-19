@@ -19,7 +19,7 @@ export const DonateDialog = ({ visible, setVisible }: DonateDialogProps): JSX.El
         <Trans>
           If you like what we do you can support us with
         </Trans>
-        <Link href="https://www.donationalerts.com/r/evgenia2808" target='_blank'> <Trans>donation</Trans></Link> ♥️
+        <Link href="https://www.donationalerts.com/r/roommate_host" target='_blank'> <Trans>donation</Trans></Link> ♥️
       </DialogContentText>
     </DialogContent>
     <DialogActions>

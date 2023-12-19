@@ -50,6 +50,7 @@ const NavBar: React.FunctionComponent = () => {
         }}
       >
         {menu.map((m, idx) => <BottomNavigationAction key={idx}
+          data-intro-id={`nav-btn-${m.value}`}
           className={idx === 0 ? 'first-button' : idx === menu.length - 1 ? 'last-button' : ''}
           label={m.label}
           icon={m.icon}
