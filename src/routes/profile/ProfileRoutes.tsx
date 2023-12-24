@@ -10,6 +10,7 @@ import QuestionnaireBasic from 'layouts/QuestionnaireBasic/QuestionnaireBasic'
 import { NotFound } from 'pages/NotFound'
 import BasicInfo from 'pages/Profile/AboutMe/BasicInfo/BasicInfo'
 import Preview from 'pages/Profile/AboutMe/Preview/Preview'
+import { Subscription } from 'pages/Profile/Subscription/Subscription'
 
 export default [
   <Route key='1' path={ProfileRoutes.ABOUT_ME}>
@@ -30,5 +31,6 @@ export default [
   <Route key='5' path={ProfileRoutes.BASIC_QUEST} element={<QuestionnaireBasic />} errorElement={<NotFound />}>
     <Route path="" element={<Navigate to="who" replace />} />
     {questionnaireRoutes}
-  </Route>
+  </Route>,
+  <Route key='6' path={ProfileRoutes.SUBSCRIPTION} element={<Subscription />} />
 ]

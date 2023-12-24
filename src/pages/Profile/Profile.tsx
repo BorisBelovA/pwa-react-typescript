@@ -166,8 +166,12 @@ const Profile: React.FunctionComponent = observer(() => {
           action={() => { navigate(`/profile/${ProfileRoutes.SETTINGS}`) }}
         />
 
-        <MyListItemButton data-intro-id='profile-donate'
-          label={t({ message: 'Donate' })}
+        <MyListItemButton label={t({ message: 'Subscription' })}
+          icon={MonetizationOnOutlinedIcon}
+          action={() => { navigate(`/profile/${ProfileRoutes.SUBSCRIPTION}`) }}
+        />
+
+        <MyListItemButton label={t({ message: 'Donate' })}
           icon={MonetizationOnOutlinedIcon}
           action={() => { setDonateVisible(true) }}
         />

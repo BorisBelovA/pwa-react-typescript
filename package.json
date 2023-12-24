@@ -35,6 +35,7 @@
     "react-otp-input": "^2.4.0",
     "react-scripts": "5.0.1",
     "sockjs-client": "^1.6.1",
+    "swiper": "^11.0.5",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.5.4",
     "workbox-broadcast-update": "^6.5.4",

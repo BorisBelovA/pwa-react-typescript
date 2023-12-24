@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.scss'
+import 'swiper/css'
+import 'swiper/css/pagination'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
