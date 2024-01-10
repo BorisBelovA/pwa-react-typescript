@@ -3,7 +3,6 @@ import { type WalkthroughStep } from 'models/steps'
 
 export const tooltips = (): WalkthroughStep[] => [
   {
-    element: '[data-intro-id="nav-btn-search"]',
     title: t`Search`,
     intro: t`Here you can browse the list of matches. Make sure you\'ve filled you profile page!`
   }

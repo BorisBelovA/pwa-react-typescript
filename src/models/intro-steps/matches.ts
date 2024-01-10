@@ -3,7 +3,6 @@ import { type WalkthroughStep } from '../steps'
 
 export const tooltips = (): WalkthroughStep[] => [
   {
-    element: '[data-intro-id="nav-btn-match"]',
     title: t`Matches`,
     intro: t`Here you can see the list of dialogs with your partners`
   },
