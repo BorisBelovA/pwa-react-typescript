@@ -3,7 +3,6 @@ import { type WalkthroughStep } from '../steps'
 
 const tooltips = (): WalkthroughStep[] => [
   {
-    element: '[data-intro-id="nav-btn-profile"]',
     title: t`Profile`,
     intro: t`On this page you can view your profile, visit your apartments or change system settings`
   },

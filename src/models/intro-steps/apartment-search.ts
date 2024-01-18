@@ -3,7 +3,6 @@ import { type WalkthroughStep } from '../steps'
 
 export const tooltips = (): WalkthroughStep[] => [
   {
-    element: '[data-intro-id="nav-btn-apartment-search"]',
     title: t`Apartments Search`,
     intro: t`Here you can find whatever apartment you like`
   },
