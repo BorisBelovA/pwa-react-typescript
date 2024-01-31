@@ -750,7 +750,7 @@ msgstr ""
 
 #: src/assets/data/intro-steps/profile.ts:23
 msgid "Here you can view all your apartments and add new"
-msgstr "Здесь вы можете просмотреть существующие вартиры и добавить новую"
+msgstr "Здесь вы можете просмотреть существующие квартиры и добавить новую"
 
 #: src/pages/Onboarding/Onboarding.tsx:46
 msgid "Hosts and refugees are 3 clicks away — use our FREE mode to help or find a safe place."
