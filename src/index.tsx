@@ -19,6 +19,7 @@ import { I18nProvider } from '@lingui/react'
 import { messages as messagesEng } from './locales/en/messages'
 import { DOCUMENT_DIRECTION_KEY, type Direction, useDocumentDirection } from './context/documentDirection'
 import { DOCUMENT_LANGUAGE_KEY, useDocumentLanguage } from './context/documentLanguage'
+import 'intro.js/introjs.css'
 
 i18n.load('en', messagesEng)
 i18n.activate('en')

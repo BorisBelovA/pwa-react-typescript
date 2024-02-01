@@ -6,11 +6,12 @@ import { t } from '@lingui/macro'
 
 interface Props {
   apartment: Apartment
+  'data-intro-id'?: string
 }
-const ApartmentThumbnail = ({ apartment }: Props): JSX.Element => {
+const ApartmentThumbnail = ({ apartment, ...dataAttributes }: Props): JSX.Element => {
   const navigate = useNavigate()
   return (
-    <Paper
+    <Paper {...dataAttributes}
       key={apartment.id}
       className={styles.apartmentThumbnail}
       onClick={() => { navigate(`apartment/${apartment.id}`) }}
@@ -26,7 +27,8 @@ const ApartmentThumbnail = ({ apartment }: Props): JSX.Element => {
       <Box className={styles.apartmentThumbnail__content}>
         {apartment.totalPrice > 0
           ? <Typography variant='h2'>{apartment.totalPrice} ₪</Typography>
-          : <Box className={styles.apartmentThumbnail__free}>{t`For refugees`}</Box>
+          : <Box data-intro-id='apartment-for-refugees-flag'
+              className={styles.apartmentThumbnail__free}>{t`For refugees`}</Box>
         }
         {apartment.totalPrice > 0
           ? <Typography variant='subtitle1'>{t`${apartment.countRooms} rooms`}</Typography>

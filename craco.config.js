@@ -8,7 +8,8 @@ module.exports = {
       models: path.resolve(__dirname, 'src/models'),
       dto: path.resolve(__dirname, 'src/dto'),
       'api-services': path.resolve(__dirname, 'src/api/api-services'),
-      'mapping-services': path.resolve(__dirname, './src/api/mapping-services')
+      'mapping-services': path.resolve(__dirname, './src/api/mapping-services'),
+      assets: path.resolve(__dirname, './src/assets')
     }
   }
 }

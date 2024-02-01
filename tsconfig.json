@@ -29,7 +29,8 @@
       "models": ["./models"],
       "dto": ["./api/dto"],
       "api-services": ["./api/api-services"],
-      "mapping-services": ["./api/mapping-services"]
+      "mapping-services": ["./api/mapping-services"],
+      "assets": ["./assets"]
     }
   },
   "include": [

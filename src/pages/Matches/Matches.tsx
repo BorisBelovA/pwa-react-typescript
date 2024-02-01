@@ -9,12 +9,19 @@ import { useMainContext } from 'layouts/Main/MainLayout'
 import { CardSkeleton, ChatCard } from 'components/ChatCart/ChatCard'
 import { ChatMessageListener, chatMessagesQueue } from 'services/chat-messages'
 import { t } from '@lingui/macro'
+import { Steps } from 'intro.js-react'
+import { useStore } from 'utils/StoreProvider'
+import { tooltips } from 'models/intro-steps/matches'
+import { defaultStepsOptions, stepsFactory } from 'models/intro-steps/steps'
+import obiwan from '../../assets/obi-wan.jpeg'
 
 const Matches = (): JSX.Element => {
   const navigate = useNavigate()
   const [chats, setChats] = useState<Chat[]>([])
   const [chatsLoading, setChatsLoading] = useState(true)
   const { setMessage } = useMainContext()
+
+  const { walkthroughStore, themeStore } = useStore()
 
   const callback = useCallback((message: Message): void => {
     const updatedChats = updateUnreadMessages(chats, message)
@@ -75,6 +82,37 @@ const Matches = (): JSX.Element => {
     navigate(`/chat?id=${roomId}&email=${emailEncoded}`)
   }
 
+  const introSteps = stepsFactory(
+    tooltips(),
+    themeStore.theme
+  )
+
+  useEffect(() => {
+    if (walkthroughStore.walkthroughVisible && !chats.length) {
+      const mockChat: Chat = {
+        roomId: 0,
+        recipient: {
+          id: 0,
+          firstName: 'Obi-Wan',
+          lastName: 'Kenobi',
+          email: 'elon.musk@x.com',
+          avatar: obiwan
+        },
+        isYoursMessage: true,
+        lastMessage: {
+          chatRoomId: 0,
+          content: t`Hello there`,
+          recipientId: 0,
+          senderId: 1,
+          status: 'DELIVERED',
+          timestamp: new Date()
+        },
+        unreadMessages: 0
+      }
+      setChats([mockChat])
+    }
+  }, [chats, walkthroughStore.walkthroughVisible])
+
   return <>
     <Typography variant='h1'>{t`Your matches`}</Typography>
     <Box className={styles.matches_container}>
@@ -85,7 +123,7 @@ const Matches = (): JSX.Element => {
         <CardSkeleton></CardSkeleton>
       </>}
       {!chatsLoading && chats.map((c, index) =>
-        <ChatCard chat={c} onClick={() => { goToChat(c.roomId, c.recipient.email) }} key={c.roomId}/>
+        <ChatCard data-intro-id='matches-chat-room' chat={c} onClick={() => { goToChat(c.roomId, c.recipient.email) }} key={c.roomId}/>
       )}
       {!chatsLoading && chats.length === 0 &&
         <Box className={styles.no_match}>
@@ -94,6 +132,26 @@ const Matches = (): JSX.Element => {
         </Box>
       }
     </Box>
+
+    <Steps
+      enabled={walkthroughStore.walkthroughVisible && !chatsLoading}
+      steps={introSteps}
+      initialStep={0}
+      options={{
+        ...defaultStepsOptions(),
+        doneLabel: t`Go to feedback`
+      }}
+      onComplete={() => {
+        setChats(chats.filter(c => c.roomId !== 0))
+        navigate('/feedback')
+      }}
+      onExit={(stepIndex) => {
+        if (stepIndex !== -1 && !introSteps[stepIndex]?.isLastStep) {
+          setChats(chats.filter(c => c.roomId !== 0))
+          walkthroughStore.finishWalkthrough()
+        }
+      }}
+    />
   </>
 }
 
