@@ -727,7 +727,7 @@ msgstr "Тут вы можете оставить свой отзы о наше�
 
 #: src/assets/data/intro-steps/matches.ts:8
 msgid "Here you can see the list of dialogs with your partners"
-msgstr "На этой странице вы видете все доступные вам диалогие с другими пользователями"
+msgstr "На этой странице вы видете все доступные вам диалоги с другими пользователями"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Description/Description.tsx:58
 msgid ""

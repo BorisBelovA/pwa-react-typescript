@@ -22,7 +22,7 @@ export const dynamicTooltips = (): WalkthroughStep[] => [
   {
     element: '[data-intro-id="apartment-search-apartment-thumbnail"]',
     title: t`Apartment`,
-    intro: t`This tile represents an available apartment. You can see the price, amount of available rooms and it\'s location`
+    intro: t`This tile represents an available apartment. You can see the price, amount of available rooms and it's location`
   },
   {
     element: '[data-intro-id="apartment-for-refugees-flag"]',
