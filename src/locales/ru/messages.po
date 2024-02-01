@@ -61,7 +61,7 @@ msgstr "Код верификации отправлен на ваш мобил�
 msgid "about"
 msgstr "детали"
 
-#: src/assets/data/intro-steps/profile.ts:17
+#: src/models/intro-steps/profile.ts:16
 #: src/pages/Profile/AboutMe/AboutMe.tsx:76
 #: src/pages/Profile/Profile.tsx:153
 msgid "About me"
@@ -141,7 +141,7 @@ msgstr "А кто платит???"
 msgid "apartment"
 msgstr "квартира"
 
-#: src/assets/data/intro-steps/apartment-search.ts:25
+#: src/models/intro-steps/apartment-search.ts:24
 msgid "Apartment"
 msgstr "Квартира"
 
@@ -185,11 +185,11 @@ msgstr "Цена квартиры не должна быть меньше 1"
 msgid "Apartments"
 msgstr "Квартиры"
 
-#: src/assets/data/intro-steps/apartment-search.ts:30
+#: src/models/intro-steps/apartment-search.ts:29
 msgid "Apartments for refugees"
 msgstr "Квартиры для беженцев"
 
-#: src/assets/data/intro-steps/apartment-search.ts:7
+#: src/models/intro-steps/apartment-search.ts:6
 msgid "Apartments Search"
 msgstr "Поиск квартиры"
 
@@ -201,7 +201,7 @@ msgstr "Предпросмотр квартиры"
 msgid "Avatar photo"
 msgstr "Фото на аватар"
 
-#: src/assets/data/intro-steps/steps.ts:11
+#: src/models/intro-steps/steps.ts:11
 #: src/pages/Chat/components/ChatHeader.tsx:183
 #: src/pages/Profile/BasicQuestions/About/About.tsx:47
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:99
@@ -295,7 +295,7 @@ msgstr "Изменить фильтры"
 msgid "Change language"
 msgstr "Изменить язык (language)"
 
-#: src/assets/data/intro-steps/matches.ts:12
+#: src/models/intro-steps/matches.ts:11
 msgid "Chat"
 msgstr "Чат"
 
@@ -357,19 +357,19 @@ msgstr "Город"
 msgid "City is required"
 msgstr "Укажите Город"
 
-#: src/assets/data/intro-steps/search.ts:21
+#: src/models/intro-steps/search.ts:20
 msgid "Click here if you liked the person. A chat will appear in case of a match!"
 msgstr "Нажмите на эту кнопку, если вам понравился человек. В случае взаимного лайка, у вас появится возможность начать диалог!"
 
-#: src/assets/data/intro-steps/search.ts:16
+#: src/models/intro-steps/search.ts:15
 msgid "Click here if you think there is no match with this person It will not appear in your list."
 msgstr "Намите на эту кнопку, если вы считаете, что человек вам не подходит. Больше он не появится в выдаче."
 
-#: src/assets/data/intro-steps/apartment-search.ts:18
+#: src/models/intro-steps/apartment-search.ts:17
 msgid "Click here to load more apartments"
 msgstr "Нажмите сюда, чтобы загрузить дополнительные объявления"
 
-#: src/assets/data/intro-steps/profile.ts:13
+#: src/models/intro-steps/profile.ts:12
 msgid "Click here to view your profile to understand how you will appear in search"
 msgstr "Нажмите сюда, чтобы посмотреть свою карточку. Это даст вам представление о том, как видят вас другие пользователи"
 
@@ -416,7 +416,7 @@ msgstr "Подтвердите и продолжите"
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
 
-#: src/assets/data/intro-steps/feedback.ts:22
+#: src/models/intro-steps/feedback.ts:21
 msgid "Congratulations"
 msgstr "Поздравляем"
 
@@ -453,7 +453,7 @@ msgstr "Удалить аккаунт"
 msgid "Description"
 msgstr "Описание"
 
-#: src/assets/data/intro-steps/search.ts:15
+#: src/models/intro-steps/search.ts:14
 msgid "Dismiss"
 msgstr "Отклонить"
 
@@ -510,8 +510,8 @@ msgstr "Нет домашних животных"
 msgid "Don't smoke"
 msgstr "Не курю"
 
-#: src/assets/data/intro-steps/feedback.ts:17
-#: src/assets/data/intro-steps/profile.ts:32
+#: src/models/intro-steps/feedback.ts:16
+#: src/models/intro-steps/profile.ts:31
 #: src/pages/Profile/Profile.tsx:170
 #: src/pages/Profile/Settings/Feedback/Feedback.tsx:95
 msgid "Donate"
@@ -557,8 +557,8 @@ msgstr "Все верно?"
 msgid "F"
 msgstr "Ж"
 
-#: src/assets/data/intro-steps/feedback.ts:7
 #: src/components/navigation/NavBar/NavBar.tsx:22
+#: src/models/intro-steps/feedback.ts:6
 msgid "Feedback"
 msgstr "Отзывы"
 
@@ -574,7 +574,7 @@ msgstr "Жен."
 msgid "Few words about apartment"
 msgstr "Несколько слов о квартире"
 
-#: src/assets/data/intro-steps/apartment-search.ts:12
+#: src/models/intro-steps/apartment-search.ts:11
 msgid "Filters"
 msgstr "Фильтры"
 
@@ -696,20 +696,20 @@ msgstr "Ну привет"
 msgid "Help out & get help"
 msgstr "Помогай и получай помощь"
 
-#: src/assets/data/intro-steps/search.ts:8
-msgid "Here you can browse the list of matches. Make sure you\\'ve filled you profile page!"
+#: src/models/intro-steps/search.ts:7
+msgid "Here you can browse the list of matches. Make sure you've filled you profile page!"
 msgstr "Тут вы можете просматривать анкеты других пользоватеоей. Убедитесь, что ваш профиль заполнен!"
 
-#: src/assets/data/intro-steps/profile.ts:28
+#: src/models/intro-steps/profile.ts:27
 msgid "Here you can change application settings and appearance"
 msgstr "Здесь вы можете изменить настройки и внешний вид приложения"
 
-#: src/assets/data/intro-steps/feedback.ts:18
-#: src/assets/data/intro-steps/profile.ts:33
+#: src/models/intro-steps/feedback.ts:17
+#: src/models/intro-steps/profile.ts:32
 msgid "Here you can donate some money to our team for coffee and cookies👻"
 msgstr "Здесь вы можете пожертвовать некоторую сумму нашим разработчика на кофе и печеньки👻"
 
-#: src/assets/data/intro-steps/apartment-search.ts:8
+#: src/models/intro-steps/apartment-search.ts:7
 msgid "Here you can find whatever apartment you like"
 msgstr "Здесь вы можете найти идеальную квартиру для вас"
 
@@ -721,11 +721,11 @@ msgstr "У нас вы можете найти все вместе - и дост
 #~ msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
 #~ msgstr "У нас вы можете найти все вместе - и доступное жилье, и лучших соседей, с которыми можно арендовать вместе."
 
-#: src/assets/data/intro-steps/feedback.ts:8
+#: src/models/intro-steps/feedback.ts:7
 msgid "Here you can left some feedback for us. Feel free to describe ay issue or suggestion!"
 msgstr "Тут вы можете оставить свой отзы о нашем приложении. Не стесняйтесь предлагать новые идеи или указывать на существующие проблемы!"
 
-#: src/assets/data/intro-steps/matches.ts:8
+#: src/models/intro-steps/matches.ts:7
 msgid "Here you can see the list of dialogs with your partners"
 msgstr "На этой странице вы видете все доступные вам диалоги с другими пользователями"
 
@@ -748,7 +748,7 @@ msgstr ""
 #~ "- Сколько человек может проживать \n"
 #~ "- Любая другая полезная информация"
 
-#: src/assets/data/intro-steps/profile.ts:23
+#: src/models/intro-steps/profile.ts:22
 msgid "Here you can view all your apartments and add new"
 msgstr "Здесь вы можете просмотреть существующие квартиры и добавить новую"
 
@@ -776,7 +776,7 @@ msgstr "Сколько свободных комнат?"
 msgid "How many kids?"
 msgstr "Сколько детей?"
 
-#: src/pages/TermsAndConditions/TermsAndConditions.tsx:43
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:159
 msgid "I accept terms and conditions"
 msgstr "Я принимаю условия и положения"
 
@@ -812,7 +812,7 @@ msgstr "Игнорировать"
 msgid "in previous step"
 msgstr "на предыдущий шаг"
 
-#: src/assets/data/intro-steps/profile.ts:18
+#: src/models/intro-steps/profile.ts:17
 msgid "In this section you can fill basic information about yourself and complete our questionnaire"
 msgstr "В этом разделе вы можете заполнить информацию о себе и пройти наш опросник"
 
@@ -857,7 +857,7 @@ msgstr "Поехали!"
 msgid "Light"
 msgstr "Светлая"
 
-#: src/assets/data/intro-steps/search.ts:20
+#: src/models/intro-steps/search.ts:19
 msgid "Like"
 msgstr "Лайк"
 
@@ -897,7 +897,7 @@ msgstr "Входим в аккаунт"
 msgid "Logout"
 msgstr "Выйти"
 
-#: src/assets/data/intro-steps/matches.ts:13
+#: src/models/intro-steps/matches.ts:12
 msgid "Looks like this person likes you too!🤗 When you have match you can start a conversation."
 msgstr "Похоже, что этот человек тоже вас лайкнул!🤗 Вы можете начать диалог, в случае взаимного лайка"
 
@@ -917,8 +917,8 @@ msgstr "Составьте лист кандидатов и выбери сво�
 msgid "Male"
 msgstr "Муж."
 
-#: src/assets/data/intro-steps/matches.ts:7
 #: src/components/navigation/NavBar/NavBar.tsx:21
+#: src/models/intro-steps/matches.ts:6
 msgid "Matches"
 msgstr "Матчи"
 
@@ -931,7 +931,7 @@ msgstr "Минимальная длина {length} символов"
 msgid "Mom, I'm moving out"
 msgstr "Мама, я переезжаю"
 
-#: src/assets/data/intro-steps/apartment-search.ts:17
+#: src/models/intro-steps/apartment-search.ts:16
 msgid "More apartments"
 msgstr "Больше квартир"
 
@@ -948,7 +948,7 @@ msgstr "Без звука навсегда"
 msgid "My apartments"
 msgstr "Мои квартиры"
 
-#: src/assets/data/intro-steps/profile.ts:22
+#: src/models/intro-steps/profile.ts:21
 msgid "My Apartments"
 msgstr "Мои квартиры"
 
@@ -956,7 +956,7 @@ msgstr "Мои квартиры"
 msgid "New to roommate.host?"
 msgstr "Впервые на roommate.host?"
 
-#: src/assets/data/intro-steps/steps.ts:10
+#: src/models/intro-steps/steps.ts:10
 #: src/pages/Profile/BasicQuestions/About/About.tsx:55
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:107
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:239
@@ -970,7 +970,7 @@ msgstr "Впервые на roommate.host?"
 #: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:86
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:379
 #: src/pages/Registration/Layout.tsx:176
-#: src/pages/TermsAndConditions/TermsAndConditions.tsx:44
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:160
 msgid "Next"
 msgstr "Далее"
 
@@ -1065,7 +1065,7 @@ msgstr "Недоступно"
 msgid "Now you can log in with your new password"
 msgstr "Теперь вы можете войти в систему с новым паролем"
 
-#: src/assets/data/intro-steps/profile.ts:8
+#: src/models/intro-steps/profile.ts:7
 msgid "On this page you can view your profile, visit your apartments or change system settings"
 msgstr "На этой страницу вы можете просмотреть свой профиль, свои квартиры или изменить системные настройки"
 
@@ -1180,8 +1180,8 @@ msgstr "Цена"
 msgid "Price per room in ₪"
 msgstr "Цена за комнату в ₪"
 
-#: src/assets/data/intro-steps/profile.ts:7
 #: src/components/navigation/NavBar/NavBar.tsx:18
+#: src/models/intro-steps/profile.ts:6
 msgid "Profile"
 msgstr "Профиль"
 
@@ -1189,7 +1189,7 @@ msgstr "Профиль"
 msgid "Profile photo"
 msgstr "Фото профиля"
 
-#: src/assets/data/intro-steps/profile.ts:12
+#: src/models/intro-steps/profile.ts:11
 msgid "Profile preview"
 msgstr "Просмотр профиля"
 
@@ -1261,8 +1261,8 @@ msgstr "Сохранить"
 msgid "Saving your apartment!"
 msgstr "Сохранение вашей квартиры!"
 
-#: src/assets/data/intro-steps/search.ts:7
 #: src/components/navigation/NavBar/NavBar.tsx:20
+#: src/models/intro-steps/search.ts:6
 #: src/pages/Chat/components/ChatHeader.tsx:175
 msgid "Search"
 msgstr "Поиск"
@@ -1309,7 +1309,7 @@ msgstr "Отправляем ваш отзыв!"
 msgid "Sending your request!"
 msgstr "Отправляем заявку!"
 
-#: src/assets/data/intro-steps/profile.ts:27
+#: src/models/intro-steps/profile.ts:26
 #: src/pages/Profile/Profile.tsx:164
 #: src/pages/Profile/Settings/Settings.tsx:52
 msgid "Settings"
@@ -1408,7 +1408,7 @@ msgstr "Штат"
 msgid "Success!"
 msgstr "Успешно!"
 
-#: src/assets/data/intro-steps/feedback.ts:12
+#: src/models/intro-steps/feedback.ts:11
 msgid "Suggestions | Claims"
 msgstr "Отзывы и предложения"
 
@@ -1440,7 +1440,7 @@ msgstr "Расскажите о себе"
 msgid "Tell us what is wrong?"
 msgstr "Расскажите, что не так?"
 
-#: src/pages/TermsAndConditions/TermsAndConditions.tsx:13
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:14
 msgid "Terms of service"
 msgstr "Условия использования"
 
@@ -1448,8 +1448,8 @@ msgstr "Условия использования"
 msgid "Thank you for your feedback!"
 msgstr "Спасибо за ваш отзыв!"
 
-#: src/assets/data/intro-steps/feedback.ts:23
-msgid "That was a brief overview of our application! Now it\\'s time for you to explore it further!"
+#: src/models/intro-steps/feedback.ts:22
+msgid "That was a brief overview of our application! Now it's time for you to explore it further!"
 msgstr "На этом краткий обзор нашего приложения завершен. Теперь вы можете исследовать его сами!"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:131
@@ -1460,12 +1460,12 @@ msgstr "Эта квартира указана в Вашей анкете. Вы 
 msgid "This field is optional"
 msgstr "Это необязательное поле"
 
-#: src/assets/data/intro-steps/apartment-search.ts:31
+#: src/models/intro-steps/apartment-search.ts:30
 msgid "This means that the owner of the apartment is ready to accommodate refugees for free"
 msgstr "Этот значок означает, что владелец квартиры готов разместить беженцев бесплатно"
 
-#: src/assets/data/intro-steps/apartment-search.ts:26
-msgid "This tile represents an available apartment. You can see the price, amount of available rooms and it\\'s location"
+#: src/models/intro-steps/apartment-search.ts:25
+msgid "This tile represents an available apartment. You can see the price, amount of available rooms and it's location"
 msgstr "Это карточка квартиры. На ней отображена стоимость аренды, количество всех комнат, количесвто свободных комнат и местоположение квартиры"
 
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:296
@@ -1488,7 +1488,7 @@ msgstr "Для выбора или создания новой квартиры 
 msgid "Try again"
 msgstr "Попробуйте еще раз"
 
-#: src/assets/data/intro-steps/feedback.ts:13
+#: src/models/intro-steps/feedback.ts:12
 msgid "Type here any suggestions or describe an issue you have faced. We will do our best to resolve it."
 msgstr "Напишите здесь любую идею или то, что вам не нравится. Мы обязательно прочитаем ваш отзыв и постараемся сделать приложение лучше!"
 
@@ -1659,7 +1659,7 @@ msgstr "Вы можете отправить новый через {timer} се�
 msgid "You can send new one in {timeLeft} seconds"
 msgstr "Вы можете отправить новый за {timeLeft} секунд"
 
-#: src/assets/data/intro-steps/apartment-search.ts:13
+#: src/models/intro-steps/apartment-search.ts:12
 msgid "You can use filters to refine your search"
 msgstr "Вы можете использовать фильтры для более точного поиска"
 
