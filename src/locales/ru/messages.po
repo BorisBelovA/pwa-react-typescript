@@ -634,7 +634,7 @@ msgstr "Забыли пароль?"
 
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:284
 msgid "From"
-msgstr "Из"
+msgstr "От"
 
 #: src/components/BasicInfoSteps/About.tsx:36
 #: src/components/BasicInfoSteps/About.tsx:43
@@ -1470,7 +1470,7 @@ msgstr "Это карточка квартиры. На ней отображен
 
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:296
 msgid "To"
-msgstr "В"
+msgstr "До"
 
 #: src/pages/Profile/BasicQuestions/Location/Location.tsx:190
 msgid "To change location you need to unlink your apartment first"
