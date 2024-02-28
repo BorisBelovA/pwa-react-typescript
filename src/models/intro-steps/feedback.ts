@@ -19,7 +19,7 @@ export const tooltips = (): WalkthroughStep[] => [
   {
     element: '[data-intro-id="non-existing"]',
     title: t`Congratulations`,
-    intro: t`That was a brief overview of our application! Now it\'s time for you to explore it further!`,
+    intro: t`That was a brief overview of our application! Now it's time for you to explore it further!`,
     isLastStep: true
   }
 ]

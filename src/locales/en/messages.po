@@ -77,7 +77,7 @@ msgstr "A verification code has been sent to your mobile device"
 msgid "about"
 msgstr "about"
 
-#: src/assets/data/intro-steps/profile.ts:17
+#: src/models/intro-steps/profile.ts:16
 #: src/pages/Profile/AboutMe/AboutMe.tsx:76
 #: src/pages/Profile/Profile.tsx:153
 msgid "About me"
@@ -157,7 +157,7 @@ msgstr "And who's paying???"
 msgid "apartment"
 msgstr "apartment"
 
-#: src/assets/data/intro-steps/apartment-search.ts:25
+#: src/models/intro-steps/apartment-search.ts:24
 msgid "Apartment"
 msgstr "Apartment"
 
@@ -201,11 +201,11 @@ msgstr "Apartment price shouldn't be less then 1"
 msgid "Apartments"
 msgstr "Apartments"
 
-#: src/assets/data/intro-steps/apartment-search.ts:30
+#: src/models/intro-steps/apartment-search.ts:29
 msgid "Apartments for refugees"
 msgstr "Apartments for refugees"
 
-#: src/assets/data/intro-steps/apartment-search.ts:7
+#: src/models/intro-steps/apartment-search.ts:6
 msgid "Apartments Search"
 msgstr "Apartments Search"
 
@@ -221,7 +221,7 @@ msgstr "Appartment preview"
 msgid "Avatar photo"
 msgstr "Avatar photo"
 
-#: src/assets/data/intro-steps/steps.ts:11
+#: src/models/intro-steps/steps.ts:11
 #: src/pages/Chat/components/ChatHeader.tsx:183
 #: src/pages/Profile/BasicQuestions/About/About.tsx:47
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:99
@@ -320,7 +320,7 @@ msgstr "Change filters"
 msgid "Change language"
 msgstr "Change language"
 
-#: src/assets/data/intro-steps/matches.ts:12
+#: src/models/intro-steps/matches.ts:11
 msgid "Chat"
 msgstr "Chat"
 
@@ -386,19 +386,19 @@ msgstr "City"
 msgid "City is required"
 msgstr "City is required"
 
-#: src/assets/data/intro-steps/search.ts:21
+#: src/models/intro-steps/search.ts:20
 msgid "Click here if you liked the person. A chat will appear in case of a match!"
 msgstr "Click here if you liked the person. A chat will appear in case of a match!"
 
-#: src/assets/data/intro-steps/search.ts:16
+#: src/models/intro-steps/search.ts:15
 msgid "Click here if you think there is no match with this person It will not appear in your list."
 msgstr "Click here if you think there is no match with this person It will not appear in your list."
 
-#: src/assets/data/intro-steps/apartment-search.ts:18
+#: src/models/intro-steps/apartment-search.ts:17
 msgid "Click here to load more apartments"
 msgstr "Click here to load more apartments"
 
-#: src/assets/data/intro-steps/profile.ts:13
+#: src/models/intro-steps/profile.ts:12
 msgid "Click here to view your profile to understand how you will appear in search"
 msgstr "Click here to view your profile to understand how you will appear in search"
 
@@ -445,7 +445,7 @@ msgstr "Confirm and proceed"
 msgid "Confirm password"
 msgstr "Confirm password"
 
-#: src/assets/data/intro-steps/feedback.ts:22
+#: src/models/intro-steps/feedback.ts:21
 msgid "Congratulations"
 msgstr "Congratulations"
 
@@ -482,7 +482,7 @@ msgstr "Delete your account"
 msgid "Description"
 msgstr "Description"
 
-#: src/assets/data/intro-steps/search.ts:15
+#: src/models/intro-steps/search.ts:14
 msgid "Dismiss"
 msgstr "Dismiss"
 
@@ -539,8 +539,8 @@ msgstr "Don't have pets"
 msgid "Don't smoke"
 msgstr "Don't smoke"
 
-#: src/assets/data/intro-steps/feedback.ts:17
-#: src/assets/data/intro-steps/profile.ts:32
+#: src/models/intro-steps/feedback.ts:16
+#: src/models/intro-steps/profile.ts:31
 #: src/pages/Profile/Profile.tsx:170
 #: src/pages/Profile/Settings/Feedback/Feedback.tsx:95
 msgid "Donate"
@@ -586,8 +586,8 @@ msgstr "Everything is correct?"
 msgid "F"
 msgstr "F"
 
-#: src/assets/data/intro-steps/feedback.ts:7
 #: src/components/navigation/NavBar/NavBar.tsx:22
+#: src/models/intro-steps/feedback.ts:6
 msgid "Feedback"
 msgstr "Feedback"
 
@@ -603,7 +603,7 @@ msgstr "Female"
 msgid "Few words about apartment"
 msgstr "Few words about apartment"
 
-#: src/assets/data/intro-steps/apartment-search.ts:12
+#: src/models/intro-steps/apartment-search.ts:11
 msgid "Filters"
 msgstr "Filters"
 
@@ -741,20 +741,24 @@ msgstr "Help out & get help"
 #~ msgid "HELP OUT & GET HELP"
 #~ msgstr "HELP OUT & GET HELP"
 
-#: src/assets/data/intro-steps/search.ts:8
-msgid "Here you can browse the list of matches. Make sure you\\'ve filled you profile page!"
-msgstr "Here you can browse the list of matches. Make sure you\\'ve filled you profile page!"
+#: src/models/intro-steps/search.ts:7
+msgid "Here you can browse the list of matches. Make sure you've filled you profile page!"
+msgstr "Here you can browse the list of matches. Make sure you've filled you profile page!"
 
-#: src/assets/data/intro-steps/profile.ts:28
+#: src/models/intro-steps/search.ts:7
+#~ msgid "Here you can browse the list of matches. Make sure you\\'ve filled you profile page!"
+#~ msgstr "Here you can browse the list of matches. Make sure you\\'ve filled you profile page!"
+
+#: src/models/intro-steps/profile.ts:27
 msgid "Here you can change application settings and appearance"
 msgstr "Here you can change application settings and appearance"
 
-#: src/assets/data/intro-steps/feedback.ts:18
-#: src/assets/data/intro-steps/profile.ts:33
+#: src/models/intro-steps/feedback.ts:17
+#: src/models/intro-steps/profile.ts:32
 msgid "Here you can donate some money to our team for coffee and cookies👻"
 msgstr "Here you can donate some money to our team for coffee and cookies👻"
 
-#: src/assets/data/intro-steps/apartment-search.ts:8
+#: src/models/intro-steps/apartment-search.ts:7
 msgid "Here you can find whatever apartment you like"
 msgstr "Here you can find whatever apartment you like"
 
@@ -766,11 +770,11 @@ msgstr "Here you can get both — an affordable place to live and the best roomm
 #~ msgid "Here you can get both — an affordable place to live and the best roommates to share it with."
 #~ msgstr "Here you can get both — an affordable place to live and the best roommates to share it with."
 
-#: src/assets/data/intro-steps/feedback.ts:8
+#: src/models/intro-steps/feedback.ts:7
 msgid "Here you can left some feedback for us. Feel free to describe ay issue or suggestion!"
 msgstr "Here you can left some feedback for us. Feel free to describe ay issue or suggestion!"
 
-#: src/assets/data/intro-steps/matches.ts:8
+#: src/models/intro-steps/matches.ts:7
 msgid "Here you can see the list of dialogs with your partners"
 msgstr "Here you can see the list of dialogs with your partners"
 
@@ -790,7 +794,7 @@ msgstr ""
 #~ msgid "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
 #~ msgstr "Here you can specify: \\n - Another ways to contact you \\n - How many people can stay \\n - Any other useful information"
 
-#: src/assets/data/intro-steps/profile.ts:23
+#: src/models/intro-steps/profile.ts:22
 msgid "Here you can view all your apartments and add new"
 msgstr "Here you can view all your apartments and add new"
 
@@ -822,7 +826,7 @@ msgstr "How many available rooms?"
 msgid "How many kids?"
 msgstr "How many kids?"
 
-#: src/pages/TermsAndConditions/TermsAndConditions.tsx:43
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:159
 msgid "I accept terms and conditions"
 msgstr "I accept terms and conditions"
 
@@ -862,7 +866,7 @@ msgstr "Ignore"
 msgid "in previous step"
 msgstr "in previous step"
 
-#: src/assets/data/intro-steps/profile.ts:18
+#: src/models/intro-steps/profile.ts:17
 msgid "In this section you can fill basic information about yourself and complete our questionnaire"
 msgstr "In this section you can fill basic information about yourself and complete our questionnaire"
 
@@ -907,7 +911,7 @@ msgstr "Let's go"
 msgid "Light"
 msgstr "Light"
 
-#: src/assets/data/intro-steps/search.ts:20
+#: src/models/intro-steps/search.ts:19
 msgid "Like"
 msgstr "Like"
 
@@ -947,7 +951,7 @@ msgstr "Login to your account"
 msgid "Logout"
 msgstr "Logout"
 
-#: src/assets/data/intro-steps/matches.ts:13
+#: src/models/intro-steps/matches.ts:12
 msgid "Looks like this person likes you too!🤗 When you have match you can start a conversation."
 msgstr "Looks like this person likes you too!🤗 When you have match you can start a conversation."
 
@@ -967,8 +971,8 @@ msgstr "Make a list of candidates and choose your perfect tenants right here."
 msgid "Male"
 msgstr "Male"
 
-#: src/assets/data/intro-steps/matches.ts:7
 #: src/components/navigation/NavBar/NavBar.tsx:21
+#: src/models/intro-steps/matches.ts:6
 msgid "Matches"
 msgstr "Matches"
 
@@ -981,7 +985,7 @@ msgstr "Min length {length} symbols"
 msgid "Mom, I'm moving out"
 msgstr "Mom, I'm moving out"
 
-#: src/assets/data/intro-steps/apartment-search.ts:17
+#: src/models/intro-steps/apartment-search.ts:16
 msgid "More apartments"
 msgstr "More apartments"
 
@@ -998,7 +1002,7 @@ msgstr "Mute forever"
 msgid "My apartments"
 msgstr "My apartments"
 
-#: src/assets/data/intro-steps/profile.ts:22
+#: src/models/intro-steps/profile.ts:21
 msgid "My Apartments"
 msgstr "My Apartments"
 
@@ -1006,7 +1010,7 @@ msgstr "My Apartments"
 msgid "New to roommate.host?"
 msgstr "New to roommate.host?"
 
-#: src/assets/data/intro-steps/steps.ts:10
+#: src/models/intro-steps/steps.ts:10
 #: src/pages/Profile/BasicQuestions/About/About.tsx:55
 #: src/pages/Profile/BasicQuestions/Alchohol/Alcohol.tsx:107
 #: src/pages/Profile/BasicQuestions/Apartment/Apartment.tsx:239
@@ -1020,7 +1024,7 @@ msgstr "New to roommate.host?"
 #: src/pages/Profile/BasicQuestions/WhoSearching/WhoSearching.tsx:86
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/AppartmentQuestionnaire.tsx:379
 #: src/pages/Registration/Layout.tsx:176
-#: src/pages/TermsAndConditions/TermsAndConditions.tsx:44
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:160
 msgid "Next"
 msgstr "Next"
 
@@ -1115,7 +1119,7 @@ msgstr "Not available"
 msgid "Now you can log in with your new password"
 msgstr "Now you can log in with your new password"
 
-#: src/assets/data/intro-steps/profile.ts:8
+#: src/models/intro-steps/profile.ts:7
 msgid "On this page you can view your profile, visit your apartments or change system settings"
 msgstr "On this page you can view your profile, visit your apartments or change system settings"
 
@@ -1230,8 +1234,8 @@ msgstr "Price"
 msgid "Price per room in ₪"
 msgstr "Price per room in ₪"
 
-#: src/assets/data/intro-steps/profile.ts:7
 #: src/components/navigation/NavBar/NavBar.tsx:18
+#: src/models/intro-steps/profile.ts:6
 msgid "Profile"
 msgstr "Profile"
 
@@ -1239,7 +1243,7 @@ msgstr "Profile"
 msgid "Profile photo"
 msgstr "Profile photo"
 
-#: src/assets/data/intro-steps/profile.ts:12
+#: src/models/intro-steps/profile.ts:11
 msgid "Profile preview"
 msgstr "Profile preview"
 
@@ -1319,8 +1323,8 @@ msgstr "Save"
 msgid "Saving your apartment!"
 msgstr "Saving your apartment!"
 
-#: src/assets/data/intro-steps/search.ts:7
 #: src/components/navigation/NavBar/NavBar.tsx:20
+#: src/models/intro-steps/search.ts:6
 #: src/pages/Chat/components/ChatHeader.tsx:175
 msgid "Search"
 msgstr "Search"
@@ -1367,7 +1371,7 @@ msgstr "Sending your feedback!"
 msgid "Sending your request!"
 msgstr "Sending your request!"
 
-#: src/assets/data/intro-steps/profile.ts:27
+#: src/models/intro-steps/profile.ts:26
 #: src/pages/Profile/Profile.tsx:164
 #: src/pages/Profile/Settings/Settings.tsx:52
 msgid "Settings"
@@ -1471,7 +1475,7 @@ msgstr "State"
 msgid "Success!"
 msgstr "Success!"
 
-#: src/assets/data/intro-steps/feedback.ts:12
+#: src/models/intro-steps/feedback.ts:11
 msgid "Suggestions | Claims"
 msgstr "Suggestions | Claims"
 
@@ -1505,7 +1509,7 @@ msgstr "Tell us about yourself"
 msgid "Tell us what is wrong?"
 msgstr "Tell us what is wrong?"
 
-#: src/pages/TermsAndConditions/TermsAndConditions.tsx:13
+#: src/pages/TermsAndConditions/TermsAndConditions.tsx:14
 msgid "Terms of service"
 msgstr "Terms of service"
 
@@ -1513,9 +1517,13 @@ msgstr "Terms of service"
 msgid "Thank you for your feedback!"
 msgstr "Thank you for your feedback!"
 
-#: src/assets/data/intro-steps/feedback.ts:23
-msgid "That was a brief overview of our application! Now it\\'s time for you to explore it further!"
-msgstr "That was a brief overview of our application! Now it\\'s time for you to explore it further!"
+#: src/models/intro-steps/feedback.ts:22
+msgid "That was a brief overview of our application! Now it's time for you to explore it further!"
+msgstr "That was a brief overview of our application! Now it's time for you to explore it further!"
+
+#: src/models/intro-steps/feedback.ts:22
+#~ msgid "That was a brief overview of our application! Now it\\'s time for you to explore it further!"
+#~ msgstr "That was a brief overview of our application! Now it\\'s time for you to explore it further!"
 
 #: src/pages/Profile/MyAppartments/AppartmentQuestionnaire/Location/Location.tsx:131
 msgid "This apartment is used in your questionnaire. You can change its location after you update your questionnaire."
@@ -1525,13 +1533,17 @@ msgstr "This apartment is used in your questionnaire. You can change its locatio
 msgid "This field is optional"
 msgstr "This field is optional"
 
-#: src/assets/data/intro-steps/apartment-search.ts:31
+#: src/models/intro-steps/apartment-search.ts:30
 msgid "This means that the owner of the apartment is ready to accommodate refugees for free"
 msgstr "This means that the owner of the apartment is ready to accommodate refugees for free"
 
+#: src/models/intro-steps/apartment-search.ts:25
+msgid "This tile represents an available apartment. You can see the price, amount of available rooms and it's location"
+msgstr "This tile represents an available apartment. You can see the price, amount of available rooms and it's location"
+
 #: src/assets/data/intro-steps/apartment-search.ts:26
-msgid "This tile represents an available apartment. You can see the price, amount of available rooms and it\\'s location"
-msgstr "This tile represents an available apartment. You can see the price, amount of available rooms and it\\'s location"
+#~ msgid "This tile represents an available apartment. You can see the price, amount of available rooms and it\\'s location"
+#~ msgstr "This tile represents an available apartment. You can see the price, amount of available rooms and it\\'s location"
 
 #: src/pages/ApartmentSearch/ApartmentFilters/ApartmentFilters.tsx:296
 msgid "To"
@@ -1553,7 +1565,7 @@ msgstr "To select or create new apartment you need to select your city"
 msgid "Try again"
 msgstr "Try again"
 
-#: src/assets/data/intro-steps/feedback.ts:13
+#: src/models/intro-steps/feedback.ts:12
 msgid "Type here any suggestions or describe an issue you have faced. We will do our best to resolve it."
 msgstr "Type here any suggestions or describe an issue you have faced. We will do our best to resolve it."
 
@@ -1724,7 +1736,7 @@ msgstr "You can send new one after {timer} seconds"
 msgid "You can send new one in {timeLeft} seconds"
 msgstr "You can send new one in {timeLeft} seconds"
 
-#: src/assets/data/intro-steps/apartment-search.ts:13
+#: src/models/intro-steps/apartment-search.ts:12
 msgid "You can use filters to refine your search"
 msgstr "You can use filters to refine your search"
 

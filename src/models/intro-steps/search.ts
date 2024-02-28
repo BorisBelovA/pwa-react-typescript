@@ -4,7 +4,7 @@ import { type WalkthroughStep } from 'models/steps'
 export const tooltips = (): WalkthroughStep[] => [
   {
     title: t`Search`,
-    intro: t`Here you can browse the list of matches. Make sure you\'ve filled you profile page!`
+    intro: t`Here you can browse the list of matches. Make sure you've filled you profile page!`
   }
 ]
 
