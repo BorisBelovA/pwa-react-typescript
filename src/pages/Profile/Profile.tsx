@@ -19,9 +19,13 @@ import { t } from '@lingui/macro'
 import { MyListItemButton } from 'components/ListItemButton/ListItemButton'
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined'
 import { DonateDialog } from 'components/DonateDialog/DonateDialog'
+import { Steps } from 'intro.js-react'
+import introSteps from 'models/intro-steps/profile'
+import { defaultStepsOptions, stepsFactory } from 'models/intro-steps/steps'
+import FollowTheSignsOutlinedIcon from '@mui/icons-material/FollowTheSignsOutlined'
 
 const Profile: React.FunctionComponent = observer(() => {
-  const { userStore, questionnaireStore } = useStore()
+  const { userStore, questionnaireStore, themeStore, walkthroughStore } = useStore()
 
   const [cropVisible, setCropVisible] = useState(false)
   const [image, setImage] = useState('')
@@ -92,7 +96,26 @@ const Profile: React.FunctionComponent = observer(() => {
     }
   }, [])
 
+  const steps = stepsFactory(introSteps(), themeStore.theme)
+
   return <>
+    <Steps
+      enabled={walkthroughStore.walkthroughVisible}
+      steps={steps}
+      initialStep={0}
+      options={{
+        ...defaultStepsOptions(),
+        doneLabel: t`Go to apartments`
+      }}
+      onComplete={() => {
+        navigate('/apartment-search')
+      }}
+      onExit={(stepIndex) => {
+        if (stepIndex !== -1 && !steps[stepIndex]?.isLastStep) {
+          walkthroughStore.finishWalkthrough()
+        }
+      }}
+    />
     <Box className={styles.profile_container}>
       <Box className={styles.profile_user_info_container}>
         <Box className={styles.profile_user_info_avatar}
@@ -109,13 +132,15 @@ const Profile: React.FunctionComponent = observer(() => {
               border: `2px solid ${theme.palette.background.default}`
             }}>
           </Avatar>
-          <IconButton size='small' sx={{
-            color: 'white',
-            backgroundColor: theme.palette.primary.main,
-            '&:hover': {
-              backgroundColor: theme.palette.primary.main
-            }
-          }}
+          <IconButton
+            data-intro-id='profile-my-profile-view'
+            size='small' sx={{
+              color: 'white',
+              backgroundColor: theme.palette.primary.main,
+              '&:hover': {
+                backgroundColor: theme.palette.primary.main
+              }
+            }}
             className={styles.change_avatar} aria-label="delete"
           >
             <RemoveRedEyeIcon />
@@ -124,23 +149,32 @@ const Profile: React.FunctionComponent = observer(() => {
         <Typography variant='h2'>{userStore.firstName && ` ${userStore.firstName} ${userStore.lastName}`}</Typography>
       </Box>
       <Box className={styles.profile_items_container}>
-        <MyListItemButton label={t({ message: 'About me' })}
+        <MyListItemButton data-intro-id='profile-about-me'
+          label={t({ message: 'About me' })}
           icon={TextSnippetOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.ABOUT_ME}`) }}
         />
-        <MyListItemButton label={t({ message: 'My apartments' })}
+        <MyListItemButton data-intro-id='profile-my-apartments'
+          label={t({ message: 'My apartments' })}
           icon={ChairOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.MY_APARTMENT}`) }}
         />
 
-        <MyListItemButton label={t({ message: 'Settings' })}
+        <MyListItemButton data-intro-id='profile-settings'
+          label={t({ message: 'Settings' })}
           icon={SettingsOutlinedIcon}
           action={() => { navigate(`/profile/${ProfileRoutes.SETTINGS}`) }}
         />
 
-        <MyListItemButton label={t({ message: 'Donate' })}
+        <MyListItemButton data-intro-id='profile-donate'
+          label={t({ message: 'Donate' })}
           icon={MonetizationOnOutlinedIcon}
           action={() => { setDonateVisible(true) }}
+        />
+
+        <MyListItemButton label={t({ message: 'Walkthrough' })}
+          icon={FollowTheSignsOutlinedIcon}
+          action={() => { walkthroughStore.startWalkthrough() }}
         />
       </Box>
     </Box>

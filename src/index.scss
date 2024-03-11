@@ -78,3 +78,36 @@ select:-webkit-autofill:focus {
 [dir="rtl"] .Mui-error {
   text-align: right;
 }
+// introJs styles override
+.introjs-tooltip-header .introjs-tooltip-title {
+  color: var(--primary-color);
+}
+
+.introjs-tooltiptext {
+  color: var(--text-color) !important;
+}
+.introjs-tooltip {
+  background-color: var(--bg-color) !important;
+}
+.introjs-arrow {
+  &.bottom, &.bottom-middle, &.bottom-right {
+    border-top-color: var(--bg-color) !important;
+  }
+
+  &.top, &.top-middle, &.top-right {
+    border-bottom-color: var(--bg-color) !important;
+  }
+}
+.intro-buttons {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  outline: none;
+  background-color: unset;
+  color: var(--primary-color);
+  text-shadow: none;
+}
+
+[dir="rtl"] .introjs-skipbutton {
+  left: 0;
+  right: unset;
+}
